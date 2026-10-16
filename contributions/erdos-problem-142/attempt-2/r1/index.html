@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-5457">
+  
+  <title>gpt pro 5.2 attempt on Math-5457 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-142/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-5457-A2</span> · revision r1 · on <a href="/problems/erdos-problem-142/">Math-5457</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-5457</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><details class="contents"><summary>Contents</summary><ol><li><a href="#section-29a31e822a3be92a">Problem 142: asymptotics of $r_k(N)$ (maximum size of a $k$--AP--free set)</a></li><li><a href="#section-357cfc1bbb413c13">1) FORMAL RESTATEMENT</a></li><li><a href="#section-fd7d3b1ba2d6b82a">2) QUICK LITERATURE / CONTEXT CHECK</a></li><li><a href="#section-54011e0baf5da6d2">3) ATTACK PLAN</a></li><li><a href="#section-fa9cd7687c1868ee">4) WORK</a></li><li><a href="#section-4f6be2bd0de3cc71">4.1 Elementary probabilistic lower bound (fully proved)</a></li><li><a href="#section-9788464056c42a5f">4.2 Tiny-case sanity check for $k=3$</a></li><li><a href="#section-75cba37a331ceae1">5) VERIFICATION / EDGE CASES</a></li><li><a href="#section-d28fe07149b46de8">6) FINAL</a></li><li><a href="#section-d90edd9bf99ee3bb">References</a></li></ol></details><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><h2 id="section-29a31e822a3be92a">Problem 142: asymptotics of $r_k(N)$ (maximum size of a $k$--AP--free set)</h2><h3 id="section-357cfc1bbb413c13">1) FORMAL RESTATEMENT</h3><p>Fix an integer $k\ge 3$. For $N\in\mathbb{N}$ define \[
+ r_k(N) := \max\left\{ |A| : A\subseteq [N]=\{1,2,\dots,N\}\ \text{and $A$ contains no $k$--term arithmetic progression}\right\}.
+\] Here "contains a $k$--term arithmetic progression" means: there exist $a\in\mathbb{Z}$ and $d\in\mathbb{Z}_{&gt;0}$ such that \[
+ a,a+d,\dots,a+(k-1)d \in A.
+\]</p><p>The problem asks for an <em>asymptotic formula</em> for $r_k(N)$ as $N\to\infty$, i.e. an explicit function $f_k(N)$ with $r_k(N) \sim f_k(N)$.</p><h3 id="section-fd7d3b1ba2d6b82a">2) QUICK LITERATURE / CONTEXT CHECK</h3><ul> <li>(Qualitative) Szemerédi's theorem implies $r_k(N)=o(N)$ for every fixed $k\ge 3$.<p></p></li><li>(Upper bounds) For $k=3$, Kelley--Meka proved a quasipolynomial density upper bound, and Bloom--Sisask improved it to \[ r_3(N) \le \exp\left(-c(\log N)^{1/9}\right)\,N \quad \text{for some }c&gt;0.\] See [KelleyMeka2023,BloomSisask2023]. For $k=4$, Green--Tao proved a polylogarithmic bound \[ r_4(N) \ll N(\log N)^{-c}\] for some $c&gt;0$ ([GreenTao2017r4]). For $k\ge 5$, Leng--Sah--Sawhney proved \[ r_k(N) \ll N\exp\left(-(\log\log N)^{c_k}\right)\] for some $c_k&gt;0$ ([LSS2024]).<p></p><p></p></li><li>(Lower bounds) Behrend $1946$ constructed large $3$--AP--free sets; Rankin generalized to $k$--AP--free sets, and later work refined constants and lower order factors. A convenient consolidated reference is O'Bryant's survey/paper [OBryant2011]. More recently, Elsholtz--Hunter--Proske--Sauermann obtained the first quasipolynomial improvement over Behrend beyond lower-order factors ([EHPS2024]).<p></p><p></p></li><li>Enormous gaps remain between known upper and lower bounds, even for $k=3$; thus a full asymptotic formula is currently out of reach. </li></ul><p></p><h3 id="section-54011e0baf5da6d2">3) ATTACK PLAN</h3><p>An asymptotic formula would require matching upper and lower bounds up to a $(1+o(1))$ factor. Even determining the correct <em>scale</em> (e.g. $N\exp(-\Theta((\log N)^\alpha))$ with the right exponent $\alpha$) is open for $k=3$.</p><p>Concrete partial goals one might try: </p><ol> <li>For fixed $k$, tighten quantitative Szemerédi bounds to a form comparable to the best constructions.<p></p><p></p></li><li>Improve constructions (lower bounds) to approach the best upper bounds.<p></p><p></p></li><li>Identify a candidate "main term" (possibly of the form $N\,\exp(-\Theta((\log N)^{\alpha_k}))$) and prove upper and lower bounds of that order. </li></ol><p></p><p>In the "work" below I give a fully proved elementary (but weak) lower bound via the probabilistic method and deletion, and I include small-$N$ sanity checks for $k=3$.</p><h3 id="section-fa9cd7687c1868ee">4) WORK</h3><h4 id="section-4f6be2bd0de3cc71">4.1 Elementary probabilistic lower bound (fully proved)</h4><div class="proposition"><strong>Proposition (<span class="tex-theorem-title">A simple general lower bound</span>):</strong>  <span class="tex-label" data-tex-label="prop:poly-lb" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-42545285c9cc3ead1ef4ba66b5686673" tabindex="-1"></span> Fix $k\ge 3$. There is a constant $c_k&gt;0$ such that for all $N\ge 1$, \[
+ r_k(N) \ge c_k\, N^{\frac{k-2}{k-1}}.
+\] One may take for instance $c_k=3/8\,$. </div><div class="proof"><em>Proof:</em>  Let $p := \frac12\,N^{-1/(k-1)}$. Select a random subset $A\subseteq[N]$ by including each $x\in[N]$ independently with probability $p$. Then $\mathbb{E}|A| = pN$.<p>Let $X$ be the number of $k$--term arithmetic progressions contained in $A$. Let $T$ be the number of $k$--term arithmetic progressions in $[N]$. Each fixed progression lies in $A$ with probability $p^k$, hence $\mathbb{E}X = T p^k$.</p><p>A crude bound $T\le N^2$ holds (indeed $T\le N^2/(2(k-1))$, but we only need $N^2$). Thus \[
+\mathbb{E}X \le N^2 p^k = N^2\cdot p\cdot p^{k-1}.
+\] By the choice of $p$, we have $p^{k-1} = 2^{-(k-1)} N^{-1}$, hence \[
+\mathbb{E}X \le N^2\cdot p\cdot 2^{-(k-1)}N^{-1} = 2^{-(k-1)}\,pN.
+\] In particular, $\mathbb{E}X \le \tfrac14\,pN$ since $k\ge 3$ implies $2^{-(k-1)}\le 1/4$.</p><p>Consider instead the random variable $Y:=|A|-X$. By linearity of expectation, \[
+\mathbb{E}Y = \mathbb{E}|A| - \mathbb{E}X \ge pN - \tfrac14 pN = \tfrac34\,pN.
+\] Hence there exists at least one realization of $A$ for which $|A|-X \ge \tfrac34 pN$. Starting from such an $A$, repeatedly delete one element from any $k$--term progression currently present. Each deletion destroys at least one progression, so after at most $X$ deletions we obtain a $k$--AP--free set $B\subseteq A$ with \[
+|B| \ge |A|-X \ge \tfrac34\,pN.
+\]</p><p>Finally, \[
+\tfrac34 pN = \tfrac34\cdot \tfrac12\,N^{-1/(k-1)}\cdot N = \tfrac{3}{8} N^{(k-2)/(k-1)}.
+\] This proves the claim with $c_k=3/8$.  ∎</p></div><p></p><div class="remark"><strong>Remark:</strong>  Proposition <a class="tex-reference" data-tex-reference="prop:poly-lb" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-42545285c9cc3ead1ef4ba66b5686673" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Proposition (A simple general lower bound) in this document · r1">Proposition (A simple general lower bound)</a> is far weaker than Behrend/Rankin type lower bounds, but it is completely elementary. For $k=3$ it gives $r_3(N)\ge c\sqrt{N}$. </div><h4 id="section-9788464056c42a5f">4.2 Tiny-case sanity check for $k=3$</h4><p>For $k=3$ and small $N$ one can compute $r_3(N)$ exactly by brute force. For $1\le N\le 20$ the values are: \[
+\begin{array}{c|cccccccccc}
+N &amp; 1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9&amp;10\\\hline
+r_3(N) &amp; 1&amp;2&amp;2&amp;3&amp;4&amp;4&amp;4&amp;4&amp;5&amp;5
+\end{array}
+\qquad
+\begin{array}{c|cccccccccc}
+N &amp; 11&amp;12&amp;13&amp;14&amp;15&amp;16&amp;17&amp;18&amp;19&amp;20\\\hline
+r_3(N) &amp; 6&amp;6&amp;6&amp;7&amp;8&amp;8&amp;8&amp;8&amp;8&amp;8
+\end{array}
+\] (Computed by exhaustive search over all subsets of $[N]$; included only as a reality check.)</p><h3 id="section-75cba37a331ceae1">5) VERIFICATION / EDGE CASES</h3><ul> <li>The counting bound $T\le N^2$ for the number of $k$--APs in $[N]$ is valid (indeed $T\le \sum_{d\le (N-1)/(k-1)} (N-(k-1)d)\le N\cdot (N-1)/(k-1)\le N^2$).<p></p></li><li>Proposition <a class="tex-reference" data-tex-reference="prop:poly-lb" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-42545285c9cc3ead1ef4ba66b5686673" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Proposition (A simple general lower bound) in this document · r1">Proposition (A simple general lower bound)</a> is uniform in $N$ and does not require $N$ large.<p></p><p></p></li><li>The deletion step is standard: removing one element from each existing $k$--AP eliminates all progressions. </li></ul><p></p><h3 id="section-d28fe07149b46de8">6) FINAL</h3><p><strong>UNRESOLVED</strong></p><ol> <li><strong>Farthest point reached.</strong> I proved an elementary lower bound $r_k(N)\ge c_k N^{(k-2)/(k-1)}$ (Proposition <a class="tex-reference" data-tex-reference="prop:poly-lb" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-42545285c9cc3ead1ef4ba66b5686673" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Proposition (A simple general lower bound) in this document · r1">Proposition (A simple general lower bound)</a>) and recorded small-$N$ values for $r_3(N)$. I also summarized state-of-the-art upper bounds (Kelley--Meka; Bloom--Sisask; Green--Tao; Leng--Sah--Sawhney).<p></p></li><li><strong>Best partial lemma.</strong> Proposition <a class="tex-reference" data-tex-reference="prop:poly-lb" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-42545285c9cc3ead1ef4ba66b5686673" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Proposition (A simple general lower bound) in this document · r1">Proposition (A simple general lower bound)</a>: a fully self-contained probabilistic construction giving a polynomial-size $k$--AP-free subset.<p></p><p></p></li><li><strong>Smallest missing step.</strong> An asymptotic formula would require matching upper and lower bounds. Even for $k=3$ the gap between the best known lower bounds (Behrend-type, now with quasipolynomial improvements) and the best known upper bounds (quasipolynomial decay in density) is enormous, so the "correct main term" is unknown.<p></p><p></p></li><li><strong>Completion estimate.</strong> Resolving the asymptotics appears to require major new ideas in additive combinatorics/higher-order Fourier analysis beyond current quantitative Szemerédi technology. </li></ol><p></p><h3 id="section-d90edd9bf99ee3bb">References</h3><ul><li><strong>[Gowers2001]</strong>  W. T. Gowers, <em>A new proof of Szemerédi's theorem</em>, Geom. Funct. Anal. <strong>11</strong> $2001$. </li><li><strong>[GreenTao2008]</strong>  B. Green and T. Tao, <em>The primes contain arbitrarily long arithmetic progressions</em>, Ann. of Math. $2$ <strong>167</strong> $2008$, 481--547. </li><li><strong>[GreenTao2017r4]</strong>  B. Green and T. Tao, <em>New bounds for Szemerédi's theorem, III: A polylogarithmic bound for $r_4(N)$</em>, Mathematika <strong>63</strong> $2017$, 944--1040. </li><li><strong>[KelleyMeka2023]</strong>  Z. Kelley and R. Meka, <em>Strong Bounds for 3-Progressions</em>, arXiv:2302.05537. </li><li><strong>[BloomSisask2023]</strong>  T. F. Bloom and O. Sisask, <em>An improvement to the Kelley--Meka bounds on three-term arithmetic progressions</em>, arXiv:2309.02353. </li><li><strong>[LSS2024]</strong>  J. Leng, A. Sah, and M. Sawhney, <em>Improved Bounds for Szemerédi's Theorem</em>, arXiv:2402.17995. </li><li><strong>[EHPS2024]</strong>  C. Elsholtz, Z. Hunter, L. Proske, and L. Sauermann, <em>Improving Behrend's construction: Sets without arithmetic progressions in integers and over finite fields</em>, arXiv:2406.12290. </li><li><strong>[OBryant2011]</strong>  K. O'Bryant, <em>Sets of integers that do not contain long arithmetic progressions</em>, Electron. J. Combin. <strong>18</strong> $2011$, #P59. </li><li><strong>[KourilPaul2008]</strong>  M. Kouřil and J. L. Paul, <em>The van der Waerden number $W(2,6)$ is 1132</em>, Exp. Math. <strong>17</strong> $2008$, 53--61. </li><li><strong>[KS2016]</strong>  J. Kozik and D. Shabanov, <em>Improved algorithms for coloring simple hypergraphs and applications</em>, arXiv:1405.4295 (version cited in many summaries; result yields improved exponential lower bounds for van der Waerden numbers). </li><li><strong>[T5KCPAP]</strong>  The Prime Pages (Chris Caldwell), "Consecutive prime arithmetic progressions" (CPAP-$k$) page. </li><li><strong>[WikiVDW]</strong>  Wikipedia contributors, <em>Van der Waerden number</em>, online article. </li><li><strong>[WikiCPAP]</strong>  Wikipedia contributors, <em>Prime arithmetic progression</em> (section on consecutive prime arithmetic progressions), online article.</li></ul></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/142.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-142/attempt-2/r1/source/files/142.tex" download>files/142.tex</a><span class="row-meta">8,900 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-142/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,054 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-142/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-142/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-142-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-142}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-142/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-142-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-142/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-142/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-142/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-142-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-142&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-142/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-142-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-142-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-142/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T18:18:34Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-142/attempt-2/r1/">Math-5457-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:38Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

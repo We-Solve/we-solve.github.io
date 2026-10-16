@@ -1,0 +1,157 @@
+\section{Problem \#653}
+
+\subsection*{1. ROUND-2 OBJECTIVE}
+
+\textbf{Path (C): obstruction / correction at the level of strategy.}
+
+Round 1 gave only the baseline lower bound $g(n)\ge \lceil n/2\rceil$ from equally spaced collinear points.  I now prove that this baseline is \emph{best possible inside the entire collinear class}.  So any eventual construction proving $g(n)\ge (1-o(1))n$ must be genuinely two-dimensional.
+
+\subsection*{2. Round-1 FOUNDATION USED}
+
+I use the following Round-1 ingredients.
+
+\begin{itemize}
+\item The definition
+\[
+g(n):=\max\bigl|\{R_X(x):x\in X\}\bigr|,
+\]
+where $R_X(x)$ is the number of distinct distances from $x$ to the other points of $X$.
+\item The explicit Round-1 construction $X=\{0,1,\dots,n-1\}$ on a line, for which the attained values are exactly
+\[
+\left\lceil\frac{n-1}{2}\right\rceil,\left\lceil\frac{n-1}{2}\right\rceil+1,\dots,n-1,
+\]
+so $g(n)\ge \lceil n/2\rceil$.
+\item The known global literature bounds quoted in Round 1 (namely $g(n)>\tfrac{7}{10}n$ and $g(n)<n-cn^{2/3}$); I do not reprove them here \cite{EP653}.
+\end{itemize}
+
+\subsection*{3. NEW INSIGHT / TOOL (ROUND 2)}
+
+The new theorem is an exact classification for collinear point sets.
+
+\medskip
+\noindent
+\textbf{Theorem.}
+Let $g_{\mathrm{line}}(n)$ be the maximum possible number of distinct values of $R_X(x)$ over all $n$-point sets $X\subset \mathbf{R}^2$ contained in a single line.  Then
+\[
+g_{\mathrm{line}}(n)=\left\lceil\frac{n}{2}\right\rceil.
+\]
+
+This strictly advances Round 1: the previously known baseline construction is now shown to be optimal for all collinear sets, so the one-dimensional strategy is exhausted.
+
+\subsection*{4. ATTACK PLAN (ROUND 2)}
+
+The Round-1 gap was that the collinear construction was only exhibited, not understood structurally.
+
+For a collinear set $X=\{a_1<\cdots<a_n\}$, I write the distances from $a_i$ to the left and to the right separately.  Distances on the same side are automatically distinct.  The only possible collisions are between one left distance and one right distance, and each such collision corresponds exactly to a symmetric pair around $a_i$.
+
+This reduces the problem to bounding the number of symmetric pairs around a point, which is at most $\lfloor (n-1)/2\rfloor$.  That forces all the values $R_X(a_i)$ into an interval of length $\lceil n/2\rceil$, giving the desired exact upper bound.
+
+\subsection*{5. WORK (ROUND 2)}
+
+Let
+\[
+X=\{a_1<a_2<\cdots<a_n\}\subset \mathbf{R}
+\]
+be a collinear $n$-point set.  For each $i$, let
+\[
+L_i:=\{a_i-a_j:1\le j<i\},\qquad U_i:=\{a_j-a_i:i<j\le n\}.
+\]
+Then $L_i$ and $U_i$ are sets of positive real numbers, and
+\[
+|L_i|=i-1,\qquad |U_i|=n-i,
+\]
+because all distances on a fixed side are automatically distinct.
+
+The set of all distinct distances from $a_i$ to the other points is exactly $L_i\cup U_i$, so
+\[
+R_X(a_i)=|L_i\cup U_i|=|L_i|+|U_i|-|L_i\cap U_i|.
+\]
+Hence
+\[
+R_X(a_i)=n-1-|L_i\cap U_i|.
+\]
+
+Now $d\in L_i\cap U_i$ if and only if there exist indices $j<i<k$ such that
+\[
+a_i-a_j=d=a_k-a_i,
+\]
+that is,
+\[
+a_j+a_k=2a_i.
+\]
+So $|L_i\cap U_i|$ is exactly the number of symmetric pairs of points of $X$ around $a_i$.
+Denote this number by $p_i$.  Then
+\[
+R_X(a_i)=n-1-p_i.
+\]
+
+Clearly
+\[
+p_i\le \min(i-1,n-i)\le \left\lfloor\frac{n-1}{2}\right\rfloor.
+\]
+Therefore
+\[
+R_X(a_i)\ge n-1-\left\lfloor\frac{n-1}{2}\right\rfloor
+=\left\lceil\frac{n-1}{2}\right\rceil.
+\]
+Trivially also $R_X(a_i)\le n-1$.  Thus every value $R_X(a_i)$ belongs to the integer interval
+\[
+\left\lceil\frac{n-1}{2}\right\rceil,\left\lceil\frac{n-1}{2}\right\rceil+1,\dots,n-1.
+\]
+The number of integers in this interval is
+\[
+(n-1)-\left\lceil\frac{n-1}{2}\right\rceil+1=\left\lceil\frac{n}{2}\right\rceil.
+\]
+So any collinear $n$-point set satisfies
+\[
+\bigl|\{R_X(x):x\in X\}\bigr|\le \left\lceil\frac{n}{2}\right\rceil.
+\]
+Hence
+\[
+g_{\mathrm{line}}(n)\le \left\lceil\frac{n}{2}\right\rceil.
+\]
+
+On the other hand, for the arithmetic progression
+\[
+X=\{0,1,\dots,n-1\}
+\]
+we have
+\[
+R_X(i)=\max(i,n-1-i)
+\]
+for $0\le i\le n-1$, so the attained values are exactly
+\[
+\left\lceil\frac{n-1}{2}\right\rceil,\left\lceil\frac{n-1}{2}\right\rceil+1,\dots,n-1.
+\]
+Thus
+\[
+g_{\mathrm{line}}(n)\ge \left\lceil\frac{n}{2}\right\rceil.
+\]
+Combining the two inequalities gives
+\[
+g_{\mathrm{line}}(n)=\left\lceil\frac{n}{2}\right\rceil.
+\]
+
+\subsection*{6. ADVERSARIAL VERIFICATION}
+
+\begin{itemize}
+\item The key identity $R_X(a_i)=n-1-p_i$ uses the fact that collisions cannot occur among distances on the same side of $a_i$; this is valid because the points are strictly ordered on a line.
+\item A distance can be counted twice only via one point on the left and one point on the right; that is exactly the symmetric-pair condition.
+\item Edge cases match the formula: for $n=1,2,3$ the theorem gives $1,1,2$, which are correct.
+\item The arithmetic progression really attains every value in the interval, so the upper bound is sharp.
+\end{itemize}
+
+\subsection*{7. FINAL}
+
+\textbf{UNRESOLVED (BUT STRICTLY ADVANCED)}
+
+The full planar problem remains open, but Round 2 proves the exact collinear extremal value
+\[
+g_{\mathrm{line}}(n)=\left\lceil\frac{n}{2}\right\rceil.
+\]
+This rules out the entire collinear strategy class as a route to $g(n)\ge (1-o(1))n$.
+
+\subsection*{8. COMPLETION ESTIMATE}
+
+\textbf{COMPLETION: 40\%}
+

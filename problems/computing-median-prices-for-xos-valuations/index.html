@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Computing median prices for XOS valuations">
+  
+  <title>Computing median prices for XOS valuations · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/problems/computing-median-prices-for-xos-valuations/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/">Home</a></li><li><a href="/economics/">Economics</a></li><li><a href="/economics/sources/economics-catalogue/">Economics catalogue</a></li><li><span aria-current="page">Econ-196</span></li></ol></nav>
+    
+    
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Econ-196</span> · <span data-pagefind-filter="Discipline">economics</span> · <span data-pagefind-filter="Discipline">computer science</span> · <span data-pagefind-filter="Topic">Computational economics</span></p>
+  <span class="visually-hidden">Econ-196 · CS-894</span>
+  <h1 data-pagefind-meta="title">Computing median prices for XOS valuations</h1>
+  
+<p class="status-line"><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+  <span class="visually-hidden" data-pagefind-filter="JEL">D44 — Auctions</span>
+  <span class="visually-hidden" data-pagefind-filter="Source">Economics catalogue</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden" data-pagefind-filter="Completion estimate">20%</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">not recorded</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+</header>
+
+
+
+<section class="statement" aria-labelledby="statement-title">
+  <h2 id="statement-title">Statement</h2>
+  <div class="collapsible" data-collapsible data-more="Show full statement" data-less="Show less">
+    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><p><span class="tex-label" data-tex-label="problem:OP-0176" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-64a6d301fcb22d48781d11e4ad49dbe2" tabindex="-1"></span> <span class="tex-label" data-tex-label="game:GT-046" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-fcebcd42249a0ba2539928278bdac809" tabindex="-1"></span></p><p><strong>GT-046</strong> | Online computational mechanisms | <strong>P</strong>: source-explicit computational question.</p><h3>Definitions and mathematical statement</h3> Let $D=\bigotimes_{i=1}^nD_i$ be a generic distribution over XOS valuations on $M=[m]$. XOS means $v_i(S)=\max_{\ell}\sum_{g\in S}a_{i\ell g}$ for nonnegative coefficients. Generic means that for each fixed price vector and available set, the utility-maximizing bundle is unique almost surely. Buyers arrive in fixed order and choose demanded subsets of remaining goods. Let $\pi_g(p)$ be the probability that $g$ is sold at prices $p$. A nonnegative price vector $p$ is $\alpha$-median if \[
+ \pi_g(p)\leq1-\alpha,\qquad
+ p_g&gt;0\ \Longrightarrow\ \pi_g(p)\geq\alpha
+ \quad(g\in M).
+\] The computational question is whether, from independent samples of $D$, one can output such a vector for $\alpha=1/2-\varepsilon$, with probability at least $1-\delta$, in time and sample size polynomial in $n,m,1/\varepsilon,\log(1/\delta)$ and the numerical input lengths. Valuations are accessed through demand and value oracles, and their oracle-call costs are counted; zero-price items need no lower sale-probability bound. The input accuracy parameters satisfy $0&lt;\varepsilon&lt;1/2$ and $0&lt;\delta&lt;1$. <h3>Short English statement</h3> Extend efficient median-price learning from unit-demand buyers to XOS buyers. <h3>Variants and scope boundaries</h3> Existence and polynomial sample complexity do not establish polynomial computation. An algorithm may randomize while returning a single price vector. With atoms, tie-breaking must be incorporated using the source's nongeneric extension. A mixture satisfying merely average sale bounds is a different output target. <h3>Source relationship and status</h3> Section 4.5 explicitly leaves the XOS extension of Theorem 4.9 open. The formal condition here is Definition 4.2, and the unit-demand proof constructs a single vector. The oracle/encoding conventions above make computational efficiency meaningful; they do not imply that demand-oracle access is equivalent to a full explicit valuation table. <h3>References</h3><p><strong>[S1]</strong> Paul Dütting, Thomas Kesselheim, Brendan Lucier, Rebecca Reiffenhäuser, and Sahil Singla (2024). <em>Online Combinatorial Allocations and Auctions with Few Samples</em>. arXiv:2409.11091v1. <em>Verified locator:</em> Sections 4.1 and 4.5; Definitions 4.1--4.2 and constructive proof of Theorem 4.9. <a href="https://arxiv.org/html/2409.11091v1" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/html/2409.11091v1</a></p><h3>Common conventions: Source mathematical conventions</h3><p><strong>Finite games.</strong> For a finite set $A$, $\Delta(A)$ is its probability simplex. Players choose independent mixed strategies in Nash equilibrium; correlation is allowed only when explicitly part of the solution concept. In a game with payoff functions $u_i$ and strategy profile $x$, an additive $\varepsilon$ Nash equilibrium satisfies \[
+ u_i(x)\geq u_i(x_i',x_{-i})-\varepsilon
+ \quad\text{for every player $i$ and every admissible deviation $x_i'$}.
+\] For numerical approximation, payoffs are normalized as locally specified. An $\varepsilon$ payoff residual is distinct from distance at most $\varepsilon$ to the set of exact equilibria. Point convergence, convergence of empirical play, and convergence in distance to an equilibrium set are also distinct.</p><p><strong>Computational representations.</strong> Unless stated otherwise, a complexity question takes rational data with binary encoding; polynomial time is measured in total bit length. A fixed-accuracy polynomial algorithm is not necessarily polynomial in $1/\varepsilon$, and neither is necessarily polynomial in $\log(1/\varepsilon)$. Succinct games and value, demand, or sampling oracles must declare their interfaces. Exact real solutions require an explicit representation; an unspecified list of arbitrary real numbers is not a finite computational output. A claimed algorithmic barrier is meaningful only for its specified model and reductions.</p><p><strong>Dynamic games.</strong> Histories, information, observation, and allowable randomization are part of the model. A stationary strategy depends only on the current state; a positional strategy in a deterministic graph game chooses one action at each controlled vertex. Nash equilibrium at an initial state and equilibrium after every history are different requirements. An expectation of a pathwise $\liminf$ payoff, a $\liminf$ of expected averages, a limiting expected average, and a uniform finite-horizon equilibrium are different criteria. None is silently substituted for another.</p><p><strong>Allocation and mechanisms.</strong> A complete allocation assigns every item exactly once unless otherwise stated. Zero-valued goods, negative values, capacity constraints, feasibility, lotteries, and copies of goods affect fairness definitions and are specified locally. Dominant-strategy incentive compatibility, Bayesian incentive compatibility, universal truthfulness, and truthfulness in expectation impose different inequalities. Whenever an objective ratio has zero denominator, its convention is stated or those instances are excluded.</p><p><strong>Infinite-dimensional models.</strong> Expectations, integrals, stochastic equations, and optimization objectives require their local regularity, integrability, filtrations, and admissible domains. A backward--forward mean-field system is a boundary-value problem; it is not an initial-value semiflow without an additional construction. Long-time, large-population, and vanishing-noise limits require an order of limits and a convergence topology. If a minimum need not be attained, the objective is its infimum or supremum and the approximation requirement is stated separately.</p></div>
+  </div>
+  
+  
+  
+  <p class="small muted">Statement licence: CC-BY-4.0 · <a href="/problems/computing-median-prices-for-xos-valuations/source/statement.tex" download>Source file</a></p>
+</section>
+
+
+
+<section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-ECON-D44-196-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/computing-median-prices-for-xos-valuations/attempt-1/r1/">Econ-196-A1</a> · Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-09">2026-10-09</time></p>
+    <h3><a href="/contributions/computing-median-prices-for-xos-valuations/attempt-1/r1/">GPT 6 Astra Ultra attempt on Econ-196</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Computing median prices for XOS valuations Additive learning, finite-precision control, and a demand obstruction</h2> <strong>Problem ID:</strong> <code>D44-196</code>. <strong>Status:</strong> Unresolved; restricted results and reductions.<h2>The exact computational target</h2> For independent buyer valuations arriving in a fixed order, let $\pi_g(p)$ be the probability that good $g$ is sold at nonnegative prices $p$. An $\alpha$-median vector satisfies $\pi_g(p)\leq1-\alpha$ for all goods and $\pi_g(p)\geq\alpha$ for goods with $p_g&gt;0$. The target asks for polynomial computation and samples for $\alpha=1/2-\epsilon$, for generic XOS distributions with value and demand oracles. It requires a single output price vector.<p>Dütting et al. [sample, Sections 4.1 and 4.5, Definitions 4.1--4.2 and Theorem 4.9] explicitly pose extension of their unit-demand construction to XOS valuations. Their proof constructs prices from an empirical distribution; its statement's use of "distribution over prices" does not authorize replacing the present target by average sale bounds for a price mixture. We solve an additive restriction, give an explicit finite-precision qualification, and prove a robust XOS example that invalidates a tempting cross-price monotonicity extension. The full XOS computational problem remains unresolved.</p><h2>An elementary concentration fact</h2> <div class="lemma"><strong>Lemma (<span class="tex-theorem-title">Bernoulli sample tails</span>):</strong> <span class="tex-label" data-tex-label="tail" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-9ad55d5a782b367d6d85c789bcd9442b" tabindex="-1"></span> If $X_1,\ldots,X_N$ are independent Bernoulli variables of common mean $q$, then, for every $a&gt;0$, \[
+ \Pr\left\{N^{-1}\sum_jX_j-q\geq a\right\}
+ \leq e^{-2Na^2},
+\] and the same bound holds for the lower tail. </div> <div class="proof"><em>Proof:</em>  For a Bernoulli variable, let $H(t)=\log{\mathbb{E}} e^{t(X-q)}$. Then $H(0)=H'(0)=0$, while $H''(t)$ is the variance of a Bernoulli variable under exponential tilting and is at most $1/4$. Integrating twice gives $H(t)\leq t^2/8$ for all real $t$. Independence and Markov's inequality yield, for $t&gt;0$, \[
+ \Pr\{\textstyle\sum_j(X_j-q)\geq Na\}
+ \leq\exp(-tNa+Nt^2/8).
+\] Choosing $t=4a$ proves the upper-tail bound. Applying the same argument to $1-X_j$ proves the lower-tail bound.  ∎</div><h2>A single median vector for additive buyers</h2> Assume $n,m\geq1$ and $v_i(S)=\sum_{g\in S}a_{ig}$ with nonnegative finite coefficients. Let $Y_g=\max_i a_{ig}$, and suppose its distribution function $F_g$ is continuous. The original genericity assumption implies this continuity in the additive case: for the singleton available set $\{g\}$, an atom of $a_{ig}$ at any fixed nonnegative price would create a positive-probability demand tie. A finite maximum of atomless variables is atomless. Correlations between different goods within a buyer are unrestricted.<p>Draw $N$ iid complete valuation profiles, with $N$ odd, and set $p_g$ to the middle order statistic of their $Y_g$ values.</p><div class="theorem"><strong>Theorem (<span class="tex-theorem-title">Additive sample-median algorithm</span>):</strong> <span class="tex-label" data-tex-label="additive" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-e86ac60f3f7d672a7140b2cea97b82d9" tabindex="-1"></span> For every $0&lt;\epsilon&lt;1/2$ and $0&lt;\delta&lt;1$, any odd \[
+ N\geq\frac{\log(2m/\delta)}{2\epsilon^2}
+\] makes the output a single $(1/2-\epsilon)$-median vector with probability at least $1-\delta$. The algorithm uses $Nnm$ singleton value queries and $O(Nnm+mN\log N)$ comparison and arithmetic operations. This is an oracle comparison bound; exact numerical work is polynomial in the supplied scalar encodings when those encodings are available. </div> <div class="proof"><em>Proof:</em>  With additive values a buyer takes exactly the available goods whose coefficient exceeds their prices, outside a null tie event. Therefore good $g$ sells precisely when some $a_{ig}&gt;p_g$, independently of what happens to other goods. Its sale probability is $1-F_g(p_g)$, and arrival order does not affect this identity.<p>For a continuous CDF, $F_g(Y_g)$ is uniform on $[0,1]$. To see this without strict increase, for each $u\in(0,1)$ use continuity to select a threshold where the CDF is $u$; intervals on which the CDF is flat have zero probability, so $\Pr\{F_g(Y_g)\leq u\}=u$. Consequently, if $F_g(p_g)&lt;1/2-\epsilon$, at least $(N+1)/2$ of $N$ independent uniform variables are at most $1/2-\epsilon$. Their indicator average exceeds its expectation by more than $\epsilon$, so Lemma <a class="tex-reference" data-tex-reference="tail" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-9ad55d5a782b367d6d85c789bcd9442b" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma (Bernoulli sample tails) in this document · r1">Lemma (Bernoulli sample tails)</a> bounds this event by $e^{-2N\epsilon^2}$. The symmetric argument bounds $F_g(p_g)&gt;1/2+\epsilon$ by the same quantity. A union bound over goods gives failure probability at most $2m e^{-2N\epsilon^2}\leq\delta$.</p><p>On the complementary event, every sale probability lies in $[1/2-\epsilon,1/2+\epsilon]$. These bounds imply both required median conditions, including the weaker lower-bound requirement when a price is zero. Computing coefficients by singleton queries, maxima over buyers, and sorting each good's sample gives the operation counts.  ∎</p></div><p></p><p>Genericity alone does not specify a finite-bit representation for an arbitrary real median. The next statement makes one sufficient rounding assumption explicit rather than hiding precision in an oracle.</p><div class="proposition"><strong>Proposition (<span class="tex-theorem-title">A finite-precision version</span>):</strong> <span class="tex-label" data-tex-label="precision" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-ac4df4f88b5b14ed53ef7395ffe384a1" tabindex="-1"></span> Assume additionally $0\leq a_{ig}\leq V$, with known $V&gt;0$, and each $F_g$ is $K$-Lipschitz for a known $K&gt;0$. Suppose singleton values can be returned to absolute error at most $h$, where $h$ is rational and $0&lt;h\leq\epsilon/(4K)$. Form the sample maxima and medians from these approximate values, round each resulting price to a nearest nonnegative multiple of $h$, and use Theorem <a class="tex-reference" data-tex-reference="additive" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-e86ac60f3f7d672a7140b2cea97b82d9" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Theorem (Additive sample-median algorithm) in this document · r1">Theorem (Additive sample-median algorithm)</a> with accuracy $\epsilon/2$. The resulting rational vector is a $(1/2-\epsilon)$-median vector with probability at least $1-\delta$. Its coordinates have polynomial encoding length in the encodings of $h,V$ and the chosen grid indices. </div> <div class="proof"><em>Proof:</em>  Changing each scalar by at most $h$ changes its maximum by at most $h$. It also changes any fixed order statistic by at most $h$: if all coordinates lie within $h$ of their originals, their ordered values satisfy the same coordinatewise bounds. Clipping approximate prices below zero to zero cannot increase their error to a nonnegative true median. Rounding to a grid adds at most $h$, so each final price is within $2h$ of the exact sample median. Lipschitz continuity changes its true sale probability by at most $2Kh\leq\epsilon/2$. The probability bound at accuracy $\epsilon/2$ and this deterministic rounding bound prove the claim. Final prices lie in $[0,V+2h]$ and have form an integer times the rational grid size, giving the stated encoding control. Precision-oracle costs must be counted separately if that oracle has a specified nonconstant cost.  ∎</div><h2>Own-price monotonicity survives; cross-price substitution fails</h2> The first fact is useful but insufficient for a multidimensional price search.<div class="lemma"><strong>Lemma (<span class="tex-theorem-title">Own-price sale monotonicity</span>):</strong> <span class="tex-label" data-tex-label="own" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-b1cf451a7405866a1cd45c3a2ce76d6e" tabindex="-1"></span> Fix two price vectors differing only in good $g$, with $p'_g\geq p_g$. Under valuations for which all demands at all available sets for these two vectors are unique, if $g$ is unsold at $p$, it is unsold at $p'$. Hence generic distributions satisfy $\pi_g(p'_g,p_{-g})\leq\pi_g(p_g,p_{-g})$. </div> <div class="proof"><em>Proof:</em>  In the lower-price run no buyer purchases $g$. Inductively suppose the two runs have the same remaining set before a buyer and the same earlier purchases. Her unique optimum in the lower-price run excludes $g$. Increasing only $p_g$ leaves every excluding bundle's utility unchanged and weakly reduces every including bundle's utility. The same excluding bundle therefore remains the unique optimum. Thus her purchases agree in the two runs. Induction through all buyers proves the pointwise claim. There are finitely many available sets and buyers for the two fixed price vectors, so genericity makes the required uniqueness event have probability one. Taking probabilities proves the inequality.  ∎</div><div class="proposition"><strong>Proposition (<span class="tex-theorem-title">A generic XOS complementarity example</span>):</strong> <span class="tex-label" data-tex-label="counter" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-f30d92242aba4995cbc5f6bf4f9126a0" tabindex="-1"></span> There is a generic distribution over one buyer's XOS valuations on three goods $a,b,c$ such that increasing the price of $b$, holding all other prices fixed, reduces the sale probability of $c$ from one to zero. </div> <div class="proof"><em>Proof:</em>  Let $Z_a,Z_b,Z_c$ be independent uniform variables on $(0,1/10)$ and set \[
+ v(S)=\max\{10{\mathbf 1}\{a\in S\},\
+                 6{\mathbf 1}\{b\in S\}+6{\mathbf 1}\{c\in S\}\}
+       +\sum_{g\in S}Z_g.
+\] This is the maximum of two nonnegative additive clauses, after adding $Z_g$ to each clause's coefficient, so is XOS. For any fixed price and available set, equality of two distinct bundles' utilities is a nonconstant affine equation in the independent continuous $Z_g$: their deterministic base values are constants and the coefficient of some $Z_g$ in their difference is $1$ or $-1$. It has probability zero. There are finitely many bundles, giving unique demand almost surely. This proves genericity for every fixed price and available set.<p>At prices $(5,2,2)$, maximizing the first additive clause's net value selects only $a$ and gives $5+Z_a&lt;5.1$. Maximizing the second selects $b,c$ and gives $8+Z_b+Z_c&gt;8$. Since maximization over bundles commutes with the maximum over two clauses, the unique demand is $\{b,c\}$. At prices $(5,6,2)$, the best first-clause bundle is again $\{a\}$ with utility $5+Z_a&gt;5$. The best second-clause bundle is $\{b,c\}$ with utility $4+Z_b+Z_c&lt;4.2$; the small positive $Z_b$ makes including $b$ optimal in that clause. Thus the unique actual demand is $\{a\}$. The sale probability of $c$ has fallen from one to zero in every realization in the support.  ∎</p></div><p></p><p>The construction is robust to atomless perturbations and uses only two clauses. It rules out an argument that treats every XOS demand system as substitutes in other goods' prices. It is not an oracle lower bound or a proof that every possible price-adjustment algorithm fails.</p><h2>Validation of a proposed vector is easier than finding one</h2> <div class="proposition"><strong>Proposition (<span class="tex-theorem-title">Independent-sample validation</span>):</strong>  Given any proposed vector $p$, possibly chosen from earlier data, use $N$ fresh iid profiles to simulate the sequential sales with $n$ demand queries per profile. Let $\widehat\pi_g$ be sample sale frequencies. For $N\geq\log(2m/\delta)/(2\eta^2)$, \[
+ \max_g|\widehat\pi_g-\pi_g(p)|\leq\eta
+\] with probability at least $1-\delta$. Thus empirical bounds $\widehat\pi_g\leq1/2+\epsilon-\eta$ for all $g$ and $\widehat\pi_g\geq1/2-\epsilon+\eta$ for $p_g&gt;0$ certify the desired median inequalities on that event. </div> <div class="proof"><em>Proof:</em>  Condition on the proposed prices and all earlier data. For each good, the fresh sale indicators are independent Bernoulli variables of mean $\pi_g(p)$. Apply both tails of Lemma <a class="tex-reference" data-tex-reference="tail" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-9ad55d5a782b367d6d85c789bcd9442b" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma (Bernoulli sample tails) in this document · r1">Lemma (Bernoulli sample tails)</a> and union bound over $m$ goods; the conditional bound is uniform in $p$, hence remains valid unconditionally. Add or subtract $\eta$ from the empirical inequalities to obtain the true inequalities. Sequential simulation uses one demand query for each buyer on the remaining set, with unavailable goods removed as part of the declared oracle interface.  ∎</div><p>This validator does not guarantee that a proposed vector passes, does not justify reusing its data for arbitrary adaptive proposals, and does not construct a price vector. The gap is a polynomial search procedure for general XOS demand that returns one vector with controlled precision. Additive separation and a fresh-data certificate settle restricted parts of that task but do not close it. </p><h3>References</h3><ul><li><strong>[sample]</strong>  P. Dütting, T. Kesselheim, B. Lucier, R. Reiffenhäuser, and S. Singla (2024). <em>Online Combinatorial Allocations and Auctions with Few Samples</em>. arXiv:2409.11091v1, Sections 4.1 and 4.5, Definitions 4.1--4.2, Lemma 4.5, and Theorem 4.9. <a href="https://arxiv.org/html/2409.11091v1" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/html/2409.11091v1</a>.</li></ul><p></p><h2>Completion Estimate</h2> 20%</div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/computing-median-prices-for-xos-valuations/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
+  
+  
+</section>
+
+
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
+<section id="contribute"><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+</section>
+
+<details class="record-details" data-pagefind-ignore><summary>Record details</summary>
+  <dl class="metadata">
+    <dt>Subjects</dt><dd>Computational economics</dd>
+    <dt>Collection</dt><dd>Economics catalogue</dd>
+    <dt>Economics rank</dt><dd>196</dd><dt>Computer Science rank</dt><dd>894</dd>
+    
+    <dt>JEL</dt><dd><a href="/economics/jel/D44/">D44 — Auctions</a></dd>
+    
+  </dl>
+</details>
+</aside>
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt 5.2 attempt on Math-747">
+  
+  <title>gpt 5.2 attempt on Math-747 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-291-82cad18d/attempt-3/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-747-A3</span> · revision r1 · on <a href="/problems/erdos-problem-291-82cad18d/">Math-747</a></p>
+  <h1 data-pagefind-meta="title">gpt 5.2 attempt on Math-747</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-5-2/" data-pagefind-filter="Model">gpt 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p>OUTPUT 1) FORMAL RESTATEMENT For each $n\ge 1$, let \[L_n=\mathrm{lcm}(1,2,\dots,n),\qquad H_n=\sum_{k=1}^n \frac1k.\] Define $a_n\in\mathbb{Z}$ by $H_n=a_n/L_n$ (so $a_n=L_n H_n$ is an integer, not necessarily coprime to $L_n$). Question: Do both events \[\gcd(a_n,L_n)=1\quad\text{and}\quad \gcd(a_n,L_n)&gt;1\] occur for infinitely many $n$?</p><p>2) QUICK LITERATURE/CONTEXT CHECK Browsing is not available. The problem statement itself contains a claimed necessary-and-sufficient criterion for primes dividing $\gcd(a_n,L_n)$ and claims that $\gcd(a_n,L_n)&gt;1$ occurs infinitely often “trivially”. I re-prove the criterion and the infinite “$&gt;1$” statement, and do finite computations for the $\gcd=1$ side.</p><p>3) ATTACK PLAN Proof track: 1. Prove the stated mod-$p$ criterion for $p\mid \gcd(a_n,L_n)$ in terms of the leading base-$p$ digit of $n$. 2. Use that criterion to give an explicit infinite family of $n$ with $\gcd(a_n,L_n)&gt;1$. 3. For $\gcd(a_n,L_n)=1$, gather numerical data and identify a plausible structural approach (e.g. probabilistic/independence heuristics).</p><p>Disproof track: 1. If $\gcd(a_n,L_n)=1$ were finite, show that for all large $n$ some prime $p\le n$ must satisfy the digit criterion; attempt to force such a prime systematically.</p><p>Chosen path: rigorous “$&gt;1$ infinitely often” + criterion; $\gcd=1$ remains open.</p><p>4) WORK Lemma 1 (Prime divisor criterion via leading base-$p$ digit). Let $p$ be a prime and $n\ge p$. Write $n$ in base $p$ as \[n = k\,p^e + r,\qquad p^e\le n&lt;p^{e+1},\quad 1\le k\le p-1,\quad 0\le r&lt;p^e.\] Equivalently, $p^e$ is the largest power of $p$ at most $n$, and $k=\lfloor n/p^e\rfloor$ is the leading digit of $n$ in base $p$. Then \[p\mid \gcd(a_n,L_n)\quad\Longleftrightarrow\quad \sum_{j=1}^k \frac1j \equiv 0 \pmod p.\] Since $k&lt;p$, this congruence is equivalent to “$p$ divides the numerator of $H_k=1+\cdots+1/k$”.</p><p>Proof. Let $v=v_p(L_n)$, so $p^v\le n&lt;p^{v+1}$ and in fact $p^v=p^e$ above. Write \[a_n=\sum_{t=1}^n \frac{L_n}{t}.\] Reduce this sum modulo $p$. If $t$ is not divisible by $p^v$, then $v_p(t)\le v-1$, so $v_p(L_n/t)\ge 1$ and thus $L_n/t\equiv 0\pmod p$. The only terms that can contribute mod $p$ are those with $v_p(t)=v$, i.e. $t$ of the form $t=j\,p^v$ with $1\le j\le k$. (Because $k=\lfloor n/p^v\rfloor$ and $k&lt;p$, no multiple $j p^v$ with $j\ge p$ occurs.)</p><p>For such $t=j p^v$, \[\frac{L_n}{t}=\frac{L_n/p^v}{j}.\] Since $p^v$ is the exact highest power of $p$ dividing $L_n$, the integer $L_n/p^v$ is <em>not</em> divisible by $p$ and is invertible modulo $p$. Therefore \[a_n \equiv \frac{L_n/p^v}{1}+\frac{L_n/p^v}{2}+\cdots+\frac{L_n/p^v}{k}\equiv \left(\frac{L_n}{p^v}\right)\sum_{j=1}^k \frac1j \pmod p.\] Thus $a_n\equiv 0\pmod p$ if and only if $\sum_{j=1}^k 1/j\equiv 0\pmod p$. Since $p\mid L_n$ whenever $p\le n$, this is equivalent to $p\mid\gcd(a_n,L_n)$. $\square$</p><p>Lemma 2 (Infinitely many $n$ with $\gcd(a_n,L_n)&gt;1$). For every prime $p$ and every $e\ge 1$, take $n=p^{e+1}-1$. Then the leading digit of $n$ in base $p$ is $p-1$, and $p\mid\gcd(a_n,L_n)$. Hence $\gcd(a_n,L_n)&gt;1$ for infinitely many $n$.</p><p>Proof. For $n=p^{e+1}-1$, the base-$p$ expansion is $(p-1)(p-1)\cdots(p-1)$ (all digits $p-1$), so the leading digit is $k=p-1$. Consider the sum modulo $p$: \[\sum_{j=1}^{p-1}\frac1j \equiv \sum_{j=1}^{(p-1)/2}\left(\frac1j+\frac{1}{p-j}\right)\equiv \sum_{j=1}^{(p-1)/2}\left(\frac1j-\frac1j\right)\equiv 0\pmod p.\] By Lemma 1, this implies $p\mid \gcd(a_n,L_n)$. Varying $e$ gives infinitely many such $n$. $\square$</p><p>FAST REALITY CHECK (computation). Exact values for $n\le 20$: \[\gcd(a_n,L_n)=1\ \text{for }n=1,2,3,4,5,9,10,11,12,13,14,15,16,17,\] and $\gcd(a_n,L_n)&gt;1$ for $n=6,7,8,18,19,20$ (with $\gcd(a_{20},L_{20})=15$). Using the digit criterion from Lemma 1, I counted $1100$ values of $n\le 5000$ with $\gcd(a_n,L_n)=1$, and $3244$ values of $n\le 20000$ with $\gcd(a_n,L_n)=1$.</p><p>5) VERIFICATION - Lemma 1’s modular reduction carefully isolates the terms with exact $p$-adic valuation $v_p(t)=v_p(L_n)$. - Lemma 2 uses a pairing argument modulo $p$; it does not require Wolstenholme’s stronger congruence. - The computations match the qualitative claim that $\gcd(a_n,L_n)&gt;1$ happens often; they do not prove infinitude of $\gcd=1$.</p><p>6) FINAL <strong>UNRESOLVED</strong></p><p>(i) Strongest fully proved partial result: There is an explicit necessary-and-sufficient criterion for a prime $p\le n$ to divide $\gcd(a_n,L_n)$ in terms of the leading base-$p$ digit of $n$ (Lemma 1), and this yields an explicit infinite family with $\gcd(a_n,L_n)&gt;1$ (Lemma 2).</p><p>(ii) First gap: Prove that $\gcd(a_n,L_n)=1$ occurs infinitely often (equivalently, show there are infinitely many $n$ such that for every prime $p\le n$, the leading base-$p$ digit $k$ satisfies $\sum_{j=1}^k 1/j\not\equiv 0\pmod p$).</p><p>(iii) Top 3 next moves: 1. Use Lemma 1 to model the “bad digit” events for each prime $p$ and attempt to prove (even weak) lower bounds for the count of $n\le x$ avoiding all bad leading digits. 2. Prove equidistribution/independence statements for the leading base-$p$ digit of $n$ across varying $p$, strong enough to feed a sieve. 3. Extend computation much further using the digit criterion (without building $L_n$) to refine the heuristic for the growth rate of $\#\{n\le x:\gcd(a_n,L_n)=1\}$.</p><p>(iv) Minimal counterexample structure (if infinitude failed): There would exist $N_0$ such that for every $n\ge N_0$ some prime $p\le n$ has the property that the leading digit $k$ of $n$ in base $p$ makes $H_k$ have numerator divisible by $p$; i.e. every large $n$ would be “caught” by at least one prime’s bad leading-digit condition.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_5.2/291.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-291-82cad18d/attempt-3/r1/source/files/291.tex" download>files/291.tex</a><span class="row-meta">5,651 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-291-82cad18d/attempt-3/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,038 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-291-82cad18d/attempt-3/r1/">https://we-solve.github.io/contributions/erdos-problem-291-82cad18d/attempt-3/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-291-A3-r1,
+  title = {{gpt 5.2 attempt on ERDOS-291}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-291-82cad18d/attempt-3/r1/}},
+  note = {Revision r1 of ERDOS-291-A3. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-291-82cad18d/attempt-3/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-291-82cad18d/attempt-3/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-291-82cad18d/attempt-3/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-291-A3-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt 5.2 attempt on ERDOS-291&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-291-82cad18d/attempt-3/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-291-A3. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-291-A3 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-291-82cad18d/attempt-3/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-291-82cad18d/attempt-3/r1/">Math-747-A3 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:37Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

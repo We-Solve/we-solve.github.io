@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-6075">
+  
+  <title>gpt pro 5.2 attempt on Math-6075 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-1021/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-6075-A2</span> · revision r1 · on <a href="/problems/erdos-problem-1021/">Math-6075</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-6075</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: proved. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p><strong>FORMAL RESTATEMENT.</strong> Fix an integer $k\ge 3$. Let $G_k$ be the bipartite graph with parts \[
+Y:=\{y_1,\dots,y_k\},\qquad Z:=\{z_{ij}: 1\le i&lt;j\le k\},\quad |Z|=\binom{k}{2},
+\] where each $z_{ij}$ is adjacent to $y_i$ and $y_j$ and has no other neighbors. Let $\mathrm{ex}(n,G_k)$ be the Turán number: the maximum number of edges in an $n$-vertex graph containing no subgraph isomorphic to $G_k$. The question asks whether for every $k\ge 3$ there exists $c_k&gt;0$ such that \[
+\mathrm{ex}(n,G_k) \ll n^{3/2-c_k}
+\qquad\text{as } n\to\infty.
+\]</p><p><strong>QUICK LITERATURE/CONTEXT CHECK.</strong> The problem statement notes that for $k=3$ one has $G_3=C_6$ and that a strong bound $\mathrm{ex}(n,C_6)\ll n^{7/6}$ is known (per the extracted text). It also says it is not even known in general whether $\mathrm{ex}(n,G_k)=o(n^{3/2})$.</p><p><strong>ATTACK PLAN.</strong> <em>Upper-bound track:</em> Use that $G_k$ is a subgraph of the complete bipartite graph $K_{k,\binom{k}{2}}$, so any $G_k$-free graph is also $K_{k,\binom{k}{2}}$-free; then apply a Kővári--Sós--Turán type counting argument. <em>Sharpening track (for small $k$):</em> For $k=3$, prove a (weaker than the best-known) power saving for $C_6$ via counting length-3 paths.</p><p><strong>WORK.</strong></p><p><strong>Lemma 1 (Kővári--Sós--Turán bound for $K_{s,t}$, with proof).</strong> Let $s\ge 2$ and $t\ge 2$ be integers. If $G$ is a bipartite graph with parts $(A,B)$, $|A|=m$, $|B|=n$, and $G$ contains no copy of $K_{s,t}$ with the $s$ vertices in $A$ and the $t$ vertices in $B$, then \[
+|E(G)| \le (t-1)^{1/s}\, n\, m^{1-1/s} + (s-1)n.
+\]</p><p><em>Proof.</em> For each vertex $b\in B$, let $d(b)$ be its degree into $A$. Count the number of pairs $(S,b)$ where $S\subseteq N(b)$ and $|S|=s$. On one hand, \[
+\sum_{b\in B} \binom{d(b)}{s}
+\] counts these pairs. On the other hand, for a fixed $s$-subset $S\subseteq A$, the number of $b\in B$ adjacent to all vertices of $S$ is the common neighborhood size $|N(S)|$. The $K_{s,t}$-free assumption implies $|N(S)|\le t-1$ for every $S$. Therefore \[
+\sum_{b\in B} \binom{d(b)}{s} = \sum_{S\in\binom{A}{s}} |N(S)| \le (t-1)\binom{m}{s}.
+\] Now use the convexity bound: for $x\ge s-1$, one has \[
+\binom{x}{s} = \frac{x(x-1)\cdots(x-s+1)}{s!} \ge \frac{(x-s+1)^s}{s!}.
+\] Applying this with $x=d(b)$ gives \[
+\sum_{b\in B}\frac{(d(b)-s+1)^s}{s!} \le \sum_{b\in B} \binom{d(b)}{s} \le (t-1)\binom{m}{s} \le (t-1)\frac{m^s}{s!}.
+\] Multiply by $s!$ and apply that $\sum (d(b)-s+1)^s \ge n\left(\frac{\sum(d(b)-s+1)}{n}\right)^s$ by convexity of $u\mapsto u^s$ on $\mathbb{R}_{\ge 0}$: \[
+\left(\sum_{b\in B}(d(b)-s+1)\right)^s \le n^{s-1}\sum_{b\in B}(d(b)-s+1)^s \le n^{s-1}(t-1)m^s.
+\] Taking $s$th roots yields \[
+\sum_{b\in B}(d(b)-s+1) \le (t-1)^{1/s} n^{1-1/s} m.
+\] Since $\sum_{b\in B} d(b)=|E(G)|$, this becomes \[
+|E(G)| - (s-1)n \le (t-1)^{1/s} n^{1-1/s} m.
+\] Rewriting gives the claimed inequality. $\square$</p><p><strong>Corollary 1 (a general but weak bound for $\mathrm{ex}(n,G_k)$).</strong> For fixed $k\ge 3$, \[
+\mathrm{ex}(n,G_k) \ll n^{2-1/k}.
+\]</p><p><em>Proof.</em> Because $G_k$ is a subgraph of $K_{k,\binom{k}{2}}$, any graph that contains $K_{k,\binom{k}{2}}$ also contains $G_k$. Hence every $G_k$-free graph is $K_{k,\binom{k}{2}}$-free, so $\mathrm{ex}(n,G_k)\le \mathrm{ex}(n,K_{k,\binom{k}{2}})$. It is standard (and easy to check) that extremal graphs for $K_{k,t}$ can be taken bipartite: deleting edges inside the parts cannot create a $K_{k,t}$. Applying Lemma 1 with $s=k$ and $t=\binom{k}{2}$ in the balanced case $m\asymp n\asymp n/2$ gives $\mathrm{ex}(n,K_{k,t})=O(n^{2-1/k})$, hence the claim. $\square$</p><p><strong>Lemma 2 (a complete but weak bound for $C_6=G_3$).</strong> Every $C_6$-free graph is $K_{3,3}$-free. Consequently, \[
+\mathrm{ex}(n,C_6)\le \mathrm{ex}(n,K_{3,3}) \ll n^{5/3}.
+\]</p><p><em>Proof.</em> First, any copy of $K_{3,3}$ contains a $6$-cycle: if the bipartition is $\{a_1,a_2,a_3\}\cup\{b_1,b_2,b_3\}$ with all cross-edges present, then \[
+a_1-b_1-a_2-b_2-a_3-b_3-a_1
+\] traverses distinct vertices and is a (simple) cycle of length $6$. Therefore, if a graph contains $K_{3,3}$ then it contains $C_6$, so a $C_6$-free graph is necessarily $K_{3,3}$-free. This gives $\mathrm{ex}(n,C_6)\le \mathrm{ex}(n,K_{3,3})$.</p><p>To bound $\mathrm{ex}(n,K_{3,3})$, it is enough to consider bipartite graphs: given any $n$-vertex graph, take a maximum cut and keep only the crossing edges; this produces a bipartite subgraph with at least half the edges, and deleting edges cannot create a forbidden $K_{3,3}$. Now apply Lemma 1 with $s=t=3$ to a bipartite graph with $m\asymp n\asymp n/2$ vertices on each side. Lemma 1 yields \[
+|E(G)| \le 2^{1/3}\,|B|\,|A|^{2/3} + 2|B| = O((|A|+|B|)^{5/3}),
+\] which implies $\mathrm{ex}(n,K_{3,3})\ll n^{5/3}$ and hence the displayed bound for $\mathrm{ex}(n,C_6)$. $\square$</p><p><strong>FAST REALITY CHECK.</strong> Exact enumeration for $n\le 7$ gives: \[
+\mathrm{ex}(3,C_6)=3,\ \mathrm{ex}(4,C_6)=6,\ \mathrm{ex}(5,C_6)=10,\ \mathrm{ex}(6,C_6)=11,\ \mathrm{ex}(7,C_6)=13.
+\]</p><p><strong>VERIFICATION.</strong> Lemma 1 and Corollary 1 are complete. Lemma 2 is complete.</p><p><strong>FINAL.</strong> <strong>UNRESOLVED</strong></p><p>(i) Strongest proved partial result: a complete proof of the Kővári--Sós--Turán bound (Lemma 1), the resulting general estimate $\mathrm{ex}(n,G_k)=O(n^{2-1/k})$, and the elementary reduction $\mathrm{ex}(n,C_6)\le\mathrm{ex}(n,K_{3,3})=O(n^{5/3})$ (Lemma 2).</p><p>(ii) First gap (crisp): prove any exponent strictly below $3/2$ for $\mathrm{ex}(n,G_k)$ (even $\mathrm{ex}(n,G_k)=o(n^{3/2})$) for a fixed $k\ge 4$. (For $k=3$ the extracted problem text states a much stronger bound $\mathrm{ex}(n,C_6)\ll n^{7/6}$, but I have not reproduced that proof here.)</p><p>(iii) Top 3 next moves: 1. For $k=3$, complete a clean $O(n^{4/3})$ proof by a careful count of 3-paths and an application of Cauchy--Schwarz to codegrees (using both bipartition sides). 2. For general $k$, reinterpret $G_k$-containment in terms of selecting $k$ vertices with many pairwise-distinct common neighbors, and attempt to bound such configurations via codegree energy. 3. Compute $\mathrm{ex}(n,G_4)$ for small $n$ by brute force / SAT (very small $n$) to detect plausible growth rates and extremal constructions.</p><p>(iv) Minimal counterexample structure: if the conjectured power saving fails for some fixed $k$, there should exist $G_k$-free graphs with $\Omega(n^{3/2})$ edges. Such graphs would have average degree $\Omega(n^{1/2})$ while avoiding a configuration where $k$ vertices have pairwise codegrees that can be chosen disjointly across all pairs.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/1021.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-1021/attempt-2/r1/source/files/1021.tex" download>files/1021.tex</a><span class="row-meta">6,752 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-1021/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,057 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-1021/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-1021/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-1021-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-1021}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-1021/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-1021-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-1021/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-1021/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-1021/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-1021-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-1021&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-1021/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-1021-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-1021-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-1021/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-1021/attempt-2/r1/">Math-6075-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:37Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

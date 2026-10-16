@@ -1,0 +1,42 @@
+I attach **Erdős Problem #92** (equidistant points). The problem statement on the Erdős Problems site is: ([Erdős Problems][1])
+
+> Let (f(n)) be maximal such that there exists a set (A) of (n) points in (\mathbb{R}^2) in which every (x\in A) has at least (f(n)) points in (A) equidistant from (x).
+> Is it true that (f(n)\le n^{o(1)})? Or even (f(n) < n^{O(1/\log\log n)})?
+
+### Definitions with explicit quantifiers
+
+* Let (\mathbb N:={1,2,3,\dots}).
+* For a finite set (A\subset\mathbb R^2) and (x\in A), define for each (r>0)
+  [
+  N_A(x,r):=\bigl|{y\in A\setminus{x}:|x-y|=r}\bigr|.
+  ]
+* Define
+  [
+  g(A):=\min_{x\in A}\ \max_{r>0} N_A(x,r).
+  ]
+  So (g(A)) is the largest integer (t) such that **every** (x\in A) has **some** radius (r=r(x)>0) with at least (t) other points of (A) on the circle centered at (x) of radius (r).
+* Then
+  [
+  f(n):=\max{g(A): A\subset\mathbb R^2,\ |A|=n}.
+  ]
+
+### Meaning of the asymptotic expressions
+
+* (f(n)\le n^{o(1)}) means:
+  [
+  \forall \varepsilon>0\ \exists N(\varepsilon)\ \forall n\ge N(\varepsilon):\ f(n)\le n^\varepsilon.
+  ]
+* (f(n)<n^{O(1/\log\log n)}) means: there exists (C>0) and (N_0) such that for all (n\ge N_0),
+  [
+  f(n)\le n^{C/\log\log n}.
+  ]
+  (Here (\log) is the natural logarithm; changing base only changes (C) by a constant factor.)
+
+### Edge cases / stress points
+
+* (f(1)=0) (since there are no other points).
+* For (n\ge 2), (f(n)\ge 1) (take any two points).
+* The definition allows **different radii** (r(x)) for different (x).
+* No general position assumptions: collinearities, many concyclic points, etc. are allowed.
+
+---

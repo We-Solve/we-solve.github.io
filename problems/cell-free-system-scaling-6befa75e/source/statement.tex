@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools,hyperref}
+
+\begin{document}
+\section*{Cell-free system scaling}
+\label{prob:277}
+\label{rank:186}
+\par\smallskip
+
+\noindent\textbf{Domain.} Cell-free biomanufacturing; reactor scaling. \quad \textbf{Retained status/source context.} Open transferable scale-up question. Cell-free synthesis has already reached 100-litre operation for a demonstrated product; absence of scale-up is not a defensible status claim.
+
+\paragraph{Definitions and assumptions.} For a declared extract and product let reactor volume $V$, protein concentration $P_V(t)$, substrate and energy concentrations $c_V(r,t)$, mixing time $\tau_m(V)$ and oxygen-transfer coefficient $k_La(V)$ be measured. A finite kinetic--transport model predicts synthesis, depletion and inactivation. Compare reactors with declared geometry, feed protocol and temperature; scaling volume alone does not define hydrodynamic similarity. Active product concentration is distinguished from total protein, and extract batch variability is a random effect measured independently.
+
+\paragraph{Problem statement.} Find similarity variables and operating rules that predict output over $V\in[V_0,V_1]$:
+\[
+\sup_{V\in[V_0,V_1]}\frac{|\widehat P_V(\tau)-P_V(\tau)|}{P_V(\tau)+P_0}\leq\varepsilon,
+\]
+where $P_0>0$ prevents an unstable relative error near zero. Require the rule to transfer to withheld reactor volumes and report product activity and cost alongside yield.
+
+\paragraph{Additional binding assumptions and resolution criterion.} Define $P_V$ as a reactor-volume average or an explicitly sampled concentration, and distinguish active-product mean from a noisy batch realization. The positive reference $P_0$ has concentration units and is fixed before fitting. Continuous-volume guarantees require bounded model discrepancy and regularity between tested volumes. State hydrodynamic and batch-transfer assumptions rather than inferring similarity from volume alone.
+
+\paragraph{Alternative formulations.} (i) A well-mixed model assumes mixing is faster than reaction and tests oxygen/energy-limited batch scaling. (ii) A reaction--transport formulation treats gradients and continuous exchange explicitly. The former is a limit of the latter only under justified timescale separation. A product-transfer version fixes reactor similarity and asks whether folding and redox demands of a new protein preserve the scaling law.
+
+\paragraph{Obstructions and partial progress.} Zawada and colleagues demonstrate manufacturing-scale cytokine production, an important resolved special case. It does not establish universal scale invariance for every extract and protein. Oxygen transfer, heat removal and byproduct accumulation introduce geometry-dependent effects, while extract preparation changes activities before the reaction begins. Nature and OUP pages are topic background. The problem is a validated regime map and process transfer, not simply repeating the algebraic transformation $V\mapsto kV$.
+
+\paragraph{Sources (supplied provenance; not all rechecked).} \begin{itemize}
+\item Nature topic collection; supplied background only. \url{https://www.nature.com/subjects/synthetic-biology}
+\item Synthetic Biology journal homepage; supplied collection/background, not verification of this particular mathematical target. \url{https://academic.oup.com/synbio}
+\item Zawada et al., Microscale to manufacturing scale-up of cell-free cytokine production (2011). \url{https://pubmed.ncbi.nlm.nih.gov/21337337/} (Primary scale-up study including 100-litre operation; refutes the claim that no scaling has been achieved.)
+\end{itemize}
+
+
+\section*{Binding catalogue conventions}
+This edition revises both supplied catalogues and preserves original problem numbers 1--330. It adds one globally unique label \verb|\label{rank:x}| per problem, where smaller $x$ means greater provisional difficulty. A rank label is an anchor at that problem's section: \verb|\ref{rank:x}| returns the section number, not the literal difficulty number. The visible \texttt{rank:x} text and the index give the difficulty number itself.
+
+The entries are \emph{parameterized mathematical research schemes}, including empirical prediction, causal identification, historical reconstruction, theory and engineering. They are not 330 certified unsolved mathematical conjectures. A rigorous instance fixes the objects and restrictions below; changing those objects changes the question. Established identities, finite calculations, non-identification constructions and solved special cases are not being posed anew as open. Some residual tasks concern informative bounds, biological realization or external validation rather than a new theorem.
+
+Every main definition and problem statement received a mathematical editorial review. Each entry now has an additional binding-conditions paragraph; direct corrections are separately recorded in the accompanying audit. The alternative formulations inherit the applicable conventions, but are different targets unless equivalence is proved. Where an old broad phrase conflicts with an explicit restriction below it, the explicit restriction controls.
+
+\textbf{Literature boundary.} Thirteen selective primary-literature checks cover eighteen entries in this revision; their access levels and scope are recorded explicitly. The supplied bibliography and its earlier source-access descriptions are retained as provenance, not represented as newly verified. Neither this review nor a source's description proves the absence of later solutions. The date of this edition is 13 October 2026; there is no claim of exhaustive current-status certification for all 330 entries.
+
+\subsection*{Binding conventions for a concrete instance}
+\paragraph{Objects, quantifiers and non-vacuity.}
+An instance declares measurable state, input, output and parameter spaces; a fixed candidate family; admissible initial laws, interventions and environments; a finite horizon or specified asymptotic regime; observation and sampling laws; and performance metrics, positive normalization scales and positive tolerances. These are chosen before fitting or testing, not adjusted after seeing failures. Shared parameters must genuinely be shared across the declared validation domain. Finite dimension alone does not restrict arbitrary real-number encodings: specify a finite library, bounded description length, or regularity/complexity bounds. Exclude constant or no-signal solutions through a fixed informative-output or baseline-improvement requirement where appropriate. A universally quantified result cannot be established by choosing one trivial favorable instance.
+
+\paragraph{Probability laws and data.}
+Every expectation or probability refers to the specified stochastic law, including initial uncertainty, process noise, observation noise and sampling as appropriate. A deterministic equation is not a probability model without a declared random input or initial law. ``Observed'' targets in population-level formulas mean population observables $g_j^*$, not noisy estimates asserted to be exact. Let $\widetilde g_j$ be independent validation estimates and suppose
+\[
+\mathbb{P}\{\lvert\widetilde g_j-g_j^*\rvert\le r_j\text{ for every }j\}\ge1-\alpha.
+\]
+Then an uncertainty-aware sufficient certification rule for positive target tolerances $\varepsilon_j$ is
+\[
+\max_j\frac{|\widehat g_j-\widetilde g_j|+r_j}{\varepsilon_j}\le1.
+\]
+On that simultaneous confidence event it implies every population error is at most its tolerance, by the triangle inequality. Vector/norm versions use corresponding valid simultaneous bounds. Training uncertainty must also be included when the claim averages over repeated training data. Evaluation on finitely many conditions does not establish a continuous-domain supremum without covering and regularity bounds.
+
+\paragraph{Dynamics and well-posedness.}
+For ODEs and SDEs give coefficient domains, initial laws and existence/uniqueness conditions in the intended solution sense, or keep the entire admitted solution set. For stochastic jump models specify nonnegative off-diagonal rates, diagonal normalization, rate orientation and non-explosion. For PDEs specify spatial domains, boundary/initial conditions, conservation or source terms, and a weak or classical solution class. Moving-domain concentration equations include dilution/transport terms. A stationary law is used only for a time-homogeneous augmented model under existence assumptions; a stationary approximation to a driven system must be justified. Absorbing extinction states are retained. Survival-conditioned, quasi-stationary and unconditional laws are distinct and must not be substituted for one another.
+
+\paragraph{Identification and causal meaning.}
+Two parameter values are observationally equivalent when they induce the same full distribution under all allowed observation/intervention designs, not merely the same likelihood value for one sample. A target is identified only if constant on the equivalence class. Gauge symmetries, label switching and reference conventions are quotiented or fixed. Finite-data compatible sets use a declared confidence, likelihood or discrepancy rule; an empty set signals model rejection. Bayesian credible sets are not automatically confidence sets. A prior or regularizer does not create data identification. Bounds intended to resolve a question must be informative at a predeclared width or decision threshold.
+
+A causal contrast uses well-defined intervention versions and a stated causal model. Random assignment, or explicit consistency, overlap and exchangeability assumptions, is required for causal interpretation from observations. Interference and time-varying confounding are represented when present. Fixing a mediator by intervention differs from conditioning on its observed value. Marginal potential-outcome laws do not determine individual cross-world effects or an arbitrary joint coupling. Ethically admissible designs, rather than unconstrained interventions, define the experimental menu.
+
+\paragraph{Metrics, units, optimization and limits.}
+Specify the sampling or reference measure for densities and integrals, the log base, and dimensionless arguments of logarithms. Total variation is $\sup_A|P(A)-Q(A)|$; Wasserstein distances require the declared ground metric and appropriate moment conditions; KL divergence uses its stated absolute-continuity convention. All normed readouts are scaled consistently, and error probabilities use $0<\alpha<1$. A ratio has a positive denominator or an explicit undefined/zero convention. Thermodynamic entropy production is nonnegative in expectation under the relevant hypotheses; individual stochastic realizations need not be. An infimum is not an attained minimum without compactness/coercivity and continuity or another existence argument. Fix the order of large-population, long-time and vanishing-mutation limits. Stability claims declare perturbation space and symmetries.
+
+\subsection*{How the provisional difficulty order was assigned}
+Four editorial components are scored from 1 (lower burden) to 5 (higher burden): (a) formal or inferential difficulty, (b) access to evidence and identification burden, (c) mechanistic/computational integration, and (d) independent validation and transfer. Their unweighted total orders the entries. For selected entries in the highest bands, an explicit editorial priority breaks equal totals; all other ties are broken by original problem number. Equal totals are \emph{not} evidence of reliably different true difficulties. Scores are judgments, not measurements, completion-time estimates or consensus rankings.
+
+The object ranked is an informative, nondegenerate resolution of the \emph{scoped} scientific target, with the stated budget and validation domain. A sharp useful impossibility result can qualify; an already known identity, vacuous bound, arbitrary favorable model or lookup table cannot. Rank 330 is merely the least difficult relative assessment in this catalogue, not a claim of an easy biological solution. Broad historical titles do not automatically outrank precisely formulated mechanistic tasks.
+
+
+
+\end{document}

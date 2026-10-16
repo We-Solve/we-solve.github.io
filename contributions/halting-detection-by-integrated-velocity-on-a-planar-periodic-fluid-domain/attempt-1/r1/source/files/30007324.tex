@@ -1,0 +1,63 @@
+% OPENAI_CLAIM: {"schema_version":1,"source_repo":"https://github.com/openai/math","source_commit":"adc7f1241b42e322a6451854ab7e4b4c146bf78a","release_date":"2026-10-06","match":"full","resolution":"proved","independently_reviewed":false,"second_pass":"agreed","families":[{"family":"376","title":"Universal computation in forced Navier–Stokes flows","subject":"Partial differential equations","manuscripts":[{"title":"Velocity-Field Detection of Computation in Forced Navier–Stokes Flows","pdf_path":"preprints/Velocity-Field-Detection-of-Computation-in-Forced-Navier-Stokes-Flows-September-27-2026/manuscript.pdf","readme_path":"preprints/Velocity-Field-Detection-of-Computation-in-Forced-Navier-Stokes-Flows-September-27-2026/README.md","date":"2026-09-27","theorem_ref":"thm:main (main.tex:98)","statement_sources":[{"path":"preprints/Velocity-Field-Detection-of-Computation-in-Forced-Navier-Stokes-Flows-September-27-2026/build/main.tex","line":98,"label":"thm:main"}]}],"lean":{"doc_path":"lean/docs/376.md","comparators":["lean/ComparatorChallenges/BalancedBoxRouting.json","lean/ComparatorChallenges/BalancedBoxRouting.lean","lean/ComparatorChallenges/BalancedThreeStack.json","lean/ComparatorChallenges/BalancedThreeStack.lean","lean/ComparatorChallenges/ForcedNavierStokesComputation.json","lean/ComparatorChallenges/ForcedNavierStokesComputation.lean","lean/ComparatorChallenges/NavierStokesAlternating.json","lean/ComparatorChallenges/NavierStokesAlternating.lean","lean/ComparatorChallenges/NavierStokesVelocity.json","lean/ComparatorChallenges/NavierStokesVelocity.lean","lean/ComparatorChallenges/SolenoidalSheetPrograms.json","lean/ComparatorChallenges/SolenoidalSheetPrograms.lean"],"declarations":[],"covers_main_theorem":true},"reasoning_trace":null}]}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem}
+\usepackage{xurl,hyperref,bookmark}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\begin{document}
+\section*{Halting detection by integrated velocity on a planar-periodic fluid domain}
+
+\subsection{OpenAI's claim}
+\textit{Halting read from the velocity field}: The paper claims halting tests based on the third velocity component of a smooth forced Navier--Stokes solution, rather than solely a marked particle. A torus pointwise detector and an integral detector on $\mathbb R^2\times\mathbb T$ are treated separately.
+
+\subsection{Mathematical statement of the claimed result}
+\paragraph{Mathematical claim 1.} For the incompressible system $\partial_tu+(u\cdot\nabla)u=-\nabla p+\nu\Delta u+f$, $\nabla\cdot u=0$, $u(0)=0$, choose viscosity $\nu>0$, whose value is computable. Two effective Eulerian halting detectors are claimed. On the unit torus there is a smooth force, supported in $K\times\mathbb T$ for a time-independent compact $K\subset(0,1)^2$, and a unique global smooth zero-pressure solution for which \[M(w)\text{ halts}\quad\Longleftrightarrow\quad\exists t,x:\ 1/32<x_2<1/8,\ u_3(t,x)>1/2.\] Mixed derivatives are bounded on each finite interval. On $\mathbb R^2\times\mathbb T$ another force has globally bounded mixed derivatives and compact horizontal support on each finite interval, with a unique global smooth zero-pressure solution in $CH^2\cap C^1L^2$, bounded $u,\nabla u$ on finite intervals and $p\in CH^1$. Its third component is nonnegative and integrable, and \[M(w)\text{ halts}\quad\Longleftrightarrow\quad\exists t:\int_{\{x_2>0\}\times\mathbb T}u_3(t,x)\,dx>1/2.\] The observation regions and thresholds are fixed independently of the instance.
+
+\subsection{Outline of the argument}
+\textit{Halting read from the velocity field}: An advection--diffusion equation carries the vertical signal. Successively shorter stirring bursts bound the pointwise diffusion error in the torus construction. In the noncompact variant an expanding collection of translation regions is paired with a moving cutoff, which controls escaped signal mass and gives the integral detector while maintaining bounded mixed derivatives.
+
+\subsection{Scope relative to this problem}
+\textit{Halting read from the velocity field}: This is the integral observer on $\mathbb R^2\times\mathbb T$, using the nonnegative integrable vertical component and a fixed half-plane threshold. Horizontal support need only remain compact on each finite interval, whereas the mixed derivative bounds are global in time.
+
+With the hypotheses and conventions above, the claimed result addresses the whole mathematical assertion on this page.
+
+\subsection{Formal verification}
+Family 376 describes Lean coverage for the selected sheet-program, rapidly decaying particle-detector, velocity-detector, and full-box transport statements described separately in its Comparator files.
+
+\textit{Halting read from the velocity field}: The manuscript links \texttt{BalancedBoxRouting.lean}, \texttt{BalancedThreeStack.lean}, \texttt{ForcedNavierStokesComputation.lean}, \texttt{NavierStokesAlternating.lean}, \texttt{NavierStokesVelocity.lean}, \texttt{SolenoidalSheetPrograms.lean}.
+
+The documented selection includes this manuscript’s main assertion; that assertion retains the restrictions stated above.
+
+This site has not run the Lean development. These links describe OpenAI’s selected formal statements and should be read with their stated scope.
+
+\subsection{Status caveat}
+OpenAI reports that an internal model produced the manuscripts. Their arguments have not been independently verified as proofs by this site. Any portion outside the documented formal scope may contain mistakes, and the catalogue label reports the announced mathematical claim.
+
+\subsection{Sources}
+\begin{itemize}
+\item OpenAI, \emph{Velocity-Field Detection of Computation in Forced Navier–Stokes Flows}, 2026-09-27; citation key \texttt{OAI:Velocity-Field-Detection-of-Computation-in-Forced-Navier-Stokes-Flows-September-27-2026}. \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Velocity-Field-Detection-of-Computation-in-Forced-Navier-Stokes-Flows-September-27-2026/manuscript.pdf}{PDF (GitHub)}; \href{https://github.com/openai/math/raw/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Velocity-Field-Detection-of-Computation-in-Forced-Navier-Stokes-Flows-September-27-2026/manuscript.pdf}{PDF (direct)}; \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Velocity-Field-Detection-of-Computation-in-Forced-Navier-Stokes-Flows-September-27-2026/README.md}{Manuscript page and citation}; \href{https://github.com/openai/math/blob/main/preprints/Velocity-Field-Detection-of-Computation-in-Forced-Navier-Stokes-Flows-September-27-2026/manuscript.pdf}{Latest version}; Statement source: \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Velocity-Field-Detection-of-Computation-in-Forced-Navier-Stokes-Flows-September-27-2026/build/main.tex\#L98}{thm:main}.
+\item Family 376: \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/376.md}{Lean scope}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/BalancedBoxRouting.json}{Comparator BalancedBoxRouting.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/BalancedBoxRouting.lean}{Comparator BalancedBoxRouting.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/BalancedThreeStack.json}{Comparator BalancedThreeStack.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/BalancedThreeStack.lean}{Comparator BalancedThreeStack.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/ForcedNavierStokesComputation.json}{Comparator ForcedNavierStokesComputation.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/ForcedNavierStokesComputation.lean}{Comparator ForcedNavierStokesComputation.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/NavierStokesAlternating.json}{Comparator NavierStokesAlternating.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/NavierStokesAlternating.lean}{Comparator NavierStokesAlternating.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/NavierStokesVelocity.json}{Comparator NavierStokesVelocity.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/NavierStokesVelocity.lean}{Comparator NavierStokesVelocity.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/SolenoidalSheetPrograms.json}{Comparator SolenoidalSheetPrograms.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/SolenoidalSheetPrograms.lean}{Comparator SolenoidalSheetPrograms.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/CONTENTS.md}{OpenAI catalogue entry}.
+\end{itemize}
+\end{document}

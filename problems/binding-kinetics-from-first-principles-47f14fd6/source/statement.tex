@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools,hyperref}
+
+\begin{document}
+\section*{Binding kinetics from first principles}
+\label{prob:083}
+\label{rank:25}
+\par\smallskip
+
+\noindent\textbf{Domain.} Molecular recognition kinetics \quad \textbf{Retained status/source context.} Open transferable quantitative prediction problem; selected first-principles binding reconstructions are already successful.
+\paragraph{Definitions and assumptions.} Fix a receptor, ligand, solvent, membrane if relevant, temperature and ionic strength. Let atomistic or validated coarse dynamics define unbound basin $U$ and bound basin $B$ using structural criteria established before simulation. The dissociation rate $k_{\rm off}$ has units per second; association rate $k_{\rm on}$ has units inverse concentration per second in the dilute regime. The concentration standard state and recrossing treatment are specified. Molecular flexibility and encounter intermediates are included in a finite kinetic model.
+\paragraph{Problem statement.} Predict experimental rates and binding pathways with uncertainty,
+\[k_{\rm off}\simeq(\mathbb{E}\tau_{B\to U})^{-1},\qquad k_{\rm on}=\lim_{c\downarrow0}\frac{1}{c\,\mathbb{E}\tau_{U\to B}(c)},\]
+where first-passage times refer to appropriately equilibrated basins and the asymptotic rate interpretation is explicitly tested. Require log-rate errors $|\log\widehat k-\log k^{\rm assay}|\le\varepsilon$ for a specified held-out ligand series and solvent conditions.
+\paragraph{Additional binding assumptions and resolution criterion.} Define the initial law in each basin and the outer diffusion boundary or reservoir before using first-passage times. Inverse mean residence time is a kinetic rate under the stated renewal or approximately exponential escape regime, not a universal identity. Association depends on concentration conventions, encounter recrossing and finite-volume limits; demonstrate convergence of the dilute limit or retain a finite-concentration operational rate.
+
+\paragraph{Alternative formulations.} (i) In diffusion-limited binding, estimate encounter rates with a radiation boundary accounting for orientational capture. (ii) For conformationally gated recognition, infer pathway-specific transition rates and nonexponential dwell-time distributions. These can share the same equilibrium affinity while having different association and dissociation kinetics.
+\paragraph{Obstructions and partial progress.} Primary studies reconstructed binding processes for selected GPCR ligands and trypsin--benzamidine, so the task is not wholly unachieved. Rare transitions, force-field errors and basin choices can dominate uncertainty, especially for slow dissociation. Equilibrium $K_D=k_{\rm off}/k_{\rm on}$ holds for a simple reversible two-state scheme, not automatically for every multistate assay. The broad supplied collection is background. The retained research target is calibrated transfer and experimentally adequate rate definitions, not exact solution of an arbitrary many-body Hamiltonian.
+\paragraph{Sources (supplied provenance; not all rechecked).}
+\begin{itemize}
+\item BMC Biology, Open questions in biology collection (articles chiefly 2013--2020). \url{https://link.springer.com/collections/eiiddehjgj} (Supplied historical collection; not direct certification of this entry or current openness.)
+\item Dror et al., Pathway and mechanism of drug binding to G-protein-coupled receptors (2011). \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC3156183/} (Atomistic spontaneous-binding trajectories in selected receptors.)
+\item Buch et al., Complete reconstruction of an enzyme-inhibitor binding process by molecular dynamics simulations (2011). \url{https://pubmed.ncbi.nlm.nih.gov/21646537/} (Binding-rate reconstruction for trypsin--benzamidine.)
+\end{itemize}
+
+
+\section*{Binding catalogue conventions}
+This edition revises both supplied catalogues and preserves original problem numbers 1--330. It adds one globally unique label \verb|\label{rank:x}| per problem, where smaller $x$ means greater provisional difficulty. A rank label is an anchor at that problem's section: \verb|\ref{rank:x}| returns the section number, not the literal difficulty number. The visible \texttt{rank:x} text and the index give the difficulty number itself.
+
+The entries are \emph{parameterized mathematical research schemes}, including empirical prediction, causal identification, historical reconstruction, theory and engineering. They are not 330 certified unsolved mathematical conjectures. A rigorous instance fixes the objects and restrictions below; changing those objects changes the question. Established identities, finite calculations, non-identification constructions and solved special cases are not being posed anew as open. Some residual tasks concern informative bounds, biological realization or external validation rather than a new theorem.
+
+Every main definition and problem statement received a mathematical editorial review. Each entry now has an additional binding-conditions paragraph; direct corrections are separately recorded in the accompanying audit. The alternative formulations inherit the applicable conventions, but are different targets unless equivalence is proved. Where an old broad phrase conflicts with an explicit restriction below it, the explicit restriction controls.
+
+\textbf{Literature boundary.} Thirteen selective primary-literature checks cover eighteen entries in this revision; their access levels and scope are recorded explicitly. The supplied bibliography and its earlier source-access descriptions are retained as provenance, not represented as newly verified. Neither this review nor a source's description proves the absence of later solutions. The date of this edition is 13 October 2026; there is no claim of exhaustive current-status certification for all 330 entries.
+
+\subsection*{Binding conventions for a concrete instance}
+\paragraph{Objects, quantifiers and non-vacuity.}
+An instance declares measurable state, input, output and parameter spaces; a fixed candidate family; admissible initial laws, interventions and environments; a finite horizon or specified asymptotic regime; observation and sampling laws; and performance metrics, positive normalization scales and positive tolerances. These are chosen before fitting or testing, not adjusted after seeing failures. Shared parameters must genuinely be shared across the declared validation domain. Finite dimension alone does not restrict arbitrary real-number encodings: specify a finite library, bounded description length, or regularity/complexity bounds. Exclude constant or no-signal solutions through a fixed informative-output or baseline-improvement requirement where appropriate. A universally quantified result cannot be established by choosing one trivial favorable instance.
+
+\paragraph{Probability laws and data.}
+Every expectation or probability refers to the specified stochastic law, including initial uncertainty, process noise, observation noise and sampling as appropriate. A deterministic equation is not a probability model without a declared random input or initial law. ``Observed'' targets in population-level formulas mean population observables $g_j^*$, not noisy estimates asserted to be exact. Let $\widetilde g_j$ be independent validation estimates and suppose
+\[
+\mathbb{P}\{\lvert\widetilde g_j-g_j^*\rvert\le r_j\text{ for every }j\}\ge1-\alpha.
+\]
+Then an uncertainty-aware sufficient certification rule for positive target tolerances $\varepsilon_j$ is
+\[
+\max_j\frac{|\widehat g_j-\widetilde g_j|+r_j}{\varepsilon_j}\le1.
+\]
+On that simultaneous confidence event it implies every population error is at most its tolerance, by the triangle inequality. Vector/norm versions use corresponding valid simultaneous bounds. Training uncertainty must also be included when the claim averages over repeated training data. Evaluation on finitely many conditions does not establish a continuous-domain supremum without covering and regularity bounds.
+
+\paragraph{Dynamics and well-posedness.}
+For ODEs and SDEs give coefficient domains, initial laws and existence/uniqueness conditions in the intended solution sense, or keep the entire admitted solution set. For stochastic jump models specify nonnegative off-diagonal rates, diagonal normalization, rate orientation and non-explosion. For PDEs specify spatial domains, boundary/initial conditions, conservation or source terms, and a weak or classical solution class. Moving-domain concentration equations include dilution/transport terms. A stationary law is used only for a time-homogeneous augmented model under existence assumptions; a stationary approximation to a driven system must be justified. Absorbing extinction states are retained. Survival-conditioned, quasi-stationary and unconditional laws are distinct and must not be substituted for one another.
+
+\paragraph{Identification and causal meaning.}
+Two parameter values are observationally equivalent when they induce the same full distribution under all allowed observation/intervention designs, not merely the same likelihood value for one sample. A target is identified only if constant on the equivalence class. Gauge symmetries, label switching and reference conventions are quotiented or fixed. Finite-data compatible sets use a declared confidence, likelihood or discrepancy rule; an empty set signals model rejection. Bayesian credible sets are not automatically confidence sets. A prior or regularizer does not create data identification. Bounds intended to resolve a question must be informative at a predeclared width or decision threshold.
+
+A causal contrast uses well-defined intervention versions and a stated causal model. Random assignment, or explicit consistency, overlap and exchangeability assumptions, is required for causal interpretation from observations. Interference and time-varying confounding are represented when present. Fixing a mediator by intervention differs from conditioning on its observed value. Marginal potential-outcome laws do not determine individual cross-world effects or an arbitrary joint coupling. Ethically admissible designs, rather than unconstrained interventions, define the experimental menu.
+
+\paragraph{Metrics, units, optimization and limits.}
+Specify the sampling or reference measure for densities and integrals, the log base, and dimensionless arguments of logarithms. Total variation is $\sup_A|P(A)-Q(A)|$; Wasserstein distances require the declared ground metric and appropriate moment conditions; KL divergence uses its stated absolute-continuity convention. All normed readouts are scaled consistently, and error probabilities use $0<\alpha<1$. A ratio has a positive denominator or an explicit undefined/zero convention. Thermodynamic entropy production is nonnegative in expectation under the relevant hypotheses; individual stochastic realizations need not be. An infimum is not an attained minimum without compactness/coercivity and continuity or another existence argument. Fix the order of large-population, long-time and vanishing-mutation limits. Stability claims declare perturbation space and symmetries.
+
+\subsection*{How the provisional difficulty order was assigned}
+Four editorial components are scored from 1 (lower burden) to 5 (higher burden): (a) formal or inferential difficulty, (b) access to evidence and identification burden, (c) mechanistic/computational integration, and (d) independent validation and transfer. Their unweighted total orders the entries. For selected entries in the highest bands, an explicit editorial priority breaks equal totals; all other ties are broken by original problem number. Equal totals are \emph{not} evidence of reliably different true difficulties. Scores are judgments, not measurements, completion-time estimates or consensus rankings.
+
+The object ranked is an informative, nondegenerate resolution of the \emph{scoped} scientific target, with the stated budget and validation domain. A sharp useful impossibility result can qualify; an already known identity, vacuous bound, arbitrary favorable model or lookup table cannot. Rank 330 is merely the least difficult relative assessment in this catalogue, not a claim of an easy biological solution. Broad historical titles do not automatically outrank precisely formulated mechanistic tasks.
+
+
+
+\end{document}

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="10 Lectures and 42 Open Problems — Certifying that matrices are PSD">
+  
+  <title>10 Lectures and 42 Open Problems — Certifying that matrices are PSD · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/problems/10-lectures-and-42-open-problems-certifying-that-matrices-are-psd/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/">Home</a></li><li><a href="/computer-science/">Computer Science</a></li><li><a href="/computer-science/sources/top-open-problems/">Top Open Problems</a></li><li><span aria-current="page">CS-185</span></li></ol></nav>
+    
+    
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">CS-185</span> · <span data-pagefind-filter="Discipline">computer science</span> · <span data-pagefind-filter="Discipline">mathematics</span> · <span data-pagefind-filter="Topic">Computer science</span></p>
+  <span class="visually-hidden">CS-185 · Math-4374</span>
+  <h1 data-pagefind-meta="title">10 Lectures and 42 Open Problems — Certifying that matrices are PSD</h1>
+  
+<p class="status-line"><span class="status-item">Status <strong>Partially solved</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+  
+  <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden" data-pagefind-filter="Completion estimate">0%</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Partially solved</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+</header>
+
+
+
+<section class="statement" aria-labelledby="statement-title">
+  <h2 id="statement-title">Statement</h2>
+  <div class="collapsible" data-collapsible data-more="Show full statement" data-less="Show less">
+    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><h3>Definitions and mathematical statement</h3> <h5>Shared notation.</h5>Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.<p>Let $M\in\mathbb{R}^{n\times n}$ satisfy $M=M^{\mathsf T}$. Positive semidefiniteness means \[
+ M\succeq0\quad\Longleftrightarrow\quad x^{\mathsf T}Mx\ge0\quad\text{for every }x\in\mathbb{R}^n.
+\] Write $\operatorname{nnz}(M)$ for its number of nonzero entries. For a nonsingular matrix the spectral condition number is $\kappa_2(M)=\|M\|_2\|M^{-1}\|_2$; the usual condition number is infinite for a singular matrix. Quasi-linear time allows a fixed power of logarithms times the input sparsity and dimension, for example $O((n+\operatorname{nnz}(M))(\log n)^C)$ when other promised parameters are fixed. A certificate is a checkable witness implying $M\succeq0$; a factorization $M=LL^{\mathsf T}$ is an example. The requested procedure may return no certificate, but every certificate it does return must be correct. On promised positive semidefinite inputs its probability of producing a valid certificate must be bounded below by a positive constant independent of $n$. </p><h5>Statement recorded in the supplied source.</h5> Given a symmetric matrix ${M}$ with small condition number, is there a quasi-linear time (on ${n}$ and the number of non-zero entries of ${M}$ ) procedure that certifies that ${M\succeq 0}$ . More specifically, the procedure can be randomized in the sense that it may, with some probably not certify that ${M\succeq 0}$ even if that is the case, what is important is that it never produces erroneous certificates (and that it has a bounded-away-from-zero probably of succeeding, provided that ${M\succeq 0}$ ). <a href="https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[S2]</a> <h5>Scope qualification.</h5> This is Bandeira's Open Problem 3.2. "Small condition number" is a promise in the source rather than a supplied numerical threshold; exact arithmetic, bit complexity, treatment of singular matrices and the precise conditioning dependence are not fixed there. These conventions must be stated when proposing an algorithm. Allowing a small probability of an incorrect certificate would change the question. The author's displayed 2015 question and 2016 lecture context were inspected on 2026-10-11; no complete modern status audit is claimed. <h5>Source status.</h5> The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.<p></p><h3>Short English statement</h3> Can positive semidefiniteness of a sparse, well-conditioned symmetric matrix be certified in time close to the time needed to read it, with no possibility of a false certificate?<h3>Sources</h3> <ul> <li>S1 Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800302 (AMR-027-0302). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions. <a href="https://huggingface.co/datasets/ulamai/UnsolvedMath" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://huggingface.co/datasets/ulamai/UnsolvedMath</a>. </li><li>S2 AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-0302 <a href="https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/</a>. </li><li>S3 Afonso S. Bandeira, Problem 3.2: Certifying Positive-semidefiniteness, MIT OpenCourseWare (2015). <a href="https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-of-data-science-fall-2015/50f5debad69d631aba2eebba2c0d2a0d_MIT18_S096F15_Open3.2.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-of-data-science-fall-2015/50f5debad69d631aba2eebba2c0d2a0d_MIT18_S096F15_Open3.2.pdf</a>. </li><li>S4 Afonso S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science (2016), Section 3.5, Open Problem 3.2. <a href="https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf#page=54" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf#page=54</a>. </li></ul> <h5>Preparation and review.</h5> Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 2800302 and source code AMR-027-0302 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status. <span class="tex-label" data-tex-label="end:2800302" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-6a6f099e95da525b9ee9e7e92924992f" tabindex="-1"></span></div>
+  </div>
+  
+  
+  <p class="small"><a href="https://www.unsolvedmath.com/problems/AMR-027-0302" rel="noopener noreferrer">Catalogue entry</a></p>
+  <p class="small muted">Statement licence: CC-BY-4.0 · <a href="/problems/10-lectures-and-42-open-problems-certifying-that-matrices-are-psd/source/statement.tex" download>Source file</a></p>
+</section>
+
+
+
+<section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-2800302-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/10-lectures-and-42-open-problems-certifying-that-matrices-are-psd/attempt-1/r1/">CS-185-A1</a> · Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-11">2026-10-11</time></p>
+    <h3><a href="/contributions/10-lectures-and-42-open-problems-certifying-that-matrices-are-psd/attempt-1/r1/">gpt 6 astra ultra attempt on CS-185</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Zero-error PSD certification: two elementary routes and their obstructions</h2><h3>Definitions and mathematical statement</h3> <h5>Shared notation.</h5>Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.<p>Let $M\in\mathbb{R}^{n\times n}$ satisfy $M=M^{\mathsf T}$. Positive semidefiniteness means \[
+ M\succeq0\quad\Longleftrightarrow\quad x^{\mathsf T}Mx\ge0\quad\text{for every }x\in\mathbb{R}^n.
+\] Write $\operatorname{nnz}(M)$ for its number of nonzero entries. For a nonsingular matrix the spectral condition number is $\kappa_2(M)=\|M\|_2\|M^{-1}\|_2$; the usual condition number is infinite for a singular matrix. Quasi-linear time allows a fixed power of logarithms times the input sparsity and dimension, for example $O((n+\operatorname{nnz}(M))(\log n)^C)$ when other promised parameters are fixed. A certificate is a checkable witness implying $M\succeq0$; a factorization $M=LL^{\mathsf T}$ is an example. The requested procedure may return no certificate, but every certificate it does return must be correct. On promised positive semidefinite inputs its probability of producing a valid certificate must be bounded below by a positive constant independent of $n$. </p><h5>Statement recorded in the supplied source.</h5> Given a symmetric matrix ${M}$ with small condition number, is there a quasi-linear time (on ${n}$ and the number of non-zero entries of ${M}$ ) procedure that certifies that ${M\succeq 0}$ . More specifically, the procedure can be randomized in the sense that it may, with some probably not certify that ${M\succeq 0}$ even if that is the case, what is important is that it never produces erroneous certificates (and that it has a bounded-away-from-zero probably of succeeding, provided that ${M\succeq 0}$ ). <a href="https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[S2]</a> <h5>Scope qualification.</h5> This is Bandeira's Open Problem 3.2. "Small condition number" is a promise in the source rather than a supplied numerical threshold; exact arithmetic, bit complexity, treatment of singular matrices and the precise conditioning dependence are not fixed there. These conventions must be stated when proposing an algorithm. Allowing a small probability of an incorrect certificate would change the question. The author's displayed 2015 question and 2016 lecture context were inspected on 2026-10-11; no complete modern status audit is claimed. <h5>Source status.</h5> The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.<p></p><h3>Short English statement</h3> Can positive semidefiniteness of a sparse, well-conditioned symmetric matrix be certified in time close to the time needed to read it, with no possibility of a false certificate?<h3>Sources</h3> <ul> <li>S1 Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800302 (AMR-027-0302). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions. <a href="https://huggingface.co/datasets/ulamai/UnsolvedMath" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://huggingface.co/datasets/ulamai/UnsolvedMath</a>. </li><li>S2 AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-0302 <a href="https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/</a>. </li><li>S3 Afonso S. Bandeira, Problem 3.2: Certifying Positive-semidefiniteness, MIT OpenCourseWare $2015$. <a href="https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-of-data-science-fall-2015/50f5debad69d631aba2eebba2c0d2a0d_MIT18_S096F15_Open3.2.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-of-data-science-fall-2015/50f5debad69d631aba2eebba2c0d2a0d_MIT18_S096F15_Open3.2.pdf</a>. </li><li>S4 Afonso S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science $2016$, Section 3.5, Open Problem 3.2. <a href="https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf#page=54" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf#page=54</a>. </li></ul><h3>Verbatim supplied catalogue question</h3> Given a symmetric matrix ${M}$ with small condition number, is there a quasi-linear time (on ${n}$ and the number of non-zero entries of ${M}$ ) procedure that certifies that ${M\succeq 0}$ . More specifically, the procedure can be randomized in the sense that it may, with some probably not certify that ${M\succeq 0}$ even if that is the case, what is important is that it never produces erroneous certificates (and that it has a bounded-away-from-zero probably of succeeding, provided that ${M\succeq 0}$ ).<h2>Attempt and results</h2> We use exact real arithmetic for the following tests. Their arithmetic counts are not bit-complexity claims. The input is the entire symmetric matrix, not merely a matrix-vector oracle. The source does not specify a condition-number threshold; the failed example below has spectral condition number exactly three.<h5>A sound sparse certificate.</h5> If $M_{ii}\ge\sum_{j\ne i}|M_{ij}|$ for every $i$, then $M\succeq0$. Indeed, for every real $x$, \[
+x^TMx\ge\sum_i M_{ii}x_i^2-\sum_{i&lt;j}|M_{ij}|(x_i^2+x_j^2)
+=\sum_i\left(M_{ii}-\sum_{j\ne i}|M_{ij}|\right)x_i^2\ge0.
+\] The inequalities follow from $2|x_ix_j|\le x_i^2+x_j^2$. Computing the row sums requires $O(n+\operatorname{nnz}(M))$ arithmetic operations. On inputs passing these explicit inequalities the success probability is one, and there are no false certificates. This is the standard diagonal dominance test, rederived here, not a new general certifier.<h5>Well-conditioned positive matrices missed by that test.</h5> Let $n=2^r\ge16$ and recursively define $H_1=(1)$ and $H_{2m}=\left(\begin{smallmatrix}H_m&amp;H_m\\H_m&amp;-H_m\end{smallmatrix}\right)$. Induction gives $H_n^T=H_n$ and $H_n^2=nI$. Thus $M=I+H_n/(2\sqrt n)$ has eigenvalues in $\{1/2,3/2\}$. Both signs occur for $n\ge2$: the recursion gives trace zero, so a symmetric matrix with square $nI$ cannot have all eigenvalues of one sign. Consequently $M\succ0$ and $\kappa_2(M)=3$. Every off-diagonal absolute row sum is $(n-1)/(2\sqrt n)$, whereas $M_{ii}\le1+1/(2\sqrt n)$. Since $n-2&gt;2\sqrt n$ for $n\ge16$, every row fails the certificate. Small condition number therefore does not supply the missing success guarantee for this particular test.<h5>Why finitely many quadratic-form probes do not certify a matrix.</h5> Consider a deterministic adaptive algorithm that only queries $v^TMv$ and makes $q&lt;n$ queries. Run it on $I$, and let $V$ be the span of the queried vectors. Choose a unit $u\perp V$ and set $B=I-2uu^T$. Every query answer on $B$ is the same as on $I$. Induction on the query index gives the same adaptive transcript and output. But $Bu=-u$ and $Bw=w$ for $w\perp u$, so $B$ is indefinite for $n\ge2$ and has singular-value condition number one. Any algorithm accepting this transcript is unsound. The conclusion concerns this restricted deterministic oracle model; the input-dependent choice of $u$ does not prove a lower bound for randomized algorithms on a fixed matrix, and does not prevent an algorithm from reading all entries.<h2>Context, audit, and remaining scope</h2> Bandeira's primary lecture notes, Open Problem 3.2, were consulted on 11 October 2026. The one-sided correctness requirement is retained exactly. The computations above give a complete special-case certificate and explicit obstructions to two attempted extensions. They are elementary known mechanisms; no novelty or general complexity lower bound is asserted. The adversarial audit checked equality in the row-sum condition, the singular boundary, the Hadamard trace, and adaptivity of the oracle argument. The source allows a certificate to fail on a given run, but demands a dimension-independent success probability on every promised PSD input. No such guarantee is proved. No numerical experiments or theorem prover were used for this record.<h2>Process and contributions</h2> Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted. Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP_PROBLEM and is separate from this attempt status. <h5>Integration review.</h5> Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.<h2>Completion Estimate</h2> <strong>COMPLETION: 0%</strong> The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A zero-error quasi-linear algorithm succeeding with fixed positive probability on every well-conditioned PSD input is not obtained; arithmetic and conditioning promises also require specification. <h2>References</h2> The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked. <ul> <li>Afonso S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science $2016$, Open Problem 3.2; primary formulation inspected. <a href="https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf</a>. </li></ul> <h2>Final status</h2> <strong>Unresolved in this attempt.</strong> A zero-error quasi-linear algorithm succeeding with fixed positive probability on every well-conditioned PSD input is not obtained; arithmetic and conditioning promises also require specification.</div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/10-lectures-and-42-open-problems-certifying-that-matrices-are-psd/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
+  
+  
+</section>
+
+
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
+<section id="contribute"><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+</section>
+
+<details class="record-details" data-pagefind-ignore><summary>Record details</summary>
+  <dl class="metadata">
+    <dt>Subjects</dt><dd>Computer science</dd>
+    <dt>Collection</dt><dd>Top Open Problems</dd>
+    <dt>Computer Science rank</dt><dd>185</dd><dt>Mathematics rank</dt><dd>4374</dd>
+    <dt>UnsolvedMath</dt><dd><a href="https://www.unsolvedmath.com/problems/AMR-027-0302" rel="noopener noreferrer nofollow ugc" referrerpolicy="no-referrer">Catalogue entry</a></dd>
+    
+    
+  </dl>
+</details>
+</aside>
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

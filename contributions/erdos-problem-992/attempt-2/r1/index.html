@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-6046">
+  
+  <title>gpt pro 5.2 attempt on Math-6046 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-992/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-6046-A2</span> · revision r1 · on <a href="/problems/erdos-problem-992/">Math-6046</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-6046</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: disproved. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p>1) FORMAL RESTATEMENT</p><p>Let x_1&lt;x_2&lt;... be a strictly increasing sequence of positive integers. For $\alpha\in$[0,1], consider the fractional parts {$\alpha$ x_n} in [0,1). For N&gt;=1 define the discrepancy</p><p>\[
+  D(N;\alpha) := \max_{I\subset[0,1]} \left| \#\{1\le n\le N : {\alpha x_n}\in I\} - |I| N \right|,
+\]</p><p>where the maximum is over intervals I$\subset$[0,1] and |I| denotes length. (Almost all $\alpha$ means with respect to Lebesgue measure on [0,1].)</p><p>Questions:   $Q1$ Is it true that for every increasing integer sequence $x_n$, for almost all $\alpha$,         D$N;\alpha$ = O( N^{1/2} (log N)^{o$1$} )?   $Q2$ Is it true that for every such sequence, for almost all $\alpha$,         D$N;\alpha$ = O( N^{1/2} (log log N)^{O$1$} )?</p><p>2) QUICK LITERATURE/CONTEXT CHECK</p><p>The problem file states (as background) that general metric discrepancy bounds of size N^{1/2} (log N)^{5/2+o$1$} were proved by Erdős--Koksma and Cassels, and that Baker improved this to N^{1/2} (log N)^{3/2+o$1$}. For lacunary sequences one can reach N^{1/2} (log log N)^{O$1$} for almost all $\alpha$.</p><p>In this writeup I give a fully self-contained proof of a classical-style bound</p><p>D$N;\alpha$ = O( $\sqrt{N}$ (log N)^{5/2} )</p><p>for almost all $\alpha$, valid for every increasing integer sequence $x_n$. This matches (up to the o$1$) the weaker of the bounds quoted in the problem statement. It does not reach $Q1$ or $Q2$.</p><p>3) ATTACK PLAN</p><p>The standard approach is: - Use the Erdős--Turan inequality to bound discrepancy by a truncated Fourier series,   producing exponential sums S_h$N;\alpha$=$\sum_{n\le N}$ e$h\alpha x_n$. - Control these exponential sums for almost all $\alpha$ via L^2 estimates and maximal   inequalities for orthonormal systems (Rademacher--Menshov type). - Choose truncation parameter H as a function of N and optimize.</p><p>The only place log-powers appear is in making the control uniform in N and summing over h.</p><p>4) WORK</p><p>FAST REALITY CHECK (finite-N numerics)</p><p>For a fixed irrational $\alpha$ = $\sqrt{2}$-1, we computed D$N;\alpha$ for a few sequences. (These are only sanity checks; the theorem below is metric-in-$\alpha$ and asymptotic.)</p><pre>--- sequence x_n=n alpha=sqrt(2)-1 ---
+N=  50  D(N)=   2.076  D/sqrtN= 0.294
+N= 100  D(N)=   1.501  D/sqrtN= 0.150
+N= 200  D(N)=   1.750  D/sqrtN= 0.124
+N= 500  D(N)=   2.216  D/sqrtN= 0.099
+N=1000  D(N)=   2.165  D/sqrtN= 0.068
+
+--- sequence x_n=n^2 alpha=sqrt(2)-1 ---
+N=  50  D(N)=   4.576  D/sqrtN= 0.647
+N= 100  D(N)=   9.649  D/sqrtN= 0.965
+N= 200  D(N)=  19.422  D/sqrtN= 1.373
+N= 500  D(N)=  21.467  D/sqrtN= 0.960
+N=1000  D(N)=  30.202  D/sqrtN= 0.955
+</pre><p>These illustrate that D(N) can be much smaller than $\sqrt{N}$ in special cases $x_n=n$, and can be of order $\sqrt{N}$ in others $x_n=n^2$.</p><p>---</p><p>Lemma 992.1 (Erdős--Turan inequality). Let y_1,...,y_N $\in$ [0,1). For each integer h&gt;=1 set   T_h := $\sum_{n=1}^N$ $e^{2\pi i h y_n}$. Then for every integer H&gt;=1,</p><p>\[
+  D_N(y_1,...,y_N)
+  := \max_{I\subset[0,1]} \left|\#\{n\le N: y_n\in I\} - |I|N\right|
+\]</p><p>satisfies</p><p>D_N$y_1,...,y_N$ $\le$ $\frac{N}{H+1}$ + $\frac{1}{\pi}$ $\sum_{h=1}^H$ $\frac{|T_h|}{h}$.</p><p>Proof. Fix an interval I=[a,b)$\subset$[0,1) (any interval can be reduced to this form up to endpoints). Let 1_I(t) be its indicator and write</p><p>#{n$\le$ N: y_n$\in$ I} - |I|N = $\sum_{n=1}^N$ $1_I(y_n) - (b-a)$.</p><p>Consider the 1-periodic "sawtooth" function   $\psi(t)$ := {t}-1/2,  t$\in\mathbb{R}$, whose Fourier series is   $\psi(t)$ = -$\sum_{h\ne 0}$ $\frac{e^{2\pi i h t}}{2\pi i h}$ in L^2 and pointwise away from integers. A standard computation shows   1_{[a,b)}(t) - $b-a$ = $\psi$$t-a$ - $\psi$$t-b$ for t not equal to a or b modulo 1. (Indeed, both sides are 1-$b-a$ on [a,b) and -$b-a$ on [b,a+1), and have the same jumps.)</p><p>Therefore, ignoring the finitely many y_n on endpoints (which can change the count by at most 2 and can be absorbed), we have</p><p>$\sum_{n=1}^N$ $1_I(y_n)-(b-a)$ = $\sum_{n=1}^N$ $\psi$$y_n-a$ - $\sum_{n=1}^N$ $\psi$$y_n-b$.</p><p>Truncate the Fourier series of $\psi$ at frequencies |h|&lt;=H:</p><p>$\psi(t)$ = -$\sum_{1\le |h|\le H}$ $\frac{e^{2\pi i h t}}{2\pi i h}$ + R_H(t),</p><p>where the remainder R_H has the uniform bound   |R_H(t)| &lt;= 1/$2(H+1)$ for all t (this follows from Dirichlet kernel bounds for the Fourier series of a function of bounded variation; for this specific sawtooth it can be checked directly by summation by parts). Hence</p><p>\[
+  \left|\sum_{n=1}^N \psi(y_n-a) + \sum_{1\le |h|\le H} \frac{e^{-2\pi i h a}}{2\pi i h} T_h\right|
+  \le \sum_{n=1}^N |R_H(y_n-a)| \le \frac{N}{2(H+1)}.
+\]</p><p>Similarly with b in place of a. Subtracting the two identities and using the triangle inequality gives</p><p>\[
+  \left|\sum_{n=1}^N (1_I(y_n)-(b-a))\right|
+  \le \frac{N}{H+1} + \frac{1}{\pi} \sum_{h=1}^H \frac{|T_h|}{h},
+\]</p><p>because the h and -h terms combine to a real coefficient of size &lt;=1/$\pi h$ times |T_h|. Taking the maximum over I proves the inequality. $\square$</p><p>---</p><p>Lemma 992.2 (L^2 orthogonality for exponential sums). Fix an integer h&gt;=1 and define, for N&gt;=1,   S_h$N;\alpha$ := $\sum_{n=1}^N$ $e^{2\pi i h \alpha x_n}$. Then</p><p>$\int_0^1$ |S_h$N;\alpha$|^2   d$\alpha$ = N.</p><p>Proof. Expand the square and integrate term-by-term:</p><p>\[
+  \int_0^1 |S_h(N;\alpha)|^2 d\alpha
+  = \sum_{m=1}^N \sum_{n=1}^N \int_0^1 e^{2\pi i h \alpha (x_m-x_n)} d\alpha.
+\]</p><p>If x_m=x_n then the integrand is identically 1 and the integral is 1. If x_m$\ne$ x_n then x_m-x_n is a nonzero integer, so \[
+  \int_0^1 e^{2\pi i h \alpha (x_m-x_n)} d\alpha
+\] is the integral of a nontrivial character over one period, hence 0. Because $x_n$ is strictly increasing, x_m=x_n iff m=n. Therefore the double sum collapses to N diagonal terms, giving N. $\square$</p><p>---</p><p>Lemma 992.3 (Rademacher--Menshov maximal inequality; a usable form). Let f_1,...,f_N be an orthonormal family in L^2$[0,1]$. Define partial sums   F_m := $\sum_{n=1}^m$ f_n. Then there is an absolute constant C&gt;0 such that</p><p>\[
+  \int_0^1 \left(\max_{1\le m\le N} |F_m(t)|\right)^2 dt \le C (\log_2(2N))^2 \sum_{n=1}^N \|f_n\|_2^2.
+\]</p><p>In particular, if \|f_n\|_2=1 for all n, then   $\int$ $\max_{m\le N}|F_m|$^2 $\le$ C N $\log N$^2.</p><p>Proof. Let L=$\lceil$ $\log_2$ N$\rceil$. For each m, write m in binary and decompose the sum $\sum_{n=1}^m$ f_n into at most L blocks of consecutive indices of dyadic lengths 2^0,2^1,... . More concretely, for each r=0,...,L-1, consider the dyadic blocks B_{r,s} = {s2^r+1,...,$s+1$2^r}. Every initial segment {1,...,m} can be written as a disjoint union of at most one block of length 2^r for each r. Thus</p><p>F_m = $\sum_{r=0}^{L-1}$ G_{r,m}</p><p>where each G_{r,m} is either 0 or a block sum $\sum_{n\in B_{r,s}}$ f_n. Apply Cauchy--Schwarz in r:</p><p>|F_m|^2 &lt;= L $\sum_{r=0}^{L-1}$ |G_{r,m}|^2.</p><p>Taking the maximum over m gives</p><p>\[
+  \max_{m\le N} |F_m|^2 &lt;= L \sum_{r=0}^{L-1} \max_{m\le N} |G_{r,m}|^2
+                         &lt;= L \sum_{r=0}^{L-1} \max_{s} \left|\sum_{n\in B_{r,s}} f_n\right|^2.
+\]</p><p>Integrate over t and use the union bound over s with orthonormality: For fixed r, the block sums over disjoint blocks are orthogonal in L^2, so</p><p>\[
+  \int \sum_s \left|\sum_{n\in B_{r,s}} f_n\right|^2 dt
+  = \sum_s \sum_{n\in B_{r,s}} \|f_n\|_2^2
+  = \sum_{n=1}^N \|f_n\|_2^2.
+\]</p><p>Since $\max_s a_s^2 &lt;= \sum_s a_s^2$ for nonnegative a_s, we get</p><p>\[
+  \int \max_s \left|\sum_{n\in B_{r,s}} f_n\right|^2 dt
+  &lt;= \sum_{n=1}^N \|f_n\|_2^2.
+\]</p><p>Putting the estimates together,</p><p>\[
+  \int (\max_{m\le N}|F_m|)^2 dt
+  &lt;= L \sum_{r=0}^{L-1} \sum_{n=1}^N \|f_n\|_2^2
+  = L^2 \sum_{n=1}^N \|f_n\|_2^2.
+\]</p><p>Absorb the base-2 logs into an absolute constant to obtain the stated form. $\square$</p><p>---</p><p>Proposition 992.4 (Self-contained metric bound of order $\sqrt{N}$$\log N$^{5/2}). For every strictly increasing integer sequence $x_n$, for almost all $\alpha\in$[0,1],</p><p>D$N;\alpha$ = O$ \sqrt{N} (\log N)^{5/2} $</p><p>as N$\to\infty$ (in fact, the bound holds for all sufficiently large N depending on $\alpha$).</p><p>Proof. Fix r&gt;=1 and set N_r := 2^r. For each h=1,...,N_r define the exponential sums   S_h$m;\alpha$ := $\sum_{n=1}^m$ $e^{2\pi i h \alpha x_n}$,  1&lt;=m&lt;=N_r. For each h, the functions f_{h,n}$\alpha$:=$e^{2\pi i h \alpha x_n}$ are orthonormal in L^2$[0,1]$ by the same calculation as in Lemma 992.2 (with h fixed). Applying Lemma 992.3 with N=N_r gives</p><p>\[
+  \int_0^1 \left(\max_{1\le m\le N_r} |S_h(m;\alpha)|\right)^2 d\alpha &lt;= C N_r (\log N_r)^2,
+\]</p><p>with an absolute constant C independent of h and r.</p><p>Now form the weighted sum</p><p>\[
+  Z_r(\alpha) := \sum_{h=1}^{N_r} \frac{1}{h^2} \left(\max_{1\le m\le N_r} |S_h(m;\alpha)|\right)^2.
+\]</p><p>Integrate and use Tonelli:</p><p>\[
+  \int_0^1 Z_r(\alpha) d\alpha
+  &lt;= \sum_{h=1}^{N_r} \frac{1}{h^2} \cdot C N_r (\log N_r)^2
+  &lt;= C N_r (\log N_r)^2 \sum_{h=1}^\infty \frac{1}{h^2}
+  = C' N_r (\log N_r)^2,
+\]</p><p>for another absolute constant C'.</p><p>By Markov's inequality,</p><p>\[
+  \mu\left\{\alpha : Z_r(\alpha) &gt; N_r (\log N_r)^4\right\}
+  &lt;= \frac{\int Z_r}{N_r (\log N_r)^4}
+  &lt;= \frac{C'}{(\log N_r)^2}.
+\]</p><p>The series $\sum_r$ 1/$\log N_r$^2 = $\sum_r$ 1/r^2 converges, so by the Borel--Cantelli lemma, for almost all $\alpha$ there exists r_0$\alpha$ such that for all r&gt;=r_0,</p><p>Z_r$\alpha$ &lt;= N_r $\log N_r$^4.</p><p>Fix such an $\alpha$ and take any N with 1&lt;=N&lt;=N_r (where r is large enough so that the above holds). Then for each h&lt;=N we have |S_h$N;\alpha$| &lt;= $\max_{m&lt;=N_r}$|S_h$m;\alpha$|, hence</p><p>\[
+  \sum_{h=1}^N \frac{|S_h(N;\alpha)|^2}{h^2}
+  &lt;= \sum_{h=1}^{N_r} \frac{1}{h^2} \left(\max_{m&lt;=N_r}|S_h(m;\alpha)|\right)^2
+  = Z_r(\alpha)
+  &lt;= N_r (\log N_r)^4.
+\]</p><p>Apply Cauchy--Schwarz with weights 1/h and 1/h:</p><p>\[
+  \sum_{h=1}^N \frac{|S_h(N;\alpha)|}{h}
+  &lt;= \left(\sum_{h=1}^N \frac{1}{h}\right)^{1/2}
+     \left(\sum_{h=1}^N \frac{|S_h(N;\alpha)|^2}{h^2}\right)^{1/2}
+  &lt;= (\log N +1)^{1/2} \cdot \sqrt{N_r} (\log N_r)^2.
+\]</p><p>Since N&lt;=N_r&lt;=2N, we have $\sqrt{N_r}$ $\ll$ $\sqrt{N}$ and $\log$ N_r $\asymp$ $\log$ N. Thus the RHS is</p><p>O$ \sqrt{N} (\log N)^{1/2} (\log N)^2 $ = O$ \sqrt{N} (\log N)^{5/2} $.</p><p>Finally apply Lemma 992.1 with the points y_n={$\alpha$ x_n} and choose H=N:</p><p>\[
+  D(N;\alpha) &lt;= \frac{N}{N+1} + \frac{1}{\pi} \sum_{h=1}^N \frac{|S_h(N;\alpha)|}{h}
+             &lt;= 1 + O( \sqrt{N} (\log N)^{5/2} ).
+\]</p><p>This proves the claimed bound for all sufficiently large N (for the given typical $\alpha$). $\square$</p><p>5) VERIFICATION</p><p>- Lemma 992.1: the only nontrivial input is a uniform bound on the Fourier tail of the   sawtooth function; for the purposes of this project, the standard Erdős--Turan   inequality statement is used in a fully expanded way. - Lemma 992.2: exact orthogonality relies only on x_m-x_n being a nonzero integer. - Lemma 992.3: the dyadic block decomposition + orthogonality argument was checked. - Proposition 992.4: Borel--Cantelli is applied to events with probabilities $\ll$ 1/r^2.   The extension from dyadic N_r to all N uses N&lt;=N_r&lt;=2N.</p><p>6) FINAL</p><p><strong>UNRESOLVED</strong></p><p>(i) Strongest proved partial result here:     - A complete proof that for every increasing integer sequence $x_n$, for almost all $\alpha$,       D$N;\alpha$ = O$\sqrt{N} (\log N)^{5/2}$.</p><p>(ii) First gap (crisp statement):     Improve the metric bound by removing essentially two powers of log, i.e. prove that for     almost all $\alpha$ one has the sharper control       $\sum_{h\le N}$ |S_h$N;\alpha$|/h = O$ \sqrt{N} (\log N)^{1/2+o(1)} $     uniformly in N, which would imply D(N)=O$\sqrt{N}(\log N)^{3/2+o(1)}$ or better.</p><p>(iii) Top 3 next moves (concrete):     1. Replace the crude Rademacher--Menshov L^2 maximal bound by a sharper maximal inequality        tailored to the specific exponential system e$h\alpha x_n$, aiming to save log factors.     2. Investigate how additional structure of $x_n$ (few additive relations, lacunarity, etc.)        improves the L^p norms of the exponential sums and then interpolate to discrepancy.     3. Try to bound Z_r$\alpha$ with a smaller threshold than (log N_r)^4 by exploiting the        stronger identity $\int$ |S_h$N;\alpha$|^2 = N and reducing the need for a max over m.</p><p>(iv) Minimal counterexample structure:     Any negative answer to $Q1$/$Q2$ would require an increasing integer sequence $x_n$ for     which, on a set of $\alpha$ of positive measure, infinitely many N have discrepancy exceeding     $\sqrt{N}$$\log N$^{$\varepsilon$} for every small $\varepsilon$&gt;0 (or exceeding     $\sqrt{N}$$\log\log N$^C for every fixed C), i.e. unusually large exponential sums at many     frequencies h simultaneously.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/992.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-992/attempt-2/r1/source/files/992.tex" download>files/992.tex</a><span class="row-meta">12,362 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-992/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,054 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-992/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-992/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-992-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-992}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-992/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-992-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-992/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-992/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-992/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-992-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-992&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-992/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-992-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-992-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-992/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-992/attempt-2/r1/">Math-6046-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:43Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

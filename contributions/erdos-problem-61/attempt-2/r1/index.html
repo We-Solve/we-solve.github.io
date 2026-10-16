@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt 5.2 attempt on Math-5401">
+  
+  <title>gpt 5.2 attempt on Math-5401 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-61/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-5401-A2</span> · revision r1 · on <a href="/problems/erdos-problem-61/">Math-5401</a></p>
+  <h1 data-pagefind-meta="title">gpt 5.2 attempt on Math-5401</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-5-2/" data-pagefind-filter="Model">gpt 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p>OUTPUT 1) FORMAL RESTATEMENT Definitions/Conventions. - $H$ is a fixed finite graph. - A graph $G$ <em>contains $H$ as an induced subgraph</em> if there exists an injective map $\varphi:V(H)\to V(G)$ such that   $uv\in E(H)$ iff $\varphi(u)\varphi(v)\in E(G)$ (edges and non-edges both preserved). - $\omega(G)$ is the clique number of $G$ and $\alpha(G)$ is the independence number of $G$.</p><p>Conjecture (Erdős--Hajnal). For every fixed graph $H$, does there exist $c(H)&gt;0$ such that every $n$-vertex graph $G$ with no induced copy of $H$ satisfies \[\max(\omega(G),\alpha(G))\ge n^{c(H)}?\]</p><p>2) QUICK LITERATURE/CONTEXT CHECK Web browsing is not available in this session. From the problem text only: - Erdős--Hajnal proved $\max(\omega(G),\alpha(G))\ge \exp(c_H\sqrt{\log n})$ for induced-$H$-free graphs. - BNSS23 improved this to $\exp(c_H\sqrt{\log n\log\log n})$. I do not re-derive these results here.</p><p>3) ATTACK PLAN Proof track ideas: 1. Prove the conjecture for special graphs $H$ (paths, stars, small graphs) by structural decomposition of induced-$H$-free graphs. 2. For general $H$, attempt to find a large "homogeneous" (clique/independent) set via iterative splitting, using the forbidden induced pattern. 3. Explore whether the known $\exp(\sqrt{\log n})$ bound can be upgraded to a polynomial bound for some nontrivial families of $H$.</p><p>Disproof track ideas: 1. Attempt to construct induced-$H$-free graphs with both $\omega(G)$ and $\alpha(G)$ as small as possible (Ramsey-type constructions). 2. If one can make both $\omega,\alpha$ smaller than any power $n^c$, that would refute the conjecture for that $H$.</p><p>Chosen path in this attempt: give a fully proved special-case verification for $H=P_3$ (the 3-vertex path), illustrating the mechanism and yielding an explicit exponent $c(H)=1/2$.</p><p>4) WORK Let $P_3$ denote the path on three vertices (two edges in a chain).</p><p>Lemma 1 (Induced-$P_3$-free graphs are disjoint unions of cliques). Let $G$ be a finite graph with no induced subgraph isomorphic to $P_3$. Then every connected component of $G$ is a clique, i.e. $G$ is a disjoint union of complete graphs.</p><p>Proof. Let $C$ be a connected component of $G$. Suppose for contradiction that $C$ is not a clique. Then there exist two vertices $x,y\in V(C)$ that are not adjacent. Since $C$ is connected, there is a path from $x$ to $y$; choose such a path of minimal length: \[x=v_0,v_1,\dots,v_\ell=y,\qquad \ell\ge 2.\] By minimality, $v_0$ is not adjacent to $v_2$ (otherwise $v_0,v_2,\dots,v_\ell$ would be a shorter $x$--$y$ path). Also $v_0$ is adjacent to $v_1$ and $v_1$ is adjacent to $v_2$ by definition of a path. Therefore the induced subgraph on $\{v_0,v_1,v_2\}$ has edges $v_0v_1$ and $v_1v_2$ but not $v_0v_2$, i.e. it is an induced $P_3$. This contradicts the hypothesis. Hence every connected component is a clique. $\square$</p><p>Lemma 2 (Erdős--Hajnal holds for $H=P_3$ with exponent $1/2$). If $G$ is an $n$-vertex graph with no induced $P_3$, then \[\max(\omega(G),\alpha(G))\ge \sqrt{n}.\]</p><p>Proof. By Lemma 1, $G$ is a disjoint union of cliques with vertex-partition sizes $s_1,\dots,s_t$ where $\sum_{i=1}^t s_i=n$. Then $\omega(G)=\max_i s_i$. Also one can form an independent set by picking one vertex from each clique, so $\alpha(G)\ge t$. Let $M:=\max_i s_i$. Then $n=\sum s_i \le t\cdot M$, hence $t\ge n/M$. Therefore \[\max(\omega(G),\alpha(G))\ \ge\ \max(M,n/M)\ \ge\ \sqrt{n},\] since for any $M&gt;0$ one has $\max(M,n/M)\ge \sqrt n$ (e.g. by AM--GM). $\square$</p><p>FAST REALITY CHECK (tightness for $H=P_3$). Take $n=t^2$ and let $G$ be the disjoint union of $t$ cliques each of size $t$. Then $G$ is induced-$P_3$-free, and $\omega(G)=t$ while $\alpha(G)=t$. Thus $\max(\omega(G),\alpha(G))=\sqrt n$, showing Lemma 2 is tight (up to rounding) and giving the sharp exponent $c(P_3)=1/2$.</p><p>5) VERIFICATION - Lemma 1: the key step is that a shortest path $v_0v_1v_2\dots$ forces $v_0$ nonadjacent to $v_2$, yielding an induced $P_3$. - Lemma 2: uses only the clique-decomposition from Lemma 1 and a clean pigeonhole bound $n\le t\cdot \max s_i$.</p><p>6) FINAL <strong>UNRESOLVED</strong></p><p>(i) Strongest fully proved partial result: The Erdős--Hajnal conclusion holds for $H=P_3$ with the explicit exponent $c(P_3)=1/2$ (Lemmas 1--2), and this exponent is best possible for $P_3$.</p><p>(ii) First gap: Extend beyond the $P_3$ case to a general graph $H$, where induced-$H$-free graphs need not have such a rigid structural decomposition.</p><p>(iii) Top 3 next moves (concrete): 1. Prove the conjecture for the next simplest forbidden induced subgraphs (e.g. $P_4$, $C_5$, small stars), seeking structural decompositions analogous to Lemma 1. 2. For a fixed $H$, attempt an explicit recursive argument that either finds a large homogeneous set or splits $V(G)$ into large parts with controlled edge densities, iterating to get a polynomial bound. 3. Identify candidate extremal constructions for a given $H$ (graphs with small $\omega$ and $\alpha$) and check whether they necessarily contain induced copies of $H$.</p><p>(iv) What a minimal counterexample would likely look like (structure/parameters): For some fixed $H$, a family of induced-$H$-free graphs $G_n$ with $|V(G_n)|=n\to\infty$ such that $\omega(G_n)$ and $\alpha(G_n)$ are both $n^{o(1)}$ (subpolynomial), contradicting the existence of any $c(H)&gt;0$.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_5.2/61.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-61/attempt-2/r1/source/files/61.tex" download>files/61.tex</a><span class="row-meta">5,332 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-61/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,035 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-61/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-61/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-61-A2-r1,
+  title = {{gpt 5.2 attempt on ERDOS-61}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-61/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-61-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-61/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-61/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-61/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-61-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt 5.2 attempt on ERDOS-61&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-61/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-61-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-61-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-61/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-61/attempt-2/r1/">Math-5401-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:37Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

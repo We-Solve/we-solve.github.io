@@ -1,0 +1,49 @@
+Let (n\in\mathbb{N}) and (\alpha\in[0,1/2]). Consider the complete simple graph (K_n) on vertex set ([n]={1,2,\dots,n}). A **2‑colouring** is a map
+[
+\chi:\binom{[n]}{2}\to{\text{red},\text{blue}}.
+]
+For any (X\subseteq[n]) with (|X|=s), let
+
+* (e_R(X)) be the number of red edges with both endpoints in (X),
+* (e_B(X)) be the number of blue edges with both endpoints in (X).
+
+Then
+[
+e_R(X)+e_B(X)=\binom{s}{2}.
+]
+
+Define (F(n,\alpha)) to be the **smallest integer (m)** such that there exists a 2‑colouring (\chi) of (E(K_n)) for which the following holds:
+
+[
+\forall X\subseteq[n]\ \text{with}\ |X|\ge m:\quad e_R(X)>\alpha\binom{|X|}{2}\ \text{and}\ e_B(X)>\alpha\binom{|X|}{2}.
+\tag{(*)}
+]
+
+The claim to prove (as written) is:
+
+> For every (\alpha\in[0,1/2]), there exists a constant (c_\alpha>0) such that as (n\to\infty),
+> [
+> F(n,\alpha)\sim c_\alpha\log n.
+> \tag{Claim}
+> ]
+
+### Ambiguity/misstated points (must resolve)
+
+1. **Is (m) allowed to exceed (n)?**
+The definition “smallest (m) such that … every (X\subseteq[n]) with (|X|\ge m) …” *allows* (m>n), in which case the condition ((*)) is **vacuous** (there are no such (X)).
+This is how the ErdősProblems page states it, without restricting (m\le n). ([Erdős Problems][1])
+
+2. **Endpoint (\alpha=1/2) with strict “more than”:**
+For any (s\ge2), it is impossible to have **both** (e_R(X)>\tfrac12\binom{s}{2}) and (e_B(X)>\tfrac12\binom{s}{2}) because their sum is (\binom{s}{2}).
+This will force (F(n,1/2)=n+1) (if (m) may exceed (n)), which contradicts (\sim c\log n).
+
+### Minimal corrected statement (standard convention)
+
+The minimal correction consistent with the intended “(\Theta(\log n))” behaviour is to restrict to
+[
+0\le \alpha < \tfrac12.
+\tag{Corrected domain}
+]
+(Alternatively one could replace “(>)” by “(\ge)” and then treat parity issues, but that is *not* the given statement.)
+
+---

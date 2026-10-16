@@ -1,0 +1,89 @@
+\section*{Problem \#387}
+
+\subsection*{FORMAL RESTATEMENT}
+Does there exist an absolute constant $c>0$ such that for all integers $n\ge 2$ and all integers $k$ with $1\le k\le n-1$, the binomial coefficient $\binom{n}{k}$ has a (positive) divisor $d$ satisfying
+\[
+cn<d\le n\ ?
+\]
+Equivalently: can one always find a divisor of $\binom{n}{k}$ that lies within a fixed constant factor of $n$ from below?
+
+\subsection*{QUICK LITERATURE/CONTEXT CHECK}
+This is Erd\H{o}s problem \#387 in the Erd\H{o}s Problems database, presented as open.
+A stronger conjecture of Erd\H{o}s asked for a divisor in $(n-k,n]$, but Schinzel and Erd\H{o}s disproved this; a specific counterexample given in the database is $(n,k)=(99215,15)$.
+The database notes two related easy/known facts:
+\begin{itemize}
+\item One always has a divisor in $[n/k,n]$ (a very weak interval when $k$ is large).
+\item Faulkner (1966) proved that if $p$ is the least prime $>2k$ and $n\ge p$, then $\binom{n}{k}$ has a prime divisor $\ge p$, with only small exceptional pairs.
+\end{itemize}
+Guy's book \emph{Unsolved Problems in Number Theory} (problems B33--B34) discusses these questions and attributes to Erd\H{o}s a conjecture that the statement might hold for any fixed $c<1$ once $n$ is sufficiently large.
+
+\subsection*{ATTACK PLAN}
+Two natural directions:
+\begin{itemize}
+\item \textbf{Positive direction:} try to extract a large divisor $d\le n$ from the numerator block $(n-k+1)\cdots n$ after cancellation by $k!$, e.g.\ show that one of the $k$ numerator terms retains a ``large'' part not cancelled by $k!$, uniformly in $k$.
+This becomes a problem about controlling smoothness of short intervals and cancellations.
+\item \textbf{Negative direction:} attempt to build families where every divisor $\le n$ of $\binom{n}{k}$ is $\le cn$ for arbitrarily small $c$, by forcing the part of $\binom{n}{k}$ supported on primes $\le n$ to be unusually small (or unusually ``gapful'') compared to $n$.
+\end{itemize}
+
+\subsection*{WORK}
+We record a standard lemma explaining the ``easy to see'' bound $[n/k,n]$.
+
+\medskip\noindent
+\textbf{Lemma 1 (a universal divisor in $[n/k,n]$).}
+For $1\le k\le n-1$, the integer
+\[
+d:=\frac{n}{\gcd(n,k)}
+\]
+divides $\binom{n}{k}$.  In particular $d\in[n/k,n]$.
+
+\begin{proof}
+Write
+\[
+\binom{n}{k}=\frac{n}{k}\binom{n-1}{k-1}.
+\]
+Let $g=\gcd(n,k)$ and write $n=gn'$, $k=gk'$ with $\gcd(n',k')=1$.  Then
+\[
+\binom{n}{k}=\frac{n'}{k'}\binom{n-1}{k-1}.
+\]
+Since $\binom{n}{k}$ is an integer and $\gcd(n',k')=1$, it follows that $k'\mid \binom{n-1}{k-1}$.  Therefore
+\[
+\binom{n}{k}=\frac{n'}{k'}\binom{n-1}{k-1}
+\]
+is divisible by $n'=n/g$, which is exactly $d$.
+Finally, because $g\le k$, we have $d=n/g\ge n/k$, and clearly $d\le n$.
+\end{proof}
+
+\medskip\noindent
+\textbf{Remark (why this does not solve the problem).}
+Lemma 1 only guarantees a divisor of size $\ge n/k$, which can be very small compared to $n$ when $k$ is large (e.g.\ $k\approx n/2$ gives only a constant-sized guarantee).
+
+\medskip\noindent
+\textbf{Experimental note (not a proof).}
+For $n\le 300$ one finds by brute force that for every $1\le k\le n-1$ there exists a divisor $d\mid \binom{n}{k}$ with $d\le n$ and $d/n\ge 3/4$, with the worst case occurring at $(n,k)=(4,2)$ where the best such divisor is $d=3$.
+
+\subsection*{VERIFICATION}
+Lemma 1 is a standard integrality/divisibility argument and was checked against small numerical examples.
+The experimental note is merely a finite computation and gives no asymptotic information.
+
+\subsection*{FINAL}
+\textbf{UNRESOLVED.}
+
+Most promising partial results obtained above:
+\begin{itemize}
+\item A clean, unconditional divisor guarantee: $\binom{n}{k}$ is divisible by $n/\gcd(n,k)\in[n/k,n]$ (Lemma 1).
+\item Known literature indicates substantial partial results about large prime divisors of $\binom{n}{k}$ (e.g.\ Faulkner), but translating those into a \emph{divisor} bounded by $n$ in a fixed proportional interval remains nontrivial.
+\end{itemize}
+
+Specific barrier:
+\begin{itemize}
+\item One needs \emph{uniform} control over how much of the numerator block survives cancellation by $k!$ in a form that produces a divisor $\le n$ but still $\gg n$; this is closely tied to fine-scale smoothness/roughness phenomena and does not follow from known results about existence of large prime factors alone.
+\end{itemize}
+
+Smallest missing step to a full resolution:
+\begin{itemize}
+\item Either (positive) prove that for some fixed $c>0$, every pair $(n,k)$ admits a divisor $d\mid\binom{n}{k}$ with $cn<d\le n$; or (negative) construct an explicit infinite family $(n_i,k_i)$ such that every divisor $d\le n_i$ of $\binom{n_i}{k_i}$ satisfies $d\le c_i n_i$ with $c_i\to 0$.
+\end{itemize}
+
+\subsection*{COMPLETION ESTIMATE}
+COMPLETION: 30\%
+

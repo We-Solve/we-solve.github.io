@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-5837">
+  
+  <title>gpt pro 5.2 attempt on Math-5837 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-713/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-5837-A2</span> · revision r1 · on <a href="/problems/erdos-problem-713/">Math-5837</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-5837</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p>1) “FORMAL RESTATEMENT”</p><p>Let $G$ be a fixed finite bipartite graph. For each $n\in\mathbb N$, let $\mathrm{ex}(n;G)$ be the maximum number of edges in an $n$-vertex (simple) graph $H$ with no subgraph isomorphic to $G$.</p><p>Question: Does there always exist an exponent $\alpha\in[1,2)$ and a constant $c&gt;0$ such that \[
+\mathrm{ex}(n;G) \sim c\,n^{\alpha}\qquad (n\to\infty)?
+\] Must such an $\alpha$ be rational?</p><p>Edge cases: if $G$ is a single edge, then $\mathrm{ex}(n;G)=0$ for all $n$, so no asymptotic with $c&gt;0$ is possible; thus the question is only meaningful for bipartite $G$ with at least two edges.</p><p>2) “QUICK LITERATURE/CONTEXT CHECK”</p><p>Only what is explicitly stated in the problem text:</p><p>- Erdős initially conjectured that for bipartite $G$ one would have $\mathrm{ex}(n;G)\sim c n^{\alpha}$ with $\alpha$ of the form $1+\frac1k$ or $2-\frac1k$; this was disproved by Erdős--Simonovits $1970$. - For hypergraphs, the analogous statement is false (Frankl--Füredi; simplified by Füredi--Gerbner), but it remains open for graphs.</p><p>Per integrity rules, I do not use any other literature results.</p><p>3) “ATTACK PLAN”</p><p>Proof track: identify classes of bipartite graphs $G$ for which one can prove an asymptotic $\mathrm{ex}(n;G)\sim c n^{\alpha}$, at least for some rational $\alpha$.</p><p>Disproof track: try to construct a bipartite $G$ for which $\mathrm{ex}(n;G)$ oscillates between two different power laws or lacks a limit when normalized by $n^{\alpha}$.</p><p>Here I provide fully proved results for two basic bipartite families (stars and trees) and small brute-force checks, but no resolution of the general question.</p><p>4) “WORK”</p><p><strong>FAST REALITY CHECK (small cases).</strong></p><p>For the star $K_{1,3}$ (one center, three leaves), any $K_{1,3}$-free graph has maximum degree at most $2$, hence at most $n$ edges. The cycle $C_n$ has maximum degree $2$ and exactly $n$ edges, so for all $n\ge 3$, \[
+\mathrm{ex}(n;K_{1,3})=n.
+\] By brute force over all graphs on $n\le 7$ vertices, I verified: \[
+\mathrm{ex}(4;K_{1,3})=4,\ \mathrm{ex}(5;K_{1,3})=5,\ \mathrm{ex}(6;K_{1,3})=6,\ \mathrm{ex}(7;K_{1,3})=7.
+\]</p><p><strong>Proposition 1 (Sharp linear asymptotics for stars).</strong> Fix $t\ge 2$ and let $G=K_{1,t}$ be the star with $t$ leaves. Then for every $n$, \[
+\mathrm{ex}(n;K_{1,t})\le \min\left\{\binom{n}{2},\ \frac{(t-1)n}{2}\right\}.
+\] Moreover, for every $n$, \[
+\mathrm{ex}(n;K_{1,t})\ge \frac{(t-1)n}{2}-\frac{t^2}{8}.
+\] In particular, for fixed $t$, \[
+\mathrm{ex}(n;K_{1,t})=\frac{t-1}{2}n+O_t(1)\sim \frac{t-1}{2}n
+\qquad (n\to\infty),
+\] so the property in the question holds for this $G$ with $\alpha=1$ and $c=(t-1)/2$.</p><p><em>Proof.</em> <u>Upper bound.</u> If a graph $H$ contains no $K_{1,t}$, then no vertex can have degree $\ge t$ (otherwise that vertex together with $t$ of its neighbors forms a $K_{1,t}$). Hence $\Delta(H)\le t-1$ and \[
+2|E(H)|=\sum_{v\in V(H)} \deg(v) \le (t-1)n,
+\] so $|E(H)|\le \frac{(t-1)n}{2}$. Also trivially $|E(H)|\le \binom{n}{2}$. Taking the maximum over all $K_{1,t}$-free $H$ gives $\mathrm{ex}(n;K_{1,t})\le \min\{\binom{n}{2},\frac{(t-1)n}{2}\}.$</p><p><u>Lower bound / construction.</u> Write $n=qt+r$ with $0\le r&lt;t$. Consider the disjoint union of $q$ copies of the clique $K_t$ plus one clique $K_r$ on the remaining $r$ vertices (if $r\le 1$ this last term contributes no edges). Every vertex has degree at most $t-1$, so the graph is $K_{1,t}$-free. Its number of edges is \[
+q\binom{t}{2}+\binom{r}{2} = q\frac{t(t-1)}{2}+\frac{r(r-1)}{2}.
+\] Compare this with $\frac{(t-1)n}{2}$: \[
+\frac{(t-1)n}{2}=\frac{(t-1)(qt+r)}{2}=q\frac{t(t-1)}{2}+\frac{(t-1)r}{2}.
+\] The difference is \[
+\frac{(t-1)r}{2}-\binom{r}{2}=\frac{(t-1)r}{2}-\frac{r(r-1)}{2}=\frac{r(t-r)}{2}.
+\] Since $0\le r&lt;t$, the product $r(t-r)$ is maximized at $r=t/2$ and in all cases satisfies $r(t-r)\le t^2/4$. Therefore \[
+q\binom{t}{2}+\binom{r}{2} \ge \frac{(t-1)n}{2}-\frac{t^2}{8}.
+\] Thus $\mathrm{ex}(n;K_{1,t})\ge \frac{(t-1)n}{2}-\frac{t^2}{8}$.</p><p>Combining the upper and lower bounds yields $\mathrm{ex}(n;K_{1,t})=\frac{t-1}{2}n+O_t(1)$ and hence the asymptotic statement. $\square$</p><p><strong>Proposition 2 (Linear upper bound for any fixed tree).</strong> Let $T$ be a fixed tree with $t:=|E(T)|\ge 1$ edges. Then for every $n$, \[
+\mathrm{ex}(n;T) \le t\,n.
+\] In particular, for any bipartite tree $T$ the growth exponent is $\alpha=1$ (though this bound does not identify the best constant).</p><p><em>Proof.</em> We use two standard facts, proved here.</p><p><u>Claim 2.1 (Subgraph with large minimum degree).</u> If a graph $H$ on $n$ vertices has average degree $\bar d:=2|E(H)|/n$, then $H$ contains a (nonempty) subgraph $H'$ with minimum degree \[
+\delta(H')\ge \bar d/2.
+\] <em>Proof of Claim 2.1.</em> Iteratively delete vertices of degree $&lt;\bar d/2$ together with their incident edges. Each deleted vertex removes fewer than $\bar d/2$ edges. If all vertices were deleted, the total number of edges removed would be $&lt; n\cdot(\bar d/2)=|E(H)|$, impossible. Hence the process stops with a nonempty subgraph $H'$ in which every remaining vertex has degree at least $\bar d/2$. $\square$</p><p><u>Claim 2.2 (Embedding a tree in high minimum degree).</u> If a graph $H'$ has minimum degree $\delta(H')\ge t$, then $H'$ contains $T$ as a subgraph. <em>Proof of Claim 2.2.</em> Root $T$ at any vertex and order its vertices in a breadth-first order $v_1,\dots,v_{t+1}$ such that each $v_j$ ($j&gt;1$) has a unique parent among $v_1,\dots,v_{j-1}$. We greedily embed vertices one by one into $H'$. Choose any vertex of $H'$ as the image of $v_1$. Suppose we have embedded $v_1,\dots,v_{j-1}$ injectively so that all required edges among them are present. Let $v_j$ have parent $v_p$ with $p&lt;j$. The image of $v_p$ has at least $t$ neighbors in $H'$. At step $j$, fewer than $t$ vertices of $H'$ are already used (since we have used $j-1\le t$ vertices). Therefore among the neighbors of the image of $v_p$ there exists at least one unused vertex; map $v_j$ to such a vertex. This preserves injectivity and ensures the parent-child edge is present. Proceed until all $t+1$ vertices are embedded. $\square$</p><p>Now prove the proposition. Let $H$ be an $n$-vertex graph with more than $t n$ edges. Then its average degree is $\bar d&gt;2t$. By Claim 2.1, $H$ has a subgraph $H'$ with minimum degree $\delta(H')\ge \bar d/2&gt;t$. By Claim 2.2, $H'$ (hence $H$) contains $T$. Therefore any $T$-free graph has at most $t n$ edges, i.e. $\mathrm{ex}(n;T)\le t n$. $\square$</p><p>5) “VERIFICATION”</p><p>- Proposition 1: upper bound uses $\Delta(H)\le t-1$ and the handshake lemma; lower bound uses a disjoint union of cliques $K_t$ and computes the deficit $\frac{r(t-r)}{2}\le t^2/8$, yielding $\mathrm{ex}(n;K_{1,t})=\frac{t-1}{2}n+O_t(1)$.  - Proposition 2: both claims were proved explicitly; the greedy embedding uses only that at each step we need one new neighbor and at most $t$ vertices are already used. - Small computation for $K_{1,3}$: brute force confirmed the exact values for $n\le 7$.</p><p>6) FINAL</p><p><strong>UNRESOLVED</strong></p><p>(i) Strongest proved partial result here: for stars $K_{1,t}$ we proved the sharp linear asymptotic $\mathrm{ex}(n;K_{1,t})=\frac{t-1}{2}n+O_t(1)\sim \frac{t-1}{2}n$ (and for $t=3$ we even have the exact value $\mathrm{ex}(n;K_{1,3})=n$ for all $n\ge 3$). For any fixed tree $T$ with $t$ edges, $\mathrm{ex}(n;T)\le t n$ (so again growth is at most linear).</p><p>(ii) First gap (crisp statement): given an arbitrary fixed bipartite graph $G$ with at least two edges, prove or disprove the existence of $\alpha\in[1,2)$ and $c&gt;0$ such that \[
+\mathrm{ex}(n;G) \sim c\,n^{\alpha}.
+\]</p><p>(iii) Top 3 next moves (concrete targets):</p><p>1. Identify a specific bipartite $G$ (beyond trees/stars) for which one can rigorously prove $\mathrm{ex}(n;G)\sim c n^{\alpha}$ with explicit $c,\alpha$ from first principles.</p><p>2. Attempt to prove that for each bipartite $G$, the limit of $\log \mathrm{ex}(n;G)/\log n$ exists (even if $\mathrm{ex}(n;G)/n^{\alpha}$ does not), which would at least establish a well-defined exponent.</p><p>3. Search computationally for small bipartite graphs $G$ (say up to 8 vertices) and compute $\mathrm{ex}(n;G)$ for $n\le 10$ to look for irregular scaling that might hint at non-existence of a single power law.</p><p>(iv) Minimal counterexample structure (if the statement is false): a bipartite graph $G$ for which extremal constructions alternate between two qualitatively different families at different $n$ (causing the normalized quantity $\mathrm{ex}(n;G)/n^{\alpha}$ to oscillate), or for which the correct growth involves additional slowly varying factors (e.g. $n^{\alpha}(\log n)^{\beta}$) that cannot be absorbed into $n^{o(1)}$ while keeping $c&gt;0$.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/713.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-713/attempt-2/r1/source/files/713.tex" download>files/713.tex</a><span class="row-meta">8,724 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-713/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,054 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-713/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-713/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-713-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-713}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-713/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-713-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-713/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-713/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-713/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-713-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-713&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-713/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-713-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-713-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-713/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-713/attempt-2/r1/">Math-5837-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:42Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

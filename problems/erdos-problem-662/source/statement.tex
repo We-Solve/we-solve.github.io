@@ -1,0 +1,23 @@
+The problem statement as written is inconsistent/ambiguous, so I separate a literal reading from a minimal corrected reading.
+
+(Literal text.)
+Take the triangular lattice scaled so that its minimal interpoint distance is $1$. Define $f(t)$ to be
+``the number of distances from any points $\le t$'', with examples $f(1)=6$, $f(\sqrt3)=12$, and $f(3)=18$.
+Given $x_1,\ldots,x_n\in\mathbb{R}^2$ with $d(x_i,x_j)\ge 1$ for $i\neq j$, ask whether (for $n$ large depending on $t$) the
+``number of distances $d(x_i,x_j)\le t$'' is at most $f(t)$, with equality perhaps only for the triangular lattice.
+
+Ambiguity 1: ``number of distances $d(x_i,x_j)\le t$'' could mean
+(a) the number of unordered pairs $\{i,j\}$ with $d(x_i,x_j)\le t$, or
+(b) the number of \emph{distinct distance values} $\le t$ attained by the set, or
+(c) for a \emph{fixed} $i$, the number of indices $j\neq i$ with $d(x_i,x_j)\le t$ (a local neighbour count).
+If interpreted as (a) or (b), the numerical examples for $f(t)$ do not match standard meanings.
+
+Ambiguity 2 / typo: the examples are consistent with $f(t)$ meaning a local neighbour count in the triangular lattice,
+but then $f(3)=18$ is incorrect; it should read $f(2)=18$ (see Lemma 1 below).
+
+(Minimal corrected statement.)
+Define $f(t)$ to be the number of lattice points of the triangular lattice within Euclidean distance $\le t$ of a fixed lattice point, excluding the point itself.
+Given a finite set $\{x_1,\ldots,x_n\}\subset\mathbb{R}^2$ with pairwise distances $\ge 1$, define the local count
+$N_t(i):=|\{j\neq i: |x_i-x_j|\le t\}|$.
+Conjecture (plausible intent): for each fixed $t$, and for all sufficiently large $n$ (depending on $t$), one has
+$\max_i N_t(i)\le f(t)$, with equality only for subsets of the triangular lattice (up to rigid motion).

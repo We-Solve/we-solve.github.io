@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Practical adaptive penalties for debiased regularized GMM">
+  
+  <title>Practical adaptive penalties for debiased regularized GMM · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/problems/practical-adaptive-penalties-for-debiased-regularized-gmm/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/">Home</a></li><li><a href="/economics/">Economics</a></li><li><a href="/economics/sources/economics-catalogue/">Economics catalogue</a></li><li><span aria-current="page">Econ-360</span></li></ol></nav>
+    
+    
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Econ-360</span> · <span data-pagefind-filter="Discipline">economics</span> · <span data-pagefind-filter="Topic">Economics</span></p>
+  <span class="visually-hidden">Econ-360</span>
+  <h1 data-pagefind-meta="title">Practical adaptive penalties for debiased regularized GMM</h1>
+  
+<p class="status-line"><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+  <span class="visually-hidden" data-pagefind-filter="JEL">C55 — Large Data Sets: Modeling and Analysis</span>
+  <span class="visually-hidden" data-pagefind-filter="Source">Economics catalogue</span>
+  <span class="visually-hidden">anthropic</span><span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">claude opus 5.5 high</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden" data-pagefind-filter="Completion estimate">28%</span><span class="visually-hidden" data-pagefind-filter="Completion estimate">42%</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">not recorded</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+</header>
+
+
+
+<section class="statement" aria-labelledby="statement-title">
+  <h2 id="statement-title">Statement</h2>
+  <div class="collapsible" data-collapsible data-more="Show full statement" data-less="Show less">
+    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><p><span class="tex-label" data-tex-label="problem:OP-0577" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-7799b70c384942e2042ba169922b9b83" tabindex="-1"></span> <span class="tex-label" data-tex-label="beyond:HD-01" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-18f45b472b4eb71e3ad34d28810085ac" tabindex="-1"></span> <strong><code>HD-01</code></strong> |  High-dimensional econometrics</p><p>Research agenda formalization</p><h3>Definitions and assumptions</h3> Observe independent identically distributed $Z_1,\ldots,Z_n\sim P$ and a differentiable moment map $g(Z,\theta)\in\R^{m_n}$ with $\theta_0\in\R^{p_n}$ satisfying $\E_Pg(Z,\theta_0)=0$. Dimensions may grow with $n$. Specify a model class $\mathcal P_n$ of approximately sparse parameters and nuisance matrices obeying the identification, moment, and growth conditions of the source's Theorem 3.4. Write $\widehat g(\theta)=n^{-1}\sum_i g(Z_i,\theta)$, $G=\E_P\partial_\theta g(Z,\theta_0)$ and $\Omega=\E_P[g(Z,\theta_0)g(Z,\theta_0)^\top]$. The regularized estimator minimizes $\|\theta\|_1$ subject to $\|\widehat g(\theta)\|_\infty\leq\lambda_\theta$. Nuisance estimators regularize the inverse-moment operations needed for debiasing; the resulting estimator is $\check\theta=\widehat\theta-\widehat A\widehat g(\widehat\theta)$, where $\widehat A$ estimates an appropriate left inverse of $G$. <h3>Formal question</h3> Construct a computable, data-dependent vector of penalties for both parameter and nuisance estimation, using no unknown sparsity, matrix-norm, or moment-envelope constants as inputs, such that the source's oracle-style error and linearization guarantees hold uniformly over a stated $\mathcal P_n$. In particular, obtain feasible simultaneous confidence rectangles $C_n(1-\alpha)$ with \[
+ \liminf_{n\to\infty}\inf_{P\in\mathcal P_n}
+ P^{\otimes n}\{\theta_0(P)\in C_n(1-\alpha)\}\geq1-\alpha,
+\] while retaining the rates available with valid theoretical penalties. For classes with uniformly bounded coordinate influence variances, require coordinate widths of order $\sqrt{\log(p_n/\alpha)/n}$ uniformly in probability. <h3>Scope and status</h3> The class must bound identification strength and tails; adaptation to unrestricted weak identification or arbitrary distributions is not asserted. Tuning every nuisance penalty is part of the target. The source already gives initial adaptive constructions, so the agenda is their complete practical and uniform theoretical justification under explicit model conditions, rather than the absence of all adaptive rules. <h3>References for the source of the problem</h3> Alexandre Belloni, Victor Chernozhukov, Denis Chetverikov, Christian Hansen and Kengo Kato, <em>High-Dimensional Econometrics and Regularized GMM</em>, arXiv:1806.01888v2 (2018), §3.2, Theorem 3.4, the paragraph immediately following it, and Remark 3.3 ("Practical Considerations for the DRGMM Estimator"), equations (3.34)--(3.35), printed pp. 56--57. <a href="https://arxiv.org/pdf/1806.01888v2" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/pdf/1806.01888v2</a>.<h3>Common conventions: Source mathematical conventions</h3><p><strong>Well-defined objects.</strong> All probability spaces and measurable variables are specified or inherited from a local statistical model. Expectations used as finite targets require the stated integrability. A decision rule or estimator is measurable with respect to its available information; randomized rules may use an auxiliary independent random variable. Norms without a subscript are Euclidean in finite-dimensional spaces. An optimizer is requested only when attainment is assured; otherwise the question concerns the optimal value and $\varepsilon$-optimal admissible rules for every $\varepsilon&gt;0$.</p><p><strong>Identification.</strong> A structural model $m\in\mathcal M$ implies an observable law $P_m^{\rm obs}$ and target $\theta(m)$. The target is point identified on $\mathcal M$ if \[
+ P_{m_1}^{\rm obs}=P_{m_2}^{\rm obs}
+ \quad\Longrightarrow\quad\theta(m_1)=\theta(m_2)
+ \qquad(m_1,m_2\in\mathcal M).
+\] When this fails, the sharp identified set is \[
+ \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M,
+                                  P_m^{\rm obs}=P\}.
+\] Specifying an intervention or estimand does not establish identification. Positivity, exclusion, causal sufficiency, measurement restrictions, and transport assumptions are substantive local inputs, never automatic consequences of notation.</p><p><strong>Minimax risk and nontrivial inference.</strong> For a statistical experiment with data law $P^{(n)}$, target $\theta(P)$, and nonnegative loss $\ell$, define \[
+ \mathcal R_n(\mathcal P,\ell)
+   =\inf_{\widehat\theta_n}\sup_{P\in\mathcal P}
+      \E_{P^{(n)}}\ell(\widehat\theta_n,\theta(P)).
+\] The infimum is over measurable estimators. A sharp rate is a sequence $r_n$ for which $0&lt;c\leq C&lt;\infty$, independent of $n$, satisfies $c r_n\leq\mathcal R_n\leq C r_n$ for all sufficiently large $n$. Squared-error parametric risk is of order $n^{-1}$; the corresponding root-mean-squared error is of order $n^{-1/2}$. These different conventions are distinguished locally. A uniform asymptotic confidence region $C_n$ must satisfy \[
+ \liminf_{n\to\infty}\inf_{P\in\mathcal P}
+     \Pr_{P^{(n)}}\{\theta(P)\in C_n\}\geq 1-\alpha,
+ \qquad 0&lt;\alpha&lt;1,
+\] together with an informative diameter or expected-width requirement. Coverage alone permits the vacuous whole parameter space. Testing questions similarly impose both size control and power against a declared separated alternative class.</p><p><strong>Binary causal baseline.</strong> When an entry explicitly invokes this baseline, one observes independent copies of $O=(X,W,Y)$, with $W\in\{0,1\}$ and potential outcomes $Y(0),Y(1)$. Assume consistency $Y=Y(W)$, no interference, conditional exchangeability $(Y(0),Y(1))\perp W\mid X$, and overlap $\epsilon\leq e(X)\leq1-\epsilon$ almost surely for a fixed $0&lt;\epsilon&lt;1/2$, where \[
+ e(x)=\Pr(W=1\mid X=x),\qquad
+ m_w(x)=\E[Y\mid W=w,X=x],\qquad
+ \tau(x)=m_1(x)-m_0(x).
+\] These assumptions identify conditional mean effects almost everywhere under the covariate law. Pointwise or uniform effects require appropriate regularity and a specified support. Continuous treatment, longitudinal data, adaptive experiments, and network interference require their own assumptions in place of this baseline. Bounded outcomes, densities, and smoothness are additional assumptions only where stated.</p><p><strong>Function classes.</strong> On $[0,1]^d$, $\mathcal H_d^s(L)$ is the isotropic Hölder ball of radius $L&gt;0$: put $k=\lceil s\rceil-1$ and $\gamma=s-k\in(0,1]$, bound derivatives through order $k$, and require the order-$k$ derivatives to be $\gamma$-Hölder with constant at most $L$. Thus integer orders use a Lipschitz final derivative convention. The class $\operatorname{BV}_d(L)$ consists of functions $f\in L^1((0,1)^d)$ whose distributional derivative is a finite vector measure and for which $\|f\|_{L^1}+|Df|((0,1)^d)\leq L$. An $L^\infty$ bound or a particular pointwise version is imposed separately when needed. Sparse and neural-network classes require a declared dictionary or architecture and coefficient bounds.</p><p>An anisotropic Hölder class with declared block smoothness indices means coordinatewise Hölder regularity in each block, uniformly in the other blocks, with all corresponding derivative and Hölder bounds at most the stated radius. Derivative orders and the integer-order convention in each block are those just given. Mixed-derivative bounds are additional restrictions only when explicitly stated.</p><p><strong>Decision and computational questions.</strong> Policy regret compares admissible feasible policies under the same law and constraints. In computational entries, finite data and thresholds have rational encodings; running time is measured in their total bit length. Real-valued equilibrium search uses the explicitly declared algebraic or FIXP encoding. An approximation ratio for maximization is written $\operatorname{OPT}/\operatorname{ALG}$ and for minimization as $\operatorname{ALG}/\operatorname{OPT}$, with zero optima and infeasible instances handled locally. Historical approximation bounds are not automatically current bounds.</p></div>
+  </div>
+  
+  
+  
+  <p class="small muted">Statement licence: CC-BY-4.0 · <a href="/problems/practical-adaptive-penalties-for-debiased-regularized-gmm/source/statement.tex" download>Source file</a></p>
+</section>
+
+
+
+<section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
+  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
+  
+<article class="attempt" id="attempt-ECON-C55-360-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/practical-adaptive-penalties-for-debiased-regularized-gmm/attempt-2/r1/">Econ-360-A2</a> · Exploration · LLM-generated · claude opus 5.5 high · <time datetime="2026-10-09">2026-10-09</time></p>
+    <h3><a href="/contributions/practical-adaptive-penalties-for-debiased-regularized-gmm/attempt-2/r1/">Claude Opus 5.5 High attempt on Econ-360</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Practical adaptive penalties for debiased regularized GMM: a scale-free nuisance step and fully data-driven tuning for affine moments</h2><h3>Abstract</h3> We address the two unknown-constant inputs of the debiased regularised GMM (DRGMM) estimator. (i) For the nuisance (left-inverse) step, we propose a <em>scale-free</em> Dantzig program, solved by bisection over an $\ell_1$ radius. Its only tuning input is a bound $\lambda_0$ on $\|\widehat G-G\|_{\max}$, and it does not need $\|A\|_{\infty}$. We prove that its debiasing remainder matches the oracle-penalty remainder up to a factor 2. (ii) For moment functions affine in $\theta$, which include high-dimensional linear IV, both $\lambda_0$ and the parameter-step penalty are quantiles of maxima of centred sample means. These are estimable by the multiplier bootstrap with no unknown constants. Combined with Gaussian-approximation results for maxima, this gives feasible simultaneous rectangles of width $O_P(\sqrt{\log(p_n/\alpha)/n})$ under the stated growth conditions. For nonlinear moments, one smoothness constant remains, and we isolate exactly where.<h2>1. Setting</h2> Let $\widehat g(\theta)=n^{-1}\sum_ig(Z_i,\theta)\in\mathbb R^{m}$, $G=\mathbb E\partial_\theta g(Z,\theta_0)\in\mathbb R^{m\times p}$, and let $A\in\mathbb R^{p\times m}$ satisfy $AG=I_p$, with rows $a_k$. The DRGMM estimator is $\check\theta=\widehat\theta-\widehat A\widehat g(\widehat\theta)$ [bcchk]. By the mean-value theorem, \[
+ \check\theta-\theta_0=-\widehat A\,\widehat g(\theta_0)+(I-\widehat A\bar G)(\widehat\theta-\theta_0),\qquad
+ \bar G=\text{row-wise mean-value Jacobian}.\tag{1}
+\]<h2>2. A scale-free nuisance program</h2> For $t&gt;0$, let $\mathcal F_k(t)=\{a:\ \|a\|_1\le t,\ \|\widehat G^\top a-e_k\|_\infty\le\lambda_0t\}$. Let $t_k^*=\inf\{t:\mathcal F_k(t)\neq\varnothing\}$, and let $\widehat a_k\in\arg\min\{\|a\|_1:a\in\mathcal F_k(t_k^*)\}$. <div class="lemma"><strong>Lemma:</strong> <span class="tex-label" data-tex-label="lem:mono" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-dfa7565970758455036598069a384007" tabindex="-1"></span> $\mathcal F_k(t)$ is increasing in $t$, and each feasibility check is a linear program. Hence $t_k^*$ can be computed to any accuracy by bisection, and the infimum is attained, because the feasible sets are closed and nested. </div> <div class="theorem"><strong>Theorem (<span class="tex-theorem-title">Oracle remainder without knowing $\|A\|_\infty$</span>):</strong> <span class="tex-label" data-tex-label="thm:sf" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-acce925c0c56e3c60d7e2a06fbd9e9b0" tabindex="-1"></span> On the event $\mathcal E_0=\{\|\widehat G-G\|_{\max}\le\lambda_0\}$, for every $k$: $\|\widehat a_k\|_1\le\|a_k\|_1$ and $\|G^\top\widehat a_k-e_k\|_\infty\le2\lambda_0\|a_k\|_1$. Consequently, if also $\|\bar G-G\|_{\max}\le\lambda_0$, then \[
+ \|(I-\widehat A\bar G)(\widehat\theta-\theta_0)\|_\infty\le3\lambda_0\max_k\|a_k\|_1\,\|\widehat\theta-\theta_0\|_1.
+\] </div> <div class="proof"><em>Proof:</em>  On $\mathcal E_0$, $\|\widehat G^\top a_k-e_k\|_\infty=\|(\widehat G-G)^\top a_k\|_\infty\le\lambda_0\|a_k\|_1$. So $a_k\in\mathcal F_k(\|a_k\|_1)$, and $t_k^*\le\|a_k\|_1$. Thus $\|\widehat a_k\|_1\le t_k^*\le\|a_k\|_1$, and \[
+\|G^\top\widehat a_k-e_k\|_\infty\le\|\widehat G^\top\widehat a_k-e_k\|_\infty+\|(G-\widehat G)^\top\widehat a_k\|_\infty
+\le\lambda_0t_k^*+\lambda_0\|\widehat a_k\|_1.
+\] For the remainder, write $e_k^\top(I-\widehat A\bar G)=(e_k-G^\top\widehat a_k)^\top+\widehat a_k^\top(G-\bar G)$, and apply Hölder's inequality to each term.  ∎</div> The oracle program of [bcchk] uses the penalty $\lambda_0\|A\|_\infty$, which requires the unknown norm. Theorem <a class="tex-reference" data-tex-reference="thm:sf" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-acce925c0c56e3c60d7e2a06fbd9e9b0" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Theorem (Oracle remainder without knowing $\|A\|_\infty$) in this document · r1">thm:sf</a> attains the same order with $\lambda_0$ alone.<h2>3. Affine moments: fully data-driven penalties</h2> Suppose $g(Z,\theta)=g_0(Z)-g_1(Z)\theta$, so that $\partial_\theta g=-g_1(Z)$ does not depend on $\theta$ and $\bar G=\widehat G$. <div class="proposition"><strong>Proposition:</strong> <span class="tex-label" data-tex-label="prop:boot" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-f3f1868ac49ab1a0e626b8b6dbacaf16" tabindex="-1"></span> Let $\widehat G=-n^{-1}\sum g_1(Z_i)$. Let $\lambda_0(1-\gamma)$ be the conditional $(1-\gamma)$-quantile of $\max_{j,l}|n^{-1}\sum_i\xi_i(g_{1,jl}(Z_i)-\overline{g_1}_{jl})|$ with i.i.d. $\xi_i\sim N(0,1)$. Assume the Gaussian-approximation conditions for maxima of sums [cck]: entries have sub-exponential envelopes $B_n$, variances bounded below, and $B_n^2\log^7(mpn)/n\to0$. Then $\Pr(\mathcal E_0)\ge1-\gamma-o(1)$, uniformly over the class. </div> <div class="proof"><em>Proof:</em>  $\|\widehat G-G\|_{\max}$ is the maximum of $mp$ centred sample means. The multiplier-bootstrap quantile consistency result of [cck], applied to the vectorised entries, gives the claim. Unknown scale enters only through the bootstrap.  ∎</div><div class="proposition"><strong>Proposition (<span class="tex-theorem-title">Parameter-step penalty</span>):</strong> <span class="tex-label" data-tex-label="prop:theta" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-ce2ed0c8ad56e3bfbc4be2de26a9a153" tabindex="-1"></span> Let $\widetilde\theta$ be a pilot estimate, and set $\widetilde\sigma_j^2=n^{-1}\sum_ig_j(Z_i,\widetilde\theta)^2$. Use the constraint $|\widehat g_j(\theta)|\le\lambda_\theta\widetilde\sigma_j$ for all $j$, with $\lambda_\theta=(1+\epsilon_n)n^{-1/2}\Phi^{-1}(1-\gamma/(2m))$. For affine $g$ this is a linear program. Assume (a) moderate deviations for self-normalised sums: $\log m=o(n^{1/3})$ and bounded third moments over $\sigma_j^2$; and (b) pilot scale consistency: $\max_j|\widetilde\sigma_j/\widehat\sigma_j(\theta_0)-1|\le\epsilon_n/2$ with probability $1-o(1)$. Then $\theta_0$ is feasible with probability $\ge1-\gamma-o(1)$. </div> <div class="proof"><em>Proof:</em>  Self-normalised moderate deviations give $\Pr(|\sqrt n\widehat g_j(\theta_0)/\widehat\sigma_j(\theta_0)|&gt;x)=2(1-\Phi(x))(1+o(1))$ uniformly for $0\le x\le o(n^{1/6})$ [jsw]. A union bound over $j$ shows that $|\widehat g_j(\theta_0)|\le n^{-1/2}\Phi^{-1}(1-\gamma/2m)\widehat\sigma_j(\theta_0)$ for all $j$ with probability $\ge1-\gamma-o(1)$. By (b), the right side is at most $\lambda_\theta\widetilde\sigma_j$. Condition (b) holds, for example, if the pilot uses the conservative scale $\max_j\widehat\sigma_j(\theta)$, which is valid for every $\theta$ in a bounded parameter set, and is $\ell_1$-consistent at a rate making $\max_j|\widetilde\sigma_j^2-\widehat\sigma_j^2(\theta_0)|\to0$. Note that the fully self-normalised constraint $|\widehat g_j(\theta)|\le\lambda\widehat\sigma_j(\theta)$ is <em>not</em> convex in general, which is why we use a pilot scale.  ∎</div><div class="theorem"><strong>Theorem (<span class="tex-theorem-title">Feasible rectangles</span>):</strong> <span class="tex-label" data-tex-label="thm:rect" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-ec16bd95c7b9ae644d644b3fe9d22f59" tabindex="-1"></span> In the affine case, suppose $\|\widehat\theta-\theta_0\|_1=O_P(s\lambda_\theta\|A\|_\infty)$ under the source's identification conditions. Suppose also $s\,\lambda_0\lambda_\theta\max_k\|a_k\|_1^2\sqrt{n\log p}\to0$. Let $\widehat c$ be the multiplier-bootstrap quantile of $\max_k|n^{-1/2}\sum_i\xi_i\widehat a_k^\top g(Z_i,\check\theta)/\widehat s_k|$, and set $C_n=\prod_k[\check\theta_k\pm\widehat c\,\widehat s_k/\sqrt n]$. Then $\liminf_n\inf_P\Pr(\theta_0\in C_n)\ge1-\alpha$. When the influence variances $s_k^2$ are bounded above and below, the widths are $O_P(\sqrt{\log(p/\alpha)/n})$. </div> <div class="proof"><em>Proof[Proof sketch]:</em>  By (1) and Theorem <a class="tex-reference" data-tex-reference="thm:sf" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-acce925c0c56e3c60d7e2a06fbd9e9b0" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Theorem (Oracle remainder without knowing $\|A\|_\infty$) in this document · r1">thm:sf</a>, $\sqrt n(\check\theta-\theta_0)=-\sqrt n\,\widehat A\widehat g(\theta_0)+r_n$ with $\|r_n\|_\infty=o_P(1/\sqrt{\log p})$ under the rate condition. Replacing $\widehat A$ by $A$ costs $\sqrt n\|\widehat A-A\|_{\infty}\|\widehat g(\theta_0)\|_\infty$, which is controlled the same way. Gaussian and bootstrap approximations for maxima [cck] then yield uniform coverage. The quantile satisfies $\widehat c\lesssim\sqrt{2\log(2p/\alpha)}$.  ∎</div><h2>4. What remains for nonlinear moments</h2> For nonlinear $g$, $\mathcal E_0$ must also control $\|\bar G-\widehat G\|_{\max}\le L_2\|\widehat\theta-\theta_0\|_1$, where $L_2$ is a Lipschitz constant of $\partial_\theta g$. This is the single remaining unknown constant. A natural feasible replacement is a bootstrap of $\max_{j,l}|\partial g_{jl}(\cdot,\theta)-\partial g_{jl}(\cdot,\widehat\theta)|$ over a data-dependent $\ell_1$ ball of radius $t_k^*$-scaled pilot error. Proving its uniform validity requires a localised maximal inequality, which we have not established. We also leave open the sharpness of the factors 2 and 3 in Theorem <a class="tex-reference" data-tex-reference="thm:sf" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-acce925c0c56e3c60d7e2a06fbd9e9b0" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Theorem (Oracle remainder without knowing $\|A\|_\infty$) in this document · r1">thm:sf</a>.<h2>Completion Estimate</h2> 42%<p>This is a post hoc, heuristic estimate for the full catalogue target. A scale-free inverse program removes an unknown matrix norm and provides valid deterministic debiasing-remainder bounds, with affine-moment bootstrap calibration proposed. Pilot feasibility, inverse-estimation errors and nonlinear smoothness calibration are not fully proved, so general uniform adaptive rectangles remain unsettled.</p><h3>References</h3><ul><li><strong>[bcchk]</strong>  A. Belloni, V. Chernozhukov, D. Chetverikov, C. Hansen, K. Kato, High-dimensional econometrics and regularized GMM, arXiv:1806.01888v2 (2018), §3.2, Theorem 3.4, Remark 3.3. <a href="https://arxiv.org/pdf/1806.01888v2" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/pdf/1806.01888v2</a>. </li><li><strong>[cck]</strong>  V. Chernozhukov, D. Chetverikov, K. Kato, Gaussian approximations and multiplier bootstrap for maxima of sums of high-dimensional random vectors, <em>Annals of Statistics</em> 41 (2013), 2786--2819. </li><li><strong>[jsw]</strong>  B.-Y. Jing, Q.-M. Shao, Q. Wang, Self-normalized Cramér-type large deviations for independent random variables, <em>Annals of Probability</em> 31 (2003), 2167--2215.</li></ul></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/practical-adaptive-penalties-for-debiased-regularized-gmm/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
+<article class="attempt" id="attempt-ECON-C55-360-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/practical-adaptive-penalties-for-debiased-regularized-gmm/attempt-1/r1/">Econ-360-A1</a> · Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-09">2026-10-09</time></p>
+    <h3><a href="/contributions/practical-adaptive-penalties-for-debiased-regularized-gmm/attempt-1/r1/">GPT 6 Astra Ultra attempt on Econ-360</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Practical adaptive penalties for debiased regularized GMM: a research attempt</h2><h2>Target and outcome</h2> <strong>Status: unresolved.</strong> The full problem requires adaptive parameter and nuisance penalties in growing-dimensional nonlinear GMM. This attempt solves a diagonal Gaussian random-design submodel with an unknown noise scale: all penalties and confidence widths are computable, simultaneous coverage is finite-sample uniform, and debiasing is exact. A remainder decomposition then identifies why the same calibration does not solve the source's general problem.<p>Belloni et al. [bcchk], the paragraph after Theorem 3.4 and Remark 3.3, explicitly discuss unknown constants and initial adaptive nuisance programs. Those primary PDF passages were inspected. The exact pivot construction below is a restrictive benchmark, not a replacement proof of their theorem.</p><h2>A model with a genuinely feasible calibration</h2> For $i=1,\ldots,n$ and $j=1,\ldots,p$, observe \[
+ Y_{ij}=D_{ij}\theta_{0j}+\epsilon_{ij},\qquad 1\leq D_{ij}\leq2.
+\] Rows are independent and identically distributed. Conditional on the entire design array, each coordinate error vector consists of independent $N(0,\sigma_j^2)$ entries, independent of the design, with $\sigma_j&gt;0$. Cross-coordinate errors within a row may be correlated. Sparsity or approximate sparsity of $\theta_0$ is allowed but will not be needed for coverage. Assume $n\geq2$.<p>Use diagonal moments \[
+ g_j(Z_i,\theta)=D_{ij}(D_{ij}\theta_j-Y_{ij}).
+\] Their sample derivative is $\widehat G=\operatorname{diag}(S_j/n)$, where $S_j=\sum_iD_{ij}^2\geq n$. Define the coordinate least-squares pilot and residual scale \[
+ \widetilde\theta_j=\frac{\sum_iD_{ij}Y_{ij}}{S_j},\qquad
+ \widehat\sigma_j^2=\frac{1}{n-1}
+                    \sum_i(Y_{ij}-D_{ij}\widetilde\theta_j)^2.
+\] Let $t_*=t_{n-1,\,1-\alpha/(2p)}$, a computable Student quantile, and set \[
+             \lambda_{\theta,j}=t_*\widehat\sigma_j\sqrt{S_j}/n.
+\] No unknown sparsity, noise bound or matrix norm enters this penalty.</p><p>The regularized program minimizes $\|\theta\|_1$ subject to $|\widehat g_j(\theta)|\leq\lambda_{\theta,j}$ for all $j$. Since $\widehat g_j(\theta)=(S_j/n)(\theta_j-\widetilde\theta_j)$, it separates coordinatewise and its solution is \[
+ \widehat\theta_j=\operatorname{sign}(\widetilde\theta_j)
+        (|\widetilde\theta_j|-t_*\widehat\sigma_j/\sqrt{S_j})_+.
+\] This is a data-dependent weighted feasibility region, as permitted by the requested vector of penalties; it is not an unweighted common penalty with hidden unknown scale constants.</p><h2>Nuisance estimation and exact debiasing</h2> The sample inverse is observed exactly: \[
+                      \widehat A=\operatorname{diag}(n/S_j).
+\] It solves the diagonal inverse-moment program $\min\|A\|_1$ subject to $\|A\widehat G-I\|_\infty\leq\lambda_A$ with the computable choice $\lambda_A=0$, restricting $A$ to diagonal matrices. There are no other nuisance inverse operations in this just-identified diagonal model. This zero penalty is justified by the known diagonal structure and $S_j\geq n$; using zero in a general singular high-dimensional sample Jacobian would be invalid.<p>The debiased estimator satisfies the identity \[
+ \check\theta=\widehat\theta-\widehat A\widehat g(\widehat\theta)
+              =\widetilde\theta.
+\] Thus the regularization bias cancels exactly, regardless of unknown sparsity. The nonlinear remainder is zero. Estimating the population inverse separately is unnecessary for the finite-sample pivot, although $\widehat A$ also consistently estimates it under the displayed design assumptions.</p><div class="proposition"><strong>Proposition (<span class="tex-theorem-title">Uniform finite-sample rectangles</span>):</strong>  The rectangle \[
+ C_n=\prod_{j=1}^p\left[
+ \check\theta_j-t_*\widehat\sigma_j/\sqrt{S_j},\quad
+ \check\theta_j+t_*\widehat\sigma_j/\sqrt{S_j}\right]
+\] has coverage at least $1-\alpha$ for every parameter, every permitted design law and every permitted cross-coordinate covariance. </div> <div class="proof"><em>Proof:</em>  Conditional on the design, normal projection theory gives $(\widetilde\theta_j-\theta_{0j})\sqrt{S_j}/\widehat\sigma_j
+\sim t_{n-1}$. The numerator projection is independent of its residual sum of squares, and the residual projection has rank $n-1$. Each coordinate interval therefore misses with probability $\alpha/p$. A union bound over coordinates gives the result without requiring coordinate independence. Integrating over the design preserves coverage. The same event shows feasibility of $\theta_0$ in the regularized program.  ∎</div> The simultaneous event also yields $|\widehat\theta_j-\theta_{0j}|\leq2t_*\widehat\sigma_j/\sqrt{S_j}$ by the triangle inequality. If $\theta_{0j}=0$, feasibility implies the minimizing coordinate is exactly zero. Consequently under exact $s$-sparsity its $\ell_1$ error is at most $2s$ times the largest coordinate radius on this event. Under approximate sparsity, coordinatewise soft-thresholding instead gives the usual split between large coordinates and the tail, but no exact support assertion is made.<h2>Widths without inputting the scale bound</h2> For a uniform sequence of classes assume $\sup_j\sigma_j\leq C$ for some fixed finite constant, unknown to the procedure, and $\log(p/\alpha)=o(n)$ with fixed or suitably controlled $\alpha$. Chi-square concentration and a union bound show $\max_j\widehat\sigma_j=O_P(C)$ uniformly. The Student quantile obeys $t_*=O(\sqrt{\log(p/\alpha)})$ in this range: write a Student variable as a standard normal divided by the square root of an independent chi-square ratio, bound the ratio away from zero, and use normal tail bounds. Since $S_j\geq n$, the largest coordinate width is \[
+                         O_P\!\left(\sqrt{\log(p/\alpha)/n}\right).
+\] The variance bound defines the class but is never a tuning input. Without a class restriction of this kind, a common rate constant cannot hold over arbitrarily large scales.<h2>Why this does not finish general adaptive GMM</h2> For a general differentiable moment map, Taylor expansion gives \[
+ \check\theta-\theta_0=-\widehat A\widehat g(\theta_0)
+ +(I-\widehat A\widehat G)(\widehat\theta-\theta_0)
+ -\widehat A R,
+\] where $R$ is the sample nonlinear remainder and $\widehat G$ is the chosen expansion derivative. A feasible Gaussian or multiplier calibration for the first term does not control the last two. Uniform inference needs their maximum norm to be small relative to the simultaneous approximation scale, along with a valid covariance approximation. Nuisance penalties must deliver inverse errors multiplied by parameter errors, not merely small standalone fitting residuals.<p>The diagonal benchmark sets both algebraic remainders to zero and uses exact Gaussian pivots. Unknown sparse inverse matrices, heavy tails, nonlinear Jacobians and weak identification destroy these shortcuts. Completing computable adaptation for all such nuisance programs while retaining the source's oracle rates remains unresolved here; the benchmark provides a stringent special-case test that any general method should pass.</p><h2>Completion Estimate</h2> 28%<p>This is a post hoc, heuristic estimate for the full catalogue target. Unknown-scale Gaussian diagonal moments admit fully feasible penalties, exact debiasing and uniform finite-sample simultaneous rectangles at the requested width rate. Growing-dimensional nonlinear moments and unknown sparse nuisance inverses retain the central adaptive-calibration and remainder-control obstacles.</p><h3>References</h3><ul><li><strong>[bcchk]</strong>  A. Belloni, V. Chernozhukov, D. Chetverikov, C. Hansen and K. Kato (2018), High-Dimensional Econometrics and Regularized GMM, arXiv:1806.01888v2. Theorem 3.4, following paragraph and Remark 3.3, printed pp.56--57, inspected. <a href="https://arxiv.org/pdf/1806.01888v2" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/pdf/1806.01888v2</a>.</li></ul></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/practical-adaptive-penalties-for-debiased-regularized-gmm/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
+  
+  
+</section>
+
+
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
+<section id="contribute"><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+</section>
+
+<details class="record-details" data-pagefind-ignore><summary>Record details</summary>
+  <dl class="metadata">
+    <dt>Subjects</dt><dd>Economics</dd>
+    <dt>Collection</dt><dd>Economics catalogue</dd>
+    <dt>Economics rank</dt><dd>360</dd>
+    
+    <dt>JEL</dt><dd><a href="/economics/jel/C55/">C55 — Large Data Sets: Modeling and Analysis</a></dd>
+    
+  </dl>
+</details>
+</aside>
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

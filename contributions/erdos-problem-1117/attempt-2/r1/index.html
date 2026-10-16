@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-6171">
+  
+  <title>gpt pro 5.2 attempt on Math-6171 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-1117/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-6171-A2</span> · revision r1 · on <a href="/problems/erdos-problem-1117/">Math-6171</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-6171</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p>1) FORMAL RESTATEMENT</p><p>Let $f:\mathbb{C}\to\mathbb{C}$ be an entire function that is not a monomial (i.e., not of the form $c z^m$ with $c\ne 0$, $m\in\mathbb{Z}_{\ge 0}$). For each $r&gt;0$, define \[
+M(r):=\max_{|z|=r} |f(z)|
+\] and let \[
+\nu(r):=\#\{z\in\mathbb{C}: |z|=r\text{ and }|f(z)|=M(r)\}.
+\] (As noted in the problem statement, $\nu(r)$ is finite for non-monomial $f$; we reprove this below.)</p><p>Question 1: Can $\limsup_{r\to\infty} \nu(r)=\infty$ occur?</p><p>Question 2: Can $\liminf_{r\to\infty} \nu(r)=\infty$ occur?</p><p>2) QUICK LITERATURE/CONTEXT CHECK</p><p>I did not browse the web; I only record what is stated in the problem text:</p><p>- Herzog--Piranian $1968$ showed Question 1 has answer "yes". - Question 2 is still open; Glücksam--Pardo-Simón $2024$ give an "approximate" affirmative answer.</p><p>3) ATTACK PLAN</p><p>Proof track (for Question 2):</p><p>- Try to modify the Herzog--Piranian construction to control $\nu(r)$ from below for <em>all sufficiently large</em> radii $r$, not just along a sparse sequence.</p><p>Disproof track (for Question 2):</p><p>- Try to prove that every non-monomial entire function admits infinitely many radii with $\nu(r)$ bounded (e.g. $\nu(r)\le C$ for infinitely many $r$), using growth/regularity theorems for entire functions.</p><p>Below I only establish basic finiteness and a polynomial bound; these do not resolve Question 2.</p><p>4) WORK</p><p><strong>Lemma 1117.1 (Real-analyticity of the boundary modulus).</strong> Let $f$ be entire and fix $r&gt;0$. The function \[
+\theta\mapsto f(r e^{i\theta})
+\] is complex-analytic as a function of $e^{i\theta}$, and in particular the real-valued function \[
+ g_r(\theta):=|f(r e^{i\theta})|^2
+\] is a $2\pi$-periodic real-analytic function of $\theta$.</p><p><em>Proof.</em> Write the power series $f(z)=\sum_{n=0}^\infty c_n z^n$, which converges uniformly on $|z|\le r$ since $f$ is entire. Then \[
+ f(r e^{i\theta}) = \sum_{n=0}^\infty c_n r^n e^{i n\theta},
+\] with uniform convergence in $\theta$. This is a uniformly convergent Fourier series with only nonnegative frequencies, hence defines a real-analytic function of $\theta$ (indeed it extends to a complex-analytic function of $\theta$ in a horizontal strip). Taking modulus squared preserves real-analyticity, so $g_r$ is real-analytic and $2\pi$-periodic. $\square$</p><p><strong>Lemma 1117.2 (Constant modulus on a circle forces a monomial).</strong> Let $f$ be entire. Suppose there exists $r&gt;0$ and a constant $C&gt;0$ such that \[
+|f(z)|=C\quad\text{for all }|z|=r.
+\] Then $f$ is a monomial: $f(z)=c z^m$ for some integer $m\ge 0$ and constant $c\ne 0$.</p><p><em>Proof.</em> Define $g(z):=f(r z)/C$. Then $g$ is entire and satisfies $|g(z)|=1$ for all $|z|=1$. Because $g$ is analytic on a neighborhood of the closed unit disk and not identically zero, its zero set inside $|z|\le 1$ is finite (zeros of a nonzero analytic function are isolated, and a compact set contains only finitely many isolated points). Let $a_1,\dots,a_s$ be the zeros of $g$ in $|z|&lt;1$, listed with multiplicity. Define the finite Blaschke product \[
+B(z)=\prod_{j=1}^s \frac{z-a_j}{1-\overline{a_j}z}.
+\] This $B$ is analytic on a neighborhood of $|z|\le 1$, satisfies $|B(z)|=1$ for $|z|=1$, and has exactly the same zeros (with multiplicity) in $|z|&lt;1$ as $g$.</p><p>Now $h(z):=g(z)/B(z)$ is analytic and nonvanishing on a neighborhood of $|z|\le 1$, so both $h$ and $1/h$ are analytic on $|z|\le 1$. On $|z|=1$ we have $|h(z)|=|g(z)|/|B(z)|=1$. By the maximum modulus principle applied to $h$ and to $1/h$ on the unit disk, we obtain $|h(z)|\le 1$ and $|h(z)|\ge 1$ for $|z|&lt;1$. Hence $|h(z)|=1$ on the open unit disk. An analytic function with constant modulus on a domain is constant (e.g. by the open mapping theorem), so $h\equiv e^{i\phi}$ for some real $\phi$. Thus, on $|z|\le 1$, \[
+ g(z)=e^{i\phi} B(z).
+\] Since both sides are analytic on a neighborhood of $|z|\le 1$, the identity theorem extends this equality to that neighborhood.</p><p>Finally, because $g$ is entire, the right-hand side must be entire. A Blaschke factor $\frac{z-a}{1-\overline{a}z}$ with $a\ne 0$ has a pole at $z=1/\overline{a}$, which lies outside the unit disk. Therefore, for $e^{i\phi}B(z)$ to be entire, every $a_j$ must equal $0$. Hence $B(z)=z^s$, and $g(z)=e^{i\phi} z^s$ for all $z$. Undoing the definition of $g$, we get $f(z)=C e^{i\phi} (z/r)^s$, i.e. $f(z)=c z^m$ with $m=s$. $\square$</p><p><strong>Lemma 1117.3 (Finiteness of $\nu(r)$ for non-monomial entire functions).</strong> If $f$ is entire and not a monomial, then for every $r&gt;0$ the number $\nu(r)$ is finite.</p><p><em>Proof.</em> Fix $r$. By Lemma 1117.1, $g_r(\theta)=|f(r e^{i\theta})|^2$ is a real-analytic periodic function. If $g_r$ were constant, then $|f|$ would be constant on $|z|=r$, forcing $f$ to be a monomial by Lemma 1117.2, contrary to hypothesis. Hence $g_r$ is non-constant. A non-constant real-analytic function on a compact interval has only finitely many critical points: its derivative $g_r'(\theta)$ is real-analytic and not identically zero, so its zeros are isolated, hence finite in $[0,2\pi]$. Every maximum point of $g_r$ is a critical point, so there are finitely many maxima, hence finitely many points $z$ with $|z|=r$ attaining $M(r)$. Therefore $\nu(r)&lt;\infty$. $\square$</p><p><strong>Lemma 1117.4 (Polynomial bound).</strong> If $f$ is a polynomial of degree $n$ which is not a monomial, then $\nu(r)\le 2n$ for every $r&gt;0$.</p><p><em>Proof.</em> Write $f(z)=\sum_{j=0}^n c_j z^j$. Then $f(r e^{i\theta})=\sum_{j=0}^n c_j r^j e^{ij\theta}$ is a trigonometric polynomial of degree $n$, and $g_r(\theta)=|f(r e^{i\theta})|^2$ is a real trigonometric polynomial with frequencies in $[-n,n]$. Its derivative $g_r'(\theta)$ is a real trigonometric polynomial of degree at most $n$. If $g_r'\equiv 0$, then $g_r$ is constant, forcing $f$ to have constant modulus on $|z|=r$, hence to be a monomial by Lemma 1117.2 (applied to the entire function $f$), contradicting the hypothesis. Therefore $g_r'$ is a nonzero trigonometric polynomial of degree at most $n$, so it has at most $2n$ zeros in $[0,2\pi)$. The maximum points of $g_r$ lie among the zeros of $g_r'$, so there are at most $2n$ such points. Hence $\nu(r)\le 2n$. $\square$</p><p><strong>FAST REALITY CHECK (a simple explicit example).</strong> Let $f(z)=1+z+z^2$. For any $r&gt;0$ and $|z|=r$, the triangle inequality gives $|f(z)|\le 1+|z|+|z|^2 = 1+r+r^2$, with equality only when $z$ has argument $0$ (since all coefficients are positive real). Thus $M(r)=1+r+r^2$ and $\nu(r)=1$ for all $r&gt;0$. A numerical sampling check at $r\in\{0.5,1,2\}$ (dense grid of angles) agrees with $\nu(r)=1$.</p><p>5) VERIFICATION</p><p>- Lemma 1117.2: the key steps are (a) finitely many zeros in $|z|\le 1$, (b) constructing the finite Blaschke product with the same interior zeros, and (c) applying maximum modulus to $h$ and $1/h$. Each step was justified. - Lemma 1117.3 depends only on real-analyticity plus the non-constantness ensured by Lemma 1117.2. - Lemma 1117.4 uses the fact that a nonzero trigonometric polynomial of degree $n$ has at most $2n$ zeros on a period; this is standard and follows from writing it as a polynomial in $e^{i\theta}$ of degree at most $n$ and applying the fundamental theorem of algebra.</p><p>6) FINAL</p><p><strong>UNRESOLVED</strong></p><p>(i) Strongest proved partial result: $\nu(r)$ is finite for each $r$ when $f$ is not a monomial, and for polynomials of degree $n$ one has the uniform bound $\nu(r)\le 2n$ for all $r$ (Lemmas 1117.3--1117.4).</p><p>(ii) First gap (crisp): Either construct an explicit entire non-monomial $f$ such that $\nu(r)\to\infty$ along all sufficiently large radii (i.e. $\liminf_{r\to\infty}\nu(r)=\infty$), or prove that every such $f$ has infinitely many radii $r$ with $\nu(r)$ bounded.</p><p>(iii) Top 3 next moves: 1. Study (and attempt to re-derive) the Herzog--Piranian construction that makes $\limsup\nu(r)=\infty$, and isolate exactly where the radii with large $\nu(r)$ occur; try to densify that set of radii. 2. Attempt a "stability" lemma: if $\nu(r)$ is large at some radius, can one force it to remain large on an interval of radii $[r,r+\Delta]$? Proving such persistence would move from limsup to liminf. 3. Numerically explore candidate entire functions with many comparable dominant terms on $|z|=r$ (e.g. lacunary power series with carefully tuned coefficients) and track $\nu(r)$ as $r$ varies, looking for patterns that might suggest a constructive approach to liminf.</p><p>(iv) Minimal counterexample structure (if liminf cannot be infinite): one would expect a theorem producing infinitely many radii where the maximum modulus is attained essentially by a single "dominant direction" (few maxima), perhaps tied to regularity of the maximum modulus function $M(r)$ or to Wiman--Valiron type concentration; a minimal counterexample to the affirmative liminf conjecture would be an entire function whose boundary modulus does not admit such concentration at infinitely many radii.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/1117.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-1117/attempt-2/r1/source/files/1117.tex" download>files/1117.tex</a><span class="row-meta">9,172 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-1117/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,057 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-1117/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-1117/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-1117-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-1117}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-1117/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-1117-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-1117/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-1117/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-1117/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-1117-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-1117&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-1117/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-1117-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-1117-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-1117/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-1117/attempt-2/r1/">Math-6171-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:38Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

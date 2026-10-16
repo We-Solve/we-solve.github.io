@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-929">
+  
+  <title>gpt pro 5.2 attempt on Math-929 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-773-9f825d08/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-929-A2</span> · revision r1 · on <a href="/problems/erdos-problem-773-9f825d08/">Math-929</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-929</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><details class="contents"><summary>Contents</summary><ol><li><a href="#section-1110822664273f45">Problem 773: Sidon subsets of the first $N$ squares</a></li><li><a href="#section-b2b4f4d4e6f89005">1) Formal restatement</a></li><li><a href="#section-9ca99810a34232ba">2) Quick literature/context check (no more than 8 lines)</a></li><li><a href="#section-60adc589a99440d0">3) Attack plan</a></li><li><a href="#section-37e7f08379444c4c">4) Work</a></li><li><a href="#section-9ed2ac539ff7d888">Upper bound $\boldsymbol{f(N)\ll N(\log N)^{-1/4}}$.</a></li><li><a href="#section-8a4920a779d4cad6">A general extraction lemma.</a></li><li><a href="#section-1c4082e17b16c6dd">Lower bound for squares.</a></li><li><a href="#section-b5e9a464f704f770">5) Verification</a></li><li><a href="#section-7e259a7f8b9cba0d">6) Final (exactly one label and one sub-label)</a></li><li><a href="#section-f414902dec2e3bbb">7) Completion estimate</a></li></ol></details><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><h2 id="section-1110822664273f45">Problem 773: Sidon subsets of the first $N$ squares</h2><h3 id="section-b2b4f4d4e6f89005">1) Formal restatement</h3> Let $S_N=\{1^2,2^2,\dots,N^2\}$. A set $A\subseteq\mathbb{Z}$ is <em>Sidon</em> (a $B_2$-set) if \[
+a+b=c+d\ (a,b,c,d\in A)\quad\Longrightarrow\quad \{a,b\}=\{c,d\}.
+\] Equivalently, all sums $a+b$ with $a&lt;b$ are distinct. Define \[
+f(N):=\max\{|A|:A\subseteq S_N \text{ is Sidon}\}.
+\] The problem asks for the best possible asymptotic bounds on $f(N)$.<h3 id="section-9ca99810a34232ba">2) Quick literature/context check (no more than 8 lines)</h3> <ul> <li>Landau's theorem on sums of two squares yields $f(N)\ll N(\log N)^{-1/4}$. </li><li>A graph/hypergraph extraction lemma of Alon--Erdős implies $f(N)\gg_\varepsilon N^{2/3-\varepsilon}$ for every $\varepsilon&gt;0$. </li><li>Lefmann--Thiele improved the lower bound to $f(N)\gg N^{2/3}$. </li><li>The true order of $f(N)$ remains open: there is still a large gap between exponents $2/3$ and $1$ (up to logs). </li></ul><h3 id="section-60adc589a99440d0">3) Attack plan</h3> <ul> <li>Upper bound: count the number of distinct pair-sums $a+a'$ forced by the Sidon property and compare with Landau's count of integers that are sums of two squares. </li><li>Lower bound: prove a general lemma that any $B(2k)$ sequence of length $n$ contains a Sidon subsequence of size $\gg k^{-1/3}n^{2/3}$, then apply to squares using a divisor-function bound on the number of representations $m=i^2+j^2$. </li></ul><h3 id="section-37e7f08379444c4c">4) Work</h3><h5 id="section-9ed2ac539ff7d888">Upper bound $\boldsymbol{f(N)\ll N(\log N)^{-1/4}}$.</h5> Let $A\subseteq S_N$ be Sidon and let \[
+\Sigma:=\{a+a': a,a'\in A,\ a&lt;a'\}.
+\] Sidon implies that each unordered pair $\{a,a'\}$ gives a distinct sum, so $|\Sigma|=\binom{|A|}{2}$. Each element of $\Sigma$ is a sum of two squares, and $\Sigma\subseteq [2,2N^2]$.<p>Let $R(X)$ be the number of integers $m\le X$ representable as a sum of two squares. Landau proved $R(X)\ll X/\sqrt{\log X}$, so \[
+\binom{|A|}{2}=|\Sigma|\le R(2N^2)\ll \frac{N^2}{\sqrt{\log N}}.
+\] Hence $|A|^2\ll N^2(\log N)^{-1/2}$, i.e. \[
+|A|\ll \frac{N}{(\log N)^{1/4}}.
+\] Therefore $f(N)\ll N(\log N)^{-1/4}$.</p><h5 id="section-8a4920a779d4cad6">A general extraction lemma.</h5> <div class="definition"><strong>Definition:</strong>  A strictly increasing sequence $a_1&lt;\dots&lt;a_n$ is a <em>$B(2k)$-sequence</em> if every integer has at most $k$ representations as $a_i+a_j$ with $i&lt;j$. </div><div class="lemma"><strong>Lemma:</strong> <span class="tex-label" data-tex-label="lem:B2k-to-Sidon" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-1c0bc5d42601e91a3a5f0b936cec904d" tabindex="-1"></span> There is an absolute constant $c&gt;0$ such that every $B(2k)$-sequence of length $n$ contains a Sidon subsequence of size at least $c\,k^{-1/3}n^{2/3}$. </div><div class="proof"><em>Proof:</em>  Given $a_1&lt;\dots&lt;a_n$, form a 4-uniform hypergraph $H$ on vertex set $[n]$ whose edges are 4-tuples of distinct indices $\{i,j,u,v\}$ such that $a_i+a_j=a_u+a_v$ with $\{i,j\}\ne\{u,v\}$. An independent set of vertices in $H$ corresponds exactly to a Sidon subsequence.<p>Let $r_m$ be the number of pairs $i&lt;j$ with $a_i+a_j=m$. Then $\sum_m r_m=\binom{n}{2}$ and $r_m\le k$ for all $m$. Each fiber of size $r_m$ contributes at most $\binom{r_m}{2}$ edges, so \[
+|E(H)|\le \sum_m \binom{r_m}{2}\le \frac{\binom{n}{2}}{k}\binom{k}{2}\le \frac{(k-1)n^2}{4}.
+\]</p><p>Choose each vertex independently with probability $p=\alpha k^{-1/3}n^{-1/3}$, where $\alpha\in(0,1)$ is a fixed small constant. Then $\mathbb{E}|X|=pn=\alpha k^{-1/3}n^{2/3}$. Also $\mathbb{E}|E(H[X])|=p^4|E(H)|\ll \alpha^4 k^{-1/3}n^{2/3}$. Deleting one vertex from each edge of $H[X]$ yields an independent set $I$ with $\mathbb{E}|I|\ge \mathbb{E}|X|-\mathbb{E}|E(H[X])|\ge (\alpha-C\alpha^4)k^{-1/3}n^{2/3}$. Choosing $\alpha$ small so that $\alpha-C\alpha^4&gt;0$ gives $|I|\ge c k^{-1/3}n^{2/3}$ for some absolute $c&gt;0$.  ∎</p></div><p></p><h5 id="section-1c4082e17b16c6dd">Lower bound for squares.</h5> Apply Lemma <a class="tex-reference" data-tex-reference="lem:B2k-to-Sidon" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-1c0bc5d42601e91a3a5f0b936cec904d" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma in this document · r1">Lemma</a> to $a_i=i^2$ for $i=1,\dots,N$ (so $n=N$). We need an upper bound on the number of representations of $m\le 2N^2$ as $m=i^2+j^2$ with $1\le i&lt;j\le N$.<p>Let $r_2(m)$ denote the number of integer solutions $(x,y)\in\mathbb{Z}^2$ to $x^2+y^2=m$. A classical formula implies $r_2(m)\le 4d(m)$, where $d(m)$ is the divisor function. Hence the number of pairs $(i,j)$ with $1\le i&lt;j\le N$ and $i^2+j^2=m$ is $O(d(m))$.</p><p>Fix $\varepsilon&gt;0$. It is standard that $d(m)\le m^{\varepsilon}$ for all sufficiently large $m$. Since $m\le 2N^2$, for $N$ large we have $d(m)\ll_\varepsilon N^{2\varepsilon}$, and thus \[
+\#\{(i,j): i^2+j^2=m,\ 1\le i&lt;j\le N\}\le N^{3\varepsilon}
+\] after increasing $N$ if needed (absorbing constants). Therefore $\{1^2,\dots,N^2\}$ is a $B(2k)$-sequence with $k=N^{3\varepsilon}$, and Lemma <a class="tex-reference" data-tex-reference="lem:B2k-to-Sidon" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-1c0bc5d42601e91a3a5f0b936cec904d" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma in this document · r1">Lemma</a> gives a Sidon subset of size \[
+\gg k^{-1/3}N^{2/3} = N^{2/3-\varepsilon}.
+\] So $f(N)\gg_\varepsilon N^{2/3-\varepsilon}$ for every $\varepsilon&gt;0$. (A stronger bound $f(N)\gg N^{2/3}$ is known by Lefmann--Thiele.)</p><h3 id="section-b5e9a464f704f770">5) Verification</h3> <ul> <li>Upper bound: $|\Sigma|=\binom{|A|}{2}$ is exact for Sidon; Landau's bound applies to all sums $a+a'\le 2N^2$. </li><li>Lemma <a class="tex-reference" data-tex-reference="lem:B2k-to-Sidon" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-1c0bc5d42601e91a3a5f0b936cec904d" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma in this document · r1">Lemma</a>: the hypergraph edge count $\sum_m\binom{r_m}{2}$ is maximized by packing fibers to size $k$, giving $|E(H)|\le (k-1)n^2/4$. </li><li>Divisor bound step: only needs the qualitative fact $d(m)\le m^\varepsilon$ for large $m$, hence $k=N^{O(\varepsilon)}$. </li></ul><h3 id="section-7e259a7f8b9cba0d">6) Final (exactly one label and one sub-label)</h3> <strong>LABEL: UNRESOLVED.</strong><br> <strong>SUBLABEL: Proved the Landau upper bound and an $N^{2/3-\varepsilon}$ lower bound (with known improvement to $N^{2/3}$); the true order of $f(N)$ is open.</strong><h3 id="section-f414902dec2e3bbb">7) Completion estimate</h3> To resolve Problem 773 completely would require either substantially improving the upper bound (beyond Landau) or giving a near-linear lower bound; presently the best-known exponents remain $2/3$ (lower) and $1$ (upper, with a log saving).</div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/773.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-773-9f825d08/attempt-2/r1/source/files/773.tex" download>files/773.tex</a><span class="row-meta">6,106 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-773-9f825d08/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,054 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-773-9f825d08/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-773-9f825d08/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-773-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-773}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-773-9f825d08/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-773-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-773-9f825d08/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-773-9f825d08/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-773-9f825d08/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-773-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-773&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-773-9f825d08/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-773-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-773-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-773-9f825d08/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T18:20:07Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-773-9f825d08/attempt-2/r1/">Math-929-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:42Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

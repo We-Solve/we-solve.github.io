@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Approximating the least unpopularity factor in house allocation">
+  
+  <title>Approximating the least unpopularity factor in house allocation · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/problems/approximating-the-least-unpopularity-factor-in-house-allocation/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/">Home</a></li><li><a href="/economics/">Economics</a></li><li><a href="/economics/sources/economics-catalogue/">Economics catalogue</a></li><li><span aria-current="page">Econ-178</span></li></ol></nav>
+    
+    
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Econ-178</span> · <span data-pagefind-filter="Discipline">economics</span> · <span data-pagefind-filter="Discipline">computer science</span> · <span data-pagefind-filter="Topic">Computational economics</span></p>
+  <span class="visually-hidden">Econ-178 · CS-875</span>
+  <h1 data-pagefind-meta="title">Approximating the least unpopularity factor in house allocation</h1>
+  
+<p class="status-line"><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+  <span class="visually-hidden" data-pagefind-filter="JEL">C78 — Bargaining Theory - Matching Theory</span>
+  <span class="visually-hidden" data-pagefind-filter="Source">Economics catalogue</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden" data-pagefind-filter="Completion estimate">20%</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">not recorded</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+</header>
+
+
+
+<section class="statement" aria-labelledby="statement-title">
+  <h2 id="statement-title">Statement</h2>
+  <div class="collapsible" data-collapsible data-more="Show full statement" data-less="Show less">
+    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><p><span class="tex-label" data-tex-label="problem:OP-0542" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-1b08cdcee4150f0cbc48bb8bb52a7a78" tabindex="-1"></span> <span class="tex-label" data-tex-label="beyond:MM-01" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-9b83c9d694a338eb1f4391e613e0f0ce" tabindex="-1"></span> <strong><code>MM-01</code></strong> |  Matching markets and allocation</p><p>Published question</p><h3>Definitions and assumptions</h3> Let $A$ be a finite set of applicants, $H$ a finite set of houses, and $E\subseteq A\times H$ the acceptable pairs. Each applicant strictly orders her acceptable houses, all of which are preferred to being unmatched, denoted by $\bot$. A matching is a subset of $E$ with no repeated endpoint; houses have no preferences. Let $\mathcal M(I)$ be the set of matchings, with $M(a)=\bot$ for an unmatched applicant, and define \[
+ \phi(N,M)=|\{a\in A:N(a)\succ_a M(a)\}|.
+\] For nonnegative integers $r,s$, set $d(r,s)=r/s$ if $s&gt;0$, $d(0,0)=1$, and $d(r,0)=+\infty$ if $r&gt;0$. Define \[
+ u_I(M)=\max_{N\in\mathcal M(I)}d(\phi(N,M),\phi(M,N)),\qquad
+ u^*(I)=\min_{M\in\mathcal M(I)}u_I(M).
+\] The zero-denominator conventions are essential. A matching is popular precisely when $u_I(M)=1$. <h3>Formal question</h3> Determine the optimal polynomial-time approximation guarantee for minimizing $u_I$. In particular, determine the infimum of constants $\rho\ge1$ for which an algorithm outputs $M$ satisfying $u_I(M)\le\rho u^*(I)$ on every instance. If no constant guarantee is achievable, characterize the dependence on $|A|+|H|$. <h3>Scope and status</h3> The source poses improved approximation algorithms and stronger hardness bounds in the one-sided house-allocation setting. It records NP-hardness and exclusion of a $(3/2-\varepsilon)$ approximation, for each $\varepsilon&gt;0$, unless $\mathrm P=\mathrm{NP}$. These are source-dated results. An optimal matching has finite factor: a Pareto-optimal matching admits no comparison with positive numerator and zero denominator. Thus the objective is well defined even though individual matchings can have infinite factor. <h3>References for the source of the problem</h3> Katarína Cechlárová, Ágnes Cseh, and David F. Manlove (2019), <em>Selected open problems in Matching Under Preferences</em>, <em>Bulletin of EATCS</em> 128, Section 3.1.1, Theorem 3 and its concluding paragraph: <a href="https://hpi.de/friedrich/docs/publications/2019/BEATCS.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://hpi.de/friedrich/docs/publications/2019/BEATCS.pdf</a>. Foundational reference: Robert M. McCutchen (2008), <em>The least-unpopularity-factor and least-unpopularity-margin criteria for matching problems with one-sided preferences</em>, LATIN 2008, pp. 593--604, cited there as reference [71].<h3>Common conventions: Source mathematical conventions</h3><p><strong>Well-defined objects.</strong> All probability spaces and measurable variables are specified or inherited from a local statistical model. Expectations used as finite targets require the stated integrability. A decision rule or estimator is measurable with respect to its available information; randomized rules may use an auxiliary independent random variable. Norms without a subscript are Euclidean in finite-dimensional spaces. An optimizer is requested only when attainment is assured; otherwise the question concerns the optimal value and $\varepsilon$-optimal admissible rules for every $\varepsilon&gt;0$.</p><p><strong>Identification.</strong> A structural model $m\in\mathcal M$ implies an observable law $P_m^{\rm obs}$ and target $\theta(m)$. The target is point identified on $\mathcal M$ if \[
+ P_{m_1}^{\rm obs}=P_{m_2}^{\rm obs}
+ \quad\Longrightarrow\quad\theta(m_1)=\theta(m_2)
+ \qquad(m_1,m_2\in\mathcal M).
+\] When this fails, the sharp identified set is \[
+ \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M,
+                                  P_m^{\rm obs}=P\}.
+\] Specifying an intervention or estimand does not establish identification. Positivity, exclusion, causal sufficiency, measurement restrictions, and transport assumptions are substantive local inputs, never automatic consequences of notation.</p><p><strong>Minimax risk and nontrivial inference.</strong> For a statistical experiment with data law $P^{(n)}$, target $\theta(P)$, and nonnegative loss $\ell$, define \[
+ \mathcal R_n(\mathcal P,\ell)
+   =\inf_{\widehat\theta_n}\sup_{P\in\mathcal P}
+      \E_{P^{(n)}}\ell(\widehat\theta_n,\theta(P)).
+\] The infimum is over measurable estimators. A sharp rate is a sequence $r_n$ for which $0&lt;c\leq C&lt;\infty$, independent of $n$, satisfies $c r_n\leq\mathcal R_n\leq C r_n$ for all sufficiently large $n$. Squared-error parametric risk is of order $n^{-1}$; the corresponding root-mean-squared error is of order $n^{-1/2}$. These different conventions are distinguished locally. A uniform asymptotic confidence region $C_n$ must satisfy \[
+ \liminf_{n\to\infty}\inf_{P\in\mathcal P}
+     \Pr_{P^{(n)}}\{\theta(P)\in C_n\}\geq 1-\alpha,
+ \qquad 0&lt;\alpha&lt;1,
+\] together with an informative diameter or expected-width requirement. Coverage alone permits the vacuous whole parameter space. Testing questions similarly impose both size control and power against a declared separated alternative class.</p><p><strong>Binary causal baseline.</strong> When an entry explicitly invokes this baseline, one observes independent copies of $O=(X,W,Y)$, with $W\in\{0,1\}$ and potential outcomes $Y(0),Y(1)$. Assume consistency $Y=Y(W)$, no interference, conditional exchangeability $(Y(0),Y(1))\perp W\mid X$, and overlap $\epsilon\leq e(X)\leq1-\epsilon$ almost surely for a fixed $0&lt;\epsilon&lt;1/2$, where \[
+ e(x)=\Pr(W=1\mid X=x),\qquad
+ m_w(x)=\E[Y\mid W=w,X=x],\qquad
+ \tau(x)=m_1(x)-m_0(x).
+\] These assumptions identify conditional mean effects almost everywhere under the covariate law. Pointwise or uniform effects require appropriate regularity and a specified support. Continuous treatment, longitudinal data, adaptive experiments, and network interference require their own assumptions in place of this baseline. Bounded outcomes, densities, and smoothness are additional assumptions only where stated.</p><p><strong>Function classes.</strong> On $[0,1]^d$, $\mathcal H_d^s(L)$ is the isotropic Hölder ball of radius $L&gt;0$: put $k=\lceil s\rceil-1$ and $\gamma=s-k\in(0,1]$, bound derivatives through order $k$, and require the order-$k$ derivatives to be $\gamma$-Hölder with constant at most $L$. Thus integer orders use a Lipschitz final derivative convention. The class $\operatorname{BV}_d(L)$ consists of functions $f\in L^1((0,1)^d)$ whose distributional derivative is a finite vector measure and for which $\|f\|_{L^1}+|Df|((0,1)^d)\leq L$. An $L^\infty$ bound or a particular pointwise version is imposed separately when needed. Sparse and neural-network classes require a declared dictionary or architecture and coefficient bounds.</p><p>An anisotropic Hölder class with declared block smoothness indices means coordinatewise Hölder regularity in each block, uniformly in the other blocks, with all corresponding derivative and Hölder bounds at most the stated radius. Derivative orders and the integer-order convention in each block are those just given. Mixed-derivative bounds are additional restrictions only when explicitly stated.</p><p><strong>Decision and computational questions.</strong> Policy regret compares admissible feasible policies under the same law and constraints. In computational entries, finite data and thresholds have rational encodings; running time is measured in their total bit length. Real-valued equilibrium search uses the explicitly declared algebraic or FIXP encoding. An approximation ratio for maximization is written $\operatorname{OPT}/\operatorname{ALG}$ and for minimization as $\operatorname{ALG}/\operatorname{OPT}$, with zero optima and infeasible instances handled locally. Historical approximation bounds are not automatically current bounds.</p></div>
+  </div>
+  
+  
+  
+  <p class="small muted">Statement licence: CC-BY-4.0 · <a href="/problems/approximating-the-least-unpopularity-factor-in-house-allocation/source/statement.tex" download>Source file</a></p>
+</section>
+
+
+
+<section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-ECON-C78-178-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/approximating-the-least-unpopularity-factor-in-house-allocation/attempt-1/r1/">Econ-178-A1</a> · Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-09">2026-10-09</time></p>
+    <h3><a href="/contributions/approximating-the-least-unpopularity-factor-in-house-allocation/attempt-1/r1/">GPT 6 Astra Ultra attempt on Econ-178</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Least unpopularity factor Rational certificates, component structure, and exact common orders</h2> <strong>Problem ID:</strong> <code>C78-178</code>. <strong>Status:</strong> Unresolved; restricted results and reductions.<h2>Target and source boundary</h2> For a matching $M$, put $r_Q=\phi(Q,M)$ and $s_Q=\phi(M,Q)$. The target is $u(M)=\max_Qd(r_Q,s_Q)$, where $d(0,0)=1$ and $d(r,0)=+\infty$ for $r&gt;0$. Thus $u(M)\geq1$. The full approximation threshold is unresolved here. The verified survey [survey, Section 3.1.1, Theorems 2--3] records polynomial evaluation and the historical $(3/2-\epsilon)$ hardness bound; the primary reduction and its approximation consequence appear in [mcc, Theorem 5.2 and concluding paragraph]. We give full elementary proofs of the structural facts used below and solve the identical-order family exactly. These are restricted derivations, without a novelty assertion.<h2>Pareto completion and an exact threshold oracle</h2> <div class="lemma"><strong>Lemma (<span class="tex-theorem-title">Finite factor and completion</span>):</strong> <span class="tex-label" data-tex-label="pareto" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-27ad0267ba93761b994dcab234244363" tabindex="-1"></span> A matching has finite factor if and only if it is Pareto optimal. If every applicant weakly prefers $M'$ to $M$, then $u(M')\leq u(M)$. A Pareto-optimal such $M'$ can be found in polynomial time. For $n\geq2$, every Pareto-optimal matching satisfies $u(M')\leq\max\{1,n-1\}$; for $n\leq1$ it has factor one. </div> <div class="proof"><em>Proof:</em>  Infinite factor means exactly that some challenger has $r_Q&gt;0,s_Q=0$, which is a Pareto improvement. If assignments weakly improve from $M$ to $M'$, then for every fixed challenger $Q$ its winning count weakly decreases and its losing count weakly increases. Therefore any ratio strictly above one cannot increase; taking the maximum together with the ever-present value one proves the monotonicity assertion, including zero denominators.<p>Give each applicant strictly decreasing positive integer scores for her acceptable houses and score zero for unmatched. Restrict her allowed assignments to those weakly preferred to $M(a)$, with a private dummy allowed precisely when unmatched remains permissible. Maximize the sum of scores by a weighted bipartite assignment. The result weakly improves $M$. Any Pareto improvement of this result would be feasible in the restricted graph and strictly increase the score, a contradiction. The scores have polynomial encoding length.</p><p>For finite factor, a positive winning count requires at least one loser. The winning and losing sets are disjoint, so $r_Q+s_Q\leq n$ and $r_Q/s_Q\leq n-1$. Comparisons with zero wins cannot raise the maximum above one. For a single applicant a Pareto optimum gives her top house if any, and no challenger wins.  ∎</p></div><p></p><p>For a rational $\lambda\geq1$, give assignment edge $(a,h)$ weight $1$ if $h\succ_a M(a)$, weight $-\lambda$ if $M(a)\succ_a h$, and weight zero for equality. Include private dummy houses for unmatched.</p><div class="proposition"><strong>Proposition (<span class="tex-theorem-title">Exact rational verification</span>):</strong> <span class="tex-label" data-tex-label="oracle" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-5c4c7228c2f101021dd083e089da7fab" tabindex="-1"></span> Let $F_M(\lambda)$ be the maximum weight of an applicant-saturating assignment in this graph. Then \[
+ F_M(\lambda)=\max_Q(r_Q-\lambda s_Q),\qquad
+ u(M)\leq\lambda\quad\Longleftrightarrow\quad F_M(\lambda)=0.
+\] An exact finite factor can be computed by searching the sorted set \[
+ \{1\}\cup\{r/s:1\leq r\leq n,\ 1\leq s\leq r,\ r+s\leq n\}
+\] and making polynomially many weighted-assignment calls. If the factor is infinite, that fact is also decidable in polynomial time. </div> <div class="proof"><em>Proof:</em>  Assignment weights sum to $r_Q-\lambda s_Q$, establishing the first identity by the dummy correspondence. The challenger $Q=M$ gives zero, so $F_M\geq0$. If $F_M=0$, no positive-numerator zero-denominator comparison exists and all positive-denominator ratios are at most $\lambda$. Conversely those two properties bound every assignment weight by zero. Finite maxima above one are attained by one of the listed rational numbers; there are at most $n^2+1$ candidates, each of polynomial bit length. Testing $\max\{1,n-1\}$ first distinguishes infinity by Lemma <a class="tex-reference" data-tex-reference="pareto" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-27ad0267ba93761b994dcab234244363" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma (Finite factor and completion) in this document · r1">Lemma (Finite factor and completion)</a>; then threshold monotonicity permits binary search. The $n\leq1$ case can be evaluated directly.  ∎</div><p>This is a verification oracle for a <em>given</em> matching. Searching for a matching whose threshold test succeeds is a different task, and no polynomial algorithm for that search follows.</p><h2>Why additive amplification does not transfer</h2> <div class="proposition"><strong>Proposition (<span class="tex-theorem-title">Component maxima</span>):</strong> <span class="tex-label" data-tex-label="product" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-8016b8cf5df530d189beb9d411a35165" tabindex="-1"></span> For disjoint house-allocation instances $I_1,\ldots,I_t$, \[
+ u_I\left(\bigcup_jM_j\right)=\max_j u_{I_j}(M_j),\qquad
+ u_I^*=\max_j u_{I_j}^*.
+\] </div> <div class="proof"><em>Proof:</em>  A challenger confined to component $j$, and identical to $M$ elsewhere, achieves every component ratio, giving the lower bound. If one component has infinite factor this already proves equality. Otherwise set $U=\max_j u_{I_j}(M_j)&lt;\infty$. Every component comparison satisfies $r_j\leq U s_j$, including $s_j=0$, where finiteness forces $r_j=0$. Summing gives the global ratio at most $U$ when the total denominator is positive, and gives $d(0,0)=1\leq U$ otherwise. This proves the first identity. All component minima are attained since their matching sets are finite, and Lemma <a class="tex-reference" data-tex-reference="pareto" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-27ad0267ba93761b994dcab234244363" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma (Finite factor and completion) in this document · r1">Lemma (Finite factor and completion)</a> supplies a finite feasible factor. Choosing component minimizers proves the second identity.  ∎</div><p>In particular arbitrarily many disjoint copies preserve the optimum factor. The sum-based integrality amplification for the unpopularity margin cannot be reused for this objective.</p><div class="proposition"><strong>Proposition (<span class="tex-theorem-title">Exact comparison with the margin</span>):</strong>  If $M$ is Pareto optimal, has $n$ applicants, margin $\mu(M)$ and factor $u(M)=U$, then \[
+ U\leq\mu(M)+1,\qquad
+ \mu(M)\leq\left\lfloor\frac{n(U-1)}{U+1}\right\rfloor.
+\] </div> <div class="proof"><em>Proof:</em>  For every comparison with $s_Q&gt;0$, $r_Q/s_Q=1+(r_Q-s_Q)/s_Q
+\leq1+\mu(M)$; a zero denominator has zero numerator. Maximizing over challengers proves the first inequality. For the second, $r_Q\leq U s_Q$ implies $(r_Q-s_Q)/(r_Q+s_Q)\leq(U-1)/(U+1)$ whenever the numerator is positive. Since $r_Q+s_Q\leq n$, all positive margins have the stated upper bound; nonpositive margins and $Q=M$ cause no problem. Use integrality.  ∎</div><h2>A complete solution for common strict rankings</h2> Assume every applicant accepts every one of $h$ houses and has the same ranking $h_1\succ\cdots\succ h_h$. Empty sets are allowed.<div class="theorem"><strong>Theorem (<span class="tex-theorem-title">Common-order formula</span>):</strong> <span class="tex-label" data-tex-label="common" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-a5f1728052a4a8a936716a0d1ba50c02" tabindex="-1"></span> If $n\leq1$ or $h=0$, then $u^*=1$. Otherwise \[
+ u^*=\max\{1,\min(h,n-1)\}.
+\] Every Pareto-optimal matching is optimal for this family and can be obtained by serial dictatorship. </div> <div class="proof"><em>Proof:</em>  A Pareto optimum matches exactly $r=\min(n,h)$ applicants to precisely the first $r$ houses. Indeed an unmatched applicant and unused house permit a Pareto improvement, as does an unused house ranked above an occupied house. Conversely any matching with this described form is Pareto optimal: if some applicant strictly improves, following the occupants of the successively better houses cannot improve everyone without eventually worsening the current holder of a better house. More explicitly, among changed occupied houses, the best-ranked one has an original owner who cannot move to a strictly better changed or unused house, so a purported weak improvement is impossible.<p>When $h&lt;n$, choose one unmatched applicant, give her $h_r$, give the previous owner of $h_j$ house $h_{j-1}$ for $2\leq j\leq r$, and leave the original owner of $h_1$ unmatched. There are $r=h$ winners and one loser. No challenger can have more than $h$ winners, since each winner must receive a distinct house, and finiteness requires a loser whenever there are winners. Thus the maximum factor is $\max\{1,h\}$.</p><p>When $h\geq n\geq2$, cyclically give each original holder of $h_j$, $j\geq2$, house $h_{j-1}$, and give the holder of $h_1$ house $h_n$. There are $n-1$ winners and one loser. Lemma <a class="tex-reference" data-tex-reference="pareto" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-27ad0267ba93761b994dcab234244363" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma (Finite factor and completion) in this document · r1">Lemma (Finite factor and completion)</a> is a matching upper bound. Non-Pareto matchings have infinite factor, so the formula is also the global optimum. The elementary boundary cases follow by giving a sole applicant her best available house. Serial dictatorship has exactly the described form.  ∎</p></div><p></p><p>This family attains the absolute $n-1$ bound with $h\geq n$, but has approximation ratio one. Therefore a large achieved factor by itself is not an approximation lower bound. The common-order formula and the verification oracle leave general profiles, the historical hardness gap, and the optimal polynomial-time factor approximation unresolved. No current best-bound claim beyond the source-dated survey is made. </p><h3>References</h3><ul><li><strong>[survey]</strong>  K. Cechlárová, Á. Cseh, and D. F. Manlove (2019). <em>Selected open problems in Matching Under Preferences</em>. Bulletin of EATCS 128, Sections 3.1.1 and 3.2.4. <a href="https://hpi.de/friedrich/docs/publications/2019/BEATCS.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://hpi.de/friedrich/docs/publications/2019/BEATCS.pdf</a>. </li><li><strong>[mcc]</strong>  R. M. McCutchen (2008). <em>The least-unpopularity-factor and least-unpopularity-margin criteria for matching problems with one-sided preferences</em>. LATIN 2008, LNCS 4957, 593--604. Theorem 5.2 and final paragraph. <a href="https://mattmccutchen.net/research/publications/least-unpopularity.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://mattmccutchen.net/research/publications/least-unpopularity.pdf</a>.</li></ul> <h2>Completion Estimate</h2> 20%<p></p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/approximating-the-least-unpopularity-factor-in-house-allocation/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
+  
+  
+</section>
+
+
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
+<section id="contribute"><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+</section>
+
+<details class="record-details" data-pagefind-ignore><summary>Record details</summary>
+  <dl class="metadata">
+    <dt>Subjects</dt><dd>Computational economics</dd>
+    <dt>Collection</dt><dd>Economics catalogue</dd>
+    <dt>Economics rank</dt><dd>178</dd><dt>Computer Science rank</dt><dd>875</dd>
+    
+    <dt>JEL</dt><dd><a href="/economics/jel/C78/">C78 — Bargaining Theory - Matching Theory</a></dd>
+    
+  </dl>
+</details>
+</aside>
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

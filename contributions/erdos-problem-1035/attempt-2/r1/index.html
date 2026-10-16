@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-6089">
+  
+  <title>gpt pro 5.2 attempt on Math-6089 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-1035/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-6089-A2</span> · revision r1 · on <a href="/problems/erdos-problem-1035/">Math-6089</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-6089</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p>Is there a constant $c&gt;0$ such that every graph on $2^n$ vertices with minimum degree $&gt;(1-c)2^n$ contains the $n$-dimensional hypercube $Q_n$? Erdős [Er93] says 'if the conjecture is false, two related problems could be asked': {UL} {LI}Determine or estimate the smallest $m&gt;2^n$ such that every graph on $m$ vertices with minimum degree $&gt;(1-c)2^n$ contains a $Q_n$, and {/LI} {LI}For which $u_n$ is it true that every graph on $2^n$ vertices with minimum degree $&gt;2^n-u_n$ contains a $Q_n$.{/LI} {/UL} See also [576] for the extremal number of edges that guarantee a $Q_n$. References [Er93] Erdős, Paul, Some of my favorite solved and unsolved problems in graph theory . Quaestiones Math. $1993$, 333-350.</p><p>FORMAL RESTATEMENT Let n&gt;=1 and N=2^n. Let G be a simple graph on N vertices with minimum degree delta(G) &gt; $1-c$N. The question is whether there exists an absolute constant c&gt;0 (independent of n) such that every such G contains a spanning subgraph isomorphic to the n-dimensional hypercube Q_n (vertex set {0,1}^n, edges between bitstrings at Hamming distance 1).</p><p>QUICK LITERATURE/CONTEXT CHECK Only facts explicitly present in the problem statement are treated as established here. (In particular: the question is open in the problem source; two related variants are mentioned; and there is also a related extremal-edge-count problem [576].)</p><p>ATTACK PLAN $1$ Understand what structure a copy of Q_n forces inside an N-vertex graph: Q_n decomposes into n disjoint perfect matchings (coordinate matchings), and these matchings satisfy many 4-cycle constraints. $2$ Do small-n exhaustive checks to see what minimum-degree threshold is even plausible. $3$ Try to either (a) embed coordinate matchings one-by-one under a strong density hypothesis, or (b) build dense counterexample families by designing sparse complements that destroy all cube labellings.</p><p>WORK FAST REALITY CHECK $n=1,2,3$. * n=1 $N=2$: Q_1 is a single edge. A graph on 2 vertices contains Q_1 iff it is K_2, i.e. delta(G)=1. * n=2 $N=4$: Q_2 is C_4. Lemma 1035.2 below shows delta(G)&gt;=2 already forces a spanning C_4. * n=3 $N=8$: an exhaustive computer check was run.   - All graphs with delta(G)&gt;=6 (equivalently: the complement has maximum degree &lt;=1, i.e. is a matching) contain a spanning cube Q_3.     The number of such complements on 8 labelled vertices is 764 (all matchings), and none yield a counterexample.   - There exists a graph with delta(G)=5 that contains no spanning Q_3: take G = K_8 minus the edges of a disjoint union C_3 $\cup$ C_5.     Concretely, on vertex set {0,1,2,3,4,5,6,7} the missing edges are       $0,1$,$0,2$,$1,2$,$3,4$,$3,5$,$4,6$,$6,7$,$7,5$.     An exhaustive check over all 8! vertex relabellings verified that no labelled Q_3 embeds as a spanning subgraph.</p><p>Lemma 1035.1 (coordinate perfect matchings in Q_n). For each i in {1,...,n}, let M_i be the set of edges of Q_n that flip the i-th coordinate:   M_i := { {x, x$\oplus$ e_i} : x in {0,1}^n }, where e_i is the i-th standard basis vector over $Z/2Z$^n. Then: (a) Each M_i is a perfect matching of Q_n. (b) The matchings M_1,...,M_n are pairwise edge-disjoint. (c) The union of these matchings is exactly E$Q_n$.</p><p>Proof. (a) Fix i. For each vertex x, there is exactly one vertex y = x$\oplus$ e_i that differs from x only in coordinate i, so x is incident to exactly one edge of M_i. Thus every vertex has M_i-degree 1, i.e. M_i is a perfect matching. (b) If an edge {u,v} belongs to both M_i and M_j, then u and v differ in exactly one coordinate i and also in exactly one coordinate j. This forces i=j. Hence the M_i are edge-disjoint. (c) By definition, every edge of Q_n flips exactly one coordinate, hence lies in the corresponding M_i. Conversely, every M_i-edge is an edge of Q_n. So E$Q_n$=$\cup_i$ M_i.</p><p>Lemma 1035.2 (n=2 case: delta&gt;=2 forces Q_2). Let G be a graph on 4 vertices with minimum degree delta(G)&gt;=2. Then G contains a spanning copy of Q_2 (a 4-cycle).</p><p>Proof. Let V(G)={v1,v2,v3,v4}. Since delta(G)&gt;=2, every vertex misses at most one neighbour. Pick any vertex v1. It has at least two neighbours; call two of them v2,v3. If v2v3 is NOT an edge, then v2 and v3 each have degree at least 2, so each must be adjacent to v4 (their only possible remaining vertex). Then v1-v2-v4-v3-v1 is a 4-cycle. If v2v3 IS an edge, then consider v4. Vertex v4 has degree at least 2, so it is adjacent to at least two of {v1,v2,v3}. In any case, among the three vertices v1,v2,v3, there is a path of length 2 from v4 that avoids repeating vertices, and together with the edge in the triangle one obtains a 4-cycle spanning all vertices. For instance: - if v4 adjacent to v2 and v3, then v1-v2-v4-v3-v1 is a 4-cycle (since v1v2 and v1v3 exist by choice of v2,v3 as neighbours of v1), - if v4 adjacent to v1 and v2, then v3-v2-v4-v1-v3 is a 4-cycle (using edge v1v3), - if v4 adjacent to v1 and v3, then v2-v3-v4-v1-v2 is a 4-cycle (using edge v1v2). Thus G contains a spanning C_4 = Q_2.</p><p>VERIFICATION * Lemma 1035.1 is a direct check from the hypercube definition. * Lemma 1035.2 was checked by a complete case split. * Computation $n=3$ summary (exact outputs from the script):   - No counterexample for delta&gt;=7 and for delta&gt;=6.   - A counterexample exists for delta&gt;=5, with complement degrees [2,2,2,2,2,2,2,2] and complement components a 3-cycle and a 5-cycle.</p><p>FINAL UNRESOLVED (i) Strongest proved partial result here: structural decomposition of Q_n into coordinate perfect matchings (Lemma 1035.1) and exact small-n thresholds: for n=2, delta&gt;=2 forces Q_2; for n=3, exhaustive check shows delta&gt;=6 forces Q_3, while delta=5 does not (explicit example K_8 minus C_3 $\cup$ C_5). (ii) First gap: prove (or disprove) that there exists an absolute c&gt;0 such that for all n and all graphs G on 2^n vertices, delta(G)&gt;$1-c$2^n implies G contains a spanning Q_n. (iii) Top 3 next moves:   1. Try to generalize the n=3 counterexample pattern: search for sparse complements H on 2^n vertices with bounded maximum degree that hit every cube-labelling, e.g. complements that are unions of short cycles on carefully chosen vertex partitions.   2. Attempt an embedding/absorption strategy: show that sufficiently dense G contains n edge-disjoint perfect matchings whose union satisfies the 4-cycle constraints needed for a cube factor.   3. Computational: for n=4 $N=16$ search (with ILP/SAT) for the largest minimum-degree cube-free graphs to estimate the true threshold and suggest constructions. (iv) Minimal counterexample structure to look for: a cube-free graph on 2^n vertices with complement of small maximum degree (perhaps regular of degree O$1$ or O(log n)) that destroys all cube edge-labellings.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/1035.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-1035/attempt-2/r1/source/files/1035.tex" download>files/1035.tex</a><span class="row-meta">6,692 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-1035/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,057 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-1035/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-1035/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-1035-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-1035}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-1035/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-1035-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-1035/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-1035/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-1035/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-1035-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-1035&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-1035/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-1035-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-1035-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-1035/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-1035/attempt-2/r1/">Math-6089-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:37Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

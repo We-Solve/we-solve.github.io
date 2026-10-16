@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Approximating the minimum repair budget for one-failure supermatches">
+  
+  <title>Approximating the minimum repair budget for one-failure supermatches · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/problems/approximating-the-minimum-repair-budget-for-one-failure-supermatches/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/">Home</a></li><li><a href="/economics/">Economics</a></li><li><a href="/economics/sources/economics-catalogue/">Economics catalogue</a></li><li><span aria-current="page">Econ-213</span></li></ol></nav>
+    
+    
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Econ-213</span> · <span data-pagefind-filter="Discipline">economics</span> · <span data-pagefind-filter="Discipline">computer science</span> · <span data-pagefind-filter="Topic">Computational economics</span></p>
+  <span class="visually-hidden">Econ-213 · CS-877</span>
+  <h1 data-pagefind-meta="title">Approximating the minimum repair budget for one-failure supermatches</h1>
+  
+<p class="status-line"><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+  <span class="visually-hidden" data-pagefind-filter="JEL">C78 — Bargaining Theory - Matching Theory</span>
+  <span class="visually-hidden" data-pagefind-filter="Source">Economics catalogue</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden" data-pagefind-filter="Completion estimate">30%</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">not recorded</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+</header>
+
+
+
+<section class="statement" aria-labelledby="statement-title">
+  <h2 id="statement-title">Statement</h2>
+  <div class="collapsible" data-collapsible data-more="Show full statement" data-less="Show less">
+    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><p><span class="tex-label" data-tex-label="problem:OP-0560" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-59bf0a51c607e3e512e8cd7c9bc5ef52" tabindex="-1"></span> <span class="tex-label" data-tex-label="beyond:MM-19" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-06e86cd4cb941b76b38c5f500dace9d4" tabindex="-1"></span> <strong><code>MM-19</code></strong> |  Matching markets and allocation</p><p>Published research direction; corrected setting</p><h3>Definitions and assumptions</h3> Let $I$ be a solvable strict stable-roommates instance: a finite set $A$ has mutually acceptable pairs, strict orders over acceptable partners, and every acceptable partner outranks unmatched. Stability excludes any acceptable pair whose endpoints both prefer one another to their assigned partners. Let $\mathcal S(I)$ be the stable matchings; fixed pairs belong to every one of them. For $M\in\mathcal S(I)$ let $B(M)$ be its non-fixed pairs and define \[
+ b_I(M)=\max_{e\in B(M)}\ 
+ \min_{\substack{N\in\mathcal S(I)\\e\notin N}}
+ \left(|M\setminus N|-1\right),\qquad
+ b^*(I)=\min_{M\in\mathcal S(I)}b_I(M).
+\] Take the empty maximum to be zero. Non-fixedness ensures that every inner feasible set is nonempty. Only removed original pairs are counted, and the failed pair is subtracted. <h3>Formal question</h3> Determine the best polynomial-time approximation guarantees for minimizing $b_I(M)$ over stable matchings. Specifically, seek an output $M$ satisfying $b_I(M)\le\rho b^*(I)$, with an explicit zero-optimum convention, or a stated additive bound. Classify the corresponding optimization problem in strict stable marriage as well, distinguishing that bipartite restriction from roommates. <h3>Scope and status</h3> The source's immediate approximation research direction concerns stable roommates, where its cited work offers heuristics and polynomial one-failure verification. The supplied catalog's unqualified notation $I$ has therefore been narrowed to this primary setting, with marriage stated as a related restriction. The objective is equivalent to minimizing the budget $b$ for which a $(1,b)$-supermatch exists under the displayed pair convention. Instances admitting no stable matching are outside the optimization domain and should be reported as infeasible, rather than assigned an unexplained numerical optimum. The theoretical approximation status is attributed to the 2019 source. <h3>References for the source of the problem</h3> Katarína Cechlárová, Ágnes Cseh, and David F. Manlove (2019), <em>Selected open problems in Matching Under Preferences</em>, Section 3.3.2, paragraph on metaheuristics and unstudied approximability: <a href="https://hpi.de/friedrich/docs/publications/2019/BEATCS.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://hpi.de/friedrich/docs/publications/2019/BEATCS.pdf</a>. Begum Genc, Mohamed Siala, Gilles Simonin, and Barry O'Sullivan (2019), <em>An Approach to Robustness in the Stable Roommates Problem and Its Comparison with the Stable Marriage Problem</em>, CPAIOR 2019, pp. 320--336, Definition 1 and optimization discussion: <a href="https://siala.github.io/preprints/19-CPAIOR.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://siala.github.io/preprints/19-CPAIOR.pdf</a>.<h3>Common conventions: Source mathematical conventions</h3><p><strong>Well-defined objects.</strong> All probability spaces and measurable variables are specified or inherited from a local statistical model. Expectations used as finite targets require the stated integrability. A decision rule or estimator is measurable with respect to its available information; randomized rules may use an auxiliary independent random variable. Norms without a subscript are Euclidean in finite-dimensional spaces. An optimizer is requested only when attainment is assured; otherwise the question concerns the optimal value and $\varepsilon$-optimal admissible rules for every $\varepsilon&gt;0$.</p><p><strong>Identification.</strong> A structural model $m\in\mathcal M$ implies an observable law $P_m^{\rm obs}$ and target $\theta(m)$. The target is point identified on $\mathcal M$ if \[
+ P_{m_1}^{\rm obs}=P_{m_2}^{\rm obs}
+ \quad\Longrightarrow\quad\theta(m_1)=\theta(m_2)
+ \qquad(m_1,m_2\in\mathcal M).
+\] When this fails, the sharp identified set is \[
+ \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M,
+                                  P_m^{\rm obs}=P\}.
+\] Specifying an intervention or estimand does not establish identification. Positivity, exclusion, causal sufficiency, measurement restrictions, and transport assumptions are substantive local inputs, never automatic consequences of notation.</p><p><strong>Minimax risk and nontrivial inference.</strong> For a statistical experiment with data law $P^{(n)}$, target $\theta(P)$, and nonnegative loss $\ell$, define \[
+ \mathcal R_n(\mathcal P,\ell)
+   =\inf_{\widehat\theta_n}\sup_{P\in\mathcal P}
+      \E_{P^{(n)}}\ell(\widehat\theta_n,\theta(P)).
+\] The infimum is over measurable estimators. A sharp rate is a sequence $r_n$ for which $0&lt;c\leq C&lt;\infty$, independent of $n$, satisfies $c r_n\leq\mathcal R_n\leq C r_n$ for all sufficiently large $n$. Squared-error parametric risk is of order $n^{-1}$; the corresponding root-mean-squared error is of order $n^{-1/2}$. These different conventions are distinguished locally. A uniform asymptotic confidence region $C_n$ must satisfy \[
+ \liminf_{n\to\infty}\inf_{P\in\mathcal P}
+     \Pr_{P^{(n)}}\{\theta(P)\in C_n\}\geq 1-\alpha,
+ \qquad 0&lt;\alpha&lt;1,
+\] together with an informative diameter or expected-width requirement. Coverage alone permits the vacuous whole parameter space. Testing questions similarly impose both size control and power against a declared separated alternative class.</p><p><strong>Binary causal baseline.</strong> When an entry explicitly invokes this baseline, one observes independent copies of $O=(X,W,Y)$, with $W\in\{0,1\}$ and potential outcomes $Y(0),Y(1)$. Assume consistency $Y=Y(W)$, no interference, conditional exchangeability $(Y(0),Y(1))\perp W\mid X$, and overlap $\epsilon\leq e(X)\leq1-\epsilon$ almost surely for a fixed $0&lt;\epsilon&lt;1/2$, where \[
+ e(x)=\Pr(W=1\mid X=x),\qquad
+ m_w(x)=\E[Y\mid W=w,X=x],\qquad
+ \tau(x)=m_1(x)-m_0(x).
+\] These assumptions identify conditional mean effects almost everywhere under the covariate law. Pointwise or uniform effects require appropriate regularity and a specified support. Continuous treatment, longitudinal data, adaptive experiments, and network interference require their own assumptions in place of this baseline. Bounded outcomes, densities, and smoothness are additional assumptions only where stated.</p><p><strong>Function classes.</strong> On $[0,1]^d$, $\mathcal H_d^s(L)$ is the isotropic Hölder ball of radius $L&gt;0$: put $k=\lceil s\rceil-1$ and $\gamma=s-k\in(0,1]$, bound derivatives through order $k$, and require the order-$k$ derivatives to be $\gamma$-Hölder with constant at most $L$. Thus integer orders use a Lipschitz final derivative convention. The class $\operatorname{BV}_d(L)$ consists of functions $f\in L^1((0,1)^d)$ whose distributional derivative is a finite vector measure and for which $\|f\|_{L^1}+|Df|((0,1)^d)\leq L$. An $L^\infty$ bound or a particular pointwise version is imposed separately when needed. Sparse and neural-network classes require a declared dictionary or architecture and coefficient bounds.</p><p>An anisotropic Hölder class with declared block smoothness indices means coordinatewise Hölder regularity in each block, uniformly in the other blocks, with all corresponding derivative and Hölder bounds at most the stated radius. Derivative orders and the integer-order convention in each block are those just given. Mixed-derivative bounds are additional restrictions only when explicitly stated.</p><p><strong>Decision and computational questions.</strong> Policy regret compares admissible feasible policies under the same law and constraints. In computational entries, finite data and thresholds have rational encodings; running time is measured in their total bit length. Real-valued equilibrium search uses the explicitly declared algebraic or FIXP encoding. An approximation ratio for maximization is written $\operatorname{OPT}/\operatorname{ALG}$ and for minimization as $\operatorname{ALG}/\operatorname{OPT}$, with zero optima and infeasible instances handled locally. Historical approximation bounds are not automatically current bounds.</p></div>
+  </div>
+  
+  
+  
+  <p class="small muted">Statement licence: CC-BY-4.0 · <a href="/problems/approximating-the-minimum-repair-budget-for-one-failure-supermatches/source/statement.tex" download>Source file</a></p>
+</section>
+
+
+
+<section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-ECON-C78-213-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/approximating-the-minimum-repair-budget-for-one-failure-supermatches/attempt-1/r1/">Econ-213-A1</a> · Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-09">2026-10-09</time></p>
+    <h3><a href="/contributions/approximating-the-minimum-repair-budget-for-one-failure-supermatches/attempt-1/r1/">GPT 6 Astra Ultra attempt on Econ-213</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Approximating the minimum repair budget for one-failure supermatches: Exact repair budgets on acceptability graphs of degree two</h2><h2>The pair-count objective</h2> For a solvable strict roommates instance let $\mathcal S(I)$ be its stable matchings. A fixed pair occurs in every member of $\mathcal S(I)$. The canonical repair budget is \[
+ b_I(M)=\max_{e\in M\text{ non-fixed}}
+       \min_{N\in\mathcal S(I),\ e\notin N}(|M\setminus N|-1),
+ \qquad b^*(I)=\min_{M\in\mathcal S(I)}b_I(M),             \tag{1}
+\] with empty maximum zero. The failed original pair is removed before counting additional broken pairs. The approximation question is identified in [survey, Section 3.3.2]; [robust] develops the one-failure roommates model. Here the acceptability graph has maximum degree two. This permits arbitrary strict rankings on its edges, incomplete lists, and non-bipartite components. We obtain an exact formula, including infeasibility and zero optima.<h2>Forced pairs and terminal cycles</h2> <div class="lemma"><strong>Lemma:</strong>  If two agents rank one another first among their remaining acceptable partners, their pair belongs to every stable matching of that remaining instance. Deleting both agents and their incident edges gives a bijection between stable matchings of the remaining instance and stable matchings of the reduced instance, by adjoining the forced pair. </div> <div class="proof"><em>Proof:</em>  If the two agents were not paired, both would strictly prefer one another to their assignments, including being unmatched. Thus their pair is forced. Removing it from a stable matching leaves no blocking pair among remaining agents. Conversely, adjoin it to any stable reduced matching. A putative blocking pair among remaining agents is excluded by reduced stability; a pair involving a deleted endpoint is excluded because that endpoint has its first choice. This proves both directions and the bijection.  ∎</div><p>Repeatedly remove mutual first-choice pairs and discard isolated agents. In a graph of maximum degree two, every surviving nontrivial component is a cycle on which everyone ranks the same cyclic direction first. Indeed, in any component direct each vertex toward its first choice. A finite directed graph with outdegree one contains a directed cycle. In a path the only possible directed cycle is a mutual pair. In an undirected cycle, if there is no mutual pair, its directed cycle must use every vertex, in one of the two consistent orientations. Removing a forced pair from a cycle breaks it into paths, so no other terminal component type can appear.</p><div class="lemma"><strong>Lemma:</strong>  A consistently oriented cycle of length $s\ge3$, with each agent ranking its successor above its predecessor, has no stable matching when $s$ is odd, and exactly two stable matchings when $s$ is even. In the even case they are the two alternating perfect matchings and share no edge. </div> <div class="proof"><em>Proof:</em>  No agent $i$ can be unmatched in a stable matching. Its predecessor ranks $i$ first, and hence would form a blocking pair with unmatched $i$. Therefore any stable matching must be perfect. An odd cycle has none; an even cycle has exactly its two alternating perfect matchings. To verify their stability, consider an unused edge $(i,i+1)$ in cyclic notation. Agent $i$ prefers this edge to its predecessor, but agent $i+1$ is matched to its successor and prefers that assignment. Thus the edge does not block. These are all acceptable unmatched pairs.  ∎</div><h2>The exact optimum</h2> <div class="theorem"><strong>Theorem:</strong>  Apply the forced-pair deletion procedure to a strict roommates instance whose acceptability graph has maximum degree two. If a terminal cycle has odd length, the instance is infeasible. Otherwise let the terminal cycle lengths be $2\ell_1,\ldots,2\ell_r$. Every stable matching has the same repair budget, namely \[
+ b_I(M)=b^*(I)=
+ \begin{cases}
+ 0,&amp;r=0,\\
+ \max_{1\le j\le r}(\ell_j-1),&amp;r&gt;0.
+ \end{cases}                                               \tag{2}
+\] A stable matching and this optimum can be found in linear time in the number of vertices and edges. </div> <div class="proof"><em>Proof:</em>  Successive applications of the forced-pair lemma express every stable matching as the union of a fixed set of removed pairs and one stable matching in each surviving component. The cycle lemma proves infeasibility exactly in the stated odd-cycle case. Otherwise each terminal even cycle contributes an independent binary choice, so there are $2^r$ stable matchings. The removed pairs are fixed, while every terminal cycle edge used by a matching is non-fixed.<p>Let $e$ fail in the cycle of length $2\ell_j$. Any stable repair avoiding $e$ must switch to that cycle's other alternating matching, thereby removing all $\ell_j$ original pairs in the component. Keeping every other component unchanged gives a repair removing exactly these pairs. The inner minimum in (1) is therefore $\ell_j-1$. Taking the maximum proves (2), independently of the initial binary choices.</p><p>Maintain the at most two neighbors and current top choice of each vertex in a queue of mutual pairs. A vertex and edge is deleted once; updating the affected neighboring top choices uses constant time per deletion. Traversing the remaining cycles identifies their lengths and orientations. Choosing alternating edges and adjoining the forced pairs completes the construction within linear time.  ∎</p></div><p></p><div class="corollary"><strong>Corollary:</strong>  On this class, zero optimum is equivalent to a unique stable matching. On a consistently oriented cycle with $2\ell$ agents the repair budget is $\ell-1$, so it can grow linearly with market size even though finding an optimal initial matching is easy. </div> <div class="proof"><em>Proof:</em>  Every terminal even cycle has length at least four, so its contribution in (2) is at least one. Thus zero budget means $r=0$, when all stable pairs are forced; if $r&gt;0$ there are at least two stable matchings. The cycle assertion follows directly from (2).  ∎</div><h2>Boundary of the result</h2> The proof identifies the exact number of removed original pairs, rather than the number of affected agents or the symmetric difference, which would change constants. Bipartite degree-two instances are included; odd terminal cycles explain a specifically roommates obstruction. For higher-degree acceptability graphs, choices need not decompose into independent cycles, and a repair can depend strongly on the initial stable matching. Neither a constant approximation for that setting nor a hardness threshold follows from (2). The result isolates a fully solved structural subclass of the stated optimization agenda and does not assign an approximation ratio to infeasible instances.<h2>Completion Estimate</h2> 30%<p>This is a post hoc, heuristic estimate for the full catalogue target. The attempt exactly solves one-failure repair budgets on degree-two strict roommates graphs, including infeasibility and zero-optimum cases. General roommates and marriage instances can have interacting repair choices, and no approximation guarantee or hardness classification for those unrestricted classes is established.</p><h3>References</h3><ul><li><strong>[survey]</strong>  K. Cechlárová, Á. Cseh and D. F. Manlove. <em>Selected open problems in Matching Under Preferences</em> (2019), Section 3.3.2. <a href="https://hpi.de/friedrich/docs/publications/2019/BEATCS.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://hpi.de/friedrich/docs/publications/2019/BEATCS.pdf</a>. </li><li><strong>[robust]</strong>  B. Genc, M. Siala, G. Simonin and B. O'Sullivan. <em>An Approach to Robustness in the Stable Roommates Problem and Its Comparison with the Stable Marriage Problem</em>, CPAIOR 2019, 320--336. <a href="https://siala.github.io/preprints/19-CPAIOR.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://siala.github.io/preprints/19-CPAIOR.pdf</a>.</li></ul></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/approximating-the-minimum-repair-budget-for-one-failure-supermatches/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
+  
+  
+</section>
+
+
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
+<section id="contribute"><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+</section>
+
+<details class="record-details" data-pagefind-ignore><summary>Record details</summary>
+  <dl class="metadata">
+    <dt>Subjects</dt><dd>Computational economics</dd>
+    <dt>Collection</dt><dd>Economics catalogue</dd>
+    <dt>Economics rank</dt><dd>213</dd><dt>Computer Science rank</dt><dd>877</dd>
+    
+    <dt>JEL</dt><dd><a href="/economics/jel/C78/">C78 — Bargaining Theory - Matching Theory</a></dd>
+    
+  </dl>
+</details>
+</aside>
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

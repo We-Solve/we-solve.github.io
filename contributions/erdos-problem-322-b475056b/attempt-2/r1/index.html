@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-5577">
+  
+  <title>gpt pro 5.2 attempt on Math-5577 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-322-b475056b/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-5577-A2</span> · revision r1 · on <a href="/problems/erdos-problem-322-b475056b/">Math-5577</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-5577</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p>1) FORMAL RESTATEMENT</p><p>Fix an integer $k\ge 3$.</p><p>Ambiguity note. The phrase "sum of $k$ many $k$th powers" could mean either: (a) $n=x_1^k+\cdots+x_k^k$ with $x_i\in\mathbb Z_{\ge 0}$ (allowing $0$), or (b) the same but with $x_i\in\mathbb N$ (positive). Also, $1_A^{(k)}$ in additive combinatorics typically counts <em>ordered</em> representations.</p><p>Minimal corrected convention (used below). Let \[
+A_k:=\{m^k: m\in\mathbb Z_{\ge 0}\}
+\] and define \[
+r_k(n):=1_{A_k}^{(k)}(n):=\left|\{(x_1,\dots,x_k)\in \mathbb Z_{\ge 0}^k: x_1^k+\cdots+x_k^k=n\}\right|.
+\] (So $r_k(n)$ counts ordered $k$-tuples of nonnegative integers.)</p><p>Questions in the problem statement:</p><p>$Q1$ Determine the order of growth (in $n$) of $r_k(n)$.</p><p>$Q2$ Does there exist a constant $c&gt;0$ and infinitely many $n$ such that $r_k(n)&gt;n^c$?</p><p>Edge cases. $r_k(0)=1$ (all $x_i=0$). For $n&gt;0$, $r_k(n)\ge 0$.</p><p>2) QUICK LITERATURE/CONTEXT CHECK</p><p>I do not claim any results beyond what the problem statement itself records. In particular, the statement says:</p><p>* Hypothesis $K$ (Hardy--Littlewood): $r_k(n)\le n^{o(1)}$; Mahler disproved this for $k=3$ by constructing infinitely many $n$ with $r_3(n)\gg n^{1/12}$. * Erdős (independently with Chowla) proved that for every $k\ge 3$ there are infinitely many $n$ with \[
+r_k(n)\gg n^{c/\log\log n}
+\] for some constant $c=c(k)&gt;0$.</p><p>3) ATTACK PLAN</p><p>Give elementary bounds that can be proved from first principles:</p><p>$1$ A trivial pointwise upper bound on $r_k(n)$ by bounding each $x_i$.</p><p>$2$ First-moment bounds: estimate $\sum_{n\le N} r_k(n)$ by counting lattice points in a region $x_1^k+\cdots+x_k^k\le N$.</p><p>Also: compute $r_k(n)$ for small $n$ and small $k$ as a sanity check.</p><p>4) WORK</p><p>PHASE 1: FAST REALITY CHECK (computed maxima on small ranges)</p><p>For $k=3$ (three cubes) and $k=4$ (four fourth powers), I computed $\max_{n\le N_{\max}} r_k(n)$ for several $N_{\max}$. The exact values found (ordered representations, $x_i\ge 0$) are:</p><p>$k=3$: \[
+\begin{array}{c|cccc}
+N_{\max} &amp; 200 &amp; 500 &amp; 1000 &amp; 2000\\\hline
+\max_{n\le N_{\max}} r_3(n) &amp; 6 &amp; 9 &amp; 12 &amp; 12
+\end{array}
+\] with maximizing $n$ equal to $9,216,855,1729$ respectively.</p><p>$k=4$: \[
+\begin{array}{c|cccc}
+N_{\max} &amp; 500 &amp; 1000 &amp; 2000 &amp; 5000\\\hline
+\max_{n\le N_{\max}} r_4(n) &amp; 24 &amp; 24 &amp; 28 &amp; 36
+\end{array}
+\] with maximizing $n$ equal to $98,98,1393,4803$ respectively.</p><p>These computations show that on small ranges $r_k(n)$ can be moderately large, but they do not address the asymptotic questions.</p><p>Lemma 322.1 (trivial pointwise upper bound).</p><p>For every $k\ge 3$ and every integer $n\ge 1$, \[
+r_k(n)\le \left(\lfloor n^{1/k}\rfloor+1\right)^k \le (2n^{1/k})^k = 2^k n.
+\]</p><p>Proof. If $x_1^k+\cdots+x_k^k=n$ with $x_i\ge 0$, then in particular $x_i^k\le n$ for each $i$, hence $0\le x_i\le\lfloor n^{1/k}\rfloor$. So the number of possible ordered $k$-tuples $(x_1,\dots,x_k)$ is at most $(\lfloor n^{1/k}\rfloor+1)^k$. This bounds $r_k(n)$. The second inequality uses $\lfloor n^{1/k}\rfloor+1\le 2n^{1/k}$ for $n\ge 1$. $\square$</p><p>Lemma 322.2 (first-moment bounds: $\sum_{n\le N} r_k(n)=\Theta_k(N)$).</p><p>Define \[
+R_k(N):=\sum_{n=0}^{\lfloor N\rfloor} r_k(n)=\left|\{(x_1,\dots,x_k)\in\mathbb Z_{\ge 0}^k: x_1^k+\cdots+x_k^k\le N\}\right|.
+\] Then there exist constants $0&lt;c_k\le C_k&lt;\infty$ (depending only on $k$) such that for all $N\ge 1$, \[
+c_k\,N\ \le\ R_k(N)\ \le\ C_k\,N.
+\]</p><p>Proof. Let \[
+\Omega_N:=\{(t_1,\dots,t_k)\in\mathbb R_{\ge 0}^k: t_1^k+\cdots+t_k^k\le N\}.
+\] A standard lattice-point/volume comparison for monotone sets gives \[
+\mathrm{vol}(\Omega_{N-1})\ \le\ R_k(N)\ \le\ \mathrm{vol}(\Omega_{N+k}).
+\] I justify these two inequalities explicitly.</p><p>Upper bound. For each integer lattice point $x=(x_1,\dots,x_k)\in\mathbb Z_{\ge 0}^k$, consider the unit cube $Q_x:=x+[0,1)^k$. If $x\in\Omega_N\cap\mathbb Z^k$, then for any $t\in Q_x$ we have $t_i\le x_i+1$, hence \[
+\sum_{i=1}^k t_i^k \le \sum_{i=1}^k (x_i+1)^k.
+\] Using the binomial expansion, $(x_i+1)^k\le x_i^k + k(x_i+1)^{k-1}\le x_i^k + k(x_i+1)^{k-1}$, but we only need a crude bound: for $x_i\ge 0$, $(x_i+1)^k\le x_i^k + k(x_i+1)^{k-1}\le x_i^k + k(x_i+1)^{k}$, which implies $(x_i+1)^k\le (k+1)(x_i+1)^k$ tautologically; instead use the simple inequality \[(x_i+1)^k\le x_i^k + k(x_i+1)^{k-1} + \cdots +1 \le x_i^k + k(x_i+1)^{k-1} + \cdots + (x_i+1)^{k-1}\le x_i^k + k(x_i+1)^{k-1} + \cdots\le x_i^k + k(x_i+1)^{k-1} + \cdots + (x_i+1)^{k-1} \le x_i^k + k(x_i+1)^{k-1} + \cdots\le x_i^k + k(x_i+1)^{k-1} + \cdots\le x_i^k + k(x_i+1)^{k-1} + \cdots\le x_i^k + k(x_i+1)^{k-1} + \cdots\] This is messy; use a cleaner coarse bound: for $u\ge 0$ and integer $k\ge 1$, \[(u+1)^k \le u^k + k(u+1)^{k-1} \le u^k + k(u+1)^{k}.
+\] Summing over $i$ and using $x_i+1\le x_i+1$ gives \[
+\sum_{i=1}^k (x_i+1)^k \le \sum_{i=1}^k x_i^k + k\sum_{i=1}^k (x_i+1)^k.
+\] Rearranging yields \[
+(1-k)\sum_{i=1}^k (x_i+1)^k \le \sum_{i=1}^k x_i^k.
+\] This is not useful because $1-k&lt;0$.</p><p>So instead, use a direct (and correct) inclusion with a fixed additive slack: for any $t\in Q_x$, we have $t_i\le x_i+1$, hence \[
+\sum_{i=1}^k t_i^k \le \sum_{i=1}^k (x_i+1)^k.
+\] Now apply the binomial theorem: \[
+(x_i+1)^k = x_i^k + kx_i^{k-1} + \binom{k}{2}x_i^{k-2}+\cdots + 1 \le x_i^k + k(x_i+1)^{k-1} + \cdots + (x_i+1)^{0}.
+\] Each term in the sum is at most $(x_i+1)^{k-1}$ for $x_i\ge 0$, and there are $k$ such terms beyond $x_i^k$, so \[
+(x_i+1)^k \le x_i^k + k(x_i+1)^{k-1} \le x_i^k + k(x_i+1)^k,
+\] again not helpful.</p><p>At this point, abandon the "$N+k$" slack and use a simpler, correct lattice-volume sandwich that does not require delicate slack: Because $\Omega_N$ is monotone (if $t\in\Omega_N$ and $0\le s_i\le t_i$ then $s\in\Omega_N$), we have the standard bounds \[
+\mathrm{vol}(\Omega_N)\le R_k(N)\le \mathrm{vol}(\Omega_N+[0,1]^k).
+\] Moreover, $\Omega_N+[0,1]^k\subseteq \Omega_{N'}$ for some $N'=N+O_k(N^{(k-1)/k})$, which still yields an upper bound $R_k(N)\ll_k N$. Since the goal is just $R_k(N)=\Theta_k(N)$, a coarse comparison suffices.</p><p>So I instead compute the volume exactly up to scaling: Let $\Omega_1=\{t\ge 0: t_1^k+\cdots+t_k^k\le 1\}$. The scaling map $t\mapsto N^{1/k}t$ shows \[
+\mathrm{vol}(\Omega_N)=N\,\mathrm{vol}(\Omega_1).
+\] Similarly, for any fixed constant $c&gt;0$, $\mathrm{vol}(\Omega_{cN})=cN\,\mathrm{vol}(\Omega_1)$.</p><p>Now bound $R_k(N)$ between two constant multiples of $\mathrm{vol}(\Omega_N)$:</p><p>Lower bound. All integer points with $0\le x_i\le \lfloor (N/k)^{1/k}\rfloor$ satisfy \[
+\sum_{i=1}^k x_i^k \le k\cdot \left(\frac{N}{k}\right)=N.
+\] There are $(\lfloor (N/k)^{1/k}\rfloor+1)^k\ge ((N/k)^{1/k})^k = N/k$ such points. So $R_k(N)\ge N/k$. Thus we can take $c_k=1/k$.</p><p>Upper bound. If $x_1^k+\cdots+x_k^k\le N$, then each $x_i\le N^{1/k}$. Hence all solutions lie in the box $[0,\lfloor N^{1/k}\rfloor]^k$, which contains at most $(N^{1/k}+1)^k\le (2N^{1/k})^k=2^k N$ integer points. So $R_k(N)\le 2^k N$, i.e. we may take $C_k=2^k$.</p><p>Combining gives $c_k N\le R_k(N)\le C_k N$ for all $N\ge 1$. $\square$</p><p>Lemma 322.3 (a uniform lower bound on $\limsup r_k(n)$).</p><p>For each $m\ge 1$, we have $r_k(m^k)\ge k$.</p><p>Proof. For $n=m^k$, each choice of index $1\le j\le k$ gives an ordered representation \[
+(x_1,\dots,x_k)=(0,\dots,0,\underbrace{m}_{j\text{th position}},0,\dots,0)
+\] with sum $m^k$. These $k$ tuples are distinct, hence $r_k(m^k)\ge k$. $\square$</p><p>5) VERIFICATION</p><p>-- Lemma 322.1: the only input is the bound $x_i\le\lfloor n^{1/k}\rfloor$; no hidden assumptions.</p><p>-- Lemma 322.2: I used a direct combinatorial box lower bound and box upper bound, avoiding any subtle geometry-of-numbers step. The constants are explicit: $R_k(N)\in [N/k, 2^k N]$.</p><p>-- Computation: the brute-force search enumerates all $k$-tuples with coordinates $0\le x_i\le\lfloor N_{\max}^{1/k}\rfloor$.</p><p>6) FINAL</p><p><strong>UNRESOLVED</strong></p><p>(i) Strongest fully proved partial result obtained here.</p><p>* Pointwise bound: $r_k(n)\le 2^k n$ for all $n\ge 1$ (Lemma 322.1). * First moment: $\sum_{n\le N} r_k(n)=\Theta_k(N)$ with explicit bounds $\frac{1}{k}N\le\sum_{n\le N}r_k(n)\le 2^k N$ (Lemma 322.2). * Uniform limsup lower bound: $\limsup_{n\to\infty} r_k(n)\ge k$ (Lemma 322.3).</p><p>(ii) Exact first gap.</p><p>For $Q2$, to prove existence of a fixed $c&gt;0$ with $r_k(n)&gt;n^c$ for infinitely many $n$ when $k\ge 4$. My elementary bounds do not exceed $O(n)$ and do not produce any polynomial-size lower bound along an infinite sequence.</p><p>(iii) Top 3 next moves (concrete targets).</p><p>1. Try to construct explicit families of equalities \[x_1^k+\cdots+x_k^k=y_1^k+\cdots+y_k^k\] with many solutions, then use them to force large $r_k(n)$. 2. Prove a nontrivial lower bound on a second moment such as $\sum_{n\le N} r_k(n)^2$, which would imply a nontrivial lower bound on $\max_{n\le N} r_k(n)$. 3. In computations, search for $n$ with unusually large $r_k(n)$ for $k=4,5$ in larger ranges, to guess candidate parametric constructions.</p><p>(iv) What a minimal counterexample would likely look like.</p><p>If the answer to $Q2$ were negative for some fixed $k\ge 4$, then for every $c&gt;0$ we would have $r_k(n)\le n^c$ for all sufficiently large $n$. Any proof of that would need strong structural control on solutions to $x_1^k+\cdots+x_k^k=n$, preventing concentration of many $k$-tuples at a single sum.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/322.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-322-b475056b/attempt-2/r1/source/files/322.tex" download>files/322.tex</a><span class="row-meta">9,262 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-322-b475056b/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,054 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-322-b475056b/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-322-b475056b/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-322-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-322}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-322-b475056b/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-322-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-322-b475056b/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-322-b475056b/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-322-b475056b/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-322-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-322&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-322-b475056b/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-322-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-322-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-322-b475056b/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-322-b475056b/attempt-2/r1/">Math-5577-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:39Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

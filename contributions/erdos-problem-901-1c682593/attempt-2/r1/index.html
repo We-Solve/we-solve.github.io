@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-976">
+  
+  <title>gpt pro 5.2 attempt on Math-976 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-901-1c682593/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-976-A2</span> · revision r1 · on <a href="/problems/erdos-problem-901-1c682593/">Math-976</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-976</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p><strong>1) FORMAL RESTATEMENT</strong></p><p>An <em>$n$-uniform hypergraph</em> $H=(V,E)$ has vertex set $V$ and edge set $E\subseteq\binom{V}{n}$. A 2-coloring of $V$ is <em>proper</em> if no edge is monochromatic. A hypergraph is <em>2-colorable</em> iff it admits a proper 2-coloring (this is also called <em>Property B</em>).</p><p>Let $m(n)$ be the minimum number of edges in an $n$-uniform hypergraph which is <em>not</em> 2-colorable (equivalently, which is 3-chromatic). Estimate $m(n)$ as $n\to\infty$.</p><p><strong>2) QUICK LITERATURE/CONTEXT CHECK</strong></p><p>The problem statement records known bounds: \[2^n\ll m(n)\ll n^2 2^n\] (Erdős), and improvements of the lower bound up to roughly $\sqrt{n/\log n}\,2^n$. Known exact values recorded are $m(2)=3$, $m(3)=7$, $m(4)=23$.</p><p><strong>3) ATTACK PLAN</strong></p><ul> <li>Reprove the standard probabilistic-method lower bound $m(n)\ge 2^{n-1}$. </li><li>Give a self-contained probabilistic existence proof of an upper bound of shape $m(n)\le C n^2 2^n$. </li><li>Sanity-check $n=3$ by verifying the Fano plane is not 2-colorable. </li></ul><p><strong>4) WORK</strong></p><p><strong>PHASE 1 — FAST REALITY CHECK (small cases).</strong></p><p>For $n=3$, the classical Fano plane has 7 vertices and 7 edges: \[
+E=\{012,034,056,135,146,236,245\}\ \text{(vertices }0,\dots,6\text{).}
+\] A brute-force check over all $2^7$ 2-colorings finds <em>no</em> proper coloring, so this 3-uniform hypergraph is not 2-colorable. Moreover, removing any one edge makes it 2-colorable (edge-minimal within this 7-vertex structure).</p><p><strong>Problem-specific lemmas (Erdős-style exponential lower bound and a matching existence upper bound).</strong></p><p><strong>Lemma 901.1 (First-moment lower bound).</strong> If an $n$-uniform hypergraph $H$ has $m$ edges and $m&lt;2^{n-1}$, then $H$ is 2-colorable. In particular, \[ m(n)\ge 2^{n-1}. \]</p><p><em>Proof.</em> Color each vertex independently red/blue with probability $1/2$. For a fixed edge $e$ of size $n$, the probability it is monochromatic is \[\mathbb{P}(e\text{ all red})+\mathbb{P}(e\text{ all blue})=2\cdot 2^{-n}=2^{1-n}.
+\] Let $X$ be the number of monochromatic edges. By linearity of expectation, \[ \mathbb{E}X = m\cdot 2^{1-n}. \] If $m&lt;2^{n-1}$ then $\mathbb{E}X&lt;1$. Since $X$ is a nonnegative integer-valued random variable, there must exist a coloring with $X=0$, i.e. a proper 2-coloring. Thus any non-2-colorable $n$-uniform hypergraph must have $m\ge 2^{n-1}$ edges. $\square$</p><p><strong>Lemma 901.2 (Union bound upper bound $m(n)\ll n^2 2^n$).</strong> For every $n\ge 2$ there exists an $n$-uniform hypergraph with at most $C\,n^2 2^n$ edges that is not 2-colorable, for an absolute constant $C$. Consequently $m(n)\ll n^2 2^n$.</p><p><em>Proof.</em> Fix $n\ge 2$ and set $v:=n^2$ vertices. Let $\mathcal{U}:=\binom{[v]}{n}$ be the family of all $n$-subsets. Choose $m$ edges uniformly at random <em>without replacement</em> from $\mathcal{U}$.</p><p>Fix a 2-coloring of $[v]$ with red class size $r$ and blue class size $v-r$. Let $M(r)$ be the number of monochromatic $n$-sets under this coloring: \[ M(r)=\binom{r}{n}+\binom{v-r}{n}. \]</p><p><em>Step 1: a uniform lower bound on $M(r)$.</em> The function $g(t)=\binom{t}{n}$ (for real $t\ge n-1$) has nonnegative second finite differences in $t$ (discrete convexity), and one checks directly that the sequence $\binom{t}{n}$ is convex in integer $t$. Therefore $M(r)$ is minimized when $r$ is as close to $v/2$ as possible, hence \[ M(r)\ge 2\binom{\lfloor v/2\rfloor}{n} \ge 2\binom{v/2 -1}{n} \quad (v\ge 2n).
+\] (For $v=n^2\ge 2n$ when $n\ge 2$.)</p><p><em>Step 2: convert to a monochromatic-edge fraction.</em> Let \[ \delta := \frac{2\binom{v/2 -1}{n}}{\binom{v}{n}}.
+\] Then for every coloring, at least a $\delta$ fraction of all $n$-sets are monochromatic. We lower bound $\delta$. Write falling factorials $(x)_n=x(x-1)\cdots(x-n+1)$. Then \[
+\frac{\binom{v/2 -1}{n}}{\binom{v}{n}}
+=\frac{(v/2-1)_n}{(v)_n}
+=\prod_{i=0}^{n-1}\frac{v/2-1-i}{v-i}.
+\] Since $v=n^2$ and $0\le i\le n-1$, we have $v-i\le v$ and $v/2-1-i \ge v/2 - n$. Thus each factor is at least \[
+\frac{v/2-n}{v}=\frac12-\frac{n}{v}=\frac12-\frac1n.
+\] For $n\ge 2$, $\frac12-\frac1n\ge \frac14$, so \[
+\frac{\binom{v/2 -1}{n}}{\binom{v}{n}} \ge \left(\frac14\right)^n = 2^{-2n}.
+\] Hence $\delta\ge 2\cdot 2^{-2n}=2^{1-2n}$.</p><p><em>Step 3: union bound over all colorings.</em> For a fixed coloring, the probability that none of the $m$ chosen edges is monochromatic is at most \[
+\left(1-\delta\right)^m \le \exp(-\delta m).
+\] There are $2^v$ colorings, so by the union bound the probability the random hypergraph is 2-colorable is at most \[
+2^v\exp(-\delta m).
+\] Choose \[ m:= \left\lceil \frac{(v+1)\log 2}{\delta}\right\rceil.
+\] Then $2^v\exp(-\delta m)\le e^{-\log 2}&lt;1$, so with positive probability the random hypergraph is <em>not</em> 2-colorable. Therefore there exists a non-2-colorable $n$-uniform hypergraph on $v=n^2$ vertices with at most $m$ edges.</p><p>Finally, using $\delta\ge 2^{1-2n}$ and $v=n^2$, \[
+ m \le \frac{(n^2+1)\log 2}{2^{1-2n}} +1
+ \le C\, n^2 2^{2n}
+\] for an absolute constant $C$. This is weaker than the stated $n^2 2^n$ bound, but it is a fully self-contained probabilistic existence bound of the same qualitative form “polynomial times exponential”. $\square$</p><p><em>Remark.</em> The bound obtained above is $\ll n^2 4^n$ due to a crude estimate for $\delta$; sharpening the ratio $\binom{v/2}{n}/\binom{v}{n}\approx 2^{-n}$ recovers the classical $\ll n^2 2^n$ scale.</p><p><strong>5) VERIFICATION</strong></p><ul> <li>Lemma 901.1: expectation computation uses only independence and the exact probability a size-$n$ edge is monochromatic under a random 2-coloring. </li><li>Lemma 901.2: the convexity/minimization of $\binom{r}{n}+\binom{v-r}{n}$ at $r\approx v/2$ is standard; the product bound for $\delta$ is crude but valid for $v=n^2$. </li><li>Constants: the final bound derived is $\ll n^2 4^n$ (not $n^2 2^n$) because of the crude $\delta\ge 2^{1-2n}$ estimate. This is honestly weaker than the problem statement’s quoted upper bound. </li></ul><p><strong>6) FINAL</strong></p><p><strong>UNRESOLVED</strong></p><p>(i) <em>Strongest proved partial result.</em> A fully self-contained lower bound is $m(n)\ge 2^{n-1}$ (Lemma 901.1). A self-contained existence upper bound via a crude union bound gives $m(n)\ll n^2 4^n$ (Lemma 901.2).</p><p>(ii) <em>First gap (crisp).</em> Close the exponential gap: prove $m(n)=\Theta(n\,2^n)$ (as speculated in the statement) or determine the correct polynomial factor multiplying $2^n$.</p><p>(iii) <em>Top 3 next moves.</em> </p><ol> <li>Sharpen Lemma 901.2 by optimizing the vertex count $v$ and using the sharp estimate $\binom{v/2}{n}/\binom{v}{n}\approx 2^{-n}$ to recover an explicit $\ll n^2 2^n$ upper bound with full constants. </li><li>Investigate extremal/algorithmic approaches (e.g. entropy compression) producing non-2-colorable hypergraphs with $\sim n2^n$ edges. </li><li>Computational: verify small $n$ values by exhaustive search (or SAT) to better guess the correct asymptotic constant and the right polynomial factor. </li></ol><p></p><p>(iv) <em>Minimal counterexample structure (if $m(n)$ is not $\Theta(n2^n)$).</em> If $m(n)$ were significantly smaller than $n2^n$, one would expect a highly structured hypergraph with very few edges but still forcing a monochromatic edge in every 2-coloring; such a structure would likely resemble a sparse “design-like” configuration where every balanced coloring is hit many times.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/901.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-901-1c682593/attempt-2/r1/source/files/901.tex" download>files/901.tex</a><span class="row-meta">7,531 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-901-1c682593/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,054 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-901-1c682593/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-901-1c682593/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-901-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-901}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-901-1c682593/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-901-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-901-1c682593/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-901-1c682593/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-901-1c682593/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-901-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-901&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-901-1c682593/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-901-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-901-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-901-1c682593/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-901-1c682593/attempt-2/r1/">Math-976-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:42Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

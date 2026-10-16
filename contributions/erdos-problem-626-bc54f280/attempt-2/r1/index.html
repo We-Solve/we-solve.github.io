@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-879">
+  
+  <title>gpt pro 5.2 attempt on Math-879 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-626-bc54f280/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-879-A2</span> · revision r1 · on <a href="/problems/erdos-problem-626-bc54f280/">Math-879</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-879</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><details class="contents"><summary>Contents</summary><ol><li><a href="#section-0ffc6bc68e6fff9b">Problem 626</a></li><li><a href="#section-357cfc1bbb413c13">1) FORMAL RESTATEMENT</a></li><li><a href="#section-a4c5043b21972a72">2) QUICK LITERATURE/CONTEXT CHECK</a></li><li><a href="#section-54011e0baf5da6d2">3) ATTACK PLAN</a></li><li><a href="#section-fa9cd7687c1868ee">4) WORK</a></li><li><a href="#section-41bc59887e4fde3f">4.1. Basic monotonicity</a></li><li><a href="#section-790228be5dfc3f36">4.2. Inverse function viewpoint for $g_k(n)$</a></li><li><a href="#section-8a0a69b8f74f0277">4.3. Inverse function viewpoint for $h^{(m)}(n)$</a></li><li><a href="#section-acd667c900430d35">4.4. Small-$n$ sanity checks (exhaustive search for $n\le 6$)</a></li><li><a href="#section-885373607012e7ff">5) VERIFICATION</a></li><li><a href="#section-c9b3b743e6747b7e">6) FINAL</a></li><li><a href="#section-e750911e0350a1fc">7) COMPLETION ESTIMATE</a></li></ol></details><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><h2 id="section-0ffc6bc68e6fff9b">Problem 626</h2><h3 id="section-357cfc1bbb413c13">1) FORMAL RESTATEMENT</h3> Throughout, graphs are finite, simple, undirected.  The <em>girth</em> $\operatorname{girth}(G)$ is the length of the shortest cycle in $G$, with $\operatorname{girth}(G)=\infty$ if $G$ is acyclic.  The chromatic number is $\chi(G)$. We take $\log$ to be the natural logarithm.<p>Fix an integer $k\ge 4$.  For each $n\in\mathbb{N}$ define \[
+g_k(n)\ :=\ \max\left\{\, m\in\mathbb{N}\ :\ \exists\text{ graph }G\text{ with }|V(G)|=n,\ \chi(G)=k,\ \operatorname{girth}(G)&gt;m\,\right\}.
+\] Equivalently, $g_k(n)=\max\{\operatorname{girth}(G)-1:\ |V(G)|=n,\ \chi(G)=k\}$, since $k\ge4$ forces $\operatorname{girth}(G)&lt;\infty$.</p><p><strong>Question A.</strong> Does the limit \[
+\lim_{n\to\infty}\frac{g_k(n)}{\log n}
+\] exist (as a finite real number), and if so what is its value?</p><p>Fix an integer $m\ge 3$.  For each $n\in\mathbb{N}$ define \[
+h^{(m)}(n)\ :=\ \max\left\{\,\chi(G)\ :\ \exists\text{ graph }G\text{ with }|V(G)|=n,\ \operatorname{girth}(G)&gt;m\,\right\}.
+\]</p><p><strong>Question B.</strong> Does the limit \[
+\lim_{n\to\infty}\frac{\log h^{(m)}(n)}{\log n}
+\] exist, and if so what is its value?</p><h3 id="section-a4c5043b21972a72">2) QUICK LITERATURE/CONTEXT CHECK</h3> Web browsing available: YES. Computation available: YES.<p>The Erdős Problems site lists this problem as open, with the following known bounds (for fixed $k\ge4$ and all sufficiently large $n$): \[
+\frac{1}{4\log k}\,\log n\ \le\ g_k(n)\ \le\ \frac{2}{\log(k-2)}\,\log n + 1,
+\] with the lower bound attributed to Kostochka and the upper bound to Erdős.</p><p>For $h^{(m)}(n)$, Erdős proved a general lower bound $\displaystyle \lim_{n\to\infty}\frac{\log h^{(m)}(n)}{\log n}\gg \frac{1}{m}$, and for <em>odd</em> $m$ an upper bound $\displaystyle \lim_{n\to\infty}\frac{\log h^{(m)}(n)}{\log n}\le \frac{2}{m+1}$, and conjectured this upper bound is sharp for odd $m$.  For even $m$ Erdős suggested the limit should lie in $[2/(m+2),\,2/m]$ but could not prove this even for $m=4$.</p><h3 id="section-54011e0baf5da6d2">3) ATTACK PLAN</h3> I attempted the following "meta" approaches, aiming either to (i) force the limit to exist by a general regularity principle, or (ii) exhibit mechanisms that could make the limit fail to exist.<ol> <li><strong>Invert the extremal functions.</strong> Define the inverse threshold function $N_k(M):=\min\{n:\exists\,G\text{ on }n\text{ vertices with }\chi(G)=k\text{ and }\operatorname{girth}(G)&gt;M\}$. If $\log N_k(M)$ grows linearly in $M$ with an asymptotic slope, then $g_k(n)$ is asymptotically that slope's reciprocal times $\log n$. This reduces existence of $\lim g_k(n)/\log n$ to existence of $\lim \log N_k(M)/M$.<p>Similarly, define $N^{(m)}(t):=\min\{n:\exists\,G\text{ on }n\text{ vertices with }\operatorname{girth}(G)&gt;m\text{ and }\chi(G)\ge t\}$. If $N^{(m)}(t)$ is regularly varying (power law), then $\log h^{(m)}(n)/\log n$ has a limit, and vice versa. So one can try to prove "regular variation" for these inverse functions. </p></li><li><strong>Try to prove submultiplicativity/supermultiplicativity for $N_k(M)$.</strong> If one could build from two graphs (with chromatic number $k$ and large girth) a new graph whose vertex count is roughly the product while girth adds, one would get a submultiplicativity statement $N_k(M_1+M_2)\ \le\ C\,N_k(M_1)N_k(M_2)$ for some constant $C$, and hence by Fekete's lemma a limit for $\log N_k(M)/M$. I do not know an operation that simultaneously preserves <em>exact</em> chromatic number $k$ and yields additive girth in such a clean way. </li><li><strong>Oscillation search.</strong> To show non-existence, one would want two infinite sequences $n_j,n'_j\to\infty$ such that $g_k(n_j)\sim c_1\log n_j$ but $g_k(n'_j)\sim c_2\log n'_j$ with $c_1\ne c_2$.  Since $g_k(n)$ is a <em>maximum</em> over graphs, oscillation would have to come from the availability of much better constructions only at certain sizes $n$, in a way that cannot be "filled in" for intermediate $n$ (e.g. by adding isolated vertices).  I did not find a rigorous mechanism producing two different constants. </li></ol><p></p><h3 id="section-fa9cd7687c1868ee">4) WORK</h3> No complete solution (existence or non-existence of the limits) was found.  I record rigorous structural facts that reduce the limit question to an inverse-growth question, plus small-$n$ sanity checks.<h4 id="section-41bc59887e4fde3f">4.1. Basic monotonicity</h4> <div class="lemma"><strong>Lemma:</strong>  For fixed $k\ge4$, the function $n\mapsto g_k(n)$ is nondecreasing. For fixed $m\ge3$, the function $n\mapsto h^{(m)}(n)$ is nondecreasing. </div> <div class="proof"><em>Proof:</em>  If $G$ is a witness for $g_k(n)$ (resp. $h^{(m)}(n)$), then adding isolated vertices increases $n$ without changing $\chi(G)$ or introducing cycles.  Hence the extremal value cannot decrease when $n$ increases.  ∎</div><h4 id="section-790228be5dfc3f36">4.2. Inverse function viewpoint for $g_k(n)$</h4> Define \[
+N_k(M)\ :=\ \min\left\{\,n\in\mathbb{N}\ :\ \exists\text{ graph }G\text{ on }n\text{ vertices with }\chi(G)=k,\ \operatorname{girth}(G)&gt;M\,\right\}.
+\] Then by definition, <span class="tex-label" data-tex-label="eq:inv-rel" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-69-6e-76-2d-72-65-6c" data-tex-scope="0" id="tex-label-2a0e1b0b35b60e9f951c67f59e279ac7" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-69-6e-76-2d-72-65-6c}
+g_k(n)\ =\ \max\{\,M\in\mathbb{N}: N_k(M)\le n\,\}.
+\end{equation}<div class="proposition"><strong>Proposition:</strong> <span class="tex-label" data-tex-label="prop:limit-transfer-gk" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-31a3cf81d40513db61f9354459847690" tabindex="-1"></span> Assume the limit \[
+L_k\ :=\ \lim_{M\to\infty}\frac{\log N_k(M)}{M}
+\] exists and satisfies $0&lt;L_k&lt;\infty$.  Then the limit \[
+\lim_{n\to\infty}\frac{g_k(n)}{\log n}
+\] exists and equals $1/L_k$. </div> <div class="proof"><em>Proof:</em>  Let $n\to\infty$, and set $M:=g_k(n)$.  By <a class="tex-reference" data-tex-reference="eq:inv-rel" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-2a0e1b0b35b60e9f951c67f59e279ac7" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:inv-rel in this document · r1">(eq:inv-rel)</a> we have \[
+N_k(M)\ \le\ n\ &lt;\ N_k(M+1).
+\] Taking logarithms, \[
+\log N_k(M)\ \le\ \log n\ &lt;\ \log N_k(M+1).
+\] Divide through by $M$ (for large $n$ one has $M\to\infty$ because $g_k(n)\gg\log n$ from known bounds, but even without that, one can restrict to $n$ for which $M\ge1$): \[
+\frac{\log N_k(M)}{M}\ \le\ \frac{\log n}{M}\ &lt;\ \frac{\log N_k(M+1)}{M}.
+\] By the assumed limit for $\log N_k(\cdot)/(\cdot)$, \[
+\frac{\log N_k(M)}{M}\to L_k,\qquad
+\frac{\log N_k(M+1)}{M}=\frac{M+1}{M}\cdot\frac{\log N_k(M+1)}{M+1}\to 1\cdot L_k=L_k.
+\] Hence $\log n/M\to L_k$, i.e. $M/\log n\to 1/L_k$, proving the claim.  ∎</div><h4 id="section-8a0a69b8f74f0277">4.3. Inverse function viewpoint for $h^{(m)}(n)$</h4> Fix $m\ge3$ and define \[
+N^{(m)}(t)\ :=\ \min\left\{\,n\in\mathbb{N}\ :\ \exists\text{ graph }G\text{ on }n\text{ vertices with }\operatorname{girth}(G)&gt;m,\ \chi(G)\ge t\,\right\}.
+\] Then \[
+h^{(m)}(n)\ =\ \max\{\,t\in\mathbb{N}: N^{(m)}(t)\le n\,\}.
+\]<div class="proposition"><strong>Proposition:</strong> <span class="tex-label" data-tex-label="prop:limit-transfer-hm" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-862354a66774176be4935e4891cd5691" tabindex="-1"></span> Assume the limit \[
+A_m\ :=\ \lim_{t\to\infty}\frac{\log N^{(m)}(t)}{\log t}
+\] exists and satisfies $0&lt;A_m&lt;\infty$.  Then the limit \[
+\lim_{n\to\infty}\frac{\log h^{(m)}(n)}{\log n}
+\] exists and equals $1/A_m$. </div> <div class="proof"><em>Proof:</em>  Let $n\to\infty$ and set $t:=h^{(m)}(n)$.  Then $N^{(m)}(t)\le n&lt; N^{(m)}(t+1)$, so \[
+\log N^{(m)}(t)\ \le\ \log n\ &lt;\ \log N^{(m)}(t+1).
+\] Divide by $\log t$ (for $t\ge2$): \[
+\frac{\log N^{(m)}(t)}{\log t}\ \le\ \frac{\log n}{\log t}\ &lt;\ \frac{\log N^{(m)}(t+1)}{\log t}.
+\] By hypothesis, $\frac{\log N^{(m)}(t)}{\log t}\to A_m$.  Also \[
+\frac{\log N^{(m)}(t+1)}{\log t}
+=\frac{\log N^{(m)}(t+1)}{\log(t+1)}\cdot\frac{\log(t+1)}{\log t}\ \to\ A_m\cdot 1=A_m.
+\] Hence $\log n/\log t\to A_m$, i.e. $\log t/\log n\to 1/A_m$, proving the claim.  ∎</div><h4 id="section-acd667c900430d35">4.4. Small-$n$ sanity checks (exhaustive search for $n\le 6$)</h4> I exhaustively enumerated all labeled graphs on $n\le 6$ vertices and computed $\chi(G)$, $\omega(G)$, and $\operatorname{girth}(G)$ by brute force.<ul> <li>For $k=4$ one finds $g_4(4)=g_4(5)=g_4(6)=2$, i.e. every $4$-chromatic graph on at most $6$ vertices contains a triangle (so $\operatorname{girth}=3$). </li><li>For $m=3$ (triangle-free graphs), one finds $h^{(3)}(5)=h^{(3)}(6)=3$, witnessed by $C_5$ (and $C_5$ plus an isolated vertex). </li></ul> These checks are consistent with the definitions and with the general phenomenon that forcing larger girth rapidly forces larger $n$ for fixed chromatic number.<h3 id="section-885373607012e7ff">5) VERIFICATION</h3> Propositions <a class="tex-reference" data-tex-reference="prop:limit-transfer-gk" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-31a3cf81d40513db61f9354459847690" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Proposition in this document · r1">Proposition</a> and <a class="tex-reference" data-tex-reference="prop:limit-transfer-hm" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-862354a66774176be4935e4891cd5691" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Proposition in this document · r1">Proposition</a> were checked carefully: they use only the extremal definitions plus monotonicity of the inverse thresholds and basic limit algebra.  The exhaustive $n\le 6$ computations serve as a consistency check of the definitions (not as evidence for asymptotics).<h3 id="section-c9b3b743e6747b7e">6) FINAL</h3> <strong>UNRESOLVED.</strong><ol> <li>The question asks for existence (and value) of two asymptotic limits.  Current known bounds leave a constant-factor gap for $g_k(n)/\log n$ and an exponent gap for $\log h^{(m)}(n)/\log n$ (especially for even $m$). </li><li>I proved that existence of $\lim g_k(n)/\log n$ would follow from existence of $\lim \log N_k(M)/M$ for the inverse threshold $N_k(M)$, and similarly for $h^{(m)}$ via $N^{(m)}(t)$. </li><li>I did not find (a) a construction proving the limits exist, nor (b) a mechanism forcing non-existence by oscillation. </li><li>Any full resolution likely requires either new "product" constructions/subadditivity for $N_k(M)$ or sharp matching upper/lower constructions for $h^{(m)}(n)$. </li></ol><h3 id="section-e750911e0350a1fc">7) COMPLETION ESTIMATE</h3> <strong>COMPLETION: 25%.</strong></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/626.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-626-bc54f280/attempt-2/r1/source/files/626.tex" download>files/626.tex</a><span class="row-meta">9,263 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-626-bc54f280/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,093 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-626-bc54f280/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-626-bc54f280/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-626-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-626}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-626-bc54f280/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-626-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-626-bc54f280/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-626-bc54f280/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-626-bc54f280/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-626-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-626&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-626-bc54f280/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-626-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-626-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-626-bc54f280/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T18:19:34Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-626-bc54f280/attempt-2/r1/">Math-879-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:41Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

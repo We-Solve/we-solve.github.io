@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Hardness of Root-Dependent Spanning-Tree Optimization">
+  
+  <title>Hardness of Root-Dependent Spanning-Tree Optimization · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/problems/hardness-of-root-dependent-spanning-tree-optimization/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/">Home</a></li><li><a href="/computer-science/">Computer Science</a></li><li><a href="/computer-science/sources/top-open-problems/">Top Open Problems</a></li><li><span aria-current="page">CS-356</span></li></ol></nav>
+    
+    
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">CS-356</span> · <span data-pagefind-filter="Discipline">computer science</span> · <span data-pagefind-filter="Discipline">mathematics</span> · <span data-pagefind-filter="Topic">Algorithms and data structures</span> · <span data-pagefind-filter="Topic">Computational complexity</span> · <span data-pagefind-filter="Topic">Graph theory and combinatorics</span> · <span data-pagefind-filter="Topic">Optimization</span></p>
+  <span class="visually-hidden">CS-356 · Math-4545</span>
+  <h1 data-pagefind-meta="title">Hardness of Root-Dependent Spanning-Tree Optimization</h1>
+  
+<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+  
+  <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden" data-pagefind-filter="Completion estimate">100%</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Solved</span>
+</header>
+
+
+
+<section class="statement" aria-labelledby="statement-title">
+  <h2 id="statement-title">Statement</h2>
+  <div class="collapsible" data-collapsible data-more="Show full statement" data-less="Show less">
+    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><h3>Definitions and mathematical statement</h3> <h5>Shared notation.</h5>Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.<p>$T^r$ denotes the directed tree obtained by orienting the chosen undirected spanning tree consistently with root $r$. The objective separately evaluates that rooted orientation using each root's cost vector.</p><p>Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.</p><p>A spanning tree of a connected finite graph is an acyclic connected subgraph containing every vertex. Its cost is the sum of its edge costs.</p><p>An arborescence rooted at $r$ is a directed spanning tree with a unique directed path from $r$ to every other vertex; reversing all arcs gives the inward-rooted convention. The source question fixes the orientation convention. </p><h5>Statement recorded in the supplied source.</h5> Given an undirected graph $G=(V,E)$ and, for each root $r\in V$, an arc-cost vector $c_r$, prove that it is NP-hard to find a spanning tree $T$ minimizing<p></p><p>$$\sum_{r\in V}c_r(T^r),$$</p><p>where $T^r$ is the arborescence rooted at $r$ induced by $T$. <a href="https://doi.org/10.4171/owr/2018/50" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[S2]</a> </p><h5>Scope qualification.</h5> The outward/inward rooting convention and restrictions on arc costs follow the source. <h5>Source status.</h5> The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.<p></p><h3>Short English statement</h3> Prove hardness of choosing one spanning tree whose summed root-dependent costs are minimum.<h3>Sources</h3> <ul> <li>S1 Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003996 (OWR-16633-013). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions. <a href="https://huggingface.co/datasets/ulamai/UnsolvedMath" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://huggingface.co/datasets/ulamai/UnsolvedMath</a>. </li><li>S2 Combinatorial Optimization (2019), Oberwolfach Reports, DOI 10.4171/owr/2018/50, pp. 2969--3023 <a href="https://doi.org/10.4171/owr/2018/50" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://doi.org/10.4171/owr/2018/50</a>. <em>Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD_PARTY_NOTICES.md.</em> </li></ul> <h5>Preparation and review.</h5> Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003996 and source code OWR-16633-013 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status. <span class="tex-label" data-tex-label="end:30003996" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-1c4cd7b869cbe47e859dad0350d613e8" tabindex="-1"></span></div>
+  </div>
+  
+  
+  <p class="small"><a href="https://www.unsolvedmath.com/problems/OWR-16633-013" rel="noopener noreferrer">Catalogue entry</a></p>
+  <p class="small muted">Statement licence: CC-BY-SA-4.0 · <a href="/problems/hardness-of-root-dependent-spanning-tree-optimization/source/statement.tex" download>Source file</a></p>
+</section>
+
+
+
+<section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-30003996-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/hardness-of-root-dependent-spanning-tree-optimization/attempt-1/r1/">CS-356-A1</a> · Full solution claimed · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-11">2026-10-11</time></p>
+    <h3><a href="/contributions/hardness-of-root-dependent-spanning-tree-optimization/attempt-1/r1/">gpt 6 astra ultra attempt on CS-356</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Research-attempt provenance</h2><h3>Definitions and mathematical statement</h3> <h5>Shared notation.</h5>Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.<p>$T^r$ denotes the directed tree obtained by orienting the chosen undirected spanning tree consistently with root $r$. The objective separately evaluates that rooted orientation using each root's cost vector.</p><p>Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.</p><p>A spanning tree of a connected finite graph is an acyclic connected subgraph containing every vertex. Its cost is the sum of its edge costs.</p><p>An arborescence rooted at $r$ is a directed spanning tree with a unique directed path from $r$ to every other vertex; reversing all arcs gives the inward-rooted convention. The source question fixes the orientation convention. </p><h5>Statement recorded in the supplied source.</h5> Given an undirected graph $G=(V,E)$ and, for each root $r\in V$, an arc-cost vector $c_r$, prove that it is NP-hard to find a spanning tree $T$ minimizing<p></p><p>$$\sum_{r\in V}c_r(T^r),$$</p><p>where $T^r$ is the arborescence rooted at $r$ induced by $T$. <a href="https://doi.org/10.4171/owr/2018/50" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[S2]</a> </p><h5>Scope qualification.</h5> The outward/inward rooting convention and restrictions on arc costs follow the source. <h5>Source status.</h5> The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.<p></p><h3>Short English statement</h3> Prove hardness of choosing one spanning tree whose summed root-dependent costs are minimum.<h3>Sources</h3> <ul> <li>S1 Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003996 (OWR-16633-013). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions. <a href="https://huggingface.co/datasets/ulamai/UnsolvedMath" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://huggingface.co/datasets/ulamai/UnsolvedMath</a>. </li><li>S2 Combinatorial Optimization $2019$, Oberwolfach Reports, DOI 10.4171/owr/2018/50, pp. 2969--3023 <a href="https://doi.org/10.4171/owr/2018/50" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://doi.org/10.4171/owr/2018/50</a>. <em>Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD_PARTY_NOTICES.md.</em> </li></ul> <h5>Preparation and review.</h5> Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003996 and source code OWR-16633-013 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status. <span class="tex-label" data-tex-label="end:30003996" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-cc9a2ce515bf90cb8fd720e170887517" tabindex="-1"></span><h2>Literature and context check</h2> The primary report, pp. 3014--3015, asks for NP-hardness with real cost vectors and does not impose nonnegative-cost restrictions. The proof below uses only nonnegative integers, hence falls within that original scope. The single external complexity theorem used is the Cook--Levin theorem: Boolean formula satisfiability is NP-complete under polynomial-time many-one reductions. Karp's author-written introduction to the consulted reprint explicitly records this theorem and attributes it to Cook's 1971 paper. The original Cook paper was not retrieved; no claim of checking its proof is made. The reduction to the needed bounded-clause form and every graph-gadget assertion are proved here. No exhaustive novelty search was performed, and this proof is not claimed new. <h2>Research attempt: Transferring the satisfiability gadget to root-dependent tree costs</h2> <h5>Starting problem and normal form.</h5> Use Boolean formula satisfiability, with variables and binary AND, OR and unary NOT gates. This is the standard NP-complete decision problem just identified. It can be transformed in polynomial time to a conjunction of nonempty clauses of at most three literals while preserving satisfiability. Introduce a new variable $z$ for each gate with input variables $a,b$. For an AND gate use \[
+(\neg z\vee a)\wedge(\neg z\vee b)\wedge(z\vee\neg a\vee\neg b).
+\] If $z=1$, the first two clauses force $a=b=1$; if $z=0$, the last clause forbids $a=b=1$. Thus these clauses are equivalent to $z=a\wedge b$. For OR use \[
+(z\vee\neg a)\wedge(z\vee\neg b)\wedge(\neg z\vee a\vee b).
+\] If $z=0$, the first two force $a=b=0$; if $z=1$, the last requires at least one input to be one. For NOT use $(\neg z\vee\neg a)\wedge(z\vee a)$, which says exactly that $z$ and $a$ differ. Add the unit clause requiring the output variable to be one. Assigning the gates their actual values extends every satisfying original assignment to the clause system; conversely the clauses force all gate values, so every satisfying clause assignment satisfies the original formula. The number of new variables and clauses is linear in the formula size. Delete tautological clauses and repeated literals without changing satisfiability. Each retained clause contains at most one sign of each variable and is nonempty. A detected empty clause can be mapped to a fixed negative target instance; an empty conjunction to a fixed positive one. These trivial cases do not affect hardness. Write the remaining variables as $x_1,\ldots,x_k$ and clauses as $C_1,\ldots,C_m$. <h5>The directed graph and its costs.</h5> Create a root $r$; for each variable create vertices $t_i,f_i,v_i$; and create a clause vertex $q_j$ for each clause. Add arcs \[
+r\to t_i,\quad r\to f_i,\quad t_i\to v_i,\quad f_i\to v_i,
+\quad v_i\to q_j\ \text{when variable }x_i\text{ occurs in }C_j.
+\] The graph is acyclic, with four layers: root, truth selectors, variable vertices, and clauses. Every nonroot vertex is reachable because clauses are nonempty. An outward spanning arborescence must use both root-selector arcs for every variable, must choose exactly one of $t_i\to v_i,f_i\to v_i$, and must choose exactly one incoming variable arc for each clause. Conversely any such choices give an arborescence: every nonroot vertex has one parent, and following parents strictly decreases the layer until it reaches $r$. This proves reachability and excludes cycles.<p>Give every non-clause destination the identically zero cost vector. For destination $q_j$, give cost zero to all arcs except that a selector arc into $v_i$ has cost one exactly when its chosen truth value falsifies the literal of $x_i$ in $C_j$. A positive literal therefore makes $f_i\to v_i$ cost one and $t_i\to v_i$ cost zero; a negative literal reverses those costs. For variables absent from $C_j$, both are zero. These are destination-specific vectors with entries in $\{0,1\}$.</p><p>Read an assignment from a tree by $x_i=1$ when its parent arc is $t_i\to v_i$, and $x_i=0$ otherwise. If clause $q_j$ chooses parent $v_i$, its unique root path is $r\to t_i\to v_i\to q_j$ or the corresponding path through $f_i$. Its cost under $c^{q_j}$ is exactly one if that literal is false and zero if it is true; the other two arcs have zero cost. Since the available clause parents are precisely its variables, the minimum possible clause cost for a fixed assignment is zero when the clause is satisfied and one when it is not. Choices at distinct clause vertices are independent and never affect any variable parent. Consequently \[
+\min_T\sum_{v\ne r}c^v(P^v)
+=\min_{\text{assignments}}\#\{\text{unsatisfied clauses}\}.
+\] In particular the optimum is zero if and only if the formula is satisfiable. The graph has $1+3k+m$ vertices and $4k$ plus the number of variable-clause incidences many arcs. Even explicitly listing a cost for every destination and arc takes polynomial space and time. Thus an exact optimizer for the original problem would decide satisfiability in polynomial time. This proves NP-hardness, already on these layered acyclic graphs with nonnegative binary costs. </p><h5>Transfer to root-dependent costs on one undirected tree.</h5> Forget the orientations of the layered graph just constructed, obtaining a connected undirected graph $G$. Every edge has one distinguished forward direction inherited from the layered directed graph. Let $m$ be the number of clauses and set $M=m+1$. For the distinguished root $r$, assign root-dependent arc cost $d_r(a)=0$ on each forward arc and $M$ on its reverse. For each other root $v$, assign \[
+d_v(a)=0\text{ on every forward arc }a,\qquad
+d_v(\overleftarrow a)=c^v(a)
+\] on its reverse, using the destination-specific costs already defined. All values are nonnegative integers in $\{0,1,M\}$, and the full list of root-arc costs has polynomial size.<p></p><p>If a tree's outward orientation from $r$ contains any backward arc, its contribution from root $r$ is at least $M$. All other contributions are nonnegative. There exists a tree whose orientation from $r$ uses only forward arcs: choose any assignment and any parent for each nonempty clause. For such a tree, the total objective will be at most $m$, as verified below. Thus no optimizer has a backward arc in its $r$ orientation.</p><p>Fix now a tree oriented forward from $r$. For any other root $v$, rerooting reverses exactly the edges of the unique $r$-to-$v$ path. To prove this, remove a tree edge and consider its two components. Its direction points away from the component containing the root. The direction changes between roots $r$ and $v$ exactly when those roots lie in different components, which occurs exactly for edges on their unique connecting path. Every edge outside that path keeps its forward orientation and has $d_v$ cost zero. A path edge with original forward arc $a$ is reversed and contributes $c^v(a)$. Therefore \[
+d_v(T^v)=c^v(P^v),\qquad d_r(T^r)=0.
+\] Summing gives equality of the root-dependent objective and the directed destination-path objective for every permitted tree. In particular a chosen assignment incurs at most one per clause, proving the earlier upper bound $m&lt;M$ and closing the exclusion argument without circularity. It follows that the minimum root-dependent objective equals the minimum number of unsatisfied clauses, and is zero exactly for satisfiable formulas. This proves NP-hardness of the original undirected spanning-tree problem.</p><p>If the source uses inward rather than outward rooted orientations, replace each arc-cost vector by its reversal: inward $T^v$ is the reversal of outward $T^v$, so the same numerical objective and the same reduction result. No orientation convention restricts the hardness conclusion.</p><h2>Verification and adversarial audit</h2> The audit checked that all selector vertices must be spanned, not chosen as optional vertices; the assignment is encoded only by the unique parent of each variable vertex. No clause can select a variable absent from itself. Every root-to-clause path has exactly one cost-bearing selector arc under that clause's own vector. Tautological clauses and duplicate literals are explicitly removed, and the normal-form conversion preserves satisfiability in both directions. The problem asks for an optimization hardness proof, so hardness of distinguishing optimum zero suffices. Finite checks support but do not replace the proof. The rerooting lemma was checked by deleting each tree edge and comparing root components. Backward arcs are excluded by a nonnegative penalty strictly above an explicit feasible upper bound, not by assuming optimal trees already have the intended orientation. The small-instance script enumerated even trees with backward root orientations, so it tests this penalty step as well. <h5>Audit corrections.</h5> The starting NP-completeness theorem is explicitly identified as an external classical dependency; no guessed theorem number or unchecked novelty claim is used. Every gadget and orientation implication is proved. Completion is measured against the full original hardness target. <h5>External computation.</h5> Executed <code>check_arborescence_reduction.py</code> under Python 3.14.2. For every ordered one- or two-clause formula over two variables, with each variable absent, positive, or negative in a nonempty clause, the script checked all 72 formulas. It enumerated 5696 undirected spanning trees in total and compared exact directed and root-dependent optima with the minimum unsatisfied-clause count. All equalities passed. This is finite falsification testing, not a general proof or a novelty test. <h2>Scope and remaining gaps</h2> The full root-dependent spanning-tree NP-hardness target is proved for either consistent rooting convention, using nonnegative integer costs. The destination-path construction is an intermediate reduction, and the cut argument proves its exact transfer. No equivalence claim about unspecified extended polyhedral formulations is needed. <h2>Full-solution scope declaration</h2> The original target is an NP-hardness proof for the stated optimization problem. The reduction above maps a Boolean formula to a polynomial-size instance with optimum zero exactly when the formula is satisfiable, and therefore covers the entire requested hardness claim. Hardness of the restricted nonnegative-integer instances implies hardness when arbitrary real cost vectors are permitted. Every gadget vertex is mandatory, and both directions of the objective correspondence are proved. The sole external complexity dependency is Cook--Levin NP-completeness of Boolean formula satisfiability, whose statement was checked in Karp's author introduction; its proof was not rederived. The normal-form reduction and all graph claims are proved in the manuscript. No independent human or formal proof checking occurred. No novelty claim is made and no exhaustive novelty search was performed. <h5>Integration review.</h5> Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.<h2>Completion Estimate</h2> <strong>COMPLETION: 100%</strong> The complete polynomial-time reduction establishes the original NP-hardness target. This estimate concerns target coverage, not novelty or independent verification. <h2>References</h2> The original source references and catalogue attribution are preserved in the Sources section above. The following URLs were actually consulted for this attempt; retention of an additional original reference does not claim fresh consultation of it. <ul> <li><a href="https://ems.press/content/serial-article-files/46772" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://ems.press/content/serial-article-files/46772</a> (consulted 2026-10-11).  </li><li><a href="https://www.cs.umd.edu/~gasarch/BLOGPAPERS/Karp.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://www.cs.umd.edu/~gasarch/BLOGPAPERS/Karp.pdf</a> (consulted 2026-10-11).  </li></ul> <h2>Model and contributor disclosure</h2> OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6 performed orchestration, repository-format review, and adversarial mathematical review of the written argument; its exact serving revision is also not exposed. The mathematical route, boundary checks and final adversarial self-audit followed contribution prompts A then B in <code>docs/contribution_prompts.md</code>, after reading <code>CONTRIBUTING.md</code>. Python 3.14.2 assembled the standalone documents; any mathematical computation is specified in Verification. No theorem prover was used. No human mathematical authorship, substantial human proof correction, or independent human proof checking is asserted. Model-assisted review, source retrieval, and structural checks do not establish correctness or novelty. Full private reasoning transcripts are unavailable as reproducibility artifacts; the complete arguments, inputs and outcomes actually used are stated here or in the companion batch audit. <h2>Final status</h2> <strong>Solved: the original NP-hardness target is proved.</strong> This is a fully written reduction with an explicit classical complexity dependency, without a novelty claim or independent human or formal verification.</div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/hardness-of-root-dependent-spanning-tree-optimization/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
+  
+  
+</section>
+
+
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
+<section id="contribute"><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+</section>
+
+<details class="record-details" data-pagefind-ignore><summary>Record details</summary>
+  <dl class="metadata">
+    <dt>Subjects</dt><dd>Algorithms and data structures, Computational complexity, Graph theory and combinatorics, Optimization</dd>
+    <dt>Collection</dt><dd>Top Open Problems</dd>
+    <dt>Computer Science rank</dt><dd>356</dd><dt>Mathematics rank</dt><dd>4545</dd>
+    <dt>UnsolvedMath</dt><dd><a href="https://www.unsolvedmath.com/problems/OWR-16633-013" rel="noopener noreferrer nofollow ugc" referrerpolicy="no-referrer">Catalogue entry</a></dd>
+    
+    
+  </dl>
+</details>
+</aside>
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

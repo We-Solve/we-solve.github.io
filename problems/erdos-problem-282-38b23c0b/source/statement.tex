@@ -1,0 +1,25 @@
+Let $A\subseteq \mathbb{N}$ be infinite, and let $x\in(0,1)\cap\mathbb{Q}$. Consider the greedy procedure that repeatedly subtracts the \emph{largest} unit fraction from the allowed set $\{1/n : n\in A\}$ that does not exceed the current remainder.
+
+\medskip
+\noindent\textbf{(Ambiguity and minimal correction.)}
+As written in many informal descriptions, one chooses at each step the minimal $n\in A$ with $n\ge 1/x$ and replaces $x\leftarrow x-1/n$. For $A=\mathbb{N}$ this automatically yields \emph{distinct} denominators (indeed a strictly increasing sequence), but for sparse $A$ one can obtain repeats. Since the goal is an \emph{Egyptian fraction} (distinct denominators), the standard correction (used e.g. in the ``odd greedy expansion'' literature) is:
+
+\begin{quote}
+At step $j$, choose the least $n_j\in A\setminus\{n_1,\dots,n_{j-1}\}$ such that $\frac1{n_j}\le x_{j-1}$ (equivalently $n_j\ge 1/x_{j-1}$), and set $x_j=x_{j-1}-\frac1{n_j}$.
+\end{quote}
+We call this the \emph{distinct-denominator greedy algorithm} for $(x,A)$. It \emph{terminates} if $x_t=0$ for some finite $t$, yielding
+\[
+ x=\sum_{j=1}^t \frac1{n_j},\qquad n_1<\cdots<n_t\in A.
+\]
+
+\medskip
+\noindent\textbf{Main question (Stein).}
+With $A=2\mathbb{N}-1$ (the odd positive integers) and $x=a/b$ in lowest terms with $b$ odd: \emph{must the distinct-denominator greedy algorithm terminate?}
+
+\medskip
+\noindent\textbf{Further questions included in the prompt.}
+\begin{enumerate}[label=(\alph*)]
+\item Characterise pairs $(x,A)$ for which termination holds.
+\item (Congruence classes) Fix $d\ge 1$ and $a\bmod d$. When $x=m/n$ admits a representation as a sum of distinct unit fractions with denominators $\equiv a\pmod d$ (Graham's condition), must the corresponding restricted greedy algorithm terminate?
+\item (Squares) For $A=\{n^2:n\in\mathbb{N}\}$, Graham characterised exactly which $x$ admit a representation with distinct square denominators. Must the restricted greedy algorithm terminate for such $x$?
+\end{enumerate}

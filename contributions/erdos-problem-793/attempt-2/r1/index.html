@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt pro 5.2 attempt on Math-5899">
+  
+  <title>gpt pro 5.2 attempt on Math-5899 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-793/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-5899-A2</span> · revision r1 · on <a href="/problems/erdos-problem-793/">Math-5899</a></p>
+  <h1 data-pagefind-meta="title">gpt pro 5.2 attempt on Math-5899</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-pro-5-2/" data-pagefind-filter="Model">gpt pro 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: proved. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><details class="contents"><summary>Contents</summary><ol><li><a href="#section-1001c25f391dcb7b">FORMAL RESTATEMENT</a></li><li><a href="#section-ac5f3cbb8cd099a8">QUICK LITERATURE/CONTEXT CHECK</a></li><li><a href="#section-edf49821993e0faf">ATTACK PLAN</a></li><li><a href="#section-fb2f8db1ac79dd7e">WORK</a></li><li><a href="#section-36efb4ceaaad1c30">VERIFICATION</a></li><li><a href="#section-65d1823c9a265dde">FINAL</a></li></ol></details><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><h3 id="section-1001c25f391dcb7b">FORMAL RESTATEMENT</h3> Let $F(n)$ be the maximum size of a set $A\subset\{1,2,\dots,n\}$ such that for every triple of <em>distinct</em> elements $a,b,c\in A$, \[
+ a \nmid bc.
+\] The problem asks for estimates of $F(n)$.<h3 id="section-ac5f3cbb8cd099a8">QUICK LITERATURE/CONTEXT CHECK</h3> From the problem statement: Erdős proved a crude upper bound $F(n)\le \pi(n)+n^{2/3}$ via a graph method. Later work (Pomerance, and later Ka̋rolyi with lower bounds) refines this to matching bounds of the form $F(n)=\pi(n)+\Theta\left(n^{2/3}/(\log n)^2\right)$.<p>Below I give a full proof of the simple bounds $\pi(n)\le F(n)\le \pi(n)+n^{2/3}$ and check small $n$ by brute force.</p><h3 id="section-edf49821993e0faf">ATTACK PLAN</h3> 1) Lower bound: primes.<p>2) Upper bound: represent each $a\in A$ as an edge in a graph on vertices $\{1,\dots,\lfloor n^{2/3}\rfloor\}\cup\{\text{primes in }(n^{2/3},n]\}$, then show the divisibility condition forbids any path of length $3$, forcing a forest/star-forest and hence $|E|&lt;|V|$.</p><p>3) Reality check: compute exact $F(n)$ for $n\le 15$ by brute force.</p><h3 id="section-fb2f8db1ac79dd7e">WORK</h3> <strong>Lemma 793.1 (Primes give $F(n)\ge \pi(n)$).</strong> Let $A$ be the set of all primes $\le n$. Then $A$ satisfies the condition $a\nmid bc$ for all distinct $a,b,c\in A$. Hence $F(n)\ge \pi(n)$.<p><em>Proof.</em> If $a,b,c$ are distinct primes, then $a$ does not divide $b$ and does not divide $c$, so $\gcd(a,bc)=1$ and $a\nmid bc$. $\square$</p><p><strong>Lemma 793.2 (Every $m\le n$ has a "small" factor $\le n^{2/3}$ leaving a cofactor that is either $\le n^{2/3}$ or prime $&gt;n^{2/3}$).</strong> Fix $n\ge 1$ and $m\in\{1,\dots,n\}$. Then there exist integers $u,v$ with $m=uv$ such that \[
+1\le u\le n^{2/3},
+\] and either (a) $v\le n^{2/3}$ or (b) $v$ is a prime with $n^{2/3}&lt;v\le n$.</p><p><em>Proof.</em> If $m\le n^{2/3}$, take $u=m$ and $v=1$. If $m&gt; n^{2/3}$ and $m$ has a prime factor $p&gt;n^{2/3}$, then set $v=p$ and $u=m/p$. Since $m\le n$, we have $u\le n/p &lt; n/n^{2/3}=n^{1/3}\le n^{2/3}$. Finally, if $m&gt;n^{2/3}$ but all prime factors of $m$ are $\le n^{2/3}$, take $v$ to be any prime factor of $m$ and $u=m/v$. Then $v\le n^{2/3}$, and also $u=m/v\le n/(2)\le n^{2/3}$ may fail if $v$ is very small; but in that case we can instead take $u$ to be the product of enough prime factors so that $u\le n^{2/3}$ and $v=m/u\le n^{2/3}$. Formally: write $m=\prod_{i=1}^t p_i$ with primes $p_i\le n^{2/3}$. Let $u$ be the largest prefix product $\prod_{i=1}^j p_i$ that is $\le n^{2/3}$. Then by maximality, $u\le n^{2/3}$ and $u p_{j+1}&gt;n^{2/3}$ (if $j&lt;t$). Hence \[
+ v:=m/u = \prod_{i=j+1}^t p_i \le \frac{n}{u} &lt; \frac{n}{n^{2/3}} = n^{1/3}\le n^{2/3}.
+\] So in this case $v\le n^{2/3}$. $\square$</p><p><strong>Lemma 793.3 (Graph encoding and no $P_4$).</strong> Let $A\subset\{1,\dots,n\}$ satisfy the divisibility condition. Define a graph $G$ as follows. Let \[
+V := \{1,2,\dots,\lfloor n^{2/3}\rfloor\}\ \cup\ \{\text{primes }p: n^{2/3}&lt;p\le n\}.
+\] For each $a\in A$, choose one factorization $a=uv$ as in Lemma 793.2 with $u\in\{1,\dots,\lfloor n^{2/3}\rfloor\}$ and $v\in V$, and add the edge $\{u,v\}$. Then $|E(G)|=|A|$, and $G$ contains no path on $4$ distinct vertices (no $P_4$).</p><p><em>Proof.</em> Injectivity: if two edges have the same endpoints $\{u,v\}$, they correspond to the same product $uv$, hence to the same element of $A$. So $|E(G)|=|A|$.</p><p>Now suppose $G$ had a path on four distinct vertices $x$--$y$--$z$--$w$. Then the three edges correspond to three distinct elements \[
+xy,\ yz,\ zw\in A.
+\] Consider $a=yz$, $b=xy$, $c=zw$ (distinct because the vertices are distinct and the products differ). Then \[
+ bc=(xy)(zw)=x y z w,
+\] and $a=yz$ divides $bc$ with quotient $xw\in\mathbb Z$, contradicting the defining condition of $A$. Therefore $G$ is $P_4$-free. $\square$</p><p><strong>Proposition 793.4 (Erdős's crude upper bound).</strong> For all $n\ge 1$, \[
+F(n) \le \pi(n)+\lfloor n^{2/3}\rfloor.
+\]</p><p><em>Proof.</em> Let $A$ be extremal and build $G$ as in Lemma 793.3. A $P_4$-free graph is a disjoint union of stars and triangles; but triangles are also impossible here: if $x,y,z$ formed a triangle, then $xy,yz,zx\in A$ are distinct and $(yz)(zx)$ is divisible by $xy$, contradicting the condition. Hence every component is a star (or an isolated vertex), so $|E(G)|\le |V(G)|-1$ on each nontrivial component, and overall $|E(G)|&lt;|V(G)|$. Thus \[
+|A|=|E(G)| &lt; |V| = \lfloor n^{2/3}\rfloor + \left(\pi(n)-\pi(n^{2/3})\right) \le \lfloor n^{2/3}\rfloor + \pi(n).
+\] This is the claimed bound. $\square$</p><p><strong>Fast reality check (exact computation for $n\le 15$).</strong> I brute-forced $F(n)$ exactly for $n\le 15$ (checking all subsets of $\{1,\dots,n\}$). The maximum sizes found were: </p><div style="text-align:center"> <table class="latex-table"><tbody><tr><td style="text-align:center">$n$</td><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center">5</td><td style="text-align:center">6</td><td style="text-align:center">7</td><td style="text-align:center">8</td><td style="text-align:center">9</td><td style="text-align:center">10</td><td style="text-align:center">11</td><td style="text-align:center">12</td><td style="text-align:center">13</td><td style="text-align:center">14</td><td style="text-align:center">15</td></tr><tr><td style="text-align:center">$F(n)$</td><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">2</td><td style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center">5</td><td style="text-align:center">5</td><td style="text-align:center">6</td><td style="text-align:center">6</td><td style="text-align:center">6</td></tr></tbody></table> </div> For $n\ge 5$ this equals $\pi(n)$ in these ranges (primes appear extremal for small $n$).<p></p><h3 id="section-36efb4ceaaad1c30">VERIFICATION</h3> -- Lemma 793.2 covers all $m\le n$ by a direct factorization argument.<p>-- Lemma 793.3: the $P_4$ obstruction directly encodes the forbidden divisibility $yz\mid (xy)(zw)$.</p><p>-- Proposition 793.4 uses that triangles are forbidden as well, ensuring the graph is a star-forest and hence has fewer edges than vertices.</p><h3 id="section-65d1823c9a265dde">FINAL</h3> UNRESOLVED<p>(i) <strong>Strongest proved partial result here:</strong> \[\pi(n)\le F(n)\le \pi(n)+\lfloor n^{2/3}\rfloor.
+\]</p><p>(ii) <strong>First gap (crisp):</strong> Sharpen the error term in the upper bound from $n^{2/3}$ down to the conjectured/known order $n^{2/3}/(\log n)^2$ with matching constants.</p><p>(iii) <strong>Top 3 next moves:</strong> </p><ol> <li>Refine Lemma 793.2 by encoding only edges corresponding to "large prime" cofactors (as in the literature), and control the number of remaining elements by a sharper count than $n^{2/3}$. </li><li>Push computational search for extremal sets beyond $n=15$ to see when and how extra composite elements beyond primes can be inserted without creating forbidden triples. </li><li>Prove a stability statement: any near-extremal $A$ is "mostly primes" plus a structured family of semiprimes, which would explain the $\pi(n)+\Theta(n^{2/3}/(\log n)^2)$ form. </li></ol><p></p><p>(iv) <strong>Minimal counterexample structure to watch for:</strong> Sets $A$ that add many composites typically do so by choosing numbers with a distinguished large prime factor so that divisibility constraints reduce to a sparse graph. The minimal configuration that breaks sharper bounds would likely be a dense family of semiprimes sharing small factors that manage to avoid creating a $P_4$ in the associated graph.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_pro_5.2/793.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-793/attempt-2/r1/source/files/793.tex" download>files/793.tex</a><span class="row-meta">6,671 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-793/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,054 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-793/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-793/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-793-A2-r1,
+  title = {{gpt pro 5.2 attempt on ERDOS-793}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-793/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-793-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-793/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-793/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-793/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-793-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt pro 5.2 attempt on ERDOS-793&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-793/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-793-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-793-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt pro 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-793/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-793/attempt-2/r1/">Math-5899-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:42Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

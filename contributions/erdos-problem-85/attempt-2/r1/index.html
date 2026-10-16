@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt 5.2 attempt on Math-5417">
+  
+  <title>gpt 5.2 attempt on Math-5417 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/erdos-problem-85/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Math-5417-A2</span> · revision r1 · on <a href="/problems/erdos-problem-85/">Math-5417</a></p>
+  <h1 data-pagefind-meta="title">gpt 5.2 attempt on Math-5417</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-5-2/" data-pagefind-filter="Model">gpt 5.2</a> · <time datetime="2026-01-17">2026-01-17</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Erdős problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status at erdosproblems.com: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p>OUTPUT 1) FORMAL RESTATEMENT Definitions/Conventions. - For an $n$-vertex graph $G$, let $\delta(G)$ be its minimum degree. - Let $C_4$ denote the 4-cycle. - Define \[f(n):=\min\{d\in\mathbb N:\ \text{every graph }G\text{ on }n\text{ vertices with }\delta(G)\ge d \text{ contains a }C_4\}.\] Equivalently, \[f(n)=1+\max\{\delta(G):\ |V(G)|=n,\ G\text{ is }C_4\text{-free}\}.\]</p><p>Question. Is $f(n)$ eventually nondecreasing, i.e. does there exist $n_0$ such that $f(n+1)\ge f(n)$ for all $n\ge n_0$?</p><p>2) QUICK LITERATURE/CONTEXT CHECK Web browsing is not available in this session. From the problem text only: - Asymptotically $f(n)=(1+o(1))\sqrt n$. I do not use external results from [552] here.</p><p>3) ATTACK PLAN Proof track ideas: 1. Derive general upper bounds on $f(n)$ from double-counting in $C_4$-free graphs (gives $f(n)\le \sqrt n + O(1)$). 2. Try to compare extremal $C_4$-free graphs on $n$ and $n+1$ vertices to get monotonicity up to bounded error.</p><p>Disproof track ideas: 1. Search for sporadic $n$ where the maximum possible minimum degree of a $C_4$-free graph jumps down, causing $f(n+1)&lt;f(n)$.</p><p>Chosen path in this attempt: prove two basic $C_4$-free graph lemmas giving the elementary bound $f(n)\le \sqrt n+O(1)$, and do a small brute-force check for $n\le 7$.</p><p>4) WORK Lemma 1 (Common-neighbor bound in $C_4$-free graphs). If $G$ is $C_4$-free, then any two distinct vertices $u\ne v$ have at most one common neighbor: \[|N(u)\cap N(v)|\le 1.\]</p><p>Proof. If $u$ and $v$ had two distinct common neighbors $x\ne y$, then the four vertices $u,x,v,y$ form the cycle \[u-x-v-y-u,\] which is a $C_4$. This contradicts $C_4$-freeness. $\square$</p><p>Lemma 2 (A global constraint on 2-paths). If $G$ is $C_4$-free on $n$ vertices with degrees $d(w)$, then \[\sum_{w\in V(G)} \binom{d(w)}{2} \le \binom{n}{2}.\]</p><p>Proof. Count the set of pairs $(w,\{u,v\})$ where $u$ and $v$ are distinct neighbors of $w$ (equivalently, length-2 paths $u-w-v$ with midpoint $w$). For fixed $w$, there are $\binom{d(w)}{2}$ such unordered pairs $\{u,v\}$, so the total is $\sum_w \binom{d(w)}{2}$. On the other hand, for a fixed unordered pair $\{u,v\}$ of vertices, the number of vertices $w$ adjacent to both $u$ and $v$ is exactly $|N(u)\cap N(v)|$. By Lemma 1 this is at most $1$, so each pair $\{u,v\}$ contributes at most one triple $(w,\{u,v\})$. There are $\binom{n}{2}$ choices for $\{u,v\}$, hence the total number of such triples is at most $\binom{n}{2}$. This gives the inequality. $\square$</p><p>Corollary 3 (Elementary upper bound $f(n)\le \sqrt n+O(1)$). If $G$ is $C_4$-free on $n$ vertices, then \[\delta(G)\,(\delta(G)-1)\le n-1.\] In particular, any graph on $n$ vertices with minimum degree at least $\lfloor \sqrt{n-1}\rfloor+2$ contains a $C_4$, so \[f(n)\le \lfloor \sqrt{n-1}\rfloor+2 &lt; \sqrt n + 2.\]</p><p>Proof. Apply Lemma 2 and use $d(w)\ge \delta(G)$ for all $w$: \[n\binom{\delta(G)}{2} \le \sum_w \binom{d(w)}{2}\le \binom{n}{2}.\] Multiply by $2/n$ to obtain $\delta(G)(\delta(G)-1)\le n-1$. If $\delta(G)\ge \lfloor \sqrt{n-1}\rfloor+2$, then $\delta(G)(\delta(G)-1)&gt; n-1$, contradiction. Thus such a graph cannot be $C_4$-free, proving the bound on $f(n)$. $\square$</p><p>FAST REALITY CHECK (small $n$ by exhaustive search). Using brute force over all graphs for $n\le 7$, I computed the maximum possible minimum degree among $C_4$-free graphs: \[
+\begin{array}{c|c|c}
+n &amp; \max\{\delta(G): |V(G)|=n,\ C_4\nsubseteq G\} &amp; f(n)\\\hline
+4 &amp; 1 &amp; 2\\
+5 &amp; 2 &amp; 3\\
+6 &amp; 2 &amp; 3\\
+7 &amp; 2 &amp; 3
+\end{array}
+\] So $f(4)=2$ and $f(5)=f(6)=f(7)=3$, consistent with monotonicity at small $n$.</p><p>5) VERIFICATION - Lemma 1 is a standard "two common neighbors create a $C_4$" argument. - Lemma 2 is a clean double-counting of 2-paths using Lemma 1. - Corollary 3 is algebraic and matches the stated asymptotic $f(n)=O(\sqrt n)$. - Computation is exhaustive only for $n\le 7$.</p><p>6) FINAL <strong>UNRESOLVED</strong></p><p>(i) Strongest fully proved partial result: I proved an elementary upper bound $f(n)&lt;\sqrt n+2$ via double counting (Corollary 3).</p><p>(ii) First gap: Prove eventual monotonicity $f(n+1)\ge f(n)$ (or even the bounded-drop version $f(m)\ge f(n)-c$ for $m&gt;n$). The counting lemmas control the scale of $f(n)$ but do not compare adjacent values.</p><p>(iii) Top 3 next moves (concrete): 1. Relate $f(n)$ to the maximum minimum degree in $C_4$-free graphs and study how that extremal quantity behaves under adding a vertex with carefully chosen adjacency. 2. Use known near-extremal constructions for $\mathrm{ex}(n,C_4)$ (polarity graphs) to estimate $f(n)$ more sharply and see whether the step behavior can be controlled. 3. Compute $f(n)$ for moderate $n$ using integer programming / SAT (maximizing minimum degree under $C_4$-free constraints) to look for nonmonotone behavior.</p><p>(iv) What a minimal counterexample would likely look like (structure/parameters): An integer $n$ such that the maximum minimum degree among $C_4$-free graphs on $n+1$ vertices is strictly smaller than the corresponding maximum on $n$ vertices, forcing $f(n+1)&lt;f(n)$.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/erdos/gpt_5.2/85.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-85/attempt-2/r1/source/files/85.tex" download>files/85.tex</a><span class="row-meta">5,015 bytes</span></li><li class="row"><a class="row-title" href="/contributions/erdos-problem-85/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,035 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/erdos-problem-85/attempt-2/r1/">https://we-solve.github.io/contributions/erdos-problem-85/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ERDOS-85-A2-r1,
+  title = {{gpt 5.2 attempt on ERDOS-85}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {1},
+  howpublished = {\url{https://we-solve.github.io/contributions/erdos-problem-85/attempt-2/r1/}},
+  note = {Revision r1 of ERDOS-85-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/erdos-problem-85/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/erdos-problem-85/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/erdos-problem-85/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ERDOS-85-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt 5.2 attempt on ERDOS-85&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/erdos-problem-85/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ERDOS-85-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: repository first added.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ERDOS-85-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        1,
+        17
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt 5.2</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/erdos-problem-85/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Repository first added</dt><dd>2026-01-17T07:42:04Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/erdos-problem-85/attempt-2/r1/">Math-5417-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:37Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

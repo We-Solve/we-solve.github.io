@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Convergence of model-free learning in dynamic population games">
+  
+  <title>Convergence of model-free learning in dynamic population games · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/problems/convergence-of-model-free-learning-in-dynamic-population-games/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/">Home</a></li><li><a href="/economics/">Economics</a></li><li><a href="/economics/sources/economics-catalogue/">Economics catalogue</a></li><li><span aria-current="page">Econ-445</span></li></ol></nav>
+    
+    
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Econ-445</span> · <span data-pagefind-filter="Discipline">economics</span> · <span data-pagefind-filter="Discipline">computer science</span> · <span data-pagefind-filter="Topic">Computational economics</span></p>
+  <span class="visually-hidden">Econ-445 · CS-863</span>
+  <h1 data-pagefind-meta="title">Convergence of model-free learning in dynamic population games</h1>
+  
+<p class="status-line"><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+  <span class="visually-hidden" data-pagefind-filter="JEL">C73 — Stochastic and Dynamic Games - Evolutionary Games - Repeated Games</span>
+  <span class="visually-hidden" data-pagefind-filter="Source">Economics catalogue</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden" data-pagefind-filter="Completion estimate">40%</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">not recorded</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
+</header>
+
+
+
+<section class="statement" aria-labelledby="statement-title">
+  <h2 id="statement-title">Statement</h2>
+  <div class="collapsible" data-collapsible data-more="Show full statement" data-less="Show less">
+    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><p><span class="tex-label" data-tex-label="problem:OP-0152" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-61555ad1c8338ca202a92c9408695577" tabindex="-1"></span> <span class="tex-label" data-tex-label="game:GT-022" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-44e2c350ea0af4da774edf5e08fff169" tabindex="-1"></span></p><p><strong>GT-022</strong> | Learning in games</p><p>R | Implementation-dependent convergence agenda</p><h3>Definitions and mathematical statement</h3> Let $X$ be a finite state space and $A_x$ a nonempty finite action set at state $x$. A population configuration is $z=(\mu,\pi)$, with $\mu\in\Delta(X)$ and $\pi(\cdot\mid x)\in\Delta(A_x)$. For each $z$, specify bounded rewards $r_z(x,a)$, transition probabilities $p_z(y\mid x,a)$, and a discount factor $\alpha\in[0,1)$. Let $V_z^*$ be the unique solution of \[
+ V_z^*(x)=\max_{a\in A_x}\left(r_z(x,a)+\alpha\sum_{y\in X}p_z(y\mid x,a)V_z^*(y)\right).
+\] The stationary Nash configuration set $\mathcal E$ comprises configurations satisfying \begin{align*}
+ \mu(y)&amp;=\sum_{x\in X}\sum_{a\in A_x}\mu(x)\pi(a\mid x)p_z(y\mid x,a),\qquad y\in X,\\
+ \pi(a\mid x)&gt;0&amp;\ \Longrightarrow\ 
+ r_z(x,a)+\alpha\sum_y p_z(y\mid x,a)V_z^*(y)=V_z^*(x).
+\end{align*} This uses the optimal value for the environment frozen at $z$, rather than assuming that a value estimated under an arbitrary current policy is already optimal.<p>For a completely specified stochastic implementation $\mathcal A_\theta$ producing $z_k$, a precise convergence proposition is \[
+ \mathcal E\ne\varnothing\quad\Longrightarrow\quad
+ \Pr\!\left(\lim_{k\to\infty}\operatorname{dist}(z_k,\mathcal E)=0\right)=1,
+\] where distance is Euclidean distance on the finite product of simplices. The research target is to establish such a proposition, or exhibit failure, for the source's noncontractive dynamic-population models and its FP-DQN procedure. </p><h3>Short English statement</h3> Does the proposed model-free learning process approach the set of stationary population equilibria in the intended models? <h3>Variants and scope boundaries</h3> The implementation parameter $\theta$ must fix the network class and approximation error, optimizer, learning rates, exploration, replay-buffer rule, sample/population sizes, and their asymptotic schedules. With persistent finite-sample noise, an error neighborhood or convergence in distribution may be the correct target. Convergence to one selected equilibrium is stronger than distance-to-set convergence when equilibria are not unique. <h3>Source relationship and status</h3> [S1] supplies Algorithm 1 and numerical evidence, not a general convergence theorem without contraction or uniqueness. Sections 5 and 7 discuss these limitations. The catalog sentence alone does not fix $\theta$ sufficiently to define a single stochastic process; the displayed proposition states exactly what remains to be specified before proving or disproving it. <h3>References</h3><p></p><p><strong>[S1]</strong> Matteo Cederle, Saverio Bolognani and Gian Antonio Susto, <em>Towards Model-Free Learning in Dynamic Population Games: An Application to Karma Economies</em>, arXiv:2605.11042v1 (2026). Locators: Section 3 (stationary Nash configuration), Section 5 and Algorithm 1 (FP-DQN and limitations), Section 7 (concluding discussion). <a href="https://arxiv.org/html/2605.11042v1" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/html/2605.11042v1</a></p><h3>Common conventions: Source mathematical conventions</h3><p><strong>Finite games.</strong> For a finite set $A$, $\Delta(A)$ is its probability simplex. Players choose independent mixed strategies in Nash equilibrium; correlation is allowed only when explicitly part of the solution concept. In a game with payoff functions $u_i$ and strategy profile $x$, an additive $\varepsilon$ Nash equilibrium satisfies \[
+ u_i(x)\geq u_i(x_i',x_{-i})-\varepsilon
+ \quad\text{for every player $i$ and every admissible deviation $x_i'$}.
+\] For numerical approximation, payoffs are normalized as locally specified. An $\varepsilon$ payoff residual is distinct from distance at most $\varepsilon$ to the set of exact equilibria. Point convergence, convergence of empirical play, and convergence in distance to an equilibrium set are also distinct.</p><p><strong>Computational representations.</strong> Unless stated otherwise, a complexity question takes rational data with binary encoding; polynomial time is measured in total bit length. A fixed-accuracy polynomial algorithm is not necessarily polynomial in $1/\varepsilon$, and neither is necessarily polynomial in $\log(1/\varepsilon)$. Succinct games and value, demand, or sampling oracles must declare their interfaces. Exact real solutions require an explicit representation; an unspecified list of arbitrary real numbers is not a finite computational output. A claimed algorithmic barrier is meaningful only for its specified model and reductions.</p><p><strong>Dynamic games.</strong> Histories, information, observation, and allowable randomization are part of the model. A stationary strategy depends only on the current state; a positional strategy in a deterministic graph game chooses one action at each controlled vertex. Nash equilibrium at an initial state and equilibrium after every history are different requirements. An expectation of a pathwise $\liminf$ payoff, a $\liminf$ of expected averages, a limiting expected average, and a uniform finite-horizon equilibrium are different criteria. None is silently substituted for another.</p><p><strong>Allocation and mechanisms.</strong> A complete allocation assigns every item exactly once unless otherwise stated. Zero-valued goods, negative values, capacity constraints, feasibility, lotteries, and copies of goods affect fairness definitions and are specified locally. Dominant-strategy incentive compatibility, Bayesian incentive compatibility, universal truthfulness, and truthfulness in expectation impose different inequalities. Whenever an objective ratio has zero denominator, its convention is stated or those instances are excluded.</p><p><strong>Infinite-dimensional models.</strong> Expectations, integrals, stochastic equations, and optimization objectives require their local regularity, integrability, filtrations, and admissible domains. A backward--forward mean-field system is a boundary-value problem; it is not an initial-value semiflow without an additional construction. Long-time, large-population, and vanishing-noise limits require an order of limits and a convergence topology. If a minimum need not be attained, the objective is its infimum or supremum and the approximation requirement is stated separately.</p></div>
+  </div>
+  
+  
+  
+  <p class="small muted">Statement licence: CC-BY-4.0 · <a href="/problems/convergence-of-model-free-learning-in-dynamic-population-games/source/statement.tex" download>Source file</a></p>
+</section>
+
+
+
+<section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-ECON-C73-445-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/convergence-of-model-free-learning-in-dynamic-population-games/attempt-1/r1/">Econ-445-A1</a> · Partial result · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-09">2026-10-09</time></p>
+    <h3><a href="/contributions/convergence-of-model-free-learning-in-dynamic-population-games/attempt-1/r1/">GPT 6 Astra Ultra attempt on Econ-445</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Best-response cycles and a convergent sampled benchmark</h2> <strong>Status: Partial; the full catalogue problem remains unresolved.</strong><h3>Abstract</h3> A one-state population game with a unique equilibrium cycles under exact constant-step best response. Thus accurate frozen-environment optimization does not imply population convergence. A completely specified diminishing-step batched implementation converges in the same game. For finite continuous primitives, a residual based on optimal frozen values characterizes convergence to the equilibrium set. The source FP-DQN convergence problem remains open in this attempt.<h2>The game and its unique equilibrium</h2> There is one state, which transitions to itself under either action, and a discount $\alpha\in[0,1)$. If fraction $p$ of the population takes action 1, frozen-environment rewards are \[
+ r_p(1)=1-p,\qquad r_p(0)=p.
+ \tag{1}
+\] The optimal frozen value is $\max\{p,1-p\}/(1-\alpha)$, and the action-value difference is $1-2p$. State stationarity is automatic. The unique stationary Nash policy has $p^*=1/2$: below it action 1 is strictly better; above it action 0 is strictly better. Neither pure endpoint is optimal in its own environment.<p>Let $B(p)=1$ below $1/2$ and $B(p)=0$ above $1/2$, with a fixed tie rule at equality. Because this is an exact best response, a population-learning failure in this example is not an inner Bellman approximation error. </p><h2>A persistent constant-step cycle</h2> For constant $\eta\in(0,1]$, use \[
+ p_{k+1}=(1-\eta)p_k+\eta B(p_k).
+ \tag{2}
+\] <div class="theorem"><strong>Theorem:</strong>  The points \[
+ p_-=\frac{1-\eta}{2-\eta},\qquad p_+=\frac1{2-\eta}
+\] form a two-cycle of (2). Their distances to the unique equilibrium equal $\eta/(2(2-\eta))&gt;0$. </div> <div class="proof"><em>Proof:</em>  We have $p_-&lt;1/2&lt;p_+$. Substitution gives $(1-\eta)p_-+\eta=p_+$ and $(1-\eta)p_+=p_-$. Subtracting $1/2$ from each displayed point gives the stated distances.  ∎</div> For $\eta=1$ the cycle alternates between zero and one. For $\eta=0.2$ it alternates between $4/9$ and $5/9$. Smaller constant steps reduce but do not eliminate the limiting error.<p></p><p>The conclusion concerns the precise update (2), not every method called fictitious play. In particular, diminishing steps and averaging change the process. This construction is therefore not a claimed counterexample to the source's specific FP-DQN routine. </p><h2>A fully specified model-free process</h2> At iteration $k\ge1$, hold the environment fixed at $p_k$. Draw $n_k=k^2$ independent Bernoulli reward samples for each action with the means in (1). Let $\widehat B_k\in\{0,1\}$ maximize the two sample means, using a fixed tie rule. Set \[
+ p_{k+1}=(1-\eta_k)p_k+\eta_k\widehat B_k,\qquad
+ \eta_k=\frac1{k+2}.
+ \tag{3}
+\] The decision rule only uses sampled rewards, not their formulas. The implementation requires a batched simulator or a protocol freezing the population while samples are collected. It is distinct from decentralized learning in a simultaneously moving environment.<p></p><div class="lemma"><strong>Lemma:</strong>  Almost surely, the maximum error of the two sample means is at most $k^{-1/4}$ for every sufficiently large $k$. </div> <div class="proof"><em>Proof:</em>  Conditional on the past, the two bounded sample averages satisfy \[
+ {\mathbb{P}}\{\max_a|\widehat r_k(a)-r_{p_k}(a)|&gt;k^{-1/4}
+             \mid\text{past}\}
+ \le4\exp(-2k^{3/2}).
+\] For a bounded variable $X\in[0,1]$, the exponential bound ${\mathbb{E}} e^{\lambda(X-{\mathbb{E}} X)}\le e^{\lambda^2/8}$, multiplied over independent draws and optimized after Markov's inequality, gives each tail used here. The displayed failure probabilities have finite sum. The probability of any failure after index $K$ is bounded by their tail sum, which tends to zero. Thus only finitely many failures occur almost surely.  ∎</div> <div class="theorem"><strong>Theorem:</strong>  The process (3) converges to $1/2$ almost surely. </div> <div class="proof"><em>Proof:</em>  Work on a path with eventual sample accuracy and fix $\varepsilon&gt;0$. Eventually both sample errors are below $\varepsilon/4$ and $\eta_k&lt;\varepsilon/4$. If $|p_k-1/2|\ge\varepsilon/2$, the true payoff gap is at least $\varepsilon$, so its sign is correctly estimated. The selected response points toward $1/2$.<p>For sufficiently large $k$, a point within distance $\varepsilon/2$ moves by at most $\eta_k$ and remains within $3\varepsilon/4$. A point at distance between $\varepsilon/2$ and $\varepsilon$ moves toward the center; any overshoot has distance at most $\eta_k$, so it remains within $\varepsilon$. The radius-$\varepsilon$ interval is therefore eventually invariant.</p><p>Suppose the process never enters radius $\varepsilon/2$ after that time. Every response is then correct. Without crossing the center, each step reduces distance by $\eta_k(1/2+|p_k-1/2|)\ge\eta_k/2$. A crossing would put distance below $\eta_k&lt;\varepsilon/2$ and contradict the supposition. Because $\sum_k\eta_k=\infty$, staying outside radius $\varepsilon/2$ is impossible. Eventually the process enters the invariant radius-$\varepsilon$ interval. Use a countable sequence $\varepsilon\downarrow0$ to conclude convergence.  ∎</p></div> This supplies a complete convergence theorem for one benchmark and a deliberately generous sample schedule. It is not a sample-complexity optimum or a theorem for neural function approximation. Persistent estimation bias would invalidate the shrinking-error step and could leave a nonzero neighborhood. <h2>A residual for general finite models</h2> For the catalogue's finite state-action setting assume bounded rewards, continuous rewards and transition probabilities in $z=(\mu,\pi)$, and discount $\alpha&lt;1$. Let $V_z^*$ be the optimal frozen value and \[
+ Q_z^*(x,a)=r_z(x,a)+\alpha\sum_y p_z(y\mid x,a)V_z^*(y).
+\] Define \[
+ R(z)=\|\mu-\mu P_z^\pi\|_1+
+ \sum_x\sum_a\pi(a\mid x)\{V_z^*(x)-Q_z^*(x,a)\}.
+ \tag{4}
+\] The optimality sum covers every state, including states of zero population mass. Multiplying it by $\mu(x)$ would lose the catalogue's optimality condition for actions at unoccupied states.<p></p><div class="proposition"><strong>Proposition:</strong>  If the stationary Nash set $\mathcal E$ is nonempty, then $R(z_k)\to0$ if and only if ${\operatorname{dist}}(z_k,\mathcal E)\to0$. </div> <div class="proof"><em>Proof:</em>  If rewards are bounded in absolute value by $M$, Bellman contraction gives $\|V_z^*\|_\infty\le M/(1-\alpha)$. Write $\Delta r=\max_{x,a}|r_z(x,a)-r_{z'}(x,a)|$ and $\Delta P=\max_{x,a}\sum_y|p_z(y\mid x,a)-p_{z'}(y\mid x,a)|$. Comparing the two Bellman fixed-point equations gives \[
+ \|V_z^*-V_{z'}^*\|_\infty
+ \le \frac{\Delta r}{1-\alpha}
+       +\frac{\alpha M\Delta P}{(1-\alpha)^2}.
+\] Thus the values, action values, and residual are continuous.<p>Every optimal action gap is nonnegative. Its policy-weighted sum vanishes exactly when every positive-probability action at every state is optimal. Together with stationarity this proves $R^{-1}(0)=\mathcal E$. The configuration space is compact and the zero set is closed.</p><p>If distance to $\mathcal E$ tends to zero, nearest equilibrium points exist and uniform continuity of $R$ implies residual convergence. Conversely, if residuals vanish but a subsequence stays a positive distance away, compactness supplies a convergent further subsequence. Its limit has residual zero by continuity, contradicting that distance.  ∎</p></div> If an approximate value has uniform error $\epsilon$, each action gap has error at most $(1+\alpha)\epsilon$. Replacing approximate gaps by their positive parts changes (4) by at most $|X|(1+\alpha)\epsilon$, since the action probabilities sum to one at each state. This controls evaluation error in a diagnostic. It does not provide a universal linear bound of equilibrium distance by residual: continuity supplies a modulus only after the particular game is known.<p></p><p>Likewise, small policy changes between iterations are not equivalent to a small residual. A learner can stop updating at a nonoptimal policy because exploration ceases. Equation (4) tests stationarity and optimality directly, provided frozen optimal values are estimated accurately enough. </p><h2>Remaining problem and source boundary</h2> The exact cycle establishes that solving each frozen control problem is insufficient for convergence. The sampled theorem supplies a transparent special case with separate control of sample error and population movement. The residual result gives a correct target for numerical evaluation.<p></p><p>General noncontractive population games may cycle, possess multiple equilibria, or retain approximation and replay-buffer bias. The source's FP-DQN implementation needs its own stability argument and its actual approximation, exploration, averaging, and sample schedules. Those are not supplied by the one-state proof. The full catalogue problem therefore remains unresolved.</p><h2>Completion Estimate</h2> 40%<p>This is a post hoc, heuristic estimate for the full catalogue target. The attempt proves constant-step cycling, almost-sure convergence of a specified sampled one-state benchmark, and a residual characterization of stationary equilibrium-set convergence. The intended noncontractive dynamic population models and actual FP-DQN approximation, exploration, replay, and averaging schedules still lack a convergence or failure theorem.</p><h3>References</h3><ul><li><strong>[cbs]</strong>  M. Cederle, S. Bolognani, and G. A. Susto (2026). <em>Towards Model-Free Learning in Dynamic Population Games: An Application to Karma Economies</em>, arXiv:2605.11042v1, sections 5 and 7. The primary text separates numerical population convergence from its single-agent guarantees. <a href="https://arxiv.org/html/2605.11042v1" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/html/2605.11042v1</a>.</li></ul></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/convergence-of-model-free-learning-in-dynamic-population-games/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
+  
+  
+</section>
+
+
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
+<section id="contribute"><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+</section>
+
+<details class="record-details" data-pagefind-ignore><summary>Record details</summary>
+  <dl class="metadata">
+    <dt>Subjects</dt><dd>Computational economics</dd>
+    <dt>Collection</dt><dd>Economics catalogue</dd>
+    <dt>Economics rank</dt><dd>445</dd><dt>Computer Science rank</dt><dd>863</dd>
+    
+    <dt>JEL</dt><dd><a href="/economics/jel/C73/">C73 — Stochastic and Dynamic Games - Evolutionary Games - Repeated Games</a></dd>
+    
+  </dl>
+</details>
+</aside>
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

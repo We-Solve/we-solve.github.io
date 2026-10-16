@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Refuting random 3SAT-instances on $O(n)$ clauses (weak form)">
+  
+  <title>Refuting random 3SAT-instances on $O(n)$ clauses (weak form) · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/problems/refuting-random-3sat-instances-on-o-n-clauses-weak-form/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/">Home</a></li><li><a href="/computer-science/">Computer Science</a></li><li><a href="/computer-science/sources/top-open-problems/">Top Open Problems</a></li><li><span aria-current="page">CS-184</span></li></ol></nav>
+    
+    
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">CS-184</span> · <span data-pagefind-filter="Discipline">computer science</span> · <span data-pagefind-filter="Discipline">mathematics</span> · <span data-pagefind-filter="Topic">Logic and computability</span></p>
+  <span class="visually-hidden">CS-184 · Math-4373</span>
+  <h1 data-pagefind-meta="title">Refuting random 3SAT-instances on $O(n)$ clauses (weak form)</h1>
+  
+<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+  
+  <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden" data-pagefind-filter="Completion estimate">0%</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+</header>
+
+
+
+<section class="statement" aria-labelledby="statement-title">
+  <h2 id="statement-title">Statement</h2>
+  <div class="collapsible" data-collapsible data-more="Show full statement" data-less="Show less">
+    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><h3>Definitions and mathematical statement</h3> <h5>Shared notation.</h5>Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.<p>A Boolean literal is a variable or its negation; a 3CNF formula is a conjunction of clauses, each the disjunction of three literals. A clause is satisfied if at least one of its literals is true. For a formula $I$ with $m$ clauses, define \[
+ \operatorname{OPT}(I)=\max_{x\in\{0,1\}^n}\#\{\text{clauses of }I\text{ satisfied by }x\}.
+\] For the random model, a fixed nonnegative rational density $\Delta$ determines $m=\lfloor\Delta n\rfloor$. One may sample each clause by choosing three distinct variables uniformly and choosing their signs independently, with independent clauses. "Typical" is an algorithm's output label, not an assertion that each such instance is unsatisfiable. Its soundness requirement is that it never labels an input typical when $\operatorname{OPT}(I)\ge(1-\epsilon)m$; its success requirement is probability at least $1/2$ on the random-instance distribution. Polynomial time is measured in the formula's encoding length, with the fixed parameters held constant. </p><h5>Statement recorded in the supplied source.</h5> Conjecture For every rational $\epsilon &gt; 0$ and every rational $\Delta$, there is no polynomial-time algorithm for the following problem.<p></p><p>Given is a 3SAT (3CNF) formula $I$ on $n$ variables, for some $n$, and $m = \lfloor\Delta n\rfloor$ clauses drawn uniformly at random from the set of formulas on $n$ variables. Return with probability at least 0.5 (over the instances) that $I$ is typical without returning typical for any instance with at least $(1 - \epsilon)m$ simultaneously satisfiable clauses. <a href="http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[S2]</a> </p><h5>Scope qualification.</h5> The catalogue reproduces the Open Problem Garden weak form, including its universal density quantifier. The clause distribution must be fixed; the problem page explicitly discusses sampling with versus without replacement. The source wording allows a rational $\Delta$ without explicitly stating its nonnegativity; negative clause counts have no meaning. No randomized-algorithm soundness convention is supplied in the quoted question, so its probability over instances is not silently replaced by an average-error guarantee. This is a conjectural computational lower bound, not an established consequence of $\mathsf{P}\ne\mathsf{NP}$. The problem page and its displayed formulation were inspected on 2026-10-11; its historical bibliography was inspected, but a complete current proof-status audit was not performed. <h5>Source status.</h5> The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.<p></p><h3>Short English statement</h3> Can a polynomial-time algorithm reliably recognize random formulas with only a constant number of clauses per variable while never accepting a formula whose clauses are almost all simultaneously satisfiable?<h3>Sources</h3> <ul> <li>S1 Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 3406 (OPG-36884). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions. <a href="https://huggingface.co/datasets/ulamai/UnsolvedMath" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://huggingface.co/datasets/ulamai/UnsolvedMath</a>. </li><li>S2 OpenGarden, original problem source linked by catalogue record OPG-36884 <a href="http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form</a>. </li><li>S3 Uriel Feige, Relations between average case complexity and approximation complexity, STOC 2002, pp. 534--543; original publication cited by the problem page. <a href="https://doi.org/10.1145/509907.509985" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://doi.org/10.1145/509907.509985</a>. </li><li>S4 Uriel Feige and Eran Ofek, Easily refutable subformulas of large random 3CNF formulas, Theory of Computing 3 (2007), pp. 25--43; algorithmic context. <a href="https://theoryofcomputing.org/articles/v003a002/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://theoryofcomputing.org/articles/v003a002/</a>. </li></ul> <h5>Preparation and review.</h5> Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 3406 and source code OPG-36884 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status. <span class="tex-label" data-tex-label="end:3406" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-f332ff10a1ffbe05904b74a7d82aa815" tabindex="-1"></span></div>
+  </div>
+  
+  
+  <p class="small"><a href="https://www.unsolvedmath.com/problems/OPG-36884" rel="noopener noreferrer">Catalogue entry</a></p>
+  <p class="small muted">Statement licence: CC-BY-4.0 · <a href="/problems/refuting-random-3sat-instances-on-o-n-clauses-weak-form/source/statement.tex" download>Source file</a></p>
+</section>
+
+
+
+<section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-3406-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/refuting-random-3sat-instances-on-o-n-clauses-weak-form/attempt-1/r1/">CS-184-A1</a> · Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-11">2026-10-11</time></p>
+    <h3><a href="/contributions/refuting-random-3sat-instances-on-o-n-clauses-weak-form/attempt-1/r1/">gpt 6 astra ultra attempt on CS-184</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Refuting random 3SAT-instances on $O(n)$ clauses (weak form)</h2><span class="tex-label" data-tex-label="3406" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-b6b8f36bd7ae74b6b7553c7e234e875a" tabindex="-1"></span><h3>Definitions and mathematical statement</h3> <h5>Shared notation.</h5>Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.<p>A Boolean literal is a variable or its negation; a 3CNF formula is a conjunction of clauses, each the disjunction of three literals. A clause is satisfied if at least one of its literals is true. For a formula $I$ with $m$ clauses, define \[
+ \operatorname{OPT}(I)=\max_{x\in\{0,1\}^n}\#\{\text{clauses of }I\text{ satisfied by }x\}.
+\] For the random model, a fixed nonnegative rational density $\Delta$ determines $m=\lfloor\Delta n\rfloor$. One may sample each clause by choosing three distinct variables uniformly and choosing their signs independently, with independent clauses. "Typical" is an algorithm's output label, not an assertion that each such instance is unsatisfiable. Its soundness requirement is that it never labels an input typical when $\operatorname{OPT}(I)\ge(1-\epsilon)m$; its success requirement is probability at least $1/2$ on the random-instance distribution. Polynomial time is measured in the formula's encoding length, with the fixed parameters held constant. </p><h5>Statement recorded in the supplied source.</h5> Conjecture For every rational $\epsilon &gt; 0$ and every rational $\Delta$, there is no polynomial-time algorithm for the following problem.<p></p><p>Given is a 3SAT (3CNF) formula $I$ on $n$ variables, for some $n$, and $m = \lfloor\Delta n\rfloor$ clauses drawn uniformly at random from the set of formulas on $n$ variables. Return with probability at least 0.5 (over the instances) that $I$ is typical without returning typical for any instance with at least $(1 - \epsilon)m$ simultaneously satisfiable clauses. <a href="http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[S2]</a> </p><h5>Scope qualification.</h5> The catalogue reproduces the Open Problem Garden weak form, including its universal density quantifier. The clause distribution must be fixed; the problem page explicitly discusses sampling with versus without replacement. The source wording allows a rational $\Delta$ without explicitly stating its nonnegativity; negative clause counts have no meaning. No randomized-algorithm soundness convention is supplied in the quoted question, so its probability over instances is not silently replaced by an average-error guarantee. This is a conjectural computational lower bound, not an established consequence of $\mathsf{P}\ne\mathsf{NP}$. The problem page and its displayed formulation were inspected on 2026-10-11; its historical bibliography was inspected, but a complete current proof-status audit was not performed. <h5>Source status.</h5> The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.<p></p><h3>Short English statement</h3> Can a polynomial-time algorithm reliably recognize random formulas with only a constant number of clauses per variable while never accepting a formula whose clauses are almost all simultaneously satisfiable?<h3>Sources</h3> <ul> <li>S1 Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 3406 (OPG-36884). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions. <a href="https://huggingface.co/datasets/ulamai/UnsolvedMath" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://huggingface.co/datasets/ulamai/UnsolvedMath</a>. </li><li>S2 OpenGarden, original problem source linked by catalogue record OPG-36884 <a href="http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form</a>. </li><li>S3 Uriel Feige, Relations between average case complexity and approximation complexity, STOC 2002, pp. 534--543; original publication cited by the problem page. <a href="https://doi.org/10.1145/509907.509985" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://doi.org/10.1145/509907.509985</a>. </li><li>S4 Uriel Feige and Eran Ofek, Easily refutable subformulas of large random 3CNF formulas, Theory of Computing 3 $2007$, pp. 25--43; algorithmic context. <a href="https://theoryofcomputing.org/articles/v003a002/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://theoryofcomputing.org/articles/v003a002/</a>. </li></ul> <h5>Preparation and review.</h5> Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 3406 and source code OPG-36884 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status. <span class="tex-label" data-tex-label="end:3406" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-6da514c37f9f88040e68a6403675b79e" tabindex="-1"></span><h2>Research attempt</h2> Use the explicit random model in the definition: $n\ge3$, $m=\lfloor\Delta n\rfloor$, fixed rational $\Delta\ge0$, and independent clauses with three distinct variables and independent signs. The original universal quantifiers and source warning about other distributions are retained. This attempt tests local unsatisfiable subformulas as sound "typical" certificates. Two obstructions emerge: a single contradiction does not certify a fixed unsatisfied fraction, and the simplest complete contradiction on one triple is absent with high probability at fixed linear density.<h5>Parameter ranges with no possible success.</h5> A uniformly random assignment satisfies each proper three-variable clause with probability $7/8$. By linearity of expectation some assignment therefore satisfies at least $7m/8$ clauses of every such formula. For $\epsilon\ge1/8$, every input in this random model meets $\operatorname{OPT}(I)\ge(1-\epsilon)m$, so soundness forbids the label typical on every random input, regardless of running time. At $\Delta=0$, $m=0$ and the same impossibility holds. These boundary cases do not prove the conjecture for $0&lt;\epsilon&lt;1/8$ and positive density. Negative densities have no clause-count interpretation, as the preserved source qualification states.<div class="proposition"><strong>Proposition:</strong>  Fix $0&lt;\epsilon&lt;1/8$ and put $q=1-\epsilon$, $p=7/8$ and \[
+ D(q\|p)=q\log(q/p)+(1-q)\log((1-q)/(1-p)).
+\] In the independent-clause model, \[
+ \mathbb P\{\operatorname{OPT}(I)\ge qm\}\le2^n e^{-mD(q\|p)}. \tag{4}
+\] In particular, if $\Delta D(q\|p)&gt;\log2$, the probability on the left tends to zero as $n\to\infty$. </div> <div class="proof"><em>Proof:</em>  For one fixed assignment the satisfaction indicators of the clauses are independent Bernoulli variables with mean $p$. If their sum is $S$, then for $t&gt;0$, \[
+ \mathbb P(S\ge qm)\le e^{-tqm}\mathbb Ee^{tS}
+ =\left(e^{-tq}(1-p+pe^t)\right)^m.
+\] Choose $e^t=q(1-p)/(p(1-q))&gt;1$ and substitute, obtaining $e^{-mD(q\|p)}$. Taking a union bound over all $2^n$ assignments gives $4$. The divergence is positive because its derivative in $q$ is $\log(q(1-p)/(p(1-q)))&gt;0$ for $q&gt;p$, and its value at $q=p$ is zero. Finally $m\ge\Delta n-1$, so the right side is at most $e^{D(q\|p)}e^{-n(\Delta D(q\|p)-\log2)}$, proving convergence to zero.  ∎</div><p>Exhaustively calculating $\operatorname{OPT}$ and reporting typical only when it is below $qm$ is sound, and $4$ gives asymptotic success above one half at sufficiently large fixed density. But it takes exponential time by the stated procedure. This is an information-theoretic feasibility calculation, not a polynomial algorithm, and it does not silently replace the source's wording about input lengths with an asymptotic success convention.</p><h5>Failure of the smallest local certificate.</h5> Take all eight sign patterns on one triple of variables. Every assignment falsifies exactly one, so this subformula has optimum seven. Padding it with $m-8$ repetitions of one of its clauses gives an $m$-clause formula with optimum exactly $m-1$: choose an assignment satisfying the repeated clause, which then falsifies exactly one of the other core clauses. For $m\ge1/\epsilon$, this padded formula satisfies at least $(1-\epsilon)m$ clauses. Therefore the presence of that unsatisfiable core cannot by itself be a sound typical certificate. Repetition is allowed in the independent-clause model.<p>Its frequency also defeats the proposed search. Put $N=\binom n3$ and $K=8N$, the number of clause types. For one fixed triple, the probability that all eight sign types appear is at most $(m)_8/K^8$, where $(m)_8$ counts ordered distinct positions and is zero if $m&lt;8$. Indeed, assign a distinct position to each required type and take a union bound; each assignment has probability $K^{-8}$. Consequently the expected number of such triples is at most \[
+ N\frac{(m)_8}{(8N)^8}\le \frac{m^8}{8^8N^7}=O(n^{-13})
+\] for fixed $\Delta$. The probability of even one such core is at most this expectation and tends to zero. Searching every triple is polynomial but fails the required success probability. Larger or global certificates are not covered by this obstruction.</p><h2>Literature and context</h2> The Open Problem Garden weak-form page and the primary Feige--Ofek journal abstract were inspected on 11 October 2026. The former states the all-density conjecture and discusses the sampling convention. The latter gives a polynomial unsatisfiability-refutation algorithm at sufficiently large constant times $n^{3/2}$ clauses. That is a superlinear density result and is not used here as a proof of a fixed-fraction soundness certificate. Neither source check was a complete current-literature audit. The Chernoff calculation and local-core argument above are elementary analyses; no improvement of the established refutation threshold is claimed.<h2>Verification and remaining gaps</h2> Exact enumeration of the eight assignments to the complete eight-clause triple gave seven satisfied clauses in every case. At $\epsilon=0.1$, numerical evaluation gives $D(0.9\|0.875)\approx0.0030394341$ and the sufficient density threshold from $4$ is approximately $228.051$; these figures are illustrative, while $4$ is proved symbolically. The audit distinguished unsatisfiability from the required gap below $1-\epsilon$, and fixed the clause distribution before using independence. No polynomial-time algorithm for any nontrivial fixed-density range or unconditional lower bound for all polynomial algorithms is obtained. The first remaining gap is a sound certificate that controls a linear number of unsatisfied clauses and occurs on at least half the random instances at fixed density, or a lower bound ruling out all such algorithms.<h2>References</h2> Original S1--S4 above. Open Problem Garden, original weak-form page, <a href="https://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form</a>. U. Feige and E. Ofek, <em>Easily refutable subformulas of large random 3CNF formulas</em>, Theory of Computing 3 $2007$, 25--43, primary abstract, <a href="https://theoryofcomputing.org/articles/v003a002/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://theoryofcomputing.org/articles/v003a002/</a>. The mathematical estimates actually used in this attempt are proved above.<h5>Integration review.</h5> Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.<h2>Completion Estimate</h2> <strong>COMPLETION: 0%</strong> No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.<h2>Final status and attribution</h2> <strong>Attempt status: unresolved.</strong> This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims. The mathematics and this self-audit were generated by OpenAI <code>gpt-6-astra</code>, reasoning <code>ultra</code>, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.<p>Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are <code>batch001/checks.py</code>, <code>computations.json</code>, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/refuting-random-3sat-instances-on-o-n-clauses-weak-form/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
+  
+  
+</section>
+
+
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
+<section id="contribute"><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+</section>
+
+<details class="record-details" data-pagefind-ignore><summary>Record details</summary>
+  <dl class="metadata">
+    <dt>Subjects</dt><dd>Logic and computability</dd>
+    <dt>Collection</dt><dd>Top Open Problems</dd>
+    <dt>Computer Science rank</dt><dd>184</dd><dt>Mathematics rank</dt><dd>4373</dd>
+    <dt>UnsolvedMath</dt><dd><a href="https://www.unsolvedmath.com/problems/OPG-36884" rel="noopener noreferrer nofollow ugc" referrerpolicy="no-referrer">Catalogue entry</a></dd>
+    
+    
+  </dl>
+</details>
+</aside>
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

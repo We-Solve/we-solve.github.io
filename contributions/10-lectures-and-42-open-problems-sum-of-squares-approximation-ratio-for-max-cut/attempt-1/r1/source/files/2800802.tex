@@ -1,0 +1,76 @@
+% OPENAI_CLAIM: {"schema_version":1,"source_repo":"https://github.com/openai/math","source_commit":"adc7f1241b42e322a6451854ab7e4b4c146bf78a","release_date":"2026-10-06","match":"partial","resolution":"partial","independently_reviewed":false,"second_pass":"n/a","families":[{"family":"102","title":"The Unique Games Conjecture and optimal approximation thresholds","subject":"Theoretical computer science","manuscripts":[{"title":"A Direct Proof of Optimal Max-Cut Hardness","pdf_path":"preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/paper.pdf","readme_path":"preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/README.md","date":"2026-09-23","theorem_ref":"thm:main (sections/introduction.tex:39); thm:gap (sections/introduction.tex:52)","statement_sources":[{"path":"preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/build/sections/introduction.tex","line":39,"label":"thm:main"},{"path":"preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/build/sections/introduction.tex","line":52,"label":"thm:gap"}]},{"title":"The Unique Games Theorem","pdf_path":"preprints/The-Unique-Games-Theorem-September-23-2026/paper.pdf","readme_path":"preprints/The-Unique-Games-Theorem-September-23-2026/README.md","date":"2026-09-23","theorem_ref":"thm:ugc (sections/00-introduction.tex:22)","statement_sources":[{"path":"preprints/The-Unique-Games-Theorem-September-23-2026/build/sections/00-introduction.tex","line":22,"label":"thm:ugc"}]}],"lean":{"doc_path":"lean/docs/102.md","comparators":["lean/ComparatorChallenges/DirectedFeedback.json","lean/ComparatorChallenges/DirectedFeedback.lean","lean/ComparatorChallenges/MinUncut.json","lean/ComparatorChallenges/MinUncut.lean","lean/ComparatorChallenges/OptimalMaxCut.json","lean/ComparatorChallenges/OptimalMaxCut.lean","lean/ComparatorChallenges/UniqueGamesTheorem.json","lean/ComparatorChallenges/UniqueGamesTheorem.lean","lean/ComparatorChallenges/VertexCover.json","lean/ComparatorChallenges/VertexCover.lean"],"declarations":["OAI.OptimalMaxCut.main","OAI.UniqueGamesTheorem.theorem11","OAI.VertexCover.every_fixed_factor_below_two"],"covers_main_theorem":true},"reasoning_trace":"reasoning_traces/basic-semidefinite-threshold-np-hardness.pdf"}]}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem}
+\usepackage{xurl,hyperref,bookmark}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\begin{document}
+\section*{10 Lectures and 42 Open Problems — Sum of Squares approximation ratio for Max-Cut}
+
+\subsection{OpenAI's claim}
+The two manuscripts give computational hardness results. The first claims that a deterministic polynomial-time Max-Cut approximation with any fixed factor above $\alpha_{\rm GW}$ would imply $\mathrm P=\mathrm{NP}$. The second claims the Unique Games gap theorem, which supplies hardness consequences for approximation problems. Their relevance here is an obstruction to improving deterministic polynomial-time rounding; neither manuscript identifies the unconditional degree-four sum-of-squares ratio.
+
+\subsection{Mathematical statement of the claimed result}
+\paragraph{Manuscript 1.}
+Let $\operatorname{MaxCut}(G)$ denote the largest weight crossing a vertex bipartition, and set
+\[
+ \alpha_{\rm GW}=\min_{-1\le\rho<1}\frac{2\arccos\rho}{\pi(1-\rho)}.
+\]
+For each fixed $\alpha\in(\alpha_{\rm GW},1]$, the claim is NP-hardness of returning a cut of weight at least $\alpha\operatorname{MaxCut}(G)$, even on simple unweighted graphs. Its more explicit weighted gap uses any rational $0<t<1$, $B(t)=2\arcsin(t)/\pi$, and $0<\varepsilon<(t-B(t))/4$: distinguishing the two promises
+\[
+ \operatorname{MaxCut}(G)\ge(1+t)/2-\varepsilon
+ \quad\hbox{and}\quad
+ \operatorname{MaxCut}(G)\le(1+B(t))/2+\varepsilon
+\]
+is NP-hard when the rational edge weights sum to one.
+
+\paragraph{Manuscript 2.}
+For every fixed $\varepsilon,\delta\in(0,1/2)$, the claim gives $s\ge1$ and a deterministic polynomial-time $3$SAT reduction to explicit unweighted Unique Games over $K=\mathbb F_2^s$, on a simple bipartite graph with translation constraints $a(v_e)=a(u_e)+c_e$, satisfying
+\[
+ \varphi\text{ satisfiable}\Rightarrow\operatorname{val}(G_{\varphi})\ge1-\varepsilon,
+ \qquad\varphi\text{ unsatisfiable}\Rightarrow\operatorname{val}(G_{\varphi})\le\delta.
+\]
+Alphabet size and polynomial constants depend only on the two fixed errors. For any fixed constraint-language instance $J$ with $A=\operatorname{OPT}(J)<B=\operatorname{SDP}_{R}(J)$, the associated consequence claims NP-hardness of distinguishing value at least $B-\eta$ from value at most $A+\eta$ for any fixed $0<\eta<(B-A)/2$.
+
+\subsection{Outline of the argument}
+For manuscript 1 (family 102; 2026-09-23), an affine game is composed directly with folded Gaussian sign tables. Excess stability reveals a hidden coordinate through restriction Fourier mass and vector-valued hashing, yielding endpoint labelers that contradict the outer game's low value.
+
+For manuscript 2 (family 102; 2026-09-23), a latent quadratic alphabet and matrix-slice tests supply an outer permutation game. High acceptance decodes agreeing advice strategies, whereas clean-coordinate estimates from the unsatisfiable parity instance force their agreement to decay, giving the soundness contradiction.
+
+\subsection{Scope relative to this problem}
+The question includes the performance of polynomial-time rounding. A deterministic rounding rule that guaranteed a factor above $\alpha_{\rm GW}$ relative to $\operatorname{SOS}_4(G)$ would also achieve that factor relative to $\operatorname{OPT}(G)$, because $\operatorname{SOS}_4(G)\ge\operatorname{OPT}(G)$. Manuscript 1 therefore supplies a conditional obstruction to such a rule when $\mathrm P\ne\mathrm{NP}$. This conclusion concerns deterministic guarantees; it does not by itself rule out a randomized algorithm under that assumption. Neither linked theorem computes $\inf_G\operatorname{OPT}(G)/\operatorname{SOS}_4(G)$ or answers the near-bipartite rounding question. The match remains partial.
+
+\subsection{Formal verification}
+For the selected results, the Lean scope page identifies \texttt{OptimalMaxCut.lean} and \texttt{OAI.OptimalMaxCut.main}, and \texttt{UniqueGamesTheorem.lean} and \texttt{OAI.UniqueGamesTheorem.theorem11}. The other Comparator links belong to companion papers in the same family. This scope concerns the stated hardness theorems; it does not cover the unconditional degree-four integrality ratio or the near-bipartite question. The site has not run these Lean files or independently checked their proofs.
+
+\subsection{Status caveat}
+The manuscripts were produced by an internal OpenAI model. OpenAI cautions that results without formalization can contain mistakes. This site has not independently checked the proofs; the label records the scope of OpenAI's claim.
+
+\subsection{Sources}
+\begin{itemize}
+\item OpenAI, \emph{A Direct Proof of Optimal Max-Cut Hardness}, 2026-09-23; citation key \texttt{OAI:A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026}. \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/paper.pdf}{PDF (GitHub)}; \href{https://github.com/openai/math/raw/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/paper.pdf}{PDF (direct)}; \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/README.md}{Manuscript page and citation}; \href{https://github.com/openai/math/blob/main/preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/paper.pdf}{Latest version}; Statement source: \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/build/sections/introduction.tex\#L39}{thm:main}; Statement source: \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-Direct-Proof-of-Optimal-Max-Cut-Hardness-September-23-2026/build/sections/introduction.tex\#L52}{thm:gap}.
+\item OpenAI, \emph{The Unique Games Theorem}, 2026-09-23; citation key \texttt{OAI:The-Unique-Games-Theorem-September-23-2026}. \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Unique-Games-Theorem-September-23-2026/paper.pdf}{PDF (GitHub)}; \href{https://github.com/openai/math/raw/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Unique-Games-Theorem-September-23-2026/paper.pdf}{PDF (direct)}; \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Unique-Games-Theorem-September-23-2026/README.md}{Manuscript page and citation}; \href{https://github.com/openai/math/blob/main/preprints/The-Unique-Games-Theorem-September-23-2026/paper.pdf}{Latest version}; Statement source: \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Unique-Games-Theorem-September-23-2026/build/sections/00-introduction.tex\#L22}{thm:ugc}.
+\item Family 102: \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/102.md}{Lean scope}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/DirectedFeedback.json}{Comparator DirectedFeedback.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/DirectedFeedback.lean}{Comparator DirectedFeedback.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/MinUncut.json}{Comparator MinUncut.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/MinUncut.lean}{Comparator MinUncut.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/OptimalMaxCut.json}{Comparator OptimalMaxCut.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/OptimalMaxCut.lean}{Comparator OptimalMaxCut.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/UniqueGamesTheorem.json}{Comparator UniqueGamesTheorem.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/UniqueGamesTheorem.lean}{Comparator UniqueGamesTheorem.lean}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/VertexCover.json}{Comparator VertexCover.json}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/VertexCover.lean}{Comparator VertexCover.lean}.
+\item Family 102: \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/reasoning\_traces/basic-semidefinite-threshold-np-hardness.pdf}{Reasoning summary}.
+\item \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/CONTENTS.md}{OpenAI catalogue entry}.
+\end{itemize}
+\end{document}

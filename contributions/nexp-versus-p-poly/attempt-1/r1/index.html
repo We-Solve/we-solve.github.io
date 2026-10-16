@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="gpt 6 astra pro attempt on CS-12">
+  
+  <title>gpt 6 astra pro attempt on CS-12 · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/nexp-versus-p-poly/attempt-1/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <details class="discipline-menu" data-discipline-menu>
+          <summary>Disciplines <span aria-hidden="true">⌄</span></summary>
+          <ul>
+            <li><a href="/biology/">Biology<small>330</small></a></li><li><a href="/computer-science/">Computer Science<small>915</small></a></li><li><a href="/economics/">Economics<small>657</small></a></li><li><a href="/mathematics/">Mathematics<small>6,275</small></a></li><li><a href="/physics/">Physics<small>437</small></a></li>
+            <li><span class="planned">Medicine<small>Planned</small></span></li>
+          </ul>
+        </details>
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">CS-12-A1</span> · revision r1 · on <a href="/problems/nexp-versus-p-poly/">CS-12</a></p>
+  <h1 data-pagefind-meta="title">gpt 6 astra pro attempt on CS-12</h1>
+  <p class="row-meta">No claim recorded · LLM-generated · <a href="/models/openai/gpt-6-astra-pro/" data-pagefind-filter="Model">gpt 6 astra pro</a> · <time datetime="2026-09-27">2026-09-27</time></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">computer science</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">mathematics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Top Open Problems</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status: open. Claims here do not change the source status.</p>
+
+
+
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><details class="contents"><summary>Contents</summary><ol><li><a href="#section-befa65dfd5fde076">NEXP versus P/poly</a></li><li><a href="#section-8f27c029c137d63e">Definitions and mathematical statement</a></li><li><a href="#section-64e326e847d87dde">Short English statement</a></li><li><a href="#section-7fe9cfa6e1a99c3f">Research attempt</a></li><li><a href="#section-7fd46a0157f5c47c">Current frontier.</a></li><li><a href="#section-7df2fe9307a8111e">Attack route.</a></li><li><a href="#section-64f68da002292d17">Attempt: fixed-exponent diagonalization with an actual algorithm.</a></li><li><a href="#section-c950c4922ea377cd">Where the union quantifier enters.</a></li><li><a href="#section-1aeb73f9259876b4">Attempted repair by padding.</a></li><li><a href="#section-45fbb9f00d1d80f5">A coherent selector would suffice.</a></li><li><a href="#section-89f4059b77b7a65d">A second route and its missing gain.</a></li><li><a href="#section-a2e05b3364faa080">Stress test.</a></li><li><a href="#section-1213e6651307543a">Outcome.</a></li><li><a href="#section-41c75f72f496ef48">Sources</a></li></ol></details><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><h2 id="section-befa65dfd5fde076">NEXP versus P/poly</h2><span class="tex-label" data-tex-label="30006703" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-ea42b67a930378bf05b32fec45940b18" tabindex="-1"></span><h3 id="section-8f27c029c137d63e">Definitions and mathematical statement</h3> Define $\mathsf{NEXP}=\bigcup_{k\ge1}\mathsf{NTIME}(2^{n^k})$, using nondeterministic machines with the indicated time bound on every branch. Membership in $\mathsf{P/poly}$ means that each input length has a polynomial-size Boolean circuit, with no uniform-generation condition. The question is \[
+ \mathsf{NEXP}\stackrel{?}{\subseteq}\mathsf{P/poly}.
+\] To refute containment, one needs one language in $\mathsf{NEXP}$ lacking every polynomial circuit-size bound, not merely a lower bound in a restricted circuit class.<p><em>Formulation and concept references:</em> <a href="https://complexityzoo.net/Complexity_Zoo:N" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[S1]</a>.</p><h3 id="section-64e326e847d87dde">Short English statement</h3> Could every nondeterministic exponential-time language nevertheless have polynomial-size nonuniform Boolean circuits?<h3 id="section-7fe9cfa6e1a99c3f">Research attempt</h3> <h5 id="section-7fd46a0157f5c47c">Current frontier.</h5> Williams proves nondeterministic exponential-time lower bounds against polynomial-size $\mathsf{ACC}$, not unrestricted $\mathsf{P/poly}$ <a href="https://people.csail.mit.edu/rrw/acc-lbs-journal-final.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[E1]</a>, Theorem 1.1. Atserias--Buss--Müller establish a consistency result in bounded arithmetic; Atserias--Müller's April 2026 manuscript also concerns consistency and magnification, not an unconditional separation in the ordinary mathematical universe <a href="https://arxiv.org/abs/2303.01016v2" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[E2]</a>, <a href="https://arxiv.org/abs/2604.25251" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[E3]</a>. The qualifier "consistent with a formal theory" cannot be deleted. We audit direct diagonalization against the target's union-class quantifiers.<h5 id="section-7df2fe9307a8111e">Attack route.</h5> Counting supplies many hard tables but not an efficient selector. Nondeterministically guessing a hard table still needs a certificate excluding all small circuits. The algorithm-to-lower-bound route instead needs a sufficiently fast general-circuit SAT algorithm. We push explicit selection until the circuit exponent's cost becomes visible, and test whether padding can repair it.<h5 id="section-64f68da002292d17">Attempt: fixed-exponent diagonalization with an actual algorithm.</h5> In a fixed finite fan-in-two basis, a topologically numbered circuit on $n$ inputs with at most $s$ gates has an encoding of length $O(s\log(n+s))$. The number of encodings has an explicit upper bound \[
+ M(n,s)\le2^{C_0s\log_2(n+s)}
+\] for an absolute $C_0$. Repetitions of the same function and invalid encodings cause no problem. \begin{notebooklemma}<span class="tex-label" data-tex-label="r63:fixed" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-8492124684760c290ba125c369c381f1" tabindex="-1"></span> For every fixed positive integer $k$, there exists $L_k\in\mathsf{EXP}$ whose length-$n$ function has circuit size greater than $n^k$ for every sufficiently large $n$. \end{notebooklemma} <div class="proof"><em>Proof:</em>  Put $s=\lfloor n^k\rfloor$. For large $n$, $M(n,s)+1\le2^{2^n}$. Inspect the first $M(n,s)+1$ binary truth tables lexicographically. For each, enumerate all valid circuit encodings of size at most $s$ and evaluate them on all inputs. Select the first table differing from every circuit table. There are at most $M$ distinct circuit tables, so the search succeeds.<p>A direct implementation costs at most \[
+ (M(n,s)+1)M(n,s)2^n\operatorname{poly}(n+s)
+        =2^{O(n^k\log n)}\le2^{O(n^{k+1})}.
+\] On input $x$, generate the canonical table for $n=|x|$ and return its $x$-entry. Handle the finitely many omitted lengths arbitrarily. This is a deterministic exponential-time language with the claimed bound.  ∎</p></div> Only $M+1$ candidate tables, not all $2^{2^n}$ tables, are inspected. Candidate indices have $O(\log M)$ bits. The construction does not assume a nondeterministically checkable hardness certificate.<p></p><h5 id="section-c950c4922ea377cd">Where the union quantifier enters.</h5> The lemma establishes \[
+ \forall k\ \exists L_k\in\mathsf{EXP}:L_k\notin\mathsf{SIZE}(n^k),
+\] whereas the target needs one language defeating every fixed polynomial. The algorithm's time exponent depends on $k$. Replacing $k$ by an unbounded $k(n)$ gives no fixed $C$ certifying time $2^{n^C}$. Merely assigning different constructions to disjoint length intervals does not resolve this problem.<h5 id="section-1aeb73f9259876b4">Attempted repair by padding.</h5> Suppose a core on $m$ variables is certified to require more than $m^k$ gates. Pad it to length $n$. Restricting padding variables in any padded circuit preserves the lower bound $m^k$, now measured against $n$. To obtain a fixed exponential-time budget from the preceding enumeration estimate, one requires \[
+ m^k\log m=O(n^C)
+\] for a fixed $C$. The same accounting then certifies only $m^k=O(n^C/\log m)$, rather than a superpolynomial lower bound in padded length. This is a barrier to this enumeration-and-padding calculation, not a theorem against every padding or magnification method.<h5 id="section-45fbb9f00d1d80f5">A coherent selector would suffice.</h5> Suppose one deterministic machine prints a table $T_n$ in time $2^{n^C}$ for fixed $C$, and no circuit of size $n^{q(n)}$ computes it, where $q(n)\to\infty$. Its indexed-bit language is in $\mathsf{EXP}$ and not in $\mathsf{P/poly}$. Indeed a size $Bn^d$ family is eventually smaller than $n^{q(n)}$ because eventually $q(n)\ge d+1$ and $n&gt;B$. This would give the stronger separation $\mathsf{EXP}\nsubseteq\mathsf{P/poly}$.<p>Nondeterministically guessing different hard tables on different branches does not define this language: accepting when some guessed table has a $1$ in a position gives their coordinatewise union, which need not be hard. A nondeterministic replacement needs an explicit coherence condition, such as identical output on all successful branches and at least one successful branch. No such selector is constructed.</p><h5 id="section-89f4059b77b7a65d">A second route and its missing gain.</h5> Williams's general metatheorem uses a fixed sufficiently large inverse-polynomial improvement over exhaustive-search SAT time for every fixed polynomial circuit-size exponent to obtain nondeterministic exponential-time lower bounds <a href="https://people.csail.mit.edu/rrw/acc-lbs-journal-final.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">[E1]</a>, Theorem 1.3. The direct evaluator costs $2^n\operatorname{poly}(n^k)$: its polynomial factor has the wrong sign. The present attempt supplies no improved general-circuit satisfiability algorithm.<h5 id="section-a2e05b3364faa080">Stress test.</h5> The selected table is the same for every evaluation at a given input length. Counting encodings rather than functions is a safe upper bound. Polynomial constants are absorbed only by passing to a larger fixed exponent, not by exchanging the quantifiers. $\mathsf{ACC}$ lower bounds do not cover arbitrary-depth circuits, and consistency statements do not construct the required selector. Finite arithmetic checks of the counting threshold are included in the script; they say nothing about a uniform unbounded-exponent selector.<h5 id="section-1213e6651307543a">Outcome.</h5> <strong>Outcome: Exploratory approach with unresolved gap.</strong><p>A fully executable fixed-exponent diagonalizer and its padding tradeoff are supplied. They explain exactly why counting alone does not establish the union-class target. The unresolved input is a coherent fast selector or a sufficiently fast general-circuit SAT algorithm. The fixed-exponent result is a standard diagonalization phenomenon, reproduced and audited rather than presented as a new separation.</p><h3 id="section-41c75f72f496ef48">Sources</h3> <ul> <li>S1 Complexity Zoo: NEXP entry. <a href="https://complexityzoo.net/Complexity_Zoo:N" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://complexityzoo.net/Complexity_Zoo:N</a>. <em>Catalogue formulation source.</em> </li><li>S2 On the Consistency of Circuit Lower Bounds for Non-Deterministic Time. <a href="https://arxiv.org/abs/2303.01016" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/abs/2303.01016</a>. <em>Catalogue research/status reference; not a proof endorsement.</em> </li><li>S3 From Godel incompleteness to the consistency of circuit lower bounds. <a href="https://arxiv.org/abs/2604.25251" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/abs/2604.25251</a>. <em>Catalogue research/status reference; not a proof endorsement.</em> </li><li>S4 Basic Circuit Complexity — Chi-Ning Chou. <a href="https://cnchou.github.io/notes/circuit.html" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://cnchou.github.io/notes/circuit.html</a>. <em>Catalogue research/status reference; not a proof endorsement.</em><p></p></li><li>E1 Ryan Williams, <em>Non-Uniform ACC Circuit Lower Bounds</em>, Journal of the ACM 61$1$, Article 2 $2014$; author-hosted journal manuscript, Theorems 1.1 and 1.3. <a href="https://people.csail.mit.edu/rrw/acc-lbs-journal-final.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://people.csail.mit.edu/rrw/acc-lbs-journal-final.pdf</a>. <em>Restricted-circuit lower bound and the algorithmic metatheorem. Bibliographic journal data are taken from the author publication list, not its manuscript template footer. Consulted 27 September 2026.</em> </li><li>E2 Albert Atserias, Sam Buss, and Moritz Müller, <em>On the Consistency of Circuit Lower Bounds for Non-Deterministic Time</em>, arXiv:2303.01016v2 (26 August 2023). <a href="https://arxiv.org/abs/2303.01016v2" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/abs/2303.01016v2</a>. <em>A consistency theorem in bounded arithmetic, not an unconditional NEXP circuit lower bound. Consulted 27 September 2026.</em> </li><li>E3 Albert Atserias and Moritz Müller, <em>From Gödel incompleteness to the consistency of circuit lower bounds</em>, arXiv:2604.25251 (28 April 2026). <a href="https://arxiv.org/abs/2604.25251" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/abs/2604.25251</a>. <em>Consistency and proof-complexity magnification; recent manuscript, not a separation theorem. Consulted 27 September 2026.</em> </li></ul><p></p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2>
+<p class="notice" role="note">Submissions open soon. Until then the catalogue, attempts and reviews are available to read, cite and download.</p>
+<p><a href="https://github.com/mehmetmars7/Erdosproblems-llm-hunter/blob/b1f633121074e16579fa7fd05314e5f504d29bae/attacks/open_problems/top_problems/gpt_6_astra_pro/30006703.tex" rel="noopener noreferrer">Original source</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/nexp-versus-p-poly/attempt-1/r1/source/files/30006703.tex" download>files/30006703.tex</a><span class="row-meta">12,147 bytes</span></li><li class="row"><a class="row-title" href="/contributions/nexp-versus-p-poly/attempt-1/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,138 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+
+<p class="small muted">Licensed by the owner (declaration of 11 October 2026)</p>
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/nexp-versus-p-poly/attempt-1/r1/">https://we-solve.github.io/contributions/nexp-versus-p-poly/attempt-1/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:TOP-30006703-A1-r1,
+  title = {{gpt 6 astra pro attempt on TOP-30006703}},
+  author = {{we-solve research archive}},
+  year = {2026},
+  month = {9},
+  howpublished = {\url{https://we-solve.github.io/contributions/nexp-versus-p-poly/attempt-1/r1/}},
+  note = {Revision r1 of TOP-30006703-A1. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/nexp-versus-p-poly/attempt-1/r1/citation.bib" download>BibTeX</a> <a href="/contributions/nexp-versus-p-poly/attempt-1/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/nexp-versus-p-poly/attempt-1/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:TOP-30006703-A1-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;gpt 6 astra pro attempt on TOP-30006703&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/nexp-versus-p-poly/attempt-1/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of TOP-30006703-A1. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: first posted.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;TOP-30006703-A1 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ],
+  &#34;issued&#34;: {
+    &#34;date-parts&#34;: [
+      [
+        2026,
+        9,
+        27
+      ]
+    ]
+  }
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt 6 astra pro</dt><dd>provider openai · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/nexp-versus-p-poly/attempt-1/r1/">r1 (permanent link)</a></dd><dt>First posted</dt><dd>2026-09-27 (day)</dd><dt>Repository first added</dt><dd>2026-09-27T18:47:12Z (instant)</dd><dt>Archived</dt><dd>2026-10-11</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/nexp-versus-p-poly/attempt-1/r1/">CS-12-A1 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-11T15:55:47Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>
