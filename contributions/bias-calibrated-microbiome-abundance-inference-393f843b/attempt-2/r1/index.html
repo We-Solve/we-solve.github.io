@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Microbiome bias calibration: failure diagnosis and a contamination-plus-variation model">
+  
+  <title>Microbiome bias calibration: failure diagnosis and a contamination-plus-variation model · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve <span class="wordmark-beta">(beta)</span></a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/leaderboard/">Leaderboard</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+    <nav class="shell discipline-nav" aria-label="Disciplines">
+      <ul>
+        <li><a href="/biology/"><span class="discipline-name">Biology</span><span class="discipline-count">330 problems</span></a></li><li><a href="/computer-science/"><span class="discipline-name">Computer Science</span><span class="discipline-count">918 problems</span></a></li><li><a href="/economics/"><span class="discipline-name">Economics</span><span class="discipline-count">662 problems</span></a></li><li><a href="/mathematics/"><span class="discipline-name">Mathematics</span><span class="discipline-count">6,275 problems</span></a></li><li><a href="/physics/"><span class="discipline-name">Physics</span><span class="discipline-count">437 problems</span></a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">BIO-300-A2</span> · revision r1 · on <a href="/problems/bias-calibrated-microbiome-abundance-inference-393f843b/">BIO-300</a></p>
+  <h1 data-pagefind-meta="title">Microbiome bias calibration: failure diagnosis and a contamination-plus-variation model</h1>
+  <p class="row-meta">Partial result · LLM-generated · Submitted by <a href="/people/9ade69c5915e4b47b0792d711ab92c49/" data-pagefind-filter="Person">perseusabbot</a> · <a href="/people/9ade69c5915e4b47b0792d711ab92c49/" data-pagefind-filter="Person">perseusabbot</a> · <a href="/models/openai-8b7d1a3187/gpt-6/" data-pagefind-filter="Model">gpt-6</a></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">biology</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Biology catalogue</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Claim type">partial_result</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified LLM-generated attempt.</strong> Automated screening checks form, honesty and scope, not correctness. Status: unknown. Claims here do not change the source status.</p>
+
+
+<section class="claim" aria-labelledby="claim-title"><h2 id="claim-title">Claim: partial result</h2><p>A restricted finite-sample interval construction for a shared multiplicative-bias multinomial model, a sharp bound for externally bounded multiplicative drift, and a reproducible investigation of why those intervals fail on public mock-community data. An extension models contamination and variation between samples, with a conditional known-nuisance interval guarantee and grouped held-out empirical evaluation. Estimated-nuisance intervals and a parametric-bootstrap envelope are exploratory; no general 95% guarantee is claimed for them. This is not a full solution to the transferable calibration problem, a claim of novelty, or evidence of cross-laboratory validity.</p></section>
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><details class="contents"><summary>Contents</summary><ol><li><a href="#section-d61150add9059f65">Microbiome bias calibration: failure diagnosis and a contamination-plus-variation model</a></li><li><a href="#section-8982265b16b549ec">Main findings</a></li><li><a href="#section-8039bc8d56c58d0a">1. Original model and finite-sample construction</a></li><li><a href="#section-bd1dd60007b163e4">2. Public inputs and diagnosis</a></li><li><a href="#section-8306cbfbc440b016">3. Extended model and fitting</a></li><li><a href="#section-1d438146d2b0ea30">4. Conditional interval guarantee</a></li><li><a href="#section-ed8a39195c9eceb2">5. Held-out results</a></li><li><a href="#section-bc292ca4f2bc26c9">6. Verification and reproduction</a></li><li><a href="#section-d95778cc92a1ef8b">7. Limits and open work</a></li><li><a href="#section-97bf3ca39fc0eca8">Attribution and references from the original submission</a></li><li><a href="#section-dd7512bd2f69df65">Who did the work</a></li><li><a href="#section-af6a76e4338a8b79">LLMs used</a></li><li><a href="#section-7b3cf72cc9632744">People and roles</a></li><li><a href="#section-9fecbcd501381f14">References</a></li><li><a href="#section-bc4628fd2736d693">Original contributor disclosures</a></li><li><a href="#section-83511a137ed72e80">Who did the work</a></li><li><a href="#section-b149b7c387fbb805">LLMs used</a></li><li><a href="#section-f9ee6ee5132ef5b0">People and roles</a></li></ol></details><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><p>&gt; Source: <a href="https://github.com/We-Solve/research/issues/3" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">original issue #3</a>. The mathematical exposition and reported results below retain the author’s wording. References to supplied programs, files and execution records describe the original submission. Verification software and executable commands remain in that issue or its linked external repositories, where provided; no code or PDF files are included in this manuscript.</p>
+<h2 id="section-d61150add9059f65">Microbiome bias calibration: failure diagnosis and a contamination-plus-variation model</h2>
+<p>Version 2, 17 October 2026. The catalogue displays this problem as BIO-300; its stable submission handle is BIOCAT-68.</p>
+<h3 id="section-8982265b16b549ec">Main findings</h3>
+<p>On 78 held-out cell-mixture samples from the Brooks et al. experiment, the original count-noise intervals contained all seven nominal proportions in only 4 samples. Of the 74 failures, 31 occurred solely at nominally absent taxa, while 43 also missed at least one nominally present taxon. A model including contamination and sample-level variation contained all nominal proportions in 74/78 grouped held-out samples; a bootstrap sensitivity envelope contained 77/78. Mean interval width increased from 0.056 to 0.163, or to 0.189 for the envelope. These proportions describe agreement with nominal mixtures, not independent estimates of repeated-sampling confidence coverage.</p>
+<p>The complete source package accompanying this submission contains the report source, Python analysis and verification code, unchanged public input tables, exact folds and seeds, every synthetic count vector, all resampled training counts, fitted parameters, individual predictions, dependency versions, and SHA-256 checksums. The companion PDF remains external and is not included in this manuscript. Reproducibility repository: <a href="https://github.com/perseusabbot/microbiome-bias-calibration-biocat-68" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">https://github.com/perseusabbot/microbiome-bias-calibration-biocat-68</a>. The repository includes `MANIFEST.sha256` for file verification and a reading copy of `report.pdf`. The verified scientific snapshot is <a href="https://github.com/perseusabbot/microbiome-bias-calibration-biocat-68/tree/94eaed90c958f4fc1d5fb1bbbb485cb6ebdb6be5" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">94eaed90c958f4fc1d5fb1bbbb485cb6ebdb6be5</a>; its <a href="https://github.com/perseusabbot/microbiome-bias-calibration-biocat-68/archive/94eaed90c958f4fc1d5fb1bbbb485cb6ebdb6be5.zip" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">complete source archive</a> is directly downloadable. Later publication-metadata updates do not change the scientific results in that snapshot.</p>
+<h3 id="section-8039bc8d56c58d0a">1. Original model and finite-sample construction</h3>
+<p>Let $r$ be a known calibration composition with every $r_i&gt;0$, $b_i&gt;0$ shared taxon efficiencies, and $p$ an unknown target composition, possibly with zeros. Assume</p>
+<p>\[<br>C\sim\mathrm{Mult}(M,\sigma),\quad Y\sim\mathrm{Mult}(N,\rho),\qquad<br>\sigma_i=\frac{b_ir_i}{\sum_jb_jr_j},\quad \rho_i=\frac{b_ip_i}{\sum_jb_jp_j}.<br>\]</p>
+<p>Then $p_i\propto r_i\rho_i/\sigma_i$. For each binomial marginal, invert</p>
+<p>\[<br>n\,d(k/n\Vert t)\leq\log(4q/\alpha),\qquad<br>d(x\Vert t)=x\log(x/t)+(1-x)\log((1-x)/(1-t)).<br>\]</p>
+<p>Write the resulting bounds as $[l_i^Y,u_i^Y]$ and $[l_i^C,u_i^C]$, and set</p>
+<p>\[<br>a_i=r_i l_i^Y/u_i^C,\qquad A_i=r_i u_i^Y/l_i^C,<br>\]<br>\[<br>L_i=\frac{a_i}{a_i+\sum_{j\ne i}A_j},\qquad U_i=\frac{A_i}{A_i+\sum_{j\ne i}a_j}.<br>\]</p>
+<p>If a calibration lower bound is zero, take the corresponding upper weight as infinity and use the appropriate limits. For a single taxon return $[1,1]$. This gives simultaneous coverage of at least $1-\alpha$ for all taxa of one target sample under the model.</p>
+<p>Proof: applying Markov's inequality to the binomial moment-generating function and optimizing the exponential tilt gives each Chernoff tail probability at most $\exp[-n d(x\Vert t)]$. There are $4q$ tails across two tables, two directions and $q$ coordinates. Their union failure probability is at most $\alpha$, without assuming independence of taxa. On that event the true unnormalized weights lie between $a_i$ and $A_i$. A normalized weight increases in its own weight and decreases in every other weight; its extremes are the displayed bounds. This proves the claim. The box relaxation is conservative.</p>
+<p>For any simplex point estimate $\widehat p$, an exact radius over the outer interval box intersected with the simplex is</p>
+<p>\[<br>\varepsilon_B=2\max_{S\subseteq\{1,\ldots,q\}}<br>\left[\min\left\{\sum_{i\in S}U_i,1-\sum_{i\notin S}L_i\right\}<br>-\sum_{i\in S}\widehat p_i\right].<br>\]</p>
+<p>Indeed L1 distance between simplex points is twice the maximum excess mass on a subset. The largest feasible mass on a subset is the smaller of its upper capacity and the mass remaining after the complement's lower requirements. This also gives a simultaneous L1 certificate under the same model. Enumeration is implemented only up to 12 taxa.</p>
+<p>If target efficiencies are $b_i d_i$ with an externally valid bound $\max_i\log d_i-\min_i\log d_i\leq R$, correcting with $b$ identifies $p_i^*\propto p_i d_i$. The sharp deterministic bound is</p>
+<p>\[<br>\|p^*-p\|_1\leq 2\tanh(R/4).<br>\]</p>
+<p>Proof: rescale drift to $[1,H]$, $H=e^R$, and let $m=\sum_i p_i d_i$. L1 discrepancy is $E_p|d-m|/m$. Convexity maximizes its expectation at endpoint drifts, giving $2(m-1)(H-m)/[m(H-1)]$. The maximum occurs at $m=\sqrt H$, with value $2(\sqrt H-1)/(\sqrt H+1)$. Two endpoint taxa with masses $\sqrt H/(1+\sqrt H)$ and $1/(1+\sqrt H)$ attain equality. This bound does not estimate or justify $R$ from unpaired unknown samples.</p>
+<p>The original package includes 12 numerical verification methods and 140,000 simulated count pairs across 14 fixed scenarios. Ten model-conforming scenarios had no failures in 100,000 draws, demonstrating conservatism rather than exact 100% coverage. Calibration noise, structural calibration absence, zero observed counts, drift, contamination and overdispersion are distinguished explicitly.</p>
+<h3 id="section-bd1dd60007b163e4">2. Public inputs and diagnosis</h3>
+<p>Data: 80 cell mixtures on two plates, seven named taxa, from the processed Brooks 2015 tables distributed by metacal at commit `f56792d02bd722ab16c1ed215b07c1187829a226`. The three files `brooks2015-actual.csv`, `brooks2015-observed.csv` and `brooks2015-sample-data.csv` are included unchanged with source hashes and attribution. Only the `Other` category is excluded, and analysis conditions on retained depth. Counts assigned to nominally absent named taxa are retained. The reference compositions are nominal preparations, not independently remeasured truths.</p>
+<p>The original analysis used the full-support mixture on each plate as its calibrator (s1-23 and s2-14), leaving 78 targets. Median L1 error fell from 0.637 to 0.126 after correction, but interval containment was only 4/78.</p>
+<p>| Original diagnostic | Samples |<br>|---|---:|<br>| All nominal proportions contained | 4 |<br>| Present taxa contained; absent taxa cause failure | 31 |<br>| Present taxa fail; absent taxa also receive reads | 40 |<br>| Present taxa fail; absent taxa receive no reads | 3 |</p>
+<p>There are 1,287 reads assigned to nominally absent taxa, 0.098% of retained target reads, spread over 71/78 samples. Under the no-contamination model their sampling probability would be exactly zero; a positive count forces a positive lower abundance bound. The small total mass therefore does not make the zero-proportion failures harmless.</p>
+<p>Contamination alone is insufficient. For each co-present taxon pair, compare the observed log ratio with the nominal log ratio and the plate-calibrator log ratio. The approximate count-only variance is $1/Y_i+1/Y_j+1/C_i+1/C_j$, accounting for both count tables. Of 160 dependent pair comparisons, 54.375% exceed three such standard errors; the median absolute log-ratio error is 0.22977. This is a descriptive diagnostic, not a collection of independent hypothesis tests. Sample-specific efficiency, preparation error, misclassification and incorrect nominal composition remain confounded.</p>
+<h3 id="section-8306cbfbc440b016">3. Extended model and fitting</h3>
+<p>For plate $\ell(s)$, define</p>
+<p>\[<br>\mu_s=(1-\eta)\frac{b_{\ell(s)}\odot p_s}{\sum_jb_{\ell(s),j}p_{s,j}}+\eta h,<br>\]<br>\[<br>Z_s\sim\mathrm{Dirichlet}(\kappa\mu_s),\qquad Y_s\mid Z_s\sim\mathrm{Mult}(N_s,Z_s).<br>\]</p>
+<p>This is a contaminated Dirichlet-multinomial (DM) measurement model. Its variance is $N\mu_i(1-\mu_i)(N+\kappa)/(1+\kappa)$. The latent $Z_s$ represents variation in read probabilities, not separately identifiable biological variation. A contamination-only comparator uses $Z_s=\mu_s$ and multinomial counts.</p>
+<p>Fit six log efficiency ratios per plate, a shared contamination fraction and six log contamination-profile ratios, plus one shared log concentration for DM. Fix the seventh taxon's efficiency to one. Bounds: log ratios in [-12,12], $\eta=0.2\mathrm{sigmoid}(t)$ for $t\in[-16,8]$, and $\kappa\in[1,10^7]$. Optimize the exact marginal likelihood with L-BFGS-B and analytic gradients; use two starts for primary fits. No primary fit hits a bound. Numerical mean-Jacobian rank is 19 at the checked interior starting point of every training design; this is local numerical evidence, not proof of global identifiability or optimization.</p>
+<p>Validation: use five fixed folds, grouping identical nominal support sets across plates. Keep both full-support controls in every training set. Each fold trains on 64 or 65 samples and predicts 15 or 16. Metadata determine the split; held-out nominal outcomes are used only for scoring. The predictor sees the held-out count vector and plate, not its nominal support mask. The extension plan was fixed before model fitting but after the original dataset had been examined, so this is exploratory validation.</p>
+<p>For each DM fold, generate 100 fixed-design parametric bootstrap training count tables and refit all parameters. Take the coordinatewise envelope of target intervals from all bootstrap fits and the original fit. The envelope measures sensitivity to model-based training uncertainty; it has no proved 95% nuisance-confidence interpretation. All 500 resampled training tables and fits are retained.</p>
+<h3 id="section-1d438146d2b0ea30">4. Conditional interval guarantee</h3>
+<p>Suppose $b,\eta,h,\kappa$ are known, with positive efficiencies, $0&lt;\eta&lt;1$, full-support $h$, and $\kappa&gt;0$. This is a conditional theorem, not a guarantee for the fitted procedure.</p>
+<p>Allocate $\alpha/(4q)$ to each tail of two stages. First obtain simultaneous binomial KL intervals for $Z_i$ conditional on the observed counts. Second invert the marginal distribution $Z_i\sim\mathrm{Beta}(\kappa\mu_i,\kappa(1-\mu_i))$: the lower mean endpoint solves</p>
+<p>\[<br>\Pr_{\mu=L_\mu}(Z_i\geq L_Z)=\alpha/(4q),<br>\]</p>
+<p>and the upper solves</p>
+<p>\[<br>\Pr_{\mu=U_\mu}(Z_i\leq U_Z)=\alpha/(4q).<br>\]</p>
+<p>Use zero and one boundary conventions. For fixed $\kappa$ the Beta family is stochastically increasing in its mean: a larger-mean density divided by a smaller-mean density is proportional to a positive power of $z/(1-z)$. Thus both inverse endpoints increase with their observed argument. On the count event, using $L_Z,U_Z$ instead of the actual $Z_i$ expands the direct Beta interval. Count-stage failure probability is at most $\alpha/2$, and the Beta-stage union failure probability is at most $\alpha/2$. Their union proves simultaneous mean coverage at least $1-\alpha$; coordinate independence is unnecessary.</p>
+<p>Convert to clean read-space bounds</p>
+<p>\[<br>l_i=\max\{0,(L_{\mu,i}-\eta h_i)/(1-\eta)\},\quad<br>u_i=\min\{1,(U_{\mu,i}-\eta h_i)/(1-\eta)\}.<br>\]</p>
+<p>Divide by $b_i$ and use the normalized-weight formulas in section 1. If any $l_i&gt;u_i$, $\sum l_i&gt;1$, or $\sum u_i&lt;1$, explicitly return an empty set and count it as noncontainment. For the multinomial comparator omit the Beta stage and allocate $\alpha/(2q)$ to count tails.</p>
+<p>Plugging in estimated nuisance parameters invalidates a direct invocation of this theorem. A union over a valid simultaneous nuisance confidence region with its own error allocation would extend the argument, but that region is not constructed here. Neither the plug-in intervals nor the finite bootstrap envelope is claimed to provide a universal fitted-parameter guarantee.</p>
+<h3 id="section-ed8a39195c9eceb2">5. Held-out results</h3>
+<p>| Method | Contains all nominal taxa | Mean width | Median L1 error | Empty cases |<br>|---|---:|---:|---:|---:|<br>| Original one-control construction | 4/78 | 0.056 | 0.126 | 0 |<br>| Contamination only | 11/78 | 0.022 | 0.080 | 33 |<br>| Contamination plus DM variation | 74/78 | 0.163 | 0.077 | 0 |<br>| DM bootstrap envelope | 77/78 | 0.189 | 0.077 | 0 |</p>
+<p>The contamination-only width averages its 45 nonempty cases; rejected cases have no interval width and count as failures. All other widths average all 78 cases and all seven taxa. Width is in abundance units, so 0.163 means 16.3 percentage points. New models use more training controls than the original method; improvement cannot be attributed solely to the likelihood change.</p>
+<p>Across folds, DM estimates $\eta$ between 0.301% and 0.334% and $\kappa$ between 299.8 and 374.1. At 20,000 reads this implies about 54-67 times the multinomial count variance. Background reads can belong to nominally present taxa too; fitted contamination fraction is not expected to equal the observed absent-taxon fraction.</p>
+<p>Total held-out log count probability at nominal compositions improves from -9704.1 for contamination-only to -1543.6 for DM. These are comparable count probability masses including combinatorial constants. Shared training data and dependent designs preclude treating the aggregate as an independent significance test.</p>
+<p>The remaining envelope failure is s1-12: nominal Atopobium/Prevotella proportions are 0.5/0.5, corrected estimates 0.291/0.709. The Atopobium envelope [0.106,0.469] misses 0.5. The model was not retuned to force this observation inside. The reason for this residual discrepancy is unresolved.</p>
+<h3 id="section-bc292ca4f2bc26c9">6. Verification and reproduction</h3>
+<p>Synthetic nuisance parameters are the fold-0 DM fit, explicitly a test generator rather than known biological truth. At depth 20,000, use 10,000 new targets per fixed composition. Simultaneous known-parameter DM coverage is 100%, 99.71%, and 99.45% for seven equal taxa, three equal taxa, and a singleton, respectively. Incorrect multinomial intervals on the same DM draws cover 3.87%, 0.16%, and 0.16%.</p>
+<p>For the first two compositions, 300 further repetitions each resample all training counts, refit all DM parameters, and independently draw a new target. Plug-in intervals cover in 300/300 repetitions for each composition (individual Wilson lower limit 98.74%). This is a limited model-conforming test, not a theorem over nuisance parameters, smaller designs, alternative contamination processes, or the bootstrap-envelope procedure.</p>
+<p>Eight extension verification methods pass, in addition to the original 12. Checks include numerical differentiation of both likelihoods (relative discrepancy below 4e-7), agreement with SciPy's separate log-PMF APIs, exact beta-binomial enumeration of 32 small cases (maximal failure 0.010132 at alpha 0.2), Beta-tail inversion, noiseless inversion, scale invariance, explicit empty sets, exact simplex endpoints, and grouped-fold/design checks. A preliminary floating-point endpoint error was caught during verification and fixed before final regeneration. All 10 primary fits, 500 bootstrap fits, and 600 repeated-training fits converged. Optimization diagnostics are supplied rather than treated as formal global certificates.</p>
+<p>The extension was independently rerun in a clean directory. All 14 extension scientific output files were byte-identical on the same host and pinned environment. The original seven-file reproduction check is retained. Cross-platform floating-point byte identity is not promised.</p>
+<p>From the package root:</p>
+<p>&gt; Verification software and executable commands are external to this manuscript. See the <a href="https://github.com/We-Solve/research/issues/3" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">original submission’s reproducibility section</a> for this material.</p>
+<p>Reference environment: Python 3.12.14, NumPy 2.3.5, SciPy 1.16.3. Extension seed: 20261018, PCG64. Default extension settings: 100 bootstrap refits per fold, 10,000 known-parameter targets per composition, and 300 repeated training fits per selected composition. Plot/report regeneration uses `requirements-report.txt` and `python code/build_report.py`. All computations after installation are offline.</p>
+<h3 id="section-d95778cc92a1ef8b">7. Limits and open work</h3>
+<p>This dataset has two plates from one experimental system and nominal rather than remeasured truths. It does not establish the biological cause of stray reads, identify independent preparation/efficiency errors, establish external 95% coverage, or validate cross-matrix/laboratory transfer. There are no blanks or dilution series in this subset. One common contamination profile and one concentration may be inadequate. The bootstrap envelope is not a confidence theorem, and wider intervals do not themselves establish useful inference.</p>
+<p>The next independent evaluation should include replicated controls, blanks, dilution levels, multiple matrices/laboratories, and independently assessed composition uncertainty, with locked predictions and both containment and width reported. Absolute abundance, unknown new taxa, and universal transfer remain open. Existing fido and Clausen-Willis methods already address broader parts of count-aware and contamination-aware calibration; this study neither benchmarks those packages nor claims priority.</p>
+<h3 id="section-97bf3ca39fc0eca8">Attribution and references from the original submission</h3>
+<h4 id="section-dd7512bd2f69df65">Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4 id="section-af6a76e4338a8b79">LLMs used</h4>
+<p>OpenAI, gpt-6, unknown exact serving version, research synthesis, mathematical derivations, implementation, computation, self-verification, report drafting and editing through Codex.</p>
+<h4 id="section-7b3cf72cc9632744">People and roles</h4>
+<p>@perseusabbot selected the problem, prompted the study and extension, requested GitHub publication, and confirmed all three submitter declarations. No independent human statistical review was performed. No additional contributors or exact model revisions are claimed.</p>
+<h4 id="section-9fecbcd501381f14">References</h4>
+<p>1. we-solve BIOCAT-68 / BIO-300 statement: https://we-solve.github.io/problems/bias-calibrated-microbiome-abundance-inference-393f843b/<br>2. McLaren, Willis and Callahan (2019), Consistent and correctable bias in metagenomic sequencing experiments, eLife 8:e46923: https://pmc.ncbi.nlm.nih.gov/articles/PMC6739870/<br>3. metacal calibration tutorial: https://mikemc.github.io/metacal/articles/tutorial.html<br>4. McLaren (2021), Estimating bias from mock communities using fido: https://microbiomemeasurement.org/posts/bias-estimation-from-mocks-with-fido/<br>5. Clausen and Willis, Modeling complex measurement error in microbiome experiments to estimate relative abundances and detection effects, arXiv:2204.12733v2: https://arxiv.org/html/2204.12733v2<br>6. Brooks et al. (2015), BMC Microbiology 15:66: https://doi.org/10.1186/s12866-015-0351-6<br>7. Pinned metacal source and processed data: https://github.com/mikemc/metacal/tree/f56792d02bd722ab16c1ed215b07c1187829a226<br>8. Silverman et al. (2021), Measuring and mitigating PCR bias in microbiota datasets: https://doi.org/10.1371/journal.pcbi.1009113</p>
+<p>This is a targeted primary-source check, not an exhaustive novelty review. Access scope and data hashes are recorded in `data/sources.json`. Original experiments and datasets remain credited to their authors.</p>
+<h2 id="section-bc4628fd2736d693">Original contributor disclosures</h2>
+<p>Source: https://github.com/We-Solve/research/issues/3</p>
+<h3 id="section-83511a137ed72e80">Who did the work</h3>
+<p>LLM only (people only prompted or submitted)</p>
+<h3 id="section-b149b7c387fbb805">LLMs used</h3>
+<p>OpenAI, gpt-6, unknown exact serving version, research synthesis, mathematical derivations, implementation, computation, self-verification, report drafting and editing through Codex.</p>
+<h3 id="section-f9ee6ee5132ef5b0">People and roles</h3>
+<p>@perseusabbot selected the problem, prompted the study and extension, requested GitHub publication, and confirmed all three submitter declarations. No independent human statistical review was performed. No additional contributors or exact model revisions are claimed.</p></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2><p class="next-steps" data-pagefind-ignore><a href="/contribute/review/?contribution=BIOCAT-68-A2">Review this revision</a> · <a href="/contribute/attempt/?problem=BIOCAT-68">Improve or extend it</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/source/files/attempt.md" download>files/attempt.md</a><span class="row-meta">19,141 bytes</span></li><li class="row"><a class="row-title" href="/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/source/files/disclosures.md" download>files/disclosures.md</a><span class="row-meta">646 bytes</span></li><li class="row"><a class="row-title" href="/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">3,026 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+<p class="small muted">Rights holders: perseusabbot.</p>
+
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/">https://we-solve.github.io/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:BIOCAT-68-A2-r1,
+  title = {{Microbiome bias calibration: failure diagnosis and a contamination-plus-variation model}},
+  author = {{we-solve research archive}},
+  howpublished = {\url{https://we-solve.github.io/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/}},
+  note = {Revision r1 of BIOCAT-68-A2. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/citation.bib" download>BibTeX</a> <a href="/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:BIOCAT-68-A2-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;Microbiome bias calibration: failure diagnosis and a contamination-plus-variation model&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of BIOCAT-68-A2. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: No work date recorded.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;BIOCAT-68-A2 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ]
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Submitted by</dt><dd><a href="/people/9ade69c5915e4b47b0792d711ab92c49/" data-pagefind-filter="Person">perseusabbot</a></dd><dt>Contribution mode</dt><dd>LLM-generated</dd><dt><a href="/people/9ade69c5915e4b47b0792d711ab92c49/" data-pagefind-filter="Person">perseusabbot</a></dt><dd>prompting, submission · confirmed</dd>
+  <dt>Model: gpt-6</dt><dd>provider OpenAI · version unknown · role generated draft · provenance declared · reasoning unknown</dd>
+  <dt>Revision</dt><dd><a href="/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/">r1 (permanent link)</a></dd><dt>Archived</dt><dd>2026-10-18</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>part of statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/bias-calibrated-microbiome-abundance-inference-393f843b/attempt-2/r1/">BIO-300-A2 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-18T22:17:48Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>
