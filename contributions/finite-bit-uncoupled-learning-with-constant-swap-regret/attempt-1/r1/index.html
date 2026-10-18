@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Rational transition matrices, exact stationary distributions, and a summable-error transfer for constant swap regret">
+  
+  <title>Rational transition matrices, exact stationary distributions, and a summable-error transfer for constant swap regret · we-solve</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="https://we-solve.github.io/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/">
+  <script src="/assets/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/analytics.js" defer data-analytics-id="G-K2HG2ZB2R2" data-analytics-mode="basic" data-analytics-regions="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH" data-analytics-privacy="/policies/privacy/"></script>
+  
+  
+  
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-pagefind-ignore>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/">we-solve <span class="wordmark-beta">(beta)</span></a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a href="/search/">Search</a>
+        <a href="/contribute/">Contribute</a>
+        <a href="/leaderboard/">Leaderboard</a>
+        <a href="/about/">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-label>Dark</span></button>
+    </div>
+    <nav class="shell discipline-nav" aria-label="Disciplines">
+      <ul>
+        <li><a href="/biology/"><span class="discipline-name">Biology</span><span class="discipline-count">330 problems</span></a></li><li><a href="/computer-science/"><span class="discipline-name">Computer Science</span><span class="discipline-count">918 problems</span></a></li><li><a href="/economics/"><span class="discipline-name">Economics</span><span class="discipline-count">662 problems</span></a></li><li><a href="/mathematics/"><span class="discipline-name">Mathematics</span><span class="discipline-count">6,275 problems</span></a></li><li><a href="/physics/"><span class="discipline-name">Physics</span><span class="discipline-count">437 problems</span></a></li>
+        <li><span class="planned"><span class="discipline-name">Medicine</span><span class="discipline-count">Planned</span></span></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    
+    
+    
+
+
+
+
+<article class="record-page" data-pagefind-body>
+<div class="record-main">
+<header class="page-heading">
+  <p class="row-meta"><span class="identifier" data-pagefind-meta="alias">Econ-116-A1</span> · revision r1 · on <a href="/problems/finite-bit-uncoupled-learning-with-constant-swap-regret/">Econ-116</a></p>
+  <h1 data-pagefind-meta="title">Rational transition matrices, exact stationary distributions, and a summable-error transfer for constant swap regret</h1>
+  <p class="row-meta">Full solution claimed · LLM-generated · Submitted by <a href="/people/751cf5ec28ee4c4bb0363bc5c80c4747/" data-pagefind-filter="Person">Anonymous submitter</a> · <a href="/models/openai-8b7d1a3187/gpt-6-astra-pro-048c1045ed/" data-pagefind-filter="Model">gpt 6 astra pro</a></p>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">economics</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Discipline">computer science</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source">Other</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">contribution</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Claim type">full_solution</span>
+</header>
+<p class="verification-banner" role="note" data-pagefind-ignore><strong>Unverified claim of a full solution.</strong> Automated screening checks form, honesty and scope, not correctness.</p>
+
+
+<section class="claim" aria-labelledby="claim-title"><h2 id="claim-title">Claim: full solution claimed</h2><p>Claims an affirmative finite-bit, deterministic, anytime, uncoupled rational-output learner satisfying the exact oracle, polynomial per-round bit-work/storage/precision constraints, and constant swap regret, preserving the optional dimension rate up to an absolute constant.</p><p><strong>Assumptions:</strong> Exact finite-bit oracle model of the posted statement; internal expectation computation excluded from counted work; Uses cited Mai v2 higher-order estimates; Claims new proof that bounded initial-score perturbation preserves source estimates and controls actual rounded self-play history</p><p><strong>Limitations:</strong> A claimed full solution, not a verified solved status; External analytic estimates not independently reconstructed; No formal/human/referee verification; No finite-precision implementation, numerical benchmark or experimental validation; No fixed-precision, adversarial or realized sampled-action guarantee; Submitted research claim; correctness and novelty have not been independently established.</p></section>
+
+
+
+<section class="manuscript" aria-labelledby="manuscript-title"><h2 id="manuscript-title">Manuscript</h2><details class="contents"><summary>Contents</summary><ol><li><a href="#section-61de34bd75909bcf">WS-107792: a finite-bit transfer for constant swap regret</a></li><li><a href="#section-e26396b1a641bc9d">Problem</a></li><li><a href="#section-246206763d17ad6b">Title</a></li><li><a href="#section-3e688dda6a22384a">Claim type</a></li><li><a href="#section-e5de75c9939f7cf3">Scope</a></li><li><a href="#section-7c873b09b6bf2d95">Assumptions and limitations</a></li><li><a href="#section-3dc7b29b971dff49">Write-up</a></li><li><a href="#section-68ab7ab1a0e12788">1. Notation and a rational choice of public parameters</a></li><li><a href="#section-2e37540de1bec92d">2. The exact analytic interface</a></li><li><a href="#section-999d99bf7314cc9d">Prediction estimate and its history hypotheses.</a></li><li><a href="#section-2c4568fd7d835502">Potential estimate with the initial score.</a></li><li><a href="#section-bf84b31245593ac8">Universal parameters and absorption.</a></li><li><a href="#section-3af83b8b53455b28">3. A rational normalizer with a small effective-score error</a></li><li><a href="#section-7429ae71779896d9">4. Exact rational stationarity has polynomial bit cost</a></li><li><a href="#section-86d8e17b308d39e4">5. The finite-bit learner</a></li><li><a href="#section-86580f1b494fe8b8">6. Rounding errors in the actual history</a></li><li><a href="#section-99bd692b2c6ecbba">7. Resource accounting and the regret conclusion</a></li><li><a href="#section-4af645b59e2d50cd">8. Self-audit and verification status</a></li><li><a href="#section-a60efc34026b925b">Models used</a></li><li><a href="#section-2c6c0b0f50a4f399">Human contributors and roles</a></li><li><a href="#section-eb67a3c39485aea6">References</a></li></ol></details><div class="tex-content mathjax-process" id="manuscript" data-payload-exclude><h2 id="section-61de34bd75909bcf">WS-107792: a finite-bit transfer for constant swap regret</h2><p>OpenAI GPT 6 Astra Pro</p><p>18 October 2026</p><h2 id="section-e26396b1a641bc9d">Problem</h2> <strong>WS-107792 (live submission key <code>ECON-3</code>).</strong> Finite-bit uncoupled learning with constant swap regret. <a href="https://we-solve.github.io/problems/finite-bit-uncoupled-learning-with-constant-swap-regret/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">We-Solve problem page.</a><h2 id="section-246206763d17ad6b">Title</h2> Rational transition matrices, exact stationary distributions, and a summable-error transfer for constant swap regret.<h2 id="section-3e688dda6a22384a">Claim type</h2> <strong>Full solution (affirmative), using the cited analytic estimates of Mai, version 2.</strong><h2 id="section-e5de75c9939f7cf3">Scope</h2> We give a deterministic finite-bit learner and prove that it answers the exact catalogue question affirmatively, preserving its optional dimension rate up to an absolute constant.  The proof controls the learner's <em>actual</em> self-play history, including accumulated feedback and state-rounding errors.  It uses Mai's higher-order prediction estimates as cited results, and proves that they apply with the bounded initial-score perturbation needed by this construction.  The proof supplies the numerical and memory bounds excluded from the cited exact-real implementation.<h2 id="section-7c873b09b6bf2d95">Assumptions and limitations</h2> The game, oracle, feedback restriction, regret benchmark, and resource requirements are exactly those in the attached statement.  The proof counts oracle reply lengths and all subsequent bit operations, while the oracle's internal expectation calculation remains excluded as in the problem.  All outputs and stored states are rational.  No realized sampled-action guarantee, fixed-precision guarantee, or adversarial guarantee is asserted.  The payoff bit bound $L$ is not needed by the construction beyond the problem's provision of the oracle.<p>The principal literature input is Mai's version 2, whose title is <em>Constant Swap Regret in General-Sum Games via Two-Scale Higher-Order Optimism</em>.  Version 1, cited in the question, has a different title. Both the model and the explicit finite-bit exclusion in Appendix H were checked in version 2 [mai].  The cited analytic estimates and their hypotheses are identified below; they are not independently reconstructed in full.  This is a proposed mathematical proof using those results, with separate-agent checks of the new argument.  It is not a formally verified proof or an externally refereed acceptance.</p><h2 id="section-3dc7b29b971dff49">Write-up</h2> <h3 id="section-68ab7ab1a0e12788">1. Notation and a rational choice of public parameters</h3> Write $n=N$ for the number of original players.  Let \[
+ s_i=2^{\lceil\log_2\max\{2,m_i\}\rceil},\qquad s=\max_i s_i\leq2K.
+\] Replace each original action list by $s_i$ virtual actions, using duplicates of existing actions to fill the list.  Fix a public surjection $p_i:[s_i]\to[m_i]$.  The virtual game has payoffs \[
+ \widetilde u_i(a_1,\ldots,a_n)
+ =u_i(p_1(a_1),\ldots,p_n(a_n)).
+\] If the virtual mixed strategy is $y_i$, the learner outputs $x_{ia}=\sum_{b:p_i(b)=a}y_{ib}$.  The original payoff-vector reply, copied onto the virtual duplicates, is a reply for this virtual game at the same precision.  No extra information is requested.<p>For an original map $\varphi:[m_i]\to[m_i]$, choose for every original action a fixed virtual representative.  Mapping each virtual action $b$ to the representative of $\varphi(p_i(b))$ gives a virtual remapping with exactly the original map's cumulative gain.  Hence <span class="tex-label" data-tex-label="eq:padding" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-70-61-64-64-69-6e-67" data-tex-scope="0" id="tex-label-a37f6842abc0df81ee2dffa5d6a3c160" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-70-61-64-64-69-6e-67}
+ \operatorname{SwapReg}_i^{\mathrm{original}}(T)
+ \leq\operatorname{SwapReg}_i^{\mathrm{virtual}}(T).
+\end{equation}</p><p>For the rest of the proof, $r_i^t$ denotes the true virtual gain matrix, \[
+ r_{i,a,b}^t=y_{i,a}^t
+ (v_{i,b}^t-v_{i,a}^t),\qquad
+ \left\lVert w_i\right\rVert_{\infty,1}=\sum_{a=1}^{s_i}\max_b|w_{i,a,b}|.
+\] Thus $\left\lVert r_i^t\right\rVert_{\infty,1}\leq1$ and \[
+ \operatorname{SwapReg}_i(T)=\sum_a\max_b\sum_{t\leq T}r_{i,a,b}^t\geq0.
+\]</p><p>Use Mai's public normalizer and predictor parameters, with all unqualified logarithms in their base-two convention: \[
+ M=\sum_i s_i^2,\quad A_i=s_i\log_2s_i,\quad A=\sum_iA_i,
+ \quad\ell=\ell_0+\lceil\log_2(2+n+M)\rceil,\quad k=\ell+1,
+\] \[
+ \delta=\frac1{n(M+\ell+2)^2},\qquad
+ J=\lceil\log_2(1/\delta)\rceil,\qquad
+ \beta_i=\frac{\log_2s_i}{2^{10}s_iJ}.
+\] Let $d_i$ be the least power of two at least $\lceil\log_2(1/\beta_i)\rceil$.  These parameters are rational or integer: this is the reason for the virtual-action padding. For later use, $M\geq s_i^2$ implies $\delta^{-1}=n(M+\ell+2)^2\geq s_i^4$, hence $J\geq4\log_2s_i$ and $s_i\beta_i\leq2^{-12}$. The base-two convention also appears in the source's identity $\ln m=(\ln2)\log m$ in its potential estimate.</p><p>Fix a sufficiently small positive <em>rational</em> universal $c$ and a sufficiently large universal integer $\ell_0$, as in the proof of Lemma <a class="tex-reference" data-tex-reference="lem:history" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-5d4d7dee71b19c5d8e41a55c8d4d1e69" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma (Robust history estimate from Mai&#x27;s analytic lemmas) in this document · r1">Lemma (Robust history estimate from Mai's analytic lemmas)</a> below.  Put $g=c/k^{5/2}$ for the analysis only.  Choose $\eta_i=2^{-h_i}$, where $h_i$ is the smallest nonnegative integer with \[
+ 2^{-2h_i}\leq\frac{c^2A_i}{k^5A}.
+\] This choice uses only integer comparisons after clearing denominators. It satisfies <span class="tex-label" data-tex-label="eq:rates" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-72-61-74-65-73" data-tex-scope="0" id="tex-label-25b6fd5d7be7c2f3283d885cfab9fb0b" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-72-61-74-65-73}
+ \frac12g\sqrt{A_i/A}&lt;\eta_i\leq g\sqrt{A_i/A},
+ \qquad\sum_i\eta_i^2\leq g^2.
+\end{equation} In particular $\eta_i^{-1}$ and all public parameter bit lengths are polynomially bounded in $n,K$.  The universal constants can be fixed once and hardcoded.  The question asks for the existence of fixed polynomials and does not require optimized numerical values of these universal constants.  The proof of Mai's Theorem 2.1 explicitly treats arbitrary positive rates satisfying its equation $4.1$, $\sum_i\eta_i^2\leq g^2$.  It therefore applies to these dyadic rates; the exact default square-root allocation is not required.</p><h3 id="section-2e37540de1bec92d">2. The exact analytic interface</h3> For a row vector $z\in\mathbb R^{s_i}$, define \[
+ u(v)=\frac{\sqrt{v^2+4}-v}{2},\quad
+ t_+(v)=u(v)^{-1},\quad
+ f_i(v)=\beta_i
+ \frac{(1+t_+(v)/d_i)^{d_i}}
+ {1+u(v)+(\delta/4)u(v)^2}.
+\] There is a unique shift $\mu$ with $\sum_b f_i(z_b-\mu)=1$.  Write $q_{i,b}(z)=f_i(z_b-\mu)$.  Apply this map separately to every row of a score matrix $z_i$, producing a positive transition matrix $Q_i(z_i)$.  Let $y_i(z_i)$ be its unique stationary distribution. The map $\Gamma_i(z)$ is the true gain matrix obtained in the fixed virtual game when all players use these stationary distributions.<p>Let $\mathsf S$ denote backward shift on sequences with zero prehistory, $\mathsf D=I-\mathsf S$, and \[
+ \mathsf R_r=(I-\rho_r\mathsf S)^{-1},\qquad
+ \mathsf F_r=\mathsf R_r\mathsf D,\qquad\rho_r=\frac r{r+1},\qquad
+ \mathsf H=\mathsf D^3\mathsf F_\ell^\ell\mathsf F_M^M.
+\] The exact predictor is $(I-\mathsf H)r$.  It uses only past gains because the current-input coefficient of $\mathsf H$ is one.</p><div class="lemma"><strong>Lemma (<span class="tex-theorem-title">Robust history estimate from Mai's analytic lemmas</span>):</strong> <span class="tex-label" data-tex-label="lem:history" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-5d4d7dee71b19c5d8e41a55c8d4d1e69" tabindex="-1"></span> For the normalizer and public parameters above, there are universal constants, independent of the game and horizon, with the following property.  Suppose a deterministic infinite effective-score history satisfies, for fixed matrices $b_i$ with $\left\lVert b_i\right\rVert_{\infty,1}\leq1/16$, <span class="tex-label" data-tex-label="eq:truehistory" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-74-72-75-65-68-69-73-74-6f-72-79" data-tex-scope="0" id="tex-label-5c34e5e40db6762b7aa53429fbc86781" tabindex="-1"></span><span class="tex-label" data-tex-label="eq:history" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-68-69-73-74-6f-72-79" data-tex-scope="0" id="tex-label-3f55dab5cb48fba9149f3f20d12aa519" tabindex="-1"></span>\begin{align}
+ r_i^t&amp;=\Gamma_i(z^t),\label{wsref-0-65-71-3a-74-72-75-65-68-69-73-74-6f-72-79}\\
+ z_i^t&amp;=\eta_i\left(b_i+\sum_{s&lt;t}r_i^s
+                 +(I-\mathsf H)[r_i]^t+\varepsilon_i^t\right),
+ \quad\left\lVert\varepsilon_i^t\right\rVert_{\infty,1}\leq(t+1)^{-2}.
+ \label{wsref-0-65-71-3a-68-69-73-74-6f-72-79}
+\end{align} Then, for sufficiently small universal $c$ and sufficiently large universal $\ell_0$, every finite horizon satisfies <span class="tex-label" data-tex-label="eq:inputconclusion" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-69-6e-70-75-74-63-6f-6e-63-6c-75-73-69-6f-6e" data-tex-scope="0" id="tex-label-085bf985dc52f53545609301706dbc2b" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-69-6e-70-75-74-63-6f-6e-63-6c-75-73-69-6f-6e}
+ \operatorname{SwapReg}_i(T)\leq \frac{4A_i}{\eta_i}.
+\end{equation} The fixed $b_i$ need not be known to a learner and need not be a causal function of its observations. </div> <div class="proof"><em>Proof:</em>  Fix a finite horizon $T$.  We first specify the source's energies and prove that its prediction estimate applies to the stated history; we then account for the nonzero initial score and choose universal parameters that close the estimates.  Put \[
+ \xi_i=\mathsf H[r_i]-\varepsilon_i,\qquad
+ \Theta_i^t=\eta_i\left(b_i+\sum_{s\leq t}r_i^s\right).
+\] Then $z_i^t=\Theta_i^t-\eta_i\xi_i^t$, and, for $t\geq2$, <span class="tex-label" data-tex-label="eq:scoreincrement" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-73-63-6f-72-65-69-6e-63-72-65-6d-65-6e-74" data-tex-scope="0" id="tex-label-48c14cd3b505d2c05d81793110a27ab5" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-73-63-6f-72-65-69-6e-63-72-65-6d-65-6e-74}
+ z_i^t-z_i^{t-1}
+ =\eta_i(r_i^t-\xi_i^t+\xi_i^{t-1}).
+\end{equation} Mai's Lemma G.1 gives $\left\lVert\mathsf H\right\rVert_{\mathrm{ker},1}&lt;96$, so $\left\lVert\xi_i^t\right\rVert_{\infty,1}\leq97$.<h5 id="section-999d99bf7314cc9d">Prediction estimate and its history hypotheses.</h5> For one normalized row at score $z$, define \[
+ H_b=f_i'(z_b-\mu),\qquad
+ \sigma_b=\frac{H_b}{\sum_cH_c},\qquad
+ \mathcal K_z(w)=\sum_bH_b
+ \left(w_b-\sum_c\sigma_cw_c\right)^2.
+\] These are Mai's equation $4.2$, with $H_b$ denoting the source's curvature weight $h_b$ and $\mathcal K$ its row quadratic form. Define \[
+ S_i=\frac{\eta_i^2}{8}\sum_{t=1}^T\sum_a
+       \mathcal K_{z_{i,a}^t}(r_{i,a}^t),\qquad
+ \omega_i=C_\omega\frac{s_i-1}{\beta_i},
+\] \[
+ Y^2=\sum_i\omega_iS_i,\quad V=\sum_i\omega_iA_i,
+ \quad\Lambda^2=\sum_i\omega_i\eta_i^2,\quad
+ E^2=\max_i\sum_{t=1}^T\left\lVert\xi_i^t\right\rVert_{\infty,1}^2.
+\] Here $\|w\|_{\infty,1;T}=(\sum_{t=1}^T\|w^t\|_{\infty,1}^2)^{1/2}$. The constant $C_\omega\geq1$ is the fixed universal curvature-comparison constant of the source's Appendix A.3.  These definitions agree with Section 4 immediately after equation $4.2$ and before Lemma 4.1. Mai's Lemma 4.2, equation $4.4$, and its proof in Sections 4.3--4.7 and Appendices C--G give <span class="tex-label" data-tex-label="eq:prediction" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-70-72-65-64-69-63-74-69-6f-6e" data-tex-scope="0" id="tex-label-377ca306446df7f98a10adcf8a33835f" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-70-72-65-64-69-63-74-69-6f-6e}
+ E\leq C_0+C_1gE+\tau_\ell Y,
+ \qquad\tau_\ell=C_Pk^2(C_Egk^{5/2})^\ell.
+\end{equation}<p>The source states its implementation with zero initial scores.  We verify that this restriction does not enter the cited prediction calculation.  The proof uses <a class="tex-reference" data-tex-reference="eq:scoreincrement" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-48c14cd3b505d2c05d81793110a27ab5" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:scoreincrement in this document · r1">(eq:scoreincrement)</a> only when $t\geq2$.  Section 4.4 assigns $t=1$ the boundary impulse $r_i^1$, whose row norm is at most one independently of $z^1$.  Its later early expressions are gated by $t&gt;p$, and its late expressions by $t&gt;\ell+j$.  More explicitly, differentiating a depth-$p$ early expression occurs only at $t\geq p+2$.  Its lag indices are at most $p$, so every increment index $t-a$ is at least two.  The late calculation has the identical property with $p=\ell+j$.  The remaining first-time term is a bounded boundary observable.  Thus no derivative identity involving an initial, nonpositive-time score is needed. The derivative estimates of Lemma C.1 and tree-score estimates of Lemma D.1 are uniform over all real score vectors.  The late-window comparison in Lemma F.1 uses differences of $\Theta$, in which the fixed $b_i$ cancels.  In particular its hull diameter remains at most $\eta_i(\ell+j+195)$, exactly as in that lemma.</p><p>The remaining entry of the perturbation into the prediction proof is \[
+ E\leq1+\max_i\left\lVert\mathsf H r_i\right\rVert_{\infty,1;T},
+\] which follows from $\sum_{t=1}^T\left\lVert\varepsilon_i^t\right\rVert_{\infty,1}^2\leq
+\sum_{t\geq1}(t+1)^{-4}&lt;1$. Its sign and computational origin do not occur in the estimate. Thus the same early and late one-difference closures, Lemmas 4.3 and 4.4, apply with the same constants.  The same causal filter bounds in Lemma G.1 and the finite assembly in Appendix G.2 prove <a class="tex-reference" data-tex-reference="eq:prediction" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-377ca306446df7f98a10adcf8a33835f" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:prediction in this document · r1">(eq:prediction)</a> for the present history.  This establishes the required extension of the cited analytic estimate; no history at time zero has been added as an extra assumption.</p><h5 id="section-2c4568fd7d835502">Potential estimate with the initial score.</h5> Mai's row potential $\Phi_i$, defined in equation $4.7$ and analyzed in Lemma B.2, has gradient $q_i$, hence is 1-Lipschitz in the sup norm; it also satisfies $\Phi_i(z)\geq\max_bz_b$ and $\Phi_i(0)\leq2\log_2s_i$. The same one-round Taylor inequality as in the source has the same two displacements $\eta_i\xi_i^t$ and $\eta_i(\xi_i^t-r_i^t)$, including at $t=1$.  Stationarity gives $\sum_{a,b}q_{i,a,b}^tr_{i,a,b}^t=0$ exactly.  The two endpoint inequalities are now \[
+ \sum_a\Phi_i(\Theta_{i,a}^0)
+ \leq2A_i+\eta_i\left\lVert b_i\right\rVert_{\infty,1},\qquad
+ \sum_a\Phi_i(\Theta_{i,a}^T)
+ \geq\eta_i\operatorname{SwapReg}_i(T)-\eta_i\left\lVert b_i\right\rVert_{\infty,1}.
+\] Consequently, <span class="tex-label" data-tex-label="eq:biasedenergy" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-62-69-61-73-65-64-65-6e-65-72-67-79" data-tex-scope="0" id="tex-label-b74232c46b16648e3e48099a1820d63d" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-62-69-61-73-65-64-65-6e-65-72-67-79}
+ \eta_i\operatorname{SwapReg}_i(T)+S_i
+ \leq2A_i+2\eta_i\left\lVert b_i\right\rVert_{\infty,1}+\eta_i^2E^2.
+\end{equation} Because $A_i\geq2$, $\eta_i\leq1$, and $\left\lVert b_i\right\rVert_{\infty,1}\leq1/16$, this gives \[
+ Y^2\leq3V+\Lambda^2E^2,\qquad
+\Lambda^2\leq g^2V.
+\] For the last inequality, use $\Lambda^2\leq(\max_i\omega_i)\sum_i\eta_i^2\leq g^2V$. This is the general-rate inequality of Mai's Lemma 4.1, rather than the special identity available for the exact default allocation.<h5 id="section-bf84b31245593ac8">Universal parameters and absorption.</h5> Fix universal upper bounds for the analytic constants as in Appendix A.3.  Choose a positive rational $c$ small enough that \[
+ C_Ec\leq\frac1{16},\qquad
+ (C_1+1)c\leq\frac12,\qquad
+ c^2[2(C_0+1)]^2\leq1,
+\] and small enough for the local potential comparisons in Section 4.2. These finitely many bounds depend only on the cited universal constants, not the game, dimensions, or horizon.<p>The source's dimension estimates also justify the enlarged $3V$ budget uniformly when $\ell_0$ changes.  Set $v=\lceil\log_2(2+n+M)\rceil$, so $k=\ell_0+v+1$. Appendix A.3 gives $J\leq5k$.  The definitions show directly that \[
+ V=2^{10}C_\omega J\sum_i s_i^2(s_i-1)
+ \leq2^{13}C_\omega kM^{3/2}.
+\] Use $M\leq2^v$, $k\leq(\ell_0+1)(v+1)$, and $C_Egk^{5/2}=C_Ec\leq1/16$ to obtain \begin{align*}
+ \tau_\ell\sqrt{3V}
+ &amp;\leq C_P\sqrt{3\cdot2^{13}C_\omega}
+        k^{5/2}16^{-\ell}M^{3/4}\\
+ &amp;\leq C_P\sqrt{3\cdot2^{13}C_\omega}
+ (\ell_0+1)^{5/2}16^{-\ell_0}
+ (v+1)^{5/2}2^{-13v/4}.
+\end{align*} Here $v\geq3$ and $(v+1)^{5/2}2^{-13v/4}\leq1$. Choose one universal $\ell_0$ large enough that \[
+ C_P\sqrt{3\cdot2^{13}C_\omega}
+ (\ell_0+1)^{5/2}16^{-\ell_0}\leq1.
+\] Such an integer exists because the exponential factor dominates the fixed power of $\ell_0+1$.  This proves $\tau_\ell\sqrt{3V}\leq1$, with all the parameters recomputed from this single choice of $\ell_0$.</p><p>Dyadic rounding of the rates makes no change to $V$, since $V$ depends on $\beta_i,A_i$ and $C_\omega$, not on the rates. It preserves $\sum_i\eta_i^2\leq g^2$ and $\eta_{\max}\leq g$. Consequently there is no factor-four enlargement of the curvature budget from that rounding; its factor-two loss occurs only in the final bound on $1/\eta_i$ in <a class="tex-reference" data-tex-reference="eq:rates" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-25b6fd5d7be7c2f3283d885cfab9fb0b" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:rates in this document · r1">(eq:rates)</a>.</p><p>Finally, \[
+ Y\leq\sqrt{3V}+\Lambda E\leq\sqrt{3V}+g\sqrt V E,
+ \qquad\tau_\ell Y\leq1+gE.
+\] Together with <a class="tex-reference" data-tex-reference="eq:prediction" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-377ca306446df7f98a10adcf8a33835f" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:prediction in this document · r1">(eq:prediction)</a>, this gives \[
+ E\leq C_0+1+(C_1+1)gE\leq C_0+1+E/2,
+ \qquad E\leq E_0:=2(C_0+1).
+\] The choice of $c$ implies $\eta_i^2E_0^2\leq1\leq A_i$. Substituting into <a class="tex-reference" data-tex-reference="eq:biasedenergy" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-b74232c46b16648e3e48099a1820d63d" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:biasedenergy in this document · r1">(eq:biasedenergy)</a>, and using $2\eta_i\left\lVert b_i\right\rVert_{\infty,1}\leq A_i$, proves $\eta_i\operatorname{SwapReg}_i(T)\leq4A_i$.  This is <a class="tex-reference" data-tex-reference="eq:inputconclusion" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-085bf985dc52f53545609301706dbc2b" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:inputconclusion in this document · r1">(eq:inputconclusion)</a> for the arbitrary chosen horizon.  ∎</p></div><p></p><h3 id="section-3af83b8b53455b28">3. A rational normalizer with a small effective-score error</h3> <div class="lemma"><strong>Lemma:</strong> <span class="tex-label" data-tex-label="lem:normalization" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-13fc4d4f876adb1e5bc4efa9ae90cc37" tabindex="-1"></span> Given a rational row $z$, rational public parameters above, and rational $0&lt;\tau\leq1$, one can compute a positive rational probability row $\widehat q$ satisfying \[
+ \widehat q=q_i(z+\zeta),\qquad\left\lVert\zeta\right\rVert_\infty\leq\tau,
+\] for an analysis-only real vector $\zeta$.  Its bit complexity and output bit length are polynomial in the input bit lengths, $s_i,d_i$, and $\log(1/\tau)$. </div> <div class="proof"><em>Proof:</em>  Put $m=s_i$, $\beta=\beta_i$, $d=d_i$, and let $Z\geq1$ bound $\left\lVert z\right\rVert_\infty$.  The rational interval \[
+ \left[\min_bz_b-\frac3{m\beta},\ \max_bz_b\right]
+\] brackets the normalizing shift.  At the right endpoint all arguments are nonpositive and $\sum_bf_i(z_b-\mu)\leq mf_i(0)\leq em\beta/2
+\leq e/2^{13}&lt;1$, by the bound on $m\beta$ above. At the left endpoint all arguments are at least $3/(m\beta)$, where the defining formula and Bernoulli's inequality give $f_i(v)&gt;1/m$. Take $R=2Z+3/(m\beta)+2$. All relevant scalar arguments, and their unit neighborhoods, lie in $[-R,R]$.<p>For $|v|\leq R$, $1/(R+1)\leq u(v),t_+(v)\leq R+1$. The numerator in $f_i$ is at least $\beta$, and its denominator is at most $3(R+1)^2$.  Hence \[
+ f_i(v)\geq\frac\beta{3(R+1)^2}.
+\] The logarithmic derivative of the numerator is \[
+ \frac{du}{(1+u^2)(1+du)}\geq\frac1{4(R+1)^4}.
+\] The negative logarithmic derivative of the denominator is nonnegative, so <span class="tex-label" data-tex-label="eq:derivativefloor" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-64-65-72-69-76-61-74-69-76-65-66-6c-6f-6f-72" data-tex-scope="0" id="tex-label-41ef16ef31d6841e17e083fa08ad6ec8" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-64-65-72-69-76-61-74-69-76-65-66-6c-6f-6f-72}
+ f_i'(v)\geq a_R:=\frac\beta{12(R+1)^6}.
+\end{equation} These deliberately conservative lower bounds are enough: their logarithms grow only as $O(\log R+\log(1/\beta))$.</p><p>The function $f_i$ is composed of rational arithmetic, a square root, and an integer power $d$.  On this interval every intermediate magnitude and reciprocal of a positive denominator has logarithm polynomial in $d,\log R,\log(1/\beta)$ and the input bit lengths. For a direct certified implementation, bracket $\sqrt{v^2+4}$ by rational bisection and evaluate the remaining expressions by rational interval arithmetic.  One may use $t_+(v)=1/u(v)$ when this avoids a subtraction of close values.  The positive denominators stay bounded away from zero by the displayed estimates.  Repeated squaring or $d$ multiplications therefore evaluates $f_i$ to error $2^{-p}$ in a number of bit operations polynomial in these quantities and $p$.</p><p>Certified bisection for the row sum locates its root to any prescribed absolute error.  A nearly equal comparison does not require an equality oracle: if an evaluation interval of width $2e$ contains one, the derivative bound $|\sum_bf_i'(z_b-\mu)|\geq ma_R$ locates the root within $2e/(ma_R)$ of that midpoint.  Otherwise the interval certifies which half to retain.  The row sum also has an upper derivative bound with polynomial logarithm.  Indeed $0&lt;t_+'(v)\leq1$ and $|u'(v)|\leq1$; the logarithmic derivative of the numerator is at most one and the negative logarithmic derivative of the denominator is at most one.  Hence $f_i'(v)\leq2f_i(v)\leq2\beta(R+2)^d$, and the row-sum derivative is at most $2m\beta(R+2)^d$. This procedure computes approximations to the exact probability row $q^*=q_i(z)$ with any prescribed absolute coordinate error, at the claimed cost.</p><p>Compute positive dyadics $p_b$ with $|p_b-q_b^*|\leq e$ and put $\widehat q_b=p_b/\sum_cp_c$.  If \[
+ e\leq\min\left\{\frac1{2m},\
+ \frac{\beta}{12(R+1)^2},\
+ \frac{a_R\tau}{8(m+1)}\right\},
+\] all coordinates are positive, the row is exactly normalized, and \[
+ |\widehat q_b-q_b^*|\leq2(m+1)e\leq a_R\tau/4.
+\] By <a class="tex-reference" data-tex-reference="eq:derivativefloor" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-41ef16ef31d6841e17e083fa08ad6ec8" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:derivativefloor in this document · r1">(eq:derivativefloor)</a>, $f_i$ changes by at least $a_R\tau$ on either length-$\tau$ side of the exact scalar argument. Monotonicity therefore gives \[
+ \zeta_b=f_i^{-1}(\widehat q_b)-(z_b-\mu),\qquad
+ |\zeta_b|\leq\tau.
+\] Now $\widehat q_b=f_i(z_b+\zeta_b-\mu)$ and its coordinates sum to one.  Uniqueness of the normalizing shift proves the representation. The inverse function and $\zeta$ are not computed.  All requested accuracies have logarithm polynomial in the stated inputs, completing the bit-complexity argument.  ∎</p></div><p></p><h3 id="section-7429ae71779896d9">4. Exact rational stationarity has polynomial bit cost</h3> <div class="lemma"><strong>Lemma:</strong> <span class="tex-label" data-tex-label="lem:stationarity" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-5073899f5312ffb731910c3368906b69" tabindex="-1"></span> A positive rational $m\times m$ stochastic matrix with at most $B$ bits in each numerator and denominator has an exactly normalized rational stationary distribution computable with polynomially many bit operations in $m,B$.  Its coordinate bit lengths are $O(m^2B+m\log m)$. </div> <div class="proof"><em>Proof:</em>  Positivity implies existence and uniqueness of its stationary distribution.  Replace one equation of $(Q^\top-I)y=0$ by $\sum_by_b=1$; this gives a nonsingular rational system.  In each equation, clearing denominators multiplies at most $m$ denominators, so the resulting integer entries have $O(mB)$ bits.  The determinant and every Cramer minor then have $O(m^2B+m\log m)$ bits, by the determinant expansion or Hadamard's bound.  Fraction-free Gaussian elimination, with row exchanges where necessary, uses polynomially many arithmetic operations on integers of this size.  Cramer's rule gives the output bound, and uniqueness gives exactly the required stationary distribution.  This computation makes no numerical condition-number assumption.  ∎</div><p>This lemma is applied to a <em>freshly formed</em> rational $Q$ in each round.  Its denominators are never accumulated into future gain sums; those gains are rounded to a common dyadic grid as follows.</p><h3 id="section-86d8e17b308d39e4">5. The finite-bit learner</h3> Set $D=M+\ell$ and $B_*=10(D+1)^3$.  Choose an integer $b_0$ with <span class="tex-label" data-tex-label="eq:b0" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-62-30" data-tex-scope="0" id="tex-label-dd9a158061b66d9a12ef90e41cac619c" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-62-30}
+ 2^{-b_0}\leq\frac1{4096s(D+1)B_*^D},
+ \qquad b_0=O(D\log(D+1)+\log s),
+\end{equation} and put \[
+ b_t=b_0+4\lceil\log_2(t+1)\rceil,\qquad h_t=2^{-b_t}.
+\] Then $h_t\leq 2^{-b_0}(t+1)^{-4}$ and $b_t$ is nondecreasing.<p>For each player maintain a cumulative gain matrix $C$, initially zero, and the $D$ EMA state matrices $a_1,\ldots,a_D$ and three lag matrices $c_1,c_2,c_3$, also initially zero.  Let $\nu_j=1/(M+1)$ for $j\leq M$, and $\nu_j=1/(\ell+1)$ for $j&gt;M$.  At round $t$ perform: </p><ol> <li>Compute the rational predictor \[
+ \widetilde h=\sum_{j=1}^Da_j+3c_1-3c_2+c_3,
+ \qquad\overline z=\eta_i(C+\widetilde h).
+\] </li><li>For each row of $\overline z$, use Lemma <a class="tex-reference" data-tex-reference="lem:normalization" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-13fc4d4f876adb1e5bc4efa9ae90cc37" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma in this document · r1">Lemma</a> with $\tau=\eta_i/[4s_i(t+1)^2]$.  Form the positive rational transition matrix $Q_i$ and compute its stationary distribution $y_i$ exactly using Lemma <a class="tex-reference" data-tex-reference="lem:stationarity" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-5073899f5312ffb731910c3368906b69" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma in this document · r1">Lemma</a>.  Output the aggregated original-action distribution $x_i$. </li><li>Request the original payoff vector at precision $b_t$ and copy its coordinates to virtual actions.  Call the reply $\widetilde v_i$. Set $\widetilde r_{a,b}$ to the nearest multiple of $2^{-b_t}$ to $y_{i,a}(\widetilde v_{i,b}-\widetilde v_{i,a})$, using any fixed tie convention. </li><li>Update $C\leftarrow C+\widetilde r$ <em>exactly</em>, and set $u\leftarrow\widetilde r$.  Sequentially for $j=1,\ldots,D$, set \[
+ u\leftarrow u-a_j,\qquad
+ a_j\leftarrow\operatorname{round}_{b_t}(a_j+\nu_j u).
+\] The subtraction for $u$ is exact and uses the old $a_j$. Finally update $(c_3,c_2,c_1)\leftarrow(c_2,c_1,u)$ simultaneously. </li></ol> All choices are deterministic.  Only public parameters, the player's own state and payoff-vector replies are used.  Nothing requires $T$.<p></p><h3 id="section-86580f1b494fe8b8">6. Rounding errors in the actual history</h3> Let $r_i^t$ be the <em>true</em> gains of the strategies actually played by this finite-bit learner, not the gains of an ideal comparison run. Write $d_i^t=\widetilde r_i^t-r_i^t$.  Oracle approximation and final gain rounding give <span class="tex-label" data-tex-label="eq:gainerror" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-67-61-69-6e-65-72-72-6f-72" data-tex-scope="0" id="tex-label-d431f9d4fd85afc4cd6b3b77226df916" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-67-61-69-6e-65-72-72-6f-72}
+ \left\lVert d_i^t\right\rVert_{\infty,1}\leq3s_i h_t.
+\end{equation} Indeed the payoff difference contributes at most $2y_{i,a}h_t$ in row $a$ and gain rounding contributes at most $h_t$ per row; summing yields $(2+s_i)h_t\leq3s_i h_t$. If $e_{i,j}^t$ denotes the rounding error in EMA update $j$, then <span class="tex-label" data-tex-label="eq:emaerror" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-65-6d-61-65-72-72-6f-72" data-tex-scope="0" id="tex-label-9355980e0072c2d0557a3187c9cc5348" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-65-6d-61-65-72-72-6f-72}
+ \left\lVert e_{i,j}^t\right\rVert_{\infty,1}\leq s_i h_t.
+\end{equation}<p>We now control the feedback of these errors into all later strategies. For a scalar convolution kernel $K=\sum_{q\geq0}k_q\mathsf S^q$, define \[
+ \left\lVert K\right\rVert_w=\sum_{q\geq0}(q+1)^2|k_q|,
+ \qquad\left\lVert w\right\rVert_{*,2}=\sup_{t\geq1}(t+1)^2\left\lVert w^t\right\rVert_{\infty,1}.
+\] The inequality $t+1\leq(q+1)(t-q+1)$ gives <span class="tex-label" data-tex-label="eq:weightedfilter" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-77-65-69-67-68-74-65-64-66-69-6c-74-65-72" data-tex-scope="0" id="tex-label-bedd2d0e496f572ee80e18d076c2d66a" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-77-65-69-67-68-74-65-64-66-69-6c-74-65-72}
+ \left\lVert Kw\right\rVert_{*,2}\leq\left\lVert K\right\rVert_w\left\lVert w\right\rVert_{*,2}.
+\end{equation} The same weight inequality makes these kernel norms submultiplicative.</p><p>For every stage, let $R_j=(I-(1-\nu_j)\mathsf S)^{-1}$ and $F_j=R_j\mathsf D$.  Direct sums of the geometric kernel give \[
+ \left\lVert R_j\right\rVert_w\leq2(D+1)^3,\qquad
+ \left\lVert F_j\right\rVert_w\leq B_*,\qquad
+ \left\lVert\mathsf S\right\rVert_w=4,\qquad\left\lVert\mathsf D^3\right\rVert_w=56.
+\] For example $\sum_{q\geq0}(q+1)^2\rho^q
+=(1+\rho)/(1-\rho)^3$, and $\left\lVert I-\mathsf S\right\rVert_w=5$. It follows that <span class="tex-label" data-tex-label="eq:kernelbounds" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-6b-65-72-6e-65-6c-62-6f-75-6e-64-73" data-tex-scope="0" id="tex-label-252b0252f5a3e905d0006a28c5e04ece" tabindex="-1"></span>\begin{equation}\label{wsref-0-65-71-3a-6b-65-72-6e-65-6c-62-6f-75-6e-64-73}
+ \left\lVert I-\mathsf H\right\rVert_w\leq57B_*^D,
+ \qquad
+ \left\lVert\mathsf D^3\prod_{h&gt;j}F_h\mathsf S R_j\right\rVert_w
+ \leq56B_*^D.
+\end{equation}</p><p>Let $U_j^t$ be the residual $u$ after stage $j$ in round $t$, with $U_0=\widetilde r$.  The exact algebra of the rounded update is \[
+ U_j=F_jU_{j-1}-\mathsf S R_je_j.
+\] The stage telescoping identity and the three stored lags therefore give the following <em>exact</em> predictor identity: <span class="tex-label" data-tex-label="eq:predictorerror" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-70-72-65-64-69-63-74-6f-72-65-72-72-6f-72" data-tex-scope="0" id="tex-label-07df56b2ca35bb92776a18363e67b0ca" tabindex="-1"></span><span class="tex-label" data-tex-label="eq:piexact" data-tex-label-kind="math" data-tex-math-label="wsref-0-65-71-3a-70-69-65-78-61-63-74" data-tex-scope="0" id="tex-label-a3e55220c1805f6bf1f2e6a11d214c83" tabindex="-1"></span>\begin{align}
+ \widetilde h_i&amp;=(I-\mathsf H)r_i+\pi_i,\label{wsref-0-65-71-3a-70-72-65-64-69-63-74-6f-72-65-72-72-6f-72}\\
+ \pi_i&amp;=(I-\mathsf H)d_i+
+ \mathsf D^3\sum_{j=1}^D\left(\prod_{h&gt;j}F_h\right)\mathsf S R_je_{i,j}.
+ \label{wsref-0-65-71-3a-70-69-65-78-61-63-74}
+\end{align} This calculation includes errors from every stage and every earlier round.  In particular it does not identify the implemented trajectory with an unrounded trajectory.</p><p>By <a class="tex-reference" data-tex-reference="eq:gainerror" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-d431f9d4fd85afc4cd6b3b77226df916" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:gainerror in this document · r1">(eq:gainerror)</a>--<a class="tex-reference" data-tex-reference="eq:kernelbounds" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-252b0252f5a3e905d0006a28c5e04ece" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:kernelbounds in this document · r1">(eq:kernelbounds)</a>, \[
+ \left\lVert\pi_i\right\rVert_{*,2}
+ \leq s_i(171+56D)B_*^D2^{-b_0}&lt;\frac14.
+\] Also the infinite sum \[
+ b_i=\sum_{t=1}^\infty d_i^t
+\] converges absolutely, and <a class="tex-reference" data-tex-reference="eq:b0" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-dd9a158061b66d9a12ef90e41cac619c" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:b0 in this document · r1">(eq:b0)</a> gives $\left\lVert b_i\right\rVert_{\infty,1}\leq1/16$. Its tail satisfies \[
+ \left\lVert\sum_{q=t}^\infty d_i^q\right\rVert_{\infty,1}
+ \leq s_i2^{-b_0}t^{-3}
+ \leq\frac1{4(t+1)^2}.
+\] Here $\sum_{q=t}^\infty(q+1)^{-4}\leq1/(3t^3)$ and $(t+1)^2/t^3\leq4$ for $t\geq1$.</p><p>The rational normalizer supplies an effective score perturbation $\zeta_i^t$ with $\left\lVert\zeta_i^t\right\rVert_{\infty,1}/\eta_i\leq1/[4(t+1)^2]$.  Since $C_i^{t-1}=\sum_{q&lt;t}(r_i^q+d_i^q)$, its actual effective score is \[
+ z_i^t=\eta_i\left(b_i+\sum_{q&lt;t}r_i^q
+ +(I-\mathsf H)r_i^t+\varepsilon_i^t\right),
+\] where \[
+ \varepsilon_i^t=
+ -\sum_{q=t}^\infty d_i^q+\pi_i^t+\frac{\zeta_i^t}{\eta_i},
+ \qquad\left\lVert\varepsilon_i^t\right\rVert_{\infty,1}\leq\frac3{4(t+1)^2}.
+\] Exact rational stationarity and the fixed virtual game give $r_i^t=\Gamma_i(z^t)$.  These are precisely the hypotheses of Lemma <a class="tex-reference" data-tex-reference="lem:history" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-5d4d7dee71b19c5d8e41a55c8d4d1e69" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma (Robust history estimate from Mai&#x27;s analytic lemmas) in this document · r1">Lemma (Robust history estimate from Mai's analytic lemmas)</a>.</p><p>The infinite error sum $b_i$ is only a device of the proof.  The learner does not compute it, store it, or use future replies. Existence of the infinite run follows inductively from the finite, well-defined algorithm at each round.  Deterministic pathwise inequalities can then use the absolutely convergent error sum of that run without any causal restriction on this analysis-only constant.</p><h3 id="section-99bd692b2c6ecbba">7. Resource accounting and the regret conclusion</h3> <div class="theorem"><strong>Theorem:</strong> <span class="tex-label" data-tex-label="thm:transfer" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-70319f3e809b274a2f934a1d224a37ac" tabindex="-1"></span> The learner above meets every resource requirement of WS-107792. There are fixed polynomials $P,Q$ such that all its per-round bit costs, memory, requested precisions, and output bit lengths are bounded by $P(N,K,L,\lceil\log_2(t+1)\rceil)$, and \[
+ \sup_{T\geq1}\operatorname{SwapReg}_i(T)
+ \leq\frac{8}{c}k^{5/2}\sqrt{A_iA}
+ =O\!\left(\sqrt N\,K\log K\,\log^{5/2}(NK)\right)
+ \leq Q(N,K,L).
+\] </div> <div class="proof"><em>Proof:</em>  The preceding section verifies the hypotheses of Lemma <a class="tex-reference" data-tex-reference="lem:history" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-5d4d7dee71b19c5d8e41a55c8d4d1e69" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma (Robust history estimate from Mai&#x27;s analytic lemmas) in this document · r1">Lemma (Robust history estimate from Mai's analytic lemmas)</a> for the actual finite-bit run.  The lemma gives $\operatorname{SwapReg}_i(T)\leq4A_i/\eta_i$; <a class="tex-reference" data-tex-reference="eq:rates" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-25b6fd5d7be7c2f3283d885cfab9fb0b" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:rates in this document · r1">(eq:rates)</a> gives the first bound in the theorem, and <a class="tex-reference" data-tex-reference="eq:padding" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-a37f6842abc0df81ee2dffa5d6a3c160" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:padding in this document · r1">(eq:padding)</a> transfers it to the original actions. Since $s_i\leq2K$, $A_i\leq2K\log_2(2K)$, $A\leq2NK\log_2(2K)$, and $k=O(\log(NK))$, the stated dimension rate follows.  It is bounded by a fixed polynomial; for example a sufficiently large universal multiple of $(NK)^6$ suffices.<p>For resources, $D=O(NK^2+\log(NK))$ and $b_t=O(D\log(D+1)+\log(t+1))$. The dyadic grid is nondecreasing.  Hence the exact cumulative gain array $C$ has denominator dividing $2^{b_t}$, with integer part $O(t)$: its bit length is $O(b_t+\log(t+1))$, rather than a sum of all earlier precisions.  All EMA states and lag states are dyadics on this grid.  A crude stable-filter bound using $\left\lVert F_j\right\rVert_{\mathrm{ker},1}\leq2$ bounds their magnitudes by $2^{O(D)}$ times a polynomial in $D$; thus their integer parts require only $O(D+\log(D+1))$ bits.  The rounding errors obey the same stable linear recurrence, so the bound applies to the implemented states. There are $O(Ds_i^2)$ such entries.</p><p>The raw score magnitude is at most $O(t+2^{O(D)})$, so the logarithm of $R$ in Lemma <a class="tex-reference" data-tex-reference="lem:normalization" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-13fc4d4f876adb1e5bc4efa9ae90cc37" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma in this document · r1">Lemma</a> is $O(D+\log(t+1)+\log(NK))$.  Its tolerance obeys \[
+ \log(1/\tau)=O(\log(1/\eta_i)+\log s_i+\log(t+1)),
+\] which has the required polynomial bound.  Consequently each fresh transition row has a polynomial bit bound, and the exact stationary system has a polynomial bit cost and output size by Lemma <a class="tex-reference" data-tex-reference="lem:stationarity" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-5073899f5312ffb731910c3368906b69" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma in this document · r1">Lemma</a>.  Aggregating virtual coordinates can use their common Cramer denominator, so it preserves a polynomial output size and exact normalization.</p><p>The stationary distribution may have a different denominator in the next round.  This causes no growth across time: products involving it are rounded to the common dyadic grid before being added to $C$ or passed to the EMA cascade.  Each temporary multiplication, division, and rounding therefore has polynomial operand length.  The $
+s_i^2D$ EMA operations and one own-payoff oracle query also have polynomial bit cost and memory.  A single fixed polynomial can dominate this finite composition of polynomial bounds, including public initialization.  No part of the algorithm enumerates the game's payoff table or stores past payoff vectors.  ∎</p></div><p></p><h3 id="section-4af645b59e2d50cd">8. Self-audit and verification status</h3> The proved numerical statements handle four separate issues: positive rational row normalization at a small effective score; exact rational stationarity with polynomial bit length; bounded storage for cumulative gains; and the effect of all feedback and EMA errors on the future score history.  The last issue is handled by <a class="tex-reference" data-tex-reference="eq:piexact" data-tex-reference-kind="eqref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-a3e55220c1805f6bf1f2e6a11d214c83" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View eq:piexact in this document · r1">(eq:piexact)</a> and the fixed-bias plus tail identity, not by a bound on regret evaluation along an unchanged history.<p>The history extension was checked separately against the source's first-time impulses, early and late time gates, score-window comparison, and potential endpoints.  Lemma <a class="tex-reference" data-tex-reference="lem:history" data-tex-reference-kind="ref" data-tex-reference-ready="true" data-tex-scope="0" href="#tex-label-5d4d7dee71b19c5d8e41a55c8d4d1e69" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" title="View Lemma (Robust history estimate from Mai&#x27;s analytic lemmas) in this document · r1">Lemma (Robust history estimate from Mai's analytic lemmas)</a> records that extension as a proof using the cited analytic results, with the energies, equation locators, and universal parameter bounds specified.  The rate rounding preserves the general-rate hypotheses; it does not silently use an identity restricted to the exact default allocation.  All scalar inverse bounds are polynomial in the score range, and the stationary-distribution denominators are prevented from accumulating in future states by dyadic gain rounding.</p><p>The argument applies to every finite prefix of the same horizon-independent run.  A one-action player is covered by virtual duplicates and has zero original swap regret.  Positivity and exact normalization hold before every stationary solve.  Regret throughout the proof uses true expected gains of the implemented strategies. These checks leave no identified gap in the new transfer proof.</p><p>The exact-real learning algorithm and its higher-order analytic estimates remain credited to Mai.  This contribution uses those estimates as cited mathematical results; it is not an independent reconstruction of their entire proof.  Separate-agent review of a proposed proof is not formal verification or external peer review. No finite-precision learning implementation has been run, and no numerical benchmark or experimental verification is claimed.</p><h2 id="section-a60efc34026b925b">Models used</h2> OpenAI GPT-6 Astra Pro (system-reported model name; exact dated snapshot unknown): source inspection, proof construction, and adversarial self-review.  Separate agents checked the bounded-initial-score extension and the numerical transfer, including resource accounting; a coordinating agent reviewed the completed argument.  These were model-based checks, not human or formal verification.<h2 id="section-2c6c0b0f50a4f399">Human contributors and roles</h2> The user specified the problem and requested attempted solutions. No human proof verification is claimed.  Tung Mai retains credit for the exact-arithmetic algorithm and analytic estimates used here. The question's originating research discussion credits Rida Laraki; this statement does not attribute the present numerical construction to him.<h3 id="section-eb67a3c39485aea6">References</h3><ul> <li><strong>[mai]</strong>  Tung Mai. <em>Constant Swap Regret in General-Sum Games via Two-Scale Higher-Order Optimism</em>.  arXiv:2609.16751v2, revised 19 September 2026. Sections 2--4; Appendix A.2--A.3; Lemmas 4.1--4.2, F.1 and G.1; Appendix H. <a href="https://arxiv.org/html/2609.16751v2" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/html/2609.16751v2</a>. </li><li><strong>[statement]</strong>  We-Solve. <em>Finite-bit uncoupled learning with constant swap regret</em>, WS-107792, live submission key <code>ECON-3</code>. Attached statement dated 17 October 2026; live research prompt retrieved 18 October 2026. <a href="https://we-solve.github.io/problems/finite-bit-uncoupled-learning-with-constant-swap-regret/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://we-solve.github.io/problems/finite-bit-uncoupled-learning-with-constant-swap-regret/</a>.</li></ul></div></section>
+
+
+
+
+
+
+</div>
+<aside class="record-sidebar" aria-label="Contribute, sources and revision details" data-pagefind-ignore>
+<section><h2>Contribute</h2><p class="next-steps" data-pagefind-ignore><a href="/contribute/review/?contribution=ECON-3-A1">Review this revision</a> · <a href="/contribute/attempt/?problem=ECON-3">Improve or extend it</a></p></section>
+<section id="sources" aria-labelledby="sources-title" data-pagefind-ignore><h2 id="sources-title">Sources</h2><ul class="rows"><li class="row"><a class="row-title" href="/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/source/files/WS-107792-attempt.tex" download>files/WS-107792-attempt.tex</a><span class="row-meta">32,495 bytes</span></li><li class="row"><a class="row-title" href="/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/contribution.yaml" download>contribution.yaml</a><span class="row-meta">2,875 bytes</span></li></ul><p class="small muted">Rights: CC-BY-4.0 · redistribution permitted</p>
+
+<p class="small muted">Rights holders: Anonymous submitter.</p>
+
+
+</section>
+
+<section id="cite" aria-labelledby="cite-title" data-pagefind-ignore><h2 id="cite-title">Cite this revision</h2><p class="small"><a href="https://we-solve.github.io/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/">https://we-solve.github.io/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/</a></p><pre class="command" id="citation-bibtex"><code>@misc{wesolve:ECON-3-A1-r1,
+  title = {{Rational transition matrices, exact stationary distributions, and a summable-error transfer for constant swap regret}},
+  author = {{we-solve research archive}},
+  howpublished = {\url{https://we-solve.github.io/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/}},
+  note = {Revision r1 of ECON-3-A1. Unverified research record. LLMs and submitter roles are disclosed in the record.}
+}
+</code></pre><p><button type="button" class="copy-button" data-copy-target="citation-bibtex" hidden>Copy BibTeX</button> <a href="/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/citation.bib" download>BibTeX</a> <a href="/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/citation.json" download>CSL-JSON</a> <a href="/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/CITATION.cff" download>CFF</a></p><details><summary>CSL-JSON</summary><pre class="command"><code>{
+  &#34;id&#34;: &#34;wesolve:ECON-3-A1-r1&#34;,
+  &#34;type&#34;: &#34;document&#34;,
+  &#34;title&#34;: &#34;Rational transition matrices, exact stationary distributions, and a summable-error transfer for constant swap regret&#34;,
+  &#34;URL&#34;: &#34;https://we-solve.github.io/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/&#34;,
+  &#34;note&#34;: &#34;Revision r1 of ECON-3-A1. Unverified research record. LLMs and submitter roles are disclosed in the record. Date: No work date recorded.&#34;,
+  &#34;license&#34;: &#34;CC-BY-4.0&#34;,
+  &#34;number&#34;: &#34;ECON-3-A1 r1&#34;,
+  &#34;author&#34;: [
+    {
+      &#34;literal&#34;: &#34;we-solve research archive&#34;
+    }
+  ]
+}</code></pre></details></section>
+
+<details class="record-details" data-pagefind-ignore><summary>Attribution and record details</summary>
+  <dl class="metadata"><dt>Submitted by</dt><dd><a href="/people/751cf5ec28ee4c4bb0363bc5c80c4747/" data-pagefind-filter="Person">Anonymous submitter</a></dd><dt>Contribution mode</dt><dd>LLM-generated</dd>
+  <dt>Model: gpt 6 astra pro</dt><dd>provider OpenAI · version unknown · role generated draft · provenance declared</dd>
+  <dt>Revision</dt><dd><a href="/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/">r1 (permanent link)</a></dd><dt>Archived</dt><dd>2026-10-18</dd><dt>Screening</dt><dd>Not screened</dd><dt>Community review</dt><dd>0 reviews of this exact revision</dd><dt>Formal check</dt><dd>Not checked</dd><dt>Lifecycle</dt><dd>Present in research source</dd><dt>Publication</dt><dd>Not yet in a release</dd><dt>Targets</dt><dd>whole statement</dd></dl>
+  <h3>Revision history and lineage</h3><ul class="rows"><li class="row"><a class="row-title" href="/contributions/finite-bit-uncoupled-learning-with-constant-swap-regret/attempt-1/r1/">Econ-116-A1 r1</a><span class="row-meta">Accepted in the ledger at 2026-10-18T16:32:59Z; this is not a publication date.</span></li></ul>
+</details>
+</aside>
+
+</article>
+
+  </main>
+  <footer class="site-footer" data-pagefind-ignore>
+    <div class="shell">
+      <p class="footer-caveat">Claims and automated screening do not establish correctness. <a href="/policies/status/">How status and evidence are recorded</a>.</p>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/activity/">Activity</a><a href="/policies/">Policies</a><a href="/policies/licences/">Licences</a><a href="/policies/privacy/">Privacy</a><a href="https://github.com/we-solve/research" rel="noopener noreferrer">GitHub</a><button type="button" class="link-button" data-analytics-choice hidden>Analytics choice</button></nav>
+    </div>
+  </footer>
+  <div class="visually-hidden" aria-live="polite" id="interaction-status"></div>
+</body>
+</html>

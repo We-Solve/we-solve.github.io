@@ -1,115 +1,376 @@
 \documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage[a4paper,margin=26mm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage{hyperref}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{enumitem,booktabs}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Axiomatic containment of Mertens-stable sets: improved We-Solve problem statement and variants},pdfauthor={LLM-assisted editorial research draft}}
 \newcommand{\NE}{\operatorname{NE}}
+\newcommand{\QP}{\operatorname{QP}}
 \newcommand{\Stab}{\operatorname{Stab}_0}
-\newcommand{\Reg}{\operatorname{Reg}}
-\newcommand{\SwapReg}{\operatorname{SwapReg}}
-\newcommand{\pos}[1]{[#1]_+}
+\newcommand{\CC}{\mathcal C}
+\newcommand{\A}{\mathcal A}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\U}{\mathcal U_0}
+\DeclareMathOperator{\relint}{relint}
 \newtheorem{proposition}{Proposition}
-\title{Axiomatic containment of Mertens-stable sets without genericity}
-\author{}
-\date{Status checked: 17 October 2026}
+\title{Axiomatic containment of Mertens-stable sets without genericity\\
+\large Improved problem statement, exact quantifiers, and nearby research variants}
+\author{LLM-assisted editorial research draft}
+\date{18 October 2026}
 \begin{document}
 \maketitle
-\section*{Status and provenance}
-This is a proposed precise generalization of a literature theorem. Its
-formulation is editorial, rather than a verbatim named conjecture.
-No solution or proof is claimed. The primary source discusses the
-nongeneric gap; it does not establish the proposed universal statement.
-\section*{Objects and conventions}
-A finite normal-form game $G=(I,(A_i),(u_i))$ has mixed-strategy space
-$\Sigma=\prod_{i\in I}\Delta(A_i)$ and Nash set $\NE(G)$.
-A solution concept is a rule $\Phi$ defined on \emph{all} finite
-normal-form games, including games with additional players and actions:
+\section*{Problem identity and editorial status}
+\noindent\textbf{Permanent problem identifier:} \texttt{WS-107793}.\\
+\textbf{Status:} Proposed editorial generalization of Govindan--Wilson
+\cite{gw}; no proof or disproof of the universal statement in the
+accompanying contributions. The question's status in the broader literature
+and its novelty are not certified by these documents.\\
+\textbf{Classification suggestion:} JEL C72 (Noncooperative Games), with C73
+as a secondary classification.
+
+\section*{Recommended replacement problem statement}
+\subsection*{1. Definitions and domain}
+Let $\mathfrak G$ be the domain of all finite normal-form games (with
+any finite number of players, finite nonempty action sets, and real payoffs).
+For $G=(I,(A_i)_{i\in I},(u_i)_{i\in I})\in\mathfrak G$, write
 \[
- \varnothing\ne\Phi(G)\subseteq
- \{K\subseteq\NE(G):K\ne\varnothing,\ K\text{ closed and connected}\}.
+ \Sigma_G=\prod_{i\in I}\Delta(A_i),\qquad
+ \NE(G)\subseteq\Sigma_G,
 \]
-Write $\Stab(G)$ for Mertens $0$-stable sets, with rational cohomology,
-using exactly Definition 2.4 of the version of Govindan--Wilson cited
-below. The zero specifies the coefficient characteristic, not an
-equilibrium's local index. To fix the perturbation model, set
+and
 \[
- P_\varepsilon=\{\delta\tau:0\leq\delta\leq\varepsilon,\ \tau\in\Sigma\},
- \quad \Sigma_i(\eta)=\{x_i\in\Delta(A_i):x_i(a)\geq\eta_i(a)\},
+ \CC(G)=\{K\subseteq\NE(G):K\ne\varnothing,\ 
+                        K\text{ is closed and connected}\}.
 \]
-and let $E_G$ be the equilibrium graph of these constrained games,
-projected to $P_1$. The definition combines cohomological essentiality
-of this projection with the source's connexity condition. Definition 2.4,
-including its boundary conventions, is normative here.
-
-Use the exact cross-game axioms $B,D^*,I^*$ of that same version,
-Sections 3--5 (Definitions 4.4 and 5.2), rather than informal substitutes.
-Axiom $B$ requires every selected set to contain a profile equivalent to
-a quasi-perfect equilibrium in every perfect-recall extensive-form
-representation. Axiom $D^*$ concerns additions of strongly irrelevant
-dominated strategies. Axiom $I^*$ concerns strong embeddings, including
-additional players; its comparisons use the source's projection maps.
-The full technical restrictions in those definitions are part of the
-problem. Arbitrary dominated-action additions or arbitrary embeddings
-are not being substituted for them.
-
-\section*{Question S1}
-Suppose $\Phi$ satisfies $B,D^*,I^*$ globally. Is the following true?
+Because $\NE(G)$ is compact, every $K\in\CC(G)$ is compact.
+A \emph{solution concept} is a correspondence $\Phi$ satisfying
 \[
- \forall G\quad\forall K\in\Phi(G)\quad
- \exists S\in\Stab(G)\qquad S\subseteq K.
+ \varnothing\ne\Phi(G)\subseteq\CC(G)
+ \qquad\text{for every }G\in\mathfrak G.
+ \tag{1}\label{eq:correspondence}
 \]
-There is no genericity, regularity, or isolated-equilibrium assumption.
-A negative answer must specify a globally defined solution concept
-satisfying the cross-game axioms, and a finite game with a selected set
-that contains no stable set. A bad set in a single game is insufficient.
+No hypothesis says that the \emph{family} $\Phi(G)$ is itself closed
+in the Hausdorff hyperspace.
 
-\section*{Known boundary and motivation}
-Govindan--Wilson prove the containment conclusion for generic
-perfect-recall extensive-form games \cite[Theorem 6.1]{gw}. Their
-Sections 6.1 and 10 separate containment from selection of stable sets
-themselves and identify an obstacle in the nongeneric case. The question
-above asks whether these same axioms already suffice, rather than
-assuming that the generic proof extends.
+Use \emph{exactly} the following fixed reference: Govindan--Wilson
+\cite[Definition 2.4; Axioms 3.1, 4.7, 5.4]{gw}, arXiv:2504.16908v2.
+The stability solution family $\Stab(G)$ is Mertens's
+characteristic-zero stability, i.e.\ rational \v Cech-cohomological
+essentiality together with the stated connexity requirement.
+The superscript $0$ concerns the characteristic of the coefficient
+field and is unrelated to an equilibrium's fixed-point index.
 
-\section*{Required distinctions}
-The three statements
+For clarity, the source's constrained-strategy perturbations use
 \[
- (\forall K\in\Phi(G)\ \exists S\in\Stab(G):S\subseteq K),\quad
- \Phi(G)\subseteq\Stab(G),\quad
- \Phi(G)=\Stab(G)
+ P_\varepsilon(G)=\{\delta\tau:0\le\delta\le\varepsilon,
+                                 \ \tau\in\Sigma_G\},
+ \qquad
+ \Sigma_i(\eta)=\{x_i\in\Delta(A_i):x_i(a)\ge\eta_i(a)
+                                         \ \forall a\}.
+ \tag{2}\label{eq:perturb}
 \]
-have different logical strength. S1 asks only the first. Its proof must
-also cover equilibrium continua. It neither imposes stable-set membership
-as an axiom nor silently replaces quasi-perfection with sequential
-equilibrium in nongeneric representations.
+Writing $G(\eta)$ for the constrained game, put
+\[
+ E_G=\{(\eta,x):\eta\in P_1(G),\ x\in\NE(G(\eta))\},
+ \qquad \pi_G(\eta,x)=\eta.
+\]
+If $X\subseteq E_G$, let
+\[
+ X_\varepsilon=X\cap\pi_G^{-1}(P_\varepsilon(G)),\quad
+ \partial X_\varepsilon=X\cap\pi_G^{-1}(\partial P_\varepsilon(G)),
+ \quad X_0=X\cap\pi_G^{-1}(0).
+\]
+The boundary $\partial P_\varepsilon(G)$ is relative to the affine
+(or, equivalently, linear) span of the perturbation polytope. Its
+dimension is $d=1+\sum_i(|A_i|-1)$. Conditions involving
+$X_0$, connexity and the induced rational cohomology maps must be
+read literally as in the cited Definition 2.4; the summary in (2) is
+not a replacement definition of stability.
 
-\section*{Checks and remaining uncertainty}
-The generic case is covered by the cited theorem. The general
-formulation preserves the source's all-game domain for the axioms and
-allows the target game itself to be nongeneric. No counterexample search
-or new proof was performed. A catalogue and source search found no exact
-existing we-solve target. Open status and novelty of this precise
-editorial formulation remain subject to expert review.
+\subsection*{2. Exact axioms}
+Require $\Phi$ to satisfy all three axioms \emph{globally}, not just
+at the game used to test the conclusion:
+\begin{enumerate}[label=(\roman*),leftmargin=2.5em]
+\item \textbf{Backward induction $B$.} For \emph{every} perfect-recall
+extensive-form representation $\Gamma$ whose normal form is $G$,
+every $K\in\Phi(G)$ contains a mixed profile equivalent to a
+quasi-perfect equilibrium of $\Gamma$, in the precise sense of
+\cite[Definition 2.1 and Axiom 3.1]{gw}.
+\item \textbf{Strongly irrelevant dominated strategies $D^*$.}
+For \emph{every} strategy extension allowed by
+\cite[Definition 4.4]{gw}, the two solution families coincide
+under the specified face identification, as demanded in
+\cite[Axiom 4.7]{gw}. Weak dominance by itself is \emph{not}
+sufficient for a comparison to be admissible.
+\item \textbf{Strong-embedding invariance $I^*$.} If a game $H$
+strongly embeds $G$ through $f$ satisfying
+\cite[Definition 5.2]{gw}, then
+\[
+  \Phi(G)=\{f(L):L\in\Phi(H)\},
+  \tag{3}\label{eq:embedding}
+\]
+using the source's mapping of equilibrium profiles and their
+connected sets. This is equality \emph{of families}, containing both
+an image condition and an existence-of-lifts condition.
+\end{enumerate}
+No additional axioms (admissibility, genericity, strict equilibrium,
+closedness of $\Phi(G)$, weak embedding, arbitrary payoff limits)
+are silently imposed.
 
-\section*{Preparation}
-The original research map was generated using OpenAI GPT 6 Astra Pro.
-Source checks, formulation, and LaTeX preparation used a Codex assistant
-based on GPT-6. Exact model versions and reasoning settings are unknown.
-The cited researchers retain credit for their results. Source statements
-and scope were checked; no complete proof audit or novelty certification
-is claimed.
-\paragraph{Origin of the questions.}
-The open-problem suggestions motivating this entry are credited to
-Rida Laraki's Facebook comment~\cite{laraki-facebook}.
+\subsection*{3. Principal question S1: nongeneric containment}
+\noindent\textbf{Prove or disprove the following implication:}
+\[
+ \boxed{\begin{gathered}
+ \forall\Phi:\mathfrak G\rightrightarrows\CC\quad
+ \bigl[\Phi\text{ satisfies }(1),B,D^*,I^*\bigr]\\[-2pt]
+ \Longrightarrow\quad
+ \forall G\in\mathfrak G\ \forall K\in\Phi(G)\quad
+ \exists S\in\Stab(G):\ S\subseteq K.
+ \end{gathered}}
+ \tag{S1}\label{eq:S1}
+\]
+There is no genericity, regularity, isolation, or finite-equilibrium-set
+restriction on the target game. A \emph{positive} solution must treat
+non-isolated equilibrium sets and the actual rational-cohomological
+stability witness; an argument using only topological robustness or
+existence of equilibria of perturbed games does not suffice.
+A \emph{negative} solution must give a \emph{globally} defined
+solution concept satisfying (1), $B,D^*,I^*$ in all relevant comparison
+games, and a particular $G,K$ with $K\in\Phi(G)$ but without any
+$S\in\Stab(G)$ contained in $K$. A counterexample set in one isolated
+game, without constructing a compatible global rule, is insufficient.
+
+\subsection*{4. Known theorem and the exact missing step}
+Govindan--Wilson's Theorem 6.1 proves the containment conclusion for
+\emph{generic} perfect-recall extensive-form games, for any finite
+number of players. Their Section 10 observes that nongeneric
+perturbation graphs can have higher dimension and that the fixed-point
+(coincidence) property used in the generic proof does not automatically
+imply the required rational-cohomological essentiality.
+
+The original target is \emph{containment}, not either stronger demand
+\[
+ \Phi(G)\subseteq\Stab(G),\qquad
+ \Phi(G)=\Stab(G).
+\]
+Nor does the assertion refer only to components with nonzero
+fixed-point index. Replacing \v Cech essentiality by homotopy
+essentiality would define a different problem.
+
+\section*{Close variations and reductions}
+The following variants are proposed research questions and reductions,
+\emph{not} asserted to be unresolved by a comprehensive literature review.
+They all keep the global axioms unchanged unless they explicitly say
+otherwise.
+
+\subsection*{V1. Two-player nongeneric containment}
+Restrict the \emph{tested game} in (S1), but not the domain or axioms
+of $\Phi$, to games with two players:
+\[
+ \forall\Phi\ [B,D^*,I^*]\Longrightarrow
+ \forall G\in\mathfrak G\ (|I(G)|=2)\ \forall K\in\Phi(G)
+ \ \exists S\in\Stab(G):S\subseteq K.
+ \tag{V1}
+\]
+The known generic two-player case is not the whole of (V1).
+This is a natural first setting in which to search for a nongeneric
+counterexample or a stronger 2-player argument.
+
+\subsection*{V2. Bounded players and actions}
+For integers $n\ge2$, $m\ge2$, ask the same conclusion for every
+tested game with at most $n$ players and at most $m$ actions per player:
+\[
+  \forall\Phi\ [B,D^*,I^*]\Longrightarrow
+  \forall G:\ \bigl(|I(G)|\le n,\,\max_i|A_i|\le m\bigr)
+  \quad\forall K\in\Phi(G)\quad
+  \exists S\in\Stab(G): S\subseteq K.
+  \tag{V2$_{n,m}$}
+\]
+Crucially, $\Phi$ is still defined on \emph{all} finite games because
+an allowed strong embedding may introduce additional players or actions.
+Establish the smallest $(n,m)$ for which a counterexample exists, if
+(S1) fails, or prove a nontrivial bounded-size positive theorem.
+
+\subsection*{V3. A boundary-degenerate target subclass}
+Define $\mathfrak G_{\partial}$ to be games $G$ satisfying
+\[
+  \NE(G)\cap\relint\Sigma_G=\varnothing,
+  \qquad
+  \operatorname{StrictNE}(G)=\varnothing.
+\]
+Ask whether (S1) holds whenever the \emph{target} $G$ belongs to
+$\mathfrak G_{\partial}$, with the axioms still imposed on all games.
+The restrictions deliberately remove two straightforward sufficient
+cases: a completely mixed equilibrium in $K$, and a strict equilibrium
+in $K$. They do \emph{not} assume that no other stability witness exists.
+This is a focused candidate hard class, not a claim that all genuinely
+hard cases can be reduced to it.
+
+\subsection*{V4. Global pruning: an equivalent finite-stage elimination target}
+One can define the \emph{largest globally admissible rule} without
+assuming (S1). Write $Q_\Gamma$ for the mixed profiles equivalent to
+quasi-perfect equilibria of a representation $\Gamma$, and let
+\[
+ \A_0(G)=\{K\in\CC(G):K\cap Q_\Gamma\ne\varnothing
+       \text{ for every representation }\Gamma\}.
+\]
+For each exact allowed comparison $e:H\to G$, denote the induced
+continuous map on compact connected equilibrium sets by $e_*$.
+Define the downward compact recursion
+\[
+ \A_{r+1}(G)=\A_r(G)
+ \cap\bigcap_{e:G\to F}e_*^{-1}(\A_r(F))
+ \cap\bigcap_{e:H\to G}e_*(\A_r(H)),
+ \qquad
+ \A_\infty(G)=\bigcap_{r\ge0}\A_r(G).
+ \tag{4}\label{eq:prune}
+\]
+The accompanying partial-contribution manuscript claims a proof, using
+the source's established all-game stability axioms, that $\A_\infty$
+is a nonempty globally axiom-compatible rule and every other such
+rule is included in it. These manuscript claims have not been independently
+verified. Under those claimed results, (S1) would be equivalent to
+\[
+ \boxed{\forall G\quad \forall K\in\CC(G)\quad
+ \bigl[K\text{ contains no }0\text{-stable subset}\bigr]
+ \Longrightarrow\exists r<\infty: K\notin\A_r(G).}
+ \tag{V4}\label{eq:V4}
+\]
+This formulation does \emph{not} assert a computable depth bound.
+Each stage still ranges over generally infinitely many permitted
+representations and comparisons. Prove the displayed elimination
+or find a survivor that violates it.
+
+\subsection*{V5. Is a continuous equilibrium section necessary for stable singletons?}
+For a fixed finite game $G$ and $x\in\NE(G)$, define
+\[
+  \operatorname{Sec}(G,x)
+  \iff
+  \exists\rho\in(0,1)\ \exists\text{ continuous }s:P_\rho(G)\to\Sigma_G
+  :s(0)=x,\ s(\eta)\in\NE(G(\eta))\ \forall\eta.
+\]
+The accompanying contribution claims a proof of
+$\operatorname{Sec}(G,x)\Rightarrow\{x\}\in\Stab(G)$;
+that proof has not been independently verified.
+Determine whether the converse holds in any specified class of games,
+or supply a finite-game counterexample:
+\[
+ \{x\}\in\Stab(G)\ \stackrel{?}{\Longrightarrow}\
+ \operatorname{Sec}(G,x).
+ \tag{V5}
+\]
+This is an independent strengthening of the \emph{witness form}
+for singleton stability, not equivalent to (S1). The existence of a
+cohomologically essential subset need not yield a section for arbitrary
+topological maps, so a direct argument from essentiality alone would
+be invalid without further game structure.
+
+\subsection*{V6. Metastability and a minimal strengthening of invariance}
+Govindan--Wilson's Section 10 discusses metastability and suggests
+examining stronger combined invariance principles, potentially adding
+both players and dominated actions in one comparison. A \emph{precise}
+version must first explicitly define the new class $\mathscr E_{\rm comp}$
+of allowed composite embeddings, including its off-path preference
+requirements. Then ask:
+\[
+ B+D^*+I^*+I_{\mathscr E_{\rm comp}}
+ \quad\stackrel{?}{\Longrightarrow}\quad\text{(S1)}.
+ \tag{V6}
+\]
+The condition that composite embeddings have the required properties
+must not be replaced by arbitrary embeddings. Until
+$\mathscr E_{\rm comp}$ is specified, (V6) is a \emph{research programme},
+not a single theorem-or-counterexample problem. An alternative route is
+to fix the original literature's metastability rule and determine the
+exact extent of its strong-embedding invariance.
+
+\subsection*{V7. Exact stable-set selection and minimality axioms}
+A strictly stronger conclusion than (S1) would require every
+selected set to be itself $0$-stable:
+\[
+ \forall G\in\mathfrak G\ \forall K\in\Phi(G):\quad
+ K\in\Stab(G).
+ \tag{V7a}
+\]
+One may alternatively seek an \emph{explicit}, strategically motivated
+minimality axiom $M$ such that $B+D^*+I^*+M$ implies (V7a), or even
+$\Phi(G)=\Stab(G)$ for every finite $G$. Merely stating ``choose the
+minimal stable sets'' is not an axiomatic characterization: it includes
+the desired answer in the assumption. Thus a well-posed version of the
+programme must specify $M$ independently and verify that $\Stab$
+satisfies it. The new axiom could be tested first on nongeneric games
+whose Nash set has multiple components or positive-dimensional faces.
+
+\section*{Special-case boundaries described in the accompanying manuscript}
+The accompanying manuscript claims proofs of the following \emph{sufficient}
+conditions from the definition, without resolving (S1). These claims
+remain subject to independent review:
+\begin{enumerate}[leftmargin=2.0em]
+\item Every strict Nash equilibrium and every completely mixed Nash
+equilibrium has a $0$-stable singleton, using an explicit continuous
+constrained-equilibrium section.
+\item If $x,y\in\NE(G)$, $y$ is completely mixed, and
+$[x,y]\subseteq\NE(G)$, then $\{x\}\in\Stab(G)$.
+\item For binary-action zero-sum polymatrix games with
+$u_i(a)=a_i\sum_jA_{ij}a_j$, $A^\mathsf T=-A$, $A\mathbf 1=0$,
+every equilibrium singleton is $0$-stable; equilibrium continua can be
+non-isolated and contain no strict equilibria.
+\end{enumerate}
+The accompanying manuscript offers two-player payoff-limit examples
+intended to show that stability of a singleton need not pass to a limit of
+\emph{changing games}, and a Hopf-map example intended to show that a
+coincidence property alone need not force rational-cohomological essentiality.
+These arguments remain subject to independent review; neither is presented
+as a game-theoretic counterexample to (S1).
+
+\section*{Acceptance criteria and possible output}
+\noindent
+\textbf{For a full proof:} specify a $0$-stable subset of every permitted
+selected set, with a witness satisfying both parts of Definition 2.4
+(or invoke an applicable theorem implying them). All cross-game
+quantifiers must be respected.\\
+\textbf{For a full disproof:} give an explicit rule on all finite games,
+verify nonemptiness, $B,D^*,I^*$ for every permitted comparison, then
+give one violating $G,K$.\\
+\textbf{For a partial contribution:} prove a nontrivial nongeneric
+subclass, an exact reduction, a barrier or a rigorously specified
+counterexample to an intermediate assertion. Keep the missing global
+step visible.
+
+\section*{Provenance and references}
+This is an editorial, LLM-assisted reformulation of the posted We-Solve
+question and close variants. The source paper is prior work by
+Govindan and Wilson; other names cited therein retain their credit.
+The permanent public problem identifier is \texttt{WS-107793}.
+The problem is published at
+\href{https://we-solve.github.io/problems/axiomatic-containment-of-mertens-stable-sets-without-genericity/}{published problem page}.
+
+\paragraph{Origin of the question.}
+The open-problem suggestions motivating this entry were credited in the
+preceding We-Solve statement to Rida Laraki's Facebook
+comment~\cite{laraki-facebook}.
+
 \begin{thebibliography}{9}
-\bibitem{gw}
-Srihari Govindan and Robert Wilson.
-\emph{Axiomatic Equilibrium Selection in Generic Extensive-Form Games}.
-arXiv:2504.16908v2, 26 August 2026.
-Definitions 2.4, 2.5, 4.4, 5.2; Axioms 3.1, 4.7, 5.4; Theorem 6.1; Sections 6.1 and 10.
+\raggedright
+\bibitem{gw} Srihari Govindan and Robert Wilson,
+\emph{Axiomatic Equilibrium Selection in Generic Extensive-Form Games},
+arXiv:2504.16908v2 (26 August 2026), Definition 2.4, Axioms 3.1,
+4.7 and 5.4, Theorem 6.1, Section 10, Appendices A--B.
 \url{https://arxiv.org/html/2504.16908v2}.
+\bibitem{ws} We-Solve, permanent problem \texttt{WS-107793}.
+\href{https://we-solve.github.io/api/v1/problems/WS-107793.json}{Permanent problem lookup}.
+\href{https://github.com/We-Solve/research/blob/main/problems/34/prb_34ecf5fa262f4a85a0fbe4af9837c46b/statement.tex}{Public statement source}.
+\bibitem{attach} User-supplied research draft,
+\emph{Local witnesses for nongeneric stability and two obstructions to
+extending the generic theorem}, file \texttt{WS-107793-attempt.tex},
+18 October 2026. Working material concerning \texttt{WS-107793};
+not an independently refereed source.
 \bibitem{laraki-facebook}
 Rida Laraki.
 \emph{Facebook comment suggesting open problems in game theory}.
+Attribution preserved from the preceding We-Solve problem statement.
 \end{thebibliography}
 \end{document}

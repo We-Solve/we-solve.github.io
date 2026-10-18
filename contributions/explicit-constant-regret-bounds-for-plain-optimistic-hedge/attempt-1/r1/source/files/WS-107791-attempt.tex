@@ -1,0 +1,750 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Reg}{\operatorname{Reg}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\title{Explicit special cases and a quantitative recurrence criterion for plain Optimistic Hedge}
+\author{OpenAI GPT 6 Astra Pro}
+\date{18 October 2026}
+\begin{document}
+\maketitle
+
+\section*{Problem}
+\textbf{WS-107791: Explicit constant-regret bounds for plain Optimistic Hedge.}
+The downloaded submission prompt identifies this entry as \texttt{ECON-2};
+the permanent identifier above is used throughout this contribution.
+\href{https://we-solve.github.io/problems/explicit-constant-regret-bounds-for-plain-optimistic-hedge/}{Public problem page}.
+
+\section*{Title}
+Explicit special cases and a quantitative recurrence criterion for plain Optimistic Hedge.
+
+\section*{Claim type}
+\textbf{Partial result, with a conditional general-game criterion. The full problem remains unresolved.}
+
+\section*{Scope}
+The exact algorithm in the problem admits: (i) the bound
+$R_i(T)\leq4\log K$ at $\eta=\log2$ when player $i$ has a weakly dominant
+pure action, even against arbitrary opponent play; (ii) the bound
+$R_i(T)\leq(4N-2)\log K+3/2$ at
+$\eta=1/[2(N-1)]$ in the class specified by
+\eqref{eq:aggregate-condition}, which includes all two-player constant-sum
+games; and (iii) an entirely numerical conversion from supplied finite
+recurrence parameters to a horizon-uniform regret bound. A static-payoff
+example also proves a lower bound $(\log K)/\eta-3/2$ for any proposed
+step size. Section 6 conditionally computes general-game recurrence
+parameters under decidability of the real exponential field. No
+unconditional general-game parameter rule is supplied.
+
+\section*{Assumptions and limitations}
+There are $N\geq2$ players, $1\leq m_i\leq K$, and payoffs in $[0,1]$.
+The feedback is the exact expected payoff vector and the regret is mixed-payoff
+external regret against one fixed action. All logarithms are natural. No
+sampled feedback, realized-action regret, floating-point implementation,
+or last-iterate convergence is asserted. The special cases are included as
+self-contained quantitative benchmarks, not claimed as new qualitative
+resolutions of their previously studied classes. The recurrence criterion
+is a quantitative development of Ha's method \cite{ha}. Section 6 gives
+a terminating procedure to compute general-game bounds conditional on
+decidability of the real exponential field. That additional assumption is
+not proved here, and no running-time or polynomial bound is asserted.
+
+\section*{Write-up}
+
+\subsection*{1. Exact update and the outstanding question}
+The update is precisely
+\begin{equation}\label{eq:update}
+ x_{ia}^{t+1}=\frac{x_{ia}^t\exp\{\eta(2v_{ia}^t-v_{ia}^{t-1})\}}
+ {\sum_bx_{ib}^t\exp\{\eta(2v_{ib}^t-v_{ib}^{t-1})\}},
+ \qquad x_{ia}^1=1/m_i,\quad v_i^0=0.
+\end{equation}
+Its telescoped representation is
+\begin{equation}\label{eq:telescoped}
+ x_{ia}^t\ \propto\
+ \exp\!\left\{\eta\left(\sum_{s<t}v_{ia}^s+v_{ia}^{t-1}\right)\right\}.
+\end{equation}
+The exponent at $t=1$ is zero. At $t\geq2$, each earlier vector through
+$t-2$ has coefficient one and the vector at $t-1$ has coefficient two.
+This checks the initialization and the one-step optimistic term.
+
+Ha's Theorem 4.1 asserts that for each action-count vector, some positive
+step-size interval and some finite constant give
+$R_i(T)\leq(\log m_i)/\eta+C_\star\eta$ uniformly in the game and horizon.
+The text following Corollary 4.2 leaves dimension-explicit bounds open
+\cite{ha}. Its finite-recurrence argument was inspected in Sections
+5.3--5.5 and Appendices B--D. No contradiction to that argument was found
+in this check. This is not a claim to have reconstructed every historical
+analytic result on which its Noetherianity step relies.
+
+\subsection*{2. Weakly dominant pure actions: a uniform explicit bound}
+
+\begin{theorem}\label{thm:dominance}
+Suppose player $i$ has a pure action $a_\star$ such that
+$u_i(a_\star,a_{-i})\geq u_i(a,a_{-i})$ for every $a,a_{-i}$.
+For every $\eta>0$, every opponent strategy sequence, and every $T$,
+\[
+ R_i(T)\leq\frac{e^\eta\log m_i}{1-e^{-\eta}}.
+\]
+Consequently, if each player has such an action, the common explicit choice
+$\eta=\log2$ gives $R_i(T)\leq4\log K$ for every player and horizon.
+No strictly positive dominance gap is required.
+\end{theorem}
+
+\begin{proof}
+Suppress $i$. Put $d_a^t=v^t(a_\star)-v^t(a)$ and $d_a^0=0$.
+Weak dominance and normalization imply $0\leq d_a^t\leq1$ and
+$d_{a_\star}^t=0$. The action $a_\star$ maximizes cumulative payoff at
+every horizon, so $R(T)=\sum_{t\leq T}\ip{x^t}{d^t}$.
+Let $D_a^{t-1}=\sum_{s<t}d_a^s$, and define
+\[
+ W_t=\sum_a e^{-\eta D_a^{t-1}},\qquad
+ y_a^t=\frac{e^{-\eta D_a^{t-1}}}{W_t}.
+\]
+Equation \eqref{eq:telescoped} gives
+$x_a^t=y_a^t e^{-\eta d_a^{t-1}}/\sum_b y_b^t e^{-\eta d_b^{t-1}}$.
+The denominator is at least $e^{-\eta}$ and the numerator factor at most
+one, hence $x_a^t\leq e^\eta y_a^t$. Therefore
+$\ip{x^t}{d^t}\leq e^\eta\ip{y^t}{d^t}$.
+
+Convexity of $z\mapsto e^{-\eta z}$ on $[0,1]$ places its graph below its
+endpoint chord: $e^{-\eta z}\leq1-(1-e^{-\eta})z$. Thus
+\[
+ \frac{W_{t+1}}{W_t}=\sum_a y_a^t e^{-\eta d_a^t}
+ \leq1-(1-e^{-\eta})\ip{y^t}{d^t}.
+\]
+Since $-\log(1-z)\geq z$ for $0\leq z<1$,
+\[
+ (1-e^{-\eta})\sum_{t=1}^T\ip{y^t}{d^t}
+ \leq\log W_1-\log W_{T+1}\leq\log m.
+\]
+The last inequality uses $W_1=m$ and the unit contribution of
+$a_\star$ to $W_{T+1}$. Combining the two estimates proves the result,
+including $m=1$, where the regret is zero.
+\end{proof}
+
+\subsection*{3. A general aggregate-comparator condition}
+Suppose there is a fixed mixed-strategy profile $p=(p_1,\ldots,p_N)$
+such that
+\begin{equation}\label{eq:aggregate-condition}
+ \sum_{i=1}^N\bigl[u_i(p_i,x_{-i})-u_i(x)\bigr]\geq0
+ \qquad\text{for every mixed profile }x.
+\end{equation}
+The learners need not know $p$. Its existence is used only in the proof.
+Condition \eqref{eq:aggregate-condition} is an additional game-class
+assumption; it is not a property of every general-sum game.
+
+\begin{theorem}\label{thm:aggregate}
+Under \eqref{eq:aggregate-condition}, write
+$L=\sum_j\log m_j$. If $0<\eta\leq1/[2(N-1)]$, the exact update
+\eqref{eq:update} satisfies
+\begin{equation}\label{eq:aggregate-bound}
+ R_i(T)\leq\frac{\log m_i}{\eta}
+ +\eta\bigl[1+4(N-1)L+4\eta^2N(N-1)\bigr]
+ \quad\text{for every }i,T.
+\end{equation}
+In particular, $\eta=1/[2(N-1)]$ yields
+$R_i(T)\leq(4N-2)\log K+3/2$.
+\end{theorem}
+
+\begin{proof}
+For each player, define
+$y_i^t\propto\exp(\eta\sum_{s<t}v_i^s)$ and set
+\[
+ a_{it}=\norm{y_i^{t+1}-x_i^t}_1,\qquad
+ b_{it}=\norm{x_i^t-y_i^t}_1,\qquad
+ d_{it}=\norm{v_i^t-v_i^{t-1}}_\infty.
+\]
+All coordinates of $x_i^t,y_i^t$ are positive at finite $t$.
+For distributions $z,w$, let
+\[
+D(z\Vert w)=\sum_a z_a\log(z_a/w_a),
+\]
+with the usual $0\log0=0$ convention. Exponential weights give the
+following identity for every comparator $q_i$:
+\begin{align*}
+ \eta\ip{q_i-x_i^t}{v_i^t}
+ ={}&D(q_i\Vert y_i^t)-D(q_i\Vert y_i^{t+1})
+ -D(y_i^{t+1}\Vert x_i^t)-D(x_i^t\Vert y_i^t)\\
+ &+\eta\ip{y_i^{t+1}-x_i^t}{v_i^t-v_i^{t-1}}.
+\end{align*}
+To verify it, apply the log-ratio identities for
+$y_i^{t+1}\propto y_i^t e^{\eta v_i^t}$ and
+$x_i^t\propto y_i^t e^{\eta v_i^{t-1}}$, and add them.
+Pinsker's inequality $D(z\Vert w)\geq\norm{z-w}_1^2/2$ and
+$\eta a d\leq a^2/4+\eta^2d^2$ imply, after summing in time and maximizing
+over $q_i$,
+\begin{equation}\label{eq:rvu-l1}
+ R_i(T)\leq\frac{\log m_i}{\eta}
+ +\eta\sum_{t\leq T}d_{it}^2
+ -\frac1{4\eta}\sum_{t\leq T}(a_{it}^2+b_{it}^2).
+\end{equation}
+This is the standard optimistic mirror-descent calculation, with constants
+given here explicitly; predictable-sequence methods are developed in
+\cite{rs}.
+
+Put $E_T=\sum_{i,t\leq T}(a_{it}^2+b_{it}^2)$ and
+$\delta_{jt}=\norm{x_j^t-x_j^{t-1}}_1$ for $t\geq2$.
+Bounded payoffs and total variation of product distributions give
+\[
+ d_{it}\leq\frac12\sum_{j\ne i}\delta_{jt}\quad(t\geq2),
+ \qquad d_{i1}\leq1.
+\]
+Indeed, changing one opponent's distribution changes the expectation of a
+$[0,1]$-valued payoff by at most half its $\ell_1$ change, and replacing
+opponents one at a time proves the displayed estimate.
+Also $\delta_{jt}\leq b_{jt}+a_{j,t-1}$, so
+$\sum_{j,t=2}^T\delta_{jt}^2\leq2E_T$. Consequently,
+\begin{equation}\label{eq:all-feedback}
+ \sum_{i,t\leq T}d_{it}^2
+ \leq N+\frac{(N-1)^2}{2}E_T,
+ \qquad
+ \sum_{t\leq T}d_{it}^2
+ \leq1+\frac{N-1}{2}E_T.
+\end{equation}
+
+The external-regret maximum is at least the regret against each $p_i$.
+Summing \eqref{eq:aggregate-condition} over rounds therefore proves
+$\sum_iR_i(T)\geq0$. Summing \eqref{eq:rvu-l1} and applying
+\eqref{eq:all-feedback},
+\[
+ 0\leq\sum_iR_i(T)
+ \leq\frac L\eta+\eta N+
+ \left(\frac{\eta(N-1)^2}{2}-\frac1{4\eta}\right)E_T.
+\]
+The step-size restriction makes the coefficient at most $-1/(8\eta)$.
+Hence $E_T\leq8L+8\eta^2N$. Substitute this into the individual bound in
+\eqref{eq:all-feedback}, then drop the negative term in
+\eqref{eq:rvu-l1}, to obtain \eqref{eq:aggregate-bound}.
+At the stated explicit step size, its right side is at most
+\[
+ (4N-2)\log K+\frac1{2(N-1)}+\frac{N}{2(N-1)^2}
+ \leq(4N-2)\log K+\frac32.
+\]
+\end{proof}
+
+\begin{corollary}\label{cor:zero-sum}
+In every two-player constant-sum game with each payoff in $[0,1]$,
+plain Optimistic Hedge with $\eta=1/2$ satisfies
+$R_i(T)\leq6\log K+3/2$ for all $i,T$.
+\end{corollary}
+
+\begin{proof}
+Let $u_1+u_2=c$, and let $p_1,p_2$ be minimax strategies for $u_1$,
+with value $V$. For every $x_1,x_2$,
+$u_1(p_1,x_2)\geq V\geq u_1(x_1,p_2)$. Therefore
+\[
+ \sum_{i=1}^2[u_i(p_i,x_{-i})-u_i(x)]
+ =u_1(p_1,x_2)-u_1(x_1,p_2)\geq0.
+\]
+Apply Theorem~\ref{thm:aggregate} with $N=2$.
+\end{proof}
+The qualitative constant-regret phenomenon in this class was already known.
+Tsuchiya studies substantially sharper action-count dependence and constants
+\cite{tsuchiya}; the corollary is a directly checked benchmark for the exact
+initialization in this problem.
+
+\subsection*{4. A lower bound that every proposed step-size rule must respect}
+
+\begin{proposition}\label{prop:lower}
+For every $N,K\geq2$ and every fixed $\eta>0$, there is an allowed game in
+which
+\[
+ \sup_{T\geq1}R_i(T)\geq\frac{\log K}{\eta}-\frac32.
+\]
+Thus any uniform bound for a proposed rule $\eta(N,K)$ must be at least
+this quantity (as well as nonnegative).
+\end{proposition}
+
+\begin{proof}
+Give player $i$ exactly $K$ actions, with payoff one for one action and zero
+for all the others, independently of the opponents. Give all other players
+arbitrary allowed action sets and constant payoffs. Put $q=K-1$.
+At $t=1$ the regret increment is $q/K$. At $t\geq2$,
+\eqref{eq:telescoped} gives the good action probability
+$e^{\eta t}/(e^{\eta t}+q)$, so
+\[
+ \sup_T R_i(T)=\frac qK+\sum_{t=2}^\infty\frac q{e^{\eta t}+q}.
+\]
+The summand is decreasing, and comparison with its integral gives
+\[
+ \sum_{t=2}^\infty\frac q{e^{\eta t}+q}
+ \geq\int_2^\infty\frac q{e^{\eta s}+q}\,ds
+ =\frac1\eta\log(1+q e^{-2\eta})
+ \geq\frac{\log K}{\eta}-2.
+\]
+Since $q/K\geq1/2$, the claimed bound follows.
+\end{proof}
+This example rules out making an extremely small step size costless. It
+does not disprove a polynomial bound: that would require controlling all
+possible dimension-dependent step-size rules.
+
+\subsection*{5. Making the finite-recurrence argument quantitative}
+The next theorem replaces all constants after the recurrence step by
+explicit formulas. It identifies a finite set of quantitative data that
+would suffice to settle the general problem.
+
+Use losses $\ell_i^t=1-v_i^t$ for $t\geq1$, with $\ell_i^0=0$.
+This produces the same normalized update as \eqref{eq:update}; the
+action-independent first-step factor cancels. For $a<b$ define
+\[
+ h_{i,ab}^t=\sqrt{x_{ia}^tx_{ib}^t}
+ (\ell_{ia}^{t-1}-\ell_{ib}^{t-1}),\qquad
+ \Delta z^t=z^{t+1}-z^t.
+\]
+In particular $h_i^1=0$, and the pairwise variance identity gives
+$\norm{h_i^t}_2^2=\Var_{x_i^t}(\ell_i^{t-1})\leq1/4$ for $t\geq2$.
+
+\begin{theorem}[Quantitative recurrence criterion]\label{thm:certificate}
+Suppose numerical values $m\geq1$, $A,M\geq0$, and $\eta_0>0$ have been
+proved to work for every player and every game in a specified class, in the
+following sense: for all $0<\eta\leq\eta_0$ and all $t\geq1$,
+\begin{align}
+ \Delta^m h_i^{t+m}
+ &=\sum_{k=0}^{m-1}c_{ikt}\eta^{m-k}\Delta^k h_i^{t+k},
+ & |c_{ikt}|&\leq A,\label{eq:certificate-recurrence}\\
+ \norm{\Delta^k h_i^{t+k}}_2&\leq M\eta^k,
+ &0\leq k&\leq m.\label{eq:certificate-smooth}
+\end{align}
+The coefficients may depend on the player, game, time, and step size.
+Define explicit quantities
+\[
+ P=2m\max\{A,1\},\quad
+ E=3^mM\sqrt{8m},\quad
+ D=16mM^2,\quad
+ Q=2(2E)^{2/m},\quad C=2P^2+Q,
+\]
+and
+\[
+ \bar\eta=\min\!\left\{\eta_0,\frac1{12},
+          \frac1{\sqrt{6(C+32)}}\right\}.
+\]
+For every $0<\eta\leq\bar\eta$, every player, and every horizon,
+\begin{equation}\label{eq:certificate-bound}
+ R_i(T)\leq\frac{\log m_i}{\eta}
+             +\eta\left(D+Q+\frac1{24}\right).
+\end{equation}
+Thus supplied uniform recurrence data produce explicit functions
+$\eta=\bar\eta$ and
+$B=(\log K)/\bar\eta+\bar\eta(D+Q+1/24)$ for that class.
+\end{theorem}
+
+\subsubsection*{5.1. An explicit cutoff lemma}
+
+\begin{lemma}\label{lem:cutoff}
+Let $0<\eta\leq1$ and let a Euclidean-valued sequence $(u^t)_{t\geq1}$
+satisfy \eqref{eq:certificate-recurrence}--\eqref{eq:certificate-smooth}
+with $h_i$ replaced by $u$. For every $T\geq1$, there is a finitely
+supported sequence $y$ on $\mathbb Z$ such that, writing
+$U_j=\norm{\Delta^j y}_{\ell_2}$,
+\begin{align}
+ U_0^2&\leq\sum_{t=1}^{T+1}\norm{u^t}_2^2,\label{eq:cutoff-zero}\\
+ \sum_{t=1}^T\norm{\Delta u^t}_2^2&\leq U_1^2+D,\label{eq:cutoff-one}\\
+ U_m&\leq A\sum_{k=0}^{m-1}\eta^{m-k}U_k
+              +E\eta^{m-1/2}.\label{eq:cutoff-high}
+\end{align}
+Here $D=16mM^2$ and $E=3^mM\sqrt{8m}$.
+\end{lemma}
+
+\begin{proof}
+Set $J=\lceil1/\eta\rceil$ and $w=m(J-1)$. If
+$T\leq2w+6m+1$, choose $y=0$. The order-zero bound gives
+$\norm{\Delta u^1}\leq2M$, and the order-one bound gives
+$\norm{\Delta u^t}\leq M\eta$ for $t\geq2$. Since $w\leq m/\eta$,
+\[
+ \sum_{t=1}^T\norm{\Delta u^t}^2
+ \leq4M^2+TM^2\eta^2\leq(8m+5)M^2\leq D.
+\]
+The other conclusions are immediate.
+
+For a longer horizon let $a=3m+1$, $b=T+1-3m$. Let $b_J$ be the
+probability mass $1/J$ on $\{0,\ldots,J-1\}$ and zero elsewhere, and let
+$q=b_J^{*m}$ be its $m$-fold discrete convolution. It is nonnegative,
+has sum one, and is supported on $\{0,\ldots,w\}$. Define
+\[
+ \chi=1_{\{a,\ldots,b-w\}}*q,\qquad
+ y^t=\chi^t u^t\ (t\geq1),\qquad y^t=0\ (t\leq0).
+\]
+Then $0\leq\chi\leq1$, its support is contained in $[a,b]$, and
+$\chi=1$ on $[a+w,b-w]$. This proves \eqref{eq:cutoff-zero}.
+Because $\norm{\Delta b_J}_{\ell_1}=2/J$, convolution gives
+\[
+ \sup_t|\Delta^r\chi^t|\leq(2/J)^r\leq(2\eta)^r,
+ \qquad 0\leq r\leq m.
+\]
+Let $\mathcal B$ be the integer starting indices whose stencil
+$\{t,\ldots,t+2m\}$ meets $[a,a+w]$ or $[b-w,b]$.
+Then
+\[
+ |\mathcal B|\leq2w+4m+2\leq8m/\eta,
+ \qquad \min\mathcal B\geq a-2m=m+1.
+\]
+For $t\in\mathcal B$, all needed differences of $u$ therefore begin in
+the range where \eqref{eq:certificate-smooth} applies. The product rule
+\[
+ \Delta^j(\chi u)^s
+ =\sum_{r=0}^j\binom jr(\Delta^r\chi)^s
+                         (\Delta^{j-r}u)^{s+r}
+\]
+implies $\norm{\Delta^j y^s}\leq3^jM\eta^j$ on the stencils in
+question, for $0\leq j\leq m$.
+
+Outside $\mathcal B$, a stencil has all cutoff values one or all zero.
+Use the original recurrence coefficients on the former stencils and zero
+coefficients everywhere else. The residual in the recurrence for $y$ is
+then supported in $\mathcal B$ and bounded pointwise by $3^mM\eta^m$.
+Its $\ell_2$ norm is at most $E\eta^{m-1/2}$. The triangle inequality and
+invariance of $\ell_2$ norms under integer shifts prove
+\eqref{eq:cutoff-high}.
+
+Finally, $\Delta y^t=\Delta u^t$ whenever
+$a+w\leq t\leq b-w-1$. At most $2w+6m+1\leq(8m+1)/\eta$ other
+indices $t\in\{2,\ldots,T\}$ remain. Their contribution is at most
+$(8m+1)M^2\eta$, and the initial difference contributes at most $4M^2$.
+This gives \eqref{eq:cutoff-one} with the stated $D$.
+\end{proof}
+
+\subsubsection*{5.2. Interpolation and numerical constants}
+For finite-support Hilbert-valued sequences, Parseval's identity and
+H\"older's inequality give
+\begin{equation}\label{eq:interpolation}
+ U_j\leq U_0^{1-j/m}U_m^{j/m}\qquad(0\leq j\leq m).
+\end{equation}
+Indeed the Fourier multiplier for $\Delta$ has squared modulus
+$|e^{i\theta}-1|^2$; applying H\"older to its $j$th power proves the
+claim after integration. This proof also covers vector-valued sequences.
+
+Combine \eqref{eq:cutoff-high} with \eqref{eq:interpolation}. We claim
+\begin{equation}\label{eq:highest-explicit}
+ U_m\leq P^m\eta^m U_0+2E\eta^{m-1/2}.
+\end{equation}
+If $U_0=0$ all terms vanish. Otherwise, either
+$U_m\leq P^m\eta^m U_0$, or put
+$r=(U_m/(\eta^mU_0))^{1/m}>P\geq1$. In the latter case the sum on the
+right side of \eqref{eq:cutoff-high} is at most
+$AU_m\sum_{k<m}r^{k-m}\leq(Am/r)U_m\leq U_m/2$.
+Absorption proves \eqref{eq:highest-explicit} in either case.
+
+For $m\geq1$ and nonnegative $z_1,z_2$,
+$(z_1+z_2)^{2/m}\leq2(z_1^{2/m}+z_2^{2/m})$.
+Using \eqref{eq:interpolation}, \eqref{eq:highest-explicit}, and weighted
+Young's inequality gives
+\begin{align*}
+ U_1^2
+ &\leq2P^2\eta^2U_0^2
+       +2(2E)^{2/m}(\eta^2U_0^2)^{1-1/m}\eta^{1/m}\\
+ &\leq C\eta^2U_0^2+Q\eta,
+\end{align*}
+with the stated $Q$ and $C$. At $m=1$ this is read directly as
+$U_1^2\leq2P^2\eta^2U_0^2+Q\eta$; thus no ambiguous $0^0$
+convention is needed. Lemma~\ref{lem:cutoff} proves
+\begin{equation}\label{eq:temporal-explicit}
+ \sum_{t=1}^T\norm{\Delta h_i^t}_2^2
+ \leq C\eta^2\sum_{t=1}^{T+1}\norm{h_i^t}_2^2+D+Q\eta.
+\end{equation}
+
+\subsubsection*{5.3. Completing the regret calculation}
+For completeness, the one-player variance inequalities used next are
+proved here with numerical constants. They are the variance form of the
+optimistic potential calculation used in Ha \cite{ha}.
+Define $\Phi(z)=-(1/\eta)\log\sum_a e^{-\eta z_a}$ and let
+$D_{-\Phi}$ denote the Bregman divergence of the convex function
+$-\Phi$. If $p=\nabla\Phi(z)$ and the coordinate span of $w$ is at most
+$r$, its integral Hessian formula gives
+\[
+ \frac\eta2 e^{-\eta r}\Var_p(w)
+ \leq D_{-\Phi}(z+w,z)
+ \leq\frac\eta2 e^{\eta r}\Var_p(w).
+\]
+To check this, along the segment $z+sw$ each probability is between
+$e^{-\eta r}$ and $e^{\eta r}$ times its initial value. Apply these bounds
+to $\Var_p(w)=\min_c\sum_a p_a(w_a-c)^2$ and integrate $\eta(1-s)$
+over $0\leq s\leq1$.
+
+Let $L^t=\sum_{s\leq t}\ell^s$ and $q^t=L^{t-1}+\ell^{t-1}$.
+Then $x^t=\nabla\Phi(q^t)$, and direct expansion gives
+\[
+ D_{-\Phi}(L^t,q^t)-D_{-\Phi}(L^{t-1},q^t)
+ =\ip{x^t}{\ell^t}-\Phi(L^t)+\Phi(L^{t-1}).
+\]
+Sum this identity and compare $\Phi(L^T)$ with $\min_aL_a^T$.
+The coordinate spans of $\ell^t-\ell^{t-1}$ and $-\ell^{t-1}$ are at
+most two and one respectively. Thus, for $\eta\leq1/12$,
+\begin{equation}\label{eq:variance-rvu}
+ R_i(T)\leq\frac{\log m_i}{\eta}
+ +\frac{2\eta}3\sum_{t=1}^T\Var_{x_i^t}(\ell_i^t-\ell_i^{t-1})
+ -\frac\eta3\sum_{t=1}^T\norm{h_i^t}_2^2.
+\end{equation}
+Here $e^{2\eta}/2\leq2/3$ and $e^{-\eta}/2\geq1/3$ on the stated
+interval, which also follows from $e^z\leq1/(1-z)$ for $0\leq z<1$.
+
+Write $w_{ab}^t=\sqrt{x_{ia}^tx_{ib}^t}$. The coordinate span of
+$2\ell_i^t-\ell_i^{t-1}$ is at most three, so
+$e^{-3\eta}\leq w_{ab}^{t+1}/w_{ab}^t\leq e^{3\eta}$.
+For $\eta\leq1/12$, $e^{3\eta}-1\leq4\eta$. Hence
+\begin{align*}
+ &w_{ab}^t\bigl[(\ell_{ia}^t-\ell_{ib}^t)
+                   -(\ell_{ia}^{t-1}-\ell_{ib}^{t-1})\bigr]\\
+ &\qquad=(h_{i,ab}^{t+1}-h_{i,ab}^t)
+       +\left(\frac{w_{ab}^t}{w_{ab}^{t+1}}-1\right)h_{i,ab}^{t+1}.
+\end{align*}
+Square with $(z+w)^2\leq(3/2)z^2+3w^2$, then sum over pairs and time.
+The pairwise variance identity and the terminal bound
+$\norm{h_i^{T+1}}^2\leq1/4$ give
+\begin{equation}\label{eq:weighted-gap-explicit}
+ \sum_{t=1}^T\Var_{x_i^t}(\ell_i^t-\ell_i^{t-1})
+ \leq\frac32\sum_{t=1}^T\norm{\Delta h_i^t}_2^2
+ +48\eta^2\left(\sum_{t=1}^T\norm{h_i^t}_2^2+\frac14\right).
+\end{equation}
+Insert \eqref{eq:temporal-explicit} and
+\eqref{eq:weighted-gap-explicit} into \eqref{eq:variance-rvu}.
+Writing $H=\sum_{t=1}^T\norm{h_i^t}^2$, we obtain
+\[
+ R_i(T)\leq\frac{\log m_i}{\eta}+\eta D+Q\eta^2
+ +\left((C+32)\eta^3-\frac\eta3\right)H
+ +\frac{C+32}{4}\eta^3.
+\]
+The definition of $\bar\eta$ makes the coefficient of $H$ at most
+$-\eta/6$ and the last term at most $\eta/24$.
+Drop the nonpositive term and use $\eta\leq1$ on $Q\eta^2$.
+This proves Theorem~\ref{thm:certificate}.
+
+\subsection*{6. Conditional computability for all finite games}
+Here is a precise conditional way to make the outstanding recurrence search
+effective. Its hypothesis is a decision procedure for the full first-order
+theory of
+\[
+ \mathbb R_{\exp}=(\mathbb R;0,1,+,\cdot,<,\exp).
+\]
+Only sentences with rational coefficients are needed. This hypothesis is
+not supplied by real analyticity or by Noetherianity alone. The real form
+of Schanuel's conjecture implies such decidability; Berarducci and
+Gallinaro state the precise implication and give a new conditional
+axiomatization in \cite{bg}. The theorem below needs only the decision
+procedure, not the stronger number-theoretic conjecture as a separate
+premise.
+
+\begin{theorem}[Conditional effective search]\label{thm:conditional-search}
+Assume that the first-order theory of $\mathbb R_{\exp}$ is decidable.
+Then, using the qualitative finite-generation theorem and analytic state
+construction in Ha \cite[Theorem 5.5 and Lemmas 5.6--5.8]{ha}, there is a
+terminating algorithm which, on input $(N,K)$, computes a positive common
+step size and a finite regret bound for the exact update
+\eqref{eq:update}, uniformly over all allowed games and horizons.
+This is a conditional answer to the computability part of WS-107791. It
+does not imply the polynomial subquestion.
+\end{theorem}
+
+\begin{proof}
+Fix an action-count vector $\mathbf d=(d_1,\ldots,d_N)$ with
+$1\leq d_i\leq K$. The parameter space of loss tables is
+$\mathcal G=[0,1]^{N\prod_j d_j}$. The real state space is the compact
+semialgebraic set
+\[
+ \mathcal S=\{(r,z): r_{ia}\geq0,\ \sum_a r_{ia}^2=1,
+                          \ 0\leq z_{ia}\leq1\text{ for all }i,a\}.
+\]
+Here $r_{ia}$ is a square-root probability and $z_i$ stores the preceding
+loss vector. For real $r$ near the product of unit spheres, set
+\[
+ p_{ia}(r)=\frac{r_{ia}^2}{\sum_b r_{ib}^2},\qquad
+ L_{g,ia}(r)=\sum_{a_{-i}}g_i(a,a_{-i})\prod_{j\ne i}p_{j,a_j}(r).
+\]
+With $s=(r,z)$, define $G(s;g,\eta)=(F(s;g,\eta),L_g(r))$, where
+\[
+ F_{ia}(s;g,\eta)=
+ \frac{\left(\sum_b r_{ib}^2\right)^{1/2}r_{ia}
+       \exp\{-\eta(2L_{g,ia}(r)-z_{ia})/2\}}
+ {\left(\sum_b r_{ib}^2
+       \exp\{-\eta(2L_{g,ib}(r)-z_{ib})\}\right)^{1/2}}.
+\]
+The table $g$ and step size $\eta$ remain fixed under composition of $G$.
+For real inputs in $\mathcal S$ every denominator is positive, and $G$
+maps $\mathcal S$ into itself. The extra numerator norm is one on the
+state space; it ensures the ambient identity
+$G(r,z;g,0)=(r,L_g(r))$ and hence $G^2(s;g,0)=G(s;g,0)$.
+
+Let $H_0(s)$ be the vector formed by stacking, for all players, the
+coordinates $r_{ia}r_{ib}(z_{ia}-z_{ib})$, $a<b$. For $\eta>0$, define
+the finite expression
+\begin{equation}\label{eq:explicit-H}
+ H_k(s;g,\eta)=\eta^{-k}
+ \sum_{j=0}^k(-1)^{k-j}\binom kj
+          H_0\bigl(G^{k+j}(s;g,\eta)\bigr).
+\end{equation}
+Each $H_k$ uses at most $2k$ iterates and finitely many field operations,
+positive square roots, and exponentials. Along the actual trajectory
+$s^t=(\sqrt{x^t},\ell^{t-1})$,
+\[
+ H_k(s^t;g,\eta)=\eta^{-k}\Delta^k h^{t+k},
+\]
+where $h$ stacks the players' weighted gaps. In particular the order-one
+expression controls $\Delta h^{t+1}$, not $\Delta h^t$ at $t=1$.
+The exceptional initial difference remains covered by the cutoff proof
+above.
+
+For positive integers $(m,A,M,q)$ form the following first-order sentence:
+for every $s\in\mathcal S$, every $g\in\mathcal G$, and every
+$0<\eta\leq1/q$,
+\begin{equation}\label{eq:fo-certificate}
+ \begin{gathered}
+ \exists c_0,\ldots,c_{m-1}\in\mathbb R:
+       \quad |c_k|\leq A\ (k<m),\qquad
+       H_m(s;g,\eta)=\sum_{k<m}c_k H_k(s;g,\eta),\\
+ \norm{H_k(s;g,\eta)}_2^2\leq M^2
+                   \qquad(0\leq k\leq m).
+ \end{gathered}
+\end{equation}
+The universal quantifiers have the indicated antecedents; coefficients
+$c_k$ may depend on $s,g,\eta$. The norm squares and vector identities
+are finite sums and coordinate conjunctions. Replace every positive
+square root by an auxiliary variable $b>0$ with its defining equation
+$b^2=a$; replace divisions by their defining equations with nonzero
+denominators. This effectively converts \eqref{eq:fo-certificate} to a
+sentence in the language of $\mathbb R_{\exp}$ with rational
+coefficients. No quantification over functions or over infinitely many
+iterates occurs in a candidate sentence.
+
+We next verify that at least one candidate is true. The compact set for
+the analytic argument is
+$\mathcal S\times\mathcal G\times\{0\}$, including the stored-loss
+coordinate independently of the current expected loss. Although
+\eqref{eq:explicit-H} displays division by $\eta$, each fixed $H_k$
+extends analytically through zero. Indeed, equivalently,
+\[
+ H_{k+1}=\bigl(H_k\circ G^2-H_k\circ G\bigr)/\eta.
+\]
+The numerator vanishes at $\eta=0$ by the idempotence of $G(\cdot;g,0)$.
+Induction proves analytic divisibility, with a neighborhood allowed to
+shrink at each finite order. Ha's finite-generation theorem applies to the
+stacked vectors $H_0,H_1,\ldots$ just as it applies to an individual
+player's vector. It yields a finite $m$ and analytic scalar coefficients
+expressing $H_m$ in terms of $H_0,\ldots,H_{m-1}$ on a neighborhood of
+that compact set. Compactness then supplies a positive common step-size
+interval and finite upper bounds for the finitely many coefficients and
+$H_k$ involved. Choosing sufficiently large integers $A,M,q$ proves
+that \eqref{eq:fo-certificate} is true for at least one tuple. This
+existence argument does not itself compute the tuple.
+
+Now enumerate all positive-integer tuples $(m,A,M,q)$ in increasing sum,
+breaking ties lexicographically. Apply the assumed decision procedure to
+each associated sentence. Each test terminates. Since a true candidate
+exists, the search eventually returns one. Its guarantees hold on the
+actual trajectory at every round by invariance of $\mathcal S$.
+The stacked norm bounds imply the corresponding bounds for each player's
+subvector, so Theorem~\ref{thm:certificate} applies with
+$\eta_0=1/q$.
+
+There are only finitely many action-count vectors
+$\mathbf d\in\{1,\ldots,K\}^N$. Run this terminating search for each.
+For each vector compute $\bar\eta_{\mathbf d}$ and its constants
+$D_{\mathbf d},Q_{\mathbf d}$ from Theorem~\ref{thm:certificate}.
+Choose
+\[
+ \eta(N,K)=\min_{\mathbf d}\bar\eta_{\mathbf d},\qquad
+ B(N,K)=\frac{\log K}{\eta(N,K)}
+     +\eta(N,K)\max_{\mathbf d}
+                 \left(D_{\mathbf d}+Q_{\mathbf d}+\frac1{24}\right).
+\]
+These are positive computable real quantities, and all their nonlogarithmic
+operations are algebraic operations on the returned integers. If a
+rational step size and integer bound are preferred, choose a smaller
+positive rational step size by algebraic comparison and an integer upper
+bound using certified rational approximations to $\log K$.
+Theorem~\ref{thm:certificate} proves the required horizon-uniform bound.
+\end{proof}
+
+\subsection*{7. What is proved and what is still missing}
+Theorems~\ref{thm:dominance} and \ref{thm:aggregate} are unconditional
+on their stated classes. Theorem~\ref{thm:certificate} is a proved
+implication with numerical constants, not an assumption-free solution of
+WS-107791. It reduces the outstanding quantitative task to producing,
+from $(N,K)$ alone, valid numbers $(m,A,M,\eta_0)$ in
+\eqref{eq:certificate-recurrence}--\eqref{eq:certificate-smooth}, or
+an alternative argument of comparable force.
+
+Ha supplies existence through an analytic module near the compact set of
+states and game tables at zero step size. In his notation the module
+generators are the analytic scaled differences $H_{i,k}$, and finite
+generation produces a relation $H_{i,m}=\sum_{k<m}c_kH_{i,k}$.
+Merely saying ``enumerate possible parameters'' does not provide a
+terminating verification procedure for that analytic identity. Section 6
+supplies the missing verifier under the explicitly additional decidability
+hypothesis. Compactness alone does not compute a neighborhood radius, and
+no unconditional certificate-search algorithm is established here.
+
+There is a second unresolved question: even an extremely large computable
+bound would not establish polynomial dependence on $N$ and $\log K$.
+Conversely, the static-payoff lower bound in
+Proposition~\ref{prop:lower} constrains a proposed step size but does not
+exclude all polynomially suitable rules. The full answer and the polynomial
+subquestion therefore both remain \textbf{UNRESOLVED} unconditionally.
+
+\subsection*{8. Checks performed}
+The proofs above retain the original initialization and common fixed step
+size; handle $m_i=1$; distinguish cumulative regret from its absolute
+value; and control the exceptional first difference separately in the
+cutoff construction. The bounds are independent of the horizon and, on
+their stated classes, of the payoff table. No numerical trajectory is
+used as proof. The primary Ha manuscript was inspected in its exact
+version \texttt{2609.22839v1}; the source theorem and the explicitly
+stated quantitative gap match the catalogue formulation. The displayed
+special cases and reductions have been checked algebraically within this
+contribution, without a claim of formal verification or novelty.
+
+\section*{Models used}
+OpenAI GPT-6 Astra Pro: mathematical derivation, adversarial checking,
+primary-source inspection, and drafting. Exact internal build identifier
+and formal reasoning configuration: unknown. The work was prepared by a
+parallel research agent within the same assistant session, followed by
+separate-agent review of the quantitative recurrence proof and conditional
+certificate search, followed by root review.
+No external referee approval is claimed.
+
+\section*{Human contributors and roles}
+The user requested the problem-by-problem solution attempts and supplied
+the problem package. No independent human proof audit is claimed.
+The original problem suggestions are credited in the supplied package to
+Rida Laraki. The results cited below retain their original authors' credit.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{ha}
+Junsoo Ha. \emph{A Horizon-Independent Regret Bound for Optimistic Hedge in
+General-Sum Games}. arXiv:2609.22839v1, 19 September 2026.
+Equation (5), Theorem 4.1, text following Corollary 4.2, Sections 5.3--5.5,
+and Appendices B--D inspected.
+\url{https://arxiv.org/html/2609.22839v1}.
+
+\bibitem{rs}
+Alexander Rakhlin and Karthik Sridharan.
+\emph{Online Learning with Predictable Sequences}.
+Proceedings of the 26th Annual Conference on Learning Theory,
+PMLR 30:993--1019, 2013. Official publication metadata and abstract checked;
+the identities needed here are proved in the text.
+\url{https://proceedings.mlr.press/v30/Rakhlin13.html}.
+
+\bibitem{tsuchiya}
+Taira Tsuchiya. \emph{Tight Regret Upper and Lower Bounds for Optimistic
+Hedge in Two-Player Zero-Sum Games}. arXiv:2510.11691v1,
+13 October 2025. Primary arXiv metadata and abstract checked; cited for
+the existing zero-sum literature, not as a proof dependency.
+\url{https://arxiv.org/abs/2510.11691}.
+
+\bibitem{bg}
+Alessandro Berarducci and Francesco Gallinaro.
+\emph{On the elementary theory of the real exponential field}.
+arXiv:2603.08365v1, 9 March 2026. Abstract and Introduction inspected for
+the implication from the real form of Schanuel's conjecture to
+decidability, and for the distinction between model completeness and
+completeness of the restricted-exponential axioms.
+\url{https://arxiv.org/html/2603.08365v1}.
+\end{thebibliography}
+\end{document}
