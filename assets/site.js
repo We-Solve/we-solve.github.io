@@ -7,20 +7,6 @@
 
   /* Light/dark switch. theme-init.js applied any stored choice before paint. */
   var media = window.matchMedia('(prefers-color-scheme: dark)');
-  // The discipline menu is a native <details>; close it on outside click or Escape.
-  var menu = document.querySelector('[data-discipline-menu]');
-  if (menu) {
-    document.addEventListener('click', function (event) {
-      if (menu.open && !menu.contains(event.target)) menu.open = false;
-    });
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && menu.open) {
-        menu.open = false;
-        menu.querySelector('summary').focus();
-      }
-    });
-  }
-
   var themeButton = document.querySelector('[data-theme-toggle]');
   function isDark() { return root.dataset.theme ? root.dataset.theme === 'dark' : media.matches; }
   function showTheme() {
@@ -153,7 +139,8 @@
     }
     return work + 'Then submit it as a GitHub issue on ' + research + ' (with `gh issue create`, or the GitHub connector). Title: "' + title + ': ' + handle + '". ' +
       'Body: GitHub\'s issue-form format for https://raw.githubusercontent.com/' + research + '/main/.github/ISSUE_TEMPLATE/' + (kind === 'review' ? 'review' : kind === 'problem' ? 'problem' : 'attempt') + '.yml, that is, one ' +
-      '"### <label>" heading for each field of that form in order, each followed by your answer ("_No response_" for an empty optional field), and for the ' +
+      '"### <label>" heading for each field of that form in order, each followed by your answer ("_No response_" for an empty optional field; ' +
+      'for a dropdown, an option exactly as listed, several separated by ", " where the field allows several), and for the ' +
       'declarations field one "- [X] <option>" line per option I confirm. Never invent model versions, citations, tool use or checks, and mark anything ' +
       'you have not verified. An issue is public immediately, so show me the complete text, ask me to confirm each declaration, and post only after I say OK.';
   }
@@ -186,6 +173,46 @@
       'rp submit'
     ].join('\n');
   }
+
+  /* Leaderboards are ranked by contributions in the HTML; a column heading re-ranks by that column.
+     Ties are broken by contributions, full-solution claims and reviews, as in the build. */
+  document.querySelectorAll('[data-leaderboard]').forEach(function (table) {
+    var body = table.tBodies[0];
+    var heads = Array.prototype.slice.call(table.querySelectorAll('th[data-sort]'));
+    var column = {};
+    heads.forEach(function (th) { column[th.dataset.sort] = th.cellIndex; });
+    var tie = ['contributions', 'full', 'reviews'];
+    function value(row, key) { return Number(row.cells[column[key]].dataset.value) || 0; }
+    function rankBy(th) {
+      var keys = [th.dataset.sort].concat(tie.filter(function (k) { return k !== th.dataset.sort; }));
+      var rows = Array.prototype.slice.call(body.rows);
+      rows.sort(function (a, b) {
+        for (var i = 0; i < keys.length; i++) {
+          var difference = value(b, keys[i]) - value(a, keys[i]);
+          if (difference) return difference;
+        }
+        return a.cells[1].textContent.toLowerCase().localeCompare(b.cells[1].textContent.toLowerCase());
+      });
+      var previous = null, rank = 0;
+      rows.forEach(function (row, index) {
+        var score = keys.map(function (k) { return value(row, k); }).join(',');
+        if (score !== previous) { rank = index + 1; previous = score; }
+        row.cells[0].textContent = rank;
+        body.appendChild(row);
+      });
+      heads.forEach(function (h) { h.removeAttribute('aria-sort'); });
+      th.setAttribute('aria-sort', 'descending');
+      announce('Ranked by ' + th.querySelector('.label-long').textContent.toLowerCase() + '.');
+    }
+    heads.forEach(function (th) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'sort-button';
+      while (th.firstChild) button.appendChild(th.firstChild);
+      th.appendChild(button);
+      button.addEventListener('click', function () { rankBy(th); });
+    });
+  });
 
   /* Opening a build-generated reference may require expanding a collapsed block. */
   function revealHash() {

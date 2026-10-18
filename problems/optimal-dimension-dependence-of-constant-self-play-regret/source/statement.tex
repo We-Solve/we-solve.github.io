@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\newcommand{\NE}{\operatorname{NE}}
+\newcommand{\Stab}{\operatorname{Stab}_0}
+\newcommand{\Reg}{\operatorname{Reg}}
+\newcommand{\SwapReg}{\operatorname{SwapReg}}
+\newcommand{\pos}[1]{[#1]_+}
+\newtheorem{proposition}{Proposition}
+\title{Optimal dimension dependence of constant self-play regret}
+\author{}
+\date{Status checked: 17 October 2026}
+\begin{document}
+\maketitle
+\section*{Status}
+This is a proposed precise version of a lower-bound and dimension-
+dependence question raised in the literature. No matching rate is
+assumed and no new algorithm is claimed.
+\section*{Game, feedback, and regret}
+Fix integers $N\geq 2$ and $K\geq 2$. A game has labelled players
+$i\in\{1,\ldots,N\}$, action sets $A_i=\{1,\ldots,m_i\}$ with
+$1\leq m_i\leq K$, and payoffs $u_i:\prod_j A_j\to[0,1]$.
+Payoffs extend multilinearly to $\Sigma=\prod_i\Delta(A_i)$.
+At round $t\geq1$, all players choose mixed strategies simultaneously.
+After play, player $i$ receives its own exact vector
+$v_i^t(a)=u_i(a,x_{-i}^t)$ for every $a\in A_i$.
+An uncoupled update uses its own past vectors, its state, its own label and
+the public dimensions, without access to any player's payoff table or to
+precomputed equilibria. All logarithms are natural. Set
+\[
+ R_i(T)=\max_{a\in A_i}\sum_{t=1}^T
+  \bigl(v_i^t(a)-\langle x_i^t,v_i^t\rangle\bigr),
+ \qquad [r]_+=\max\{r,0\}.
+\]
+The comparator is one fixed action. A horizon-uniform bound concerns
+$\sup_T R_i(T)$, rather than $\sup_T|R_i(T)|$ or a comparator that changes
+actions each round. This is expected-payoff feedback and mixed-payoff
+regret, rather than realized regret after action sampling.
+
+\section*{Admissible class and question R1}
+For each action-count vector $m=(m_1,\ldots,m_N)$ with $1\leq m_i\leq K$,
+let $\mathfrak A_{N,m}$ be tuples of deterministic, horizon-independent
+uncoupled rules in the model above. Initial states depend only on public
+dimensions and labels. The tuple is chosen before the game and must
+work over its entire game class $\mathcal G_{N,m}$.
+There is no adversarial-regret or computation restriction in this version.
+Define the worst-action-count minimax constant by
+\[
+ C^*(N,K)=
+ \max_{m\in\{1,\ldots,K\}^N}
+ \inf_{\mathcal A\in\mathfrak A_{N,m}}
+ \sup_{G\in\mathcal G_{N,m}}\max_{i\leq N}\sup_{T\geq1}
+       [R_i^{\mathcal A,G}(T)]_+.
+\]
+Determine the asymptotic order of $C^*(N,K)$ as $N,K$ vary.
+In particular, can the dependence on the player count in the known
+upper bound be improved, or is a corresponding lower bound necessary?
+The maximum over $m$ explicitly permits the learner tuple to know its
+public action counts; no information about the payoff table is supplied.
+
+\section*{Known upper bound and elementary boundary case}
+The reported MORM guarantee gives
+\[
+ C^*(N,K)\leq96\sqrt N(2+\log K).
+\]
+The need for the $\sqrt N$ dependence is identified as open in the
+preprint's conclusion \cite{morm}. This is an upper bound, not a claimed
+matching minimax rate.
+
+There is at least an initial information cost. For a player with $K$
+actions let $q$ be its first distribution and choose $a^*$ with
+$q(a^*)\leq1/K$. Give it payoff one for $a^*$ and zero for the other
+actions, independently of opponents. Then $R_i(1)\geq1-1/K$.
+Taking the indicated worst-case game yields
+$C^*(N,K)\geq1-1/K$. This elementary bound supplies no growing player-
+count lower bound.
+
+\section*{Relation to existing catalogue problems}
+\texttt{ECON-C73-63} fixes an adversarial-regret budget and a polynomial
+computational budget and studies minimax horizon dependence. R1 fixes
+a different admissible class and asks for dimension dependence of a
+uniform-in-time constant. It is a related independent variant, not an
+equivalent restatement or a subproblem that settles that parent target.
+\texttt{ECON-C73-113} concerns Markov games and also differs.
+No exact existing target was found. The precise minimax convention is
+an editorial choice, and novelty is not asserted.
+
+\section*{Preparation}
+The original research map was generated using OpenAI GPT 6 Astra Pro.
+Source checks, formulation, and LaTeX preparation used a Codex assistant
+based on GPT-6. Exact model versions and reasoning settings are unknown.
+The cited researchers retain credit for their results. Source statements
+and scope were checked; no complete proof audit or novelty certification
+is claimed.
+\paragraph{Origin of the questions.}
+The open-problem suggestions motivating this entry are credited to
+Rida Laraki's Facebook comment~\cite{laraki-facebook}.
+\begin{thebibliography}{9}
+\bibitem{morm}
+Ashkan Soleymani and Georgios Piliouras.
+\emph{Multiplicative Optimism for Constant Regret in Games}.
+arXiv:2609.21976v1, 18 September 2026.
+Theorem 4.10; Corollary 2.5; Theorem E.1; Proposition E.2; conclusion.
+\url{https://arxiv.org/html/2609.21976v1}.
+\bibitem{laraki-facebook}
+Rida Laraki.
+\emph{Facebook comment suggesting open problems in game theory}.
+\end{thebibliography}
+\end{document}
