@@ -1,6 +1,6 @@
 # Exact maximal sign determinants through order five and every power of two
 
-**Problem:** TOP-1600016
+**Problem:** prb_42a42aee82bf4ec0a863b4457da514ba
 
 **Claim type:** Partial result
 

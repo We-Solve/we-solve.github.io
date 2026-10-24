@@ -1,6 +1,6 @@
 # The Skolem problem is decidable for every recurrence with real characteristic roots
 
-Problem: TOP-1268  
+Problem: prb_90318058c83642c08ac41c39e1797339  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -36,6 +36,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-Fresh official TOP-1268 prompt and full Math-221-A1 contribution (comparison only)
+Fresh official prb_90318058c83642c08ac41c39e1797339 prompt and full Math-221-A1 contribution (comparison only)
 Complete parity-splitting and effective tail argument in this report
 Exact source versions, statements and uses are described in report.md and source_notes.md.

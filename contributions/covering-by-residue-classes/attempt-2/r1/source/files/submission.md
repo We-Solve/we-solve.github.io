@@ -1,6 +1,6 @@
 # Almost every residue assignment covers a near-linear number of points
 
-Problem: TOP-173  
+Problem: prb_1a24be1a143e467592b39347ae2c4359  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -46,5 +46,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 T. Tao, 254A Notes2, Corollary39/Exercise40, https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/
-Fresh official TOP-173 prompt and its full listed prior contribution
+Fresh official prb_1a24be1a143e467592b39347ae2c4359 prompt and its full listed prior contribution
 Exact source versions, statements and uses are described in report.md and source_notes.md.

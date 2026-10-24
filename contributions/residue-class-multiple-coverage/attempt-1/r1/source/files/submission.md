@@ -1,6 +1,6 @@
 # Tenfold coverage except on a vanishing exceptional set
 
-Problem: TOP-175  
+Problem: prb_e8c3610fb5164a8599bf5cfb90ef1af8  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -50,5 +50,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 T. Tao, 254A Notes1, Theorems15 and26, https://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-number-theory/
-Fresh official TOP-175 prompt, distinct-prime multiplicity convention
+Fresh official prb_e8c3610fb5164a8599bf5cfb90ef1af8 prompt, distinct-prime multiplicity convention
 Exact source versions, statements and uses are described in report.md and source_notes.md.

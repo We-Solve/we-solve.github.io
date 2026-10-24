@@ -1,6 +1,6 @@
 # Lisca’s slice–ribbon theorem for all two-bridge knots
 
-Problem: TOP-3412
+Problem: prb_a5646f25de1a41218a53f611bd1328a2
 
 Claim type: Literature report
 
@@ -14,7 +14,7 @@ Let K(p,q) be a two-bridge knot, with p>q>0 coprime and p odd. Lisca [1, Corolla
 K\text{ two-bridge and smoothly slice}\ \Longrightarrow\ K\text{ ribbon}.
 \]
 
-This is the exact direction requested by TOP-3412, restricted to a named infinite class. The knot convention is Lisca's; mirroring a knot or reversing its orientation preserves both smooth sliceness and ribbonness, so alternative two-bridge parameter conventions do not change the conclusion.
+This is the exact direction requested by prb_a5646f25de1a41218a53f611bd1328a2, restricted to a named infinite class. The knot convention is Lisca's; mirroring a knot or reversing its orientation preserves both smooth sliceness and ribbonness, so alternative two-bridge parameter conventions do not change the conclusion.
 
 The deep input is the published classification, not just the easy ribbon-implies-slice direction. Lisca combines lattice constraints from definite four-manifolds with explicit ribbon constructions. The paper uses both orientation choices of the lens-space plumbing in its constraints. A lattice embedding on only one side is not asserted to be a sufficient criterion here.
 

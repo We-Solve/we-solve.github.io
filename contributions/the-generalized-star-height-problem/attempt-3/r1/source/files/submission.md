@@ -22,7 +22,7 @@ References checked.
 
 - [1] Marcel-Paul Schützenberger, On finite monoids having only trivial subgroups, Information and Control 8 (1965), 190–194, DOI 10.1016/S0019-9958(65)90108-7. Primary first-page MAIN PROPERTY and definitions K1–K2 inspected in the indexed author collected-works scan, Tome 6 p.58; direct scan fetch failed, so no full-proof inspection is claimed. https://www-igm.univ-mlv.fr/~berstel/Mps/Oeuvres-Completes/tome06.pdf
 - [2] Primary publisher bibliographic record (open archive). https://www.sciencedirect.com/science/article/pii/S0019995865901087
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1221.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_5717c37d719d4de7ae15641b63dcc257.txt
 
 
 ## Reproducibility and review
@@ -35,5 +35,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 [1] Marcel-Paul Schützenberger, On finite monoids having only trivial subgroups, Information and Control 8 (1965), 190–194, DOI 10.1016/S0019-9958(65)90108-7. Primary first-page MAIN PROPERTY and definitions K1–K2 inspected in the indexed author collected-works scan, Tome 6 p.58; direct scan fetch failed, so no full-proof inspection is claimed. https://www-igm.univ-mlv.fr/~berstel/Mps/Oeuvres-Completes/tome06.pdf
 [2] Primary publisher bibliographic record (open archive). https://www.sciencedirect.com/science/article/pii/S0019995865901087
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1221.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_5717c37d719d4de7ae15641b63dcc257.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

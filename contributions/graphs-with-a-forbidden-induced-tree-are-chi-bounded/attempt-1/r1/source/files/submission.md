@@ -1,6 +1,6 @@
 # An explicit χ-binding function for every forbidden induced path
 
-Problem: TOP-3238
+Problem: prb_417839c7d4ee4d589ea78f6c5365918d
 
 Claim type: Partial result.
 
@@ -44,7 +44,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-3238 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3238.txt
+- Official prb_417839c7d4ee4d589ea78f6c5365918d prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_417839c7d4ee4d589ea78f6c5365918d.txt
 - S. Gravier, C. T. Hoàng, F. Maffray, Coloring the hypergraph of maximal cliques of a graph with no long path, Discrete Mathematics 272 (2003), 285–290, primary publisher record: https://www.sciencedirect.com/science/article/pii/S0012365X03001973
 
 
@@ -61,6 +61,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-3238 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3238.txt
+Official prb_417839c7d4ee4d589ea78f6c5365918d prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_417839c7d4ee4d589ea78f6c5365918d.txt
 S. Gravier, C. T. Hoàng, F. Maffray, Coloring the hypergraph of maximal cliques of a graph with no long path, Discrete Mathematics 272 (2003), 285–290, primary publisher record: https://www.sciencedirect.com/science/article/pii/S0012365X03001973
 Exact source versions, statements and uses are described in report.md and source_notes.md.

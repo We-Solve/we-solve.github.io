@@ -1,4 +1,4 @@
-# TOP-30000063: An FPAS for Constrained Bicriteria Spanning Trees
+# prb_bffee0087fe4470ebd931b90139a0cb5: An FPAS for Constrained Bicriteria Spanning Trees
 
 Claim type: **Partial result**.
 
@@ -30,7 +30,7 @@ Comparison with the earlier attempt: The earlier attempt gives a scalarization o
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30000063.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_bffee0087fe4470ebd931b90139a0cb5.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/an-fpas-for-constrained-bicriteria-spanning-trees/attempt-1/r1/
 
 
@@ -47,6 +47,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30000063.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_bffee0087fe4470ebd931b90139a0cb5.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/an-fpas-for-constrained-bicriteria-spanning-trees/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Yao–Yao spanners: published parity separation and exact low-cone witnesses
 
-**Problem:** TOP-5500070 / AMR-054-0070. **Claim category:** Literature report.
+**Problem:** prb_689b53a8bf2f4c54b334d3e9f06d9127 / catalogue entry. **Claim category:** Literature report.
 
 The original problem record predates decisive results for large cone counts. The checked primary literature proves that **every odd cone count at least three fails**, while **every even cone count at least 84 succeeds**. An earlier positive theorem also covers multiples of six starting at 36. This is a credited update, not a new spanner theorem or a complete classification of every remaining even value.
 

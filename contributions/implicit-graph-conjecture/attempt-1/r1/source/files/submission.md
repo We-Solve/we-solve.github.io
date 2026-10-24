@@ -1,6 +1,6 @@
 # The negative implicit-graph theorem and a constructive positive boundary
 
-Problem: TOP-1439
+Problem: prb_44c863941b1242fbb406b24ffbad318c
 
 Claim type: Literature report.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1439.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_44c863941b1242fbb406b24ffbad318c.txt
 - https://arxiv.org/pdf/2111.13198
 - https://arxiv.org/abs/2111.13198
 
@@ -41,7 +41,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1439.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_44c863941b1242fbb406b24ffbad318c.txt
 https://arxiv.org/pdf/2111.13198
 https://arxiv.org/abs/2111.13198
 Exact source versions, statements and uses are described in report.md and source_notes.md.

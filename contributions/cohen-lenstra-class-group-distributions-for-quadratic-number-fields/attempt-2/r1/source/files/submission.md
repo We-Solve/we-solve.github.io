@@ -1,6 +1,6 @@
 # Arithmetic 3-torsion means force positive proportions of 3-free class numbers
 
-Problem: TOP-30006735  
+Problem: prb_5e82fa7c19ad4a499cbe583b7a95a083  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 

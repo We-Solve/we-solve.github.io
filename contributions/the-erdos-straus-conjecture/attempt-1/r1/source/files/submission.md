@@ -1,4 +1,4 @@
-Problem: TOP-60
+Problem: prb_f66a908419c54f86aa9af8c6db8c263b
 
 Title: A complete polynomial certificate for the classical six-class modulus-840 reduction
 
@@ -84,6 +84,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-60.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_f66a908419c54f86aa9af8c6db8c263b.txt
 C. Elsholtz and T. Tao, Counting the number of solutions to the Erdős–Straus equation on unit fractions, primary full text, discussion before Proposition 1.9 of polynomial-solvable classes modulo 840: https://arxiv.org/pdf/1107.1010
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

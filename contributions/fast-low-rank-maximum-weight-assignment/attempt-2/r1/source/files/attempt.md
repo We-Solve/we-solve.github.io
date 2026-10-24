@@ -1,4 +1,4 @@
-# Literature report on TOP-30003992
+# Literature report on prb_150e36be4869460cbcfe4054c84a6f03
 
 **A published conditional answer to the general-rank target.** Basu's original problem [1, p. 3012] observes rank-one sorting in $O(n\log n)$, asks about rank two, and proposes $O(nr^2\log n)$ for rank $r$. The current archive statement [3] retains that ambition.
 

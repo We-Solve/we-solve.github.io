@@ -1,6 +1,6 @@
 # Mahler equality for the full recursively defined Hanner class
 
-**Problem:** TOP-1122
+**Problem:** prb_b2f86439e0b84d1590e1686769496f62
 
 **Claim type:** Partial result
 
@@ -44,6 +44,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1122.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b2f86439e0b84d1590e1686769496f62.txt
 https://arxiv.org/html/1212.2544v1
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Surjunctivity from dense finite quotient configurations
 
-**Problem:** TOP-1115
+**Problem:** prb_dc24b78012ac4e9e86fdfe74afc64a3e
 
 **Claim type:** Partial result
 

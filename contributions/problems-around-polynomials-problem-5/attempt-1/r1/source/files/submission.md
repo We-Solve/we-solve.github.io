@@ -1,6 +1,6 @@
 # Complete sign-pattern realizability through degree four
 
-**Problem:** TOP-2200011. **Claim:** Partial result.
+**Problem:** prb_fa7643f36d144b029b37665e772f22ec. **Claim:** Partial result.
 
 This contribution completely classifies the admissible pairs in degrees 1
 through 4, including multiplicities, and gives an elementary infinite family
@@ -159,7 +159,7 @@ self-contained, rather than requiring acceptance of a classification table
 from the literature. Kostov's 2026 paper [K26] is a further primary source for
 the broader realization problems, not a claim here that their arbitrary-degree
 classification is resolved. The separate both-positive conjecture is handled
-by a companion literature report for TOP-2200012; its degree-eleven result is
+by a companion literature report for prb_28920cbe7b8241a09cbcb60f03e046c4; its degree-eleven result is
 not needed to prove this degree-four classification.
 
 Checked references:
@@ -174,7 +174,7 @@ Checked references:
    arXiv:2601.10529 (2026), [full preprint](https://arxiv.org/pdf/2601.10529).
    Read for the problem distinction and quartic discussion; no publication or
    complete proof audit of that preprint is asserted.
-3. **We-Solve**, [exact TOP-2200011 prompt](https://we-solve.github.io/prompts/TOP-2200011.txt),
+3. **We-Solve**, [exact prb_fa7643f36d144b029b37665e772f22ec prompt](https://we-solve.github.io/prompts/prb_fa7643f36d144b029b37665e772f22ec.txt),
    retrieved from the official website repository on 18 October 2026. Its
    earlier-contribution section listed none at inspection.
 
@@ -198,5 +198,5 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 V. P. Kostov, Polynomials, sign patterns and Descartes’ rule of signs, Mathematica Bohemica 144 (2019), 39–67, introduction; https://doi.org/10.21136/MB.2018.0091-17 ; published PDF https://dml.cz/bitstream/handle/10338.dmlcz/147638/MathBohem_144-2019-1_4.pdf
 V. P. Kostov, Three realization problems about univariate polynomials, arXiv:2601.10529 (2026); https://arxiv.org/pdf/2601.10529
-Official TOP-2200011 prompt, https://we-solve.github.io/prompts/TOP-2200011.txt
+Official prb_fa7643f36d144b029b37665e772f22ec prompt, https://we-solve.github.io/prompts/prb_fa7643f36d144b029b37665e772f22ec.txt
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

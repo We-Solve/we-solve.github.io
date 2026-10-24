@@ -1,6 +1,6 @@
 # Largest-index repetition for cyclic quotient coset partitions
 
-**Problem:** TOP-1110
+**Problem:** prb_8734d8822e0d4b6b821282e4bb20e34a
 
 **Claim type:** Partial result
 

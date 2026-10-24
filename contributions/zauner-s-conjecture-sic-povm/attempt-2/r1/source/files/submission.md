@@ -1,6 +1,6 @@
 # An exact phase family of qutrit SICs with symbolic reconstruction certificate
 
-**Problem:** TOP-1305
+**Problem:** prb_539a52ae471d4a2384af595dd3f4a9b1
 
 **Claim type:** Partial result
 

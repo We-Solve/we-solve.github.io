@@ -1,6 +1,6 @@
 # Finite constant-group invariants in every characteristic
 
-Problem: TOP-88. Claim type: Partial result.
+Problem: prb_7546db8c2b5b41428f2a85077fb3ca32. Claim type: Partial result.
 
 For every field $k$, every finite abstract group $\Gamma$ and every finite-dimensional linear representation over $k$, the invariant ring $k[V]^\Gamma$ is finitely generated. This includes the modular case $\mathrm{char}(k)\mid |\Gamma|$. It is the classical finite-group theorem; the proof below uses no averaging operator.
 

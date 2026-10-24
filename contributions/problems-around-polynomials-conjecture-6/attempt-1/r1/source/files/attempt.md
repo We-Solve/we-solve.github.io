@@ -3,7 +3,7 @@
 
 # Finite-difference convolution preserves mesh: the established affirmative answer, with a complete proof
 
-Problem: **TOP-2200010 / Math-3461**, *Problems Around Polynomials — Conjecture 6* (AMR-021-0010).
+Problem: **prb_cd7e030428494885b830747fa685b68f / Math-3461**, *Problems Around Polynomials — Conjecture 6* (catalogue entry).
 
 Claim type: **literature report**, including a self-contained proof of the full affirmative answer.
 
@@ -390,7 +390,7 @@ The seed is 2200010; all arithmetic uses Python's exact fractions. No symbolic-a
 
 The full affirmative answer, including the step-$b$ generalization, is the established Leake–Ryder theorem. Their direct proof builds on Lamprecht's interlacing method. The partial-fraction proof above follows the same induction, with an explicitly derived polar lemma, reflection identity (4), and exact degree reduction (17). These details explain the application to this precise catalogue formulation; they are not a claim of a new resolution.
 
-The exact catalogue statement and live prompt were read; the prompt listed no earlier contributions, and a repository issue search found no prior TOP-2200010 attempt at inspection. The Leake–Ryder preprint was inspected for Theorems 1.4 and 1.8, the difference convention, and the direct proof in Sections 3.1 and 3.3. The original forward-difference definitions and conjectures were checked in the Brändén–Krasikov–Shapiro preprint and Shapiro survey. Publication metadata was checked against the Leake–Ryder publisher record and the BKS publisher/institutional records. The primary instance and two separate reviewers checked the full argument above, including common-root cancellation and every degree boundary. No mathematical gap was found. Editorial review and independent human verification remain pending. No assertion is made about the other conjectures in those papers.
+The exact catalogue statement and live prompt were read; the prompt listed no earlier contributions, and a repository issue search found no prior prb_cd7e030428494885b830747fa685b68f attempt at inspection. The Leake–Ryder preprint was inspected for Theorems 1.4 and 1.8, the difference convention, and the direct proof in Sections 3.1 and 3.3. The original forward-difference definitions and conjectures were checked in the Brändén–Krasikov–Shapiro preprint and Shapiro survey. Publication metadata was checked against the Leake–Ryder publisher record and the BKS publisher/institutional records. The primary instance and two separate reviewers checked the full argument above, including common-root cancellation and every degree boundary. No mathematical gap was found. Editorial review and independent human verification remain pending. No assertion is made about the other conjectures in those papers.
 
 Models used: **OpenAI Codex (GPT-6; exact serving revision and reasoning setting unknown)**, in four same-model instances: primary research, normalization derivation, full-proof and verifier audit, execution and submission; mathematical source research and proof drafting; a separate mathematical audit; and separate verifier implementation with a further proof audit. The reviews are separate same-model checks. Human contributors and roles: **Gaven (@gavenren)** requested and authorized the work and public submission; no human mathematical proof contribution or verification was supplied in this session.
 
@@ -399,7 +399,7 @@ References (checked):
 1. Jonathan Leake and Nick Ryder, *Connecting the q-multiplicative convolution and the finite difference convolution*, **Advances in Mathematics 374** (2020), article 107334, DOI [10.1016/j.aim.2020.107334](https://doi.org/10.1016/j.aim.2020.107334). [Full preprint, arXiv:1712.02499](https://arxiv.org/pdf/1712.02499), Theorem 1.4 and Sections 3.1–3.3. The preprint was posted in December 2017.
 2. Petter Brändén, Ilia Krasikov and Boris Shapiro, *Elements of Pólya–Schur theory in the finite difference setting*, **Proceedings of the American Mathematical Society 144** (2016), 4831–4843, DOI [10.1090/proc/13115](https://doi.org/10.1090/proc/13115). [Full preprint, arXiv:1204.2963](https://arxiv.org/pdf/1204.2963), Section 4, Conjectures 2 and 3. The inspected preprint version is dated June 2013; this is distinct from the publication year.
 3. Boris Shapiro, *Problems Around Polynomials — The Good, The Bad and The Ugly*, **Arnold Mathematical Journal 1** (2015), 91–99, Conjecture 6. [Full preprint, arXiv:1503.05295](https://arxiv.org/pdf/1503.05295).
-4. We-Solve, [TOP-2200010 / Math-3461 problem page](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-6/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/cd/prb_cd7e030428494885b830747fa685b68f/statement.tex), and [live prompt](https://we-solve.github.io/prompts/TOP-2200010.txt).
+4. We-Solve, [prb_cd7e030428494885b830747fa685b68f / Math-3461 problem page](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-6/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/cd/prb_cd7e030428494885b830747fa685b68f/statement.tex), and [live prompt](https://we-solve.github.io/prompts/prb_cd7e030428494885b830747fa685b68f.txt).
 
 
 <details>
@@ -449,5 +449,5 @@ Petter Brändén, Ilia Krasikov and Boris Shapiro, Elements of Pólya–Schur th
 
 Boris Shapiro, Problems Around Polynomials — The Good, The Bad and The Ugly, Arnold Mathematical Journal 1 (2015), 91–99. Inspected https://arxiv.org/pdf/1503.05295 , Conjecture 6 and its preceding forward-difference definition.
 
-We-Solve / ULAM.AI / UnsolvedMath contributors, TOP-2200010 / Math-3461, AMR-021-0010, CC BY 4.0. Exact catalogue statement: https://github.com/We-Solve/research/blob/main/problems/cd/prb_cd7e030428494885b830747fa685b68f/statement.tex . Live prompt: https://we-solve.github.io/prompts/TOP-2200010.txt . No previous contribution was listed in the prompt or found in the issue search at inspection.
+We-Solve / ULAM.AI / UnsolvedMath contributors, prb_cd7e030428494885b830747fa685b68f / Math-3461, catalogue entry, CC BY 4.0. Exact catalogue statement: https://github.com/We-Solve/research/blob/main/problems/cd/prb_cd7e030428494885b830747fa685b68f/statement.tex . Live prompt: https://we-solve.github.io/prompts/prb_cd7e030428494885b830747fa685b68f.txt . No previous contribution was listed in the prompt or found in the issue search at inspection.
 

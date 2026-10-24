@@ -1,6 +1,6 @@
 # An extremal-support proof for left-orderable group rings
 
-**Problem:** TOP-30006789
+**Problem:** prb_ccb03e656abd410bb56268716b14516b
 
 **Claim type:** Partial result
 

@@ -1,6 +1,6 @@
 # A self-contained universal-cover certificate for the regular hexagon
 
-Problem: TOP-7200072
+Problem: prb_18062eb38ecd494f88f3051e3b2417c8
 
 Claim type: Partial result
 
@@ -39,5 +39,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-7200072.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_18062eb38ecd494f88f3051e3b2417c8.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

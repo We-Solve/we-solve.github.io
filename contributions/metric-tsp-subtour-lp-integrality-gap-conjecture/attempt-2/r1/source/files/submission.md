@@ -1,4 +1,4 @@
-# TOP-30006787: Metric TSP Subtour LP Integrality Gap Conjecture
+# prb_c6e8108ff45041d8851b8c8d91242502: Metric TSP Subtour LP Integrality Gap Conjecture
 
 Claim type: **Partial result**.
 
@@ -29,7 +29,7 @@ Comparison with the earlier attempt: The earlier attempt develops a general metr
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006787.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c6e8108ff45041d8851b8c8d91242502.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/metric-tsp-subtour-lp-integrality-gap-conjecture/attempt-1/r1/
 
 
@@ -46,6 +46,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006787.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c6e8108ff45041d8851b8c8d91242502.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/metric-tsp-subtour-lp-integrality-gap-conjecture/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

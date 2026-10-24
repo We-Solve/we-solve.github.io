@@ -1,4 +1,4 @@
-Problem: TOP-5500062 — Volume Maximizing Convex Shape
+Problem: prb_d48aa15038cd41b59b19af55f194c756 — Volume Maximizing Convex Shape
 
 Title: A convex perimeter-halving net for every disphenoid, with a sharp volume bound within that family
 
@@ -66,7 +66,7 @@ Human contributors and roles: The user requested the work. No human mathematical
 
 References:
 
-1. [Official We-Solve prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500062.txt), checked 18 October 2026.
+1. [Official We-Solve prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_d48aa15038cd41b59b19af55f194c756.txt), checked 18 October 2026.
 2. Erik D. Demaine, Joseph S. B. Mitchell and Joseph O'Rourke, editors, [The Open Problems Project, Problem 62](https://topp.openproblem.net/p62). Exact perimeter-halving statement, origin and complete related-results section checked. It attributes the question to Joseph Malkevitch (2002), with the perimeter-halving restriction introduced at CCCG 2005; its square example is described as empirical. This report does not promote that empirical optimization to a theorem. The construction and restricted-family calculation above are self-contained.
 
 
@@ -87,6 +87,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500062.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_d48aa15038cd41b59b19af55f194c756.txt
 https://topp.openproblem.net/p62
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Dense clique factors and an exact multipartite certificate
 
-Problem: TOP-3284
+Problem: prb_06df8da4f4864cd999bee7e6a3cf2c89
 
 Claim type: Literature report.
 
@@ -34,7 +34,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-3284 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3284.txt
+- Official prb_06df8da4f4864cd999bee7e6a3cf2c89 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_06df8da4f4864cd999bee7e6a3cf2c89.txt
 - H. A. Kierstead and A. V. Kostochka, A Short Proof of the Hajnal–Szemerédi Theorem on Equitable Colouring, Combinatorics, Probability and Computing 17 (2008), 265–270, primary author paper: https://kam.mff.cuni.cz/~matousek/cla/kierstead-kostochka.pdf
 - Primary publisher record: https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/short-proof-of-the-hajnalszemeredi-theorem-on-equitable-colouring/5530A5AACBD8246D6B0D7E9A85810FD2
 
@@ -52,7 +52,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-3284 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3284.txt
+Official prb_06df8da4f4864cd999bee7e6a3cf2c89 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_06df8da4f4864cd999bee7e6a3cf2c89.txt
 H. A. Kierstead and A. V. Kostochka, A Short Proof of the Hajnal–Szemerédi Theorem on Equitable Colouring, Combinatorics, Probability and Computing 17 (2008), 265–270, primary author paper: https://kam.mff.cuni.cz/~matousek/cla/kierstead-kostochka.pdf
 Primary publisher record: https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/short-proof-of-the-hajnalszemeredi-theorem-on-equitable-colouring/5530A5AACBD8246D6B0D7E9A85810FD2
 Exact source versions, statements and uses are described in report.md and source_notes.md.

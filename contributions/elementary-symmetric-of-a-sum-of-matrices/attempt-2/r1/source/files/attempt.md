@@ -3,7 +3,7 @@
 
 # A partition formula for elementary symmetric functions of a matrix sum
 
-**We-Solve Math-3280 / TOP-3027, OPG-23298.**
+**We-Solve Math-3280 / prb_b8fd80d827ea4ad186a62c524b01a848, catalogue entry.**
 
 **Claim and attribution.** This is a detailed literature resolution of the complete catalogue question, with a self-contained proof, an explicit integer-partition organization, reproducible verification, and a correction to equation (11) of the specified source preprint. The central identity is classical: Amitsur (1980), independently Reutenauer–Schützenberger (1987). We make no priority claim for that identity, the partition regrouping, or its consequences. The 1987 paper states the needed formula over commutative rings and credits Amitsur in its added-in-proof note [3].
 
@@ -332,7 +332,7 @@ The boundary cases are explicit:
 
 ## 12. Verification and remaining scope
 
-The accompanying `verify3027.py` uses exact arithmetic and compares direct principal minors, the truncated determinant product, and the integer-partition regrouping. All three methods agreed in the executed run: **513 cases, with 3,519 coefficients compared per method**.
+The accompanying `verify.py` uses exact arithmetic and compares direct principal minors, the truncated determinant product, and the integer-partition regrouping. All three methods agreed in the executed run: **513 cases, with 3,519 coefficients compared per method**.
 
 | Test family | Cases | Coefficients per method |
 | --- | ---: | ---: |
@@ -357,7 +357,7 @@ The complete formula request is answered. We do not claim an optimal minimal exp
 1. R. S. Costas-Santos (`rscosa`), **Elementary symmetric of a sum of matrices**, Open Problem Garden, posted 8 December 2008. [Original problem](https://www.openproblemgarden.org/op/elementary_symmetric_of_a_sum_of_matrices). Exact range and partition request inspected.
 2. R. S. Costas-Santos, **On the elementary symmetric functions of a sum of matrices**, [arXiv:math/0612464v5](https://arxiv.org/pdf/math/0612464v5), 17 September 2009. Sections 3–5 inspected, especially equation (11) on printed page 4 and the word/partition request on printed pages 7–8. The catalogue cites the journal appearance in Journal of Algebra, Number Theory: Advances and Applications 1 (2009), 99–112; the correction here is about the inspected arXiv version.
 3. Christophe Reutenauer and Marcel-Paul Schützenberger, **A Formula for the Determinant of a Sum of Matrices**, Letters in Mathematical Physics 13 (1987), 299–302, DOI [10.1007/BF00401158](https://doi.org/10.1007/BF00401158). [Author-hosted full paper](https://reutenauer.math.uqam.ca/wp-content/uploads/2024/04/Determinant-of-a-sum.pdf). The theorem, cyclic-word definitions, determinant product proof and added-in-proof attribution inspected. The note credits S. A. Amitsur, **On the characteristic polynomial of a sum of matrices**, Linear and Multilinear Algebra 8 (1980), 177–182; that original 1980 full text was not inspected and is credited through the inspected 1987 paper.
-4. **We-Solve / UnsolvedMath TOP-3027**, also displayed as Math-3280, OPG-23298. [Statement](https://github.com/We-Solve/research/blob/main/problems/b8/prb_b8fd80d827ea4ad186a62c524b01a848/statement.tex), [research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3027.txt). Exact statement and prompt inspected; prompt listed no previous contributions. Credit: Ulam AI, the UnsolvedMath contributors and We-Solve; catalogue material under CC BY 4.0.
+4. **We-Solve / UnsolvedMath prb_b8fd80d827ea4ad186a62c524b01a848**, also displayed as Math-3280, catalogue entry. [Statement](https://github.com/We-Solve/research/blob/main/problems/b8/prb_b8fd80d827ea4ad186a62c524b01a848/statement.tex), [research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_b8fd80d827ea4ad186a62c524b01a848.txt). Exact statement and prompt inspected; prompt listed no previous contributions. Credit: Ulam AI, the UnsolvedMath contributors and We-Solve; catalogue material under CC BY 4.0.
 
 ## Provenance and licences
 
@@ -368,10 +368,10 @@ Original exposition and results files: CC BY 4.0. Original software: Apache-2.0.
 
 ## Reproducible reference software
 
-Save as `verify3027.py` and run `python3 verify3027.py` with Python 3.10 or later, assertions enabled. No third-party dependencies. The program regenerates the full JSON results and formal expansions. Source: Apache-2.0.
+Save as `verify.py` and run `python3 verify.py` with Python 3.10 or later, assertions enabled. No third-party dependencies. The program regenerates the full JSON results and formal expansions. Source: Apache-2.0.
 
 <details>
-<summary>verify3027.py — complete exact implementation and verification</summary>
+<summary>verify.py — complete exact implementation and verification</summary>
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/6) for this material.
 
@@ -406,5 +406,5 @@ Gaven (@gavenren): requested another deeply investigated problem and authorized 
 1. R. S. Costas-Santos, Elementary symmetric of a sum of matrices, Open Problem Garden (8 December 2008): https://www.openproblemgarden.org/op/elementary_symmetric_of_a_sum_of_matrices . Exact question and range inspected.
 2. R. S. Costas-Santos, On the elementary symmetric functions of a sum of matrices, arXiv:math/0612464v5 (17 September 2009): https://arxiv.org/pdf/math/0612464v5 . Sections 3–5 inspected, especially Eq. (11), printed p.4, and the general request, pp.7–8. Correction is specifically to this version.
 3. C. Reutenauer and M.-P. Schützenberger, A Formula for the Determinant of a Sum of Matrices, Letters in Mathematical Physics 13 (1987), 299–302, DOI 10.1007/BF00401158: https://reutenauer.math.uqam.ca/wp-content/uploads/2024/04/Determinant-of-a-sum.pdf . Full theorem, proof and added-in-proof note inspected. Its note credits S.A. Amitsur, Linear and Multilinear Algebra 8 (1980), 177–182; original 1980 full text not inspected and credited through this checked source.
-4. We-Solve / UnsolvedMath TOP-3027, Math-3280, OPG-23298: https://github.com/We-Solve/research/blob/main/problems/b8/prb_b8fd80d827ea4ad186a62c524b01a848/statement.tex and https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3027.txt . Exact statement and prompt inspected; prompt listed no earlier contributions. Catalogue credit: Ulam AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+4. We-Solve / UnsolvedMath prb_b8fd80d827ea4ad186a62c524b01a848, Math-3280, catalogue entry: https://github.com/We-Solve/research/blob/main/problems/b8/prb_b8fd80d827ea4ad186a62c524b01a848/statement.tex and https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_b8fd80d827ea4ad186a62c524b01a848.txt . Exact statement and prompt inspected; prompt listed no earlier contributions. Catalogue credit: Ulam AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 

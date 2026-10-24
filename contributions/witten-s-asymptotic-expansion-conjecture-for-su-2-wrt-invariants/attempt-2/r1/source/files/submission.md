@@ -1,6 +1,6 @@
 # The reported Seifert homology-sphere WRT expansion and an explicit infinite input family
 
-Problem: TOP-30006807
+Problem: prb_bf7c899a6cf44d3cae14f56b05b21743
 
 Claim type: Literature report
 

@@ -1,6 +1,6 @@
 # Primitive denominator and modular obstructions for four rational square distances
 
-Problem: TOP-9300004
+Problem: prb_b2e8f6b94b4c48e1be5ac45b2e3cadf1
 
 Claim type: Partial result
 
@@ -46,5 +46,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-9300004.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b2e8f6b94b4c48e1be5ac45b2e3cadf1.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

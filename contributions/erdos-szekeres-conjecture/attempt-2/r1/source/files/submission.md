@@ -1,6 +1,6 @@
 # The exact split-polygon threshold is a relaxation of the original conjecture
 
-**Problem:** TOP-3080. **Claim type:** Literature report.
+**Problem:** prb_918a4a3d61b7484ea42c44df7dee50e8. **Claim type:** Literature report.
 
 **Exact scope.** Baek and Balko's 2025 theorem determines the exact threshold for a related split-polygon problem, and records the original threshold on decomposable sets. We give the precise distinction and an exact six-point example showing that a split $5$-gon need not supply five points in convex position. This is an attribution and scope report, not a proof or disproof of the unrestricted Erdős–Szekeres conjecture.
 
@@ -25,7 +25,7 @@ The earlier contribution was read. It already gives the classical cup–cap recu
 
 Run `python3 verify.py`. Besides the integer geometric certificate, it checks the displayed binomial formula's two specializations: $a=u=k$ gives $2^{k-2}+1$, while $k=a+u-2$ gives the classical cap–cup number $\binom{a+u-4}{a-2}+1$. These arithmetic checks are not represented as a proof of the source's universal theorem. The checker refuses `-O`.
 
-**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3080.txt); J. Baek and M. Balko, [The Erdős–Szekeres Conjecture Revisited, SoCG 2025](https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.html), Theorems 3, 4 and 8, definitions of split and decomposable configurations, and their original-versus-abstract distinction; [earlier contribution source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/erdos-szekeres-conjecture/attempt-1/r1/source/files/3080.tex). No claim of a full independent audit of the paper or an exhaustive later-literature search is made.
+**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_918a4a3d61b7484ea42c44df7dee50e8.txt); J. Baek and M. Balko, [The Erdős–Szekeres Conjecture Revisited, SoCG 2025](https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.html), Theorems 3, 4 and 8, definitions of split and decomposable configurations, and their original-versus-abstract distinction; [earlier contribution source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/erdos-szekeres-conjecture/attempt-1/r1/source/files/manuscript.tex). No claim of a full independent audit of the paper or an exhaustive later-literature search is made.
 
 Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: source and overlap review, mathematical scope comparison and exact finite certificate. The user requested preparation. No human mathematical review, formal verification, novelty or editorial acceptance is claimed.
 
@@ -42,8 +42,8 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3080.txt
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-3080.json
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_918a4a3d61b7484ea42c44df7dee50e8.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_918a4a3d61b7484ea42c44df7dee50e8.json
 https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.html
-https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/erdos-szekeres-conjecture/attempt-1/r1/source/files/3080.tex
+https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/erdos-szekeres-conjecture/attempt-1/r1/source/files/manuscript.tex
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

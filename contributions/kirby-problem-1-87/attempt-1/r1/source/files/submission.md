@@ -1,6 +1,6 @@
 # Explicit isolated polynomial singularities for every positive torus knot
 
-**Problem:** TOP-2746
+**Problem:** prb_f5790309d3e140ad9a8882423990f5fa
 
 **Claim type:** Partial result
 

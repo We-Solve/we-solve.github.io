@@ -3,7 +3,7 @@
 
 # A degree-twenty-four counterexample to the shifted coefficient-parity bound
 
-Problem: **TOP-2200014 / Math-3464**, *Problems Around Polynomials — Conjecture 9* (AMR-021-0014).
+Problem: **prb_0899287bec824ec880c2bf7b935585b1 / Math-3464**, *Problems Around Polynomials — Conjecture 9* (catalogue entry).
 
 Claim type: **literature report**, including a complete explicit disproof of the recorded universal bound.
 
@@ -404,7 +404,7 @@ This explicit certificate shows that counting distinct real roots instead of mul
 
 ## 7. Independent verification
 
-The original accompanying verifier, `verify2200014.py`, completed successfully using only standard-library exact integers and rational numbers. It checks all fifty positive coefficients and all fifty shifted differences of $P$ and $Q$, obtaining exactly the selected list (6) and statistic twenty for each.
+The original accompanying verifier, `verify.py`, completed successfully using only standard-library exact integers and rational numbers. It checks all fifty positive coefficients and all fifty shifted differences of $P$ and $Q$, obtaining exactly the selected list (6) and statistic twenty for each.
 
 It reconstructs both polynomials from their factorizations, divides out the twenty-two real linear factors exactly, verifies the quadratic discriminant and a complete-square identity proving strict positivity on the real line, and confirms the content 1250 used in (20). As an independent coefficient calculation for $Q$, it evaluates the factor product at twenty-five distinct integer arguments and recovers all twenty-five coefficients by exact Newton interpolation.
 
@@ -433,7 +433,7 @@ References (checked):
 
 1. **Olga Katkova, Boris Shapiro and Anna Vishnyakova**, *In search of Newton-type inequalities*, **Journal of Mathematical Analysis and Applications 538** (2024), no. 1, article 128349, DOI [10.1016/j.jmaa.2024.128349](https://doi.org/10.1016/j.jmaa.2024.128349), Section 5. [Author-hosted published full text](https://staff.math.su.se/shapiro/Articles/OptimalNewton.pdf); [full preprint, arXiv:2403.12200](https://arxiv.org/pdf/2403.12200). The preprint was posted 18 March 2024; the published PDF records online availability on 25 March 2024; the issue is dated 1 October 2024.
 2. **Boris Shapiro**, *Problems Around Polynomials: The Good, The Bad and The Ugly…*, **Arnold Mathematical Journal 1** (2015), 91–99, DOI [10.1007/s40598-015-0008-4](https://doi.org/10.1007/s40598-015-0008-4). [Published full text](https://amj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/), Section 7, Conjecture 9.
-3. **We-Solve**, [TOP-2200014 / Math-3464 problem page](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-9/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/08/prb_0899287bec824ec880c2bf7b935585b1/statement.tex), and [live prompt](https://we-solve.github.io/prompts/TOP-2200014.txt).
+3. **We-Solve**, [prb_0899287bec824ec880c2bf7b935585b1 / Math-3464 problem page](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-9/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/08/prb_0899287bec824ec880c2bf7b935585b1/statement.tex), and [live prompt](https://we-solve.github.io/prompts/prb_0899287bec824ec880c2bf7b935585b1.txt).
 
 
 <details>
@@ -476,5 +476,5 @@ Olga Katkova, Boris Shapiro and Anna Vishnyakova, In search of Newton-type inequ
 
 Boris Shapiro, Problems Around Polynomials: The Good, The Bad and The Ugly…, Arnold Mathematical Journal 1 (2015), 91–99, DOI [10.1007/s40598-015-0008-4](https://doi.org/10.1007/s40598-015-0008-4). Checked [published Section 7](https://amj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/), Conjecture 9, its strict-positive shifted rule and attribution to Jens Forsgård and Boris Shapiro.
 
-We-Solve [TOP-2200014 / Math-3464](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-9/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/08/prb_0899287bec824ec880c2bf7b935585b1/statement.tex) and [live prompt](https://we-solve.github.io/prompts/TOP-2200014.txt). Checked coefficient positivity, multiplicity convention, shifted differences and strict retention. The prompt listed no earlier contributions at inspection; issue search found no matching submission.
+We-Solve [prb_0899287bec824ec880c2bf7b935585b1 / Math-3464](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-9/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/08/prb_0899287bec824ec880c2bf7b935585b1/statement.tex) and [live prompt](https://we-solve.github.io/prompts/prb_0899287bec824ec880c2bf7b935585b1.txt). Checked coefficient positivity, multiplicity convention, shifted differences and strict retention. The prompt listed no earlier contributions at inspection; issue search found no matching submission.
 

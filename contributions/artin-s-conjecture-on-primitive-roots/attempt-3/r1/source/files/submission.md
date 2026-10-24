@@ -1,4 +1,4 @@
-# TOP-1183: What the unconditional three-base theorem proves, and an exact base-two safe-prime subclass
+# prb_12144618457b494d995b50fd94f9ea89: What the unconditional three-base theorem proves, and an exact base-two safe-prime subclass
 
 Claim type: Literature report
 

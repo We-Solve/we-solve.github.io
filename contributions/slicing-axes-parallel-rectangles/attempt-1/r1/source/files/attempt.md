@@ -3,7 +3,7 @@
 
 # The exact rectangle-slicing number is 2m−2
 
-**Problem:** TOP-5500074 / Math-4008 / AMR-054-0074.
+**Problem:** prb_b72d806219cd4201816d37d0132a4162 / Math-4008 / catalogue entry.
 
 **Claim category:** Literature report. The exact answer follows from an established theorem; no new extremal theorem is claimed.
 
@@ -150,7 +150,7 @@ The parameter is the total number of full horizontal and vertical lines. The arg
 
 [2] Erik D. Demaine, Joseph S. B. Mitchell and Joseph O'Rourke (editors), *The Open Problems Project*, Problem 74, maintained record: https://github.com/edemaine/topp/blob/main/Problems/P.000074 . Used: original definition, historical non-sharp bound and earlier-work context. No claim that its cited secondary papers were separately examined is made.
 
-[3] We-Solve, TOP-5500074 / Math-4008, https://we-solve.github.io/problems/slicing-axes-parallel-rectangles/ . Checked current statement and research prompt in the official website repository: https://github.com/We-Solve/we-solve.github.io/tree/main/problems/slicing-axes-parallel-rectangles . Used: the exact least-uniform-number formulation, source mapping and pre-submission absence of earlier contributions.
+[3] We-Solve, prb_b72d806219cd4201816d37d0132a4162 / Math-4008, https://we-solve.github.io/problems/slicing-axes-parallel-rectangles/ . Checked current statement and research prompt in the official website repository: https://github.com/We-Solve/we-solve.github.io/tree/main/problems/slicing-axes-parallel-rectangles . Used: the exact least-uniform-number formulation, source mapping and pre-submission absence of earlier contributions.
 
 Original exposition and finite certificate data: CC BY 4.0. Original software: Apache-2.0. Prior results are credited; no third-party paper is redistributed.
 
@@ -312,5 +312,5 @@ Gaven (@gavenren): prompted the work and authorized public submission. No human 
 
 Gábor Tardos, Transversals of 2-intervals, a topological approach, Combinatorica 15(1) (1995), 123–134. DOI https://doi.org/10.1007/BF01294464 . Checked full author-hosted paper https://www.renyi.hu/~tardos/2int.pdf : definitions PDF p.1, Theorem 1.2 p.2, Corollary 5.2 and sharpness discussion p.10. Journal metadata checked at https://link.springer.com/article/10.1007/BF01294464 . Used: the established separated-two-interval transversal theorem and prior sharpness mechanism.
 E. D. Demaine, J. S. B. Mitchell and J. O'Rourke (editors), The Open Problems Project, Problem 74, https://github.com/edemaine/topp/blob/main/Problems/P.000074 . Used: original independence definition, historical bound and earlier-work context. Its other cited papers were not separately used as proof sources.
-We-Solve, TOP-5500074 / Math-4008, https://we-solve.github.io/problems/slicing-axes-parallel-rectangles/ . Checked current statement and prompt in https://github.com/We-Solve/we-solve.github.io/tree/main/problems/slicing-axes-parallel-rectangles . Used: exact recorded question, identifiers and pre-submission contribution check.
+We-Solve, prb_b72d806219cd4201816d37d0132a4162 / Math-4008, https://we-solve.github.io/problems/slicing-axes-parallel-rectangles/ . Checked current statement and prompt in https://github.com/We-Solve/we-solve.github.io/tree/main/problems/slicing-axes-parallel-rectangles . Used: exact recorded question, identifiers and pre-submission contribution check.
 

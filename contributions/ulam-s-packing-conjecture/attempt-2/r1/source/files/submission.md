@@ -1,6 +1,6 @@
 # Regular tetrahedra pack strictly more densely than balls
 
-Problem: TOP-1226
+Problem: prb_e96a57f24de641eea25fe3940ff08fc8
 
 Claim type: Literature report
 
@@ -31,7 +31,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1226.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e96a57f24de641eea25fe3940ff08fc8.txt
 https://arxiv.org/pdf/1005.0011v1 — Torquato and Jiao, SectionII, equations(27),(29),(37)–(40), Figure3(c); v1 April30,2010. Original4000/4671 construction credited there to Chen–Engel–Glotzer.
 https://arxiv.org/abs/1501.02155 — Hales et al., A formal proof of the Kepler conjecture; primary theorem for ball packing optimum.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

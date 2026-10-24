@@ -1,6 +1,6 @@
 # Exact circular flow numbers for regular bipartite graphs
 
-Problem: TOP-3224
+Problem: prb_37fc40dde40f4068a6c3ee63c6d1b48d
 
 Claim type: Partial result.
 
@@ -32,7 +32,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3224.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_37fc40dde40f4068a6c3ee63c6d1b48d.txt
 
 
 ## Reproducibility and review
@@ -43,5 +43,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3224.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_37fc40dde40f4068a6c3ee63c6d1b48d.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # The planar endpoint theorem and an order-independent proof on the line
 
-**Problem:** TOP-3079. **Claim type:** Literature report.
+**Problem:** prb_b256672525094f17bae64ee6675be8f3. **Claim type:** Literature report.
 
 **Exact scope.** Bezdek and Connelly's planar theorem applies to arbitrary endpoint expansions, so it settles the prompt in dimension two. We check that scope against the primary paper and give a self-contained proof for every number of equal intervals in dimension one, including reordered labels and coincident centres. No statement settling all dimensions is made. This is credited prior work, not a new proof of the planar theorem.
 
@@ -22,7 +22,7 @@ The earlier contribution on this problem proved a triangle-free positive-overlap
 
 Run `python3 verify.py`. Exact integer interval merging is compared with independently computed truncated-weight minimum spanning trees. All labelled endpoint pairs from the documented finite grids are checked whenever every distance expands, including coincidences and order changes. These are sanity checks for the one-dimensional proof, not numerical evidence claimed to verify the planar area theorem. Optimized execution is refused.
 
-**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3079.txt); K. Bezdek and R. Connelly, [primary paper arXiv:math/0108098v1](https://arxiv.org/pdf/math/0108098), Lemma 1, Theorem 1 and Corollary 1, published in Journal für die reine und angewandte Mathematik 553 (2002), 221–236; [earlier contribution source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kneser-poulsen-conjecture/attempt-1/r1/source/files/3079.tex). Only the named sections and scope bridge were checked; the entire planar proof is not represented as independently verified.
+**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b256672525094f17bae64ee6675be8f3.txt); K. Bezdek and R. Connelly, [primary paper arXiv:math/0108098v1](https://arxiv.org/pdf/math/0108098), Lemma 1, Theorem 1 and Corollary 1, published in Journal für die reine und angewandte Mathematik 553 (2002), 221–236; [earlier contribution source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kneser-poulsen-conjecture/attempt-1/r1/source/files/manuscript.tex). Only the named sections and scope bridge were checked; the entire planar proof is not represented as independently verified.
 
 Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: primary-source scope check, proof exposition and exact Python checks. The user requested the work. No human mathematical review, novelty, formal verification or editorial acceptance is claimed.
 
@@ -39,8 +39,8 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3079.txt
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-3079.json
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b256672525094f17bae64ee6675be8f3.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_b256672525094f17bae64ee6675be8f3.json
 https://arxiv.org/pdf/math/0108098
-https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kneser-poulsen-conjecture/attempt-1/r1/source/files/3079.tex
+https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kneser-poulsen-conjecture/attempt-1/r1/source/files/manuscript.tex
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

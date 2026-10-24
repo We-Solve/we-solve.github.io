@@ -1,4 +1,4 @@
-# TOP-30006820: The k-Server Conjecture for General Metric Spaces
+# prb_ce38e6fc82a2445ea01ab3d10e313a75: The k-Server Conjecture for General Metric Spaces
 
 Claim type: **Partial result**.
 
@@ -32,7 +32,7 @@ Comparison with the earlier attempt: The earlier attempt proves the uniform metr
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006820.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_ce38e6fc82a2445ea01ab3d10e313a75.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/the-k-server-conjecture-for-general-metric-spaces/attempt-1/r1/
 - M. Chrobak, H. Karloff, T. Payne and S. Vishwanathan, New Results on Server Problems, SIAM Journal on Discrete Mathematics 4(2), 172–181 (1991), publisher abstract and bibliographic data inspected: https://epubs.siam.org/doi/10.1137/0404017
 
@@ -50,7 +50,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006820.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_ce38e6fc82a2445ea01ab3d10e313a75.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/the-k-server-conjecture-for-general-metric-spaces/attempt-1/r1/
 M. Chrobak, H. Karloff, T. Payne and S. Vishwanathan, New Results on Server Problems, SIAM Journal on Discrete Mathematics 4(2), 172–181 (1991), publisher abstract and bibliographic data inspected: https://epubs.siam.org/doi/10.1137/0404017
 Exact source versions, statements and uses are described in report.md and source_notes.md.

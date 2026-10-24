@@ -1,6 +1,6 @@
 # The general four-partition theorem and an exact obstruction to its naive extension
 
-Problem: TOP-30004898 — Complexity of Submodular $k$-Partition.  
+Problem: prb_ce5a761168264f5f8c8c29328a243463 — Complexity of Submodular $k$-Partition.  
 Claim type: **Literature report**.  
 Scope: A checked primary-source update for unrestricted submodular functions at $k=4$ and symmetric functions at $k=5$, plus an exact replay of the source's eight-vertex incompatibility example. This does not classify all fixed $k$ or certify the complete published proof independently.
 

@@ -1,6 +1,6 @@
 # The Klein-bottle theorem and a planar-component reduction on every surface
 
-Problem: TOP-3321
+Problem: prb_388cc146fc1d4eee9498445f927bc5bf
 
 Claim type: Literature report.
 
@@ -41,7 +41,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-3321 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3321.txt
+- Official prb_388cc146fc1d4eee9498445f927bc5bf prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_388cc146fc1d4eee9498445f927bc5bf.txt
 - L. Beaudou, A. Gerbaud, R. Grappe, F. Palesi, Drawing disconnected graphs on the Klein bottle, arXiv:0810.0508v2, Introduction and Theorem 2: https://arxiv.org/pdf/0810.0508
 - M. DeVos, B. Mohar, R. Šámal, original problem entry, Drawing disconnected graphs on surfaces: https://www.openproblemgarden.org/op/drawing_disconnected_graphs_on_surfaces
 
@@ -54,7 +54,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-Official TOP-3321 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3321.txt
+Official prb_388cc146fc1d4eee9498445f927bc5bf prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_388cc146fc1d4eee9498445f927bc5bf.txt
 L. Beaudou, A. Gerbaud, R. Grappe, F. Palesi, Drawing disconnected graphs on the Klein bottle, arXiv:0810.0508v2, Introduction and Theorem 2: https://arxiv.org/pdf/0810.0508
 M. DeVos, B. Mohar, R. Šámal, original problem entry, Drawing disconnected graphs on surfaces: https://www.openproblemgarden.org/op/drawing_disconnected_graphs_on_surfaces
 Exact source versions, statements and uses are described in report.md and source_notes.md.

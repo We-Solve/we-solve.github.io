@@ -1,6 +1,6 @@
 # Littlewood for cubic-field bases with prescribed divisibility
 
-Problem: TOP-1284  
+Problem: prb_1c4c71aa3f55448383415728b4212f88  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

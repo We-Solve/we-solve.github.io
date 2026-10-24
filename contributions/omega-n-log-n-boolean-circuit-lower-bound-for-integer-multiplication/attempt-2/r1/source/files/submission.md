@@ -41,11 +41,11 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30006781/verify.py). Source SHA-256: `168423b71de96f429818e65d13ef579f7d6d7ac1e1b7575819685e73f778d61d`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify.py`. File SHA-256: `168423b71de96f429818e65d13ef579f7d6d7ac1e1b7575819685e73f778d61d`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006781.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_f92669ccaddc423986e8c0c84cec054c.txt
 Johan Håstad, Computational Limitations for Small Depth Circuits, primary 1986 thesis manuscript, §2.2 circuit conventions and Theorem 5.1 (pp.35–37 in manuscript pagination): https://johanhastad.se/thesis.pdf .
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30006781/verify.py (Used: exact previously reviewed program; SHA-256 168423b71de96f429818e65d13ef579f7d6d7ac1e1b7575819685e73f778d61d).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify.py` (Used: exact previously reviewed program; SHA-256 168423b71de96f429818e65d13ef579f7d6d7ac1e1b7575819685e73f778d61d).

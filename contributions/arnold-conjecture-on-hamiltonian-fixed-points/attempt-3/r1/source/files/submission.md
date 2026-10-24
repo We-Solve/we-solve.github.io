@@ -1,6 +1,6 @@
 # The exact critical-number Arnold bound for nondegenerate maps of aspherical surfaces
 
-Problem: TOP-30006772
+Problem: prb_42ba3f66cc7943b69ee3c87938292155
 
 Claim type: Literature report
 

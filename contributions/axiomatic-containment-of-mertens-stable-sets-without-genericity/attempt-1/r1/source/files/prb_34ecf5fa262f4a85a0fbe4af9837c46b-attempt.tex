@@ -1,0 +1,889 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{booktabs,enumitem}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={prb_34ecf5fa262f4a85a0fbe4af9837c46b: merged partial research contribution},pdfauthor={OpenAI GPT-6 assisted research draft},pdfsubject={Partial mathematical results; original problem remains unresolved}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small prb_34ecf5fa262f4a85a0fbe4af9837c46b}
+\fancyhead[R]{\small Nongeneric stability: partial results}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\setlist{itemsep=2pt,topsep=5pt}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\NE}{\operatorname{NE}}
+\newcommand{\QP}{\operatorname{QP}}
+\newcommand{\Stab}{\operatorname{Stab}_0}
+\newcommand{\CC}{\mathscr C}
+\newcommand{\A}{\mathcal A}
+\newcommand{\Up}{\mathcal U_0}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\im}{\operatorname{im}}
+\DeclareMathOperator{\relint}{relint}
+\title{Axiomatic containment of Mertens-stable sets without genericity:\\
+\large Merged partial contribution and proof audit}
+\author{OpenAI GPT-6 assisted research draft}
+\date{18 October 2026 \quad\textbullet\quad Merged contribution, version 3}
+\begin{document}
+\maketitle
+\thispagestyle{plain}
+
+\section*{Contribution metadata}
+\noindent\textbf{Permanent problem identifier:} \texttt{prb\_34ecf5fa262f4a85a0fbe4af9837c46b}.\\
+\textbf{Claim type:} \textbf{Partial result}, with full written proof arguments
+and an exact global reduction; \textbf{not a complete solution}.\\
+\textbf{Scope:} Largest globally axiom-compatible solution rule by compact
+pruning; an exact reformulation of the missing step; a continuous-section
+criterion (including fully mixed and strict equilibria); a nongeneric
+zero-sum polymatrix family; duplicate-action and strong-embedding transfers;
+two payoff-limit counterexamples; and a polynomial Hopf-map obstruction to
+replacing rational-cohomological essentiality by a coincidence property.\\
+\textbf{Assumptions and limitations:} Exact axioms $B,D^*,I^*$ and
+Mertens $0$-stability in Govindan--Wilson (2026). No proof or globally
+compatible counterexample for the unrestricted implication; no novelty,
+publication, independent referee, or formal-verification claim.\\
+\textbf{Source relation:} Consolidates the two user-supplied local drafts
+for \texttt{prb\_34ecf5fa262f4a85a0fbe4af9837c46b}. The source author reports proof and boundary checks
+against the pinned primary-source definitions; these reports are author
+declarations, not independent verification.
+
+\section{Write-up}
+\paragraph{Executive statement.}
+The generic-game implication is due to Govindan--Wilson. The precise
+nongeneric implication is still unresolved. This manuscript gives several
+sufficient subclasses, a global reduction, and explicit obstructions to
+plausible but invalid extensions of the generic proof. The constructions
+are deliberately not described as a universal solution.
+
+\subsection{Exact target and external inputs}
+A finite normal-form game is $G=(I,(A_i)_{i\in I},(u_i)_{i\in I})$,
+with mixed-strategy space $\Sigma_G=\prod_i\Delta(A_i)$ and Nash set
+$\NE(G)$. All games have at least one player and nonempty finite action sets.
+We use canonically labelled finite player and action sets; this makes the
+collection of games with real payoff arrays a set, not a proper class.
+Relabellings and all permitted representations remain included in the axioms.
+
+The source's definition of Mertens $0$-stability, including its perturbation
+space, boundary conventions and connexity requirement, is normative
+\cite[Definition 2.4]{gw}. Here $0$ denotes characteristic zero, not a local
+fixed-point index. The problem is the implication
+\begin{equation}\label{eq:target}
+ \Phi\text{ satisfies }B,D^*,I^*
+ \quad\Longrightarrow\quad
+ \forall G\ \forall K\in\Phi(G)\ \exists S\in\Stab(G): S\subseteq K.
+\end{equation}
+The selected sets are nonempty, closed and connected subsets of $\NE(G)$.
+No additional closedness of the \emph{family} $\Phi(G)$ is assumed.
+
+We retain precisely the source's permitted comparisons. Axiom $B$ requires
+intersection with profiles equivalent to quasi-perfect equilibria for every
+perfect-recall extensive-form representation. Axiom $D^*$ compares the source's
+strongly irrelevant dominated-strategy extensions, which have the same Nash
+set under the natural inclusion. Axiom $I^*$ requires equality between a
+solution family and the family of images of solutions under every strong
+embedding. Arbitrary payoff perturbations and arbitrary dominated-strategy
+extensions are \emph{not} added to these axioms
+\cite[Axioms 3.1, 4.7, 5.4; Definitions 4.4, 5.2]{gw}.
+
+\paragraph{External game-theoretic input.}
+We use the established all-game properties of the Mertens stability
+rule: nonemptiness and satisfaction of $B,D^*,I^*$, as stated by
+Govindan--Wilson and proved in their axioms discussion and Appendices A--B.
+The \emph{separate} generic necessity conclusion of their Theorem 6.1
+is not assumed for nongeneric games. The stable-image and stable-lift
+properties under strong embeddings are in Appendix B. These literature theorems are inputs;
+we do not claim to reprove or independently referee their full proofs.
+
+\paragraph{What is new relative to the preceding draft.}
+The original local attempt addressed strict quasi-perfect equilibria; the
+user-supplied manuscript adds explicit fully mixed and strict-equilibrium
+sections and a particularly economical nongeneric payoff-limit example.
+The compact pruning arguments address global axiom quantifiers, while
+Subsection \ref{sec:polymatrix} supplies games with only non-strict equilibria.
+The full target \eqref{eq:target} remains explicitly separate.
+
+\subsection{Compact spaces of candidate solutions}\label{sec:compact}
+Write
+\[
+ \CC(G)=\{K\subseteq\NE(G):K\ne\varnothing,\ K\text{ compact and connected}\},
+\]
+with the Hausdorff metric $d_H$. Compactness and closedness of individual sets
+are equivalent here because $\NE(G)$ is compact.
+
+\begin{lemma}\label{lem:hyperspace}
+For every finite game, $\CC(G)$ is compact. If
+$f:\NE(H)\to\NE(G)$ is continuous, then
+$f_*:\CC(H)\to\CC(G)$, defined by $f_*(L)=f(L)$, is continuous.
+\end{lemma}
+\begin{proof}
+The Nash set is closed in the compact product of simplexes: each best-response
+inequality is closed. For completeness, the hyperspace of nonempty compact
+subsets of any compact metric space $M$ is compact. Finite nets in $M$ yield
+finite nets in its hyperspace by taking all nonempty subsets of a finite net.
+It is complete: for a Hausdorff-Cauchy sequence $K_j$, the functions
+$z\mapsto\dist(z,K_j)$ converge uniformly to a continuous function $v$.
+The zero set $K=\{v=0\}$ is nonempty by compactness of $M$. Uniform convergence
+implies $\sup_{z\in K}\dist(z,K_j)\to0$. If the other Hausdorff distance did
+not tend to zero, points in $K_j$ bounded away from $K$ would have a limit in
+$M$; uniform convergence would put that limit in $K$, a contradiction.
+Thus $K_j\to K$.
+
+Connected subsets form a closed subspace of this hyperspace. Indeed, if a
+Hausdorff limit $K$ of connected compact sets were disconnected, a separation
+of $K$ into two nonempty compact sets would give disjoint open neighborhoods
+with positive separation. All sufficiently close $K_j$ would lie in their
+union and meet both, contradicting connectedness. This proves compactness of
+$\CC(G)$. Finally, $f$ is uniformly continuous on its compact domain. A modulus
+of uniform continuity bounds $d_H(f(L),f(L'))$ in terms of $d_H(L,L')$.
+Continuous images preserve nonemptiness, compactness and connectedness.
+\end{proof}
+
+For a fixed perfect-recall representation $\Gamma$ of $G$, let
+$Q_\Gamma\subseteq\NE(G)$ denote exactly the mixed profiles equivalent to
+quasi-perfect equilibria in the source's sense.
+
+\begin{lemma}\label{lem:qpcompact}
+$Q_\Gamma$ is compact. Consequently
+$\{K\in\CC(G):K\cap Q_\Gamma\ne\varnothing\}$ is closed in $\CC(G)$.
+\end{lemma}
+\begin{proof}
+First show that quasi-perfect behavioral profiles form a closed set for a
+fixed finite $\Gamma$. Suppose $b^j\to b$ and every $b^j$ is quasi-perfect.
+There are finitely many information-set actions. After discarding finitely
+many terms, every action with positive probability in $b$ also has positive
+probability in $b^j$. From a defining completely mixed witness sequence for
+$b^j$, choose $c^j$ with $\|c^j-b^j\|<1/j$. Every action supported by $b^j$
+is optimal against $c^j_{-i}$ at its information set, by
+\cite[Definition 2.1]{gw}. Therefore every action supported by $b$ has the same
+property. As $c^j\to b$, this is a quasi-perfect witness for $b$.
+The behavioral strategy space is compact, so its quasi-perfect subset is
+compact.
+
+The mixed/behavioral equivalence relation used here is closed. In the source's
+realization or enabling representation it is expressed by equality of finitely
+many continuous realization coordinates: they are linear in mixed strategies
+and polynomial in behavioral strategies. Thus the set of pairs $(x,b)$ with
+$b$ quasi-perfect and $x$ equivalent to $b$ is compact. Its projection to
+mixed-strategy space is $Q_\Gamma$ and is compact. The usual Nash inequalities
+are preserved by this equivalence.
+
+Finally, if $K_j\to K$ and $x_j\in K_j\cap Q_\Gamma$, take a convergent
+subsequence in compact $Q_\Gamma$. Its limit lies in $K$ by Hausdorff
+convergence. Hence $K\cap Q_\Gamma\ne\varnothing$.
+\end{proof}
+
+\subsection{A largest axiom-compatible rule by compact pruning}\label{sec:pruning}
+\subsubsection{Comparison maps}
+Introduce one arrow $e:H\to G$ for each of the following \emph{exactly
+permitted} comparisons:
+
+\begin{enumerate}[label=(\roman*)]
+\item A strong embedding of $G$ in $H$, with the map
+$f_e:\NE(H)\to\NE(G)$ supplied by Definition 5.2 of the source.
+\item An extension $H$ of $G$ satisfying Definition 4.4 of the source, with
+$f_e$ the natural deletion of the unused added coordinates on the Nash sets.
+\end{enumerate}
+In (ii), the two Nash sets are naturally homeomorphic. In (i), Nash profiles
+indeed map to Nash profiles: the outsiders of a Nash profile lie in the
+specified face; surjectivity of each insider's strategy map implements any
+original deviation; and the source's preference preservation would turn a
+profitable original deviation into a profitable insider deviation in $H$.
+The other insiders' mapped strategies remain unchanged because their maps
+depend only on their own strategies and the outsiders' strategies.
+
+Both kinds of $f_e$ are continuous. Put $e_*(L)=f_e(L)$. For these arrows,
+the two invariance axioms become the single family of equalities
+\begin{equation}\label{eq:arrows}
+ \Phi(G)=e_*(\Phi(H))
+ :=\{e_*(L):L\in\Phi(H)\}\qquad(e:H\to G).
+\end{equation}
+For a dominated-strategy arrow this is just the source's equality under the
+natural face identification, not an added projection axiom.
+
+\subsubsection{The recursion}
+Let $\mathfrak E(G)$ be the set of all permitted perfect-recall representations
+of $G$. Define
+\begin{equation}\label{eq:A0}
+ \A_0(G)=\bigcap_{\Gamma\in\mathfrak E(G)}
+ \{K\in\CC(G):K\cap Q_\Gamma\ne\varnothing\}.
+\end{equation}
+Thus $\A_0$ imposes exactly $B$ on individual candidate sets. For $r\ge0$, define
+\begin{equation}\label{eq:recursion}
+\begin{split}
+ \A_{r+1}(G)={}&\A_r(G)\ \cap\!
+ \bigcap_{e:G\to F}e_*^{-1}(\A_r(F))\ \cap\!
+ \bigcap_{e:H\to G}e_*(\A_r(H)),\\
+ \A_\infty(G)={}&\bigcap_{r=0}^{\infty}\A_r(G).
+\end{split}
+\end{equation}
+The first intersection of comparisons enforces image compatibility; the
+second enforces the existence of a compatible lift for \emph{each} incoming
+comparison. Different arrows may require different lifts, exactly as in
+\eqref{eq:arrows}.
+
+\begin{theorem}[Largest compatible solution concept]\label{thm:maximal}
+For every $G$, all families $\A_r(G)$ and $\A_\infty(G)$ are nonempty compact
+subsets of $\CC(G)$. The rule $\A_\infty$ satisfies $B,D^*,I^*$ globally.
+Moreover, every globally defined solution concept $\Phi$ satisfying these
+axioms obeys
+\begin{equation}\label{eq:largest}
+ \Phi(G)\subseteq\A_\infty(G)\qquad\text{for every finite game }G.
+\end{equation}
+Thus $\A_\infty$ is the largest such rule, ordered by inclusion of solution
+families game by game.
+\end{theorem}
+\begin{proof}
+\emph{Compactness.} Lemma \ref{lem:qpcompact} makes $\A_0(G)$ closed in compact
+$\CC(G)$. Suppose all $\A_r(F)$ are compact. Each inverse image in
+\eqref{eq:recursion} is closed by Lemma \ref{lem:hyperspace}. Each image
+$e_*(\A_r(H))$ is compact, hence closed in the metric space $\CC(G)$.
+Arbitrary intersections of these closed sets are closed. This proves
+compactness by induction. The families decrease with $r$.
+
+\emph{Nonemptiness.} We prove the stronger assertion
+\begin{equation}\label{eq:stableprotected}
+ \Stab(G)\subseteq\A_r(G)\qquad\text{for every }G,r.
+\end{equation}
+At $r=0$, it follows from stability satisfying $B$. Suppose it holds at stage
+$r$. For a stable set $S$ in $G$, every outgoing arrow has stable image in its
+target, hence an image in that target's $\A_r$. Every incoming arrow admits a
+stable lift of $S$, hence a lift in its source's $\A_r$. These statements are
+exactly the established $D^*,I^*$ properties of $\Stab$.
+Thus $S\in\A_{r+1}(G)$. Existence of stable sets proves nonemptiness, including
+at the intersection $\A_\infty(G)$.
+
+\emph{The axioms at the limit.} Axiom $B$ holds because
+$\A_\infty(G)\subseteq\A_0(G)$. Fix an arrow $e:H\to G$. For
+$L\in\A_\infty(H)$, membership in $\A_{r+1}(H)$ implies
+$e_*(L)\in\A_r(G)$ for every $r$. Hence
+\[
+ e_*(\A_\infty(H))\subseteq\A_\infty(G).
+\]
+For the converse fix $K\in\A_\infty(G)$. For every $r$, the fiber
+\[
+ F_r=\{L\in\A_r(H):e_*(L)=K\}
+\]
+is nonempty: use $K\in\A_{r+1}(G)$ and the incoming-arrow condition.
+It is compact by continuity of $e_*$, and $F_{r+1}\subseteq F_r$.
+Compactness gives a point in $\bigcap_rF_r$. Such a point is a set
+$L\in\A_\infty(H)$ with $e_*(L)=K$. This proves the reverse inclusion and
+therefore \eqref{eq:arrows}. It is the step that justifies stopping at the
+countable intersection; independently choosing a different lift at each
+stage would not suffice without compactness.
+
+\emph{Maximality.} Let $\Phi$ satisfy the three axioms. Axiom $B$ gives
+$\Phi(G)\subseteq\A_0(G)$ for every $G$. Suppose inclusion holds at stage $r$.
+For $K\in\Phi(G)$, its image under every outgoing arrow belongs to the
+corresponding $\Phi(F)$ and hence $\A_r(F)$. Under every incoming arrow it has
+a lift in $\Phi(H)$ and hence $\A_r(H)$. Thus $K\in\A_{r+1}(G)$.
+Induction and intersection prove \eqref{eq:largest}. No compactness assumption
+on the original family $\Phi(G)$ has been used.
+\end{proof}
+
+\begin{remark}
+The existence of a largest rule also follows by taking the union of all
+compatible rules. The additional content of Theorem \ref{thm:maximal} is the
+explicit compact recursion, the compactness of its families, and the fact that
+countably many stages suffice. The recursion is set-theoretic: its individual
+stages quantify over all permitted finite games and comparisons.
+\end{remark}
+
+\subsection{An exact reformulation of the unsolved implication}\label{sec:equivalence}
+Define the upward containment family
+\[
+ \Up(G)=\{K\in\CC(G):\exists S\in\Stab(G),\ S\subseteq K\}.
+\]
+This definition does not say that $K$ itself is stable.
+
+\begin{corollary}\label{cor:equivalence}
+The following are equivalent:
+\begin{enumerate}[label=(\alph*)]
+\item The unrestricted implication \eqref{eq:target} holds.
+\item $\A_\infty(G)\subseteq\Up(G)$ for every finite game $G$.
+\item For every $G$ and every $K\in\CC(G)\setminus\Up(G)$, there is a finite
+integer $r\ge0$ such that $K\notin\A_r(G)$.
+\end{enumerate}
+If an explicit $G,K$ violating (b) is found, $\Phi=\A_\infty$ supplies the
+required globally defined counterexample solution concept.
+\end{corollary}
+\begin{proof}
+Apply (a) to $\Phi=\A_\infty$ to obtain (b). Conversely, maximality in
+Theorem \ref{thm:maximal} makes (b) imply (a) for every compatible $\Phi$.
+Finally, (b) and (c) are equivalent by the definition
+$\A_\infty(G)=\bigcap_{r\ge0}\A_r(G)$.
+\end{proof}
+
+\paragraph{What this does not prove.}
+The protected inclusion \eqref{eq:stableprotected} has the opposite direction
+from the desired containment assertion. We have \emph{not} proved that every
+survivor contains a stable set. Nor is finite-stage elimination an effective
+finite certificate: one stage already quantifies over an unrestricted set of
+representations and comparisons. There is no algorithm, uniform depth bound,
+or test of all incoming embeddings in this contribution.
+
+For games covered by the source's generic theorem, Corollary
+\ref{cor:equivalence} does imply finite-stage elimination of each candidate
+containing no stable set. Removing the genericity assumption from that
+consequence is exactly the remaining issue, not an additional established
+result.
+
+\subsection{A constructive criterion for singleton stability}\label{sec:section}
+Fix $G$, write $m_i=|A_i|$, and use the common-mass perturbation polytope
+\[
+ P_\varepsilon=\{\delta\tau:0\le\delta\le\varepsilon,\ \tau\in\Sigma_G\}.
+\]
+For $\eta\in P_1$, its common mass is
+$\delta(\eta)=\sum_{a\in A_i}\eta_i(a)$, independent of $i$.
+The perturbed feasible set is
+$\Sigma_i(\eta)=\{x_i\in\Delta(A_i):x_i(a)\ge\eta_i(a)\}$.
+Let $E_G$ be the graph of constrained Nash equilibria over $P_1$ and
+$\pi:E_G\to P_1$ its projection.
+
+The polytope $P_\varepsilon$ has dimension
+\[
+ d=1+\sum_i(m_i-1)
+\]
+in its linear span and is homeomorphic, with its relative boundary, to
+$(D^d,S^{d-1})$. For $X\subseteq E_G$ put
+$X_\varepsilon=X\cap\pi^{-1}(P_\varepsilon)$ and
+$\partial X_\varepsilon=X\cap\pi^{-1}(\partial P_\varepsilon)$.
+In particular $\partial X_1$ refers to the boundary of $P_1$, not an
+arbitrarily chosen boundary of $X$.
+
+\begin{proposition}[Continuous-section criterion]\label{prop:section}
+Let $x\in\NE(G)$. Suppose that for some $0<\rho<1$ there is a continuous map
+$s:P_\rho\to\Sigma_G$ with
+\[
+ s(0)=x,\qquad s(\eta)\in\NE(G(\eta))\quad(\eta\in P_\rho).
+\]
+Then $\{x\}\in\Stab(G)$.
+\end{proposition}
+\begin{proof}
+Let $X=\{(\eta,s(\eta)):\eta\in P_\rho\}$. This is a compact subset of $E_G$
+with $X_0=\{(0,x)\}$. For every $0<\varepsilon\le\rho$, projection is a
+homeomorphism of pairs
+\[
+ (X_\varepsilon,\partial X_\varepsilon)
+ \longrightarrow(P_\varepsilon,\partial P_\varepsilon).
+\]
+Consequently its induced map on degree-$d$ relative \v Cech cohomology with
+coefficients in $\Q$ is an isomorphism between one-dimensional vector spaces,
+so it is nonzero.
+
+We verify the source's connexity condition separately. Any neighborhood $V$
+of $(0,x)$ in $X$ contains the graph over $P_\kappa$ for some
+$0<\kappa<\rho$: continuity at zero gives this after shrinking $\kappa$.
+The graph over
+\[
+ B_\kappa=\{\eta:0<\delta(\eta)<\kappa,\ \eta_i(a)>0\text{ for all }i,a\}
+\]
+is connected and lies in $V\setminus\partial X_1$.
+Connectedness follows, for example, by parameterizing $B_\kappa$ by
+$(0,\kappa)\times\relint\Sigma_G$. The closure of this graph contains the
+graph over $P_{\kappa/2}$, since strictly positive directions are dense.
+Hence the connected component of $V\setminus\partial X_1$ containing this
+graph has closure containing a neighborhood of $(0,x)$ in $X$.
+The same conclusion holds whether closure is taken relative to $V$ or to
+$X$, since that smaller graph lies in $V$. This is precisely connexity.
+Together with essentiality it proves the assertion.
+\end{proof}
+
+\begin{corollary}[Equilibrium segments]\label{cor:segment}
+Suppose $x,y\in\NE(G)$, $y$ is completely mixed, and the whole segment
+$[x,y]$ lies in $\NE(G)$. Then $\{x\}$ is stable.
+Consequently, if $\NE(G)$ is star-shaped about a completely mixed equilibrium,
+every singleton equilibrium is stable and \eqref{eq:target} holds for $G$
+for \emph{any} rule selecting nonempty subsets of $\NE(G)$.
+\end{corollary}
+\begin{proof}
+Set $\mu=\min_{i,a}y_i(a)>0$ and choose $0<\rho<\min\{\mu,1\}$.
+For $\eta\in P_\rho$, define
+\[
+ s(\eta)=\left(1-\frac{\delta(\eta)}{\mu}\right)x+
+                \frac{\delta(\eta)}{\mu}y.
+\]
+It is an original Nash equilibrium by the segment assumption. Every coordinate
+is at least $\delta(\eta)y_i(a)/\mu\ge\delta(\eta)\ge\eta_i(a)$, so it is
+feasible for the perturbed game. Restricting deviations cannot invalidate an
+original equilibrium that remains feasible. The continuous-section criterion
+applies. Every nonempty selected set contains a point $x$, hence its stable
+singleton.
+\end{proof}
+
+\begin{corollary}[Strict and completely mixed equilibria]\label{cor:strict}
+Every strict equilibrium and every completely mixed equilibrium has a stable
+singleton, under the stipulated strategy-perturbation definition.
+\end{corollary}
+\begin{proof}
+For a completely mixed equilibrium take the constant section for sufficiently
+small perturbations, or put $x=y$ in Corollary \ref{cor:segment}.
+For a strict equilibrium $a^*$, assign exactly $\eta_i(a)$ to every
+$a\ne a_i^*$ and all remaining probability to $a_i^*$. For sufficiently small
+$\rho$, continuity and the finitely many strict payoff gaps ensure that
+$a_i^*$ is the unique best reply at every such profile. Thus every player
+allocates all discretionary probability optimally. This is a continuous
+constrained-equilibrium section through $a^*$.
+\end{proof}
+
+\begin{remark}
+These assertions concern \emph{strategy lower bounds in a fixed game}, not
+arbitrary perturbations of its payoff array. Section \ref{sec:payofflimit}
+shows why that distinction matters. The section criterion is sufficient,
+not a claimed characterization of all stable singleton equilibria.
+\end{remark}
+
+\begin{corollary}[Backward induction and the earlier subclass]\label{cor:Bsection}
+Suppose, for one permitted representation $\Gamma$ of $G$, every point of
+$Q_\Gamma$ admits a section as in Proposition \ref{prop:section}. Then every
+solution concept satisfying $B$ obeys stable-set containment at $G$.
+In particular, if every quasi-perfect equilibrium in the simultaneous-move
+representation is strict, every selected connected set is a stable singleton.
+\end{corollary}
+\begin{proof}
+Axiom $B$ puts some $x\in Q_\Gamma$ in any selected $K$; the section gives
+$\{x\}\in\Stab(G)$. In the strict case, strict payoff gaps persist in a
+neighborhood of $x$. Every equilibrium in that neighborhood must put
+probability one on the same uniquely optimal actions, so $x$ is isolated in
+$\NE(G)$. Its singleton is relatively open and closed in the Nash set.
+Connectedness of $K$ containing $x$ forces $K=\{x\}$.
+\end{proof}
+
+This retains the earlier draft's example:
+\[
+ \begin{array}{c|ccc}&L&M&R\\\hline
+ U&(2,2)&(0,0)&(0,0)\\
+ D&(0,0)&(0,0)&(0,0)
+ \end{array}.
+\]
+Writing $p=\Pr(U)$ and $q=\Pr(L)$, the payoff advantages of $U$ over $D$
+and of $L$ over either alternative are $2q$ and $2p$. If $p>0$, equilibrium
+requires $q=1$ and then $p=1$. If $p=0$, action $D$ can be optimal only
+when $q=0$. Hence the Nash set is $(U,L)$ together with the segment
+$\{(D,tM+(1-t)R):0\le t\le1\}$. Against every completely mixed opponent,
+$D$ is strictly inferior to $U$, so no point on the segment is quasi-perfect.
+The strict point $(U,L)$ is quasi-perfect by continuity of its payoff gaps.
+Corollary \ref{cor:Bsection} therefore selects only its singleton.
+
+\subsection{A whole family with non-isolated quasi-perfect equilibria}\label{sec:polymatrix}
+Let $n\ge3$ and let $A\in\R^{n\times n}$ satisfy
+\[
+ A^{\mathsf T}=-A,\qquad A\mathbf 1=0.
+\]
+Player $i$ chooses $a_i\in\{0,1\}$ and receives
+\begin{equation}\label{eq:skewgame}
+ u_i(a)=a_i\sum_{j=1}^n A_{ij}a_j.
+\end{equation}
+This is a finite polymatrix game: each payoff is a sum of pairwise terms.
+It is zero-sum because $a^{\mathsf T}Aa=0$ for every pure profile.
+Write $x_i=\Pr(a_i=1)$, so the mixed-strategy space is $[0,1]^n$.
+
+\begin{theorem}\label{thm:skewgame}
+For every game \eqref{eq:skewgame},
+\begin{equation}\label{eq:kernelNE}
+ \NE(G)=\ker A\cap[0,1]^n.
+\end{equation}
+Every equilibrium is quasi-perfect in the canonical simultaneous-move
+representation and is non-strict. Every equilibrium singleton is Mertens
+$0$-stable. Hence stable-set containment holds for every nonempty selected
+subset, without needing $B,D^*,I^*$.
+\end{theorem}
+\begin{proof}
+The payoff advantage of action $1$ over $0$ is $d_i=(Ax)_i$.
+At a Nash profile, comparison with the feasible mixture $1/2$ gives
+$d_i(x_i-1/2)\ge0$. Yet
+\[
+ \sum_i d_i(x_i-1/2)
+ =x^{\mathsf T}Ax-\tfrac12\mathbf1^{\mathsf T}Ax=0,
+\]
+using skew-symmetry and $A\mathbf1=0$. Thus every term is zero.
+If $d_i>0$, optimality requires $x_i=1$, making the term $d_i/2>0$.
+If $d_i<0$, it requires $x_i=0$, making the term $-d_i/2>0$.
+Both contradict the zero sum. Hence $Ax=0$. Conversely, $Ax=0$ makes both
+actions best replies for every player, proving \eqref{eq:kernelNE} and
+non-strictness.
+
+The equilibrium set is convex and contains the completely mixed point
+$c=\frac12\mathbf1$. For any $x\in\NE(G)$, the profiles
+$x^k=(1-1/k)x+(1/k)c$ are completely mixed equilibria converging to $x$.
+Against every $x^k_{-i}$ both actions are optimal. This proves quasi-perfection
+using its defining completely mixed witnesses.
+
+For clarity, singleton stability also has a direct affine certificate.
+Given $0<\rho<1/2$ and $\eta\in P_\rho$, set
+\begin{equation}\label{eq:affinesection}
+ s_x(\eta)=(1-2\delta(\eta))x+\delta(\eta)\mathbf1.
+\end{equation}
+It belongs to $\ker A$ and every coordinate is in
+$[\delta(\eta),1-\delta(\eta)]$. Both action probabilities therefore meet
+all lower bounds, each of which is at most the common mass $\delta(\eta)$.
+It is an original Nash equilibrium and remains a constrained one.
+Proposition \ref{prop:section} proves stability of $\{x\}$.
+\end{proof}
+
+\subsubsection{An explicit three-player instance without duplicate actions}
+Take
+\[
+ A=\begin{pmatrix}0&1&-1\\-1&0&1\\1&-1&0\end{pmatrix},
+ \qquad
+ u_i(a)=a_i(a_{i+1}-a_{i+2})
+\]
+with cyclic indices. Its equilibrium set is exactly
+\[
+ D=\{(t,t,t):0\le t\le1\}.
+\]
+No point of $D$ is isolated, and none is strict. Both actions of each player
+are genuinely distinct: their payoff difference is $1$ at one opponents'
+pure profile and $-1$ at another. Thus this continuum is not merely created
+by duplicating payoff-equivalent actions.
+
+For every $t\in[0,1]$, formula \eqref{eq:affinesection} becomes
+\[
+ s_t(\eta)=\bigl(t+\delta(\eta)(1-2t)\bigr)\mathbf1.
+\]
+It explicitly handles both boundary equilibria $t=0,1$ as well as all
+interior equilibria. Block-diagonal matrices containing $k$ copies of this
+$3\times3$ matrix yield $3k$-player examples with a $k$-dimensional equilibrium
+cube and no strict equilibria. The same proof and section apply.
+
+\subsection{Two useful transfer results}
+\subsubsection{Lifting a section through exact duplicates}
+\begin{proposition}\label{prop:duplicates}
+Suppose $H$ is obtained by exact duplication of pure actions of $G$.
+If $x\in\NE(G)$ has a continuous lower-bound equilibrium section, then every
+mixed-profile lift $\widetilde x$ of $x$ under the duplication map has such a
+section in $H$. In particular, every singleton $\{\widetilde x\}$ is stable.
+\end{proposition}
+\begin{proof}
+Let $q_i:B_i\twoheadrightarrow A_i$ identify duplicates, so
+$u_i^H(b)=u_i^G(q(b))$. Given lower bounds $\widetilde\eta$, aggregate them as
+$\eta_i(a)=\sum_{q_i(b)=a}\widetilde\eta_i(b)$. Common perturbation mass is
+preserved. Write $s(\eta)$ for a section through $x$ in $G$.
+For each group $q_i^{-1}(a)$ choose weights $\lambda_i(b)\ge0$ summing to $1$.
+When $x_i(a)>0$, choose $\lambda_i(b)=\widetilde x_i(b)/x_i(a)$; when
+$x_i(a)=0$, all corresponding $\widetilde x_i(b)$ are zero and arbitrary
+weights suffice. Define
+\[
+ \widetilde s_i(b)=\widetilde\eta_i(b)+\lambda_i(b)
+                  \bigl(s_i(a;\eta)-\eta_i(a)\bigr),\qquad a=q_i(b).
+\]
+These coordinates meet their lower bounds, sum to one, and aggregate to
+$s_i(\eta)$. They are continuous and equal $\widetilde x$ at zero.
+Any feasible deviation in $H$ aggregates to a feasible deviation in $G$;
+its payoff is exactly the corresponding original payoff. Since $s(\eta)$
+is a constrained equilibrium, no such deviation is profitable.
+The section criterion completes the proof, including zero-probability
+boundary groups.
+\end{proof}
+
+\subsubsection{Containment descends through strong embeddings}
+\begin{proposition}\label{prop:descent}
+Let $\Phi$ satisfy $I^*$ and let $H$ strongly embed $G$ by $f$. If every
+$L\in\Phi(H)$ contains a stable subset, then every $K\in\Phi(G)$ contains a
+stable subset. For $D^*$ extensions, containment transfers in both directions
+under the natural identification.
+\end{proposition}
+\begin{proof}
+Given $K\in\Phi(G)$, choose $L\in\Phi(H)$ with $f(L)=K$ by $I^*$.
+By hypothesis, some $S_H\in\Stab(H)$ is contained in $L$. The established
+stable-image property gives $f(S_H)\in\Stab(G)$, and $f(S_H)\subseteq K$.
+For a $D^*$ extension the Nash sets, selected families, and stable families
+are identified, so the conclusion is immediate in either direction.
+\end{proof}
+
+The reverse strong-embedding inference is not supplied by this proof.
+A stable $S\subseteq f(L)$ has \emph{some} stable lift under the literature's
+stable-lift property; that property does not place this lift inside the
+\emph{particular} selected set $L$. Confusing these two quantifiers would
+silently assume the missing containment.
+
+\subsection{Why a limit of generic-game conclusions is insufficient}\label{sec:payofflimit}
+\begin{proposition}[One-sided tie payoff-limit obstruction]\label{prop:limit2}
+There exist two-player games $H_\varepsilon\to H_0$ and stable singleton
+sets $S_\varepsilon\to S_0$ in Hausdorff distance such that $S_0$ is
+not stable. The limiting game has a nontrivial Nash-equilibrium continuum.
+\end{proposition}
+\begin{proof}
+Let
+\[
+H_\varepsilon=\begin{array}{c|cc}
+ &L&R\\\hline
+ T&(1,1)&(1,0)\\
+ B&(1+\varepsilon,1)&(0,0)
+\end{array},\qquad \varepsilon\ge0.
+\]
+For every $\varepsilon>0$, $(B,L)$ is strict: $B$ strictly beats $T$
+against $L$, and $L$ strictly beats $R$ against $B$. Hence
+$S_\varepsilon=\{(B,L)\}$ is $0$-stable by the strict-equilibrium
+section, and $S_\varepsilon\to S_0=\{(B,L)\}$.
+
+In $H_0$, player 2 strictly prefers $L$ independently of the opponent;
+if player 2 chooses $R$ with probability $r$, player 1's payoff
+advantage of $T$ over $B$ is exactly $r$. Thus
+\[
+ \NE(H_0)=\{(pT+(1-p)B,L):0\le p\le1\}.
+\]
+For a perturbation vector $\eta$ with every lower bound strictly
+positive and $0<\delta(\eta)<1$, the constrained game has a unique
+Nash profile
+\[
+ x_1(T)=1-\eta_1(B),\qquad x_2(L)=1-\eta_2(R).
+\]
+As $\eta\to0$ through such interior perturbations, these profiles
+converge to $(T,L)$, not to $(B,L)$. To verify failure of the actual
+connexity requirement, suppose $S_0$ had a stability witness $X$ with
+$X_0=\{(0,(B,L))\}$. Choose $V$ a small relative neighborhood of
+$X_0$ in $X$ so that no profile in $V$ places more than $1/4$ on $T$
+and $\delta(\eta)<1/4$. There are no graph points in $V$ over
+$\operatorname{relint}P_1$, because every such equilibrium places
+$1-\eta_1(B)>3/4$ on $T$. Hence
+$V\setminus\partial X_1=\varnothing$, violating connexity.
+Therefore $S_0$ is not stable. A continuous section through $(T,L)$
+exists by the displayed formula, so this failure is specific to the
+other endpoint and does not imply that $H_0$ lacks stable sets.
+\end{proof}
+
+The preceding example is incorporated from the user-supplied
+\texttt{prb\_34ecf5fa262f4a85a0fbe4af9837c46b-attempt.tex}. It refutes only the proposed passage to
+payoff limits; it does not give a counterexample to the globally
+quantified axiomatic problem. In particular, backward induction in the
+simultaneous-move representation excludes the endpoint $(B,L)$.
+
+\begin{proposition}\label{prop:limit}
+There are games $G_k\to G_0$ and singleton stable equilibria $K_k\to K_0$
+in Hausdorff distance such that $K_0$ contains no stable subset.
+\end{proposition}
+\begin{proof}
+For $\theta\ge0$ consider
+\[
+ G_\theta=\begin{array}{c|cc}
+      &L&R\\ \hline
+ U&(1,1)&(0,0)\\
+ D&(0,0)&(\theta,\theta)
+ \end{array}.
+\]
+For every $\theta>0$, $(D,R)$ is strict, so $K_\theta=\{(D,R)\}$ is stable
+by Corollary \ref{cor:strict}. As $\theta\downarrow0$, the payoff arrays
+converge and these singleton sets have the same limit $K_0$.
+
+We show directly that $K_0$ is not stable in $G_0$, using the stipulated
+connexity condition. Suppose it had a witness $X\subseteq E_{G_0}$ with
+$X_0=\{(0,(D,R))\}$. Let $p=\Pr(U)$ and $q=\Pr(L)$, and consider the
+relative neighborhood
+\[
+ V=X\cap\{\delta(\eta)<1/4,\ p<1/4,\ q<1/4\}
+\]
+of $X_0$. If all coordinates of $\eta$ are strictly positive, then
+$q\ge\eta_2(L)>0$ makes $U$ strictly preferable to $D$, and
+$p\ge\eta_1(U)>0$ makes $L$ strictly preferable to $R$.
+Every constrained equilibrium must therefore satisfy
+\[
+ p=1-\eta_1(D)>3/4,\qquad q=1-\eta_2(R)>3/4
+\]
+when $\delta(\eta)<1/4$. No such profile belongs to $V$.
+Consequently every parameter occurring in $V$ lies on the relative boundary
+of $P_1$: it has a zero coordinate, including the zero-mass case.
+Thus $V\setminus\partial X_1$ is empty, contradicting connexity.
+Hence $K_0$ is not stable. Its only nonempty subset is itself.
+\end{proof}
+
+The positive-$\theta$ games are already nondegenerate bimatrix games.
+If a particular stronger genericity convention is desired, take generic
+payoff arrays arbitrarily close to each $G_{1/k}$ within the open region
+where $(D,R)$ remains strict. They still converge to $G_0$ and give the same
+counterexample. This invalidates the unqualified step ``approximate by
+generic games and pass stability to the limit.'' It does not refute
+\eqref{eq:target}: no globally compatible rule selecting $K_0$ is constructed.
+Indeed the simultaneous-move backward-induction requirement already excludes
+this particular $K_0$.
+
+\subsection{A polynomial topological obstruction to a second shortcut}\label{sec:hopf}
+The source identifies a gap between coincidence properties and rational
+cohomological essentiality in the nongeneric case \cite[Section 10]{gw}.
+The following classical Hopf-map construction makes the distinction explicit.
+It is not asserted to be a Nash perturbation graph.
+
+Let $D^m$ be the closed Euclidean unit ball. Regard $D^4$ as the unit ball
+in $\mathbb C^2$ and define the real polynomial map
+\begin{equation}\label{eq:hopf}
+ F(z_1,z_2)=\bigl(2\operatorname{Re}(z_1\overline z_2),\,
+ 2\operatorname{Im}(z_1\overline z_2),\,|z_1|^2-|z_2|^2\bigr).
+\end{equation}
+Its boundary restriction is a Hopf map, up to the harmless choice of
+orientation. The non-null-homotopy of this map is a standard input;
+see \cite[Example 4.51, p.~380; Section 4.B, p.~427]{hatcher}.
+
+\begin{proposition}\label{prop:hopf}
+The map $F:D^4\to D^3$ has a coincidence with every continuous map
+$g:D^4\to D^3$. Nevertheless,
+\[
+ F^*:\check H^3(D^3,S^2;\Q)\longrightarrow
+           \check H^3(D^4,S^3;\Q)
+\]
+is zero. The restriction of $F$ to any compact subpair
+$(Y,Y\cap S^3)$ also induces the zero map in degree three.
+\end{proposition}
+\begin{proof}
+Direct calculation gives
+$\|F(z)\|^2=(|z_1|^2+|z_2|^2)^2$; hence
+$F^{-1}(S^2)=S^3$. Suppose a continuous $g:D^4\to D^3$ has no
+coincidence with $F$. Then
+\[
+ R(z)=\frac{F(z)-g(z)}{\|F(z)-g(z)\|}
+\]
+is a continuous map $D^4\to S^2$. On the boundary $S^3$, consider
+\[
+ h_t(z)=\frac{F(z)-t\,g(z)}{\|F(z)-t\,g(z)\|},\qquad 0\le t\le1.
+\]
+For $t<1$, the denominator is nonzero because $\|F(z)\|=1$ and
+$\|t g(z)\|\le t<1$; for $t=1$ nonvanishing follows from the
+no-coincidence hypothesis. The map $h_t$ is a homotopy from
+$F|_{S^3}$ to $R|_{S^3}$. But $R|_{S^3}$ extends over $D^4$ and is
+therefore null-homotopic, which contradicts the non-null-homotopy of
+the Hopf map. Thus a coincidence exists for every $g$.
+
+For the ball pairs, relative \v Cech cohomology agrees with ordinary
+relative cohomology, giving
+\[
+ \check H^3(D^3,S^2;\Q)\cong\Q,\qquad
+ \check H^3(D^4,S^3;\Q)=0.
+\]
+Therefore $F^*=0$. For a compact $Y\subseteq D^4$, restriction of the
+map of pairs to $(Y,Y\cap S^3)$ factors through $(D^4,S^3)$;
+functoriality shows that the induced degree-three map remains zero.
+\end{proof}
+
+The graph
+$\{(F(z),z):z\in D^4\}\subseteq D^3\times D^4$ is compact and semialgebraic,
+and projection to its first coordinate is $F$ under a homeomorphism.
+Thus merely insisting that a map be a polynomially described coordinate
+projection does not cure the obstruction.
+The example rules out a general topological inference from coincidence to
+rational essentiality. To turn it into a counterexample to prb_34ecf5fa262f4a85a0fbe4af9837c46b, one would
+still need to realize suitable structure in an actual Nash perturbation
+graph and prove compatibility with \emph{all} comparisons in $B,D^*,I^*$.
+Neither requirement is established here.
+
+\subsection{Exact outstanding assertion and proof audit}\label{sec:gap}
+The general theorem would follow from
+\begin{equation}\label{eq:gap}
+ K\in\A_\infty(G)\quad\Longrightarrow\quad
+ \text{a stability witness has nonempty zero fiber contained in }\{0\}\times K.
+\end{equation}
+Such a witness must satisfy both the source's connexity condition and nonzero
+rational relative cohomology. The compactness argument constructs compatible
+\emph{selected sets}; it does not construct this perturbation witness.
+The continuous-section argument supplies witnesses in the stated subclasses,
+not for every survivor. No line of the manuscript proves \eqref{eq:gap}.
+
+\paragraph{Quantifiers checked.}
+The construction uses a global domain and both directions of every comparison.
+Lifts at the limit come from nested compact fibers, not from an unlicensed
+exchange of existence and limits. Boundary lower bounds, zero-probability
+duplicate groups, and the pure endpoints of the equilibrium continuum are
+included. The equilibrium examples do not use genericity or isolation.
+Changing games in Proposition \ref{prop:limit} is expressly distinguished
+from fixed-game hyperspace limits in Theorem \ref{thm:maximal}.
+
+\paragraph{Scope of the counterexamples.}
+Proposition \ref{prop:limit} refutes payoff-limit closure of singleton stability.
+Proposition \ref{prop:hopf} refutes an unrestricted topological implication.
+Neither is a counterexample to the posted game-theoretic statement.
+
+\paragraph{Checks and reproducibility.}
+The accompanying short Python program checks the displayed polynomial
+identities symbolically and the explicit section inequalities using exact
+rational test data. Those checks supplement the proofs; they do not establish
+the universal axioms, the Hopf-map theorem, or the missing assertion
+\eqref{eq:gap}. The manuscript is not a Lean or other proof-assistant
+formalization, and no independent referee verification is claimed.
+
+\paragraph{Novelty and provenance.}
+The source's definitions, known stability properties and generic theorem
+remain credited to their authors. Hyperspace compactness, section arguments,
+and the Hopf obstruction use standard mathematics. The compact pruning
+formulation and explicit examples were developed in this attempt; no claim
+that they are absent from the literature is made. The prior manuscripts reported assistance from GPT-6 Astra Pro;
+the present consolidation used ChatGPT GPT-6, without an available build
+identifier or independently verified deployment settings. The user requested
+and directed the work; no human verification is attributed to them.
+This version supersedes the earlier local draft as a research write-up,
+not as a change to the website's problem status.
+
+\paragraph{Recommended submission metadata.}
+\texttt{Problem: prb_34ecf5fa262f4a85a0fbe4af9837c46b}. Claim type: \texttt{partial result}.
+Scope: largest-compatible-rule construction, exact elimination reformulation,
+continuous-section criterion, a nongeneric polymatrix family, and two
+obstructions to proposed proof routes. Status of prb_34ecf5fa262f4a85a0fbe4af9837c46b: \texttt{unresolved}.
+No public issue, repository edit, or solved-status update is made by preparing
+this manuscript.
+
+\section*{Models used}
+This consolidation used ChatGPT GPT-6 to compare the two supplied
+LaTeX attempts, scrutinize the arguments, and prepare this merged draft.
+Exact deployment snapshot and reasoning settings were not independently
+available. The supplied manuscript declares ``OpenAI GPT 6 Astra Pro'';
+that is preserved as the supplied manuscript's attribution, not asserted
+as this run's verified model setting. No Lean or other formal proof
+assistant was used.
+
+\section*{Human contributors and roles}
+The user supplied the WS-labelled attempt and the earlier local draft,
+requested combination, and specified the target. No human mathematician's
+proof endorsement or referee review is claimed. Govindan and Wilson
+retain sole credit for the cited prior theory, and Hatcher for the cited
+topological background. The added combination is an LLM-assisted research
+draft with unverified novelty.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{gw}
+Srihari Govindan and Robert Wilson.
+\emph{Axiomatic Equilibrium Selection in Generic Extensive-Form Games}.
+arXiv:2504.16908v2, 26 August 2026.
+The PDF title reads \emph{Axiomatic Equilibrium Selection: The Case of Generic
+Extensive Form Games}.
+Definitions 2.1, 2.4, 2.5, 4.4, 5.2; Axioms 3.1, 4.7, 5.4;
+Theorem 6.1; Section 10; Appendices A and B.
+\url{https://arxiv.org/html/2504.16908v2}.
+\url{https://arxiv.org/pdf/2504.16908v2}.
+
+\bibitem{hatcher}
+Allen Hatcher.
+\emph{Algebraic Topology}.
+Cambridge University Press, 2002; author-hosted electronic edition.
+Example 4.51, p.~380; Section 4.B, p.~427; the relative cohomology of balls.
+\url{https://pi.math.cornell.edu/~hatcher/AT/AT.pdf}.
+
+\bibitem{attachment}
+User-supplied \emph{Local witnesses for nongeneric stability and two
+obstructions to extending the generic theorem}, 18 October 2026,
+file \texttt{prb\_34ecf5fa262f4a85a0fbe4af9837c46b-attempt.tex} (supplied working draft; not a
+peer-reviewed source).
+
+\bibitem{problem}
+We-Solve.
+\emph{Axiomatic containment of Mertens-stable sets without genericity}.
+Permanent public problem identifier \texttt{prb\_34ecf5fa262f4a85a0fbe4af9837c46b}.
+Consulted predecessor statement revision
+\texttt{stm\_32cd4f81d2514415920d3ba7e50d23af}.
+\href{https://we-solve.github.io/api/v1/problems/prb_34ecf5fa262f4a85a0fbe4af9837c46b.json}{Permanent problem lookup}.
+\href{https://we-solve.github.io/problems/axiomatic-containment-of-mertens-stable-sets-without-genericity/}{Published problem record}.
+Prompt blob SHA: \texttt{f34db89188d9a2b326623f8ccb664f0956da7f4b}.
+\end{thebibliography}
+\end{document}

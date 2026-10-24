@@ -3,7 +3,7 @@
 
 # Symbolic versus ordinary powers for linearly independent projective points
 
-**Problem:** TOP-1500016 / Math-3417 / AMR-014-0016, *Algebraic Stories — Symbolic powers vs. ordinary powers.*
+**Problem:** prb_f155e7b02ba34c5cbc2402e84aa03922 / Math-3417 / catalogue entry, *Algebraic Stories — Symbolic powers vs. ordinary powers.*
 
 **Claim:** Literature report with a complete solution of the parameter range $1\le s\le n$, for every $m\ge1$, and a self-contained extension from the spanning case to its ambient embeddings. Also settles every number of distinct points on $\mathbb P^1$. This is **not** a solution for arbitrary $s>n$ in higher projective dimension.
 
@@ -240,7 +240,7 @@ Thus the requested difference is zero for every $s,m$ on $\mathbb P^1$. The clai
 
 ## 11. Verification and reproducibility
 
-The accompanying dependency-free Python program checks actual ordinary generator divisibility by recursive generator removal, independently of formula (6), and symbolic membership by the defining prime-power inequalities. It compares the graded counts with inclusion–exclusion, checks minimal symbolic generators and the containment threshold in finite ranges, and includes deliberately incorrect formulas as negative controls. Exact executed ranges and counts are in `verify1500016-results.json`; the finite computations corroborate the proofs and do not replace the arguments for arbitrary parameters.
+The accompanying dependency-free Python program checks actual ordinary generator divisibility by recursive generator removal, independently of formula (6), and symbolic membership by the defining prime-power inequalities. It compares the graded counts with inclusion–exclusion, checks minimal symbolic generators and the containment threshold in finite ranges, and includes deliberately incorrect formulas as negative controls. Exact executed ranges and counts are in the verification results recorded in the original submission; the finite computations corroborate the proofs and do not replace the arguments for arbitrary parameters.
 
 The source is included in the submission so that the result can be checked without downloading a third-party computer algebra system. There are no floating-point decisions or random numerical root tests.
 
@@ -250,7 +250,7 @@ These are counts of executed comparisons, not a claim that all visited monomials
 
 ## 12. Attribution, scope, and references
 
-1. ULAM.AI, UnsolvedMath contributors and We-Solve, [TOP-1500016 / Math-3417](https://we-solve.github.io/problems/algebraic-stories-symbolic-powers-vs-ordinary-powers/), AMR-014-0016, CC BY 4.0. Used for the precise all-parameter question, grading convention and absence of listed attempts when checked on 18 October 2026.
+1. ULAM.AI, UnsolvedMath contributors and We-Solve, [prb_f155e7b02ba34c5cbc2402e84aa03922 / Math-3417](https://we-solve.github.io/problems/algebraic-stories-symbolic-powers-vs-ordinary-powers/), catalogue entry, CC BY 4.0. Used for the precise all-parameter question, grading convention and absence of listed attempts when checked on 18 October 2026.
 2. R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, *Algebraic Stories from One and from the Other Pockets*, [arXiv:1801.01692v1](https://arxiv.org/pdf/1801.01692v1), Section 3.2, **Problem K**, printed page 9. Used for the original symbolic-versus-ordinary Hilbert-series problem. The September 2026 preprint calls it Problem L; the reference here specifies the actual label in the checked 2018 v1, without assuming all versions have identical lettering.
 3. R. Fröberg and B. Shapiro, *Symbolic powers of the ideal of $n$ general points in $\mathbb P^{n-1}$*, [arXiv:2609.18539v2](https://arxiv.org/pdf/2609.18539v2), 17 September 2026, Theorems 3.1 and 4.1, Sections 2 and 6. Used for the established spanning-case formula, minimal-generator criterion and containment results; these are proved here, with the ambient-variable extension (9). This is an arXiv preprint; no peer-review acceptance is claimed.
 4. B. Chakraborty and M. Mandal, *Invariants of the symbolic powers of edge ideals*, [arXiv:1904.07717v2](https://arxiv.org/pdf/1904.07717v2), 26 August 2019, printed pages 1 and 15–16. Checked the definition of symbolic defect, the established core invariants in Theorem 4.3, and the numerical assertion in Theorem 4.4. Section 7 supplies a direct countercalculation to the latter in the inspected version. The linked unversioned PDF displayed the v2 date label when checked.
@@ -262,7 +262,7 @@ Original exposition and verification records: CC BY 4.0. Original code: Apache-2
 
 ## Reproducible exact verifier
 
-Save the following as `verify1500016.py` and run `python3 verify1500016.py`. It writes the results and four-point certificate beside the script.
+Save the following as `verify.py` and run `python3 verify.py`. It writes the results and four-point certificate beside the script.
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/24) for this material.
 
@@ -469,7 +469,7 @@ Save the following as `verify1500016.py` and run `python3 verify1500016.py`. It 
     }
   ],
   "four_point_certificate": {
-    "problem": "TOP-1500016",
+    "problem": "prb_f155e7b02ba34c5cbc2402e84aa03922",
     "convention": "n=4 total variables, s=4 coordinate points in P^3, m=3",
     "ideal_generators": [
       [
@@ -985,7 +985,7 @@ Gaven (@gavenren): prompted the work and authorized public submission. No human 
 
 ### References
 
-ULAM.AI, UnsolvedMath contributors and We-Solve, [TOP-1500016 / Math-3417](https://we-solve.github.io/problems/algebraic-stories-symbolic-powers-vs-ordinary-powers/), AMR-014-0016, CC BY 4.0. Checked the precise statement and listed prior contributions (none on the problem page); GitHub handle search also returned no matching issue before submission.
+ULAM.AI, UnsolvedMath contributors and We-Solve, [prb_f155e7b02ba34c5cbc2402e84aa03922 / Math-3417](https://we-solve.github.io/problems/algebraic-stories-symbolic-powers-vs-ordinary-powers/), catalogue entry, CC BY 4.0. Checked the precise statement and listed prior contributions (none on the problem page); GitHub handle search also returned no matching issue before submission.
 
 R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, [Algebraic Stories from One and from the Other Pockets, arXiv:1801.01692v1](https://arxiv.org/pdf/1801.01692v1), Section 3.2, Problem K, printed page 9. Checked the original all-parameter question; distinguish its version-specific lettering from Problem L in the later preprint.
 

@@ -21,7 +21,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 References checked.
 
 - [1] Scott Carnahan, Generalized Moonshine IV: Monstrous Lie algebras, arXiv:1208.6254v3, 20 August 2016. Theorem 4.2.1, Theorem 4.2.2 and its proof, pp.31–32; introduction records the normalized untwisted character. Primary PDF and abstract/version page checked; submitted manuscript, no publication claimed. https://arxiv.org/pdf/1208.6254
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1194.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_fde0c44027514c1c9a81ef7bca825d08.txt
 
 
 ## Reproducibility and review
@@ -33,5 +33,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 [1] Scott Carnahan, Generalized Moonshine IV: Monstrous Lie algebras, arXiv:1208.6254v3, 20 August 2016. Theorem 4.2.1, Theorem 4.2.2 and its proof, pp.31–32; introduction records the normalized untwisted character. Primary PDF and abstract/version page checked; submitted manuscript, no publication claimed. https://arxiv.org/pdf/1208.6254
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1194.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_fde0c44027514c1c9a81ef7bca825d08.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

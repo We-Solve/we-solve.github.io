@@ -1,4 +1,4 @@
-# TOP-30007445: FPRAS for cell-bounded contingency tables
+# prb_48039284776a4a9aa694a5497d585e78: FPRAS for cell-bounded contingency tables
 
 Claim type: **Partial result**.
 
@@ -26,7 +26,7 @@ Comparison with the earlier attempt: The earlier item summarizes a claimed gener
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007445.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_48039284776a4a9aa694a5497d585e78.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/fpras-for-cell-bounded-contingency-tables/attempt-1/r1/
 
 
@@ -43,6 +43,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007445.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_48039284776a4a9aa694a5497d585e78.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/fpras-for-cell-bounded-contingency-tables/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

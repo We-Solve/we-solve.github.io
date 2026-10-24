@@ -1,6 +1,6 @@
 # The five-charge Thomson minimum and its exact energy
 
-Problem: TOP-7200088
+Problem: prb_2af51672f85e49ba88acd2cb40d8853f
 
 Claim type: Literature report
 
@@ -32,6 +32,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-7200088.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_2af51672f85e49ba88acd2cb40d8853f.txt
 https://arxiv.org/pdf/1001.3702 — Richard E. Schwartz, Theorem1.1 (Coulomb), Section1.2 and proof structure Section1.3; 67-page manuscript inspected.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

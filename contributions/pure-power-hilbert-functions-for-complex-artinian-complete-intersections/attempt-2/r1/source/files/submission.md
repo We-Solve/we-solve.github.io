@@ -1,6 +1,6 @@
 # Split-factor Eisenbud–Green–Harris and an exact regularity test
 
-**Problem:** TOP-30006989
+**Problem:** prb_c0c138d219ed4896ac9abf1a88833d4d
 
 **Claim type:** Literature report
 

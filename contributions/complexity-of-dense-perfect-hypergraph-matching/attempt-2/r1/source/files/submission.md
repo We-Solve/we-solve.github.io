@@ -39,11 +39,11 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30000608/verify.py). Source SHA-256: `5cc06dbff01d98cd58d6fe40aa4bb8c25312ffb9c40cb381f4e8877e30ffe96e`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify.py`. File SHA-256: `5cc06dbff01d98cd58d6fe40aa4bb8c25312ffb9c40cb381f4e8877e30ffe96e`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30000608.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9ba092480e90408794d15fe8b92cd9c8.txt
 Peter Keevash, Fiachra Knox, Richard Mycroft, Polynomial-Time Perfect Matchings in Dense Hypergraphs, STOC2013 primary author paper, Theorem 1.4 and discussion of its special 3-uniform scope, pp.1–2: https://people.maths.ox.ac.uk/keevash/papers/stoc212fp-keevash.pdf . Full revised paper arXiv:1307.2608v2, Adv.Math.269 (2015), pp.265–334; this report fixes the STOC theorem numbering.
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30000608/verify.py (Used: exact previously reviewed program; SHA-256 5cc06dbff01d98cd58d6fe40aa4bb8c25312ffb9c40cb381f4e8877e30ffe96e).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify.py` (Used: exact previously reviewed program; SHA-256 5cc06dbff01d98cd58d6fe40aa4bb8c25312ffb9c40cb381f4e8877e30ffe96e).

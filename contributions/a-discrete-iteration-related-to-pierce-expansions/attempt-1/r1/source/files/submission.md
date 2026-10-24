@@ -1,4 +1,4 @@
-Problem: TOP-3348
+Problem: prb_6dad4d356fe346e7adedc18856f6e37f
 
 Title: The 19/59 Pierce-chain bound and an elementary exact certificate
 
@@ -45,6 +45,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3348.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_6dad4d356fe346e7adedc18856f6e37f.txt
 Z. Chase and M. Pandey, On the length of Pierce expansions, arXiv:2211.08374v1 (15 November 2022), Theorems 1.1–1.2 and notation: https://arxiv.org/html/2211.08374v1
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

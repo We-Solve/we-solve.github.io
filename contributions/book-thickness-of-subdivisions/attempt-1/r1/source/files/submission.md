@@ -1,6 +1,6 @@
 # A four-page bound whenever the one-subdivision has two pages
 
-Problem: TOP-3105
+Problem: prb_997864c4f9fd4ea19446f7b6bd665035
 
 Claim type: Literature report.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3105.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_997864c4f9fd4ea19446f7b6bd665035.txt
 - https://www.sciencedirect.com/science/article/pii/0022000089900329
 - https://www.openproblemgarden.org/op/book_thickness_of_subdivisions
 
@@ -41,7 +41,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3105.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_997864c4f9fd4ea19446f7b6bd665035.txt
 https://www.sciencedirect.com/science/article/pii/0022000089900329
 https://www.openproblemgarden.org/op/book_thickness_of_subdivisions
 Exact source versions, statements and uses are described in report.md and source_notes.md.

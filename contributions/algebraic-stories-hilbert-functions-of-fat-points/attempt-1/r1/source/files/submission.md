@@ -1,4 +1,4 @@
-# TOP-1500015: exact multigraded formulas for one or two generic fat points
+# prb_e369961459cd41bda5262b6306a68375: exact multigraded formulas for one or two generic fat points
 
 **Claim type:** Partial result. **Scope:** Every multigraded Hilbert-function value for $s=1$ and $s=2$, arbitrary multiplicity, arbitrary number of projective factors and arbitrary factor dimensions. The general case of three or more points is not solved here. No novelty is claimed for the coordinate-monomial method or these small-support cases.
 
@@ -89,7 +89,7 @@ The formulas cover all parameter values within $s=1,2$; the finite checks only v
 
 ## Checked references
 
-- [Official TOP-1500015 prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500015.txt), checked 18 October 2026, for the precise multigrading and powered-point-ideal convention.
+- [Official prb_e369961459cd41bda5262b6306a68375 prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e369961459cd41bda5262b6306a68375.txt), checked 18 October 2026, for the precise multigrading and powered-point-ideal convention.
 - Ralf Fröberg, Samuel Lundqvist, Alessandro Oneto and Boris Shapiro, *Algebraic Stories from One and from the Other Pockets*, Arnold Mathematical Journal 4 (2018), 137–160, [published PDF](https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf), Section 3.1, especially pp.150–151. The published version labels the multiprojective question Problem K; the catalogue's cited initial preprint uses a different problem-letter sequence. Used for context and the original question, not as a claim that the complete multiprojective problem has been solved.
 
 
@@ -109,5 +109,5 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 ## References
 
 https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500015.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e369961459cd41bda5262b6306a68375.txt
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

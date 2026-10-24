@@ -39,11 +39,11 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30004914/verify.py). Source SHA-256: `fe5eec414ccfe5708d6acd070b69fbb05915b394088dc2fdec9d76ac7df587c3`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify.py`. File SHA-256: `fe5eec414ccfe5708d6acd070b69fbb05915b394088dc2fdec9d76ac7df587c3`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30004914.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c2d80a091cbc460c99eede7e5e7f37fe.txt
 Edmonds 1965, primary NIST paper, abstract and weighted algorithm: https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p125_A1b.pdf .
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30004914/verify.py (Used: exact previously reviewed program; SHA-256 fe5eec414ccfe5708d6acd070b69fbb05915b394088dc2fdec9d76ac7df587c3).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify.py` (Used: exact previously reviewed program; SHA-256 fe5eec414ccfe5708d6acd070b69fbb05915b394088dc2fdec9d76ac7df587c3).

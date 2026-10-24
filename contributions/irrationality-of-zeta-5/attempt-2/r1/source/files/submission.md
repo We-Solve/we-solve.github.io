@@ -1,6 +1,6 @@
 # A proved four-value irrationality disjunction containing zeta(5)
 
-Problem: TOP-30006861  
+Problem: prb_878e26b2094b4deba41abbae51bb45ea  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

@@ -1,6 +1,6 @@
 # Hadwiger’s implication for every chordal graph
 
-Problem: TOP-14
+Problem: prb_0d4e939e604e41b5bdd16fd1c60e59a8
 
 Claim type: Partial result.
 
@@ -34,7 +34,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-14 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-14.txt
+- Official prb_0d4e939e604e41b5bdd16fd1c60e59a8 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_0d4e939e604e41b5bdd16fd1c60e59a8.txt
 - Lafferty and Song, Every graph with no K_8^{-4} minor is 7-colorable, arXiv:2208.07338, formulation reference: https://arxiv.org/abs/2208.07338
 
 
@@ -51,6 +51,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-14 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-14.txt
+Official prb_0d4e939e604e41b5bdd16fd1c60e59a8 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_0d4e939e604e41b5bdd16fd1c60e59a8.txt
 Lafferty and Song, Every graph with no K_8^{-4} minor is 7-colorable, arXiv:2208.07338, formulation reference: https://arxiv.org/abs/2208.07338
 Exact source versions, statements and uses are described in report.md and source_notes.md.

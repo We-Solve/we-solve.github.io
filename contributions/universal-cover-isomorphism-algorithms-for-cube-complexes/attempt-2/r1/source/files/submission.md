@@ -39,5 +39,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006621.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_a96c6314987c4c048b0f0c102b85c8d8.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

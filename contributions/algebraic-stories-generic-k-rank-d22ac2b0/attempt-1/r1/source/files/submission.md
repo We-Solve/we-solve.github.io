@@ -1,4 +1,4 @@
-Problem: TOP-1500001
+Problem: prb_d22ac2b0769e4838ae098ab5feeef2c7
 
 Title: Binary generic k-rank for every k and d: a complete special case with an apolarity proof
 
@@ -56,7 +56,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-1500001.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_d22ac2b0769e4838ae098ab5feeef2c7.txt
 https://arxiv.org/pdf/1711.05014v1 (Theorem 2.3)
 https://arxiv.org/pdf/1801.01692v1 (Problem A)
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

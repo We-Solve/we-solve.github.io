@@ -1,6 +1,6 @@
 # Complete knot-case Alexander realization, with explicit integral Seifert matrices
 
-**Problem:** TOP-2667. **Claim type:** Partial result.
+**Problem:** prb_093d891594b348cf96b49bf20a047d33. **Claim type:** Partial result.
 
 **Exact scope.** The $m=1$ case is completely characterized for both allowed ambient classes. Up to the prompt's unit ambiguity, the possible polynomials are exactly the integral Laurent polynomials admitting the normalization
 $$\Delta(t)=\Delta(t^{-1}),\qquad\Delta(1)=1.\tag{1}$$

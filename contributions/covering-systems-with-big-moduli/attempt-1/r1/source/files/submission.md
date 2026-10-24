@@ -1,4 +1,4 @@
-Problem: TOP-3382
+Problem: prb_561800ea4f4a4000b426c4d50e846c6a
 
 Title: Stronger minimum-modulus bounds, with exact certificates for an initial sieve budget and a squarefree covering
 
@@ -45,7 +45,7 @@ Human contributors and roles: No human review or new human mathematical contribu
 
 References:
 
-- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3382.txt
+- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_561800ea4f4a4000b426c4d50e846c6a.txt
 - P. Balister, B. Bollobás, R. Morris, J. Sahasrabudhe, M. Tiba, *On the Erdős Covering Problem: the density of the uncovered set*, arXiv:1811.03547v1, Theorem 8.1. https://arxiv.org/pdf/1811.03547
 - M. Cummings, M. Filaseta, O. Trifonov, *An upper bound for the minimum modulus in a covering system with squarefree moduli*, arXiv:2211.08548v1, Theorem 1.1, §4.1 and the introductory example; Acta Mathematica Hungarica 175 (2025), 1–25, DOI 10.1007/s10474-024-01496-x. https://arxiv.org/pdf/2211.08548
 
@@ -62,7 +62,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3382.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_561800ea4f4a4000b426c4d50e846c6a.txt
 https://arxiv.org/pdf/1811.03547 (Theorem 8.1, v1)
 https://arxiv.org/pdf/2211.08548 (Theorem 1.1, section 4.1, v1)
 https://link.springer.com/article/10.1007/s10474-024-01496-x

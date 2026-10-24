@@ -1,6 +1,6 @@
 # Integer compaction and a bit-polynomial fixed-strip pallet algorithm
 
-**Problem:** TOP-5500055
+**Problem:** prb_fe308cf9a54544df9fe4fddaab92e26d
 
 **Claim type:** Partial result
 
@@ -32,6 +32,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500055.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_fe308cf9a54544df9fe4fddaab92e26d.txt
 https://topp.openproblem.net/p55
 Exact source versions, statements and uses are described in report.md and source_notes.md.

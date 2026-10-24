@@ -1,6 +1,6 @@
 # All quartic derivative words, with exact witnesses and obstruction lifts
 
-**Problem:** TOP-2200017. **Claim type:** Partial result.
+**Problem:** prb_3bf984d74a484ad9a0c1b881d5130f8d. **Claim type:** Partial result.
 
 **Scope.** This contribution proves the complete strict-word classification for degree four, supplies integer-root polynomial witnesses for all ten realizable words, and gives explicit Rolle-admissible but unrealizable words in every degree $n\geq4$. The quartic classification is established literature, credited below. No arbitrary-degree classification, novelty, or asymptotic count is claimed.
 

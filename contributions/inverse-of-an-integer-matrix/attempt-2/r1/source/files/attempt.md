@@ -3,7 +3,7 @@
 
 # Integer right inverses of a diagonal block augmented by arbitrary columns
 
-**Complete solution of We-Solve Math-3291 / TOP-3030 (OPG-50149).**
+**Complete solution of We-Solve Math-3291 / prb_b51a5f11716a459db4afee0981061c8e (catalogue entry).**
 
 **Scope and attribution.** This note answers the entire stated matrix question, including the proposed rowwise criterion, for every permitted input. It is a self-contained application of classical integer linear algebra, not a claim to a previously unknown theorem. The general maximal-minor criterion already appears explicitly in the introduction and Lemma 2 of Maze–Rosenthal–Wagner [3]. Smith normal form provides another standard formulation [4]. The contribution supplies complete elementary proofs, a criterion specialized to the diagonal block, constructive certificates, examples, and several proved consequences. Original question: Steven A. Gregory [1]; catalogue transcription: Ulam AI, the UnsolvedMath contributors, and We-Solve [2].
 
@@ -392,7 +392,7 @@ because each relevant row need only be nonzero. With $D=2I_2,n=2$, exactly $6$ o
 
 ## 12. Verification, limitations, and status
 
-The accompanying `verify_top3030.py` uses exact integer arithmetic. It compares separate maximal-minor, prime-field-rank and finite-quotient-image computations; constructs and checks positive and negative certificates; and exercises seeded cases and degenerate inputs. Its executed run passed every assertion on 1,926 inputs:
+The accompanying `verify.py` uses exact integer arithmetic. It compares separate maximal-minor, prime-field-rank and finite-quotient-image computations; constructs and checks positive and negative certificates; and exercises seeded cases and degenerate inputs. Its executed run passed every assertion on 1,926 inputs:
 
 | Family | Inputs | Inverse exists | No inverse |
 | --- | ---: | ---: | ---: |
@@ -413,7 +413,7 @@ The general normal-form criterion is classical. The note makes no priority claim
 ## References actually inspected
 
 1. Steven A. Gregory, **inverse of an integer matrix**, Open Problem Garden, posted by `lvoyster`, 27 May 2013. [Original question](https://www.openproblemgarden.org/op/inverse_of_an_integer_matrix). Used for the exact question and proposed rowwise condition; the accessible page showed no answer comments at inspection.
-2. **We-Solve / UnsolvedMath record TOP-3030**, also displayed as Math-3291, source code OPG-50149. [Statement](https://github.com/We-Solve/research/blob/main/problems/b5/prb_b51a5f11716a459db4afee0981061c8e/statement.tex), [problem metadata](https://github.com/We-Solve/research/blob/main/problems/b5/prb_b51a5f11716a459db4afee0981061c8e/problem.yaml), [research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3030.txt). Used to fix the exact domain and catalogue identity. Prompt listed no earlier contributions when inspected. Credit: Ulam AI and the UnsolvedMath contributors; catalogue material under CC BY 4.0.
+2. **We-Solve / UnsolvedMath record prb_b51a5f11716a459db4afee0981061c8e**, also displayed as Math-3291, source code catalogue entry. [Statement](https://github.com/We-Solve/research/blob/main/problems/b5/prb_b51a5f11716a459db4afee0981061c8e/statement.tex), [problem metadata](https://github.com/We-Solve/research/blob/main/problems/b5/prb_b51a5f11716a459db4afee0981061c8e/problem.yaml), [research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_b51a5f11716a459db4afee0981061c8e.txt). Used to fix the exact domain and catalogue identity. Prompt listed no earlier contributions when inspected. Credit: Ulam AI and the UnsolvedMath contributors; catalogue material under CC BY 4.0.
 3. Gérard Maze, Joachim Rosenthal, Urs Wagner, **Natural Density of Rectangular Unimodular Integer Matrices**, [arXiv:1005.3967](https://arxiv.org/pdf/1005.3967). Inspected introduction, Lemma 2 and the finite-field count preceding Lemma 3. Used to credit the established equivalence between integer right inverses and coprime maximal minors, and the standard count of full-rank finite-field matrices. No claim from the paper's infinite-density argument is used.
 4. Richard P. Stanley, **Smith Normal Form in Combinatorics**, [author-hosted survey](https://math.mit.edu/~rstan/papers/snf_survey.pdf), [arXiv:1602.00166](https://arxiv.org/abs/1602.00166). Inspected Section 2, especially Theorems 2.1(4), 2.3 and 2.4, for existence, quotient interpretation and determinantal divisors. The main criterion is also proved independently above.
 5. Ravindran Kannan, Achim Bachem, **Polynomial Algorithms for Computing the Smith and Hermite Normal Forms of an Integer Matrix**, SIAM Journal on Computing 8(4) (1979), 499–507, [DOI 10.1137/0208040](https://epubs.siam.org/doi/abs/10.1137/0208040). Publisher abstract and bibliographic details inspected; full paywalled article not inspected. Used only for its stated polynomial operation/bit bounds and multiplier-matrix guarantee.
@@ -430,7 +430,7 @@ Original prose and mathematical exposition: CC BY 4.0. Original software: Apache
 Run both files with Python 3.9 or later, without `-O`. No third-party packages are required. Save them in the same directory. Each writes its full JSON results. These transparent small-input algorithms use exact arithmetic; their complexity limitations are documented.
 
 <details>
-<summary>verify_top3030.py — exact constructor and exhaustive verification</summary>
+<summary>verify.py — exact constructor and exhaustive verification</summary>
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/5) for this material.
 
@@ -470,7 +470,7 @@ Gaven (@gavenren): requested the research and authorized submission. No human ma
 ### References
 
 1. Steven A. Gregory, inverse of an integer matrix, Open Problem Garden (27 May 2013): https://www.openproblemgarden.org/op/inverse_of_an_integer_matrix . Exact original question and rowwise conjecture inspected.
-2. We-Solve / UnsolvedMath TOP-3030, OPG-50149, Math-3291: https://github.com/We-Solve/research/blob/main/problems/b5/prb_b51a5f11716a459db4afee0981061c8e/statement.tex . Statement, metadata and generated research prompt inspected; prompt listed no prior contributions. Catalogue attribution: Ulam AI and UnsolvedMath contributors, CC BY 4.0.
+2. We-Solve / UnsolvedMath prb_b51a5f11716a459db4afee0981061c8e, catalogue entry, Math-3291: https://github.com/We-Solve/research/blob/main/problems/b5/prb_b51a5f11716a459db4afee0981061c8e/statement.tex . Statement, metadata and generated research prompt inspected; prompt listed no prior contributions. Catalogue attribution: Ulam AI and UnsolvedMath contributors, CC BY 4.0.
 3. Maze, Rosenthal, Wagner, Natural Density of Rectangular Unimodular Integer Matrices: https://arxiv.org/pdf/1005.3967 . Introduction and Lemma 2 for classical maximal-minor criterion; finite-field count before Lemma 3.
 4. Stanley, Smith Normal Form in Combinatorics: https://math.mit.edu/~rstan/papers/snf_survey.pdf . Section 2, especially Theorems 2.1(4), 2.3 and 2.4.
 5. Kannan, Bachem, Polynomial Algorithms for Computing the Smith and Hermite Normal Forms of an Integer Matrix: https://epubs.siam.org/doi/abs/10.1137/0208040 . Publisher abstract and bibliographic details only, for polynomial bit/operation bounds and multiplier matrices; full paywalled article not inspected.

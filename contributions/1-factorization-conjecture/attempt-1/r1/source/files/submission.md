@@ -1,6 +1,6 @@
 # The sufficiently-large 1-factorization theorem and its exact threshold obstructions
 
-Problem: TOP-1393
+Problem: prb_6451c84313c348789cfcb20d73dbdf5f
 
 Claim type: Literature report.
 
@@ -32,7 +32,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-1393 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1393.txt
+- Official prb_6451c84313c348789cfcb20d73dbdf5f prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_6451c84313c348789cfcb20d73dbdf5f.txt
 - B. Csaba, D. Kühn, A. Lo, D. Osthus, A. Treglown, Proof of the 1-factorization and Hamilton decomposition conjectures, arXiv:1401.4159v2, Theorem 1.1.1 and following sharpness examples; Memoirs AMS 244 (2016), 1154: https://arxiv.org/abs/1401.4159
 
 
@@ -49,6 +49,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-1393 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1393.txt
+Official prb_6451c84313c348789cfcb20d73dbdf5f prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_6451c84313c348789cfcb20d73dbdf5f.txt
 B. Csaba, D. Kühn, A. Lo, D. Osthus, A. Treglown, Proof of the 1-factorization and Hamilton decomposition conjectures, arXiv:1401.4159v2, Theorem 1.1.1 and following sharpness examples; Memoirs AMS 244 (2016), 1154: https://arxiv.org/abs/1401.4159
 Exact source versions, statements and uses are described in report.md and source_notes.md.

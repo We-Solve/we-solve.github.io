@@ -1,6 +1,6 @@
 # All zonotopes satisfy the 3^d face inequality
 
-Problem: TOP-1216
+Problem: prb_980db57bf6654b3ebf5b1d14ad479fa8
 
 Claim type: Partial result
 
@@ -35,5 +35,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1216.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_980db57bf6654b3ebf5b1d14ad479fa8.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

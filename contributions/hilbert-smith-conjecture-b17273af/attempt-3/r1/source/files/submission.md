@@ -1,6 +1,6 @@
 # The topological Hilbert–Smith theorem through dimension three
 
-Problem: TOP-1482
+Problem: prb_b17273afc68f41638a480a4bf4ba749a
 
 Claim type: Literature report
 

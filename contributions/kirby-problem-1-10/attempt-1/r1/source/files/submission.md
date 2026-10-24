@@ -1,6 +1,6 @@
 # Unstabilized Property R: the knot case and two-component links containing an unknot
 
-**Problem:** TOP-2669. **Claim type:** Literature report.
+**Problem:** prb_fb9838bbc3a7441b83bb7afe4bf0072e. **Claim type:** Literature report.
 
 **Exact scope.** The recorded handleslide conclusion is established for $n=1$, and for $n=2$ whenever at least one component of the original link is an unknot. These are genuine unstabilized conclusions: no extra surgery component is added. The full arbitrary-component conjecture is not established here, nor is every link with the right first homology presumed to satisfy it. No novelty is claimed.
 

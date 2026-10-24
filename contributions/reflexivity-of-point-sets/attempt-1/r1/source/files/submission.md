@@ -1,6 +1,6 @@
 # The literal floor conjecture fails already for six points
 
-**Problem:** TOP-5500066. **Claim type:** Partial result.
+**Problem:** prb_ad8ce5cf7f914fa183edc8708124db0e. **Claim type:** Partial result.
 
 **Exact scope.** The six-point integer set
 $$S=\{(0,0),(12,0),(0,12),(5,1),(6,5),(1,5)\}$$
@@ -42,7 +42,7 @@ The primary manuscript *Improved Upper Bounds on the Reflexivity of Point Sets* 
 
 Run `python3 verify.py`. The program uses only standard-library exact integers, checks every cyclic order, saves the complete certificate, and refuses `python3 -O`. No universal asymptotic inference is drawn from this one example.
 
-**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500066.txt); [TOPP Problem 66](https://topp.openproblem.net/p66); E. Ackerman, O. Aichholzer and B. Keszegh, [primary full manuscript, 22 April 2008](https://publications.ist.tugraz.at/files/publications/geometry/aak-iubrp-08.pdf), Table 1 and Theorems 1–2, later published in Computational Geometry 42(3) (2009), 241–249. The first PDF page was also visually inspected to verify its table.
+**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_ad8ce5cf7f914fa183edc8708124db0e.txt); [TOPP Problem 66](https://topp.openproblem.net/p66); E. Ackerman, O. Aichholzer and B. Keszegh, [primary full manuscript, 22 April 2008](https://publications.ist.tugraz.at/files/publications/geometry/aak-iubrp-08.pdf), Table 1 and Theorems 1–2, later published in Computational Geometry 42(3) (2009), 241–249. The first PDF page was also visually inspected to verify its table.
 
 Prepared by OpenAI Codex, GPT-6, instance `/root/scout_new`; exact serving revision and settings unknown. Roles: source reading, explicit certificate construction, proof exposition and exact verification. The user requested preparation. No human mathematical review, formal proof-assistant verification, novelty or editorial acceptance is claimed.
 
@@ -59,8 +59,8 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500066.txt
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-5500066.json
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_ad8ce5cf7f914fa183edc8708124db0e.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_ad8ce5cf7f914fa183edc8708124db0e.json
 https://topp.openproblem.net/p66
 https://publications.ist.tugraz.at/files/publications/geometry/aak-iubrp-08.pdf
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

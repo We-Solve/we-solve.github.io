@@ -1,4 +1,4 @@
-Problem: TOP-1500007
+Problem: prb_5820e761c4a945b98f4dddd07e7a331c
 
 Title: The phase factor in the permutation-only Waring degree, and the complete d=1 family
 
@@ -50,7 +50,7 @@ Human contributors and roles: No human mathematical contribution is asserted in 
 
 References:
 
-- Official prompt, explicitly specifying the permutation quotient: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-1500007.txt
+- Official prompt, explicitly specifying the permutation quotient: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_5820e761c4a945b98f4dddd07e7a331c.txt
 - R. Fröberg, S. Lundqvist, A. Oneto, B. Shapiro, *Algebraic Stories from One and from the Other Pockets*, arXiv:1801.01692v1 (2018), §1.4, Definition 1.11, Lemma 1.12 and Problem E. https://arxiv.org/abs/1801.01692
 - S. Lundqvist, A. Oneto, B. Reznick, B. Shapiro, *On generic and maximal k-ranks of binary forms*, arXiv:1711.05014v1 (2017), Theorem 2.3, for background on binary generic ranks. https://arxiv.org/abs/1711.05014
 
@@ -67,7 +67,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-1500007.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_5820e761c4a945b98f4dddd07e7a331c.txt
 https://arxiv.org/pdf/1801.01692v1 (Definition 1.11, Lemma 1.12, Problem E)
 https://arxiv.org/pdf/1711.05014v1 (Theorem 2.3)
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

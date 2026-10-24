@@ -1,6 +1,6 @@
 # Bondage at most two for every nontrivial forest
 
-Problem: TOP-1442
+Problem: prb_253bfb3b31fa47dbba597bb0b06940c9
 
 Claim type: Partial result.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1442.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_253bfb3b31fa47dbba597bb0b06940c9.txt
 
 
 ## Reproducibility and review
@@ -44,5 +44,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1442.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_253bfb3b31fa47dbba597bb0b06940c9.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

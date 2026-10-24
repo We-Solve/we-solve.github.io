@@ -1,4 +1,4 @@
-# TOP-3398: Subset-sums equality (pigeonhole version)
+# prb_79c55c2c8e5540e3aa3557c44fa29c37: Subset-sums equality (pigeonhole version)
 
 Claim type: **Partial result**.
 
@@ -22,7 +22,7 @@ Comparison with the earlier attempt: The earlier attempt stores absolute sums th
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3398.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_79c55c2c8e5540e3aa3557c44fa29c37.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/subset-sums-equality-pigeonhole-version/attempt-1/r1/
 
 
@@ -39,6 +39,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3398.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_79c55c2c8e5540e3aa3557c44fa29c37.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/subset-sums-equality-pigeonhole-version/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

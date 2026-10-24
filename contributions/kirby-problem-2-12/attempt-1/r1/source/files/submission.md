@@ -1,6 +1,6 @@
 # Complete one-systems have exactly sharp maximum 2g+1
 
-**Problem:** TOP-2760
+**Problem:** prb_5087be06fd1e464c995de8602c601b38
 
 **Claim type:** Partial result
 

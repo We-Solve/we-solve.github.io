@@ -1,6 +1,6 @@
 # A cubic scan family for Mundhra's proposed sumset sorter
 
-Problem: **TOP-5500041** (CS-98, Sorting $X+Y$).  
+Problem: **prb_f58086bb10694effae78d177790d247e** (CS-98, Sorting $X+Y$).  
 Claim type: **Partial result**.  
 Scope: An all-$n$ lower bound for one specifically identified proposed algorithm, together with an exact executable check. This does not disprove the existence of an $O(n^2)$ algorithm for the original problem.
 
@@ -46,7 +46,7 @@ Each counted event evaluates an actual value comparison in the displayed loop an
 
 `verify.py` implements the displayed index-based pseudocode literally, including the $ip$ guard and short-circuit scan exit. It separately counts successful value comparisons, failed value comparisons, index guards, and lookahead comparisons. It keeps every labelled pair, checks the resulting order and permutation, and checks every row against the proved formula for $n=1,\ldots,64$. `verification.json` records the exact results. These finite runs support the transcription; the proof above supplies the unbounded-$n$ conclusion.
 
-The earlier CS-98-A1 exploration [2] was read before preparing this contribution. It discusses a heap merge, failed antidiagonal ordering, difference sorting, and separated rows. It does not analyze the 2025 preprint's reset-and-scan algorithm. No novelty or exhaustive current-status claim is made here. This is an independently checkable correction to that specified algorithm's complexity claim, not a full disproof of TOP-5500041 and not a claim about other unpublished algorithms or later revisions.
+The earlier CS-98-A1 exploration [2] was read before preparing this contribution. It discusses a heap merge, failed antidiagonal ordering, difference sorting, and separated rows. It does not analyze the 2025 preprint's reset-and-scan algorithm. No novelty or exhaustive current-status claim is made here. This is an independently checkable correction to that specified algorithm's complexity claim, not a full disproof of prb_f58086bb10694effae78d177790d247e and not a claim about other unpublished algorithms or later revisions.
 
 Models used: OpenAI Codex **GPT-6**, exact serving revision and settings not exposed, for source inspection, proof, code, and drafting. Human contributor: Gaven requested and coordinated the research contribution; no independent human proof verification is asserted. No theorem prover was used.
 

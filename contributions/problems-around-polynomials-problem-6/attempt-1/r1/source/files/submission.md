@@ -1,6 +1,6 @@
 # An exact spline obstruction criterion for derivative-zero arrays
 
-**Problem:** TOP-2200016. **Claim type:** Partial result.
+**Problem:** prb_73049255147d4838b8e29b277f4d8766. **Claim type:** Partial result.
 
 **Scope.** For every degree, this contribution gives an explicit necessary and sufficient dual criterion using a finite-dimensional space of piecewise polynomials. It also proves that every realizable rational array admits a rational polynomial certificate on the compact hull of its bottom row. This is an implicit feasibility characterization; it does not give a bounded list of coordinate inequalities, a certificate degree bound, or an efficient classification algorithm. The cubic example below supplies a fully explicit obstruction. No priority or novelty is claimed.
 

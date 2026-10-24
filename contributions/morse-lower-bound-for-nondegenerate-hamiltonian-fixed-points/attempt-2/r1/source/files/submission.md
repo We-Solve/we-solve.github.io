@@ -1,6 +1,6 @@
 # The Morse-number lower bound for all standard symplectic tori
 
-Problem: TOP-30007134
+Problem: prb_e7ceacf02cf443ca9242f90e84d04157
 
 Claim type: Literature report
 
@@ -33,6 +33,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007134.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e7ceacf02cf443ca9242f90e84d04157.txt
 https://arxiv.org/pdf/1906.08618v2 — Eduard Zehnder, pp.12–14 nondegenerate Conley–Zehnder torus bound and original-proof account; v2 November11,2019.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

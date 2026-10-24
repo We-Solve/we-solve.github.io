@@ -1,6 +1,6 @@
 # Topological extension versus planar-faced extrusion meshes
 
-**Problem:** TOP-5500027
+**Problem:** prb_718d7864dfc14e35b016c8ced59ee66f
 
 **Claim type:** Literature report
 
@@ -37,7 +37,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500027.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_718d7864dfc14e35b016c8ced59ee66f.txt
 https://topp.openproblem.net/p27
 https://ics.uci.edu/~eppstein/pubs/Epp-SCG-96.pdf
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Exact finite counting on the specified hexagonal tori in subexponential time
 
-Problem: TOP-3234
+Problem: prb_7e56df5f20814f8c99810b554a66293f
 
 Claim type: Partial result.
 
@@ -30,7 +30,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3234.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_7e56df5f20814f8c99810b554a66293f.txt
 
 
 ## Reproducibility and review
@@ -41,5 +41,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3234.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_7e56df5f20814f8c99810b554a66293f.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

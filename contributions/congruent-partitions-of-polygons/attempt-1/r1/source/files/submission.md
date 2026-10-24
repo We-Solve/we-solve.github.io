@@ -1,6 +1,6 @@
 # Perfect congruent partitions of every triangle into a square number of pieces
 
-**Problem:** TOP-5500073
+**Problem:** prb_f8c2745fe74a4275baad7fa69371eed8
 
 **Claim type:** Partial result
 
@@ -46,6 +46,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500073.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_f8c2745fe74a4275baad7fa69371eed8.txt
 https://topp.openproblem.net/p73
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,4 +1,4 @@
-Problem: TOP-3384
+Problem: prb_b1a00628ab9e43f3946dfd24ef156691
 
 Title: The homocyclic Davenport formula for every prime-power modulus, with a group-algebra proof
 
@@ -38,7 +38,7 @@ Human contributors and roles: No human review or new human mathematical contribu
 
 References:
 
-- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3384.txt
+- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_b1a00628ab9e43f3946dfd24ef156691.txt
 - N. Alon, *Tools from Higher Algebra*, author-hosted chapter, Theorem 6.2 and its complete group-ring proof, crediting Olson (1969). https://web.math.princeton.edu/~nalon/PDFS/tools1.pdf
 
 
@@ -54,6 +54,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3384.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_b1a00628ab9e43f3946dfd24ef156691.txt
 https://web.math.princeton.edu/~nalon/PDFS/tools1.pdf (Theorem 6.2 and complete group-ring proof)
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Square pegs for two Lipschitz graphs below the stated slope threshold
 
-**Problem:** TOP-1163 (also source alias TOP-3408). **Claim type:** Literature report.
+**Problem:** prb_26a30bd3d6434465b87a33d26b13d5a0 (also source alias prb_d518357a886d4c51ace4134e45001dce). **Claim type:** Literature report.
 
 **Exact scope.** Every Jordan curve formed by an upper and lower graph over the same interval, each with Lipschitz constant strictly less than $1+\sqrt2$, inscribes a nondegenerate square. More generally the checked source gives a precise angle-dependent rectangle theorem. These are Greene–Lobb's existing results. Arbitrary continuous Jordan curves, arbitrary continuous graph pairs, and the endpoint constant $1+\sqrt2$ are not covered by the square theorem stated here. No novelty or full resolution is claimed.
 

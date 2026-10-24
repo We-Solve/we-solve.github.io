@@ -1,6 +1,6 @@
 # Second neighborhoods under uniform lexicographic substitution
 
-Problem: TOP-1441
+Problem: prb_e00f84a76def4b2ea4f7d56e06c4c804
 
 Claim type: Partial result.
 
@@ -42,7 +42,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-1441 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1441.txt
+- Official prb_e00f84a76def4b2ea4f7d56e06c4c804 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e00f84a76def4b2ea4f7d56e06c4c804.txt
 - D. C. Fisher, Squaring a tournament: A proof of Dean’s conjecture, Journal of Graph Theory 23 (1996), 43–48, primary publisher abstract: https://onlinelibrary.wiley.com/doi/abs/10.1002/(SICI)1097-0118(199609)23:1%3C43::AID-JGT4%3E3.0.CO;2-K
 
 
@@ -59,6 +59,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-1441 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1441.txt
+Official prb_e00f84a76def4b2ea4f7d56e06c4c804 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e00f84a76def4b2ea4f7d56e06c4c804.txt
 D. C. Fisher, Squaring a tournament: A proof of Dean’s conjecture, Journal of Graph Theory 23 (1996), 43–48, primary publisher abstract: https://onlinelibrary.wiley.com/doi/abs/10.1002/(SICI)1097-0118(199609)23:1%3C43::AID-JGT4%3E3.0.CO;2-K
 Exact source versions, statements and uses are described in report.md and source_notes.md.

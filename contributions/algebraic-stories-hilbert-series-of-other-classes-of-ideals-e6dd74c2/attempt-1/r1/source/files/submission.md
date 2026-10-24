@@ -1,4 +1,4 @@
-# TOP-1500011: equality for at most one extra generator, and for every binary case
+# prb_e6dd74c21862415ea76d0cfb113412a9: equality for at most one extra generator, and for every binary case
 
 **Claim type:** Partial result, with credited standard results and exact witnesses.  
 **Scope:** The requested equality holds for every $d>1,k\ge1$ when $r\le n+1$, and also for every $r$ when $n\le2$. The unrestricted range $n\ge3,r\ge n+2,k\ge2$ is not settled here.
@@ -76,7 +76,7 @@ Run `python3 verify_powers.py`; the recorded output is `verification.json`. Thes
 
 - [LORS] Samuel Lundqvist, Alessandro Oneto, Bruce Reznick and Boris Shapiro, *On generic and maximal k-ranks of binary forms*, [arXiv:1711.05014v1](https://arxiv.org/pdf/1711.05014), 14 November 2017, Lemma 2.2, for generic powers of binary forms, even with differing degrees and exponents. Only the equal-degree slice needed here is claimed.
 - [FLOS] Ralf Fröberg, Samuel Lundqvist, Alessandro Oneto and Boris Shapiro, *Algebraic Stories from One and from the Other Pockets*, Arnold Mathematical Journal 4 (2018), 137–160, [published PDF](https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf), pp.145–148: complete-intersection/one-extra-generator cases, explicit Stanley witness, Conjecture 2.4 and binary discussion.
-- [Official TOP-1500011 prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500011.txt), checked 18 October 2026, for the exact comparison with independent ordinary generic forms and the restriction $d>1$.
+- [Official prb_e6dd74c21862415ea76d0cfb113412a9 prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e6dd74c21862415ea76d0cfb113412a9.txt), checked 18 October 2026, for the exact comparison with independent ordinary generic forms and the restriction $d>1$.
 
 
 Preparation and review: OpenAI Codex (GPT-6; exact serving revision and reasoning configuration unknown) supplied the authoring, exact-code verification, independent LLM audit and coordination/source checks through separate instances. Gaven prompted the work and authorized submission. No human mathematical review or editorial acceptance is claimed.
@@ -96,5 +96,5 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 https://arxiv.org/pdf/1711.05014
 https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500011.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e6dd74c21862415ea76d0cfb113412a9.txt
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

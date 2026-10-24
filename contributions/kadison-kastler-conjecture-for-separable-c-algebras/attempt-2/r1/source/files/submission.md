@@ -24,7 +24,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 References checked.
 
 - [1] Erik Christensen, Allan M. Sinclair, Roger R. Smith, Stuart A. White and Wilhelm Winter, Perturbations of nuclear C*-algebras, Acta Mathematica 208 (2012), 93–150. Published Theorem 5.4, printed p.133 (PDF p.41), and preceding paragraph: d<10^−11, H separable, A separable nuclear, unitary in (A∪B)′′; degenerate actions allowed. https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6751-11511_2012_Article_75.pdf
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30002216.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_0ead551f414a4354aca076c6045bf340.txt
 
 
 ## Reproducibility and review
@@ -36,5 +36,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 [1] Erik Christensen, Allan M. Sinclair, Roger R. Smith, Stuart A. White and Wilhelm Winter, Perturbations of nuclear C*-algebras, Acta Mathematica 208 (2012), 93–150. Published Theorem 5.4, printed p.133 (PDF p.41), and preceding paragraph: d<10^−11, H separable, A separable nuclear, unitary in (A∪B)′′; degenerate actions allowed. https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6751-11511_2012_Article_75.pdf
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30002216.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_0ead551f414a4354aca076c6045bf340.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

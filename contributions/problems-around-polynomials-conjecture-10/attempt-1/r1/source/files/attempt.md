@@ -3,7 +3,7 @@
 
 # Counterexamples to the coefficient parity bound in every degree at least 15
 
-Problem: **TOP-2200015 / Math-3465**, *Problems Around Polynomials — Conjecture 10* (AMR-021-0015).
+Problem: **prb_d9d9934080df43a18039dcb964a10feb / Math-3465**, *Problems Around Polynomials — Conjecture 10* (catalogue entry).
 
 Claim type: **literature report**, including a complete explicit disproof of the recorded universal bound.
 
@@ -299,7 +299,7 @@ The latter list has $n-4$ parity changes because the new gap has even length fou
 
 ## 7. Independent verification
 
-The accompanying original Python verifier, `verify2200015.py`, uses only standard-library exact integers and rational numbers. Its completed run passed all checks. The factorizations determine the real-root counts exactly, and independent Sturm computations agree: the squarefree part of $P$ has one distinct negative root, while $Q$ has thirteen distinct negative roots and no repeated roots. Neither polynomial has a positive root.
+The accompanying original Python verifier, `verify.py`, uses only standard-library exact integers and rational numbers. Its completed run passed all checks. The factorizations determine the real-root counts exactly, and independent Sturm computations agree: the squarefree part of $P$ has one distinct negative root, while $Q$ has thirteen distinct negative roots and no repeated roots. Neither polynomial has a positive root.
 
 The verifier checks all 32 coefficients and all 32 differences for the two explicit polynomials, obtaining exactly the selected list (6) and statistic eleven for each. It independently expands the thirteen linear factors of (9) using elementary symmetric sums over all 8192 subsets, verifies the divisor 128000 and the primitive coefficient vector, and divides out the displayed factors exactly. The repeated factor of $P$ is divided out thirteen times, leaving its stated quadratic. These checks agree with the direct proofs above.
 
@@ -323,7 +323,7 @@ References (checked):
 
 1. **Olga Katkova, Boris Shapiro and Anna Vishnyakova**, *In search of Newton-type inequalities*, **Journal of Mathematical Analysis and Applications 538** (2024), no. 1, article 128349, DOI [10.1016/j.jmaa.2024.128349](https://doi.org/10.1016/j.jmaa.2024.128349), Section 5. [Author-hosted published full text](https://staff.math.su.se/shapiro/Articles/OptimalNewton.pdf); [full preprint, arXiv:2403.12200](https://arxiv.org/pdf/2403.12200). The preprint was posted 18 March 2024; the published PDF records online availability on 25 March 2024, and the journal issue is dated 1 October 2024.
 2. **Boris Shapiro**, *Problems Around Polynomials: The Good, The Bad and The Ugly…*, **Arnold Mathematical Journal 1** (2015), 91–99, DOI [10.1007/s40598-015-0008-4](https://doi.org/10.1007/s40598-015-0008-4). [Published full text](https://amj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/), Section 7, Conjecture 10.
-3. **We-Solve**, [TOP-2200015 / Math-3465 problem page](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-10/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/d9/prb_d9d9934080df43a18039dcb964a10feb/statement.tex), and [live prompt](https://we-solve.github.io/prompts/TOP-2200015.txt).
+3. **We-Solve**, [prb_d9d9934080df43a18039dcb964a10feb / Math-3465 problem page](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-10/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/d9/prb_d9d9934080df43a18039dcb964a10feb/statement.tex), and [live prompt](https://we-solve.github.io/prompts/prb_d9d9934080df43a18039dcb964a10feb.txt).
 
 
 <details>
@@ -366,5 +366,5 @@ Olga Katkova, Boris Shapiro and Anna Vishnyakova, In search of Newton-type inequ
 
 Boris Shapiro, Problems Around Polynomials: The Good, The Bad and The Ugly…, Arnold Mathematical Journal 1 (2015), 91–99, DOI [10.1007/s40598-015-0008-4](https://doi.org/10.1007/s40598-015-0008-4). Checked [published Section 7](https://amj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/), Conjecture 10, its definitions and attribution to Jens Forsgård and Boris Shapiro.
 
-We-Solve [TOP-2200015 / Math-3465](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-10/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/d9/prb_d9d9934080df43a18039dcb964a10feb/statement.tex) and [live prompt](https://we-solve.github.io/prompts/TOP-2200015.txt). Checked strict coefficient positivity, the nonnegative ordinary-difference rule and root multiplicity convention. The prompt listed no previous contributions at inspection; a fresh issue search found no matching submission.
+We-Solve [prb_d9d9934080df43a18039dcb964a10feb / Math-3465](https://we-solve.github.io/problems/problems-around-polynomials-conjecture-10/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/d9/prb_d9d9934080df43a18039dcb964a10feb/statement.tex) and [live prompt](https://we-solve.github.io/prompts/prb_d9d9934080df43a18039dcb964a10feb.txt). Checked strict coefficient positivity, the nonnegative ordinary-difference rule and root multiplicity convention. The prompt listed no previous contributions at inspection; a fresh issue search found no matching submission.
 

@@ -1,6 +1,6 @@
 # An exact certificate for the known saturated non-tight six-point forest
 
-Problem: TOP-3293
+Problem: prb_25a72225eb114391828ac93ad7a9c251
 
 Claim type: Literature report.
 
@@ -30,7 +30,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3293.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_25a72225eb114391828ac93ad7a9c251.txt
 - https://arxiv.org/pdf/1109.3390
 
 
@@ -47,6 +47,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3293.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_25a72225eb114391828ac93ad7a9c251.txt
 https://arxiv.org/pdf/1109.3390
 Exact source versions, statements and uses are described in report.md and source_notes.md.

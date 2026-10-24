@@ -1,6 +1,6 @@
 # A corrected, fully certified rectangular-board nonuniqueness example
 
-**Problem:** TOP-5500068, Rolling a Die over a Labeled Board.  
+**Problem:** prb_f5e7ccae5fbd4b5ba3949bbf880aae4e, Rolling a Die over a Labeled Board.  
 **Claim type:** Partial result.
 
 **Exact scope.** A fully labeled $18\times13$ rectangle with a prescribed initial die orientation has at least two different legal rolling paths visiting every cell exactly once. The paths can also be closed into different Hamiltonian cycles, each restoring the entire initial orientation. The board derives from domotorp's 2012 construction [2], with one explicitly disclosed label correction. This refutes the uniqueness subquestion. It does not classify the unrestricted decision problem as polynomial-time solvable or NP-complete.

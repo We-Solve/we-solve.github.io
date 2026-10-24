@@ -1,6 +1,6 @@
 # Common bases of hidden rank-one partition matroids reduce exactly to a permanent
 
-Problem: TOP-30007447 — FPRAS for Common Matroid Bases.  
+Problem: prb_53e7b54afa694887ae8614e13841450b — FPRAS for Common Matroid Bases.  
 Claim type: **Partial result**.  
 Scope: An oracle-polynomial reduction and, using the Jerrum–Sinclair–Vigoda permanent theorem, an FPRAS when **both matroids are partition matroids with capacity one in every nonloop block**. Their partitions need not be supplied. This does not cover arbitrary oracle matroids or partition matroids with larger capacities.
 

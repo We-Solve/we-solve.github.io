@@ -1,4 +1,4 @@
-# TOP-30006705: Artin holomorphy for all monomial irreducibles, including every dihedral group
+# prb_5a96316353b94578a46547e6e7bf0dc9: Artin holomorphy for all monomial irreducibles, including every dihedral group
 
 Claim type: Literature report
 

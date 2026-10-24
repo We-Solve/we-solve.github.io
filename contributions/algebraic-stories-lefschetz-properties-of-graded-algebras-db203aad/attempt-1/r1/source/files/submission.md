@@ -1,6 +1,6 @@
 # Mixed-product Lefschetz properties follow from SLP by openness
 
-**Problem:** TOP-1500014 / Math-3415.  
+**Problem:** prb_db203aadf1204e549da6928605853aa1 / Math-3415.  
 **Claim type:** Partial result.
 
 **Exact scope.** For every standard graded Artinian complex algebra $A$, the following are equivalent:
@@ -64,7 +64,7 @@ For $n=2$, $r\ge2$, a generic pair of forms is coprime, so the quotient is Artin
 
 For every $r\ge n$, the generic quotient is Artinian: the first $n$ generators generically form an Artinian complete intersection. Therefore, on the still unproved cases of the catalogue, Section 1 identifies the remaining issue precisely with SLP for a generic overdetermined quotient. In this Artinian range, a proof of SLP would settle every partition, while a failure of SLP would already fail one of the one-part partitions. We give neither assertion in the unrestricted range.
 
-The same binary SLP theorem appears in the companion TOP-1500012 report, whose all-ideal proof uses Taylor jets. Here its role is restricted to one positive family; the main additional content is the all-partition equivalence and the arbitrary-dimensional regular-sequence argument. The prior TOP-1500011 report concerned Hilbert series of powers of forms, not these multiplication properties. No shared classical lemma is counted as a new independent discovery.
+The same binary SLP theorem appears in the companion prb_f7f6cb3ad4614a2fbdbba2bd993b5085 report, whose all-ideal proof uses Taylor jets. Here its role is restricted to one positive family; the main additional content is the all-partition equivalence and the arbitrary-dimensional regular-sequence argument. The prior prb_e6dd74c21862415ea76d0cfb113412a9 report concerned Hilbert series of powers of forms, not these multiplication properties. No shared classical lemma is counted as a new independent discovery.
 
 ## 5. Exact verification
 
@@ -72,7 +72,7 @@ Run `python verify.py`. The standard-library verifier checks nine Artinian monom
 
 ## Checked references
 
-1. Official TOP-1500014 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500014.txt .
+1. Official prb_db203aadf1204e549da6928605853aa1 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_db203aadf1204e549da6928605853aa1.txt .
 2. R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, *Algebraic Stories from One and from the Other Pockets*, arXiv:1801.01692, Section 2.3, Problem I and its $\mu$-Lefschetz definition: https://arxiv.org/pdf/1801.01692 .
 3. T. Harima, J. C. Migliore, U. Nagel and J. Watanabe, *The Weak and Strong Lefschetz Properties for Artinian K-Algebras*, arXiv:math/0208201v1, Proposition 4.4; Introduction, discussion of monomial complete intersections and openness: https://arxiv.org/pdf/math/0208201 .
 4. R. P. Stanley, *Weyl Groups, the Hard Lefschetz Theorem, and the Sperner Property*, SIAM Journal on Algebraic and Discrete Methods 1 (1980), 168–184, Section 2, especially Lemma 2.3 and Proposition 2.5: https://math.mit.edu/~rstan/pubs/pubfiles/42.pdf . This is the classical geometric background. The concrete monomial-algebra argument needed here is fully supplied in Section 2.
@@ -92,7 +92,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500014.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_db203aadf1204e549da6928605853aa1.txt
 https://arxiv.org/pdf/1801.01692
 https://arxiv.org/pdf/math/0208201
 https://math.mit.edu/~rstan/pubs/pubfiles/42.pdf

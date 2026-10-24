@@ -1,6 +1,6 @@
 # A quiver-free finite bound for radical-square-zero Artin algebras
 
-**Problem:** TOP-30007002
+**Problem:** prb_9e8a1c69a2834cc5acfc1f578bc7b021
 
 **Claim type:** Partial result
 

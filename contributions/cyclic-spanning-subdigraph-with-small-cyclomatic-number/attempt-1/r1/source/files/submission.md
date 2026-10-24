@@ -1,6 +1,6 @@
 # An unbounded obstruction to the prompt’s component-count normalization
 
-Problem: TOP-3272
+Problem: prb_4f71c3c711f54de9949a5e93a4407c11
 
 Claim type: Full disproof.
 
@@ -30,7 +30,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3272.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_4f71c3c711f54de9949a5e93a4407c11.txt
 - https://www.openproblemgarden.org/op/cyclic_spanning_subdigraph_with_small_cyclomatic_number
 
 
@@ -47,6 +47,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3272.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_4f71c3c711f54de9949a5e93a4407c11.txt
 https://www.openproblemgarden.org/op/cyclic_spanning_subdigraph_with_small_cyclomatic_number
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -23,7 +23,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 References checked.
 
 - [1] Alexey Pokrovskiy, Rota’s Basis Conjecture holds asymptotically, arXiv:2008.06045v1, 13 August 2020, Theorem 1, p.2; both the number and the size are n−o(n), and only independence is asserted. The long combinatorial proof is not independently reproduced. https://arxiv.org/pdf/2008.06045
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1457.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_2d66097422f94133a34382a12a24884b.txt
 
 
 ## Reproducibility and review
@@ -35,5 +35,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 [1] Alexey Pokrovskiy, Rota’s Basis Conjecture holds asymptotically, arXiv:2008.06045v1, 13 August 2020, Theorem 1, p.2; both the number and the size are n−o(n), and only independence is asserted. The long combinatorial proof is not independently reproduced. https://arxiv.org/pdf/2008.06045
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1457.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_2d66097422f94133a34382a12a24884b.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

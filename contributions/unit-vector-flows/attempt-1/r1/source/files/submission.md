@@ -1,6 +1,6 @@
 # Unit vector flows on every bridgeless planar multigraph
 
-Problem: TOP-3222
+Problem: prb_8239c1ec0ac74d1f8affeca93027f506
 
 Claim type: Literature report.
 
@@ -32,7 +32,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3222.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_8239c1ec0ac74d1f8affeca93027f506.txt
 - https://thomas.math.gatech.edu/PAP/fc.pdf
 - https://doi.org/10.1006/jctb.1997.1750
 
@@ -45,7 +45,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3222.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_8239c1ec0ac74d1f8affeca93027f506.txt
 https://thomas.math.gatech.edu/PAP/fc.pdf
 https://doi.org/10.1006/jctb.1997.1750
 Exact source versions, statements and uses are described in report.md and source_notes.md.

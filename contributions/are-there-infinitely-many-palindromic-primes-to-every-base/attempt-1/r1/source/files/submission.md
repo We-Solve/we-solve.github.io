@@ -1,6 +1,6 @@
 # Prime palindromes have zero relative density in every fixed base
 
-Problem: TOP-9400155  
+Problem: prb_8fc74c28d9034f4a813de80bf208d593  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

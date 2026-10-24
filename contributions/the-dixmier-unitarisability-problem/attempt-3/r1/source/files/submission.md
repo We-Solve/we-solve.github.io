@@ -1,6 +1,6 @@
 # Monod–Ozawa’s wreath-product class in the Dixmier problem
 
-**Problem:** TOP-30004208
+**Problem:** prb_829564bc002d4543a50e26b1eab7e7fa
 
 **Claim type:** Literature report
 

@@ -5,7 +5,7 @@
 
 # Genericity matters for odd exterior forms: a complete universal classification
 
-**Problem:** TOP-1500023 / Math-3421 / AMR-014-0023, *Algebraic Stories — Exterior algebras*.
+**Problem:** prb_bccca200c8a7419c882a8710956cfa92 / Math-3421 / catalogue entry, *Algebraic Stories — Exterior algebras*.
 
 **Claim type:** Literature report and catalogue correction, including a complete disproof of the catalogue's universal statement, an exact classification for nonzero forms, and explicit certificates for stated positive generic cases.
 
@@ -228,7 +228,7 @@ The original dependency-free Python checker constructs exterior products from si
 
 The final executed checks cover 30 decomposable parameter pairs (all n=1,...,10 and positive odd d<=n), all 235 associated graded states, and 470 dimension equalities. They also certify the six full-support examples r=3,...,8, 95 complement-form witnesses m=6,...,100, all 19,661 pairwise triple-intersection tests, 5,319 nonzero support entries and 5,035 diagonal minor entries. The complement support data agree with independently constructed full exterior multiplication matrices for m=6,...,12. The seven-variable cubic determinant, all seven block determinants, and padded ranks 21,28,36 were checked exactly. The cases with odd-degree m-3 are precisely the even m; testing the remaining m is supplementary.
 
-The program and recorded results are included with the submission. The finite runs corroborate the all-parameter proofs in Sections 3–7. The determinant in Section 8 is a finite exact certificate for that stated matrix, rather than a numerical estimate of generic rank. Exact test ranges, counts and arithmetic methods are recorded in `verify1500023-results.json`; detailed matrices and witness data are in `verify1500023-certificates.json`.
+The program and recorded results are included with the submission. The finite runs corroborate the all-parameter proofs in Sections 3–7. The determinant in Section 8 is a finite exact certificate for that stated matrix, rather than a numerical estimate of generic rank. Exact test ranges, counts and arithmetic methods are recorded in the verification results recorded in the original submission; detailed matrices and witness data are in the certificate data recorded in the original submission.
 
 ## 11. Recommended catalogue correction and claim limits
 
@@ -245,7 +245,7 @@ No assertion is made that the full generic question is currently unresolved in a
 
 ## 12. Checked sources and attribution
 
-1. ULAM.AI, UnsolvedMath contributors and We-Solve, [TOP-1500023 / Math-3421](https://we-solve.github.io/problems/algebraic-stories-exterior-algebras-bccca200/), AMR-014-0023, CC BY 4.0. Checked the universal quantifier, strict degree cutoff, complex base field and absence of listed contributions on 18 October 2026.
+1. ULAM.AI, UnsolvedMath contributors and We-Solve, [prb_bccca200c8a7419c882a8710956cfa92 / Math-3421](https://we-solve.github.io/problems/algebraic-stories-exterior-algebras-bccca200/), catalogue entry, CC BY 4.0. Checked the universal quantifier, strict degree cutoff, complex base field and absence of listed contributions on 18 October 2026.
 2. R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, *Algebraic Stories from One and from the Other Pockets*, Arnold Mathematical Journal **4** (2018), 137–160, DOI [10.1007/s40598-018-0088-z](https://doi.org/10.1007/s40598-018-0088-z), [published full text](https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf), Section 4.4, **Problem Q**, printed page 155. Checked the explicit generic hypothesis and surrounding nine-variable example. The [arXiv v1](https://arxiv.org/pdf/1801.01692v1), Section 4.4, calls the corresponding question Problem P; the published form is used to clarify the hypothesis.
 3. S. Lundqvist and L. Nicklasson, *On generic principal ideals in the Exterior algebra*, [arXiv:1803.03563v1](https://arxiv.org/html/1803.03563v1), 9 March 2018. Checked Section 1's generic-rank formulation, Proposition 4.2's degree-one injectivity construction, Propositions 4.4–4.5's established cases, and the distinction between the nine-variable boundary phenomenon and low-degree equality. The report does not rerun the larger Macaulay2 computations in that paper.
 
@@ -254,7 +254,7 @@ Original exposition and verification records: CC BY 4.0. Original code: Apache-2
 
 ## Reproducible exact verifier
 
-Save as `verify1500023.py` and run `python3 verify1500023.py`. It writes both the summary and detailed certificate JSON beside the script.
+Save as `verify.py` and run `python3 verify.py`. It writes both the summary and detailed certificate JSON beside the script.
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/25) for this material.
 
@@ -438,7 +438,7 @@ Gaven (@gavenren): prompted the work and authorized its public submission. No hu
 
 ### References
 
-We-Solve [TOP-1500023 / Math-3421](https://we-solve.github.io/problems/algebraic-stories-exterior-algebras-bccca200/), AMR-014-0023, credited to ULAM.AI and UnsolvedMath contributors, CC BY 4.0. Checked the universal quantifier, strict cutoff, base field and prior-contribution list; GitHub search returned no matching submission before posting.
+We-Solve [prb_bccca200c8a7419c882a8710956cfa92 / Math-3421](https://we-solve.github.io/problems/algebraic-stories-exterior-algebras-bccca200/), catalogue entry, credited to ULAM.AI and UnsolvedMath contributors, CC BY 4.0. Checked the universal quantifier, strict cutoff, base field and prior-contribution list; GitHub search returned no matching submission before posting.
 
 R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, Algebraic Stories from One and from the Other Pockets, Arnold Mathematical Journal 4 (2018), 137–160, DOI [10.1007/s40598-018-0088-z](https://doi.org/10.1007/s40598-018-0088-z), [published PDF](https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf), Section 4.4, Problem Q, printed page 155. Checked the explicit generic hypothesis and surrounding nine-variable boundary example. The [arXiv v1](https://arxiv.org/pdf/1801.01692v1) labels the corresponding question Problem P.
 

@@ -39,6 +39,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006743.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_78e1c9daf9f24adb8420995bf01a7278.txt
 Noga Alon, Michael Krivelevich, Benny Sudakov, Finding a Large Hidden Clique in a Random Graph, Random Structures & Algorithms13 (1998), pp.457–466, primary author PDF §2.1 AlgorithmA, Proposition2.3 and §2.3 AlgorithmB: https://people.math.ethz.ch/~sudakovb/hidden-clique.pdf .
 Exact source versions, statements and uses are described in report.md and source_notes.md.

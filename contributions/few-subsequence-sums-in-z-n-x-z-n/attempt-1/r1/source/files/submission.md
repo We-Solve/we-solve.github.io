@@ -1,4 +1,4 @@
-Problem: TOP-3377
+Problem: prb_e1f6e4c79e8f4548a64c356be8bf9c62
 
 Title: Complete fibers prove the extremal bound at maximal multiplicity, with n<=4 certified
 
@@ -49,6 +49,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3377.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_e1f6e4c79e8f4548a64c356be8bf9c62.txt
 Open Problem Garden, Few subsequence sums in Z_n x Z_n, original problem and discussion: https://openproblemgarden.org/op/limiting_subsequence_sums_in_z_n_x_z_n
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

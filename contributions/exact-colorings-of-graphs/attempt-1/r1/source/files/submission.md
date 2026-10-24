@@ -1,6 +1,6 @@
 # Forced two-color infinite subgraphs and an infinite obstruction family
 
-Problem: TOP-3114
+Problem: prb_4d8441f0c5ef468bb8d48bf56d090f1d
 
 Claim type: Partial result.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3114.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_4d8441f0c5ef468bb8d48bf56d090f1d.txt
 
 
 ## Reproducibility and review
@@ -39,5 +39,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3114.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_4d8441f0c5ef468bb8d48bf56d090f1d.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

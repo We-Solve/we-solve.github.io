@@ -1,4 +1,4 @@
-Problem: TOP-5500039 — Distances among Point Sets in $\mathbb R^2$ and $\mathbb R^3$
+Problem: prb_35ebfc8931e249fb93e8bebee11f1114 — Distances among Point Sets in $\mathbb R^2$ and $\mathbb R^3$
 
 Title: A fully normalized planar baseline: the classical crossing proof and the Guth–Katz bound
 
@@ -54,11 +54,11 @@ Human contributors and roles: The user requested the work. No human mathematical
 
 References:
 
-1. [Official We-Solve prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500039.txt) and [TOPP Problem 39](https://topp.openproblem.net/p39), checked 18 October 2026.
+1. [Official We-Solve prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_35ebfc8931e249fb93e8bebee11f1114.txt) and [TOPP Problem 39](https://topp.openproblem.net/p39), checked 18 October 2026.
 2. Larry Guth and Nets Hawk Katz, [On the Erdős distinct distance problem in the plane](https://arxiv.org/pdf/1011.4105), Theorem 1.1 and introduction checked. The theorem and grid bound are used as credited inputs; the full proof is not claimed to have been audited here.
 3. László A. Székely, [Crossing Numbers and Hard Erdős Problems in Discrete Geometry](https://www.cs.tau.ac.il/~michas/szekely.pdf), Combinatorics, Probability and Computing 6 (1997), 353–358. Theorems 1 and 4, circle-arc proof, and discussion of pairwise crossing conventions checked.
 4. Joel Spencer, Endre Szemerédi and William T. Trotter, [Unit Distances in the Euclidean Plane](https://trotter.math.gatech.edu/papers/44.pdf), 1984, first-page theorem and original argument inspected. The bound is also explicitly attributed in Székely's paper.
-5. [Earlier We-Solve contribution, source manuscript](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/distances-among-point-sets-in-r-2-and-r-3/attempt-1/r1/source/files/5500039.tex), and [its contribution metadata](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/distances-among-point-sets-in-r-2-and-r-3/attempt-1/r1/contribution.yaml). Read for overlap and status; its linked 2026 mathematical proofs were not audited.
+5. [Earlier We-Solve contribution, source manuscript](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/distances-among-point-sets-in-r-2-and-r-3/attempt-1/r1/source/files/manuscript.tex), and [its contribution metadata](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/distances-among-point-sets-in-r-2-and-r-3/attempt-1/r1/contribution.yaml). Read for overlap and status; its linked 2026 mathematical proofs were not audited.
 
 
 ## Reproducibility and review
@@ -73,10 +73,10 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500039.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_35ebfc8931e249fb93e8bebee11f1114.txt
 https://topp.openproblem.net/p39
 https://arxiv.org/pdf/1011.4105
 https://www.cs.tau.ac.il/~michas/szekely.pdf
 https://trotter.math.gatech.edu/papers/44.pdf
-https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/distances-among-point-sets-in-r-2-and-r-3/attempt-1/r1/source/files/5500039.tex
+https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/distances-among-point-sets-in-r-2-and-r-3/attempt-1/r1/source/files/manuscript.tex
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

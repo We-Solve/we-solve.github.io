@@ -1,6 +1,6 @@
 # Arithmetic restrictions on purely cosmetic slopes, with a complete congruence classification
 
-Problem: TOP-30007506
+Problem: prb_df6af324bd494c6bbe1093e223c3ae37
 
 Claim type: Literature report
 

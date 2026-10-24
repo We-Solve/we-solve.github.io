@@ -1,6 +1,6 @@
 # A checked explicit zero-free region for Dedekind zeta functions
 
-Problem: TOP-30006677  
+Problem: prb_1c0e577c35644c3ca0125c8a65a8d9df  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

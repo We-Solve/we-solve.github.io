@@ -39,7 +39,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-52.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_a6bb04db66d1411e96fc85fb280ec70e.txt
 Éva Tardos, A Strongly Polynomial Algorithm to Solve Combinatorial Linear Programs, Operations Research 34(2) (1986), pp.250–256, primary publisher abstract and bibliographic record: https://pubsonline.informs.org/doi/abs/10.1287/opre.34.2.250?journalCode=opre . Full original proof not retrieved through the publisher PDF link; abstract-level dependence is reported honestly.
 Dadush, Koh, Natura, Olver, Végh, A Strongly Polynomial Algorithm for Linear Programs with At Most Two Nonzero Entries per Row or Column, STOC2024 primary author copy, §1.1 matrix-dependent Tardos background and §1.3 model distinctions: https://www.laszlovegh.eu/papers/dadush-koh-natura-olver-vegh-stoc.pdf . This source is supplementary context, not a replacement for Tardos attribution.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

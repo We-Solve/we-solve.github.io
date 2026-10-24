@@ -1,6 +1,6 @@
 # Bigraded knot Floer ranks and Seifert genus descend under ribbon concordance
 
-**Problem:** TOP-2712
+**Problem:** prb_891f1f20d28346f9bbd2076e8d713b3f
 
 **Claim type:** Literature report
 

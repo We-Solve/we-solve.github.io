@@ -1,4 +1,4 @@
-# TOP-30003556: An elementary absolute Lehmer gap for all totally real monic polynomials
+# prb_7b7778ca9eee43188318e3be022ca377: An elementary absolute Lehmer gap for all totally real monic polynomials
 
 Claim type: Partial result
 
@@ -46,7 +46,7 @@ holds throughout the totally real subclass, independently of degree, reducibilit
 
 [1] C. Smyth, The Mahler measure of algebraic numbers: a survey, arXiv:math/0701397v2, primary abstract and bibliographic record checked for context only; no theorem imported. https://arxiv.org/abs/math/0701397 .
 
-[2] Previous archived attempt on TOP-30003556, revision r1. https://we-solve.github.io/contributions/lehmer-s-mahler-measure-problem/attempt-1/r1/ .
+[2] Previous archived attempt on prb_7b7778ca9eee43188318e3be022ca377, revision r1. https://we-solve.github.io/contributions/lehmer-s-mahler-measure-problem/attempt-1/r1/ .
 
 
 ## Reproducibility and review
@@ -58,5 +58,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 C. Smyth, The Mahler measure of algebraic numbers: a survey, arXiv:math/0701397v2, primary abstract and bibliographic record checked for context only; no theorem imported. https://arxiv.org/abs/math/0701397 .
-Previous archived attempt on TOP-30003556, revision r1. https://we-solve.github.io/contributions/lehmer-s-mahler-measure-problem/attempt-1/r1/ .
+Previous archived attempt on prb_7b7778ca9eee43188318e3be022ca377, revision r1. https://we-solve.github.io/contributions/lehmer-s-mahler-measure-problem/attempt-1/r1/ .
 Exact source versions, statements and uses are described in report.md and source_notes.md.

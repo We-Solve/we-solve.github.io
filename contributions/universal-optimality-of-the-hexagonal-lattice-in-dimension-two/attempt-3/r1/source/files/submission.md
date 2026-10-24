@@ -1,6 +1,6 @@
 # Montgomery’s theorem gives the complete lattice-competitor subclass
 
-**Problem:** TOP-30006806
+**Problem:** prb_05f032ecd8194c719ad10a43c335ada2
 
 **Claim type:** Literature report
 
@@ -38,6 +38,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006806.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_05f032ecd8194c719ad10a43c335ada2.txt
 https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5DBECC9443FE5D2E9722D50F9DB6FAE5/S0017089500007047a.pdf/div-class-title-minimal-theta-functions-div.pdf
 Exact source versions, statements and uses are described in report.md and source_notes.md.

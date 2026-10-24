@@ -1,4 +1,4 @@
-Problem: TOP-3385
+Problem: prb_4a9c4c000b9d4fb594dd8bb585a267e8
 
 Title: An infinite obstruction to the proposed general-abelian extension, and the 2025 large-subsquare theorem
 
@@ -42,7 +42,7 @@ Human contributors and roles: No human review or new human mathematical contribu
 
 References:
 
-- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3385.txt
+- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_4a9c4c000b9d4fb594dd8bb585a267e8.txt
 - A. Müyesser and A. Pokrovskiy, *A random Hall-Paige conjecture*, Inventiones mathematicae 240 (2025), 779–867, Theorem 1.4 and §1.1.1. Published 5 March 2025. https://doi.org/10.1007/s00222-025-01328-x
 
 
@@ -58,6 +58,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3385.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_4a9c4c000b9d4fb594dd8bb585a267e8.txt
 https://link.springer.com/article/10.1007/s00222-025-01328-x (Theorem 1.4, section 1.1.1)
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

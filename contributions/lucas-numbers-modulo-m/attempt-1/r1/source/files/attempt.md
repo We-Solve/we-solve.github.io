@@ -3,7 +3,7 @@
 
 # Lucas residue completeness: classification, constructive lifting and exact certificates
 
-**We-Solve TOP-3358 / Math-3376, OPG-37402.**
+**We-Solve prb_8776481bd1fd4c26858ec39911a03b31 / Math-3376, catalogue entry.**
 
 **Claim and attribution.** The answer is yes. The complete classification was published by Brandon Avila and Yongyi Chen in 2013; Cheng Lien Lang and Mong Lung Lang also record it in their 2013 work. This is a literature report with detailed proofs and executable certificates, not a claim of a new classification. Necessity below uses the explicitly cited Fibonacci-completeness theorem of S. A. Burr. Sufficiency is proved directly, including a constructive index algorithm, a residue transversal and exact periods modulo powers of three. No historical novelty is claimed for these elementary consequences.
 
@@ -236,7 +236,7 @@ The elapsed time is machine dependent. The mathematical results and finite count
 2. **S. A. Burr**, *On Moduli for Which the Fibonacci Sequence Contains a Complete System of Residues*, The Fibonacci Quarterly **9**(5), December 1971, 497–504. [Publisher-archive scan](https://www.fq.math.ca/Scanned/9-5/burr.pdf). The main theorem, notation and rendered first page were checked. Its general Fibonacci classification is the explicit external input to necessity; this submission does not claim to reprove or independently validate every lemma of Burr's paper.
 3. **Cheng Lien Lang and Mong Lung Lang**, *Fibonacci Numbers and Residue Completeness*, [arXiv:1304.2892v3](https://arxiv.org/pdf/1304.2892v3), 11 July 2013. Theorem 2.5 and Section 2.3 were checked. Their generalized recurrence theorem and explicit Lucas specialization corroborate the result and credit Avila–Chen's independent proof. This source is not used to replace our direct construction.
 4. **Open Problem Garden**, [Lucas Numbers Modulo m](https://www.openproblemgarden.org/op/lucas_numbers_modulo_m), posted by Martin Erickson, 19 March 2012. Full question and the 1 July 2014 comment reporting a solution inspected. The old catalogue question should not be represented as a newly solved open problem.
-5. **We-Solve / UnsolvedMath TOP-3358**, displayed as Math-3376, OPG-37402. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3358.txt). Full definitions, conjectured list and earlier-contribution section inspected; no earlier We-Solve contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+5. **We-Solve / UnsolvedMath prb_8776481bd1fd4c26858ec39911a03b31**, displayed as Math-3376, catalogue entry. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_8776481bd1fd4c26858ec39911a03b31.txt). Full definitions, conjectured list and earlier-contribution section inspected; no earlier We-Solve contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 
 ## Provenance and licences
 
@@ -246,7 +246,7 @@ Original exposition and non-software result files: CC BY 4.0. Original software:
 
 
 <details>
-<summary>Complete exact verification software: verify3358.py (Apache-2.0)</summary>
+<summary>Complete exact verification software: verify.py (Apache-2.0)</summary>
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/9) for this material.
 
@@ -282,5 +282,5 @@ Gaven (@gavenren): requested another deeply investigated problem and authorized 
 2. **S. A. Burr**, *On Moduli for Which the Fibonacci Sequence Contains a Complete System of Residues*, The Fibonacci Quarterly **9**(5), December 1971, 497–504. [Publisher-archive scan](https://www.fq.math.ca/Scanned/9-5/burr.pdf). The main theorem, notation and rendered first page were checked. Its general Fibonacci classification is the explicit external input to necessity; this submission does not claim to reprove or independently validate every lemma of Burr's paper.
 3. **Cheng Lien Lang and Mong Lung Lang**, *Fibonacci Numbers and Residue Completeness*, [arXiv:1304.2892v3](https://arxiv.org/pdf/1304.2892v3), 11 July 2013. Theorem 2.5 and Section 2.3 were checked. Their generalized recurrence theorem and explicit Lucas specialization corroborate the result and credit Avila–Chen's independent proof. This source is not used to replace our direct construction.
 4. **Open Problem Garden**, [Lucas Numbers Modulo m](https://www.openproblemgarden.org/op/lucas_numbers_modulo_m), posted by Martin Erickson, 19 March 2012. Full question and the 1 July 2014 comment reporting a solution inspected. The old catalogue question should not be represented as a newly solved open problem.
-5. **We-Solve / UnsolvedMath TOP-3358**, displayed as Math-3376, OPG-37402. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3358.txt). Full definitions, conjectured list and earlier-contribution section inspected; no earlier We-Solve contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+5. **We-Solve / UnsolvedMath prb_8776481bd1fd4c26858ec39911a03b31**, displayed as Math-3376, catalogue entry. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_8776481bd1fd4c26858ec39911a03b31.txt). Full definitions, conjectured list and earlier-contribution section inspected; no earlier We-Solve contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 

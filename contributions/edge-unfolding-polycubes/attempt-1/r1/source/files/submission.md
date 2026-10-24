@@ -1,6 +1,6 @@
 # Unit-grid box nets and the precise scope of the refined polycube-tree theorem
 
-**Problem:** TOP-5500064. **Claim type:** Literature report.
+**Problem:** prb_9635eceae4934dfd9bb893b236fff55b. **Claim type:** Literature report.
 
 **Exact scope.** Every rectangular lattice box $[0,a]\times[0,b]\times[0,c]$, for positive integers $a,b,c$, has an explicit unfolding using its existing unit-square edges. Separately, Damian and Flatland prove a $4\times4$ refined unfolding theorem for every polycube tree. Their result permits cuts unavailable in the prompt and does not establish unit-grid unfoldability of all polycubes, or even of all unrefined polycube trees. No novelty or full resolution is claimed.
 
@@ -29,7 +29,7 @@ The attached exact checker builds each exposed unit square and its four three-di
 
 Thus the current contribution consists of a completely certified unrefined family and an accurately scoped related theorem. The full unit-grid existence/counterexample question remains outside the proof.
 
-**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500064.txt); [TOPP Problem 64](https://topp.openproblem.net/p64); M. Damian and R. Flatland, [arXiv:1811.01842v3](https://arxiv.org/html/1811.01842v3), introduction, terminology, invariant (I1), Theorems 1–2 and their connecting argument. The long case analysis is credited, not independently reimplemented. [Primary version history](https://arxiv.org/abs/1811.01842) checked for the title change and exact version. No earlier contribution was listed in the canonical record.
+**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9635eceae4934dfd9bb893b236fff55b.txt); [TOPP Problem 64](https://topp.openproblem.net/p64); M. Damian and R. Flatland, [arXiv:1811.01842v3](https://arxiv.org/html/1811.01842v3), introduction, terminology, invariant (I1), Theorems 1–2 and their connecting argument. The long case analysis is credited, not independently reimplemented. [Primary version history](https://arxiv.org/abs/1811.01842) checked for the title change and exact version. No earlier contribution was listed in the canonical record.
 
 Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: source-scope audit, explicit net proof, exact checker. The user requested preparation. No human review, proof-assistant verification, novelty or editorial acceptance is claimed.
 
@@ -46,8 +46,8 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500064.txt
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-5500064.json
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9635eceae4934dfd9bb893b236fff55b.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_9635eceae4934dfd9bb893b236fff55b.json
 https://topp.openproblem.net/p64
 https://arxiv.org/html/1811.01842v3
 https://arxiv.org/abs/1811.01842

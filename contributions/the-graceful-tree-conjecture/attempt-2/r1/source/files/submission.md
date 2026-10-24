@@ -1,6 +1,6 @@
 # An explicit graceful labeling for every caterpillar
 
-Problem: TOP-31
+Problem: prb_d2623f1f3a114d7cb00b4fc22c4127f9
 
 Claim type: Partial result.
 
@@ -34,7 +34,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-31 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-31.txt
+- Official prb_d2623f1f3a114d7cb00b4fc22c4127f9 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_d2623f1f3a114d7cb00b4fc22c4127f9.txt
 - C. M. Cavalier, Graceful Labelings, MSc thesis, University of South Carolina (2009), Chapter 3, Theorem 3.6 and caterpillar discussion: https://people.math.sc.edu/czabarka/Theses/Graceful.pdf
 
 
@@ -51,6 +51,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-31 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-31.txt
+Official prb_d2623f1f3a114d7cb00b4fc22c4127f9 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_d2623f1f3a114d7cb00b4fc22c4127f9.txt
 C. M. Cavalier, Graceful Labelings, MSc thesis, University of South Carolina (2009), Chapter 3, Theorem 3.6 and caterpillar discussion: https://people.math.sc.edu/czabarka/Theses/Graceful.pdf
 Exact source versions, statements and uses are described in report.md and source_notes.md.

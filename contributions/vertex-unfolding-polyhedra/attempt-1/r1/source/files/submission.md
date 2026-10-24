@@ -1,6 +1,6 @@
 # Beyond triangular faces: a correctly scoped tight-polyhedron result
 
-**Problem:** TOP-5500042, Vertex-Unfolding Polyhedra.  
+**Problem:** prb_a5be890bc56a404b9ba7c668a5e9e17a, Vertex-Unfolding Polyhedra.  
 **Claim type:** Literature report.
 
 **Exact scope.** The established triangular-face theorem applies when the prescribed faces already are triangles. A later result also covers convex polyhedra whose nontriangular faces are pairwise vertex-disjoint, preserving those faces intact. We identify the precise later version and explain the geometric strip lemma behind this extension. Neither result settles arbitrary prescribed polygonal faces; triangulating such faces changes the problem.

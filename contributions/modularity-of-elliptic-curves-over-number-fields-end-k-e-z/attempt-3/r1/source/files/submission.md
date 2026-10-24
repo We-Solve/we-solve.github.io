@@ -1,4 +1,4 @@
-# TOP-30006690: Real-quadratic modularity: the published theorem and its exact relationship to the adelic target
+# prb_c9f6e6e5ecfa4a5cb68fe5cde09ff726: Real-quadratic modularity: the published theorem and its exact relationship to the adelic target
 
 Claim type: Literature report
 

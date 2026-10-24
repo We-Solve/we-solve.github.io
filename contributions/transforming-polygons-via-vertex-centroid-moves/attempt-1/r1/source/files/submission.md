@@ -1,6 +1,6 @@
 # A 2026 preprint resolves vertex-centroid regularization, with precise scope
 
-Problem: TOP-5500060 / Math-4002, Transforming Polygons via Vertex-Centroid Moves.
+Problem: prb_ec4d2d63968b49d9a3f940c90e2b854f / Math-4002, Transforming Polygons via Vertex-Centroid Moves.
 
 Claim type: **Literature report**.
 
@@ -63,7 +63,7 @@ These finite checks test the identified algebra and help detect transcription er
 
 ## 5. Remaining question
 
-The area centroid depends on the polygonal region and need not remain on the initial line while a vertex moves. Replacing the vertex centroid by that quantity changes the dynamics. Neither the reported theorem nor the calculations here resolve the area-centroid regularization question. Accordingly the appropriate claim is a scoped **Literature report**, not a full solution of all questions in TOP-5500060.
+The area centroid depends on the polygonal region and need not remain on the initial line while a vertex moves. Replacing the vertex centroid by that quantity changes the dynamics. Neither the reported theorem nor the calculations here resolve the area-centroid regularization question. Accordingly the appropriate claim is a scoped **Literature report**, not a full solution of all questions in prb_ec4d2d63968b49d9a3f940c90e2b854f.
 
 ## References
 

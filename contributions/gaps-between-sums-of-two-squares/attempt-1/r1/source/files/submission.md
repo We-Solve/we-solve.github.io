@@ -1,6 +1,6 @@
 # A constructive one-sided fourth-root gap bound
 
-Problem: TOP-127  
+Problem: prb_aa16540a22f8405d88614084493d5d9a  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 
@@ -50,5 +50,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 ## References
 
 Ben Green, 100 Open Problems, Problem 66, https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf
-Fresh official TOP-127 prompt, exact 1/10 constant and zero-summand convention
+Fresh official prb_aa16540a22f8405d88614084493d5d9a prompt, exact 1/10 constant and zero-summand convention
 Exact source versions, statements and uses are described in report.md and source_notes.md.

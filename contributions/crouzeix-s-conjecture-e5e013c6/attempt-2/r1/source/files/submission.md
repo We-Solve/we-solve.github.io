@@ -1,6 +1,6 @@
 # The sharp Crouzeix bound for every affine square-zero matrix
 
-**Problem:** TOP-1300
+**Problem:** prb_e5e013c6942a4304b373aaa7c9199872
 
 **Claim type:** Partial result
 

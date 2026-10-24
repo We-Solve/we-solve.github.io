@@ -1,6 +1,6 @@
 # A quantified modern unit-distance lower bound and an exact lattice counting lemma
 
-**Problem:** TOP-1217
+**Problem:** prb_ebb7f4ddb82e49f4a3140b10165617a2
 
 **Claim type:** Literature report
 
@@ -43,6 +43,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1217.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_ebb7f4ddb82e49f4a3140b10165617a2.txt
 https://arxiv.org/html/2605.20579v1
 Exact source versions, statements and uses are described in report.md and source_notes.md.

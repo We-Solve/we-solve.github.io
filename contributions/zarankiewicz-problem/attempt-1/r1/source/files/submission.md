@@ -1,6 +1,6 @@
 # Exact Zarankiewicz values at projective-plane orders
 
-Problem: TOP-1427
+Problem: prb_93ce9b889aae48cdb061a56e96fb220a
 
 Claim type: Partial result.
 
@@ -32,7 +32,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1427.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_93ce9b889aae48cdb061a56e96fb220a.txt
 
 
 ## Reproducibility and review
@@ -43,5 +43,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1427.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_93ce9b889aae48cdb061a56e96fb220a.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

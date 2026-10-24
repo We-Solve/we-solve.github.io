@@ -1,6 +1,6 @@
 # Exact cubic dynamic programming for convex-position Euclidean matching
 
-**Problem:** TOP-5500006
+**Problem:** prb_019440a8351847439bd8358e120a3cbd
 
 **Claim type:** Partial result
 
@@ -35,6 +35,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500006.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_019440a8351847439bd8358e120a3cbd.txt
 https://topp.openproblem.net/p6
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,4 +1,4 @@
-Problem: TOP-1242
+Problem: prb_7f972aacadd741a1a39bffe089cc4347
 
 Title: The Lehmer conjecture on every Pell number, with independent structural certificates
 
@@ -10,7 +10,7 @@ Write-up:
 
 Let $P_0=0,P_1=1$ and $P_{n+2}=2P_{n+1}+P_n$. Faye and Luca’s Theorem 1 states that no composite Pell number has the Lehmer property. Therefore
 $$P_n>1,\quad \varphi(P_n)\mid P_n-1\quad\Longrightarrow\quad P_n\text{ is prime}$$
-for every index. This is an infinite-family partial result for TOP-1242, not a proof for arbitrary integers. The theorem is credited to its authors; its full text and its published journal record were checked. Its analytic argument is a literature input rather than a new proof here.
+for every index. This is an infinite-family partial result for prb_7f972aacadd741a1a39bffe089cc4347, not a proof for arbitrary integers. The theorem is credited to its authors; its full text and its published journal record were checked. Its analytic argument is a literature input rather than a new proof here.
 
 The following structural restrictions and Pell identities can be verified independently. If a composite integer $N$ satisfies $\varphi(N)\mid N-1$, then $N$ is odd and squarefree. Indeed $\varphi(N)$ is even for $N>2$, and a repeated prime factor $p^2\mid N$ would imply $p\mid\varphi(N)\mid N-1$. Also $p-1\mid N-1$ for every $p\mid N$, so such $N$ satisfies the squarefree Carmichael criterion. These necessary properties alone are not sufficient; for example $561$ is Carmichael but $\varphi(561)=320$ does not divide 560.
 
@@ -54,7 +54,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-1242.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_7f972aacadd741a1a39bffe089cc4347.txt
 B. Faye and F. Luca, Pell numbers with the Lehmer property, Afrika Matematika 28 (2017), 291–294, Theorem 1; primary full text: https://arxiv.org/pdf/1510.00638
 Primary publication record (published 25 August 2016, issue March 2017): https://link.springer.com/article/10.1007/s13370-016-0449-5
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

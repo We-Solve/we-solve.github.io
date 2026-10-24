@@ -1,6 +1,6 @@
 # Proper self-minors for every graph with a path factor
 
-Problem: TOP-3297
+Problem: prb_2f77f941b26e43f6a5ca0c9dd6518ec9
 
 Claim type: Partial result.
 
@@ -30,7 +30,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3297.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_2f77f941b26e43f6a5ca0c9dd6518ec9.txt
 
 
 ## Reproducibility and review
@@ -41,5 +41,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3297.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_2f77f941b26e43f6a5ca0c9dd6518ec9.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

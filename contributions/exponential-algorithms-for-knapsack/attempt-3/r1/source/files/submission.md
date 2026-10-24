@@ -1,4 +1,4 @@
-# TOP-3396: Exponential Algorithms for Knapsack
+# prb_74b7bfe6529944ff96f89df3c6ab53f0: Exponential Algorithms for Knapsack
 
 Claim type: **Partial result**.
 
@@ -22,7 +22,7 @@ Comparison with the earlier attempt: The earlier attempt uses normalized absolut
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3396.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_74b7bfe6529944ff96f89df3c6ab53f0.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/exponential-algorithms-for-knapsack/attempt-2/r1/
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/exponential-algorithms-for-knapsack/attempt-1/r1/
 
@@ -40,7 +40,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3396.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_74b7bfe6529944ff96f89df3c6ab53f0.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/exponential-algorithms-for-knapsack/attempt-2/r1/
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/exponential-algorithms-for-knapsack/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

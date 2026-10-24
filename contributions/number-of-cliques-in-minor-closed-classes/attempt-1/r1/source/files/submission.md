@@ -1,6 +1,6 @@
 # The optimal asymptotic clique exponent, with an exact extremal family
 
-Problem: TOP-3107
+Problem: prb_927afb4b6cd449679bd0edbe41e6caa3
 
 Claim type: Literature report.
 
@@ -45,7 +45,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-3107 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3107.txt
+- Official prb_927afb4b6cd449679bd0edbe41e6caa3 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_927afb4b6cd449679bd0edbe41e6caa3.txt
 - J. Fox and F. Wei, On the number of cliques in graphs with a forbidden minor, arXiv:1603.07056, Theorem 1.1 and lower-bound discussion; JCTB (2017): https://arxiv.org/abs/1603.07056
 - Primary published paper: https://www.sciencedirect.com/science/article/pii/S0095895617300394
 
@@ -63,7 +63,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-3107 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3107.txt
+Official prb_927afb4b6cd449679bd0edbe41e6caa3 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_927afb4b6cd449679bd0edbe41e6caa3.txt
 J. Fox and F. Wei, On the number of cliques in graphs with a forbidden minor, arXiv:1603.07056, Theorem 1.1 and lower-bound discussion; JCTB (2017): https://arxiv.org/abs/1603.07056
 Primary published paper: https://www.sciencedirect.com/science/article/pii/S0095895617300394
 Exact source versions, statements and uses are described in report.md and source_notes.md.

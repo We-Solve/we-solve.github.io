@@ -1,6 +1,6 @@
 # A proved almost-prime triple and an infinite squarefree P2 consequence
 
-Problem: TOP-1293  
+Problem: prb_cfa8dd518adc4682a8fe14685fcbe29d  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 

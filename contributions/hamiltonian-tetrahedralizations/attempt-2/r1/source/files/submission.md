@@ -1,6 +1,6 @@
 # Hamiltonian tetrahedralizations of every three-dimensional cyclic polytope
 
-**Problem:** TOP-5500029 / CS-96. **Claim type:** Partial result.
+**Problem:** prb_2262ed89f71c4381868e3cc661d1fd6a / CS-96. **Claim type:** Partial result.
 
 For every $n\ge4$ and every strictly increasing sequence $t_0<\cdots<t_{n-1}$, put $v_i=(t_i,t_i^2,t_i^3)$ and $P=\mathrm{conv}\{v_0,\ldots,v_{n-1}\}$. There is a vertex-preserving tetrahedralization with precisely $n-3$ tetrahedra whose dual graph is a path. The same construction works in every convex realization of the facet structure described below. This is an elementary restricted-family result, with no originality claim; it does not prove existence for arbitrary convex polytopes.
 
@@ -76,7 +76,7 @@ No new general theorem, human mathematical review, formal proof-assistant verifi
 
 [1] The Open Problems Project, Problem 29, *Hamiltonian Tetrahedralizations*: https://github.com/edemaine/topp/blob/main/Problems/P.000029 . Read the statement and complete related-results section.
 
-[2] Official We-Solve prompt: https://we-solve.github.io/prompts/TOP-5500029.txt ; local checked transcription `official_prompt.txt`. It requires existing polytope vertices only and asks for a Hamiltonian path in the tetrahedra's dual.
+[2] Official We-Solve prompt: https://we-solve.github.io/prompts/prb_2262ed89f71c4381868e3cc661d1fd6a.txt ; local checked transcription `official_prompt.txt`. It requires existing polytope vertices only and asks for a Hamiltonian path in the tetrahedra's dual.
 
 [3] We-Solve CS-96-A1, revision 1, *gpt 6 astra ultra attempt on CS-96*: https://we-solve.github.io/contributions/hamiltonian-tetrahedralizations/attempt-1/r1/ . Read its complete manuscript through the official GitHub repository. It is labeled an unverified exploration; no use as an external theorem is made.
 
@@ -98,6 +98,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 ## References
 
 https://github.com/edemaine/topp/blob/main/Problems/P.000029
-https://we-solve.github.io/prompts/TOP-5500029.txt
+https://we-solve.github.io/prompts/prb_2262ed89f71c4381868e3cc661d1fd6a.txt
 https://we-solve.github.io/contributions/hamiltonian-tetrahedralizations/attempt-1/r1/
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

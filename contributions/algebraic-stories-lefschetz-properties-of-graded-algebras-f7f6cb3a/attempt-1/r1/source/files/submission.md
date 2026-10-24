@@ -1,6 +1,6 @@
 # Every Artinian binary quotient has the strong Lefschetz property
 
-**Problem:** TOP-1500012 / Math-3413.  
+**Problem:** prb_f7f6cb3ad4614a2fbdbba2bd993b5085 / Math-3413.  
 **Claim type:** Partial result.
 
 **Exact scope.** Every homogeneous Artinian quotient $A=\mathbb C[x,y]/I$ has the SLP, with no genericity or restriction on its generator degrees. Consequently the catalogue question has a positive answer for $n\le2$, every $r>n$, and all prescribed positive degrees. The same conclusion holds in any number of variables when at least $n-2$ of the generic generators are linear: after eliminating independent linear equations the embedding dimension is at most two. SLP implies WLP.
@@ -50,11 +50,11 @@ The theorem does not prove the catalogue assertion for all generic overdetermine
 
 Run `python verify.py`. The standard-library verifier enumerates all 923 nonempty monomial staircases contained in a $6\times6$ box and checks 24,276 multiplication maps by $(x+y)^e$ over the rationals, including zero targets. It additionally checks six explicitly supplied, possibly nongeneric, mixed-form Artinian ideals: 164 multiplication maps and 124 jet-cokernel identities. It finds a common rational $a$ for each such ideal and records the full generators, Hilbert values and chosen $\ell=y-ax$ in `verification.json`. These examples audit the formulas; the proof establishes the theorem.
 
-The binary Lefschetz lemma is also used in the companion TOP-1500008 report to derive an arbitrary-degree Hilbert-series formula, and in TOP-1500014 to deduce mixed-product properties. They address different catalogue questions and share this credited input. The earlier TOP-1500011 package treated Hilbert series of equal-degree powers; that is a different question and does not establish the all-ideal SLP theorem proved here.
+The binary Lefschetz lemma is also used in the companion prb_38b20ffcafc941448e8b51deb6b15a3d report to derive an arbitrary-degree Hilbert-series formula, and in prb_db203aadf1204e549da6928605853aa1 to deduce mixed-product properties. They address different catalogue questions and share this credited input. The earlier prb_e6dd74c21862415ea76d0cfb113412a9 package treated Hilbert series of equal-degree powers; that is a different question and does not establish the all-ideal SLP theorem proved here.
 
 ## Checked references
 
-1. Official TOP-1500012 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500012.txt .
+1. Official prb_f7f6cb3ad4614a2fbdbba2bd993b5085 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_f7f6cb3ad4614a2fbdbba2bd993b5085.txt .
 2. T. Harima, J. C. Migliore, U. Nagel and J. Watanabe, *The Weak and Strong Lefschetz Properties for Artinian K-Algebras*, arXiv:math/0208201v1, 26 August 2002, Proposition 4.4: https://arxiv.org/pdf/math/0208201 . The proposition is the known binary theorem being reproved.
 3. D. Cook II, *The strong Lefschetz property in codimension two*, arXiv:1301.7614v2, 18 February 2013, Theorem 1.2: https://arxiv.org/pdf/1301.7614 . Its characteristic-zero assertion independently confirms the theorem's scope.
 4. R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, *Algebraic Stories from One and from the Other Pockets*, arXiv:1801.01692, Section 2.3, Problem G: https://arxiv.org/pdf/1801.01692 .
@@ -74,7 +74,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500012.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_f7f6cb3ad4614a2fbdbba2bd993b5085.txt
 https://arxiv.org/pdf/1801.01692
 https://arxiv.org/pdf/math/0208201
 https://arxiv.org/pdf/1301.7614

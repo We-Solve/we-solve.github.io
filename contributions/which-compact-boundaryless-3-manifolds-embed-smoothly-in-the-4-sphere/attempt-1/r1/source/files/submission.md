@@ -1,6 +1,6 @@
 # A computable torsion-double obstruction to smooth embedding in the four-sphere
 
-**Problem:** TOP-3416. **Claim type:** Partial result.
+**Problem:** prb_3b0023f8f5c64cc382bc8c9dd7fe1ba5. **Claim type:** Partial result.
 
 **Exact scope.** A closed connected three-manifold smoothly embedded in $S^4$ must be orientable, and the torsion subgroup of its integral first homology must have the form $A\oplus A$ for a finite abelian group $A$. This gives an effective necessary test and excludes every lens space $L(p,q)$ with $|p|>1$, including square orders. It is not a complete decision procedure; passing the test does not construct an embedding. The obstruction is classical, credited to Hantzsche through the checked primary exposition [1].
 

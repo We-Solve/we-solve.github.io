@@ -1,6 +1,6 @@
 # The complete totally real cubic case of elliptic modularity
 
-Problem: TOP-30006706  
+Problem: prb_837aa5242abd48c088c6e50e7f33951a  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

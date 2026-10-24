@@ -1,6 +1,6 @@
 # ICP for common bases of arbitrary partition matroids
 
-Problem: TOP-30001931
+Problem: prb_77230483c93a4f74ad8572e203be4b32
 
 Claim type: Partial result
 
@@ -38,5 +38,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30001931.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_77230483c93a4f74ad8572e203be4b32.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

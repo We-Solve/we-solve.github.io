@@ -1,4 +1,4 @@
-Problem: TOP-3210
+Problem: prb_f51bd13298e34aa3b188362ff967236f
 
 Title: The requested uniform single-exponential algorithm would contradict ETH
 
@@ -12,7 +12,7 @@ Write-up:
 
 Let $n=|V(G)|$ and $h=|V(H)|$. Cygan, Fomin, Golovnev, Kulikov, Mihajlin, Pachocki and Socała prove the following in Theorem 1 of *Tight Lower Bounds on Graph Embedding Problems* [1]: under ETH, for each fixed $d>0$ there is $a(d)>0$ such that, for reasonable nondecreasing functions $3\le h(n)\le n^d$, graph homomorphism cannot be decided in time $O(2^{a(d)n\log h(n)})$. Their Theorem 4 restates the result as a lower bound $h(n)^{a(d)n}$.
 
-Apply this with $d=1$ and $h(n)=n$ for $n\ge3$. If the algorithm requested in TOP-3210 existed, its running time on all instances with target order at most $n$ would be
+Apply this with $d=1$ and $h(n)=n$ for $n\ge3$. If the algorithm requested in prb_f51bd13298e34aa3b188362ff967236f existed, its running time on all instances with target order at most $n$ would be
 $$
 O(C^{n+h})\subseteq O(C^{2n})=2^{O(n)}.
 $$

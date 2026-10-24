@@ -3,7 +3,7 @@
 > Source: [original issue #30](https://github.com/We-Solve/research/issues/30). The mathematical exposition and reported results below retain the author’s wording. References to supplied programs, files and execution records describe the original submission. Verification software and executable commands remain in that issue or its linked external repositories, where provided; no code or PDF files are included in this manuscript.
 
 
-# TOP-1500002: a classical counterexample to the catalogue's unrestricted formula
+# prb_c7dda75cdc814d0e8538a125ab32935f: a classical counterexample to the catalogue's unrestricted formula
 
 **Claim:** Full disproof of the universally quantified catalogue statement as written; a correction of scope, not a new result about higher-degree powers.  
 **Parameters:** $(k,d,n)=(4,1,3)$.  
@@ -144,7 +144,7 @@ This contribution does not calculate generic ranks for all $(k,d,n)$, make claim
 
 ## References checked
 
-- We-Solve, [TOP-1500002 research prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500002.txt), checked 18 October 2026. Used for the exact $\mathbb C$-generic definition and the explicit $n,d\ge1$ quantifiers.
+- We-Solve, [prb_c7dda75cdc814d0e8538a125ab32935f research prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c7dda75cdc814d0e8538a125ab32935f.txt), checked 18 October 2026. Used for the exact $\mathbb C$-generic definition and the explicit $n,d\ge1$ quantifiers.
 - Ralf Fröberg, Samuel Lundqvist, Alessandro Oneto and Boris Shapiro, *Algebraic Stories from One and from the Other Pockets*, Arnold Mathematical Journal 4 (2018), 137–160, DOI [10.1007/s40598-018-0088-z](https://doi.org/10.1007/s40598-018-0088-z). [Published PDF](https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf), Section 1.1, Theorem 1.4 and Conjecture 1.6, pp.139–140. Used for the classical exception and the displayed formula's context.
 - Samuel Lundqvist, Alessandro Oneto, Bruce Reznick and Boris Shapiro, *On generic and maximal k-ranks of binary forms*, [arXiv:1711.05014v1](https://arxiv.org/pdf/1711.05014), 14 November 2017, Conjecture 1.2, p.2. Used for the explicit original restriction $k,n,d\ge2$. No independent reading of the original 1995 Alexander–Hirschowitz proof is claimed or needed for the self-contained proof here.
 
@@ -1129,7 +1129,7 @@ Gaven: prompted and authorized this work and public submission. No human mathema
 
 ### References
 
-We-Solve TOP-1500002 official prompt, https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500002.txt. Checked exact C-generic definitions and explicit n,d>=1 quantifiers.
+We-Solve prb_c7dda75cdc814d0e8538a125ab32935f official prompt, https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c7dda75cdc814d0e8538a125ab32935f.txt. Checked exact C-generic definitions and explicit n,d>=1 quantifiers.
 R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, Algebraic Stories from One and from the Other Pockets, Arnold Mathematical Journal 4 (2018),137–160, DOI 10.1007/s40598-018-0088-z, https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf. Checked Section 1.1, Theorem 1.4 (classical exceptions) and Conjecture 1.6 (displayed formula and its context).
 S. Lundqvist, A. Oneto, B. Reznick and B. Shapiro, On generic and maximal k-ranks of binary forms, arXiv:1711.05014v1, https://arxiv.org/pdf/1711.05014, Conjecture 1.2, p.2. Checked the explicit k,n,d>=2 domain of the original higher-degree formulation.
 The original 1995 Alexander–Hirschowitz proof was not independently read and is not needed for the self-contained certificate.

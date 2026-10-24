@@ -1,6 +1,6 @@
 # Quadratic graph diameter for every simple graphical zonotope
 
-Problem: TOP-30001930
+Problem: prb_79c658106912479d8086188f67584ba7
 
 Claim type: Partial result
 
@@ -35,10 +35,10 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: check_exact.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30001930/check_exact.py). Source SHA-256: `a528ff954c25539c79d066bbc82b408369ce5b5b6c0ecbe1622400b4a341f168`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `check_exact.py`. File SHA-256: `a528ff954c25539c79d066bbc82b408369ce5b5b6c0ecbe1622400b4a341f168`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30001930.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_79c658106912479d8086188f67584ba7.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30001930/check_exact.py (Used: exact previously reviewed program; SHA-256 a528ff954c25539c79d066bbc82b408369ce5b5b6c0ecbe1622400b4a341f168).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `check_exact.py` (Used: exact previously reviewed program; SHA-256 a528ff954c25539c79d066bbc82b408369ce5b5b6c0ecbe1622400b4a341f168).

@@ -1,6 +1,6 @@
 # The generalized hexagon target at ell=3 with exact threshold30
 
-Problem: TOP-3091
+Problem: prb_a29ab47fa5a74535a1a247c74d602958
 
 Claim type: Literature report
 
@@ -27,7 +27,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3091.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_a29ab47fa5a74535a1a247c74d602958.txt
 https://arxiv.org/pdf/2403.00737v1 — Heule and Scheucher, Theorem1, v1 March1,2024.
 https://arxiv.org/pdf/2403.17370v1 — Subercaseaux, Nawrocki, Gallicchio, Codel, Carneiro and Heule, formal geometric-to-SAT reduction, v1 March26,2024.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

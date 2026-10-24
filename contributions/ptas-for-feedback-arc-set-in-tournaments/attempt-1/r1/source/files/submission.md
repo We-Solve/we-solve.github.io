@@ -1,6 +1,6 @@
 # A checked PTAS theorem and an exact feedback-arc recurrence
 
-Problem: TOP-3291
+Problem: prb_c54954e9d9834deea1c2a41435d6f707
 
 Claim type: Literature report.
 
@@ -35,7 +35,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-3291 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3291.txt
+- Official prb_c54954e9d9834deea1c2a41435d6f707 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c54954e9d9834deea1c2a41435d6f707.txt
 - C. Kenyon-Mathieu and W. Schudy, How to rank with few errors: A PTAS for Weighted Feedback Arc Set on Tournaments, ECCC TR06-144 (2006): https://eccc.weizmann.ac.il/report/2006/144/
 - C. Mathieu and W. Schudy, How to Rank with Fewer Errors, author manuscript, Theorem 1.2 and derandomization statement: https://cs.brown.edu/people/wschudy/papers/fast_journal.pdf
 
@@ -53,7 +53,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-3291 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3291.txt
+Official prb_c54954e9d9834deea1c2a41435d6f707 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c54954e9d9834deea1c2a41435d6f707.txt
 C. Kenyon-Mathieu and W. Schudy, How to rank with few errors: A PTAS for Weighted Feedback Arc Set on Tournaments, ECCC TR06-144 (2006): https://eccc.weizmann.ac.il/report/2006/144/
 C. Mathieu and W. Schudy, How to Rank with Fewer Errors, author manuscript, Theorem 1.2 and derandomization statement: https://cs.brown.edu/people/wschudy/papers/fast_journal.pdf
 Exact source versions, statements and uses are described in report.md and source_notes.md.

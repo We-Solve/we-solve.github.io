@@ -2,7 +2,7 @@
 
 # A 42-vertex counterexample to the fractional graph power conjecture
 
-**We-Solve TOP-3117, OPG-37316: Vertex Coloring of graph fractional powers.**
+**We-Solve prb_ed509e4418ac4f60934e9bd92a0d8988, catalogue entry: Vertex Coloring of graph fractional powers.**
 
 **Answer: no.** Let $G=C_3\square K_2$ be the triangular prism, and take $m=3,n=5$. The graph $G$ is connected and has maximum degree three, while
 
@@ -179,7 +179,7 @@ The original OPG page includes a comment about $m=n=2$. That comment concerns th
 
 ## 6. Exact finite verification and its limits
 
-The accompanying verify3117.py was executed using Python's standard library and exact integer arithmetic. All assertions passed. The complete record is verification_results.json, and the independently checkable five-color obstruction is five_color_unsat_certificate.json.
+The accompanying verify.py was executed using Python's standard library and exact integer arithmetic. All assertions passed. The complete record is verification_results.json, and the independently checkable five-color obstruction is five_color_unsat_certificate.json.
 
 * Integer breadth-first search constructs all distances in the 42-vertex, 45-edge subdivision. Joining pairs at distances one through three gives exactly 162 powered edges; the degree counts are eighteen vertices of degree seven, eighteen of degree eight, and six of degree nine.
 * An increasing-order exhaustive enumeration counts every clique once. Counts for sizes one through five are respectively $42,162,204,105,18$, with no larger cliques. A separate Bron–Kerbosch enumeration finds 45 maximal cliques and independently confirms maximum size five.
@@ -205,7 +205,7 @@ No floating-point distance calculation is necessary: subdivision distances are o
 1. **Stephen Hartke, Hong Liu and Šárka Petříčková**, *On coloring of fractional powers of graphs*, [arXiv:1212.3898](https://arxiv.org/abs/1212.3898), first submitted 17 December 2012. [Full paper](https://arxiv.org/pdf/1212.3898). The definitions, introduction, Lemma 5.1 and Proposition 5.2 on printed page 9 were inspected. Proposition 5.2 supplies the established triangular-prism counterexample and its local forcing method. The broader even-numerator theorem and other generalizations are not additional proof dependencies here. We make no unverified claim about a journal publication or historical novelty.
 2. **Moharram N. Iradmusa**, *On colorings of graph fractional powers*, Discrete Mathematics **310** (2010), 1551–1556, DOI [10.1016/j.disc.2010.01.017](https://doi.org/10.1016/j.disc.2010.01.017). The bibliographic record and the source paper's account of the original conjecture were inspected; its full collection of positive results is not used as an external theorem in our proof.
 3. **Open Problem Garden**, [Vertex Coloring of graph fractional powers](https://www.openproblemgarden.org/op/vertex_coloring_of_graph_fractional_powers), posted by Iradmusa, 23 April 2011. The precise strict inequality $n>m$, original conjecture and displayed total-graph comment were inspected. The comment's $m=n=2$ example is outside the stated domain.
-4. **We-Solve / UnsolvedMath TOP-3117**, OPG-37316. [Catalogue statement](https://github.com/We-Solve/research/blob/main/problems/ed/prb_ed509e4418ac4f60934e9bd92a0d8988/statement.tex). The exact subdivision convention and full hypotheses were inspected. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+4. **We-Solve / UnsolvedMath prb_ed509e4418ac4f60934e9bd92a0d8988**, catalogue entry. [Catalogue statement](https://github.com/We-Solve/research/blob/main/problems/ed/prb_ed509e4418ac4f60934e9bd92a0d8988/statement.tex). The exact subdivision convention and full hypotheses were inspected. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 
 ## Provenance and licences
 

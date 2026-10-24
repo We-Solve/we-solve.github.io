@@ -1,6 +1,6 @@
 # A fully charged four-list Subset Sum baseline
 
-Problem: TOP-30007476 — Worst-Case Subset Sum Below the Half Exponent.  
+Problem: prb_a6fda3fec77f410fb39621a1016366db — Worst-Case Subset Sum Below the Half Exponent.  
 Claim type: **Partial result**.  
 Scope: A self-contained deterministic four-list algorithm taking $O(n2^{n/2})$ operations and $O(2^{n/4})$ writable words in the official word model, with a labelled witness when one exists. This classical Schroeppel–Shamir construction does not attain the requested $O_c(2^{0.49n})$ bound and is not a lower bound against that target.
 

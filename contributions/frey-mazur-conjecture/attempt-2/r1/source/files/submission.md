@@ -1,6 +1,6 @@
 # Surjective mod-p representations exclude every nontrivial quadratic self-twist
 
-Problem: TOP-30006835  
+Problem: prb_a9eaba36b7c04ef58f18e6934265bc22  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -37,6 +37,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-Fresh official TOP-30006835 prompt and its listed prior contribution
+Fresh official prb_a9eaba36b7c04ef58f18e6934265bc22 prompt and its listed prior contribution
 Complete GL_2(F_p) quadratic-self-twist proof in this report
 Exact source versions, statements and uses are described in report.md and source_notes.md.

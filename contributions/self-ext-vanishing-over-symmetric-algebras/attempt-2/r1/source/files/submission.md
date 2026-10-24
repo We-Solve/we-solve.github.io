@@ -1,6 +1,6 @@
 # Periodic modules force positive self-extensions over symmetric algebras
 
-**Problem:** TOP-30007006
+**Problem:** prb_ccd4006c8bd34f95a1146fa762306afb
 
 **Claim type:** Partial result
 

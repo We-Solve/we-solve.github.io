@@ -1,6 +1,6 @@
 # The both-positive Descartes realization conjecture has a published counterexample
 
-**Problem:** TOP-2200012. **Claim:** Literature report.
+**Problem:** prb_28920cbe7b8241a09cbcb60f03e046c4. **Claim:** Literature report.
 
 The universal assertion is false. Kostov's published Theorem 1 [K] excludes
 the degree-eleven sign pattern
@@ -75,7 +75,7 @@ This suffices to answer the universal question negatively. It does not
 classify all forbidden pairs in degree eleven or arbitrary degree, establish
 the least possible degree of such an obstruction, or claim that every
 both-positive case below degree eleven was independently checked here.
-The companion low-degree certificate report for TOP-2200011 addresses the
+The companion low-degree certificate report for prb_fa7643f36d144b029b37665e772f22ec addresses the
 general classification only through degree four and is logically separate.
 
 `verify.py` checks the exact sign-change count, admissibility, conjugate-pair
@@ -101,7 +101,7 @@ Checked references:
    Used to identify the original conjecture, not as evidence of its current
    status. The catalogue's longer page range is not repeated as bibliographic
    fact.
-3. **We-Solve**, [TOP-2200012 exact prompt](https://we-solve.github.io/prompts/TOP-2200012.txt),
+3. **We-Solve**, [prb_28920cbe7b8241a09cbcb60f03e046c4 exact prompt](https://we-solve.github.io/prompts/prb_28920cbe7b8241a09cbcb60f03e046c4.txt),
    retrieved through the official website repository on 18 October 2026.
    The earlier-contribution section listed none at inspection.
 
@@ -126,5 +126,5 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 V. P. Kostov, Polynomials, sign patterns and Descartes’ rule of signs, Mathematica Bohemica 144 (2019), 39–67, Theorem 1, p.41; https://doi.org/10.21136/MB.2018.0091-17 ; publisher record https://articles.math.cas.cz/10.21136/MB.2018.0091-17 ; full PDF https://dml.cz/bitstream/handle/10338.dmlcz/147638/MathBohem_144-2019-1_4.pdf
 B. Shapiro, Problems Around Polynomials: The Good, The Bad and The Ugly…, Arnold Mathematical Journal 1 (2015), 91–99, Conjecture 7; https://amj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/
-Official TOP-2200012 prompt, https://we-solve.github.io/prompts/TOP-2200012.txt
+Official prb_28920cbe7b8241a09cbcb60f03e046c4 prompt, https://we-solve.github.io/prompts/prb_28920cbe7b8241a09cbcb60f03e046c4.txt
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

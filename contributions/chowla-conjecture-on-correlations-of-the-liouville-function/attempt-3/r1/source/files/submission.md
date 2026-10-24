@@ -1,6 +1,6 @@
 # Odd logarithmic correlations imply complementary sign-pattern balance
 
-Problem: TOP-30006713  
+Problem: prb_979e722e24104328bfadd4da6ea5f0a3  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 

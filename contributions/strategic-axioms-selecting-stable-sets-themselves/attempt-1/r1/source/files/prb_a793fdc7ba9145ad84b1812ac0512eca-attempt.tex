@@ -1,0 +1,198 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\NE}{\operatorname{NE}}
+\newcommand{\Stab}{\operatorname{Stab}_0}
+\newcommand{\intr}{\operatorname{relint}}
+\newcommand{\Ess}{\operatorname{Ess}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}[proposition]{Corollary}
+\title{Why internal minimality does not solve stable-set selection on all finite games}
+\author{OpenAI GPT 6 Astra Pro}
+\date{18 October 2026}
+\begin{document}
+\maketitle
+
+\section*{Contribution metadata}
+\noindent\textbf{Problem:} ECON-5; permanent ID prb_a793fdc7ba9145ad84b1812ac0512eca.\\
+\textbf{Claim type:} Partial result.\\
+\textbf{Scope:} A complete description of stable sets in zero-payoff games; an explicit globally valid refinement showing that $B,D^*,I^*$ alone do not imply stable-set membership; and rigorous rejection of the additional axiom of inclusion-minimality among a rule's selected sets.\\
+\textbf{Assumptions and limitations:} The programme of finding an independently motivated axiom satisfied by the full $0$-stability correspondence remains unresolved. The results rule out particular proposed routes; they do not rule out every possible additional axiom. The generic minimality observation in the source is not claimed as new.
+
+\section*{Write-up}
+\subsection*{1. The requested target}
+For finite games let $\Phi(G)$ be a nonempty family of nonempty closed connected Nash sets, and retain the exact definitions of $B,D^*,I^*$ and $\Stab$ in the problem. The programme is to find a precise axiom $\mathcal A$, with a strategic interpretation, such that
+\[
+ \Stab\text{ satisfies }\mathcal A,
+ \qquad
+ B+D^*+I^*+\mathcal A
+       \Longrightarrow\Phi(G)\subseteq\Stab(G)\quad\forall G.
+                                                               \tag{S2}
+\]
+This differs from requiring each selected set merely to contain a stable set. The full correspondence $\Stab$ is the object that must satisfy $\mathcal A$. Replacing it by a correspondence that keeps only its inclusion-minimal members changes that requirement.
+
+The attempt below examines one exact minimality proposal and proves two obstacles. This is a partial result for the programme, not a successful choice of $\mathcal A$.
+
+\subsection*{2. Zero-payoff games admit nested stable sets}
+Let $G^0$ be any finite game whose payoff functions are identically zero. Its mixed-strategy space is $\Sigma=\prod_i\Delta(A_i)$ and $\NE(G^0)=\Sigma$. Use the problem's perturbation cone $P_\varepsilon$, graph $E_{G^0}$, and projection $\pi$.
+
+\begin{proposition}[Complete description in a null game]
+The family $\Stab(G^0)$ consists of every nonempty compact connected subset of $\Sigma$.
+\end{proposition}
+\begin{proof}
+Only the inclusion asserting stability needs proof, since solutions have the stated topological properties by convention. Fix nonempty compact connected $K\subseteq\Sigma$ and $0<\varepsilon_0<1$. For $\eta\in P_{\varepsilon_0}$ write $\delta=\delta(\eta)$ for its common playerwise sum and define
+\[
+ X=\{(\eta,\eta+(1-\delta)k):
+                 \eta\in P_{\varepsilon_0},\ k\in K\}.
+                                                               \tag{1}
+\]
+Every displayed profile is feasible: its coordinates dominate $\eta$, are nonnegative, and sum to one for each player. All feasible profiles are equilibria of the zero-payoff constrained game. Thus $X\subseteq E_{G^0}$, $X$ is compact, and its zero fibre is $\{0\}\times K$.
+
+Because $1-\delta>0$ on $P_{\varepsilon_0}$, the map
+\[
+ (\eta,k)\longmapsto(\eta,\eta+(1-\delta(\eta))k)
+\]
+is a homeomorphism from $P_{\varepsilon_0}\times K$ onto $X$: its inverse recovers $k=(x-\eta)/(1-\delta(\eta))$. Under this homeomorphism, the projection is the first-coordinate map.
+
+For $0<\varepsilon\leq\varepsilon_0$, fix $k_0\in K$ and let $j$ be the section obtained by setting $k=k_0$ in (1). It is a map of pairs
+\[
+ j:(P_\varepsilon,\partial P_\varepsilon)
+         \longrightarrow(X_\varepsilon,\partial X_\varepsilon),
+ \qquad \pi\circ j=\operatorname{id}.
+\]
+Consequently $j^*\pi^*=\operatorname{id}$ on relative rational \v Cech cohomology. Since the top-dimensional relative cohomology of the perturbation cone is nonzero, $\pi^*$ is nonzero. This proves essentiality without assuming any acyclicity or convexity of $K$.
+
+For connexity, let $V$ be a neighbourhood of $\{0\}\times K$ in $X$. Compactness of $K$ and the product representation give $0<\rho<\varepsilon_0$ such that the image of $P_\rho\times K$ is contained in $V$. The image of
+\[
+ (P_\rho\cap\intr P_1)\times K
+\]
+is connected, lies in $V\setminus\partial X_1$, and has closure containing the image of $P_\rho\times K$. The component containing this connected set therefore has closure that is a neighbourhood of the zero fibre. This is exactly the stipulated connexity condition. The witness proves $K\in\Stab(G^0)$.
+\end{proof}
+
+For example, in a zero-payoff $2\times2$ game, choose a profile $x$ and a nondegenerate line segment $L\subseteq\Sigma$ containing it. Then
+\[
+ \{x\}\subsetneq L\subseteq\Sigma,
+ \qquad \{x\},\ L,\ \Sigma\in\Stab(G^0).                    \tag{2}
+\]
+Thus the exact target correspondence includes nested stable sets. If the strategy space has dimension at least two, a small circle in its relative interior is another stable set, so stable sets need not be convex either.
+
+\subsection*{3. A global refinement that selects a nonstable set}
+For every finite game define
+\[
+ \Ess(G)=\{C:C\text{ is a connected component of }\NE(G),
+                      \ \operatorname{ind}_G(C)\ne0\}.
+                                                               \tag{3}
+\]
+This is a globally defined solution concept. Its family is nonempty because equilibrium components are finite in number and their indices sum to one \cite[Section 2.1]{glp}. Govindan--Wilson establish on the all-game domain that essentiality satisfies $B,D,I$, and hence the weaker $B,D^*,I^*$ \cite[Theorem 6.5]{gw}. This cited all-game theorem verifies the cross-game axioms; the argument is not confined to one chosen game.
+
+Now consider
+\[
+G=\begin{array}{c|cc}
+ &L&R\\\hline
+T&(1,1)&(1,0)\\
+B&(1,1)&(0,0).
+\end{array}                                                     \tag{4}
+\]
+Player 2 strictly prefers $L$, while player 1 is indifferent between $T$ and $B$ against $L$. Hence
+\[
+ \NE(G)=K=\Delta(\{T,B\})\times\{L\}.                         \tag{5}
+\]
+There is exactly one equilibrium component. Its index is one, so $\Ess(G)=\{K\}$.
+
+For completeness, one can identify the entire stable-set family of (4) directly. At an interior perturbation $\eta$, player 2 assigns exactly $\eta_2(R)>0$ to $R$, because $L$ is its unique best action. Against this strategy player 1's advantage of $T$ over $B$ is $\eta_2(R)>0$, so the constrained equilibrium is uniquely
+\[
+ x_1(T)=1-\eta_1(B),\qquad x_2(L)=1-\eta_2(R).                \tag{6}
+\]
+These equilibria converge only to $x^*=(T,L)$ as $\eta\to0$. For any stability witness $X$, connexity makes every point of its zero fibre a limit of points of $X\setminus\partial X_1$. Such graph points have interior perturbations. Equation (6) therefore implies that any stable set is contained in $\{x^*\}$.
+
+Conversely, formula (6) gives a continuous equilibrium section also at boundary perturbations: $T$ is always at least as good as $B$, and $L$ remains strictly best. Its graph projects homeomorphically onto each sufficiently small perturbation cone; essentiality follows. The same truncated-cone argument used in the preceding proof verifies connexity for this graph. Thus
+\[
+ \Stab(G)=\{\{(T,L)\}\}.
+                                                               \tag{7}
+\]
+Equations (5)--(7) prove
+\[
+ K\in\Ess(G),\qquad K\notin\Stab(G),\qquad
+ \{(T,L)\}\subsetneq K.                                      \tag{8}
+\]
+This is a complete counterexample to the implication from $B,D^*,I^*$ alone to stable-set membership. It is consistent with containment and therefore does not disprove the companion problem S1.
+
+\subsection*{4. A precise minimality proposal fails in two ways}
+Consider the additional axiom
+\[
+\tag{M}
+ K,L\in\Phi(G),\quad L\subseteq K
+       \quad\Longrightarrow\quad L=K.
+\]
+It says that a selected set never has a strictly smaller selected alternative. This is an exact, internal version of inclusion-minimality, not an undefined appeal to ``smallest'' forecasts.
+
+\begin{proposition}
+Axiom (M) does not solve S2:
+\begin{enumerate}
+\item the full correspondence $\Stab$ fails (M);
+\item even $B+D^*+I^*+\text{(M)}$ does not imply stable-set membership on all finite games.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+For the first statement, the nested stable sets (2) violate (M). For the second, $\Ess$ satisfies (M) on every game, since distinct connected components are disjoint and hence cannot properly contain one another. It also satisfies the exact global strategic axioms by the cited theorem. But (8) is a selected set that is not stable.
+\end{proof}
+
+There are two distinct errors that this prevents. Merely requiring the sets within $\Phi(G)$ to form an antichain is too weak: if the family contains only one large set, the requirement has nothing to compare. Strengthening this to discard every stable set that has a smaller stable subset changes the target correspondence, since the original $\Stab$ deliberately contains non-minimal sets in nongeneric games. Similarly, demanding that every selected set be convex, or be an entire equilibrium component, would fail the requirement that all of $\Stab$ satisfy the proposed axiom, as the null-game examples show.
+
+The source's generic minimality discussion is compatible with these conclusions \cite[Sections 6.1 and 10]{gw}. A claim concerning a generic domain, a quotient strategy representation, or a selected subfamily of stable sets is different from requiring the full all-game correspondence to satisfy (M).
+
+\subsection*{5. Why a refinement-by-stable-subsets argument is incomplete}
+Even if containment were established, there is a further cross-game issue in defining
+\[
+ \Psi(G)=\{S\in\Stab(G):
+                     \exists K\in\Phi(G)\text{ with }S\subseteq K\}.
+                                                               \tag{9}
+\]
+Containment would make (9) nonempty. Stability gives its backward-induction property, and the exact $D^*$ equalities preserve (9). Under a strong embedding $f:H\to G$, one direction is also immediate:
+\[
+ S_H\in\Psi(H)\quad\Longrightarrow\quad f(S_H)\in\Psi(G).
+\]
+Indeed $S_H\subseteq K_H\in\Phi(H)$ implies that $f(S_H)$ is stable and lies in $f(K_H)\in\Phi(G)$.
+
+The reverse direction has not followed. Given $S\subseteq K$ in $G$, invariance separately supplies a selected lift of $K$ and a stable lift of $S$ in $H$. It does not, without an additional argument, place that stable lift inside the selected lift. A sufficient missing assertion would be
+\[
+ \begin{gathered}
+ K_H\in\Phi(H),\quad S\in\Stab(G),\quad S\subseteq f(K_H)
+ \\
+ \Longrightarrow\quad
+ \exists S_H\in\Stab(H):
+ S_H\subseteq K_H,\quad f(S_H)=S.
+ \end{gathered}                                                 \tag{10}
+\]
+No proof of (10) is supplied. Thus (9) cannot simply be called a globally invariant refinement by selecting stable subsets game by game. This identifies an exact gap in that attempted route rather than hiding it behind a minimality assertion.
+
+\subsection*{6. Audit and remaining work}
+The null-game construction works for arbitrary compact connected $K$, including boundary sets and sets with nontrivial topology. The factor $1-\delta$ is kept positive, and both the cohomological and connexity conditions are checked. The nonstable selected set in (8) belongs to a rule defined on all finite games; its global axiom verification is supplied by the cited theorem, while its game-specific equilibrium and stability calculations are explicit. The proposed axiom (M) is tested both for compatibility with the target and for sufficiency.
+
+What remains is to give an additional axiom with an independent strategic meaning that the full $0$-stability correspondence satisfies, and then prove the requested implication, on all games or on an expressly limited generic domain. Belief-based connectedness may be a useful direction, but its space, topology, invariance, and sufficiency all require proofs. This contribution does not establish those steps. \textbf{Status of S2: unresolved research programme.}
+
+\section*{Models used}
+OpenAI GPT-6 Astra Pro, for primary-source checking, proof construction, and adversarial checking; exact deployment snapshot unknown. No formal proof assistant was used.
+\section*{Human contributors and roles}
+The user supplied the problem package and requested attempts. No human proof review or endorsement is claimed. Existing theorems retain the authorship credited in the references.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{gw} Srihari Govindan and Robert Wilson,
+\emph{Axiomatic Equilibrium Selection in Generic Extensive-Form Games},
+arXiv:2504.16908v2, 26 August 2026.
+Definition 2.4; Theorems 6.1 and 6.5; Sections 6.1 and 10.
+The unversioned page was checked and identifies itself as version 2:
+\url{https://arxiv.org/html/2504.16908}.
+\bibitem{glp} Srihari Govindan, Rida Laraki, and Lucas Pahl,
+\emph{O'Neill's Theorem for Games}, arXiv:2312.03392v2,
+28 October 2024, Section 2.1.
+\url{https://arxiv.org/pdf/2312.03392}.
+\bibitem{problem} We-Solve, \emph{Strategic axioms selecting stable sets themselves}, prb_a793fdc7ba9145ad84b1812ac0512eca.
+Attached statement dated 17 October 2026 and live research prompt inspected
+18 October 2026.
+\url{https://we-solve.github.io/problems/strategic-axioms-selecting-stable-sets-themselves/}.
+\end{thebibliography}
+\end{document}

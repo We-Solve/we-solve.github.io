@@ -1,6 +1,6 @@
 # Rational circular mixing threshold for every forest
 
-Problem: TOP-3240
+Problem: prb_8912278b94ab4a43b581e1d1f4f5a5f8
 
 Claim type: Partial result.
 
@@ -34,7 +34,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3240.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_8912278b94ab4a43b581e1d1f4f5a5f8.txt
 
 
 ## Reproducibility and review
@@ -50,5 +50,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3240.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_8912278b94ab4a43b581e1d1f4f5a5f8.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

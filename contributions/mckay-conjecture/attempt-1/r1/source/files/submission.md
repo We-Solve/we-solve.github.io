@@ -1,6 +1,6 @@
 # The ordinary McKay conjecture is now a published theorem
 
-Problem: TOP-1114. Claim type: Literature report.
+Problem: prb_2404b0fa59bb4c04a14952919c13d2c2. Claim type: Literature report.
 
 The exact equality in the official prompt holds for **every finite group and every prime**. Cabanes and Späth's *The McKay Conjecture on character degrees* is published in *Annals of Mathematics* 203 (2026), 933–1032. Theorem A in the checked author preprint states
 $$|\mathrm{Irr}_{p'}(G)|=|\mathrm{Irr}_{p'}(N_G(P))|$$

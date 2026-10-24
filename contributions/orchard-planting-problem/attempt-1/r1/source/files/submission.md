@@ -1,6 +1,6 @@
 # The large-n orchard formula, and an exact small exception
 
-**Problem:** TOP-1382. **Claim type:** Literature report.
+**Problem:** prb_cbcce07dd53b4475b18485f9f6a5ab69. **Claim type:** Literature report.
 
 **Exact scope.** Green and Tao's Theorem 1.3 and Proposition 2.6 give
 $$T_3(n)=\left\lfloor\frac{n(n-3)}6\right\rfloor+1$$
@@ -31,7 +31,7 @@ The three triangle sides and its three medians each contain exactly three select
 
 Run `python3 verify.py`. It exhaustively compares zero-sum triple counts with the formula for $1\le n\le100$, checks all exact line incidences of the seven-point example, and checks the pair identity. All arithmetic is integral and `-O` is refused. No massive computation underlying the Green–Tao structure theorem is represented as rerun.
 
-**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1382.txt); B. Green and T. Tao, [On sets defining few ordinary lines, arXiv:1208.4714v3](https://arxiv.org/pdf/1208.4714), Theorems 1.1 and 1.3, Proposition 2.6, and Section 9's treatment of higher-multiplicity lines. Their deep structure theorem is a credited input; this is not a complete independent verification of its proof. No prior contribution was listed in the checked canonical record.
+**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_cbcce07dd53b4475b18485f9f6a5ab69.txt); B. Green and T. Tao, [On sets defining few ordinary lines, arXiv:1208.4714v3](https://arxiv.org/pdf/1208.4714), Theorems 1.1 and 1.3, Proposition 2.6, and Section 9's treatment of higher-multiplicity lines. Their deep structure theorem is a credited input; this is not a complete independent verification of its proof. No prior contribution was listed in the checked canonical record.
 
 Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: source reading, scope comparison, elementary proof exposition and exact checks. The user requested preparation. No human review, formal verification, novelty or editorial acceptance is claimed.
 
@@ -48,7 +48,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1382.txt
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-1382.json
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_cbcce07dd53b4475b18485f9f6a5ab69.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_cbcce07dd53b4475b18485f9f6a5ab69.json
 https://arxiv.org/pdf/1208.4714
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

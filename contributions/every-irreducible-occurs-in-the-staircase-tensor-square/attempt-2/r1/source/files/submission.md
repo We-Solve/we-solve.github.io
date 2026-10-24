@@ -49,7 +49,7 @@ References checked.
 
 - [1] Igor Pak, Greta Panova and Ernesto Vallejo, Kronecker products, characters, partitions, and the tensor square conjectures, arXiv:1304.0738v2, inspected primary PDF: Section 3 supplies the symmetric-group character and Murnaghan–Nakayama framework; Section 5 distinguishes sufficiently-large hook results from an all-partition theorem. It is not the source for the Pieri rule used here. Advances in Mathematics 288 (2016), 702–731. https://arxiv.org/pdf/1304.0738v2
 - [2] Shamgar Gurevich and Roger Howe, The Pieri Rule for GL_n Over Finite Fields, arXiv:2105.11520v1 (24 May 2021), Theorem 3.4.1 on printed p.12 and its proof in Appendix A.2.1. Despite the title, this theorem is precisely the multiplicity-free horizontal-strip induction rule for complex representations of symmetric groups. The one-box rule follows by reciprocity, and the vertical-strip rule follows by sign twisting and conjugating diagrams. https://arxiv.org/pdf/2105.11520v1
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007003.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_213d229f79ed40f6a2f349a8b94e3650.txt
 
 
 ## Reproducibility and review
@@ -62,5 +62,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 [1] Igor Pak, Greta Panova and Ernesto Vallejo, Kronecker products, characters, partitions, and the tensor square conjectures, arXiv:1304.0738v2, inspected primary PDF: Section 3 supplies the symmetric-group character and Murnaghan–Nakayama framework; Section 5 distinguishes sufficiently-large hook results from an all-partition theorem. It is not the source for the Pieri rule used here. Advances in Mathematics 288 (2016), 702–731. https://arxiv.org/pdf/1304.0738v2
 [2] Shamgar Gurevich and Roger Howe, The Pieri Rule for GL_n Over Finite Fields, arXiv:2105.11520v1 (24 May 2021), Theorem 3.4.1 on printed p.12 and its proof in Appendix A.2.1. Despite the title, this theorem is precisely the multiplicity-free horizontal-strip induction rule for complex representations of symmetric groups. The one-box rule follows by reciprocity, and the vertical-strip rule follows by sign twisting and conjugating diagrams. https://arxiv.org/pdf/2105.11520v1
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007003.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_213d229f79ed40f6a2f349a8b94e3650.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

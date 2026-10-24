@@ -1,6 +1,6 @@
 # Exact red-count matching with a bounded vertex frontier
 
-Problem: TOP-30006839 — Deterministic Polynomial-Time Exact Bipartite Matching.  
+Problem: prb_905df07198d949d8b11356475e274fcc — Deterministic Polynomial-Time Exact Bipartite Matching.  
 Claim type: **Partial result**.  
 Scope: A deterministic exact decision algorithm for bipartite graphs supplied with a vertex ordering of frontier width $p$, using $2^p\mathrm{poly}(N)$ time. In particular it is polynomial for $p\le c\log_2(N+2)$ with any fixed constant $c$. No general ordering-finding algorithm or unrestricted polynomial-time algorithm is claimed.
 

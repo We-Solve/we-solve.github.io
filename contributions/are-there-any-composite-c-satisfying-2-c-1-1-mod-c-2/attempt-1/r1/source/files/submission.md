@@ -1,6 +1,6 @@
 # Every composite super-Wieferich candidate needs a prime factor exceeding100000
 
-Problem: TOP-9400141  
+Problem: prb_ce085cf8ed554dd9b61c358efd011454  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -40,11 +40,11 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-9400141/verify.py). Source SHA-256: `ccf21c58b3e87537ea8959c58066204db4bd3345b8af5d9b56cd40268a49d69a`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify.py`. File SHA-256: `ccf21c58b3e87537ea8959c58066204db4bd3345b8af5d9b56cd40268a49d69a`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-Fresh official TOP-9400141 prompt
+Fresh official prb_ce085cf8ed554dd9b61c358efd011454 prompt
 Self-contained lifting/order argument and exhaustive exact prime-support certificate in this folder
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-9400141/verify.py (Used: exact previously reviewed program; SHA-256 ccf21c58b3e87537ea8959c58066204db4bd3345b8af5d9b56cd40268a49d69a).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify.py` (Used: exact previously reviewed program; SHA-256 ccf21c58b3e87537ea8959c58066204db4bd3345b8af5d9b56cd40268a49d69a).

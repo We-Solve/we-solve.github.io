@@ -1,4 +1,4 @@
-Problem: TOP-5500037 — Counting Polyominoes
+Problem: prb_aa767da3d6614d31931cefaf98fe2d83 — Counting Polyominoes
 
 Title: A common growth constant for all three conventions, with a checked 2026 upper-bound certificate
 
@@ -65,7 +65,7 @@ Human contributors and roles: The user requested the work. No human mathematical
 
 References:
 
-1. [Official We-Solve prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500037.txt), and [TOPP Problem 37](https://topp.openproblem.net/p37), checked 18 October 2026.
+1. [Official We-Solve prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_aa767da3d6614d31931cefaf98fe2d83.txt), and [TOPP Problem 37](https://topp.openproblem.net/p37), checked 18 October 2026.
 2. Vuong Bui, [A convolutional approach to bounding the number of polyominoes](https://arxiv.org/html/2511.00461v2), arXiv:2511.00461v2, 6 May 2026. Introduction, Section 4, Theorem 2 and its explicit rational certificate checked. Preprint status retained.
 3. Gill Barequet and Mira Shalah, [Improved Upper Bounds on Growth Constants of Polyominoes and Polycubes](https://arxiv.org/pdf/1906.11447), published in Algorithmica 84 (2022), 3559–3586. The stated planar bound is $4.5252$.
 4. Gill Barequet, Günter Rote and Mira Shalah, [λ > 4: An Improved Lower Bound on the Growth Constant of Polyominoes](https://geometry.stanford.edu/lgl_2024/papers/brs-lg4iubgcp-16/brs-lg4iubgcp-16.pdf), Communications of the ACM 59(7) (2016), 88–95, DOI 10.1145/2851485. Certified lower-bound discussion on page 95 checked. [Author's primary publication page](https://page.mi.fu-berlin.de/rote/Papers/abstract/Lambda-4).
@@ -83,7 +83,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500037.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_aa767da3d6614d31931cefaf98fe2d83.txt
 https://topp.openproblem.net/p37
 https://arxiv.org/html/2511.00461v2
 https://arxiv.org/pdf/1906.11447

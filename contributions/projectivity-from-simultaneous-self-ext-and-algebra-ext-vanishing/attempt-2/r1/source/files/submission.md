@@ -1,6 +1,6 @@
 # The finite-projective-dimension obstruction to an Auslander–Reiten counterexample
 
-**Problem:** TOP-30006991
+**Problem:** prb_792089b4fae84db8b0db44c8b2118936
 
 **Claim type:** Partial result
 

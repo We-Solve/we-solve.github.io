@@ -1,4 +1,4 @@
-# TOP-1500017: the complete-intersection implication, the three-generator case, and a symmetry obstruction
+# prb_1e4e877413414b34b1c7c778cb52d6c3: the complete-intersection implication, the three-generator case, and a symmetry obstruction
 
 **Claim type:** Literature report, with expanded proofs and exact polynomial certificates.  
 **Scope:** Every complete-intersection numerical semigroup is cyclotomic; every cyclotomic numerical semigroup is symmetric; the catalogue equivalence holds in embedding dimension at most three. The converse in arbitrary embedding dimension is not proved here.
@@ -90,7 +90,7 @@ The report proves the general complete-intersection implication and a necessary 
 
 ## Checked references
 
-1. [Official TOP-1500017 prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500017.txt), checked 18 October 2026, for the exact definition and complete-intersection equivalence question.
+1. [Official prb_1e4e877413414b34b1c7c778cb52d6c3 prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_1e4e877413414b34b1c7c778cb52d6c3.txt), checked 18 October 2026, for the exact definition and complete-intersection equivalence question.
 2. Emil-Alexandru Ciolan, Pedro A. García-Sánchez and Pieter Moree, *Cyclotomic numerical semigroups*, [arXiv:1409.5614v3](https://arxiv.org/pdf/1409.5614), 10 February 2016; SIAM Journal on Discrete Mathematics 30 (2016), 650–668, DOI [10.1137/140989479](https://doi.org/10.1137/140989479). Checked Theorem 1, Lemmas 2 and 7, Corollary 2, Section 3 and equation (10). Numbering refers to the inspected arXiv v3. The deeper three-generator structure theorem is used through their explicit Lemma 7, rather than claiming a separate audit of its original proof.
 
 
@@ -106,7 +106,7 @@ The main instance freshly ran the attached verifier; all assertions passed. Sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500017.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_1e4e877413414b34b1c7c778cb52d6c3.txt
 https://arxiv.org/pdf/1409.5614
 https://arxiv.org/abs/1409.5614
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

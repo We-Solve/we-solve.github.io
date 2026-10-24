@@ -1,6 +1,6 @@
 # Quadratic Reidemeister lower bounds already occur among unknot diagrams
 
-**Problem:** TOP-2736
+**Problem:** prb_863a2727826841918fc392f4932b3fba
 
 **Claim type:** Literature report
 

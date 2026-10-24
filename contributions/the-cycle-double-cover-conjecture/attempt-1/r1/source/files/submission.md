@@ -1,6 +1,6 @@
 # The 2026 cycle-double-cover theorem, with a direct planar construction
 
-Problem: TOP-59
+Problem: prb_02ebb9a3c11d49da94b54fb6688ac3e8
 
 Claim type: Literature report.
 
@@ -36,7 +36,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-59 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-59.txt
+- Official prb_02ebb9a3c11d49da94b54fb6688ac3e8 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_02ebb9a3c11d49da94b54fb6688ac3e8.txt
 - S.-i. Oum, A proof of the cycle double cover conjecture by OpenAI: An exposition, arXiv:2607.16356v3, Introduction, theorem, loop/multigraph convention and Sections 3–8: https://arxiv.org/html/2607.16356v3
 
 
@@ -53,6 +53,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-59 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-59.txt
+Official prb_02ebb9a3c11d49da94b54fb6688ac3e8 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_02ebb9a3c11d49da94b54fb6688ac3e8.txt
 S.-i. Oum, A proof of the cycle double cover conjecture by OpenAI: An exposition, arXiv:2607.16356v3, Introduction, theorem, loop/multigraph convention and Sections 3–8: https://arxiv.org/html/2607.16356v3
 Exact source versions, statements and uses are described in report.md and source_notes.md.

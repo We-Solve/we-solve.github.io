@@ -1,6 +1,6 @@
 # The published208-vertex curvature bound matches the recorded problem
 
-Problem: TOP-3328
+Problem: prb_c63d3d763bb744d48081e697c04ca2a7
 
 Claim type: Literature report.
 
@@ -34,7 +34,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3328.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c63d3d763bb744d48081e697c04ca2a7.txt
 - https://arxiv.org/pdf/1708.08502
 - https://www.sciencedirect.com/science/article/pii/S0095895622000855
 
@@ -47,7 +47,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3328.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c63d3d763bb744d48081e697c04ca2a7.txt
 https://arxiv.org/pdf/1708.08502
 https://www.sciencedirect.com/science/article/pii/S0095895622000855
 Exact source versions, statements and uses are described in report.md and source_notes.md.

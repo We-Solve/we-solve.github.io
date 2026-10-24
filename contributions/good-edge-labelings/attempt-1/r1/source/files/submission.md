@@ -1,6 +1,6 @@
 # Good edge orders on every hypercube subgraph
 
-Problem: TOP-3213
+Problem: prb_d1b552d135704c28a03fce8a340ccdd9
 
 Claim type: Partial result.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3213.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_d1b552d135704c28a03fce8a340ccdd9.txt
 
 
 ## Reproducibility and review
@@ -44,5 +44,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3213.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_d1b552d135704c28a03fce8a340ccdd9.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

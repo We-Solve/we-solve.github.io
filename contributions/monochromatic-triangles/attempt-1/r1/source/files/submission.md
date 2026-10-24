@@ -1,6 +1,6 @@
 # An endpoint-safe three-coloring for triangles of width at least half their diameter
 
-**Problem:** TOP-5500058, Monochromatic Triangles.  
+**Problem:** prb_554c81c1fa24422784fd0e9245f72320, Monochromatic Triangles.  
 **Claim type:** Partial result.
 
 **Exact scope.** If a nondegenerate triangle has area $A$ and longest side $D$ satisfying $4A\ge D^2$, an explicit three-coloring of the entire plane has no monochromatic congruent copy of it. Equality is included. We also prove that the particular half-diameter stripe coloring used here fails for every triangle with $4A<D^2$. That is a limitation of this coloring, not an impossibility theorem for other three-colorings. The full question for arbitrary triangles is not resolved. No historical novelty or best-known-range claim is made for the stripe method.
@@ -62,7 +62,7 @@ The argument is a proof over the entire continuum of positions and orientations;
 ## Checked sources and attribution
 
 1. The Open Problems Project, Problem 58, https://github.com/edemaine/topp/blob/main/Problems/P.000058 . This is the originating question, attributed there to Ron Graham, and the coloring may depend on the triangle. The exact official We-Solve prompt is retained in `official_prompt.txt`.
-2. Current catalogue: https://we-solve.github.io/problems/monochromatic-triangles/ . The exact official prompt was obtained from https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500058.txt .
+2. Current catalogue: https://we-solve.github.io/problems/monochromatic-triangles/ . The exact official prompt was obtained from https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_554c81c1fa24422784fd0e9245f72320.txt .
 
 The stripe argument is supplied self-contained and is not asserted as a new historical result or as the best known partial answer. Prepared by OpenAI Codex (GPT-6; exact serving revision and settings unknown), agent /root/scout_new. Gaven prompted and authorized the work.
 
@@ -75,5 +75,5 @@ This report has no computational verifier; the proof and source checks are recor
 ## References
 
 https://github.com/edemaine/topp/blob/main/Problems/P.000058
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500058.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_554c81c1fa24422784fd0e9245f72320.txt
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

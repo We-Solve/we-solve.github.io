@@ -1,6 +1,6 @@
 # An explicit positive lower scale for hypercube crossings
 
-Problem: TOP-3320
+Problem: prb_5d734d298875440db370212e39bbc769
 
 Claim type: Literature report.
 
@@ -36,7 +36,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3320.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_5d734d298875440db370212e39bbc769.txt
 - https://www.renyi.hu/~pach/publications/mario.pdf
 - https://doi.org/10.1007/BF02086610
 - https://www.openproblemgarden.org/op/the_crossing_number_of_the_hypercube
@@ -50,7 +50,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3320.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_5d734d298875440db370212e39bbc769.txt
 https://www.renyi.hu/~pach/publications/mario.pdf
 https://doi.org/10.1007/BF02086610
 https://www.openproblemgarden.org/op/the_crossing_number_of_the_hypercube

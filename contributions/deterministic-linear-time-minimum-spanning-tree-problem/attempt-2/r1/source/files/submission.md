@@ -1,4 +1,4 @@
-# TOP-30006933: Deterministic Linear-Time Minimum Spanning Tree Problem
+# prb_e9fd7a7457ac47c5b5c0541246adbe95: Deterministic Linear-Time Minimum Spanning Tree Problem
 
 Claim type: **Partial result**.
 
@@ -28,7 +28,7 @@ Comparison with the earlier attempt: The earlier attempt proves linear time only
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006933.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e9fd7a7457ac47c5b5c0541246adbe95.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/deterministic-linear-time-minimum-spanning-tree-problem/attempt-1/r1/
 
 
@@ -45,6 +45,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006933.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e9fd7a7457ac47c5b5c0541246adbe95.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/deterministic-linear-time-minimum-spanning-tree-problem/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

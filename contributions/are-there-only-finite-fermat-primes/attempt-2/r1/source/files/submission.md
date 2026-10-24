@@ -1,4 +1,4 @@
-# TOP-3373: All-witness primality counts for Fermat numbers: an exact finite-group characterization
+# prb_0e939f1e62444c4598c5fc0840583135: All-witness primality counts for Fermat numbers: an exact finite-group characterization
 
 Claim type: Partial result
 

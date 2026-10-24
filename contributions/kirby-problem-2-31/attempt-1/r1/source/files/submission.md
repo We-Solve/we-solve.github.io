@@ -1,6 +1,6 @@
 # Exact rational stable commutator length on a two-generator retract of every surface group
 
-**Problem:** TOP-2779
+**Problem:** prb_950ef52a14fd4d36b1703d3470b0a85d
 
 **Claim type:** Literature report
 

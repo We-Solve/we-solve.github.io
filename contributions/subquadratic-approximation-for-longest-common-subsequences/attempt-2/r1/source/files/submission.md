@@ -37,11 +37,11 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30004015/verify.py). Source SHA-256: `7f96ac040a065c7e3f979f520d8bf935b5b2032491e8a5457bc1044abfba1f0b`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify.py`. File SHA-256: `7f96ac040a065c7e3f979f520d8bf935b5b2032491e8a5457bc1044abfba1f0b`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30004015.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_961cee88bcf341659b4bd01e84c9c291.txt
 J. W. Hunt and T. G. Szymanski, A Fast Algorithm for Computing Longest Common Subsequences, Communications of the ACM 20(5), 1977, pp.350–353, DOI https://doi.org/10.1145/359581.359603 . Primary paper bibliographic/algorithm statement checked; the chain and tails correctness are proved here.
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30004015/verify.py (Used: exact previously reviewed program; SHA-256 7f96ac040a065c7e3f979f520d8bf935b5b2032491e8a5457bc1044abfba1f0b).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify.py` (Used: exact previously reviewed program; SHA-256 7f96ac040a065c7e3f979f520d8bf935b5b2032491e8a5457bc1044abfba1f0b).

@@ -1,6 +1,6 @@
 # Inductive counting proves nondeterministic nonreachability in logarithmic space
 
-Problem: TOP-30006727 — L Versus NL.  
+Problem: prb_6b89c9b88bc94faea6a1f563bb31a911 — L Versus NL.  
 Claim type: **Partial result**.  
 Scope: A complete exposition of the classical $\mathsf{NL}=\mathsf{coNL}$ theorem through a nondeterministic logarithmic-space procedure for directed nonreachability. It does not provide deterministic logarithmic-space reachability or prove $\mathsf L=\mathsf{NL}$. The inductive-counting method is credited to Immerman and independently Szelepcsényi.
 

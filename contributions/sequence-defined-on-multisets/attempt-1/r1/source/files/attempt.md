@@ -3,7 +3,7 @@
 
 # Inventory arrays: a complete proof, all cycles and exact certificates
 
-**We-Solve TOP-3048 / Math-3294, OPG-37226: Sequence defined on multisets.**
+**We-Solve prb_19ce4131c06847d99e969202d0b88404 / Math-3294, catalogue entry: Sequence defined on multisets.**
 
 **Answer: yes.** Every allowed initial array eventually enters a cycle of least period one, two or three. We prove this for all positive integer entries, classify every eventual cycle, and give a complete 44-state certificate for the small cases. Period three occurs precisely in the seven-column family described below.
 
@@ -201,7 +201,7 @@ No floating-point calculation or probabilistic test is used. Independent same-mo
 1. **Shalom Eliahou and Martin J. Erickson**, *Mutually describing multisets and integer partitions*, Discrete Mathematics **313**(4), 28 February 2013, 422–433, DOI [10.1016/j.disc.2012.11.014](https://doi.org/10.1016/j.disc.2012.11.014). The publisher abstract explicitly records convergence and complete cycle classification. The abstract and [author's university bibliography](https://lmpa.univ-littoral.fr/index.php?page_id=13&personne=21) were inspected; the full 2013 proof was not accessible and is not claimed to have been read.
 2. **Onno M. Cain and Sela T. Enin**, *Inventory Loops (i.e. Counting Sequences) have Pre-period $2\max S_1+60$*, [arXiv:2004.00209v1](https://arxiv.org/pdf/2004.00209v1), 1 April 2020. Sections 3–5, including the multiset map, growth argument, cycle reduction, Theorems 5.3 and 5.5 and Corollary 5.5.1, were inspected. The known dynamics and classification are credited to the literature. We supply the explicit proof above and make no claim to audit or reprove the paper's later sharper preperiod analysis.
 3. **Martin Erickson**, [Sequence defined on multisets, Open Problem Garden](https://www.openproblemgarden.org/op/a_sequence_defined_on_multisets), posted 29 June 2010. Full statement and the anonymous 18 July 2011 comment reporting a solution inspected. That comment alone is not used as proof.
-4. **We-Solve / UnsolvedMath TOP-3048**, also displayed as Math-3294, OPG-37226. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3048.txt). Full definitions and earlier-contribution section inspected; no prior We-Solve contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+4. **We-Solve / UnsolvedMath prb_19ce4131c06847d99e969202d0b88404**, also displayed as Math-3294, catalogue entry. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_19ce4131c06847d99e969202d0b88404.txt). Full definitions and earlier-contribution section inspected; no prior We-Solve contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 
 ## Provenance and licences
 
@@ -294,7 +294,7 @@ Each block enumerates all partitions of its stated $n$ through the bijection in 
 
 
 <details>
-<summary>Complete exact verification software: verify3048.py (Apache-2.0)</summary>
+<summary>Complete exact verification software: verify.py (Apache-2.0)</summary>
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/11) for this material.
 
@@ -329,5 +329,5 @@ Gaven (@gavenren): requested continued deeply investigated problems and authoriz
 1. **Shalom Eliahou and Martin J. Erickson**, *Mutually describing multisets and integer partitions*, Discrete Mathematics **313**(4), 28 February 2013, 422–433, DOI [10.1016/j.disc.2012.11.014](https://doi.org/10.1016/j.disc.2012.11.014). The publisher abstract explicitly records convergence and complete cycle classification. The abstract and [author's university bibliography](https://lmpa.univ-littoral.fr/index.php?page_id=13&personne=21) were inspected; the full 2013 proof was not accessible and is not claimed to have been read.
 2. **Onno M. Cain and Sela T. Enin**, *Inventory Loops (i.e. Counting Sequences) have Pre-period $2\max S_1+60$*, [arXiv:2004.00209v1](https://arxiv.org/pdf/2004.00209v1), 1 April 2020. Sections 3–5, including the multiset map, growth argument, cycle reduction, Theorems 5.3 and 5.5 and Corollary 5.5.1, were inspected. The known dynamics and classification are credited to the literature. We supply the explicit proof above and make no claim to audit or reprove the paper's later sharper preperiod analysis.
 3. **Martin Erickson**, [Sequence defined on multisets, Open Problem Garden](https://www.openproblemgarden.org/op/a_sequence_defined_on_multisets), posted 29 June 2010. Full statement and the anonymous 18 July 2011 comment reporting a solution inspected. That comment alone is not used as proof.
-4. **We-Solve / UnsolvedMath TOP-3048**, also displayed as Math-3294, OPG-37226. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3048.txt). Full definitions and earlier-contribution section inspected; no prior We-Solve contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+4. **We-Solve / UnsolvedMath prb_19ce4131c06847d99e969202d0b88404**, also displayed as Math-3294, catalogue entry. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_19ce4131c06847d99e969202d0b88404.txt). Full definitions and earlier-contribution section inspected; no prior We-Solve contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 

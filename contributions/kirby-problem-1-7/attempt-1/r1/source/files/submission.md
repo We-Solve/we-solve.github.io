@@ -1,6 +1,6 @@
 # The trapezoidal Alexander assertion for every two-bridge knot
 
-**Problem:** TOP-2666
+**Problem:** prb_955314364f2a41cfae9295cdf191de42
 
 **Claim type:** Literature report
 

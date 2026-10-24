@@ -1,4 +1,4 @@
-# TOP-3374: A finite-factor exclusion for all prime-exponent Mersenne numbers
+# prb_898fa53cc75c40e2a3379cb396d78926: A finite-factor exclusion for all prime-exponent Mersenne numbers
 
 Claim type: Partial result
 

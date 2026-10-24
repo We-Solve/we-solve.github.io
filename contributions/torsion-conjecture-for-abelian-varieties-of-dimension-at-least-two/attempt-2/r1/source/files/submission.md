@@ -1,4 +1,4 @@
-# TOP-30006748: A sharp torsion bound for products of elliptic curves over Q, with an explicit extremizer
+# prb_359517b159724b8b9beefafcee5b9133: A sharp torsion bound for products of elliptic curves over Q, with an explicit extremizer
 
 Claim type: Literature report
 

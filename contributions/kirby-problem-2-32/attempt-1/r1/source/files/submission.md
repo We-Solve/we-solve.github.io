@@ -1,6 +1,6 @@
 # Every surface bundle becomes flat after adding trivial base handles
 
-**Problem:** TOP-2780
+**Problem:** prb_a0dc308dc66248d4abe389013a58330a
 
 **Claim type:** Literature report
 

@@ -3,7 +3,7 @@
 
 # A quartic sum of nine squares with 1152 isolated real zeros in ten variables
 
-Problem: **TOP-2200007 / Math-3459**, *Problems Around Polynomials — Conjecture 4* (AMR-021-0007).
+Problem: **prb_46753194892741da91ccf5a2831bdf64 / Math-3459**, *Problems Around Polynomials — Conjecture 4* (catalogue entry).
 
 Claim type: **literature report**, including a complete explicit disproof of the conjectured universal equality.
 
@@ -272,7 +272,7 @@ Shapiro's published Section 3 records Problem 3 and Conjecture 4, with the conje
 
 The public DannyExperiments repository gives the nine-square example, a broader family, a manuscript, and supporting material. We inspected its manuscript, README, citation metadata, AI disclosure and licence status at source commit 41e3d18a8c536e5a859201afd5faefe2b0ecd315. The source reports AI assistance and absence of human specialist review. We have not inferred peer review, publication acceptance, or a kernel-checked formal proof from those materials. Our references identify the repository owner by its stated citation name, rather than assigning a personal name that was not provided. The formulas are mathematically attributed to that existing source, and the explanations and verification code for this contribution are independently written. The source's files are not redistributed or relicensed.
 
-The exact We-Solve statement and live prompt were read; the prompt listed no earlier contribution, and a repository issue search found no previous TOP-2200007 attempt at inspection. The published Shapiro text was checked for Section 3, Problem 3 and Conjecture 4, and its publisher record supplies the correct journal pages 91–99. The primary instance and two separate same-model reviewers checked the complete argument. No mathematical gap was found in the explicit count or the disproof (2). Editorial review and independent human verification remain pending.
+The exact We-Solve statement and live prompt were read; the prompt listed no earlier contribution, and a repository issue search found no previous prb_46753194892741da91ccf5a2831bdf64 attempt at inspection. The published Shapiro text was checked for Section 3, Problem 3 and Conjecture 4, and its publisher record supplies the correct journal pages 91–99. The primary instance and two separate same-model reviewers checked the complete argument. No mathematical gap was found in the explicit count or the disproof (2). Editorial review and independent human verification remain pending.
 
 The counterexample disproves the universal equality. Exact extremal values, matching upper bounds, extremizers, and the smallest possible dimension of a counterexample are outside the proved scope.
 
@@ -282,13 +282,13 @@ References (checked):
 
 1. **DannyExperiments**, *A counterexample to the Ottaviani–Shapiro isolated-zero conjecture*, version 1.0.0, released 10 August 2026. [Public repository](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample), [inspected manuscript *Many Isolated Real Zeros of Sums of Squares*](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/blob/41e3d18a8c536e5a859201afd5faefe2b0ecd315/paper/manuscript.tex), and [citation metadata](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/blob/41e3d18a8c536e5a859201afd5faefe2b0ecd315/CITATION.cff). Public AI-assisted manuscript/repository material; no peer-reviewed status is claimed here. The metadata reports DOI 10.5281/zenodo.21875290, but the archive itself was not inspected.
 2. **Boris Shapiro**, *Problems Around Polynomials: The Good, The Bad and The Ugly…*, **Arnold Mathematical Journal 1** (2015), 91–99, DOI [10.1007/s40598-015-0008-4](https://doi.org/10.1007/s40598-015-0008-4). [Published full text](https://amj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/), Section 3, Problem 3 and Conjecture 4; [preprint arXiv:1503.05295](https://arxiv.org/abs/1503.05295).
-3. **We-Solve**, [TOP-2200007 exact statement](https://github.com/We-Solve/research/blob/main/problems/46/prb_46753194892741da91ccf5a2831bdf64/statement.tex) and [live prompt](https://we-solve.github.io/prompts/TOP-2200007.txt).
+3. **We-Solve**, [prb_46753194892741da91ccf5a2831bdf64 exact statement](https://github.com/We-Solve/research/blob/main/problems/46/prb_46753194892741da91ccf5a2831bdf64/statement.tex) and [live prompt](https://we-solve.github.io/prompts/prb_46753194892741da91ccf5a2831bdf64.txt).
 
 
 <details>
 <summary>Complete original exact-arithmetic verifier (Python 3, standard library)</summary>
 
-Run python3 verify2200007.py --output verification_results.json. The program uses exact polynomial coefficients, rational sign cells, square-root labels and symbolic square reductions. It checks all 1152 point descriptors and all 662976 distinct pairs. No third-party source files or software are incorporated.
+Run python3 verify.py --output verification_results.json. The program uses exact polynomial coefficients, rational sign cells, square-root labels and symbolic square reductions. It checks all 1152 point descriptors and all 662976 distinct pairs. No third-party source files or software are incorporated.
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/21) for this material.
 
@@ -330,5 +330,5 @@ DannyExperiments, A counterexample to the Ottaviani–Shapiro isolated-zero conj
 
 Boris Shapiro, Problems Around Polynomials: The Good, The Bad and The Ugly…, Arnold Mathematical Journal 1 (2015), 91–99, DOI https://doi.org/10.1007/s40598-015-0008-4 . Inspected published full text https://amj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/ , Section 3, Problem 3 and Conjecture 4, attributed to Giorgio Ottaviani and Boris Shapiro. Publisher metadata https://link.springer.com/article/10.1007/s40598-015-0008-4 confirms the correct page range 91–99. Preprint: https://arxiv.org/abs/1503.05295 .
 
-We-Solve / ULAM.AI / UnsolvedMath contributors, TOP-2200007 / Math-3459 / AMR-021-0007, CC BY 4.0. Inspected exact statement https://github.com/We-Solve/research/blob/main/problems/46/prb_46753194892741da91ccf5a2831bdf64/statement.tex and live prompt https://we-solve.github.io/prompts/TOP-2200007.txt . The requirement of total degree exactly 2k is met by the displayed quartic. No earlier contribution was listed in the prompt or found in the issue search at inspection.
+We-Solve / ULAM.AI / UnsolvedMath contributors, prb_46753194892741da91ccf5a2831bdf64 / Math-3459 / catalogue entry, CC BY 4.0. Inspected exact statement https://github.com/We-Solve/research/blob/main/problems/46/prb_46753194892741da91ccf5a2831bdf64/statement.tex and live prompt https://we-solve.github.io/prompts/prb_46753194892741da91ccf5a2831bdf64.txt . The requirement of total degree exactly 2k is met by the displayed quartic. No earlier contribution was listed in the prompt or found in the issue search at inspection.
 

@@ -1,4 +1,4 @@
-# TOP-30007474: Entropy bounds at perfect-matching marginals
+# prb_210d2df7620849f7a2efc0d3bc4f329f: Entropy bounds at perfect-matching marginals
 
 Claim type: **Partial result**.
 
@@ -32,7 +32,7 @@ Comparison with the earlier attempt: The earlier item summarizes a broad 2026 ma
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007474.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_210d2df7620849f7a2efc0d3bc4f329f.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-1/r1/
 - F. R. K. Chung, R. L. Graham, P. Frankl and J. B. Shearer, Some intersection theorems for ordered sets and graphs, Journal of Combinatorial Theory A 43 (1986), 23–37; author-hosted primary PDF inspected for the entropy-cover context: https://www.math.ucsd.edu/~ronspubs/86_03_intersection.pdf
 
@@ -50,7 +50,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007474.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_210d2df7620849f7a2efc0d3bc4f329f.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-1/r1/
 F. R. K. Chung, R. L. Graham, P. Frankl and J. B. Shearer, Some intersection theorems for ordered sets and graphs, Journal of Combinatorial Theory A 43 (1986), 23–37; author-hosted primary PDF inspected for the entropy-cover context: https://www.math.ucsd.edu/~ronspubs/86_03_intersection.pdf
 Exact source versions, statements and uses are described in report.md and source_notes.md.

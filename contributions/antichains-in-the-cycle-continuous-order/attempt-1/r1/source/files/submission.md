@@ -1,6 +1,6 @@
 # A cut-space test for cycle-continuous maps and antichain exclusions
 
-Problem: TOP-3223
+Problem: prb_db29b0d2f6554239812e56003c92cf5f
 
 Claim type: Partial result.
 
@@ -34,7 +34,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3223.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_db29b0d2f6554239812e56003c92cf5f.txt
 
 
 ## Reproducibility and review
@@ -45,5 +45,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3223.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_db29b0d2f6554239812e56003c92cf5f.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

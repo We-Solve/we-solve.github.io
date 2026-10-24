@@ -62,15 +62,17 @@
 
   /* Contribute panel. Problem pages render complete links; the /contribute/ guides
      fill the same links from ?problem= or ?contribution=. Inputs must match the
-     alias grammar before they reach any URL. */
+     handle grammar before they reach any URL. */
   var ALIAS = /^[A-Z][A-Z0-9]{1,9}-[A-Z0-9][A-Z0-9.-]{0,80}$/;
+  var OPAQUE = /^(?:prb|con)_[0-9a-f]{32}$/;
   document.querySelectorAll('[data-contribute]').forEach(function (panel) {
     var kind = panel.dataset.kind || 'attempt';
     var alias = panel.dataset.alias;
     if (!alias) {
       var params = new URLSearchParams(window.location.search);
-      var candidate = (params.get(kind === 'review' ? 'contribution' : kind === 'problem' ? 'parent' : 'problem') || '').trim().toUpperCase();
-      if (ALIAS.test(candidate)) {
+      var candidate = (params.get(kind === 'review' ? 'contribution' : kind === 'problem' ? 'parent' : 'problem') || '').trim();
+      if (!OPAQUE.test(candidate)) candidate = candidate.toUpperCase();
+      if (ALIAS.test(candidate) || (OPAQUE.test(candidate) && candidate.startsWith(kind === 'review' ? 'con_' : 'prb_'))) {
         alias = candidate;
         fill(panel, kind, alias);
       }

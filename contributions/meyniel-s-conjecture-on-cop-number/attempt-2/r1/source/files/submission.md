@@ -1,6 +1,6 @@
 # Dismantling gives a one-cop strategy on every finite connected chordal graph
 
-Problem: TOP-1391
+Problem: prb_9b2927c839a54957bb2a779488b74d0f
 
 Claim type: Partial result.
 
@@ -32,7 +32,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-1391 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1391.txt
+- Official prb_9b2927c839a54957bb2a779488b74d0f prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9b2927c839a54957bb2a779488b74d0f.txt
 - R. Nowakowski and P. Winkler, Vertex-to-vertex pursuit in a graph, Discrete Mathematics 43 (1983), 235–239, primary publisher record: https://www.sciencedirect.com/science/article/pii/0012365X83901607
 
 
@@ -49,6 +49,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-1391 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1391.txt
+Official prb_9b2927c839a54957bb2a779488b74d0f prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9b2927c839a54957bb2a779488b74d0f.txt
 R. Nowakowski and P. Winkler, Vertex-to-vertex pursuit in a graph, Discrete Mathematics 43 (1983), 235–239, primary publisher record: https://www.sciencedirect.com/science/article/pii/0012365X83901607
 Exact source versions, statements and uses are described in report.md and source_notes.md.

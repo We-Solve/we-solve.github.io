@@ -31,7 +31,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 References checked.
 
 - [1] Francesco Brenti, Fabrizio Caselli and Mario Marietti, Special matchings and Kazhdan–Lusztig polynomials, Advances in Mathematics 202 (2006), 555–601, DOI 10.1016/j.aim.2005.01.011. Author PDF Theorem 7.8 (p.22), Section 8 and Corollary 8.4; no positivity hypothesis is needed for the R-recurrence used here. https://www.dm.unibo.it/~caselli/special.pdf
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30004890.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_6918a13d435f4e8e9e95740ed8938dd7.txt
 
 
 ## Reproducibility and review
@@ -43,5 +43,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 [1] Francesco Brenti, Fabrizio Caselli and Mario Marietti, Special matchings and Kazhdan–Lusztig polynomials, Advances in Mathematics 202 (2006), 555–601, DOI 10.1016/j.aim.2005.01.011. Author PDF Theorem 7.8 (p.22), Section 8 and Corollary 8.4; no positivity hypothesis is needed for the R-recurrence used here. https://www.dm.unibo.it/~caselli/special.pdf
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30004890.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_6918a13d435f4e8e9e95740ed8938dd7.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

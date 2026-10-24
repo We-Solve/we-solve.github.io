@@ -1,6 +1,6 @@
 # Quadratic cable bounds for adequate companions, with exact crossing-number families
 
-**Problem:** TOP-2661. **Claim type:** Literature report.
+**Problem:** prb_9bb77c944d23451fa3f041dbf796997e. **Claim type:** Literature report.
 
 **Exact scope.** The geometric-winding-square lower bound holds, in a stronger strict form, for genuine cables of nontrivial adequate knots. Certain two-cables have exactly known crossing numbers. A separate general satellite theorem gives a much weaker universal constant-factor bound. Neither theorem establishes either requested inequality for all patterns, in particular for general algebraic-winding-zero patterns. This report credits the existing results and translates their winding conventions.
 

@@ -1,6 +1,6 @@
 # An exact cardinal boundary for countable bipartite covers
 
-Problem: TOP-3298
+Problem: prb_3cac4532f70747e5a81cd60cd2c0c019
 
 Claim type: Partial result.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3298.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_3cac4532f70747e5a81cd60cd2c0c019.txt
 
 
 ## Reproducibility and review
@@ -39,5 +39,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3298.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_3cac4532f70747e5a81cd60cd2c0c019.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

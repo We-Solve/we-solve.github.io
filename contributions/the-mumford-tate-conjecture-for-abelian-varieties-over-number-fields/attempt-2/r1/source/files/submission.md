@@ -1,6 +1,6 @@
 # The Mumford–Tate equality for absolutely simple CM abelian varieties
 
-Problem: TOP-30006723  
+Problem: prb_b3bd4be83c214981a4cd192b72e01e9b  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 

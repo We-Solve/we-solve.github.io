@@ -1,6 +1,6 @@
 # Tuza’s inequality for every graph of maximum degree three
 
-Problem: TOP-1425
+Problem: prb_499a54479d26425abff0d0f48a0ac74f
 
 Claim type: Partial result.
 
@@ -41,7 +41,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-1425 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1425.txt
+- Official prb_499a54479d26425abff0d0f48a0ac74f prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_499a54479d26425abff0d0f48a0ac74f.txt
 - J. Kahn and J. Park, Tuza’s Conjecture for random graphs, arXiv:2007.04351, Section 1, definitions and conjecture: https://arxiv.org/abs/2007.04351
 - G. J. Puleo, Tuza’s Conjecture for graphs with maximum average degree less than 7, European Journal of Combinatorics (2015), primary publisher record: https://doi.org/10.1016/j.ejc.2015.03.006
 
@@ -59,7 +59,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-1425 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1425.txt
+Official prb_499a54479d26425abff0d0f48a0ac74f prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_499a54479d26425abff0d0f48a0ac74f.txt
 J. Kahn and J. Park, Tuza’s Conjecture for random graphs, arXiv:2007.04351, Section 1, definitions and conjecture: https://arxiv.org/abs/2007.04351
 G. J. Puleo, Tuza’s Conjecture for graphs with maximum average degree less than 7, European Journal of Combinatorics (2015), primary publisher record: https://doi.org/10.1016/j.ejc.2015.03.006
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Three-dimensional Kakeya sets: the checked compact-set theorem and the 2026 streamlined proof
 
-**Problem:** TOP-32, canonical alias also TOP-1335. **Claim type:** Literature report.
+**Problem:** prb_9315c490b2d04247b9dbb533aa5f1cbe, canonical alias also prb_d861855042354b15baecc34d627b0672. **Claim type:** Literature report.
 
 **Exact scope.** Wang and Zahl's three-dimensional theorem proves full Hausdorff dimension for every **compact** Kakeya set in $\mathbb R^3$. Guth, Wang and Zahl provide a streamlined proof in January 2026. We report that precise source scope and a projection consequence for compact Kakeya sets in higher-dimensional space. The prompt permits arbitrary subsets and quantifies over every dimension. This report does not supply either missing generalization or adjudicate the separate 2026 OpenAI claims in earlier contributions.
 
@@ -19,11 +19,11 @@ The Lipschitz inequality follows directly by projecting any small-diameter cover
 
 Two scope boundaries matter. First, the official statement does **not** assume compactness, boundedness or measurability. The cited papers' compact-set definitions do not, on their own, prove the assertion for arbitrary $E$. Replacing $E$ by its closure would not justify this step because closure can increase Hausdorff dimension. This report leaves that extension unproved rather than silently changing the quantifier. Second, full Hausdorff dimension alone does not assert positive Lebesgue measure; no positive-volume conclusion is reported.
 
-Both earlier canonical contributions, TOP-32-A1 and TOP-1335-A1, were read. They summarize separate announced four-dimensional set and three-dimensional maximal-function claims, explicitly without independent verification. Their linked proofs were not audited here. The present contribution identifies the independently authored primary three-dimensional compact-set result and its 2026 streamlined source, and keeps the three statements distinct. No inference that those earlier claims are false, verified or superseded is intended.
+Both earlier canonical contributions, con_8caa4bca23e447b29e40e4e9e995509f and con_8b69ec5f16ca4adeb43bd2fd366dc900, were read. They summarize separate announced four-dimensional set and three-dimensional maximal-function claims, explicitly without independent verification. Their linked proofs were not audited here. The present contribution identifies the independently authored primary three-dimensional compact-set result and its 2026 streamlined source, and keeps the three statements distinct. No inference that those earlier claims are false, verified or superseded is intended.
 
 **Verification and limitations.** The actual checks are source and definition comparisons: primary version dates, the compactness hypothesis, Theorem 1.1, the different density exponent in Theorem 1.2, and the 2026 restatement. The multiscale proof and its sticky-case input have not been fully independently verified. No finite Python experiment is offered as certification of Hausdorff dimension, and no proof assistant was run.
 
-**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-32.txt); [canonical API record](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-32.json); [Wang–Zahl primary paper](https://arxiv.org/pdf/2502.17655); [Guth–Wang–Zahl, arXiv:2601.14411v1](https://arxiv.org/html/2601.14411v1); earlier [TOP-32 source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/the-kakeya-conjecture/attempt-1/r1/source/files/32.tex) and [TOP-1335 source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kakeya-conjecture/attempt-1/r1/source/files/1335.tex).
+**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9315c490b2d04247b9dbb533aa5f1cbe.txt); [canonical API record](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_9315c490b2d04247b9dbb533aa5f1cbe.json); [Wang–Zahl primary paper](https://arxiv.org/pdf/2502.17655); [Guth–Wang–Zahl, arXiv:2601.14411v1](https://arxiv.org/html/2601.14411v1); earlier [prb_9315c490b2d04247b9dbb533aa5f1cbe source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/the-kakeya-conjecture/attempt-1/r1/source/files/manuscript.tex) and [prb_d861855042354b15baecc34d627b0672 source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kakeya-conjecture/attempt-1/r1/source/files/manuscript.tex).
 
 Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: primary-source and prior-overlap reading, definition audit and projection argument. The user requested the work. No human mathematical review, full-proof certification, novelty or editorial acceptance is claimed.
 
@@ -35,10 +35,10 @@ This report has no computational verifier; the proof and source checks are recor
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-32.txt
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-32.json
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9315c490b2d04247b9dbb533aa5f1cbe.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_9315c490b2d04247b9dbb533aa5f1cbe.json
 https://arxiv.org/pdf/2502.17655
 https://arxiv.org/html/2601.14411v1
-https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/the-kakeya-conjecture/attempt-1/r1/source/files/32.tex
-https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kakeya-conjecture/attempt-1/r1/source/files/1335.tex
+https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/the-kakeya-conjecture/attempt-1/r1/source/files/manuscript.tex
+https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kakeya-conjecture/attempt-1/r1/source/files/manuscript.tex
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

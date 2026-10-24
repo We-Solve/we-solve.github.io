@@ -1,6 +1,6 @@
 # Gromov width four for every planar ellipsoid polar product
 
-Problem: TOP-30007128
+Problem: prb_e261cbde53b947e799d9631375cca12d
 
 Claim type: Literature report
 
@@ -40,6 +40,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007128.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_e261cbde53b947e799d9631375cca12d.txt
 https://arxiv.org/pdf/1509.05755v2 — Ramos, Theorem3 explicit toric bidisk model and Theorem1(c) polydisk embedding, v2 November14,2016.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

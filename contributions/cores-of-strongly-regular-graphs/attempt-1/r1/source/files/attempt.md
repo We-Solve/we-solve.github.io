@@ -2,7 +2,7 @@
 
 # Cores of strongly regular graphs: a complete spectral proof and exact examples
 
-**We-Solve TOP-3149 / Math-3322, OPG-824.**
+**We-Solve prb_58f49c6e192f4a97a16291306a6fa6da / Math-3322, catalogue entry.**
 
 **Answer: yes.** Every finite strongly regular graph has a core isomorphic either to itself or to a complete graph. For a primitive strongly regular graph, the stronger statement holds: every endomorphism is an automorphism or has a clique as its image.
 
@@ -205,7 +205,7 @@ The program verifies the defining common-neighbor counts, connectedness of both 
 
 ## 9. Exact verification and its scope
 
-The accompanying verify3149.py was executed with exact integers and rational arithmetic. All assertions passed. The main enumeration explores all endomorphisms of five graphs using edge-preservation constraints only: it never assumes injectivity or nonedge preservation. Variable ordering changes only the order of the complete search.
+The accompanying verify.py was executed with exact integers and rational arithmetic. All assertions passed. The main enumeration explores all endomorphisms of five graphs using edge-preservation constraints only: it never assumes injectivity or nonedge preservation. Variable ordering changes only the order of the complete search.
 
 | Graph | Parameters $(v,k,\lambda,\mu)$ | Image rank: number of endomorphisms |
 |---|---|---|
@@ -229,7 +229,7 @@ The proof treats all finite strongly regular graphs. Finite graph checks verify 
 1. **David E. Roberson**, *Homomorphisms of strongly regular graphs*, Algebraic Combinatorics **2**(4) (2019), 481–497, DOI [10.5802/alco.50](https://doi.org/10.5802/alco.50). [Publisher PDF](https://alco.centre-mersenne.org/item/10.5802/alco.50.pdf). Sections 1–4, including the spectral matrices, trace-zero lemma, Theorem 3.4, Corollaries 3.5–3.6 and the clique/color criterion, were inspected. The proof here follows the published method and attributes the theorem accordingly. The paper is explicitly licensed CC BY 4.0. Its later semidefinite-programming generalizations are not needed or independently audited here.
 2. **David E. Roberson**, [arXiv:1601.00969](https://arxiv.org/abs/1601.00969), first submitted 5 January 2016. Abstract and chronology inspected; the 2019 publisher version is the mathematical reference used above.
 3. **Peter J. Cameron and Priscila A. Kazanidis**, [Cores of strongly regular graphs, Open Problem Garden](https://www.openproblemgarden.org/op/cores_of_strongly_regular_graphs), posted by mdevos on 16 June 2008. The full original question, historical discussion and displayed correction comment were inspected. The cited earlier papers are not additional proof dependencies here.
-4. **We-Solve / UnsolvedMath TOP-3149**, displayed as Math-3322, OPG-824. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3149.txt). Full statement and earlier-contribution section inspected; no earlier contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+4. **We-Solve / UnsolvedMath prb_58f49c6e192f4a97a16291306a6fa6da**, displayed as Math-3322, catalogue entry. [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_58f49c6e192f4a97a16291306a6fa6da.txt). Full statement and earlier-contribution section inspected; no earlier contributions were listed. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 
 ## Provenance and licences
 

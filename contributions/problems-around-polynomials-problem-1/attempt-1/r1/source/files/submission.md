@@ -1,6 +1,6 @@
 # A uniform bound for two active characteristic roots, and a sharp order-three example in that class
 
-**Problem:** TOP-2200004 / Math-1837.  
+**Problem:** prb_68913b2e23a54f36bd03d12e7e898cc2 / Math-1837.  
 **Claim type:** Partial result.
 
 **Exact scope.** For every order $k\ge2$, every nonzero solution using at most two distinct characteristic roots has at most $2k-3$ real zeros, counted with analytic multiplicities. This bound is independent of the roots, their imaginary parts, and their real-part separation. An explicit equation in $\Omega_3$ has a solution with exactly three simple real zeros, attaining this two-root bound. Also, the common-imaginary-part subfamily has the sharp bound $k-1$, and the complete answers for orders one and two are $B(1)=0$, $B(2)=1$.
@@ -73,7 +73,7 @@ The hypotheses include arbitrary complex coefficients, repeated characteristic r
 
 ## Checked references and attribution
 
-1. We-Solve, official TOP-2200004 prompt, read on 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200004.txt .
+1. We-Solve, official prb_68913b2e23a54f36bd03d12e7e898cc2 prompt, read on 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_68913b2e23a54f36bd03d12e7e898cc2.txt .
 2. Boris Shapiro, *Problems Around Polynomials: The Good, The Bad and The Ugly…* (2015), Section 2, Problem 1: https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/ . This is the originating uniform-bound question.
 3. Boris Shapiro, *A note on real zeros of exponential polynomials*, author-hosted manuscript, read on 18 October 2026, Problem 3 and the discussion of conditional bounds: https://staff.math.su.se/shapiro/Articles/RealRoots.pdf . Its general conjecture is not used as a proved theorem here.
 
@@ -92,7 +92,7 @@ The main instance freshly ran the attached verifier; all assertions passed. Sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200004.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_68913b2e23a54f36bd03d12e7e898cc2.txt
 Boris Shapiro, Problems Around Polynomials: The Good, The Bad and The Ugly (2015), Section 2, Problem 1; https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/
 Boris Shapiro, A note on real zeros of exponential polynomials, author-hosted manuscript; https://staff.math.su.se/shapiro/Articles/RealRoots.pdf
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

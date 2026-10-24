@@ -31,7 +31,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 References checked.
 
 - [1] Sever Angel Popescu, A simple and self-contained proof for the Lindemann–Weierstrass theorem, arXiv:2306.14352, inspected PDF dated July 29, 2023, Theorem 3.2: distinct algebraic exponents give linear independence over Q-bar. https://arxiv.org/pdf/2306.14352
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1462.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_5e4417988b544292a22f600afa25a7c3.txt
 
 
 ## Reproducibility and review
@@ -43,5 +43,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 [1] Sever Angel Popescu, A simple and self-contained proof for the Lindemann–Weierstrass theorem, arXiv:2306.14352, inspected PDF dated July 29, 2023, Theorem 3.2: distinct algebraic exponents give linear independence over Q-bar. https://arxiv.org/pdf/2306.14352
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1462.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_5e4417988b544292a22f600afa25a7c3.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

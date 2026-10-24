@@ -1,6 +1,6 @@
 # The planar Gaussian propeller inequality with all measurable cells allowed
 
-Problem: TOP-30007119
+Problem: prb_a7c39b09b2704ced9bdfb886e5a4a68f
 
 Claim type: Partial result
 
@@ -46,5 +46,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007119.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_a7c39b09b2704ced9bdfb886e5a4a68f.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

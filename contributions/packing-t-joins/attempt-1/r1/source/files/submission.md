@@ -1,6 +1,6 @@
 # Exact T-join packing for a two-terminal set
 
-Problem: TOP-3197
+Problem: prb_c85d1b8872b84a8b97dd54e3e1dd751b
 
 Claim type: Partial result.
 
@@ -26,7 +26,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3197.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c85d1b8872b84a8b97dd54e3e1dd751b.txt
 
 
 ## Reproducibility and review
@@ -37,5 +37,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3197.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c85d1b8872b84a8b97dd54e3e1dd751b.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

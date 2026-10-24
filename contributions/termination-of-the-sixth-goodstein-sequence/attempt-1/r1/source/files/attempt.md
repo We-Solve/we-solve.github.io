@@ -2,7 +2,7 @@
 
 # The exact length of the sixth Goodstein sequence
 
-Problem: **TOP-3336 / Math-3368**, *Termination of the sixth Goodstein Sequence* (OPG-2379).
+Problem: **prb_51d47e1f6b76422b8d1495c662b0032a / Math-3368**, *Termination of the sixth Goodstein Sequence* (catalogue entry).
 
 Claim type: **Literature report with full resolution**, with attribution to the established fast-growing-hierarchy evaluation.
 
@@ -249,7 +249,7 @@ transitions, and its first zero has term number $3\cdot2^{402653211}-2$. These a
 
 This answer is established mathematics. Caicedo's 2007 Theorem 1.11 gives the first-zero term number for every starting integer in terms of the Löb–Wainer hierarchy. The OPG page's September 2010 comment by Deedlit already displays $F_6(6)-2$ for the sixth sequence in that term-number convention. The catalogue explicitly asks for transitions, which is one less. The present contribution supplies a finite digit proof for this input and makes these conventions explicit; it claims no new historical resolution.
 
-The accompanying verify3336.py was executed using exact integer arithmetic. All assertions passed; verification_results.json records the complete configurations and outcomes.
+The accompanying verify.py was executed using exact integer arithmetic. All assertions passed; verification_results.json records the complete configurations and outcomes.
 
 * The recursive hereditary base-change routine checks the prefix $6,29,257,3125,46655$ and its canonical digit trees at bases two through six, including the six digits equal to five at base six.
 * It compares the next 1,000 hereditary and ordinary transitions, checking that all exponents remain at most five. This finite check supplements the all-time induction in Section 4.
@@ -270,7 +270,7 @@ The proof does not infer the final value from experiments. Finite tests can chec
 
 1. **Andrés Eduardo Caicedo**, *Goodstein's function*, Revista Colombiana de Matemáticas **41**(2) (2007), 381–391. [Author's full published paper](https://andrescaicedo.wordpress.com/wp-content/uploads/2010/04/goodsteins.pdf). Inspected Definitions 1.1–1.7, Theorem 1.11, and the endpoint-base method in Section 2. The paper defines $G(n)$ as the one-based index of the first zero. Its full general theorem provides historical context and an independent evaluation; the finite proof above establishes the particular answer without invoking its transfinite induction.
 2. **Open Problem Garden**, [Termination of the sixth Goodstein Sequence](https://www.openproblemgarden.org/op/termination_of_the_sixth_goodstein_sequence), posted 7 October 2008, attributed to Ronald L. Graham. Inspected the original sequence convention and the June–September 2010 discussion, including Deedlit's fast-growing-hierarchy evaluation. No claim is made about any prize's current availability or award.
-3. **We-Solve / UnsolvedMath TOP-3336**, OPG-2379. [Catalogue statement](https://github.com/We-Solve/research/blob/main/problems/51/prb_51d47e1f6b76422b8d1495c662b0032a/statement.tex). Inspected the precise definition of $g_t$, starting base, and transition count $T$. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+3. **We-Solve / UnsolvedMath prb_51d47e1f6b76422b8d1495c662b0032a**, catalogue entry. [Catalogue statement](https://github.com/We-Solve/research/blob/main/problems/51/prb_51d47e1f6b76422b8d1495c662b0032a/statement.tex). Inspected the precise definition of $g_t$, starting base, and transition count $T$. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 
 ## Provenance and licences
 

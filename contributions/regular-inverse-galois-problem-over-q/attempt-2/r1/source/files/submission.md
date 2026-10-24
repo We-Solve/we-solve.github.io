@@ -1,6 +1,6 @@
 # A regular S_n realization from the Morse polynomial X^n−X−T
 
-**Problem:** TOP-30006738
+**Problem:** prb_52d5c122f8fb4781b537d47b2a457adb
 
 **Claim type:** Partial result
 

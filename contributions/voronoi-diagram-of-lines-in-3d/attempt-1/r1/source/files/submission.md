@@ -1,6 +1,6 @@
 # Linear Voronoi complexity for parallel lines and synchronized segments
 
-Problem: TOP-5500003
+Problem: prb_c5204042a1ae46fe945837450c741dc8
 
 Claim type: Partial result
 
@@ -36,5 +36,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500003.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c5204042a1ae46fe945837450c741dc8.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

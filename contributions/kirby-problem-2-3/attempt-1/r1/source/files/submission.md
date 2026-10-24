@@ -1,6 +1,6 @@
 # Faithful complex representations for punctured spheres and the closed genus-two surface
 
-**Problem:** TOP-2751
+**Problem:** prb_b174af83db7d44c6b3d0b44c18d7d693
 
 **Claim type:** Literature report
 

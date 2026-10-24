@@ -1,6 +1,6 @@
 # Exact Tunnell obstructions with the conditional direction kept separate
 
-Problem: TOP-9400104  
+Problem: prb_dd8441cffa6f48b8812081c6d84a59b5  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 
@@ -41,10 +41,10 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-9400104/verify.py). Source SHA-256: `45538a9c55e6e0ec7b4cc22f5af9bb49a013cef1bb9591a1d6a581152a1e3429`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify.py`. File SHA-256: `45538a9c55e6e0ec7b4cc22f5af9bb49a013cef1bb9591a1d6a581152a1e3429`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
 J.B.Tunnell, Invent.Math.72(1983),323–334, original primary PDF and indexed text, https://sites.math.rutgers.edu/~zeilberg/EM22/JT1983.pdf
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-9400104/verify.py (Used: exact previously reviewed program; SHA-256 45538a9c55e6e0ec7b4cc22f5af9bb49a013cef1bb9591a1d6a581152a1e3429).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify.py` (Used: exact previously reviewed program; SHA-256 45538a9c55e6e0ec7b4cc22f5af9bb49a013cef1bb9591a1d6a581152a1e3429).

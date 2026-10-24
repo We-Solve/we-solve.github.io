@@ -1,6 +1,6 @@
 # An explicit norm-separation algorithm when the number of radicals is fixed
 
-**Problem:** TOP-3900014
+**Problem:** prb_5e35bef89899422b856c99ad9259b4b3
 
 **Claim type:** Partial result
 
@@ -41,6 +41,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3900014.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_5e35bef89899422b856c99ad9259b4b3.txt
 https://ics.uci.edu/~eppstein/junkyard/small-dist.html
 Exact source versions, statements and uses are described in report.md and source_notes.md.

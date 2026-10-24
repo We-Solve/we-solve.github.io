@@ -44,7 +44,7 @@ W. Sawin, An improved lower bound for the union-closed set conjecture, arXiv:221
 J. Gilmer, A constant lower bound for the union-closed sets conjecture, arXiv:2211.09055 (2022). (Used: the entropy framework and the nondegeneracy convention.)
 Y. Jiang, Entropy bounds and global couplings for union-closed families, arXiv:2609.08291 (2026). (Used: only the claimed constant 0.38288525 from the abstract; not verified.)
 S. Cambie, Progress on the union-closed conjecture and offsprings in winter 2022–2023, arXiv:2306.12351. (Used: literature check for novelty only.)
-we-solve contribution Math-415-A1 (TOP-55-A1, r1). (Read to avoid repeating it; not used in the proofs.)
+we-solve contribution Math-415-A1 (con_5ecc4bbf0f2f420fac52dd66365365d8, r1). (Read to avoid repeating it; not used in the proofs.)
 
 
 ### Declarations

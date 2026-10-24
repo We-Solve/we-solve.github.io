@@ -1,6 +1,6 @@
 # Stable finiteness from finite quotient separation
 
-**Problem:** TOP-30006936
+**Problem:** prb_5efb1c1dff014cc7bc56cb7268c41575
 
 **Claim type:** Partial result
 

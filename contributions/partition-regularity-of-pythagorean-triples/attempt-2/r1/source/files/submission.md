@@ -1,4 +1,4 @@
-# TOP-30003641: The sharp two-colour obstruction and infinitely many large monochromatic triples
+# prb_4e8013119ad14d8da1039e1a39f00d7d: The sharp two-colour obstruction and infinitely many large monochromatic triples
 
 Claim type: Literature report
 

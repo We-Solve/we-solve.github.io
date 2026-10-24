@@ -1,6 +1,6 @@
 # A free binary subtree gives a power lower bound for the closure
 
-Problem: TOP-124  
+Problem: prb_123fff288edd43feba31acc166e7c0e1  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -50,5 +50,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 ## References
 
 Ben Green, 100 Open Problems, Problem 63, https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf
-Fresh official TOP-124 prompt, equal-factor closure definition
+Fresh official prb_123fff288edd43feba31acc166e7c0e1 prompt, equal-factor closure definition
 Exact source versions, statements and uses are described in report.md and source_notes.md.

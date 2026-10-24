@@ -1,4 +1,4 @@
-# TOP-1132: An infinite Pell recurrence of values occurring at least six times in Pascal’s triangle
+# prb_ca137ff7e2904a8bbfc88d54f4409e69: An infinite Pell recurrence of values occurring at least six times in Pascal’s triangle
 
 Claim type: Partial result
 

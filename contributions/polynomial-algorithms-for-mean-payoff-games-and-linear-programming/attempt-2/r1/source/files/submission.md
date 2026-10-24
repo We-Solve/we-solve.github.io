@@ -1,4 +1,4 @@
-# TOP-30003049: Polynomial Algorithms for Mean-Payoff Games and Linear Programming
+# prb_fcffd5b9cd1f417a9736ac25936b387f: Polynomial Algorithms for Mean-Payoff Games and Linear Programming
 
 Claim type: **Partial result**.
 
@@ -28,7 +28,7 @@ Comparison with the earlier attempt: The earlier item reports broad 2026 quasipo
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30003049.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_fcffd5b9cd1f417a9736ac25936b387f.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/polynomial-algorithms-for-mean-payoff-games-and-linear-programming/attempt-1/r1/
 - Richard M. Karp, A Characterization of the Minimum Cycle Mean in a Digraph, technical report UCB/ERL M77/47 (1977), author-institution record inspected: https://www2.eecs.berkeley.edu/Pubs/TechRpts/1977/29121.html ; published in Discrete Mathematics 23 (1978), 309–311. The elementary positive-cycle algorithm in this report is proved directly, not imported as an unverified formula.
 
@@ -46,7 +46,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30003049.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_fcffd5b9cd1f417a9736ac25936b387f.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/polynomial-algorithms-for-mean-payoff-games-and-linear-programming/attempt-1/r1/
 Richard M. Karp, A Characterization of the Minimum Cycle Mean in a Digraph, technical report UCB/ERL M77/47 (1977), author-institution record inspected: https://www2.eecs.berkeley.edu/Pubs/TechRpts/1977/29121.html ; published in Discrete Mathematics 23 (1978), 309–311. The elementary positive-cycle algorithm in this report is proved directly, not imported as an unverified formula.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

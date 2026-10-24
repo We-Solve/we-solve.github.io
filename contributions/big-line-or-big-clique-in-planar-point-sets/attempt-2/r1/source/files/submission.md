@@ -1,6 +1,6 @@
 # The five-visible-clique case for every collinearity threshold
 
-Problem: TOP-3074
+Problem: prb_0d0ba382251e432f82aa35eff497a456
 
 Claim type: Literature report
 
@@ -29,6 +29,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3074.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_0d0ba382251e432f82aa35eff497a456.txt
 https://arxiv.org/pdf/0904.0262 — Abel, Ballinger, Bose, Collette, Dujmović, Hurtado, Kominers, Langerman, Pór and Wood, Theorems3 and5,16-page manuscript.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

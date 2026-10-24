@@ -1,6 +1,6 @@
 # Polynomial pseudo-polygon recognition is a related result, not straight-line recognition
 
-Problem: **TOP-5500017** (Math-1657, Visibility Graph Recognition).  
+Problem: **prb_abdc06712df74fa69424dfc3cf8639f1** (Math-1657, Visibility Graph Recognition).  
 Claim type: **Literature report**.  
 Scope: A precise update for pseudo-polygons, distinctions from two real-algebraic hardness results, and a self-contained cubic-time necessary triangulation test for the exact prescribed-boundary problem. No full recognition algorithm or complexity classification for the official simple-polygon task is claimed.
 
@@ -8,7 +8,7 @@ The polynomial-time recognition result of Ameer, Gibson-Lopez, Krohn and Wang, S
 
 ## What the checked primary results actually say
 
-In [1], a pseudo-configuration replaces the straight line through each pair of points by a pseudoline. Boundary and visibility use the corresponding curved subarcs. Theorem 6, p.7:12, recognizes pseudo-polygon visibility graphs with a prescribed labelled Hamiltonian boundary cycle in polynomial time. Theorem 7 reconstructs a pseudo-polygon in polynomial time. These improve the older mere NP-membership statement for that related problem. The paper's general-position formulation does not require the reconstruction to give ordinary straight-line coordinates. Thus neither theorem supplies the geometric realization required by TOP-5500017.
+In [1], a pseudo-configuration replaces the straight line through each pair of points by a pseudoline. Boundary and visibility use the corresponding curved subarcs. Theorem 6, p.7:12, recognizes pseudo-polygon visibility graphs with a prescribed labelled Hamiltonian boundary cycle in polynomial time. Theorem 7 reconstructs a pseudo-polygon in polynomial time. These improve the older mere NP-membership statement for that related problem. The paper's general-position formulation does not require the reconstruction to give ordinary straight-line coordinates. Thus neither theorem supplies the geometric realization required by prb_abdc06712df74fa69424dfc3cf8639f1.
 
 Boomari, Ostovari and Zarei [2], version 3 dated 20 February 2024, give two different $\exists\mathbb R$-completeness results: Theorem 2 concerns polygons **with holes**, with their boundary cycles; Theorem 4 concerns simple polygons given **both internal and external visibility graphs**, together with the boundary cycle. An external-visibility graph imposes additional exact constraints: it is not generally the complement of internal visibility, because a segment may pass partly inside and partly outside. These hardness statements do not classify recognition with only the internal graph and one boundary cycle. Their introduction explicitly distinguishes that unresolved problem.
 

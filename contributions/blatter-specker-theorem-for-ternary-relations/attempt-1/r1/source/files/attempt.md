@@ -2,7 +2,7 @@
 
 # A concrete first-order counterexample to the ternary Specker–Blatter extension
 
-Problem: **TOP-3340 / Math-3371**, *Blatter-Specker Theorem for ternary relations*, OPG-37444.
+Problem: **prb_2a0516cd7aae4984a580ac97d3dbd595 / Math-3371**, *Blatter-Specker Theorem for ternary relations*, catalogue entry.
 
 Claim type: **literature report**, including a complete self-contained proof of the established negative answer.
 
@@ -323,7 +323,7 @@ These maps therefore restrict to inverse bijections between the $\Theta$-models 
 
 ## 8. Executed verification and its scope
 
-The accompanying verify3340.py was executed with exact integer and bitset arithmetic. All assertions passed. The complete configuration, model records and outcomes are in verification_results.json.
+The accompanying verify.py was executed with exact integer and bitset arithmetic. All assertions passed. The complete configuration, model records and outcomes are in verification_results.json.
 
 * It exhausts all 4,101 unrestricted $(T,B)$-structures on domains of sizes $n=0,1,2$, reconstructs the virtual anchor and evaluates the seven first-order clauses. The model counts are respectively $1,1,0$.
 * Independently, it exhausts every enlarged relation compatible with the necessary graph and full-support clauses for $|V|=1,2,3,4$: 262,211 candidates in total, including all $2^{18}=262,144$ possibilities at size four. The full sentence admits respectively $1,1,0,3$ models. This is an exhaustive model census for the corresponding constant-free sizes zero through three, not an unrestricted search at larger sizes.
@@ -345,8 +345,8 @@ The infinite result follows from the proved encoding/decoding bijection and the 
 
 1. **Eldar Fischer and Johann A. Makowsky**, *Extensions and Limits of the Specker-Blatter Theorem*, 32nd EACSL Annual Conference on Computer Science Logic (CSL 2024), LIPIcs **288**, article 26, pp. 26:1–26:20, DOI [10.4230/LIPIcs.CSL.2024.26](https://doi.org/10.4230/LIPIcs.CSL.2024.26). [Official full paper](https://drops.dagstuhl.de/storage/00lipics/lipics-vol288-csl2024/LIPIcs.CSL.2024.26/LIPIcs.CSL.2024.26.pdf). Inspected the vocabulary discussion, Section 8.2, Sections 9.1–9.4, and Section 9.6: Theorem 20, Corollary 21, Definition 22, Observation 23, Lemma 24, the explicit rank axioms, and the final diagonal-folding argument for a single ternary relation. The construction and negative answer are credited to these authors. The official paper is licensed CC BY 4.0; this exposition adapts and expands its matching and rank-encoding proof and proves the specialized constant removal and final folding bijections explicitly.
 2. **Fischer and Makowsky**, [arXiv:2206.12135v2](https://arxiv.org/abs/2206.12135v2), first submitted 24 June 2022, revised 27 June 2022. The arXiv record establishes the earlier public version. The argument here uses the explicitly inspected CSL version and proves the specialized anchor removal directly, without invoking a general constant-elimination theorem as an unproved dependency.
-3. **Open Problem Garden**, [Blatter-Specker Theorem for ternary relations](https://www.openproblemgarden.org/op/blatter_specker_theorem_for_ternary_relations), OPG-37444. The original question is the extension from unary/binary to ternary relation symbols; no new conjecture is substituted for it.
-4. **We-Solve / UnsolvedMath TOP-3340**, Math-3371, OPG-37444. [Catalogue statement](https://github.com/We-Solve/research/blob/main/problems/2a/prb_2a0516cd7aae4984a580ac97d3dbd595/statement.tex). Inspected the fixed finite signature, arity-at-most-three convention, labelled counting, and ultimate periodicity definition. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+3. **Open Problem Garden**, [Blatter-Specker Theorem for ternary relations](https://www.openproblemgarden.org/op/blatter_specker_theorem_for_ternary_relations), catalogue entry. The original question is the extension from unary/binary to ternary relation symbols; no new conjecture is substituted for it.
+4. **We-Solve / UnsolvedMath prb_2a0516cd7aae4984a580ac97d3dbd595**, Math-3371, catalogue entry. [Catalogue statement](https://github.com/We-Solve/research/blob/main/problems/2a/prb_2a0516cd7aae4984a580ac97d3dbd595/statement.tex). Inspected the fixed finite signature, arity-at-most-three convention, labelled counting, and ultimate periodicity definition. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 
 This is a report and detailed reconstruction of an established counterexample, not a new solution to a previously unresolved problem. The original Specker–Blatter theorem for unary and binary relations is unaffected. The final folding corollary proves that even one ternary relation suffices for the negative result.
 

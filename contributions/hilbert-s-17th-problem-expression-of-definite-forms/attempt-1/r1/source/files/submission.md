@@ -1,6 +1,6 @@
 # Two real rational squares in one variable, and a Motzkin certificate
 
-Problem: TOP-90. Claim type: Partial result.
+Problem: prb_042b8b56213c47139421a825475d1387. Claim type: Partial result.
 
 Every nonnegative $f\in\mathbb R(x)$ is a sum of **two** squares in $\mathbb R(x)$. Here rational functions have real coefficients; no two-square claim over $\mathbb Q(x)$ is intended. We give the elementary proof and a separate, explicit multivariable example where polynomial squares fail but rational squares suffice. Both are classical phenomena, not a new solution of Hilbert's seventeenth problem.
 

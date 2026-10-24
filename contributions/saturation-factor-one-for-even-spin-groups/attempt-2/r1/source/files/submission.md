@@ -30,7 +30,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 
 References checked.
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007004.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_536e2b9aa81f4aafa7099054a6025de0.txt
 
 
 ## Reproducibility and review
@@ -41,5 +41,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007004.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_536e2b9aa81f4aafa7099054a6025de0.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

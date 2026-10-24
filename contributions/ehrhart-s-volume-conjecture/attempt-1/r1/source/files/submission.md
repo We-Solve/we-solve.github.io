@@ -1,6 +1,6 @@
 # Ehrhart’s inequality for symmetric bodies and a sharp lattice-simplex family
 
-**Problem:** TOP-1219
+**Problem:** prb_30195b2871d446138b3f13492a813c2c
 
 **Claim type:** Partial result
 
@@ -42,5 +42,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1219.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_30195b2871d446138b3f13492a813c2c.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

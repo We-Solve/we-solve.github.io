@@ -1,6 +1,6 @@
 # Polynomial radius bounds and polynomial certificates in the unknot Reidemeister graph
 
-**Problem:** TOP-2735
+**Problem:** prb_dc28ef891ad945bfbb31dc39e7705314
 
 **Claim type:** Literature report
 

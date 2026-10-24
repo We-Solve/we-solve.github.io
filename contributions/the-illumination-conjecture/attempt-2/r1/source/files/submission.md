@@ -1,6 +1,6 @@
 # Illumination for every affine image of a 1-symmetric convex body
 
-Problem: TOP-1123
+Problem: prb_4a0148140a0b4b6c93ea1f1824f90dc3
 
 Claim type: Literature report
 
@@ -33,6 +33,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1123.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_4a0148140a0b4b6c93ea1f1824f90dc3.txt
 https://arxiv.org/pdf/2407.10314v1 — Sun and Vritsiou, definition of1-symmetry, TheoremD and directional illumination definition; v1 July14,2024.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,4 +1,4 @@
-Problem: TOP-1500003
+Problem: prb_d45196cb92134f62a7b6c82f5380bb63
 
 Title: Known exact maximal ranks: binary sextics as cubes, and binary forms as squares
 
@@ -40,7 +40,7 @@ Human contributors and roles: No human mathematical contribution is asserted in 
 References:
 
 - S. Lundqvist, A. Oneto, B. Reznick, B. Shapiro, *On generic and maximal k-ranks of binary forms*, arXiv:1711.05014v1 (2017), Theorem 3.1 and Example 3.2. https://arxiv.org/abs/1711.05014
-- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-1500003.txt
+- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_d45196cb92134f62a7b6c82f5380bb63.txt
 
 
 ## Reproducibility and review
@@ -55,7 +55,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-1500003.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_d45196cb92134f62a7b6c82f5380bb63.txt
 https://arxiv.org/pdf/1711.05014v1 (Theorem 3.1, Example 3.2)
 https://arxiv.org/abs/1711.05014 (publication metadata)
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

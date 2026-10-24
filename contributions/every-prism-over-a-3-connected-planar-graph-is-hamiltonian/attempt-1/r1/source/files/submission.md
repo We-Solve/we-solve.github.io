@@ -1,4 +1,4 @@
-Problem: TOP-3176
+Problem: prb_cebe7a9c074e4ebeb922ff28d93bace5
 
 Title: Špacapan's counterexample and constructive positive certificates via even cactuses
 
@@ -6,7 +6,7 @@ Claim type: Literature report
 
 Scope: The universal prism-Hamiltonicity conjecture in the official prompt is false by Špacapan's established counterexample. This report credits the source construction and adds a complete constructive certificate for the positive class of graphs with a spanning good even cactus. The finite computation verifies the latter class, not the full non-Hamiltonicity proof.
 
-Špacapan [1], Lemma 2.5 and Theorem 2.6, constructs plane graphs $G_n$ that are 3-connected for every $n$ and not prism-Hamiltonian when $n>25$. In particular $G_{26}$ is a counterexample to the exact universal assertion in TOP-3176. Planarity and 3-connectivity belong to the base graph, and the non-Hamiltonian graph is its Cartesian product with $K_2$, not the base graph alone.
+Špacapan [1], Lemma 2.5 and Theorem 2.6, constructs plane graphs $G_n$ that are 3-connected for every $n$ and not prism-Hamiltonian when $n>25$. In particular $G_{26}$ is a counterexample to the exact universal assertion in prb_cebe7a9c074e4ebeb922ff28d93bace5. Planarity and 3-connectivity belong to the base graph, and the non-Hamiltonian graph is its Cartesian product with $K_2$, not the base graph alone.
 
 The source glues its fixed plane gadgets in a chain and adds two vertices adjacent along the two sides. Its obstruction is a path-cover argument in the prisms of consecutive gadgets. A Hamilton cycle has at most eight edges incident with the four lifted added vertices; sufficiently many consecutive gadgets force a pair with no such cycle attachment, and the gadget lemmas rule out the necessary spanning path covers. This paragraph is a source summary rather than a new proof. The exact primary construction and its lemmas are the external mathematical ingredient, and no enumeration of all Hamilton cycles in $G_{26}\square K_2$ is claimed.
 

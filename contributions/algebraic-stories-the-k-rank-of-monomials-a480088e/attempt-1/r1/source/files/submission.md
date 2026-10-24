@@ -1,6 +1,6 @@
 # The binary-monomial remainder bound is not always exact
 
-Problem: **TOP-1500006**. Claim category: **Literature report**.
+Problem: **prb_a480088e931a43a7b664a62632c687e6**. Claim category: **Literature report**.
 
 ## Exact result and attribution
 
@@ -18,7 +18,7 @@ $$
 
 Its exponents have remainders $1$ and $6$ modulo $7$. The proposed exact formula therefore gives $\max(1,6)+1=7$, contradicting the displayed upper bound. This is a complete negative answer to the question of whether that formula always holds. It does not assert the exact rank of any $M_{r,m}$ or a replacement formula for arbitrary monomials.
 
-The six-term identity is due to Alper Ferudun, Theorem 1.2 of an **unrefereed preprint dated 14 October 2026** [F]. This report gives a complete checkable derivation and a separately written exact verifier. It makes no mathematical priority claim. A companion report for TOP-1500004 applies the **same certificate** to the stipulated extremal-form assertion; these are linked contributions, not two independent discoveries.
+The six-term identity is due to Alper Ferudun, Theorem 1.2 of an **unrefereed preprint dated 14 October 2026** [F]. This report gives a complete checkable derivation and a separately written exact verifier. It makes no mathematical priority claim. A companion report for prb_df628b5099b04e51b0d118ef5f1da352 applies the **same certificate** to the stipulated extremal-form assertion; these are linked contributions, not two independent discoveries.
 
 ## 1. Exact algebraic constants
 
@@ -198,14 +198,14 @@ These are exact algebraic checks, with no floating-point tolerances. They supple
 
 [S] R. Fröberg, S. Lundqvist, A. Oneto, B. Shapiro, *Algebraic Stories from One and from the Other Pockets*, Arnold Mathematical Journal 4 (2018), 137–160, section 1.3, Problem D. [Official full text](https://link.springer.com/article/10.1007/s40598-018-0088-z). Used for the original question about equality in the binary-monomial remainder bound.
 
-[C] [Official TOP-1500006 prompt](https://we-solve.github.io/prompts/TOP-1500006.txt), read through the official GitHub repository on 18 October 2026. Used for the precise exponent-remainder convention and the universal equality being tested. Its earlier-contribution section listed none at inspection.
+[C] [Official prb_a480088e931a43a7b664a62632c687e6 prompt](https://we-solve.github.io/prompts/prb_a480088e931a43a7b664a62632c687e6.txt), read through the official GitHub repository on 18 October 2026. Used for the precise exponent-remainder convention and the universal equality being tested. Its earlier-contribution section listed none at inspection.
 
 Independent verification, exposition, and code: ChatGPT/Codex agents; exact model version not supplied to the authoring agent. Gaven requested the contribution batch. Mathematical identity credited to [F]; source [F] is expressly unrefereed. Proposed text licence: CC BY 4.0; independently written verification code: Apache-2.0. 
 
 
 ## Reproducibility and review
 
-Pure Python standard-library exact rational algebra: all 15 cleared polynomial coefficients vanish; 30 convolution/multinomial coefficient comparisons and 15 direct-phase/root-filter comparisons pass; wrong-sign control rejected. Same certificate is disclosed in linked TOP-1500004 and TOP-1500006 reports.
+Pure Python standard-library exact rational algebra: all 15 cleared polynomial coefficients vanish; 30 convolution/multinomial coefficient comparisons and 15 direct-phase/root-filter comparisons pass; wrong-sign control rejected. Same certificate is disclosed in linked prb_df628b5099b04e51b0d118ef5f1da352 and prb_a480088e931a43a7b664a62632c687e6 reports.
 The main instance freshly ran the attached verifier; all assertions passed. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.
 
 ### Reproducibility file: verify_seventh_power.py
@@ -215,7 +215,7 @@ The main instance freshly ran the attached verifier; all assertions passed. Sepa
 
 ## References
 
-Official TOP-1500006 prompt, https://we-solve.github.io/prompts/TOP-1500006.txt, retrieved through official GitHub repository on 2026-10-18
+Official prb_a480088e931a43a7b664a62632c687e6 prompt, https://we-solve.github.io/prompts/prb_a480088e931a43a7b664a62632c687e6.txt, retrieved through official GitHub repository on 2026-10-18
 Alper Ferudun, Counterexamples to a Conjecture of Fröberg, Lundqvist, Oneto and Shapiro on Maximal k-Ranks of Binary Forms, version 1.0, 2026-10-14, unrefereed preprint, Theorem 1.2 and section 3; https://eulersolve.org/papers/amr-014-0004/; DOI 10.5281/zenodo.23369280
 Fröberg, Lundqvist, Oneto, Shapiro, Algebraic Stories from One and from the Other Pockets, Arnold Math. J. 4 (2018), 137–160, section 1.3 Problem D; https://link.springer.com/article/10.1007/s40598-018-0088-z
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

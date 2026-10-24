@@ -1,6 +1,6 @@
 # Exact optimal latitude in every regular two-ring antiprism family
 
-Problem: TOP-1372
+Problem: prb_bc40eb10d37a4c1c9ac64d02f5005457
 
 Claim type: Partial result
 
@@ -38,5 +38,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1372.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_bc40eb10d37a4c1c9ac64d02f5005457.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

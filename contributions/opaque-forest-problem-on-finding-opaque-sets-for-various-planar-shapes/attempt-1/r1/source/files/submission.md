@@ -1,6 +1,6 @@
 # A countable rectifiable-barrier lower bound with the exact interior connected triangle subclass
 
-**Problem:** TOP-7200053
+**Problem:** prb_dd81b09dd3524520a951a28afbbc798e
 
 **Claim type:** Literature report
 
@@ -34,6 +34,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-7200053.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_dd81b09dd3524520a951a28afbbc798e.txt
 https://arxiv.org/pdf/1005.2218
 Exact source versions, statements and uses are described in report.md and source_notes.md.

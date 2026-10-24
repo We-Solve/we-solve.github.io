@@ -1,4 +1,4 @@
-# TOP-30000349: Integral Primal Certificates for Submodular Minimization
+# prb_021aecdd712448edbf559f2e929f8ba4: Integral Primal Certificates for Submodular Minimization
 
 Claim type: **Partial result**.
 
@@ -29,7 +29,7 @@ Comparison with the earlier attempt: The earlier attempt gives only a two-elemen
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30000349.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_021aecdd712448edbf559f2e929f8ba4.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/integral-primal-certificates-for-submodular-minimization/attempt-1/r1/
 
 
@@ -46,6 +46,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30000349.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_021aecdd712448edbf559f2e929f8ba4.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/integral-primal-certificates-for-submodular-minimization/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

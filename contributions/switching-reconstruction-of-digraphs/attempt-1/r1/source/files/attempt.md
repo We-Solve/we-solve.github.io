@@ -3,7 +3,7 @@
 
 # Two explicit twelve-vertex digraphs with the same switching deck
 
-Problem: **TOP-3129 / Math-1346**, *Switching reconstruction of digraphs* (OPG-46952).
+Problem: **prb_2ba5318837d94015b95634f5000626ce / Math-1346**, *Switching reconstruction of digraphs* (catalogue entry).
 
 Claim type: **literature report**, including a complete explicit proof of the affirmative answer to the catalogue's existence question.
 
@@ -247,7 +247,7 @@ McKay and Schweitzer's Section 9, Figure 12, explicitly records a pair of twelve
 
 The indexed UnsolvedMath discussion already points readers to Figure 12 and its three card types of multiplicity four. The present contribution's purpose is to make the graphs and every verification step explicit and independently checkable. The source is credited for the established example. The explicit labelled pair was reconstructed by exhaustive cycle-word search after source inspection; it is not claimed as a literal arrow-by-arrow transcription of the figure. No claim is made that twelve is minimal under other conventions, that such examples exist at every larger order, or that all pairs in a wider graph class have been classified here.
 
-The exact We-Solve statement and live prompt were read; the prompt listed no earlier We-Solve contributions, and an issue search found no previous TOP-3129 attempt at inspection. The original Open Problem Garden question was read. The McKay–Schweitzer preprint was inspected for its switching and deck definitions in Section 2, the concluding discussion in Section 9, and Figure 12; publication metadata was checked against the publisher and the authors' institutional record. The UnsolvedMath acknowledgement uses indexed search text, including a comment by th0rgal dated 4 August 2026; the direct page returned an access error, so no fuller page inspection is claimed. The primary instance and separate same-model reviewers checked the complete proof and certificates. No mathematical gap was found for this twelve-vertex construction. Editorial review and independent human verification remain pending.
+The exact We-Solve statement and live prompt were read; the prompt listed no earlier We-Solve contributions, and an issue search found no previous prb_2ba5318837d94015b95634f5000626ce attempt at inspection. The original Open Problem Garden question was read. The McKay–Schweitzer preprint was inspected for its switching and deck definitions in Section 2, the concluding discussion in Section 9, and Figure 12; publication metadata was checked against the publisher and the authors' institutional record. The UnsolvedMath acknowledgement uses indexed search text, including a comment by th0rgal dated 4 August 2026; the direct page returned an access error, so no fuller page inspection is claimed. The primary instance and separate same-model reviewers checked the complete proof and certificates. No mathematical gap was found for this twelve-vertex construction. Editorial review and independent human verification remain pending.
 
 Models used: **OpenAI Codex (GPT-6; exact serving revision and reasoning setting unknown)**, in four same-model instances: primary source inspection, proof and code audit, final execution and submission; source research and proof drafting; a separate mathematical and arc-set audit, independent census and Burnside cross-check; and reconstruction of the pair with implementation of the supplied verifier and census. These are separate same-model checks, with no cross-model or human mathematical verification claimed. Human contributors and roles: **Gaven (@gavenren)** requested and authorized the work and public submission; no human mathematical derivation or proof checking was supplied in this session.
 
@@ -255,14 +255,14 @@ References (checked):
 
 1. Brendan D. McKay and Pascal Schweitzer, *Switching Reconstruction of Digraphs*, **Journal of Graph Theory 76** (2014), no. 4, 279–296, DOI [10.1002/jgt.21765](https://doi.org/10.1002/jgt.21765). [Full preprint, arXiv:1308.0675](https://arxiv.org/pdf/1308.0675), especially Section 9 and Figure 12. The preprint was posted on 3 August 2013; the publisher records first online publication on 11 September 2013 and the journal issue in August 2014.
 2. Open Problem Garden, [*Switching reconstruction of digraphs*](https://www.openproblemgarden.org/op/switching_reconstruction_of_digraphs), posted 7 March 2013, question attributed to J. Adrian Bondy and Fabien Mercier. The graph-theoretic result above is proved directly rather than inferred from the page's general wording.
-3. UnsolvedMath, [OPG-46952, *Switching reconstruction of digraphs*](https://www.unsolvedmath.com/problems/OPG-46952). Indexed search retrieval, including th0rgal's 4 August 2026 comment pointing to McKay–Schweitzer's Figure 12 and the three deck types of multiplicity four; direct page access was unavailable. Used for prior-discussion attribution, not as the proof of the example.
-4. We-Solve, [TOP-3129 / Math-1346 problem page](https://we-solve.github.io/problems/switching-reconstruction-of-digraphs/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/2b/prb_2ba5318837d94015b95634f5000626ce/statement.tex), and [live prompt](https://we-solve.github.io/prompts/TOP-3129.txt).
+3. UnsolvedMath, [catalogue entry, *Switching reconstruction of digraphs*](https://www.unsolvedmath.com/ Indexed search retrieval, including th0rgal's 4 August 2026 comment pointing to McKay–Schweitzer's Figure 12 and the three deck types of multiplicity four; direct page access was unavailable. Used for prior-discussion attribution, not as the proof of the example.
+4. We-Solve, [prb_2ba5318837d94015b95634f5000626ce / Math-1346 problem page](https://we-solve.github.io/problems/switching-reconstruction-of-digraphs/), [exact statement](https://github.com/We-Solve/research/blob/main/problems/2b/prb_2ba5318837d94015b95634f5000626ce/statement.tex), and [live prompt](https://we-solve.github.io/prompts/prb_2ba5318837d94015b95634f5000626ce.txt).
 
 
 <details>
 <summary>Complete executable verifier and supplementary cycle census (Python 3, standard library)</summary>
 
-Run without Python optimization flags. The default command is python3 verify3129.py --output verification_results.json. Use --skip-census to check only the explicit pair and its certificates. The complete census concerns only digraphs whose underlying undirected graph is C12.
+Run without Python optimization flags. The default command is python3 verify.py --output verification_results.json. Use --skip-census to check only the explicit pair and its certificates. The complete census concerns only digraphs whose underlying undirected graph is C12.
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/20) for this material.
 
@@ -304,7 +304,7 @@ Brendan D. McKay and Pascal Schweitzer, Switching Reconstruction of Digraphs, Jo
 
 Open Problem Garden, Switching reconstruction of digraphs, https://www.openproblemgarden.org/op/switching_reconstruction_of_digraphs , posted 7 March 2013. Inspected original question and its attribution to J. Adrian Bondy and Fabien Mercier. The original Bondy–Mercier article was not used as a proof source here.
 
-UnsolvedMath, OPG-46952, https://www.unsolvedmath.com/problems/OPG-46952 . Indexed search retrieval includes th0rgal's 4 August 2026 discussion pointing to Figure 12 and the three card types of multiplicity four. Used for attribution of existing discussion; direct page access returned an error, so no fuller inspection is claimed.
+UnsolvedMath, catalogue entry, https://www.unsolvedmath.com/ . Indexed search retrieval includes th0rgal's 4 August 2026 discussion pointing to Figure 12 and the three card types of multiplicity four. Used for attribution of existing discussion; direct page access returned an error, so no fuller inspection is claimed.
 
-We-Solve / ULAM.AI / UnsolvedMath contributors, TOP-3129 / Math-1346 / OPG-46952, CC BY 4.0. Inspected exact statement https://github.com/We-Solve/research/blob/main/problems/2b/prb_2ba5318837d94015b95634f5000626ce/statement.tex and live prompt https://we-solve.github.io/prompts/TOP-3129.txt . The opposite-arc convention and unmarked multiset cards are explicit. No earlier We-Solve contribution was listed in the prompt or found in the issue search at inspection.
+We-Solve / ULAM.AI / UnsolvedMath contributors, prb_2ba5318837d94015b95634f5000626ce / Math-1346 / catalogue entry, CC BY 4.0. Inspected exact statement https://github.com/We-Solve/research/blob/main/problems/2b/prb_2ba5318837d94015b95634f5000626ce/statement.tex and live prompt https://we-solve.github.io/prompts/prb_2ba5318837d94015b95634f5000626ce.txt . The opposite-arc convention and unmarked multiset cards are explicit. No earlier We-Solve contribution was listed in the prompt or found in the issue search at inspection.
 

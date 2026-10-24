@@ -39,6 +39,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006850.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_07b8fdd90adc4e6ea91782463ac74e61.txt
 Nir Ailon, An Omega((n log n)/R) Lower Bound for Fourier Transform Computation in the R-Well Conditioned Model, arXiv:1403.1307v5 (24 July 2014), primary §1.1 dimension convention, Definition2.1 and Theorem3.1 with §3 potential argument: https://arxiv.org/pdf/1403.1307 . The fetched PDF identifies v5. Its final §3 proof line prints R^{-2}, inconsistent with its preceding O(R) increment and the theorem/abstract; the reported 1/R is the explicit Theorem3.1 bound and follows by dividing the displayed increments.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

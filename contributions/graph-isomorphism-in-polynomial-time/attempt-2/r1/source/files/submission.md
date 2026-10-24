@@ -1,6 +1,6 @@
 # A complete deterministic canonization algorithm for forests
 
-Problem: TOP-30006715 — Graph Isomorphism in Polynomial Time.  
+Problem: prb_02ac91f15656491c85a4c17c79ae093c — Graph Isomorphism in Polynomial Time.  
 Claim type: **Partial result**.  
 Scope: A self-contained polynomial-time algorithm for arbitrary finite uncolored forests, including disconnected and empty forests. This classical restricted result does not solve graph isomorphism for arbitrary graphs and is not claimed as new.
 

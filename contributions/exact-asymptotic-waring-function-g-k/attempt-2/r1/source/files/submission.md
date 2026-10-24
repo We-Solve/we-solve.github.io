@@ -1,4 +1,4 @@
-# TOP-30006788: A uniform descent obstruction for exponents divisible by four, and the known exact G(4)
+# prb_1f330a3d9373432cb8ef44ae3ee90462: A uniform descent obstruction for exponents divisible by four, and the known exact G(4)
 
 Claim type: Partial result
 

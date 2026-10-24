@@ -1,6 +1,6 @@
 # A uniform short-interval fourth moment from the classical power-saving formula
 
-Problem: TOP-30006978  
+Problem: prb_695992c218814623be32e83be26d7e9c  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 

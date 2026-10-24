@@ -1,4 +1,4 @@
-# TOP-30006914: Fourier Entropy-Influence Conjecture
+# prb_b63996453f7d4b9d91a70443168c56cc: Fourier Entropy-Influence Conjecture
 
 Claim type: **Partial result**.
 
@@ -40,7 +40,7 @@ Comparison with the earlier attempt: The earlier attempt treats an AND-type sing
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006914.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b63996453f7d4b9d91a70443168c56cc.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/fourier-entropy-influence-conjecture/attempt-1/r1/
 
 
@@ -57,6 +57,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006914.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b63996453f7d4b9d91a70443168c56cc.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/fourier-entropy-influence-conjecture/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

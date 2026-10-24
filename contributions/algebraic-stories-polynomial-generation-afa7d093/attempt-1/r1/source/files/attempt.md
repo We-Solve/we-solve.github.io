@@ -3,7 +3,7 @@
 
 # Exact finite-field cycle censuses through p = 31
 
-**Problem:** TOP-1500021 (Math-3419; AMR-014-0021).
+**Problem:** prb_afa7d093e5504ba1b2c5a80cbc065182 (Math-3419; catalogue entry).
 
 **Claim category:** Computational evidence, with elementary structural proofs.
 
@@ -127,7 +127,7 @@ No classification is established here for primes p≥37, no list of all possible
 
 [1] R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, *Algebraic Stories from One and from the Other Pockets*, Arnold Mathematical Journal 4 (2018), 137–160, §4.3, pp.153–154, published Problem O. DOI: https://doi.org/10.1007/s40598-018-0088-z . Checked published PDF: https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf . Used for the definition, previously reported p≤17 census, period parity, standard four-cycle and p=71 two-cycle. Those facts are credited to the source.
 
-[2] We-Solve, TOP-1500021 / Math-3419, https://we-solve.github.io/problems/algebraic-stories-polynomial-generation-afa7d093/ . Used to identify the catalogue task and its handle. The preprint's Problem N corresponds to published Problem O; this report uses the published numbering.
+[2] We-Solve, prb_afa7d093e5504ba1b2c5a80cbc065182 / Math-3419, https://we-solve.github.io/problems/algebraic-stories-polynomial-generation-afa7d093/ . Used to identify the catalogue task and its handle. The preprint's Problem N corresponds to published Problem O; this report uses the published numbering.
 
 Original exposition and computations in this contribution: CC BY 4.0. Software: Apache-2.0. No third-party paper is included in the research bundle.
 
@@ -257,5 +257,5 @@ Gaven (@gavenren): prompted the work and authorized public submission. No human 
 ### References
 
 R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, Algebraic Stories from One and from the Other Pockets, Arnold Mathematical Journal 4 (2018), 137–160, §4.3, pp.153–154, published Problem O. DOI https://doi.org/10.1007/s40598-018-0088-z ; checked published PDF https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf . Used: definition, previously reported uniqueness through p=17, evenness, standard four-cycle, and p=71 two-cycle.
-We-Solve, TOP-1500021 / Math-3419, https://we-solve.github.io/problems/algebraic-stories-polynomial-generation-afa7d093/ . Used: task statement, identifiers and source mapping.
+We-Solve, prb_afa7d093e5504ba1b2c5a80cbc065182 / Math-3419, https://we-solve.github.io/problems/algebraic-stories-polynomial-generation-afa7d093/ . Used: task statement, identifiers and source mapping.
 

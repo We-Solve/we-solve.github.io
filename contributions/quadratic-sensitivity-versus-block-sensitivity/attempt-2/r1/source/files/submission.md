@@ -1,6 +1,6 @@
 # An exact quadratic-gap family, with all block-sensitivity bounds proved
 
-Problem: TOP-30007483 — Quadratic Sensitivity Versus Block Sensitivity.  
+Problem: prb_44d88cf0a8fc461f96516b0bf730813e — Quadratic Sensitivity Versus Block Sensitivity.  
 Claim type: **Partial result**.  
 Scope: A self-contained proof and exact finite certificate for Rubinstein's classical family with $s(F_m)=2m$ and $\mathrm{bs}(F_m)=2m^2$. This is a quadratic separation only. It neither proves a universal quadratic upper bound nor verifies the earlier contribution's 2026 superquadratic claim.
 

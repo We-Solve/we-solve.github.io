@@ -1,6 +1,6 @@
 # Uniqueness when the largest Markov number is a prime power or twice one
 
-Problem: TOP-9400109  
+Problem: prb_7abd6d0dcc8d4db7b4f8d21b98303f97  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

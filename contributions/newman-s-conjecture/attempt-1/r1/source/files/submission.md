@@ -1,4 +1,4 @@
-Problem: TOP-1245
+Problem: prb_122376157fa54189af7732d83df5f47f
 
 Title: Newman’s partition conjecture holds for relatively almost every modulus with a fixed number of prime divisors
 
@@ -49,7 +49,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-1245.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_122376157fa54189af7732d83df5f47f.txt
 D. Choi and Y. Lee, Newman’s conjecture for the partition function modulo integers with at least two distinct prime divisors, Advances in Mathematics 477 (2025), 110367, Theorem 1.2; checked primary v2 full text: https://arxiv.org/html/2212.00636v2
 Primary author-supplied publication record, version history and journal DOI: https://arxiv.org/abs/2212.00636
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

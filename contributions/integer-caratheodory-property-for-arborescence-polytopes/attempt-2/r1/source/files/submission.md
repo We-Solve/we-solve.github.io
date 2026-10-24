@@ -1,6 +1,6 @@
 # ICP for rooted arborescences on bidirected cactus graphs
 
-Problem: TOP-30001933
+Problem: prb_681accc0953e4628afd6550934796843
 
 Claim type: Partial result
 
@@ -33,10 +33,10 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: check_exact.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30001933/check_exact.py). Source SHA-256: `330f996d5dd4ed1c6a35d3d112c180222762c0755613e2386920b04399f44511`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `check_exact.py`. File SHA-256: `330f996d5dd4ed1c6a35d3d112c180222762c0755613e2386920b04399f44511`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30001933.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_681accc0953e4628afd6550934796843.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30001933/check_exact.py (Used: exact previously reviewed program; SHA-256 330f996d5dd4ed1c6a35d3d112c180222762c0755613e2386920b04399f44511).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `check_exact.py` (Used: exact previously reviewed program; SHA-256 330f996d5dd4ed1c6a35d3d112c180222762c0755613e2386920b04399f44511).

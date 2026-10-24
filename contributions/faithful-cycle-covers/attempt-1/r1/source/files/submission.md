@@ -1,6 +1,6 @@
 # A complete faithful-demand criterion on cactus multigraphs
 
-Problem: TOP-3164
+Problem: prb_6b038953a343404b9c420d0a7fb388fc
 
 Claim type: Partial result.
 
@@ -32,7 +32,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3164.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_6b038953a343404b9c420d0a7fb388fc.txt
 
 
 ## Reproducibility and review
@@ -43,5 +43,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3164.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_6b038953a343404b9c420d0a7fb388fc.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

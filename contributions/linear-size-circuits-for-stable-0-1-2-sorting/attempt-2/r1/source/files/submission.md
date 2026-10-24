@@ -42,5 +42,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3400.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_abb9b1d014fd4365abfb357dac22a0b9.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

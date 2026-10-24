@@ -37,11 +37,11 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30005977/verify.py). Source SHA-256: `185d95e1073451d2d4130ceb48c5e5f3a67fccd56586565098d030aed8dbed75`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify.py`. File SHA-256: `185d95e1073451d2d4130ceb48c5e5f3a67fccd56586565098d030aed8dbed75`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30005977.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_56714702b7334d31938d4c943da6e49c.txt
 Harvey–van der Hoeven, Annals of Mathematics 193 (2021), primary publication abstract/theorem: https://annals.math.princeton.edu/2021/193-2/p04 ; author paper page https://web.maths.unsw.edu.au/~davidharvey/research/nlogn/index.html .
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30005977/verify.py (Used: exact previously reviewed program; SHA-256 185d95e1073451d2d4130ceb48c5e5f3a67fccd56586565098d030aed8dbed75).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify.py` (Used: exact previously reviewed program; SHA-256 185d95e1073451d2d4130ceb48c5e5f3a67fccd56586565098d030aed8dbed75).

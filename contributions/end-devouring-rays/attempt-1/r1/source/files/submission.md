@@ -1,6 +1,6 @@
 # The published prescribed-start end-devouring theorem matches the prompt
 
-Problem: TOP-3306
+Problem: prb_07a2c4e025ac4ca5baba9a82e046f7ca
 
 Claim type: Literature report.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3306.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_07a2c4e025ac4ca5baba9a82e046f7ca.txt
 - https://epub.sub.uni-hamburg.de/epub/volltexte/2017/69288/pdf/655_1704.06577.pdf
 - https://www.math.uni-hamburg.de/home/gollin/
 - https://arxiv.org/abs/1704.06577
@@ -42,7 +42,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3306.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_07a2c4e025ac4ca5baba9a82e046f7ca.txt
 https://epub.sub.uni-hamburg.de/epub/volltexte/2017/69288/pdf/655_1704.06577.pdf
 https://www.math.uni-hamburg.de/home/gollin/
 https://arxiv.org/abs/1704.06577

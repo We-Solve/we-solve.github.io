@@ -1,6 +1,6 @@
 # Equiprojective polyhedra: current constructions and a certified nine-vertex example
 
-**Problem:** TOP-5500076 / AMR-054-0076. **Claim category:** Literature report.
+**Problem:** prb_e752184013a542089cec0f2fbfec4a14 / catalogue entry. **Claim category:** Literature report.
 
 This report supplies a recent primary-source update and elementary proofs of explicit construction families. It does not classify all equiprojective polyhedra, and no new theorem or construction method is claimed. The discussion concerns full-dimensional **convex polytopes** in three-dimensional Euclidean space, the setting of the cited papers; it makes no classification claim for nonconvex polyhedral surfaces.
 
@@ -85,7 +85,7 @@ The finite checks validate coordinates and implementation. The preceding proof, 
 
 [1] Théophile Buffière and Lionel Pournin, *Many Equiprojective Polytopes*, Discrete & Computational Geometry **74** (2025), 337–357; first published online 23 July 2024. DOI: https://doi.org/10.1007/s00454-024-00681-7 . Full author preprint, version 2 dated 4 July 2024: https://arxiv.org/abs/2307.11366v2 ; PDF https://arxiv.org/pdf/2307.11366v2 . Checked Theorems 1.1, 1.3, 1.4 and the introduction's prism example. Journal metadata checked against the publisher.
 
-[2] We-Solve, *Equiprojective Polyhedra*, TOP-5500076: https://we-solve.github.io/problems/equiprojective-polyhedra/ . Exact official statement checked at https://github.com/We-Solve/we-solve.github.io/blob/main/problems/equiprojective-polyhedra/source/statement.tex .
+[2] We-Solve, *Equiprojective Polyhedra*, prb_e752184013a542089cec0f2fbfec4a14: https://we-solve.github.io/problems/equiprojective-polyhedra/ . Exact official statement checked at https://github.com/We-Solve/we-solve.github.io/blob/main/problems/equiprojective-polyhedra/source/statement.tex .
 
 [3] The Open Problems Project, Problem 76, maintained source: https://github.com/edemaine/topp/blob/main/Problems/P.000076 . Checked for the original question and its existing historical characterizations. No claim that every paper cited by that record was separately examined is made.
 

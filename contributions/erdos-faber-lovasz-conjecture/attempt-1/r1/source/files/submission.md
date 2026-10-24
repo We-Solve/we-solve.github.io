@@ -1,4 +1,4 @@
-Problem: TOP-3250
+Problem: prb_25bb188506364505922b4f2133c679be
 
 Title: EFL for all sufficiently large clique counts, with exact projective-plane families
 
@@ -12,7 +12,7 @@ Write-up:
 
 The primary paper *A proof of the Erdős–Faber–Lovász conjecture* [1], Theorem 1.1, proves that for every sufficiently large $n$, a linear hypergraph on $n$ vertices has chromatic index at most $n$. The paper appeared in the Annals of Mathematics in 2023 [2]. We apply exactly that quantifier.
 
-Let $Q_1,\ldots,Q_k$ be the complete subgraphs in TOP-3250, each on $k$ vertices. Edge disjointness implies that two different cliques intersect in at most one vertex: two common vertices would give a shared edge.
+Let $Q_1,\ldots,Q_k$ be the complete subgraphs in prb_25bb188506364505922b4f2133c679be, each on $k$ vertices. Edge disjointness implies that two different cliques intersect in at most one vertex: two common vertices would give a shared edge.
 
 For each graph vertex $v$ contained in at least two cliques, put
 $$

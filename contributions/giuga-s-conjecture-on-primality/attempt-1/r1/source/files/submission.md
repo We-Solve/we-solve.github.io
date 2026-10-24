@@ -1,4 +1,4 @@
-Problem: TOP-3360
+Problem: prb_e3d4715b94fa466682951a1f66eeadda
 
 Title: Giuga’s criterion, an exact 27-prime exclusion certificate, and the published 4771-prime bound
 
@@ -51,6 +51,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3360.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_e3d4715b94fa466682951a1f66eeadda.txt
 J. Borwein, C. Maitland and M. Skerritt, Computation of an improved lower bound to Giuga’s primality conjecture, Integers 13 (2013), Theorems 3, 4 and 12; primary author-hosted full text: https://www.carmamaths.org/resources/jon/giuga2013.pdf
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

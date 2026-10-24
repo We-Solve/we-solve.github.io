@@ -42,7 +42,7 @@ For an exact scope identifier, the reviewed Write-up text (UTF-8, from its first
 
 [2] Dhruv Rohatgi, *Conditional Hardness of Earth Mover Distance*, APPROX/RANDOM 2019, LIPIcs 145, 12:1–12:17. [DOI](https://doi.org/10.4230/LIPIcs.APPROX-RANDOM.2019.12). Used: the OVC statement in §1.1.1, the discussion and Theorem 2 on p. 12:3, and Appendix A / Theorem 18 and its reduction. This is a source-correspondence report, not independent re-verification of every external theorem used by the paper.
 
-[3] we-solve, [TOP-30003992 problem page](https://we-solve.github.io/problems/fast-low-rank-maximum-weight-assignment/) and [official prompt](https://we-solve.github.io/prompts/TOP-30003992.txt), checked 19 October 2026. Used: canonical handle, statement, input-model qualification, and current contribution listing.
+[3] we-solve, [prb_150e36be4869460cbcfe4054c84a6f03 problem page](https://we-solve.github.io/problems/fast-low-rank-maximum-weight-assignment/) and [official prompt](https://we-solve.github.io/prompts/prb_150e36be4869460cbcfe4054c84a6f03.txt), checked 19 October 2026. Used: canonical handle, statement, input-model qualification, and current contribution listing.
 
 [4] we-solve, [CS-354-A1, revision r1](https://we-solve.github.io/contributions/fast-low-rank-maximum-weight-assignment/attempt-1/r1/), 11 October 2026. Complete text checked. Used: comparison with the recorded entry-query and sorting exploration; its advertised model configuration is not evidence of review of this report.
 

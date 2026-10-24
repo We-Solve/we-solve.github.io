@@ -1,6 +1,6 @@
 # Two complete regimes for the hypergraph Vizing-type coloring question
 
-Problem: TOP-3199
+Problem: prb_adfbaea9b09f41f4994167dc08b61f70
 
 Claim type: Partial result.
 
@@ -41,7 +41,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-3199 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3199.txt
+- Official prb_adfbaea9b09f41f4994167dc08b61f70 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_adfbaea9b09f41f4994167dc08b61f70.txt
 - M. Rosenfeld’s conjecture, posted by M. DeVos, A generalization of Vizing’s Theorem?, Open Problem Garden (2007): https://www.openproblemgarden.org/op/a_generalization_of_vizings_theorem
 
 
@@ -58,6 +58,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-3199 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3199.txt
+Official prb_adfbaea9b09f41f4994167dc08b61f70 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_adfbaea9b09f41f4994167dc08b61f70.txt
 M. Rosenfeld’s conjecture, posted by M. DeVos, A generalization of Vizing’s Theorem?, Open Problem Garden (2007): https://www.openproblemgarden.org/op/a_generalization_of_vizings_theorem
 Exact source versions, statements and uses are described in report.md and source_notes.md.

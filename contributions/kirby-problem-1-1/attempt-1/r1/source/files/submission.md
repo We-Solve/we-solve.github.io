@@ -1,6 +1,6 @@
 # Crossing-number additivity for alternating summands, and the general 152 bound
 
-**Problem:** TOP-2660. **Claim type:** Partial result.
+**Problem:** prb_ab15630f1dcb427686ab76079c6ae6a9. **Claim type:** Partial result.
 
 **Exact scope.** Crossing number is additive for any finite connected sum of alternating knots. For arbitrary knots, the credited universal lower bound is the sum of the summand crossing numbers divided by 152. Neither statement establishes unrestricted additivity. These are established results, with a self-contained bracket-span argument for the alternating case and exact finite algebraic certificates; no novelty is claimed.
 

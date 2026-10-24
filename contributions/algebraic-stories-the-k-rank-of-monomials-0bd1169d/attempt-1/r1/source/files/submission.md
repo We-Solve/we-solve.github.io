@@ -1,4 +1,4 @@
-Problem: TOP-1500005
+Problem: prb_0bd1169dd3684756857b419b46de74f2
 
 Title: Exact cube rank of every monomial in at most three variables
 
@@ -51,7 +51,7 @@ Human contributors and roles: No human mathematical contribution is asserted in 
 References:
 
 - E. Carlini, A. Oneto, *Monomials as sums of kth-powers of forms*, arXiv:1305.4553v1 (2013), Theorem 3.2, Corollary 3.6, Proposition 3.8; published in *Communications in Algebra* 43(2) (2015), 650–658, DOI 10.1080/00927872.2013.842247. https://arxiv.org/abs/1305.4553
-- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-1500005.txt
+- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_0bd1169dd3684756857b419b46de74f2.txt
 
 
 ## Reproducibility and review
@@ -66,7 +66,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-1500005.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_0bd1169dd3684756857b419b46de74f2.txt
 https://arxiv.org/pdf/1305.4553v1 (Theorem 3.2, Corollary 3.6, Proposition 3.8)
 https://research.monash.edu/en/publications/monomials-as-sums-of-kth-powers-of-forms/
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

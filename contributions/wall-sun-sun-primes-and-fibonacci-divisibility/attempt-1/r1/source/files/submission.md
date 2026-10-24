@@ -1,4 +1,4 @@
-Problem: TOP-3390
+Problem: prb_cfdf248252464aeaa8ed98ff98722683
 
 Title: An all-index valuation formula and exact Wall–Sun–Sun certificates
 
@@ -49,6 +49,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3390.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_cfdf248252464aeaa8ed98ff98722683.txt
 N. Bragman and E. Rowland, Limiting density of the Fibonacci sequence modulo powers of a prime, Research in Number Theory 11, 88 (2025), Wall-exponent definition and Theorem 10: https://link.springer.com/article/10.1007/s40993-025-00667-1
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

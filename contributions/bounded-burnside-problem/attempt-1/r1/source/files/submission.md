@@ -1,6 +1,6 @@
 # A direct determination of the free two-generator group of exponent three
 
-Problem: TOP-1109. Claim type: Partial result.
+Problem: prb_b34e029e3add4c77869460a4aea60adc. Claim type: Partial result.
 
 The free Burnside group $B(2,3)$ is the unitriangular Heisenberg group $\mathrm{UT}_3(\mathbb F_3)$, of order 27. We give both a universal upper bound and a matching explicit quotient. This is a classical small-exponent result, not a solution of the official all-pairs classification or of its highlighted $B(2,5)$ case.
 

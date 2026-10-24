@@ -1,6 +1,6 @@
 # A certified literature barrier and continued-fraction restriction for Erdős–Moser
 
-Problem: TOP-9400105  
+Problem: prb_9b6763cb814e4fa99e6175415fd086f7  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

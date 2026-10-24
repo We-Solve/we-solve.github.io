@@ -1,6 +1,6 @@
 # Finite nonoverlapping general unfoldings for every convex polyhedron
 
-Problem: TOP-5500043
+Problem: prb_82e9e3bda7234c26a1ba1827ecb540a4
 
 Claim type: Literature report
 
@@ -29,6 +29,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500043.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_82e9e3bda7234c26a1ba1827ecb540a4.txt
 https://erikdemaine.org/papers/SunUnfolding_EGC2011f/paper.pdf — Demaine and Lubiw, introduction point-source specialization and Theorem1 for finite sun cuts;15-page2012 author-hosted paper.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

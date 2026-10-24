@@ -23,7 +23,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 References checked.
 
 - [1] Gregory Berhuy, Christoph Frings and Jean-Pierre Tignol, Serre’s conjecture II for classical groups over imperfect fields, author manuscript dated 15 September 2006, Introduction pp.1–2: definition of sd_p and main Theorem, with cases in Corollaries 2.6, 3.12, 4.5 and 5.5. Only the ^2A_n part, specialized to characteristic zero, is invoked. https://www.math.uni-bielefeld.de/lag/man/228.pdf
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006799.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9b3372b90dec4c1893e48d1e3830c15d.txt
 
 
 ## Reproducibility and review
@@ -35,5 +35,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 [1] Gregory Berhuy, Christoph Frings and Jean-Pierre Tignol, Serre’s conjecture II for classical groups over imperfect fields, author manuscript dated 15 September 2006, Introduction pp.1–2: definition of sd_p and main Theorem, with cases in Corollaries 2.6, 3.12, 4.5 and 5.5. Only the ^2A_n part, specialized to characteristic zero, is invoked. https://www.math.uni-bielefeld.de/lag/man/228.pdf
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006799.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9b3372b90dec4c1893e48d1e3830c15d.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

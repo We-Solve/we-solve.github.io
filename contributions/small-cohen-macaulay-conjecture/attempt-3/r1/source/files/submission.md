@@ -1,6 +1,6 @@
 # Small Cohen–Macaulay modules in every complete local dimension at most two
 
-**Problem:** TOP-30006944
+**Problem:** prb_ac5931c486bb496c972064284d43aabe
 
 **Claim type:** Partial result
 

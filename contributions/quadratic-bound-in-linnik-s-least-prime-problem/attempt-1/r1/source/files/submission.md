@@ -1,6 +1,6 @@
 # A versioned effective bound for the least prime in a progression
 
-Problem: TOP-9400132  
+Problem: prb_dacd1938301f46a2856c16f08ebff5bc  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

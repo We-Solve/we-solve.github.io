@@ -1,6 +1,6 @@
 # Exact linear arboricity of every complete graph from Walecki paths
 
-Problem: TOP-1419
+Problem: prb_26dd4ca9a10149959b12ae2e0a72c1fc
 
 Claim type: Partial result.
 
@@ -38,7 +38,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-1419 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1419.txt
+- Official prb_26dd4ca9a10149959b12ae2e0a72c1fc prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_26dd4ca9a10149959b12ae2e0a72c1fc.txt
 - J.-C. Bermond and collaborators, primary exposition of Walecki’s construction, Theorem 1 and Corollary 1: https://www-sop.inria.fr/members/Jean-Claude.Bermond/PUBLIS/ABS90.pdf
 
 
@@ -55,6 +55,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-1419 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1419.txt
+Official prb_26dd4ca9a10149959b12ae2e0a72c1fc prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_26dd4ca9a10149959b12ae2e0a72c1fc.txt
 J.-C. Bermond and collaborators, primary exposition of Walecki’s construction, Theorem 1 and Corollary 1: https://www-sop.inria.fr/members/Jean-Claude.Bermond/PUBLIS/ABS90.pdf
 Exact source versions, statements and uses are described in report.md and source_notes.md.

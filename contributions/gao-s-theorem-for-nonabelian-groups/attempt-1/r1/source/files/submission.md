@@ -1,4 +1,4 @@
-Problem: TOP-3378
+Problem: prb_51af74a8081144cea0e6dd16e5bbb91d
 
 Title: The exact Gao identity for every dihedral group, with an exhaustive independent S3 certificate
 
@@ -45,7 +45,7 @@ Human contributors and roles: No human review or new human mathematical contribu
 
 References:
 
-- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3378.txt
+- Official prompt: https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_51af74a8081144cea0e6dd16e5bbb91d.txt
 - W. Gao and Y. Li, *The Erdős–Ginzburg–Ziv theorem for finite solvable groups*, author-hosted manuscript dated 3 April 2009, definitions and Lemma 9(a). https://cfc.nankai.edu.cn/_upload/article/files/d2/e7/02ad99784f4bbe19008160bb92ce/cad4f1ea-5d2e-46ac-99c5-e2fb33887cf7.pdf
 - J.S. Oh and Q. Zhong, *On Erdős–Ginzburg–Ziv inverse theorems for dihedral and dicyclic groups*, definitions and proof of Theorem 1.2(2), explicitly using $\mathsf E(D_{2n})=3n$. https://imsc.uni-graz.at/zhong/paper/inverse.pdf
 
@@ -62,7 +62,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3378.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_51af74a8081144cea0e6dd16e5bbb91d.txt
 https://cfc.nankai.edu.cn/_upload/article/files/d2/e7/02ad99784f4bbe19008160bb92ce/cad4f1ea-5d2e-46ac-99c5-e2fb33887cf7.pdf (Gao–Li, Lemma 9(a))
 https://imsc.uni-graz.at/zhong/paper/inverse.pdf (Oh–Zhong, definitions, proof of Theorem 1.2(2))
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

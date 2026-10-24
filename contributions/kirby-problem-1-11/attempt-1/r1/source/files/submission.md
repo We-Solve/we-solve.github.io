@@ -1,6 +1,6 @@
 # The cabling slope and reducible fillings of positive torus knots
 
-**Problem:** TOP-2670
+**Problem:** prb_ec5645e7a8034f5cb861eb2edb35ecc5
 
 **Claim type:** Literature report
 

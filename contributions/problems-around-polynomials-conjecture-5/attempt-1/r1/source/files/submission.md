@@ -1,13 +1,13 @@
 # The finite-degree one-test criterion is an established theorem
 
-**Problem:** TOP-2200009 / Math-3460.  
+**Problem:** prb_1ef36150438049feb5faa100fef38ce6 / Math-3460.  
 **Claim type:** Literature report.
 
 **Exact scope.** The answer to the exact catalogue question is yes, for every $m\ge1$ and every real constant-coefficient finite-difference operator $T$, including zero outputs, degree drops, and operators of arbitrarily large stencil length. The mesh threshold is one and the tested input is exactly $(x)_m$.
 
 This is a consequence of the established Leake–Ryder convolution theorem, not a new resolution. Their 2017 preprint, published in Advances in Mathematics in 2020, resolves the finite-difference convolution conjecture. This contribution derives the operator reconstruction identity and applies it to this operator formulation.
 
-**Relationship to earlier work in this session.** TOP-2200010, previously submitted as [We-Solve research issue #19](https://github.com/We-Solve/research/issues/19), concerned the convolution formulation and included a proof of that same established theorem. This report concerns the separate TOP-2200009 operator formulation. It uses the published theorem and supplies the operator-to-test-polynomial reduction, annihilator characterization, and exact degree conventions; it does not present the earlier convolution result as a new independent discovery.
+**Relationship to earlier work in this session.** prb_cd7e030428494885b830747fa685b68f, previously submitted as [We-Solve research issue #19](https://github.com/We-Solve/research/issues/19), concerned the convolution formulation and included a proof of that same established theorem. This report concerns the separate prb_1ef36150438049feb5faa100fef38ce6 operator formulation. It uses the published theorem and supplies the operator-to-test-polynomial reduction, annihilator characterization, and exact degree conventions; it does not present the earlier convolution result as a new independent discovery.
 
 ## 1. Notation and the published input
 
@@ -81,7 +81,7 @@ All checks use rational polynomial arithmetic. They audit the reduction and conv
 
 ## Checked references
 
-1. Official TOP-2200009 prompt, read 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200009.txt .
+1. Official prb_1ef36150438049feb5faa100fef38ce6 prompt, read 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_1ef36150438049feb5faa100fef38ce6.txt .
 2. Jonathan Leake and Nick Ryder, *Connecting the q-Multiplicative Convolution and the Finite Difference Convolution*, arXiv:1712.02499v1, 7 December 2017, Theorem 1.4 and its difference definition: https://arxiv.org/pdf/1712.02499 . Published in Advances in Mathematics 374 (2020), article 107334, DOI https://doi.org/10.1016/j.aim.2020.107334 . The publisher abstract explicitly identifies the fixed-degree operator characterization as the resolved conjecture.
 3. Petter Brändén, Ilia Krasikov and Boris Shapiro, *Elements of Pólya–Schur theory in finite difference setting*, arXiv:1204.2963v2, Section 4, Conjectures 2–3: https://arxiv.org/pdf/1204.2963 .
 4. Boris Shapiro, *Problems Around Polynomials: The Good, The Bad and The Ugly…* (2015), Section 5, Conjectures 5–6: https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/ .
@@ -101,7 +101,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200009.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_1ef36150438049feb5faa100fef38ce6.txt
 Jonathan Leake and Nick Ryder, arXiv:1712.02499v1, Theorem 1.4; https://arxiv.org/pdf/1712.02499
 Publisher record: Advances in Mathematics 374 (2020), 107334; https://doi.org/10.1016/j.aim.2020.107334
 Petter Branden, Ilia Krasikov and Boris Shapiro, arXiv:1204.2963v2, Section 4, Conjectures 2-3; https://arxiv.org/pdf/1204.2963

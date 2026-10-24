@@ -1,6 +1,6 @@
 # The literal polynomial recoloring formulation is already established
 
-Problem: TOP-1395
+Problem: prb_7350b914b7f047db83a8dc5b1cd0d00e
 
 Claim type: Literature report.
 
@@ -32,7 +32,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-1395 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1395.txt
+- Official prb_7350b914b7f047db83a8dc5b1cd0d00e prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_7350b914b7f047db83a8dc5b1cd0d00e.txt
 - N. Bousquet and M. Heinrich, A polynomial version of Cereceda’s conjecture, arXiv:1903.05619v1, Theorem 1, third bullet; JCTB 155 (2022): https://arxiv.org/html/1903.05619v1
 - Primary publisher record for the 2022 paper: https://www.sciencedirect.com/science/article/pii/S0095895622000041
 
@@ -45,7 +45,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-Official TOP-1395 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1395.txt
+Official prb_7350b914b7f047db83a8dc5b1cd0d00e prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_7350b914b7f047db83a8dc5b1cd0d00e.txt
 N. Bousquet and M. Heinrich, A polynomial version of Cereceda’s conjecture, arXiv:1903.05619v1, Theorem 1, third bullet; JCTB 155 (2022): https://arxiv.org/html/1903.05619v1
 Primary publisher record for the 2022 paper: https://www.sciencedirect.com/science/article/pii/S0095895622000041
 Exact source versions, statements and uses are described in report.md and source_notes.md.

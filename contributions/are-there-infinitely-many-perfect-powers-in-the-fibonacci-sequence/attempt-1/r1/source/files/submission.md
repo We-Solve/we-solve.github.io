@@ -1,4 +1,4 @@
-# TOP-27: The published Fibonacci perfect-power classification, with every admissible exponent resolved
+# prb_f2a9702b938d485e97088e8393f89768: The published Fibonacci perfect-power classification, with every admissible exponent resolved
 
 Claim type: Literature report
 

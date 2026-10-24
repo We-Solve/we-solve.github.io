@@ -24,7 +24,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 References checked.
 
 - [1] Daniel Quillen, Higher algebraic K-theory: I, Lecture Notes in Mathematics 341 (1973). Primary scan: §7 Proposition 5.6 and sequence (5.7), Theorem 5.11, Theorem 5.13; resolution identification in the introduction and §4. https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006998.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_399abe898acf427184f04cacf204b805.txt
 
 
 ## Reproducibility and review
@@ -36,5 +36,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 [1] Daniel Quillen, Higher algebraic K-theory: I, Lecture Notes in Mathematics 341 (1973). Primary scan: §7 Proposition 5.6 and sequence (5.7), Theorem 5.11, Theorem 5.13; resolution identification in the introduction and §4. https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006998.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_399abe898acf427184f04cacf204b805.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

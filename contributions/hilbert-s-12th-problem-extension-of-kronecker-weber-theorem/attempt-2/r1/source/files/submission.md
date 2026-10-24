@@ -1,6 +1,6 @@
 # CM values generate all ray class fields over imaginary quadratic bases
 
-Problem: TOP-45  
+Problem: prb_e8d7e2197f8e49a396125ce4730a5e15  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

@@ -1,6 +1,6 @@
 # Li's published resolution: arbitrarily large additive rank–genus gaps
 
-**Problem:** TOP-3409. **Claim type:** Literature report.
+**Problem:** prb_c7cb33e164e54db2a917392c01571997. **Claim type:** Literature report.
 
 **Exact scope.** Both recorded existence questions have an affirmative published answer. For every integer $N\ge1$, there is a **closed orientable hyperbolic** three-manifold $M_N$ with
 $$g(M_N)-r(M_N)\ge N.$$

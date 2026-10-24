@@ -1,4 +1,4 @@
-# TOP-30007484: Factor-two shortest common superstring
+# prb_f405279a73fc4fccabad368df3e0b70b: Factor-two shortest common superstring
 
 Claim type: **Partial result**.
 
@@ -20,7 +20,7 @@ Comparison with the earlier attempt: The earlier item summarizes a claimed gener
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007484.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_f405279a73fc4fccabad368df3e0b70b.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/factor-two-shortest-common-superstring/attempt-1/r1/
 
 
@@ -37,6 +37,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007484.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_f405279a73fc4fccabad368df3e0b70b.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/factor-two-shortest-common-superstring/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

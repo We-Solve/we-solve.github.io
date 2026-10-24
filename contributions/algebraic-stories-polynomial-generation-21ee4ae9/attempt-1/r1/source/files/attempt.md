@@ -3,7 +3,7 @@
 
 # Certified orders of the finite-field evaluation transform
 
-**Problem:** TOP-1500022 / Math-3420 / AMR-014-0022.
+**Problem:** prb_21ee4ae9163b47cd8d28c376352b7975 / Math-3420 / catalogue entry.
 
 **Claim:** Computational evidence, with structural lemmas proved for every prime.
 
@@ -202,7 +202,7 @@ Searches of the transform, paper title, author names, published example orders a
 
 [1] R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, *Algebraic Stories from One and from the Other Pockets*, Arnold Mathematical Journal 4 (2018), 137–160, §4.3, pp.153–154, published Problem P. https://doi.org/10.1007/s40598-018-0088-z ; checked published PDF https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf . Used for the transform, question and four reported orders. The earlier arXiv version, https://arxiv.org/abs/1801.01692 , numbers this question Problem O.
 
-[2] We-Solve, TOP-1500022 / Math-3420, https://we-solve.github.io/problems/algebraic-stories-polynomial-generation-21ee4ae9/ . Checked statement, current contribution count, prompt and source-status metadata in the official website repository: https://github.com/We-Solve/we-solve.github.io/tree/main/problems/algebraic-stories-polynomial-generation-21ee4ae9 . Used to identify the task and distinguish the imported source status from a mathematical claim.
+[2] We-Solve, prb_21ee4ae9163b47cd8d28c376352b7975 / Math-3420, https://we-solve.github.io/problems/algebraic-stories-polynomial-generation-21ee4ae9/ . Checked statement, current contribution count, prompt and source-status metadata in the official website repository: https://github.com/We-Solve/we-solve.github.io/tree/main/problems/algebraic-stories-polynomial-generation-21ee4ae9 . Used to identify the task and distinguish the imported source status from a mathematical claim.
 
 [3] F. Celler and C. R. Leedham-Green, *Calculating the Order of an Invertible Matrix*, in *Groups and Computation II*, DIMACS Series 28 (1997), pp.55–60. Primary volume contents checked at https://archive.dimacs.rutgers.edu/archive/Volumes/Vol28.html . Used for bibliographic attribution and historical context; the chapter’s full text was not retrieved or used as a proof source.
 
@@ -1597,7 +1597,7 @@ Gaven (@gavenren): prompted the work and authorized public submission. No human 
 ### References
 
 R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, Algebraic Stories from One and from the Other Pockets, Arnold Mathematical Journal 4 (2018), 137–160, §4.3, pp.153–154, published Problem P. DOI https://doi.org/10.1007/s40598-018-0088-z ; checked published PDF https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf . Used: transform, question and four published exponents. Earlier arXiv version https://arxiv.org/abs/1801.01692 labels the question Problem O.
-We-Solve, TOP-1500022 / Math-3420, https://we-solve.github.io/problems/algebraic-stories-polynomial-generation-21ee4ae9/ . Checked statement, prompt, contribution count and metadata in https://github.com/We-Solve/we-solve.github.io/tree/main/problems/algebraic-stories-polynomial-generation-21ee4ae9 . Used: current task and scope.
+We-Solve, prb_21ee4ae9163b47cd8d28c376352b7975 / Math-3420, https://we-solve.github.io/problems/algebraic-stories-polynomial-generation-21ee4ae9/ . Checked statement, prompt, contribution count and metadata in https://github.com/We-Solve/we-solve.github.io/tree/main/problems/algebraic-stories-polynomial-generation-21ee4ae9 . Used: current task and scope.
 F. Celler and C. R. Leedham-Green, Calculating the Order of an Invertible Matrix, Groups and Computation II, DIMACS 28 (1997), 55–60. Primary contents checked: https://archive.dimacs.rutgers.edu/archive/Volumes/Vol28.html . Used: bibliographic attribution and historical context; chapter full text not retrieved or used as a proof source.
 Magma Handbook, Orders of Invertible Matrices, https://docs.magma-maths.org/MatricesLinearAlgebra/Matrices/order.html . Used: checked documentation of established finite-field order computation and its Celler–Leedham-Green attribution. No Magma computation was used.
 

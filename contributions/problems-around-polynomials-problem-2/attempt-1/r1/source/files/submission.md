@@ -1,6 +1,6 @@
 # Ten rational sextic zeros, explicit higher-dimensional lower bounds, and the known planar small-degree values
 
-**Problem:** TOP-2200005 / Math-1838.  
+**Problem:** prb_236c8e671d084ac6802a5b184cd531d7 / Math-1838.  
 **Claim type:** Partial result.
 
 **Exact scope.** Let $r=\lfloor\ell/2\rfloor$. We give an explicit construction proving, for $k\ge3$ and $\ell\ge2$,
@@ -111,7 +111,7 @@ The proof establishes the counts for all parameters; the finite code checks are 
 
 ## Checked references and attribution
 
-1. We-Solve, official TOP-2200005 prompt, read on 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200005.txt .
+1. We-Solve, official prb_236c8e671d084ac6802a5b184cd531d7 prompt, read on 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_236c8e671d084ac6802a5b184cd531d7.txt .
 2. Boris Shapiro, *Problems Around Polynomials: The Good, The Bad and The Ugly…* (2015), Section 3, Problems 2–3 and the stated planar upper bound: https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/ .
 3. Grigoriy Blekherman, Khazhgali Kozhasov and Bruce Reznick, *On odd powers of nonnegative polynomials that are not sums of squares*, Forum of Mathematics, Sigma 14 (2026), e65, equation (1.2) and Section 6: https://doi.org/10.1017/fms.2026.10221 . The article supplies the Robinson attribution and records its ten zeros. The original Robinson publication is identified in its bibliography; it was not independently inspected here.
 
@@ -131,7 +131,7 @@ The main instance freshly ran the attached verifier; all assertions passed. Sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200005.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_236c8e671d084ac6802a5b184cd531d7.txt
 Boris Shapiro, Problems Around Polynomials: The Good, The Bad and The Ugly (2015), Section 3; https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/
 Grigoriy Blekherman, Khazhgali Kozhasov and Bruce Reznick, On odd powers of nonnegative polynomials that are not sums of squares, Forum of Mathematics, Sigma 14 (2026), e65, Eq. (1.2) and Section 6; https://doi.org/10.1017/fms.2026.10221
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

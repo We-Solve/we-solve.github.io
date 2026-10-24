@@ -1,6 +1,6 @@
 # A Gaussian representation-count obstruction on the central square
 
-Problem: TOP-1243  
+Problem: prb_4c4ade9183ed49ebbe0bd1dee94112b3  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -48,5 +48,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 ## References
 
 Keith Conrad, The Gaussian Integers, Theorems 9.6–9.10, https://kconrad.math.uconn.edu/blurbs/ugradnumthy/Zinotes.pdf
-Fresh official TOP-1243 prompt and Math-572-A1 exploration
+Fresh official prb_4c4ade9183ed49ebbe0bd1dee94112b3 prompt and Math-572-A1 exploration
 Exact source versions, statements and uses are described in report.md and source_notes.md.

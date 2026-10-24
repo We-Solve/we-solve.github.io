@@ -1,6 +1,6 @@
 # Noninteger stable smooth genus near one half without an exact-rationality claim
 
-**Problem:** TOP-2700
+**Problem:** prb_5e6a8939d4b34829ba24b8cc1b75bab5
 
 **Claim type:** Literature report
 

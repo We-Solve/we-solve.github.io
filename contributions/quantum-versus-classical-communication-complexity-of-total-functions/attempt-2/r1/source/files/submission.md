@@ -40,6 +40,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006810.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_200a2804c8274059a0adaa5a0b26b6be.txt
 Razborov, arXiv:quant-ph/0204025v2, primary Theorem 2.1 and disjointness specialization: https://www.ias.edu/sites/default/files/math/csdm/01-02/arazborov_quantum_communication_complexity.pdf .
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # A bounded search proof of the field power-basis statement
 
-Problem: TOP-9400059  
+Problem: prb_be671b9cbb734412b268ddcfee67ade0  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 
@@ -33,6 +33,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-Fresh official TOP-9400059 prompt, field versus integral power-basis definitions
+Fresh official prb_be671b9cbb734412b268ddcfee67ade0 prompt, field versus integral power-basis definitions
 J. S. Milne, Algebraic Number Theory, v3.08 (2020), https://www.jmilne.org/math/CourseNotes/ANT.pdf
 Exact source versions, statements and uses are described in report.md and source_notes.md.

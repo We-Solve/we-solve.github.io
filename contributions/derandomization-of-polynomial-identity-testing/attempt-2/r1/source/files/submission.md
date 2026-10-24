@@ -1,4 +1,4 @@
-# TOP-30006708: Derandomization of Polynomial Identity Testing
+# prb_976e9b1ce58d4563a20beb4dfb98be8d: Derandomization of Polynomial Identity Testing
 
 Claim type: **Partial result**.
 
@@ -24,7 +24,7 @@ Comparison with the earlier attempt: The earlier attempt proves sparse quotient 
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006708.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_976e9b1ce58d4563a20beb4dfb98be8d.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/derandomization-of-polynomial-identity-testing/attempt-1/r1/
 
 
@@ -41,6 +41,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006708.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_976e9b1ce58d4563a20beb4dfb98be8d.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/derandomization-of-polynomial-identity-testing/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

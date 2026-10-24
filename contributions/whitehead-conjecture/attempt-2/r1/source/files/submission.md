@@ -1,6 +1,6 @@
 # Whitehead’s assertion for finite nonpositively curved two-complexes
 
-Problem: TOP-1486
+Problem: prb_245c1e6dfaed45a089a52e5f17920b5b
 
 Claim type: Partial result
 

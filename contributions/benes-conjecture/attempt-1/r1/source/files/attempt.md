@@ -2,7 +2,7 @@
 
 # An explicit 50-point counterexample to the recorded Beneš implication
 
-**Problem:** We-Solve TOP-3046, displayed as Math-3284, *Beneš Conjecture*; UnsolvedMath record 3046, OPG-37181.
+**Problem:** We-Solve prb_c6c3962ea0904dd99941588b863a6313, displayed as Math-3284, *Beneš Conjecture*; UnsolvedMath catalogue entry, catalogue entry.
 
 **Claim and attribution.** The recorded implication is false. We give an explicit uniform partition of 50 points and an explicit permutation satisfying its meet and transitivity hypotheses, together with a particular permutation outside the proposed fifth power. The underlying bottleneck construction is due to Przemek Chojecki, *Beneš and Shuffle-Exchange Counterexamples*, arXiv:2607.15296v1, submitted 2 July 2026, Theorem 1 and Corollary 3 [2]. This is an attributed reconstruction and independently specified certificate, not a novelty claim. The current We-Solve statement already cites that paper; this report is not a claim to discover a missing historical status update.
 
@@ -269,7 +269,7 @@ Therefore $n=2$ satisfies the proposed implication, while every $n\ge3$ has coun
 
 ## 9. What the exact computation certifies
 
-The accompanying verify3046.py was executed using exact integer arithmetic; all assertions passed. It represents permutations by their complete zero-based image lists and implements right composition as $(ab)[x]=b[a[x]]$. The complete verification_results.json record includes all 50 points, all ten outgoing and incoming blocks, and the complete lists for $\varphi,\gamma,q$.
+The accompanying verify.py was executed using exact integer arithmetic; all assertions passed. It represents permutations by their complete zero-based image lists and implements right composition as $(ab)[x]=b[a[x]]$. The complete verification_results.json record includes all 50 points, all ten outgoing and incoming blocks, and the complete lists for $\varphi,\gamma,q$.
 
 The checks include:
 
@@ -291,7 +291,7 @@ No enumeration of $\mathfrak S_{50}$, no sampling of its elements, and no numeri
 
 The recorded Beneš implication is refuted with all of its stated hypotheses preserved. The general sufficient-condition request is addressed by a proved constructive criterion and the sharp exponent-two boundary, rather than being presented as an entirely classified problem. More specialized rearrangeable networks may satisfy stronger statements because their extra structure excludes the bottleneck used here.
 
-1. We-Solve, *Beneš Conjecture*, TOP-3046 / Math-3284, UnsolvedMath record 3046, OPG-37181. Actual right-action statement inspected during preparation. <https://we-solve.github.io/problems/benes-conjecture/>. Catalogue statement: CC BY 4.0. Credit: ULAM.AI, the UnsolvedMath Contributors, and We-Solve; original source authors retain their credit.
+1. We-Solve, *Beneš Conjecture*, prb_c6c3962ea0904dd99941588b863a6313 / Math-3284, UnsolvedMath catalogue entry, catalogue entry. Actual right-action statement inspected during preparation. <https://we-solve.github.io/problems/benes-conjecture/>. Catalogue statement: CC BY 4.0. Credit: ULAM.AI, the UnsolvedMath Contributors, and We-Solve; original source authors retain their credit.
 2. Przemek Chojecki, *Beneš and Shuffle-Exchange Counterexamples*, arXiv:2607.15296v1, submitted 2 July 2026. Theorem 1, Corollary 3, Lemma 9 and Proposition 10 are the relevant source results. <https://arxiv.org/abs/2607.15296v1>; full HTML <https://arxiv.org/html/2607.15296v1>; DOI <https://doi.org/10.48550/arXiv.2607.15296>. The arXiv record inspected exposes this v1; publication and independent human verification are not asserted.
 
 Gaven (@gavenren) requested continued deeply investigated contributions and authorized public submission. Preparation, derivation, code generation and review were performed with OpenAI Codex (GPT-6; exact serving revision and reasoning setting unknown), including separate same-model agents. No human mathematical derivation in this session or independent human mathematical checking is claimed. Mathematical text and result records: CC BY 4.0. Verification software: Apache-2.0, Copyright 2026 gavenren. Linked source material retains its original attribution and rights; source papers are not redistributed.

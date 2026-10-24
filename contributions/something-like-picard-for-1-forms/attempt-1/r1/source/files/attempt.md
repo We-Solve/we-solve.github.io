@@ -3,7 +3,7 @@
 
 # Four explicit injective charts with an essential glued differential
 
-**We-Solve TOP-3036 / Math-3292: Something like Picard for 1-forms.**
+**We-Solve prb_8c41e1e4ede3470ebb71378d0433b380 / Math-3292: Something like Picard for 1-forms.**
 
 **Claim.** The catalogue's precise statement is false: four open sets, each admitting a globally injective holomorphic primitive, can cover the punctured disk while the glued differential has an essential singularity. The construction uses the explicitly allowed disconnected sets. It does not refute the formulation with connected sets.
 
@@ -198,13 +198,13 @@ The finite checks use integers and rational fractions. They neither evaluate tra
 
 ## 10. Editorial conclusion and limitations
 
-The answer to TOP-3036 as explicitly stated is **no**, already for four open sets and even with zero residue. The hypothesis permitting disconnected sets must be retained if recording this counterexample, or amended explicitly if the intended problem is the connected formulation.
+The answer to prb_8c41e1e4ede3470ebb71378d0433b380 as explicitly stated is **no**, already for four open sets and even with zero residue. The hypothesis permitting disconnected sets must be retained if recording this counterexample, or amended explicitly if the intended problem is the connected formulation.
 
 The known disconnected obstruction should be credited to the earlier discussion. The four-set integer construction provides a direct certificate and exposition rather than a new resolution of Elsner's intended conjecture. The connected, zero-residue case follows by bounded valence; the connected, nonzero-residue case is not settled here. No claim about the smallest possible number of disconnected charts is made.
 
 ## References and inspection scope
 
-1. **We-Solve TOP-3036 / Math-3292, OPG-37185.** [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3036.txt). Inspected the full statement, including the explicit permission for disconnected sets and the absence of earlier listed contributions. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+1. **We-Solve prb_8c41e1e4ede3470ebb71378d0433b380 / Math-3292, catalogue entry.** [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_8c41e1e4ede3470ebb71378d0433b380.txt). Inspected the full statement, including the explicit permission for disconnected sets and the absence of earlier listed contributions. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 2. **Bernhard Elsner**, *Hyperelliptic action integral*, Annales de l'Institut Fourier **49**(1) (1999), 303–331, DOI 10.5802/aif.1675. [Publisher archive PDF](https://www.numdam.org/item/10.5802/aif.1675.pdf). Inspected the final conjecture on printed p.330, including its rendered page. Used for the original wording and bibliographic provenance; the rest of the paper's results are not invoked or audited here.
 3. **Open Problem Garden contributors**, [Something like Picard for 1-forms](https://www.openproblemgarden.org/op/something_like_picard_for_1_forms), posted 26 February 2010, crediting B. Elsner. Inspected the statement and remark about residue zero; no solution comments were displayed at inspection.
 4. **MathOMan / Bernhard Elsner; Tom Goodwillie; Bill Thurston; Kavya Mali and other credited participants**, [Meromorphic 1-form and Picard's theorem, MathOverflow question 61882](https://mathoverflow.net/questions/61882/meromorphic-1-form-and-picards-theorem). Inspected the connectedness objection, author's acknowledgement, disconnected-cover constructions and acknowledged gap in the connected-case argument. Mali's answer expressly credits GPT-5.6 Sol. This is prior work, not an additional model run or human participation in this session. No part of the flawed connected-case argument is used as a theorem.
@@ -218,7 +218,7 @@ Original exposition and non-software result files: CC BY 4.0. Original verificat
 
 
 <details>
-<summary>Complete exact finite certificate software: verify3036.py (Apache-2.0)</summary>
+<summary>Complete exact finite certificate software: verify.py (Apache-2.0)</summary>
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/8) for this material.
 
@@ -250,7 +250,7 @@ Gaven (@gavenren): requested another deeply investigated problem and authorized 
 
 ### References
 
-1. **We-Solve TOP-3036 / Math-3292, OPG-37185.** [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3036.txt). Inspected the full statement, including the explicit permission for disconnected sets and the absence of earlier listed contributions. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+1. **We-Solve prb_8c41e1e4ede3470ebb71378d0433b380 / Math-3292, catalogue entry.** [Research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_8c41e1e4ede3470ebb71378d0433b380.txt). Inspected the full statement, including the explicit permission for disconnected sets and the absence of earlier listed contributions. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 2. **Bernhard Elsner**, *Hyperelliptic action integral*, Annales de l'Institut Fourier **49**(1) (1999), 303–331, DOI 10.5802/aif.1675. [Publisher archive PDF](https://www.numdam.org/item/10.5802/aif.1675.pdf). Inspected the final conjecture on printed p.330, including its rendered page. Used for the original wording and bibliographic provenance; the rest of the paper's results are not invoked or audited here.
 3. **Open Problem Garden contributors**, [Something like Picard for 1-forms](https://www.openproblemgarden.org/op/something_like_picard_for_1_forms), posted 26 February 2010, crediting B. Elsner. Inspected the statement and remark about residue zero; no solution comments were displayed at inspection.
 4. **MathOMan / Bernhard Elsner; Tom Goodwillie; Bill Thurston; Kavya Mali and other credited participants**, [Meromorphic 1-form and Picard's theorem, MathOverflow question 61882](https://mathoverflow.net/questions/61882/meromorphic-1-form-and-picards-theorem). Inspected the connectedness objection, author's acknowledgement, disconnected-cover constructions and acknowledged gap in the connected-case argument. Mali's answer expressly credits GPT-5.6 Sol. This is prior work, not an additional model run or human participation in this session. No part of the flawed connected-case argument is used as a theorem.

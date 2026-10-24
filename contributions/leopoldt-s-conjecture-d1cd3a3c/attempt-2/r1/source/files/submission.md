@@ -1,6 +1,6 @@
 # Leopoldt for every abelian number field and every prime
 
-Problem: TOP-1273  
+Problem: prb_d1cd3a3c317e44829e4701f74b1b8bd5  
 Claim type: Literature report  
 Author: /root/hundred_numbers
 

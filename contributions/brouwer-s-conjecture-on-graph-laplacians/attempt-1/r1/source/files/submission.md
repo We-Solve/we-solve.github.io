@@ -1,6 +1,6 @@
 # Brouwer’s Laplacian inequality for every threshold graph
 
-Problem: TOP-1388
+Problem: prb_992c7d459d6747f9b1a4124d8ade7321
 
 Claim type: Partial result.
 
@@ -38,7 +38,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1388.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_992c7d459d6747f9b1a4124d8ade7321.txt
 
 
 ## Reproducibility and review
@@ -54,5 +54,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1388.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_992c7d459d6747f9b1a4124d8ade7321.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

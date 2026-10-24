@@ -1,6 +1,6 @@
 # Exact block reduction and a solvable subclass of solid-grid travelling salesman
 
-**Problem:** TOP-5500054 / Math-1669. **Claim type:** Partial result.
+**Problem:** prb_4963a58d1cb44ec5b3f3b17d2302528b / Math-1669. **Claim type:** Partial result.
 
 The minimum closed spanning-walk length is additive over the edge blocks of any connected graph. Consequently, for every connected cactus graph it is
 
@@ -82,7 +82,7 @@ The program checks the formula for 12 square-chain instances with $1\le q\le4$ a
 
 [1] Sándor P. Fekete, Christian Rieck and Christian Scheffer, *On the Traveling Salesman Problem in Solid Grid Graphs*, EuroCG 2017 extended abstract, pp. 53–56. Primary author-hosted full text: https://www.ibr.cs.tu-bs.de/users/fekete/hp/publications/PDF/2017-Traveling_EuroCG.pdf . Checked all four pages, especially Section 3's cut-vertex observation and its explicit preprint-status notice. Deeper results are mentioned as reported context, not independently established here.
 
-[2] Official prompt: https://we-solve.github.io/prompts/TOP-5500054.txt ; checked local transcription `official_prompt.txt`. It explicitly defines intrinsic shortest-path distance and repeated-edge tours. Original source: https://github.com/edemaine/topp/blob/main/Problems/P.000054 .
+[2] Official prompt: https://we-solve.github.io/prompts/prb_4963a58d1cb44ec5b3f3b17d2302528b.txt ; checked local transcription `official_prompt.txt`. It explicitly defines intrinsic shortest-path distance and repeated-edge tours. Original source: https://github.com/edemaine/topp/blob/main/Problems/P.000054 .
 
 Original exposition and exact data: CC BY 4.0. Original software: Apache-2.0. No priority claim or third-party-paper redistribution is made.
 
@@ -103,5 +103,5 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 https://www.ibr.cs.tu-bs.de/users/fekete/hp/publications/PDF/2017-Traveling_EuroCG.pdf
 https://github.com/edemaine/topp/blob/main/Problems/P.000054
-https://we-solve.github.io/prompts/TOP-5500054.txt
+https://we-solve.github.io/prompts/prb_4963a58d1cb44ec5b3f3b17d2302528b.txt
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

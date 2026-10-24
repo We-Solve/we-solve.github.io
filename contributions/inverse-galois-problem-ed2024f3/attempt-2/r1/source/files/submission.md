@@ -1,6 +1,6 @@
 # Every finite abelian group as an explicit cyclotomic quotient
 
-Problem: TOP-20. Claim type: Partial result.
+Problem: prb_ed2024f37a1b4aa69c5ff5d0beb99fc9. Claim type: Partial result.
 
 Every finite abelian group occurs as $\mathrm{Gal}(L/\mathbb Q)$ for a finite Galois extension $L/\mathbb Q$. The proof below constructs $L$ as a fixed field inside one cyclotomic field. This is a classical special case, presented with an elementary auxiliary-prime argument; it is not a solution for arbitrary finite groups.
 
@@ -29,7 +29,7 @@ For the field-theoretic input, Milne's *Fields and Galois Theory*, version 5.10,
 
 `verify.py` checks 16 cyclic-factor profiles, including the trivial group, repeated factors and noncyclic groups. It constructs distinct auxiliary primes and primitive roots and exhaustively checks 9,353 pairs in the ambient product groups for the homomorphism law, surjectivity and the kernel-index formula. These finite checks validate the implementation of the quotient construction; the proof supplies all finite abelian groups. The actual output is `verification.json`.
 
-The official archive already contains [TOP-20-A1](https://we-solve.github.io/contributions/inverse-galois-problem-ed2024f3/attempt-1/r1/), a conditional general-group approach using local torsors and a remaining global patching step. That manuscript was read. The present unconditional abelian construction does not fill that general patching gap and does not settle the official arbitrary-group quantifier.
+The official archive already contains [con_c110d41868ee48f5be8791329d1892f3](https://we-solve.github.io/contributions/inverse-galois-problem-ed2024f3/attempt-1/r1/), a conditional general-group approach using local torsors and a remaining global patching step. That manuscript was read. The present unconditional abelian construction does not fill that general patching gap and does not settle the official arbitrary-group quantifier.
 
 Reference: J. S. Milne, [*Fields and Galois Theory*, v5.10 (September 2022)](https://www.jmilne.org/math/CourseNotes/FT.pdf), Chapter 3, Lemma 5.9 and Theorem 5.10, checked 18 October 2026.
 

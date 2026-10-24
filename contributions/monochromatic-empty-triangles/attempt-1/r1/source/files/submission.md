@@ -1,6 +1,6 @@
 # Quadratically many empty monochromatic triangles under fixed color imbalance
 
-Problem: TOP-3081
+Problem: prb_c04851d94cb1408fa2d3b5b14aa4b7c6
 
 Claim type: Partial result
 
@@ -40,5 +40,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3081.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c04851d94cb1408fa2d3b5b14aa4b7c6.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Every nontrivial alternating knot has integral Khovanov 2-torsion
 
-**Problem:** TOP-2689
+**Problem:** prb_bb4f10b6b26944c492cd7cab54a9da63
 
 **Claim type:** Literature report
 

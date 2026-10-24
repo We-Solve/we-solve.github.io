@@ -1,6 +1,6 @@
 # Certified universal SU(2) surgery slopes, including an infinite family beyond five
 
-**Problem:** TOP-2673. **Claim type:** Literature report.
+**Problem:** prb_027604a1dcb34c80b0c4141dd95050eb. **Claim type:** Literature report.
 
 **Exact scope.** The following are proved inclusions in the prompt's universally quantified set $\mathcal R$, together with explicit exclusions $\pm5$. They do not constitute an exact classification of every rational slope. The deep representation-existence theorems are credited literature inputs; no finite representation search or new gauge-theoretic proof is claimed.
 

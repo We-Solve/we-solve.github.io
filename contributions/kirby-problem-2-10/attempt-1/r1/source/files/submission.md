@@ -1,6 +1,6 @@
 # Exact curve-graph distances in polynomial bit time for each fixed punctured surface
 
-**Problem:** TOP-2758
+**Problem:** prb_dcb1db78bfab4324aabc4727dd74e44c
 
 **Claim type:** Literature report
 

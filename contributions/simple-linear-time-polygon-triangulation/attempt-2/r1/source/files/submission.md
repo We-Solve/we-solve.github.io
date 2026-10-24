@@ -1,6 +1,6 @@
 # A linear stack algorithm for strictly monotone polygons
 
-**Problem:** TOP-5500010
+**Problem:** prb_b36e986c5f9941ac8b72a1adaad207c2
 
 **Claim type:** Partial result
 
@@ -35,7 +35,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500010.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b36e986c5f9941ac8b72a1adaad207c2.txt
 https://topp.openproblem.net/p10
 https://collaborate.princeton.edu/en/publications/triangulating-a-simple-polygon/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

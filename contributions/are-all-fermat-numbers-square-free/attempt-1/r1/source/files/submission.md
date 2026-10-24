@@ -1,4 +1,4 @@
-# TOP-3372: A finite-factor certificate valid for every Fermat index: repeated factors and Wieferich order
+# prb_f3fc927297fb45b385e56a3a9e1b81fc: A finite-factor certificate valid for every Fermat index: repeated factors and Wieferich order
 
 Claim type: Partial result
 

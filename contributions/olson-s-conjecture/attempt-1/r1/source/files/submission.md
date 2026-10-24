@@ -1,4 +1,4 @@
-Problem: TOP-3376
+Problem: prb_1696614e282249b9b8f4872c1a128311
 
 Title: The ordered S3 constant is eleven, with a self-contained proof of the abelian slice
 
@@ -49,6 +49,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3376.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_1696614e282249b9b8f4872c1a128311.txt
 R. Thangadurai, Non-canonical extensions of Erdős–Ginzburg–Ziv theorem, Integers 2 (2002), A07, Section 2 and Conjecture 2.1: https://math.colgate.edu/~integers/c7/c7.pdf
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

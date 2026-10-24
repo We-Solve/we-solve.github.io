@@ -1,4 +1,4 @@
-# TOP-1500013: two infinite three-variable families with opposite WLP behavior
+# prb_21dc8ee2035249c6aac67a1b1289a5a9: two infinite three-variable families with opposite WLP behavior
 
 **Claim type:** Partial result, with credited known results and self-contained proofs.  
 **Scope:** Over $\mathbb C$, $T_{3,2,k}$ has WLP for every $k\ge1$, whereas $T_{3,3,k}$ fails WLP and therefore SLP for every $k\ge3$. This is not a classification of all triples or of SLP in the positive WLP family.
@@ -83,7 +83,7 @@ The infinite conclusions follow from the proofs, not extrapolation from those ch
 
 ## Checked references
 
-1. [Official TOP-1500013 prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500013.txt), checked 18 October 2026, for the exact ideal-power convention and WLP/SLP question.
+1. [Official prb_21dc8ee2035249c6aac67a1b1289a5a9 prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_21dc8ee2035249c6aac67a1b1289a5a9.txt), checked 18 October 2026, for the exact ideal-power convention and WLP/SLP question.
 2. Mats Boij, Ralf Fröberg and Samuel Lundqvist, *Powers of generic ideals and the weak Lefschetz property for powers of some monomial complete intersections*, [arXiv:1612.00411v1](https://arxiv.org/pdf/1612.00411), 1 December 2016, Section 3, Theorems 16–17. Numbering refers to that checked version. The work was subsequently published in Journal of Algebra, DOI [10.1016/j.jalgebra.2017.11.001](https://doi.org/10.1016/j.jalgebra.2017.11.001); the theorem checks here use the arXiv text.
 
 
@@ -99,6 +99,6 @@ The main instance freshly ran the attached verifier; all assertions passed. Sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500013.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_21dc8ee2035249c6aac67a1b1289a5a9.txt
 https://arxiv.org/pdf/1612.00411
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # The negative answer to the exact Connes embedding statement
 
-Problem: TOP-1104. Claim type: Literature report.
+Problem: prb_0f76b977372a4ac4938f16776138bf34. Claim type: Literature report.
 
 The universal assertion in the official prompt has an established negative answer. There exists a separable type $\mathrm{II}_1$ factor, with its normalized faithful trace, that does not embed trace-preservingly into any tracial ultrapower of the hyperfinite factor $R$. Allowing an index set larger than $\mathbb N$ does not repair the assertion.
 

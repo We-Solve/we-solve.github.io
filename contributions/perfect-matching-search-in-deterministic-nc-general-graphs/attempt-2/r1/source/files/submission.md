@@ -41,10 +41,10 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30006800/verify.py). Source SHA-256: `7c18b3a39790b69c4e80d75ad9efc26deae95b96b997c986c5338cc43f8f7f7d`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify.py`. File SHA-256: `7c18b3a39790b69c4e80d75ad9efc26deae95b96b997c986c5338cc43f8f7f7d`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006800.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_5df2615ea31f478cbdbfe995f91e968c.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30006800/verify.py (Used: exact previously reviewed program; SHA-256 7c18b3a39790b69c4e80d75ad9efc26deae95b96b997c986c5338cc43f8f7f7d).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify.py` (Used: exact previously reviewed program; SHA-256 7c18b3a39790b69c4e80d75ad9efc26deae95b96b997c986c5338cc43f8f7f7d).

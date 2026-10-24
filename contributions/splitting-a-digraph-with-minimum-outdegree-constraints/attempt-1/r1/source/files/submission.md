@@ -1,6 +1,6 @@
 # The exact split threshold for symmetric digraphs
 
-Problem: TOP-3265
+Problem: prb_c44f693a99bc4c2a8a52ee84272b3151
 
 Claim type: Literature report.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3265.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c44f693a99bc4c2a8a52ee84272b3151.txt
 - https://cedric.cnam.fr/~bentzc/INITREC/Files/CP14.pdf
 - https://doi.org/10.1002/(SICI)1097-0118(199611)23:3%3C321::AID-JGT12%3E3.0.CO;2-H
 
@@ -41,7 +41,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3265.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c44f693a99bc4c2a8a52ee84272b3151.txt
 https://cedric.cnam.fr/~bentzc/INITREC/Files/CP14.pdf
 https://doi.org/10.1002/(SICI)1097-0118(199611)23:3%3C321::AID-JGT12%3E3.0.CO;2-H
 Exact source versions, statements and uses are described in report.md and source_notes.md.

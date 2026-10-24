@@ -1,6 +1,6 @@
 # Exact containment when the outer zonotope has fixed generator co-rank
 
-Problem: TOP-30006105
+Problem: prb_85d3f5d619ac47e28c66b73728a92fcb
 
 Claim type: Partial result
 
@@ -33,10 +33,10 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: check_exact.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30006105/check_exact.py). Source SHA-256: `fb890b68ca4b1f96b346b93d16e732f8311930b82caea57ced72b76cf5a3e6d1`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `check_exact.py`. File SHA-256: `fb890b68ca4b1f96b346b93d16e732f8311930b82caea57ced72b76cf5a3e6d1`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006105.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_85d3f5d619ac47e28c66b73728a92fcb.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30006105/check_exact.py (Used: exact previously reviewed program; SHA-256 fb890b68ca4b1f96b346b93d16e732f8311930b82caea57ced72b76cf5a3e6d1).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `check_exact.py` (Used: exact previously reviewed program; SHA-256 fb890b68ca4b1f96b346b93d16e732f8311930b82caea57ced72b76cf5a3e6d1).

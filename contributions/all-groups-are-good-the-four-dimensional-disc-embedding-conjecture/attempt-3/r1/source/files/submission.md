@@ -1,6 +1,6 @@
 # A nonabelian good-group family with explicit polynomial growth
 
-Problem: TOP-30006816
+Problem: prb_85c2af1656af447ea162b41dfe880953
 
 Claim type: Literature report
 
@@ -47,7 +47,7 @@ The previous attempt gives algebraic inheritance and free-group reductions. The 
 ## Checked references
 
 1. M. H. Freedman and P. Teichner, 4-Manifold topology I: Subexponential groups, Inventiones Mathematicae 122 (1995), 509–529, Theorem 0.1 and Section 1. https://math.berkeley.edu/~teichner/Papers/Freedman1.pdf
-2. Problems in low-dimensional topology, K3 problem list, preliminary version (2026), Section 4.5, the exact goodness definition and known subexponential-growth class quoted by TOP-30006816. https://bpb-us-e2.wpmucdn.com/websites.umass.edu/dist/b/22144/files/2026/04/K3-problem-list-watermarked.pdf
+2. Problems in low-dimensional topology, K3 problem list, preliminary version (2026), Section 4.5, the exact goodness definition and known subexponential-growth class quoted by prb_85c2af1656af447ea162b41dfe880953. https://bpb-us-e2.wpmucdn.com/websites.umass.edu/dist/b/22144/files/2026/04/K3-problem-list-watermarked.pdf
 
 
 ## Reproducibility and review
@@ -64,5 +64,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 ## References
 
 M. H. Freedman and P. Teichner, 4-Manifold topology I: Subexponential groups, Inventiones Mathematicae 122 (1995), 509–529, Theorem 0.1 and Section 1. https://math.berkeley.edu/~teichner/Papers/Freedman1.pdf
-Problems in low-dimensional topology, K3 problem list, preliminary version (2026), Section 4.5, the exact goodness definition and known subexponential-growth class quoted by TOP-30006816. https://bpb-us-e2.wpmucdn.com/websites.umass.edu/dist/b/22144/files/2026/04/K3-problem-list-watermarked.pdf
+Problems in low-dimensional topology, K3 problem list, preliminary version (2026), Section 4.5, the exact goodness definition and known subexponential-growth class quoted by prb_85c2af1656af447ea162b41dfe880953. https://bpb-us-e2.wpmucdn.com/websites.umass.edu/dist/b/22144/files/2026/04/K3-problem-list-watermarked.pdf
 Exact source versions, statements and uses are described in report.md and source_notes.md.

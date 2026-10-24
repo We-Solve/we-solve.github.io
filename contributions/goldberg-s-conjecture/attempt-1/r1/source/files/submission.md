@@ -1,10 +1,10 @@
-Problem: TOP-3204
+Problem: prb_a471425b38f94c32a434d40eff692f5a
 
 Title: The main bound is the Goldberg–Seymour theorem; exact density translation and sharp families
 
 Claim type: literature report
 
-Scope: The main displayed inequality in TOP-3204 is affirmed for every finite loopless multigraph by the published Goldberg–Seymour theorem. The first of the prompt's two additional bounds follows as well. This report does not claim the final additional bound in its full generality. It gives a self-contained density translation and optimal edge-colorings for every uniform complete multigraph.
+Scope: The main displayed inequality in prb_a471425b38f94c32a434d40eff692f5a is affirmed for every finite loopless multigraph by the published Goldberg–Seymour theorem. The first of the prompt's two additional bounds follows as well. This report does not claim the final additional bound in its full generality. It gives a self-contained density translation and optimal edge-colorings for every uniform complete multigraph.
 
 Assumptions and limitations: The general theorem is credited to Chen, Jing and Zang, not presented as a new proof. Their long proof is not independently checked in full here. Exact computations certify the explicit families and a small distinction between degree and density.
 

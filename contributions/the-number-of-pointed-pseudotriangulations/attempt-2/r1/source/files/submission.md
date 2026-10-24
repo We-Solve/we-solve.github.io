@@ -1,6 +1,6 @@
 # Catalan equality and strict inequality for one interior point in a triangle
 
-**Problem:** TOP-5500040
+**Problem:** prb_d3a9b976cbed449e9c8defcb1c0ca403
 
 **Claim type:** Partial result
 
@@ -34,6 +34,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500040.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_d3a9b976cbed449e9c8defcb1c0ca403.txt
 https://topp.openproblem.net/p40
 Exact source versions, statements and uses are described in report.md and source_notes.md.

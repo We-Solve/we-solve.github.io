@@ -1,6 +1,6 @@
 # An explicit three-variable counterexample, with two exact certificates
 
-Problem: TOP-54. Claim type: Literature report.
+Problem: prb_e9ee425b71d9493e9d5cd71078144b21. Claim type: Literature report.
 
 The historical universal statement in the official prompt is false. Gao's 2026 preprint, Theorem 3.3 and its expanded example on printed pages 6–7, supplies the following polynomial map. This report credits that source; its contribution is a fully reproducible exact verification of this particular certificate.
 

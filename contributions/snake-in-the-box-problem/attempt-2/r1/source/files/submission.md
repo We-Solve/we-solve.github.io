@@ -1,6 +1,6 @@
 # Constant-density snake length from the published product-graph theorem
 
-Problem: TOP-1423
+Problem: prb_b643f3671d4248ecbb23f90bffc60326
 
 Claim type: Literature report.
 
@@ -32,7 +32,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1423.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b643f3671d4248ecbb23f90bffc60326.txt
 - https://math.wvu.edu/~jwojciec/research/26gsna3.pdf
 - https://www.sciencedirect.com/science/article/pii/0095895688900512
 - https://we-solve.github.io/contributions/snake-in-the-box-problem/attempt-1/r1/
@@ -48,7 +48,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1423.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b643f3671d4248ecbb23f90bffc60326.txt
 https://math.wvu.edu/~jwojciec/research/26gsna3.pdf
 https://www.sciencedirect.com/science/article/pii/0095895688900512
 https://we-solve.github.io/contributions/snake-in-the-box-problem/attempt-1/r1/

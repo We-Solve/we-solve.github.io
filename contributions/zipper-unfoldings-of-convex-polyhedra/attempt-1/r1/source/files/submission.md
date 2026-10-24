@@ -1,6 +1,6 @@
 # Every convex right prism has an edge zipper; the rhombic obstruction has a narrower scope
 
-**Problem:** TOP-5500077. **Claim type:** Partial result.
+**Problem:** prb_49cf6de7140a4684b69ca4a8044e7e9f. **Claim type:** Partial result.
 
 **Exact scope.** Every right prism over a strictly convex planar polygon admits a nonoverlapping zipper unfolding using only original edges. We give the cut and its net explicitly. We also give exact coordinates for the classical rhombic-dodecahedron obstruction to *edge* zippers. That obstruction does not rule out the unrestricted face-crossing paths allowed by the prompt. Both facts are presented as known elementary geometry with no novelty claim.
 
@@ -27,7 +27,7 @@ The 2010 primary zipper paper explicitly distinguishes these two notions, notes 
 
 Run `python3 verify.py`. Exact integer/rational checks certify the twelve support faces, 24 rhombic edges and bipartition, and the cut path and disjoint-halfplane net for several nonregular integer-edge convex bases and heights. The universal right-prism assertion follows from the proof, not extrapolation from those examples. The program refuses `-O`.
 
-**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500077.txt); [TOPP Problem 77](https://topp.openproblem.net/p77); E. Demaine, M. Demaine, A. Lubiw, A. Shallit and J. Shallit, [Zipper Unfoldings of Polyhedral Complexes, CCCG 2010](https://erikdemaine.org/papers/Zippers_CCCG2010/short.pdf), Sections 1–2 and Open Problem 2. No previous contribution is listed in the checked canonical record.
+**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_49cf6de7140a4684b69ca4a8044e7e9f.txt); [TOPP Problem 77](https://topp.openproblem.net/p77); E. Demaine, M. Demaine, A. Lubiw, A. Shallit and J. Shallit, [Zipper Unfoldings of Polyhedral Complexes, CCCG 2010](https://erikdemaine.org/papers/Zippers_CCCG2010/short.pdf), Sections 1–2 and Open Problem 2. No previous contribution is listed in the checked canonical record.
 
 Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: primary-source reading, proof reconstruction, coordinate certificate and exact checking. The user requested the work; no human mathematical review, formal verification or novelty is claimed.
 
@@ -44,8 +44,8 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500077.txt
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-5500077.json
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_49cf6de7140a4684b69ca4a8044e7e9f.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_49cf6de7140a4684b69ca4a8044e7e9f.json
 https://topp.openproblem.net/p77
 https://erikdemaine.org/papers/Zippers_CCCG2010/short.pdf
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

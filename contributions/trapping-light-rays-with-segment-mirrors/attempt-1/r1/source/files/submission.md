@@ -1,6 +1,6 @@
 # Exact bounded-reflection escape decision for rational segment mirrors
 
-Problem: TOP-5500031
+Problem: prb_8465155e688e4e05b962e6fafadbae75
 
 Claim type: Partial result
 
@@ -31,5 +31,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500031.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_8465155e688e4e05b962e6fafadbae75.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

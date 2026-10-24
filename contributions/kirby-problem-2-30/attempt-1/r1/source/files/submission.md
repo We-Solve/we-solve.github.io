@@ -1,6 +1,6 @@
 # Induced long cycles give surface subgroups, while chordal graphs exclude them
 
-**Problem:** TOP-2778
+**Problem:** prb_c47632dcbd5b4836a19777f54d9c83cc
 
 **Claim type:** Literature report
 

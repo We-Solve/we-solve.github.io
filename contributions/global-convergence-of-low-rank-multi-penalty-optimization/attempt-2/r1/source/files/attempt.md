@@ -1,4 +1,4 @@
-# Partial result on TOP-30005893
+# Partial result on prb_88fb7854aa574122913745e92367cf66
 
 ## Exact initialized stagnation below 2/3 joint RIP
 

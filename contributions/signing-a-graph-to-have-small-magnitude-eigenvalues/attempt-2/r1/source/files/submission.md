@@ -1,10 +1,10 @@
-Problem: TOP-3130
+Problem: prb_dea591d0197242a0843273a19dda1fef
 
 Title: Xu's cubic counterexample, with exact Schur-complement and construction certificates
 
 Claim type: literature report
 
-Scope: A September 2026 primary preprint of Zhiqiang Xu constructs a finite connected simple 3-regular graph for which every signing has an eigenvalue outside $[-2\sqrt2,2\sqrt2]$. This directly contradicts the universal statement in TOP-3130. The argument is given below with exact arithmetic and small construction checks. The work is credited to Xu; this contribution is not a priority claim.
+Scope: A September 2026 primary preprint of Zhiqiang Xu constructs a finite connected simple 3-regular graph for which every signing has an eigenvalue outside $[-2\sqrt2,2\sqrt2]$. This directly contradicts the universal statement in prb_dea591d0197242a0843273a19dda1fef. The argument is given below with exact arithmetic and small construction checks. The work is credited to Xu; this contribution is not a priority claim.
 
 Assumptions and limitations: The checked source is arXiv:2609.15591v4, September 29, 2026, rather than a journal publication. No human specialist review or formal proof verification is claimed. The enormous graph is specified recursively and is not materialized by the verifier. The proof covers all its signings symbolically; the program checks the finite algebraic certificate and smaller construction instances.
 

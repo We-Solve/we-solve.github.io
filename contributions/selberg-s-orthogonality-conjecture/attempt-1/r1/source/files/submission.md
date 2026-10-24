@@ -1,6 +1,6 @@
 # Selberg norm integers and prime orthogonality for Dirichlet L-products
 
-Problem: TOP-9400080  
+Problem: prb_963e7ebf53584e988ae3ae8c68600a1a  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -45,5 +45,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 T. Tao, 254A Notes1, Theorem67/Exercise68 and character orthogonality, https://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-number-theory/
-Fresh official TOP-9400080 prompt, Selberg-class definitions
+Fresh official prb_963e7ebf53584e988ae3ae8c68600a1a prompt, Selberg-class definitions
 Exact source versions, statements and uses are described in report.md and source_notes.md.

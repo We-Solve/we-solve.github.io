@@ -1,6 +1,6 @@
 # Finite asymptotic dimension with the finite classifying-space hypothesis retained
 
-Problem: TOP-30001499
+Problem: prb_dce67f7ff23d4e7b8615ee4a40cc287d
 
 Claim type: Literature report
 

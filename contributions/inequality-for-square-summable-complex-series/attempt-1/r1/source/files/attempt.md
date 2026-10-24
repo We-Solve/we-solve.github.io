@@ -2,7 +2,7 @@
 
 # The dyadic block inequality: sharp constant, equality, projection and approximation
 
-**We-Solve TOP-3037 / Math-3293, OPG-41335.**
+**We-Solve prb_27aba43ca4ff44508d6d1d371a7b9a14 / Math-3293, catalogue entry.**
 
 **Claim and attribution.** The proposed inequality is valid, and its coefficient $6/\pi^2$ is optimal. The original Open Problem Garden page already contains an anonymous solution dated 3 November 2013: apply Cauchy–Schwarz separately on the disjoint dyadic blocks and then sum. The original poster acknowledged that solution on 29 October 2014 [1]. This submission is a **Literature report**, giving a detailed proof and developing its standard Hilbert-space consequences. No historical novelty is claimed for the inequality or the consequences below. In particular, this is a resolution of an outdated catalogue entry, not a newly solved open problem.
 
@@ -269,7 +269,7 @@ In the catalogue problem, all row norms equal $Z$, so every block can contribute
 
 ## 9. Exact verification and scope
 
-The accompanying `verify3037.py` was executed using exact Gaussian-rational arithmetic. Every assertion passed. The complete record is in `verification_results.json`:
+The accompanying `verify.py` was executed using exact Gaussian-rational arithmetic. Every assertion passed. The complete record is in `verification_results.json`:
 
 * 300 deterministic random block configurations (seed 3037), including 724 complex Lagrange identities with 5,761 wedge terms;
 * 300 checks each of projection idempotence, selfadjointness, exact deficit, the adjoint identity, minimum-norm interpolation, and the full solution's Pythagorean identity;
@@ -292,7 +292,7 @@ These finite checks supplement the proofs; they do not establish absolute conver
 ## References and inspected scope
 
 1. **Open Problem Garden**, [Inequality for square summable complex series](https://www.openproblemgarden.org/op/inequality_for_square_summable_complex_series). Author field: Zoltan Retkes; posted by `tigris35711` on 25 December 2012. The full statement, anonymous solution of 3 November 2013 and poster's acknowledgement of 29 October 2014 were inspected. The published solution supplies the historical resolution and the dyadic-block Cauchy–Schwarz argument. No prize award or entitlement is asserted.
-2. **We-Solve / UnsolvedMath TOP-3037**, displayed as Math-3293, OPG-41335. [Catalogue statement](https://github.com/We-Solve/research/blob/main/problems/27/prb_27aba43ca4ff44508d6d1d371a7b9a14/statement.tex). Exact conventions, convergence statement and requested inequality inspected. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+2. **We-Solve / UnsolvedMath prb_27aba43ca4ff44508d6d1d371a7b9a14**, displayed as Math-3293, catalogue entry. [Catalogue statement](https://github.com/We-Solve/research/blob/main/problems/27/prb_27aba43ca4ff44508d6d1d371a7b9a14/statement.tex). Exact conventions, convergence statement and requested inequality inspected. Catalogue credit: ULAM.AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 
 ## Provenance and licences
 

@@ -1,4 +1,4 @@
-# TOP-1500010: the five-generator partition $(13,1)$ gives a negative answer
+# prb_f71d152b4df64e9d972568500d01129c: the five-generator partition $(13,1)$ gives a negative answer
 
 **Claim type:** Full disproof of the stated universal assertion, credited to existing literature.  
 **Parameters:** $n=3$, $r=5$, $d=14$, $\mu=(13,1)$. **Field:** $\mathbb C$.
@@ -72,7 +72,7 @@ The general assertion is therefore false. This report does not classify all part
 
 - Boris Shapiro, *Generic $\mu$-power ideals, fat points, and symbolic powers*, [arXiv:2609.27965v2](https://arxiv.org/html/2609.27965v2), 26 September 2026, Theorem 1.3 and Proposition 2.3. Preprint. The conic obstruction used here is explicitly credited there; the supplied proof is self-contained. Metadata checked at [arXiv:2609.27965](https://arxiv.org/abs/2609.27965).
 - Ralf Fröberg, Samuel Lundqvist, Alessandro Oneto and Boris Shapiro, *Algebraic Stories from One and from the Other Pockets*, Arnold Mathematical Journal 4 (2018), 137–160, [published PDF](https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf), Section 2.2, Problem F, for the original question.
-- [Official TOP-1500010 prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500010.txt), checked 18 October 2026, for the precise non-pure-partition and genericity requirements.
+- [Official prb_f71d152b4df64e9d972568500d01129c prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_f71d152b4df64e9d972568500d01129c.txt), checked 18 October 2026, for the precise non-pure-partition and genericity requirements.
 
 
 Preparation and review: OpenAI Codex (GPT-6; exact serving revision and reasoning configuration unknown) supplied the authoring, exact-code verification, independent LLM audit and coordination/source checks through separate instances. Gaven prompted the work and authorized submission. No human mathematical review or editorial acceptance is claimed.
@@ -93,5 +93,5 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 https://arxiv.org/html/2609.27965v2
 https://arxiv.org/abs/2609.27965
 https://amj.math.stonybrook.edu/pdf-Springer-final/018-0088.pdf
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500010.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_f71d152b4df64e9d972568500d01129c.txt
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Trivial torsors for split general, special and symplectic linear groups over local rings
 
-**Problem:** TOP-30002360
+**Problem:** prb_8133bb54e380488094c7381bc624234f
 
 **Claim type:** Partial result
 

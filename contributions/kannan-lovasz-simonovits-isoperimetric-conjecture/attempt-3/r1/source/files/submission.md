@@ -1,6 +1,6 @@
 # KLS with an explicit constant for bounded Hessian condition number
 
-Problem: TOP-30004948
+Problem: prb_ffacccea279a4cd180b6337164b2c200
 
 Claim type: Literature report
 
@@ -37,6 +37,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30004948.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_ffacccea279a4cd180b6337164b2c200.txt
 https://www.normalesup.org/~mfathi/docs/Caffarelli%20CT.pdf — Fathi, Gozlan, Prod’homme, Theorem1, April6,2020 author manuscript; compact-support approximation paragraph checked.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # The fiber bound and full A-image for totally geodesic fibers
 
-**Problem:** TOP-20003153
+**Problem:** prb_bbd5a34e4d164ef097efd854d65e8e27
 
 **Claim type:** Partial result
 

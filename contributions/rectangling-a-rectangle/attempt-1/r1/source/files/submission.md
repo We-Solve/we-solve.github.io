@@ -1,6 +1,6 @@
 # An exact seven-box construction in every dimension
 
-Problem: TOP-5500078 / Math-4010, Rectangling a Rectangle.
+Problem: prb_2525123d26624a02b933bb4e905c7a05 / Math-4010, Rectangling a Rectangle.
 
 Claim type: **Partial result**.
 

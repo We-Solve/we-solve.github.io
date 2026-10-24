@@ -1,6 +1,6 @@
 # Exact minimum-link paths around one convex obstacle, including boundary endpoints
 
-Problem: **TOP-5500022** (Math-1658, Minimum-Link Path in 2D).  
+Problem: **prb_51e7c2a01e3b4d3ca85d99fa1b10bf70** (Math-1658, Minimum-Link Path in 2D).  
 Claim type: **Partial result**.  
 Scope: An exact linear-time algorithm and attaining path when the obstacle family consists of one full-dimensional convex polygon with $n$ vertices. All link orientations are permitted, and obstacle-boundary contacts are allowed as in the official statement.
 

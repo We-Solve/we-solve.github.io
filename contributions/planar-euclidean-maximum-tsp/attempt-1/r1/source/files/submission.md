@@ -1,6 +1,6 @@
 # Exact maximum tours for arbitrary collinear point sets
 
-Problem: TOP-5500049
+Problem: prb_9a5fc6d186a8404092aac3c46a9390f5
 
 Claim type: Partial result
 
@@ -39,5 +39,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500049.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9a5fc6d186a8404092aac3c46a9390f5.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

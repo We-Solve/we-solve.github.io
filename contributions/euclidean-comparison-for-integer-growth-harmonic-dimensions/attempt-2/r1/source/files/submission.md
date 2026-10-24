@@ -1,6 +1,6 @@
 # Exact harmonic-growth dimensions on Euclidean times compact factors
 
-Problem: TOP-30007145
+Problem: prb_d5fc7c1151ab48658a42d1e99100645a
 
 Claim type: Partial result
 
@@ -43,5 +43,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007145.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_d5fc7c1151ab48658a42d1e99100645a.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

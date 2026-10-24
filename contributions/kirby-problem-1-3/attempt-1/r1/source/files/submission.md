@@ -1,6 +1,6 @@
 # A signature criterion for the summand-count unknotting bound
 
-**Problem:** TOP-2662
+**Problem:** prb_6889dbfaa1f2497ab26c5b65d1c0b6ce
 
 **Claim type:** Partial result
 

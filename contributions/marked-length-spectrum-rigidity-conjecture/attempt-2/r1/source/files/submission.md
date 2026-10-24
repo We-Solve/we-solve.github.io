@@ -1,6 +1,6 @@
 # The literal isotopy rigidity conclusion holds for closed oriented surfaces
 
-Problem: TOP-30006851
+Problem: prb_1f1e6b20eeaf4c06876bce4737605230
 
 Claim type: Literature report
 
@@ -27,6 +27,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006851.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_1f1e6b20eeaf4c06876bce4737605230.txt
 https://arxiv.org/pdf/2303.12007v5 — Guillarmou, Lefeuvre and Paternain, Theorem1.1 and introductory Anosov definition; v5 September6,2024.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

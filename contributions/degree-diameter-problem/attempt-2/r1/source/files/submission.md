@@ -1,6 +1,6 @@
 # Projective polarity graphs give a quadratic diameter-two construction
 
-Problem: TOP-1412
+Problem: prb_45cbf23a9876425497a29be3b82cc832
 
 Claim type: Partial result.
 
@@ -34,7 +34,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-1412 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1412.txt
+- Official prb_45cbf23a9876425497a29be3b82cc832 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_45cbf23a9876425497a29be3b82cc832.txt
 - K. Lakhotia et al., PolarFly: A Cost-Effective and Flexible Low-Diameter Topology, arXiv:2208.01695; SC22 conference paper, DOI 10.1109/SC41404.2022.00017: https://arxiv.org/abs/2208.01695
 
 
@@ -51,6 +51,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-1412 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1412.txt
+Official prb_45cbf23a9876425497a29be3b82cc832 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_45cbf23a9876425497a29be3b82cc832.txt
 K. Lakhotia et al., PolarFly: A Cost-Effective and Flexible Low-Diameter Topology, arXiv:2208.01695; SC22 conference paper, DOI 10.1109/SC41404.2022.00017: https://arxiv.org/abs/2208.01695
 Exact source versions, statements and uses are described in report.md and source_notes.md.

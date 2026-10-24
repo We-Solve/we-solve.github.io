@@ -1,4 +1,4 @@
-# TOP-30006852: The Online Boolean Matrix-Vector Multiplication Conjecture
+# prb_c349fc6d969548cdb8ce2e213c154073: The Online Boolean Matrix-Vector Multiplication Conjecture
 
 Claim type: **Partial result**.
 
@@ -22,7 +22,7 @@ Comparison with the earlier attempt: The earlier attempt covers bit packing, blo
 
 References checked:
 
-- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006852.txt
+- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c349fc6d969548cdb8ce2e213c154073.txt
 - Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/the-online-boolean-matrix-vector-multiplication-conjecture/attempt-1/r1/
 
 
@@ -39,6 +39,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30006852.txt
+Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c349fc6d969548cdb8ce2e213c154073.txt
 Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/the-online-boolean-matrix-vector-multiplication-conjecture/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

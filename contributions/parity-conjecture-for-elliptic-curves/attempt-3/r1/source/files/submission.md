@@ -1,4 +1,4 @@
-# TOP-30006786: Unconditional Mordell–Weil parity when complex multiplication is defined over the ground field
+# prb_c014cfe0e2fd486c966c6a2545f20be1: Unconditional Mordell–Weil parity when complex multiplication is defined over the ground field
 
 Claim type: Literature report
 

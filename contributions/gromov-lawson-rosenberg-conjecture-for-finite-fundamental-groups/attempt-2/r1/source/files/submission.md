@@ -1,6 +1,6 @@
 # The unstabilized finite-group GLR criterion for trivial fundamental group
 
-Problem: TOP-30006906
+Problem: prb_3dac8d7ea39d4e92b9442354c504c638
 
 Claim type: Literature report
 

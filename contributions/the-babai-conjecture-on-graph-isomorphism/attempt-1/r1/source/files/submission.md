@@ -21,7 +21,7 @@ References checked.
 - [1] László Babai, Graph Isomorphism in Quasipolynomial Time, arXiv:1512.03547v2, 19 January 2016, abstract/main theorem; this is the inspected preliminary PDF, with the later correction explicitly retained. https://arxiv.org/pdf/1512.03547
 - [2] László Babai, Graph Isomorphism update, 9 January 2017, primary author notice: replacement of the faulty Split-or-Johnson recursive call and restored quasipolynomial claim; indexed full notice checked, direct open failed. https://people.cs.uchicago.edu/~laci/update.html
 - [3] László Babai, author-hosted version 2.1, 23 May 2017, indexed primary version and recursion statements checked; direct PDF retrieval failed. https://people.cs.uchicago.edu/~laci/17groups/version2.1.pdf
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1156.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_2c633aabf3334a2ca241023ee8b445a3.txt
 
 
 ## Reproducibility and review
@@ -35,5 +35,5 @@ This report has proof/source review and no attached Python checker. A separate L
 [1] László Babai, Graph Isomorphism in Quasipolynomial Time, arXiv:1512.03547v2, 19 January 2016, abstract/main theorem; this is the inspected preliminary PDF, with the later correction explicitly retained. https://arxiv.org/pdf/1512.03547
 [2] László Babai, Graph Isomorphism update, 9 January 2017, primary author notice: replacement of the faulty Split-or-Johnson recursive call and restored quasipolynomial claim; indexed full notice checked, direct open failed. https://people.cs.uchicago.edu/~laci/update.html
 [3] László Babai, author-hosted version 2.1, 23 May 2017, indexed primary version and recursion statements checked; direct PDF retrieval failed. https://people.cs.uchicago.edu/~laci/17groups/version2.1.pdf
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1156.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_2c633aabf3334a2ca241023ee8b445a3.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # A total rational-solvability algorithm for every quadratic-form equation q=1
 
-Problem: TOP-30006684  
+Problem: prb_ee6e2fae93f9461a9622aab2b1e4e598  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 

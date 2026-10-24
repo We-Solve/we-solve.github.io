@@ -1,6 +1,6 @@
 # A self-contained apolar half-length lower bound for determinant Waring rank
 
-**Problem:** TOP-3032
+**Problem:** prb_2edf3c658ed04ebba23c518c0697abe9
 
 **Claim type:** Partial result
 

@@ -3,7 +3,7 @@
 
 # Equality in the matroid circumference bound: a 2026 resolution and explicit equality families
 
-**We-Solve Math-3299 / TOP-3066, OPG-692.**
+**We-Solve Math-3299 / prb_74eebac275fe494c8b594b660936f94c, catalogue entry.**
 
 **Claim and attribution.** This is a literature report answering the main catalogue question from a June 15, 2026 author-hosted submitted preprint of Manoel Lemos and James Oxley. Their classification theorem is credited to them, not claimed as our proof or discovery. We also give independent elementary proofs and executable certificates for the affine-cube example and a two-parameter family of connected nongraphic equality cases. This family disproves the catalogue's **parallel-only** associated variant. The original source used broader informal language, so the distinction is essential.
 
@@ -266,7 +266,7 @@ This note does **not** classify all connected nongraphic equality cases. Nor doe
 
 ## 11. Reproducible exact verification
 
-The accompanying `verify3066.py` uses exact binary linear algebra. Its roles are to verify the explicit matrices and small-instance certificates independently of the theoretical formulas, and to catch implementation errors. It does not replace the proof for arbitrary $s,t$, and it does not verify the 2026 manuscript's general classification theorem by finite enumeration.
+The accompanying `verify.py` uses exact binary linear algebra. Its roles are to verify the explicit matrices and small-instance certificates independently of the theoretical formulas, and to catch implementation errors. It does not replace the proof for arbitrary $s,t$, and it does not verify the 2026 manuscript's general classification theorem by finite enumeration.
 
 The executed configuration passed every assertion. It enumerated **131,456 subsets** across four represented matroids, constructing dual representations independently by binary Gaussian elimination and checking the dual rank identity for every subset:
 
@@ -298,7 +298,7 @@ Two separate same-model research agents independently checked the literature ded
 1. James Oxley and Gordon Royle, **Equality in a matroidal circumference bound**, Open Problem Garden, posted by Gordon Royle, 2 November 2007. [Original question and variant](https://www.openproblemgarden.org/op/equality_in_a_matroidal_circumference_bound). Exact equality question and the informal “modifications like” wording inspected.
 2. Manoel Lemos and James Oxley, **Bounding the size of a connected matroid**, author-hosted submitted preprint, dated 15 June 2026, 23 pages. [Full PDF](https://www.math.lsu.edu/~oxley/lemos_oxley_2026.pdf). Introduction, Theorem 1.4, Corollary 1.5 and final classification argument inspected. We use the stated main theorem with attribution; we do not assert a complete independent validation of every lemma in its 23-page proof or journal acceptance.
 3. James Oxley, [official author homepage](https://www.math.lsu.edu/~oxley/), listing **Bounding the size of a connected matroid** with M. Lemos as “submitted” at inspection. Used only for publication-status reporting.
-4. **We-Solve / UnsolvedMath TOP-3066**, also displayed as Math-3299, OPG-692. [Statement](https://github.com/We-Solve/research/blob/main/problems/74/prb_74eebac275fe494c8b594b660936f94c/statement.tex), [research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3066.txt). Exact definitions, expanded parallel-only variant and prompt inspected; the prompt listed no earlier contributions. Catalogue credit: Ulam AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+4. **We-Solve / UnsolvedMath prb_74eebac275fe494c8b594b660936f94c**, also displayed as Math-3299, catalogue entry. [Statement](https://github.com/We-Solve/research/blob/main/problems/74/prb_74eebac275fe494c8b594b660936f94c/statement.tex), [research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_74eebac275fe494c8b594b660936f94c.txt). Exact definitions, expanded parallel-only variant and prompt inspected; the prompt listed no earlier contributions. Catalogue credit: Ulam AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 
 ## Provenance and licences
 
@@ -308,7 +308,7 @@ Original exposition and result files: CC BY 4.0. Original software: Apache-2.0. 
 
 
 <details>
-<summary>Complete executable verification software: verify3066.py (Apache-2.0)</summary>
+<summary>Complete executable verification software: verify.py (Apache-2.0)</summary>
 
 > Verification software and executable commands are external to this manuscript. See the [original submission’s reproducibility section](https://github.com/We-Solve/research/issues/7) for this material.
 
@@ -343,5 +343,5 @@ Gaven (@gavenren): requested another deeply investigated problem and authorized 
 1. James Oxley and Gordon Royle, **Equality in a matroidal circumference bound**, Open Problem Garden, posted by Gordon Royle, 2 November 2007. [Original question and variant](https://www.openproblemgarden.org/op/equality_in_a_matroidal_circumference_bound). Exact equality question and the informal “modifications like” wording inspected.
 2. Manoel Lemos and James Oxley, **Bounding the size of a connected matroid**, author-hosted submitted preprint, dated 15 June 2026, 23 pages. [Full PDF](https://www.math.lsu.edu/~oxley/lemos_oxley_2026.pdf). Introduction, Theorem 1.4, Corollary 1.5 and final classification argument inspected. We use the stated main theorem with attribution; we do not assert a complete independent validation of every lemma in its 23-page proof or journal acceptance.
 3. James Oxley, [official author homepage](https://www.math.lsu.edu/~oxley/), listing **Bounding the size of a connected matroid** with M. Lemos as “submitted” at inspection. Used only for publication-status reporting.
-4. **We-Solve / UnsolvedMath TOP-3066**, also displayed as Math-3299, OPG-692. [Statement](https://github.com/We-Solve/research/blob/main/problems/74/prb_74eebac275fe494c8b594b660936f94c/statement.tex), [research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3066.txt). Exact definitions, expanded parallel-only variant and prompt inspected; the prompt listed no earlier contributions. Catalogue credit: Ulam AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
+4. **We-Solve / UnsolvedMath prb_74eebac275fe494c8b594b660936f94c**, also displayed as Math-3299, catalogue entry. [Statement](https://github.com/We-Solve/research/blob/main/problems/74/prb_74eebac275fe494c8b594b660936f94c/statement.tex), [research prompt](https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_74eebac275fe494c8b594b660936f94c.txt). Exact definitions, expanded parallel-only variant and prompt inspected; the prompt listed no earlier contributions. Catalogue credit: Ulam AI, UnsolvedMath contributors and We-Solve, CC BY 4.0.
 

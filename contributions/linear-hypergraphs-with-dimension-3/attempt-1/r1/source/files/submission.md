@@ -1,6 +1,6 @@
 # Triangle-free planar rank-two incidence hypergraphs have segment models
 
-Problem: TOP-3326
+Problem: prb_1e2f4c54cfe74f98b7b0342600f63d7f
 
 Claim type: Literature report.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3326.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_1e2f4c54cfe74f98b7b0342600f63d7f.txt
 - https://www.lirmm.fr/~goncalves/pmwiki/uploads/seg-complet.pdf
 - https://www.lirmm.fr/~goncalves/pmwiki/
 
@@ -41,7 +41,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3326.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_1e2f4c54cfe74f98b7b0342600f63d7f.txt
 https://www.lirmm.fr/~goncalves/pmwiki/uploads/seg-complet.pdf
 https://www.lirmm.fr/~goncalves/pmwiki/
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Exact planar SOS maximum, with the complex-isolation hypothesis made explicit
 
-**Problem:** TOP-2200006 / Math-1839.  
+**Problem:** prb_616719ce9c0b4cb5a3e72bceb0cdacea / Math-1839.  
 **Claim type:** Partial result.
 
 **Exact scope.** For every $k\ge1$,
@@ -9,7 +9,7 @@ The proof allows arbitrarily many squares and positive-dimensional real or compl
 
 The planar theorem is established literature, stated explicitly in Shapiro (2015), Section 3, and credited there to Choi–Lam–Reznick (1980). We provide a self-contained planar argument and exact examples. No novelty or solution of the general extremal function is claimed.
 
-**Important limitation.** Finitely many isolated real zeros do not imply that the corresponding complex common zero set is finite. The earlier TOP-2200007 contribution, [issue #21](https://github.com/We-Solve/research/issues/21), already gives a quartic SOS with 1152 isolated real zeros in ten variables, exceeding $2^{10}$. This report does not repeat that contribution or assert the false universal formula $N_{\mathrm{SOS}}(k,\ell)=k^\ell$.
+**Important limitation.** Finitely many isolated real zeros do not imply that the corresponding complex common zero set is finite. The earlier prb_46753194892741da91ccf5a2831bdf64 contribution, [issue #21](https://github.com/We-Solve/research/issues/21), already gives a quartic SOS with 1152 isolated real zeros in ten variables, exceeding $2^{10}$. This report does not repeat that contribution or assert the false universal formula $N_{\mathrm{SOS}}(k,\ell)=k^\ell$.
 
 ## 1. Reduction to common zeros
 
@@ -90,9 +90,9 @@ The general planar bound and the finite-complex-locus bound follow from the proo
 
 ## Checked references
 
-1. Official TOP-2200006 prompt, read 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200006.txt .
+1. Official prb_616719ce9c0b4cb5a3e72bceb0cdacea prompt, read 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_616719ce9c0b4cb5a3e72bceb0cdacea.txt .
 2. Boris Shapiro, *Problems Around Polynomials: The Good, The Bad and The Ugly…* (2015), Section 3, Problem 3 and its stated planar theorem: https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/ . The original Choi–Lam–Reznick (1980) result is credited there; its scanned proof is not claimed independently read here.
-3. DannyExperiments, *Many Isolated Real Zeros of Sums of Squares*, source manuscript at commit 41e3d18a8c536e5a859201afd5faefe2b0ecd315, first two sections: https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/blob/41e3d18a8c536e5a859201afd5faefe2b0ecd315/paper/manuscript.tex . This public AI-assisted source is not represented here as peer-reviewed or formally verified. Its explicit counterexample was already treated in TOP-2200007, issue #21.
+3. DannyExperiments, *Many Isolated Real Zeros of Sums of Squares*, source manuscript at commit 41e3d18a8c536e5a859201afd5faefe2b0ecd315, first two sections: https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/blob/41e3d18a8c536e5a859201afd5faefe2b0ecd315/paper/manuscript.tex . This public AI-assisted source is not represented here as peer-reviewed or formally verified. Its explicit counterexample was already treated in prb_46753194892741da91ccf5a2831bdf64, issue #21.
 
 Prepared by OpenAI Codex (GPT-6; exact serving revision and reasoning settings unknown), authoring instance /root/lattice_verify, for source research, mathematical exposition and exact verification. Gaven prompted the work and authorized submission. No human mathematical review is claimed.
 
@@ -109,7 +109,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200006.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_616719ce9c0b4cb5a3e72bceb0cdacea.txt
 Boris Shapiro, Problems Around Polynomials (2015), Section 3; https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/
 DannyExperiments, Many Isolated Real Zeros of Sums of Squares, first two sections, commit 41e3d18a8c536e5a859201afd5faefe2b0ecd315; https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/blob/41e3d18a8c536e5a859201afd5faefe2b0ecd315/paper/manuscript.tex
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

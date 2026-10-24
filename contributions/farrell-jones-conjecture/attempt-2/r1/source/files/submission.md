@@ -21,7 +21,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 References checked.
 
 - [1] Christian Wegner, The Farrell-Jones Conjecture for virtually solvable groups, arXiv:1308.2432v3, 16 August 2015, Theorem 1.1 and Section 2 (both K and ultimate L, virtually cyclic family, additive-category coefficients). Published Journal of Topology, DOI 10.1112/jtopol/jtv026. https://arxiv.org/pdf/1308.2432
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1452.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_cc22f1cbf2b041c68241ecebd29184e8.txt
 
 
 ## Reproducibility and review
@@ -33,5 +33,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 [1] Christian Wegner, The Farrell-Jones Conjecture for virtually solvable groups, arXiv:1308.2432v3, 16 August 2015, Theorem 1.1 and Section 2 (both K and ultimate L, virtually cyclic family, additive-category coefficients). Published Journal of Topology, DOI 10.1112/jtopol/jtv026. https://arxiv.org/pdf/1308.2432
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1452.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_cc22f1cbf2b041c68241ecebd29184e8.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

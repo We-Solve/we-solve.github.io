@@ -1,6 +1,6 @@
 # Finite-prefix feasibility is equivalent to an infinite reciprocal-rectangle packing
 
-**Problem:** TOP-3900015
+**Problem:** prb_5bc46b1882b44dfca74c6d061fd7e467
 
 **Claim type:** Partial result
 
@@ -39,6 +39,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3900015.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_5bc46b1882b44dfca74c6d061fd7e467.txt
 https://arxiv.org/abs/2211.10356
 Exact source versions, statements and uses are described in report.md and source_notes.md.

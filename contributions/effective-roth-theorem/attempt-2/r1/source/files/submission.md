@@ -1,6 +1,6 @@
 # Explicit Roth cutoffs for rational affine images of the real cube root of two
 
-Problem: TOP-30006790  
+Problem: prb_deeca3ddbe24417db39416f6ae1964c7  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 

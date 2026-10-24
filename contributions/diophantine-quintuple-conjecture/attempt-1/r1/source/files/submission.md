@@ -1,6 +1,6 @@
 # The quintuple theorem and the separate regular-extension assertion
 
-**Problem:** TOP-3351. **Claim type:** Literature report.
+**Problem:** prb_a6e88cf1ce8a4a9a922e99d1bbafb1de. **Claim type:** Literature report.
 
 **Scope.** Part (1) of the recorded problem has a published affirmative resolution: there is no Diophantine quintuple of distinct positive integers. The result is due to He, Togbé, and Ziegler, not to this contribution. The stronger assertion in part (2), that every quadruple is regular, is not proved here. This report separates their quantifiers, verifies the regular-extension algebra, and supplies an exact infinite family of quadruples. It does not present a new proof of the quintuple theorem or claim a current resolution of part (2).
 

@@ -35,6 +35,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30000602.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_21f3b658d32741a98a5f2dce094f990f.txt
 Alon, Fernandez de la Vega, Kannan, Karpinski, Random Sampling and Approximation of MAX-CSP Problems, STOC2002 primary conference author copy, Theorem10 on normalized induced-subsystem optimum (PDF p.7), arity2 specialization and probability2/3: https://web.math.princeton.edu/~nalon/PDFS/adkk8.pdf . The general-r sample exponent12 is used conservatively. The ECCC TR01-100 PDF was also retrieved, but its extracted text was corrupt and is not the final theorem-number source.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

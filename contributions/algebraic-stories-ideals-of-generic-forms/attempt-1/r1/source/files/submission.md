@@ -1,6 +1,6 @@
 # The arbitrary-degree binary Fröberg formula, with its exact cutoff
 
-**Problem:** TOP-1500008 / Math-3409.  
+**Problem:** prb_38b20ffcafc941448e8b51deb6b15a3d / Math-3409.  
 **Claim type:** Partial result.
 
 **Exact scope.** The proposed Hilbert series is correct for every degree list when $n\le2$, and for generic regular-sequence cases $r\le n$ in any number of variables. For $n=2$, $r\ge2$, sort $d_1\le\cdots\le d_r$ and define
@@ -21,7 +21,7 @@ We use the established fact that every homogeneous Artinian quotient of $\mathbb
 The exact sequence for multiplication by $g$ gives
 $$\dim(A/(g))_q
  =\max\{0,\dim A_q-\dim A_{q-d}\},\tag{1}$$
-where $A_b=0$ for $b<0$. It is enough that $g$ be generic; it need not be a power of a linear form. In the companion TOP-1500012 report the binary SLP theorem is proved using Wronskians and Taylor jets. Here it is a credited known input to a different Hilbert-series argument.
+where $A_b=0$ for $b<0$. It is enough that $g$ be generic; it need not be a power of a linear form. In the companion prb_f7f6cb3ad4614a2fbdbba2bd993b5085 report the binary SLP theorem is proved using Wronskians and Taylor jets. Here it is a credited known input to a different Hilbert-series argument.
 
 ## 2. Induction for arbitrary binary degree lists
 
@@ -63,13 +63,13 @@ For any $n$ and $r\le n$, generic forms are a regular sequence. The monomial tup
 
 Run `python verify.py`. It checks 251 sorted binary degree profiles with $1\le r\le5$ and $1\le d_i\le5$, using exact rational ranks of graded ideal matrices for the explicit unequal-degree witness $((x+y)^{d_1},(x+2y)^{d_2},\ldots)$. There are 1,368 binary degree checks, including 246 finite-cutoff profiles. It separately checks the univariate truncation for all 251 profiles and 1,203 monomial complete-intersection degree counts with $n\le4$. The stored results include sample Hilbert values and cutoff degrees. The universal argument is the proof above, not an extrapolation from these computations.
 
-The earlier TOP-1500011 contribution compared equal-degree powers of generic forms with ordinary generic forms. This report answers the separate arbitrary-degree generic-form question and does not assert a new discovery of the overlapping equal-degree binary case. The binary SLP input is shared with the present companion TOP-1500012; the Hilbert-series induction and cutoff argument are the additional content here.
+The earlier prb_e6dd74c21862415ea76d0cfb113412a9 contribution compared equal-degree powers of generic forms with ordinary generic forms. This report answers the separate arbitrary-degree generic-form question and does not assert a new discovery of the overlapping equal-degree binary case. The binary SLP input is shared with the present companion prb_f7f6cb3ad4614a2fbdbba2bd993b5085; the Hilbert-series induction and cutoff argument are the additional content here.
 
 No claim is made that every binary ideal with the same generator degrees has this Hilbert function: the degrees do not specify its syzygies. No new result is asserted for generic ideals with $n\ge3$ and $r>n$.
 
 ## Checked references
 
-1. Official TOP-1500008 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500008.txt .
+1. Official prb_38b20ffcafc941448e8b51deb6b15a3d prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_38b20ffcafc941448e8b51deb6b15a3d.txt .
 2. R. Fröberg, S. Lundqvist, A. Oneto and B. Shapiro, *Algebraic Stories from One and from the Other Pockets*, arXiv:1801.01692, Section 2, Conjecture 2.2 and the following paragraph: https://arxiv.org/pdf/1801.01692 . The source already records $n\le2$ and $r\le n$ as known positive cases, crediting Fröberg (1985) for the binary case. That original 1985 proof is not represented as independently read here.
 3. T. Harima, J. C. Migliore, U. Nagel and J. Watanabe, *The Weak and Strong Lefschetz Properties for Artinian K-Algebras*, arXiv:math/0208201v1, Proposition 4.4: https://arxiv.org/pdf/math/0208201 . This is the exact binary SLP theorem used in Section 1.
 
@@ -88,7 +88,7 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500008.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_38b20ffcafc941448e8b51deb6b15a3d.txt
 https://arxiv.org/pdf/1801.01692
 https://arxiv.org/pdf/math/0208201
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

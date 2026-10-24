@@ -1,6 +1,6 @@
 # The covering maximum is exactly a cyclic Jacobsthal gap
 
-Problem: TOP-176  
+Problem: prb_376520b4710e474bb473bed166196653  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 

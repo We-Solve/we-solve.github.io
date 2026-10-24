@@ -21,7 +21,7 @@ Verification. Source-only report: no program is attached. The advertised deducti
 References checked.
 
 - [1] Itay Kaplan, Thomas Scanlon and Frank O. Wagner, Artin–Schreier extensions in NIP and simple fields, arXiv:1009.5421v1, 28 September 2010, Theorem 4.3 and Corollary 4.4, pp.5–6 of the PDF. Infinite NIP fields are required; the degree conclusion is for finite separable extensions. https://arxiv.org/pdf/1009.5421
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1463.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_51782dd696524831aefddfb7486a5069.txt
 
 
 ## Reproducibility and review
@@ -33,5 +33,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 [1] Itay Kaplan, Thomas Scanlon and Frank O. Wagner, Artin–Schreier extensions in NIP and simple fields, arXiv:1009.5421v1, 28 September 2010, Theorem 4.3 and Corollary 4.4, pp.5–6 of the PDF. Infinite NIP fields are required; the degree conclusion is for finite separable extensions. https://arxiv.org/pdf/1009.5421
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1463.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_51782dd696524831aefddfb7486a5069.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

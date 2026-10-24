@@ -1,6 +1,6 @@
 # Baek's reported global optimality theorem matches the catalogue's sofa model
 
-**Problem:** TOP-33. **Claim type:** Literature report.
+**Problem:** prb_bed02fef37c249d2b200304397672699. **Claim type:** Literature report.
 
 **Exact scope.** Jineon Baek's *Optimality of Gerver's Sofa*, arXiv:2411.19826v1, states a global optimality theorem for Gerver's sofa under the same connected closed-set and continuous rigid-motion model used in the prompt. We check that correspondence and identify the exact reported conclusion. This is a credited report on a primary preprint, not a new solution or a claim that all 119 pages have been independently verified. No journal publication or editorial acceptance is asserted without verification.
 
@@ -24,7 +24,7 @@ The exact official prompt already names this primary paper as its formulation so
 
 **Verification and limitations.** Read the primary definitions and footnote, Theorem 1.1.1, the introductory proof outline, the Section 8.4 description, and the final Chapter 8 comparison. The exact source model matches the literal prompt, including connectedness, closedness and orientation preservation. No numerical optimization, polygon approximation or independent full-proof verification was performed. No Python checker is included: a small numerical motion or area sample would not establish the global upper bound. The checked version remains identified as an arXiv preprint.
 
-**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-33.txt); [canonical API record](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-33.json); J. Baek, [Optimality of Gerver's Sofa, arXiv:2411.19826v1](https://arxiv.org/pdf/2411.19826v1), definitions and theorem on printed pages 1–2, overview on pages 3–4, Section 8.4 and final proof on printed page 110; [arXiv version record](https://arxiv.org/abs/2411.19826). The cited Gerver/Romik papers were not separately opened and are not listed as independently checked sources.
+**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_bed02fef37c249d2b200304397672699.txt); [canonical API record](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_bed02fef37c249d2b200304397672699.json); J. Baek, [Optimality of Gerver's Sofa, arXiv:2411.19826v1](https://arxiv.org/pdf/2411.19826v1), definitions and theorem on printed pages 1–2, overview on pages 3–4, Section 8.4 and final proof on printed page 110; [arXiv version record](https://arxiv.org/abs/2411.19826). The cited Gerver/Romik papers were not separately opened and are not listed as independently checked sources.
 
 Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: primary-source definition and theorem audit, status/attribution report. The user requested preparation. No human mathematical review, formal verification, novelty or editorial acceptance is claimed.
 
@@ -36,8 +36,8 @@ This report has no computational verifier; the proof and source checks are recor
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-33.txt
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-33.json
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_bed02fef37c249d2b200304397672699.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/prb_bed02fef37c249d2b200304397672699.json
 https://arxiv.org/pdf/2411.19826v1
 https://arxiv.org/abs/2411.19826
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

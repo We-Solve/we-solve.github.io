@@ -1,6 +1,6 @@
 # Exact weighted coloring on bipartite and elimination-order instances
 
-Problem: TOP-3247
+Problem: prb_56e948d3e2a7458585d0e356f957ad96
 
 Claim type: Partial result.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3247.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_56e948d3e2a7458585d0e356f957ad96.txt
 
 
 ## Reproducibility and review
@@ -39,5 +39,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3247.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_56e948d3e2a7458585d0e356f957ad96.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

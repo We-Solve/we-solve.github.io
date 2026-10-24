@@ -1,6 +1,6 @@
 # A bridge obstruction for every binary projective Steiner triple system
 
-Problem: TOP-3201
+Problem: prb_372fa76347174546b6c264a9a0468a27
 
 Claim type: Partial result.
 
@@ -28,7 +28,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3201.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_372fa76347174546b6c264a9a0468a27.txt
 
 
 ## Reproducibility and review
@@ -39,5 +39,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3201.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_372fa76347174546b6c264a9a0468a27.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

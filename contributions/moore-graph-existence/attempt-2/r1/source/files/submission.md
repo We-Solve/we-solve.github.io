@@ -1,6 +1,6 @@
 # A 400-coclique would force a 2-(400,8,1) design and exact block equations
 
-Problem: TOP-1413
+Problem: prb_b2a6601da959471c90e686f8ef98e396
 
 Claim type: Partial result.
 
@@ -48,7 +48,7 @@ These are credited classical results, elementary deductions, or explicit reports
 
 ## Checked references
 
-- Official TOP-1413 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1413.txt
+- Official prb_b2a6601da959471c90e686f8ef98e396 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b2a6601da959471c90e686f8ef98e396.txt
 - V. Faber and J. Keegan, Existence of a Moore graph of degree 57 is still open, arXiv:2210.09577v6 (27 February 2023): https://arxiv.org/abs/2210.09577
 - A survey on the missing Moore graph, Linear Algebra and its Applications (2019), primary publisher record: https://www.sciencedirect.com/science/article/pii/S0024379519300138
 
@@ -66,7 +66,7 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-Official TOP-1413 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1413.txt
+Official prb_b2a6601da959471c90e686f8ef98e396 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b2a6601da959471c90e686f8ef98e396.txt
 V. Faber and J. Keegan, Existence of a Moore graph of degree 57 is still open, arXiv:2210.09577v6 (27 February 2023): https://arxiv.org/abs/2210.09577
 A survey on the missing Moore graph, Linear Algebra and its Applications (2019), primary publisher record: https://www.sciencedirect.com/science/article/pii/S0024379519300138
 Exact source versions, statements and uses are described in report.md and source_notes.md.

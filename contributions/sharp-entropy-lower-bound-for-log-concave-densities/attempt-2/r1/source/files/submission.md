@@ -1,6 +1,6 @@
 # Sharp entropy bound on affine products of asymmetric exponential laws
 
-Problem: TOP-30007121
+Problem: prb_78bfdfe870c94933a1f97a1f9ee3bede
 
 Claim type: Partial result
 
@@ -48,5 +48,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007121.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_78bfdfe870c94933a1f97a1f9ee3bede.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

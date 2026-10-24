@@ -1,6 +1,6 @@
 # An explicit anticanonical count on every open subset of projective space
 
-Problem: TOP-30006760  
+Problem: prb_2da0b7c0ba314df3b23c4b5050ca3aab  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -42,11 +42,11 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30006760/verify.py). Source SHA-256: `a841b23da04aae90b3193a5e53113cdb995258763f891a3309f70fc88ab74c2d`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify.py`. File SHA-256: `a841b23da04aae90b3193a5e53113cdb995258763f891a3309f70fc88ab74c2d`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
 Batyrev–Tschinkel, Rational points on some Fano cubic bundles, arXiv:alg-geom/9602013v1, https://arxiv.org/pdf/alg-geom/9602013
-Fresh official TOP-30006760 prompt and its Math-170-A1 contribution
+Fresh official prb_2da0b7c0ba314df3b23c4b5050ca3aab prompt and its Math-170-A1 contribution
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30006760/verify.py (Used: exact previously reviewed program; SHA-256 a841b23da04aae90b3193a5e53113cdb995258763f891a3309f70fc88ab74c2d).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify.py` (Used: exact previously reviewed program; SHA-256 a841b23da04aae90b3193a5e53113cdb995258763f891a3309f70fc88ab74c2d).

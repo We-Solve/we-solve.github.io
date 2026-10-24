@@ -1,6 +1,6 @@
 # Integral spectral restrictions for primitive triangle-free strongly regular graphs
 
-Problem: TOP-3145
+Problem: prb_77aa12176d954e43a82bec7770f7d992
 
 Claim type: Partial result.
 
@@ -38,7 +38,7 @@ This is a scoped contribution; no priority claim is made. The proof and the expl
 
 ## References
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3145.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_77aa12176d954e43a82bec7770f7d992.txt
 
 
 ## Reproducibility and review
@@ -49,5 +49,5 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3145.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_77aa12176d954e43a82bec7770f7d992.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

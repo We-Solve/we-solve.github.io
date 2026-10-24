@@ -1,6 +1,6 @@
 # The published two-dimensional Pierce–Birkhoff theorem and polynomial pullbacks
 
-**Problem:** TOP-1181
+**Problem:** prb_2e82ed94804f43899f4bb6f123c1f052
 
 **Claim type:** Literature report
 

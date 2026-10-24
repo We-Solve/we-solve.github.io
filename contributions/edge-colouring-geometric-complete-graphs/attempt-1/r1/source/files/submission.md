@@ -1,6 +1,6 @@
 # Exact C-rule coloring for every convex point set
 
-Problem: TOP-3083
+Problem: prb_881835495ca84e5ab10233ffdae8b2ba
 
 Claim type: Partial result
 
@@ -34,5 +34,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3083.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_881835495ca84e5ab10233ffdae8b2ba.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

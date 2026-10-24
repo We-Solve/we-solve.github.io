@@ -40,7 +40,7 @@ Verification. An attached exact standard-library program is described below; its
 
 References checked.
 
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-178.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_6929d593ccfe408d83a23f36a5d12c73.txt
 
 
 ## Reproducibility and review
@@ -56,5 +56,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-178.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_6929d593ccfe408d83a23f36a5d12c73.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

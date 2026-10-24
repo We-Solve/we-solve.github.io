@@ -1,6 +1,6 @@
 # Genus equals unknotting number for every positive torus knot
 
-Problem: TOP-2664
+Problem: prb_13b7ca4b0aac47ed9c7dd70e0b04bb6b
 
 Claim type: Literature report
 

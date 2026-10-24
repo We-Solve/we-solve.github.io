@@ -1,4 +1,4 @@
-Problem: TOP-3379
+Problem: prb_55af87fb076e4ce8828f1affd2f37470
 
 Title: An exact variance obstruction and independently certified first six extremal values
 
@@ -50,6 +50,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3379.txt
+https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/prb_55af87fb076e4ce8828f1affd2f37470.txt
 S. Steinerberger, Some Remarks on the Erdős Distinct Subset Sums Problem, arXiv:2208.12182, introduction and Corollary 2: https://arxiv.org/pdf/2208.12182
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

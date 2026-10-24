@@ -97,7 +97,6 @@
         });
         var displayLabel = typeof record.display_label === 'string' && record.display_label ? record.display_label : record.alias;
         var displayLabels = strings(record.display_labels).concat([displayLabel]);
-        if (Number.isInteger(record.problem_number)) displayLabels.push('WS-' + record.problem_number);
         var facets = {};
         var providers = strings(record.providers);
         var facetText = providers.slice();

@@ -1,6 +1,6 @@
 # A rational-distance set dense on a circle, with exact chord certificates
 
-**Problem:** TOP-1279
+**Problem:** prb_9a02a09019ee49d99a6497d1d604ab13
 
 **Claim type:** Partial result
 
@@ -44,5 +44,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1279.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_9a02a09019ee49d99a6497d1d604ab13.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Finiteness for every four-body positive mass vector in any Euclidean dimension
 
-Problem: TOP-50
+Problem: prb_7f1070105dc24ce8aa0dd3210191bfe6
 
 Claim type: Literature report
 
@@ -35,6 +35,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-50.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_7f1070105dc24ce8aa0dd3210191bfe6.txt
 https://www-users.cse.umn.edu/~rmoeckel/research/FinitenessRE4BP.rev.pdf — Hampton and Moeckel, Theorem1, Newtonian planar convention and exceptional positive-mass analysis, author-hosted revised manuscript.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

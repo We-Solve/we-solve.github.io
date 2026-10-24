@@ -29,7 +29,7 @@ References checked.
 
 - [1] Igor Pak, Greta Panova and Ernesto Vallejo, Kronecker products, characters, partitions, and the tensor square conjectures, arXiv:1304.0738v2, inspected primary paper: Section 3 gives the character scalar-product framework, sign/conjugation symmetry and Murnaghan–Nakayama applications. Published Advances in Mathematics 288 (2016), 702–731. https://arxiv.org/pdf/1304.0738v2
 - [2] Alexander R. Miller, On parity and characters of symmetric groups, Journal of Combinatorial Theory, Series A 162 (2019), 231–240, DOI 10.1016/j.jcta.2018.11.001. Author manuscript Section 1.1, equations (1) and (2), explicitly states both the Vandermonde/power-sum Frobenius coefficient formula and the Murnaghan–Nakayama rule used by the two independent implementations. These formulas on manuscript p.1 were freshly inspected; no full-paper proof review is claimed. https://www.armiller.org/Parity.pdf
-- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007005.txt
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_7af3838d3ca440b2863d3813b201fdcc.txt
 
 
 ## Reproducibility and review
@@ -40,12 +40,12 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ### Reproducibility file: verify_tensor_squares.py
 
-[Read the original reproduction program at its pinned commit](https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30007005/verify_tensor_squares.py). Source SHA-256: `bb0fa76674cbb7fa0c4d9a272155702368f44f0bc6c38bc0021ca3e2850c43d4`. The source is byte-identical to the reviewed and executed program.
+[Browse the reproduction repository at the pinned commit](https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0). Program file: `verify_tensor_squares.py`. File SHA-256: `bb0fa76674cbb7fa0c4d9a272155702368f44f0bc6c38bc0021ca3e2850c43d4`. The source is byte-identical to the reviewed and executed program.
 
 ## References
 
 [1] Igor Pak, Greta Panova and Ernesto Vallejo, Kronecker products, characters, partitions, and the tensor square conjectures, arXiv:1304.0738v2, inspected primary paper: Section 3 gives the character scalar-product framework, sign/conjugation symmetry and Murnaghan–Nakayama applications. Published Advances in Mathematics 288 (2016), 702–731. https://arxiv.org/pdf/1304.0738v2
 [2] Alexander R. Miller, On parity and characters of symmetric groups, Journal of Combinatorial Theory, Series A 162 (2019), 231–240, DOI 10.1016/j.jcta.2018.11.001. Author manuscript Section 1.1, equations (1) and (2), explicitly states both the Vandermonde/power-sum Frobenius coefficient formula and the Murnaghan–Nakayama rule used by the two independent implementations. These formulas on manuscript p.1 were freshly inspected; no full-paper proof review is claimed. https://www.armiller.org/Parity.pdf
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007005.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_7af3838d3ca440b2863d3813b201fdcc.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30007005/verify_tensor_squares.py (Used: exact previously reviewed program; SHA-256 bb0fa76674cbb7fa0c4d9a272155702368f44f0bc6c38bc0021ca3e2850c43d4).
+Reproduction repository at the pinned commit: https://github.com/gavenren/we-solve-reproducibility/tree/e266bc69d2766f929f65b5787a6ed808760456c0; program file: `verify_tensor_squares.py` (Used: exact previously reviewed program; SHA-256 bb0fa76674cbb7fa0c4d9a272155702368f44f0bc6c38bc0021ca3e2850c43d4).

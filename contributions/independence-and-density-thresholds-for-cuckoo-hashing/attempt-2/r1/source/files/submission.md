@@ -41,6 +41,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30001244.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_593b984c0c184f6ab5ee8e31136e779a.txt
 Nikolaos Fountoulakis, Konstantinos Panagiotou, Sharp Load Thresholds for Cuckoo Hashing, primary author-hosted journal manuscript, model pp.1–2, Theorem 1.1, Proposition 2.1 and Hall deduction: https://web.mat.bham.ac.uk/N.Fountoulakis/RSA_Rev_Late.pdf . arXiv:0910.5147; Random Structures & Algorithms 41 (2012), DOI https://doi.org/10.1002/rsa.20426 .
 Exact source versions, statements and uses are described in report.md and source_notes.md.

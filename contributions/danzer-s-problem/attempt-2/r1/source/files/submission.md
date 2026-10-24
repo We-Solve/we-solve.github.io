@@ -1,6 +1,6 @@
 # Finite unions of Euclidean cut-and-project sets cannot be Danzer
 
-Problem: TOP-1386
+Problem: prb_c857abc82686420186a2e1cfe6f13e26
 
 Claim type: Literature report
 
@@ -31,6 +31,6 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1386.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_c857abc82686420186a2e1cfe6f13e26.txt
 https://arxiv.org/pdf/1406.3807v2 — Solomon and Weiss, Theorem1.2, Section3 definition, and Section7.1 limitation on internal groups; v2 July10,2014.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

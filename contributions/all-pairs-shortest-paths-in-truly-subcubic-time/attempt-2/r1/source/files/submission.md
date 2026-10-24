@@ -1,6 +1,6 @@
 # Seidel's exact subcubic distance algorithm, with its unweighted restriction retained
 
-Problem: TOP-30006803 — All-Pairs Shortest Paths in Truly Subcubic Time.  
+Problem: prb_0fca4402ba6742d8a0b664c18b05f520 — All-Pairs Shortest Paths in Truly Subcubic Time.  
 Claim type: **Partial result**.  
 Scope: A self-contained proof of the classical exact algorithm for finite simple **undirected unweighted** graphs. The output includes every pair's distance, with infinity between components. This does not solve unrestricted weighted APSP; no novelty is claimed.
 

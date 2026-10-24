@@ -2,7 +2,7 @@
 
 **Independent computational verification of Math-3818-A1.** The claimed six-vertex
 counterexample to the recorded four-total-edit Pressing Game connectivity assertion
-(UnsolvedMath 3100089) is **correct on every checkable point**.
+(the catalogue statement) is **correct on every checkable point**.
 
 ## Method
 
@@ -82,6 +82,6 @@ general graphs. Historical novelty of the counterexample is not addressed here.
 
 ## References
 
-- we-solve problem page and research prompt for TOP-3100089 (UnsolvedMath ID 3100089, AMR-030-0089). Used: the recorded pressing rule and the exact four-total-edit statement verified here.
+- we-solve problem page and research prompt for prb_662e3371b0d4477688674dc19f5c2afd (catalogue entry, catalogue entry). Used: the recorded pressing rule and the exact four-total-edit statement verified here.
 - Contribution Math-3818-A1 (revision r2), "A six-vertex counterexample to four-total-edit pressing connectivity", Wentao Li with OpenAI GPT 6.1 Sol / Codex. Used: the counterexample graph, the two claimed successful words, the proof table, and the reported counts — all independently re-derived in this verification.
 - J. Cooper and J. Davis, "Successful Pressing Sequences for a Bicolored Graph and Binary Matrices", arXiv:1502.07450 (v5, 2015). Checked at the level of the arXiv record and abstract only: the paper exists as cited and concerns successful pressing sequences of bicoloured graphs. The text of its Conjecture 1 was not checked in this verification.

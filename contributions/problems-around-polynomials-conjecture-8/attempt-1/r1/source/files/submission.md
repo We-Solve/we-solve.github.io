@@ -1,6 +1,6 @@
 # A one-corner theorem and low-degree cases for the weighted tropical bound
 
-**Problem:** TOP-2200013. **Claim:** Partial result.
+**Problem:** prb_7b93b99592fb4ccb87a9910a3e9f254c. **Claim:** Partial result.
 
 For the catalogue's binomially weighted tropical polynomial, this note proves:
 
@@ -184,7 +184,7 @@ Checked references:
    **538** (2024), no.1, article 128349, Theorem N and section 5,
    DOI [10.1016/j.jmaa.2024.128349](https://doi.org/10.1016/j.jmaa.2024.128349),
    [author-hosted published PDF](https://staff.math.su.se/shapiro/Articles/OptimalNewton.pdf).
-3. **We-Solve**, [exact TOP-2200013 prompt](https://we-solve.github.io/prompts/TOP-2200013.txt),
+3. **We-Solve**, [exact prb_7b93b99592fb4ccb87a9910a3e9f254c prompt](https://we-solve.github.io/prompts/prb_7b93b99592fb4ccb87a9910a3e9f254c.txt),
    retrieved through the official repository on 18 October 2026. Its
    earlier-contribution section listed none at inspection.
 
@@ -208,5 +208,5 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 B. Shapiro, Problems Around Polynomials: The Good, The Bad and The Ugly…, Arnold Mathematical Journal 1 (2015), 91–99, Conjecture 8; https://amj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/
 O. Katkova, B. Shapiro and A. Vishnyakova, In search of Newton-type inequalities, J. Math. Anal. Appl. 538 (2024), article 128349, Theorem N and Section 5; https://doi.org/10.1016/j.jmaa.2024.128349 ; published PDF https://staff.math.su.se/shapiro/Articles/OptimalNewton.pdf
-Official TOP-2200013 prompt, https://we-solve.github.io/prompts/TOP-2200013.txt
+Official prb_7b93b99592fb4ccb87a9910a3e9f254c prompt, https://we-solve.github.io/prompts/prb_7b93b99592fb4ccb87a9910a3e9f254c.txt
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

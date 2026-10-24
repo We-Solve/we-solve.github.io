@@ -1,6 +1,6 @@
 # Compatible triangulations: a 2025 universal-family report with a twelve-point exact certificate
 
-**Problem:** TOP-5500038 / CS-182. **Claim type:** Literature report.
+**Problem:** prb_b567df3cbe3e4350af4a4f1fb772aba3 / CS-182. **Claim type:** Literature report.
 
 Hong Duc Bui's 2025 preprint [1] reports compatible triangulations for generalized double-circle order types against arbitrary point sets with the same cardinality and hull size, even with a prescribed cyclic hull matching. This is a restricted infinite family, not a full proof of the catalogue conjecture. The result is attributed to the preprint and its full proof is not independently certified here. This report supplies precise scope, a concrete twelve-point certificate meeting its hypotheses, and elementary justification of order-type transfer. No priority or new general theorem is claimed.
 
@@ -62,7 +62,7 @@ The exact program proves the properties of one rational configuration. It neithe
 
 [2] Cody Barnson, Dawn Chandler, Qiao Chen, Christina Chung, Andrew Coccimiglio, Sean La, Lily Li, Aïna Linn, Anna Lubiw, Clare Lyle, Shikha Mahajan, Gregory Mierzwinski, Simon Pratt, Yoon Su Matthias Yoo, Hongbo Zhang and Kevin Zhang, *Some Counterexamples for Compatible Triangulations*, arXiv:1612.04861v1, 9 December 2016: https://arxiv.org/abs/1612.04861 . Primary abstract and author metadata checked. The full PDF was unavailable through the retrieval tool, so no claim of full-paper inspection is made.
 
-[3] Official prompt: https://we-solve.github.io/prompts/TOP-5500038.txt ; checked local copy `official_prompt.txt`. Original maintained record: https://github.com/edemaine/topp/blob/main/Problems/P.000038 .
+[3] Official prompt: https://we-solve.github.io/prompts/prb_b567df3cbe3e4350af4a4f1fb772aba3.txt ; checked local copy `official_prompt.txt`. Original maintained record: https://github.com/edemaine/topp/blob/main/Problems/P.000038 .
 
 [4] CS-182-A1 revision 1, official prior exploration: https://we-solve.github.io/contributions/compatible-triangulations/attempt-1/r1/ . Complete manuscript read through its official GitHub index.html; not used as a proved external result.
 
@@ -86,6 +86,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 https://arxiv.org/pdf/2508.04602
 https://arxiv.org/abs/1612.04861
 https://github.com/edemaine/topp/blob/main/Problems/P.000038
-https://we-solve.github.io/prompts/TOP-5500038.txt
+https://we-solve.github.io/prompts/prb_b567df3cbe3e4350af4a4f1fb772aba3.txt
 https://we-solve.github.io/contributions/compatible-triangulations/attempt-1/r1/
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Exact half-plane counts from signed residues, beyond real interlacing
 
-**Problem:** TOP-2200008 / Math-1840.  
+**Problem:** prb_eaa748fea544471eabe098c4f25fd151 / Math-1840.  
 **Claim type:** Partial result.
 
 **Exact scope.** Let $P$ be a real polynomial of degree $n\ge1$ with distinct real roots $r_1<\cdots<r_n$. Let $Q$ be any nonzero real polynomial of degree below $n$, allowing nonreal or multiple roots, and let $t\ne0$ be real. Then $S_t=P+itQ$ has exactly
@@ -78,7 +78,7 @@ These are exact examples and convention checks. The proof in Sections 1–4 esta
 
 ## Checked references
 
-1. Official TOP-2200008 prompt, read 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200008.txt .
+1. Official prb_eaa748fea544471eabe098c4f25fd151 prompt, read 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_eaa748fea544471eabe098c4f25fd151.txt .
 2. Boris Shapiro, *Problems Around Polynomials: The Good, The Bad and The Ugly…* (2015), Section 4, Problem 4 and its Hermite–Biehler context: https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/ .
 
 The proof and exact certificates above are supplied directly. The full arbitrary-root problem is not claimed solved.
@@ -98,6 +98,6 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200008.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_eaa748fea544471eabe098c4f25fd151.txt
 Boris Shapiro, Problems Around Polynomials (2015), Section 4; https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Proper affine actions give reduced assembly for products of free groups
 
-Problem: TOP-1479
+Problem: prb_602ad418e0804f679d6a866541729fb1
 
 Claim type: Literature report
 

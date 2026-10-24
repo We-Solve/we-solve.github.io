@@ -1,6 +1,6 @@
 # Finiteness of Sha after quadratic base change from two rank-at-most-one factors
 
-Problem: TOP-30006701  
+Problem: prb_5c0a41ad560e4510961c4b9ac1a9d091  
 Claim type: Partial result  
 Author: /root/hundred_numbers
 
@@ -42,5 +42,5 @@ This report has proof/source review and no attached Python checker. A separate L
 ## References
 
 C. Skinner, Annals191(2020), introduction pp330,332, https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf
-Fresh official TOP-30006701 prompt; standard Kummer finite2-descent and displayed restriction/corestriction proof
+Fresh official prb_5c0a41ad560e4510961c4b9ac1a9d091 prompt; standard Kummer finite2-descent and displayed restriction/corestriction proof
 Exact source versions, statements and uses are described in report.md and source_notes.md.

@@ -1,6 +1,6 @@
 # Known Casas–Alvero degrees over arbitrary characteristic-zero fields
 
-Problem: TOP-1107. Claim type: Literature report.
+Problem: prb_64a0930bf55c4cfa81c08b81b3bdb4be. Claim type: Literature report.
 
 The official conclusion holds for every characteristic-zero field $K$ when the degree is $d=p^k$ or $d=2p^k$, with $p$ prime and $k\ge1$; degrees one and two are included separately. This is the theorem of Graf von Bothmer, Labs, Schicho and van de Woestijne, not a new result. Their checked arXiv:math/0605090v2 states the theorem on printed pp. 2 and 4–5.
 

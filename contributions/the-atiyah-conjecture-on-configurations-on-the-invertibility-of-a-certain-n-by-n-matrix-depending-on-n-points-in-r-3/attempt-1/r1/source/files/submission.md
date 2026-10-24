@@ -1,6 +1,6 @@
 # Four-point invertibility and a full homogeneous collinear proof
 
-Problem: TOP-7200059
+Problem: prb_b6af425de86943f3a9a55183f973a675
 
 Claim type: Literature report
 
@@ -31,7 +31,7 @@ This report has proof/source review and no attached Python checker. A separate L
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-7200059.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_b6af425de86943f3a9a55183f973a675.txt
 https://arxiv.org/pdf/math/0109161 — Eastwood and Norbury, published2001 version, Theorem1 and Section1 normalization.
 https://arxiv.org/pdf/hep-th/0105179v2 — Atiyah and Sutcliffe, Conjecture1 and explicit collinear discussion; v2 October15,2001.
 Exact source versions, statements and uses are described in report.md and source_notes.md.

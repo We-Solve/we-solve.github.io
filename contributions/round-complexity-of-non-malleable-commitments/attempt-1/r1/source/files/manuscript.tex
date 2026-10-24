@@ -1,0 +1,125 @@
+% RESEARCH_DRAFT_SHA256: 63cf9d3b87be01179942fe45d931655d723eaa65fa8644f5f728b40aa46358a2
+% Layout and source-reference wrappers expanded for the web renderer.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+\section{Round Complexity of Non-Malleable Commitments}\label{statement}
+
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A commitment first fixes a hidden value and later reveals it with an opening. Non-malleability requires that an adversary interacting with commitments cannot create related commitments outside the allowed independence condition. Round complexity counts alternating communication steps.
+
+A cryptographic security requirement compares an efficient adversary\textquotesingle s advantage with a negligible function of the security parameter. A negligible function is smaller than every inverse polynomial eventually; computational and information-theoretic security are different requirements.
+\paragraph{Statement recorded in the supplied source.}
+Determine the round complexity of non-malleable commitments and construct round-efficient schemes secure against man-in-the-middle attacks under standard assumptions. \href{https://doi.org/10.4171/owr/2017/5}{[S2]}
+\paragraph{Scope qualification.}
+The precise security notion, scheduling model, and permitted assumptions are those of the report.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Minimize communication rounds for non-malleable commitments under the stated cryptographic assumptions.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, catalogue entry. Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Cryptography (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/5, pp. 213--266
+\url{https://doi.org/10.4171/owr/2017/5}.
+\item[S3] Lin and Pass, Constant-Round Non-Malleable Commitments
+\url{https://www.cs.cornell.edu/~rafael/papers/cnmc-full.pdf}.
+\item[S4] Ciampi et al., Four-Round Concurrent Commitments
+\url{https://iris.uniroma1.it/handle/11573/1718849}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Catalogue identity checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:statement}
+
+\section{Literature and context check}
+Ostrovsky's OWR 5/2017 talk, pp.~238--240, was read. It carefully distinguishes one-one and concurrent notions and gives specific open round/assumption combinations rather than an unconditional universal round lower bound. A primary ePrint search also returned later and historically revised commitment papers, but their full constructions were not audited here and no present optimum is asserted. The following elementary group-commitment calculation tests a proposed route from hiding and binding to non-malleability; it does not settle round complexity.
+\section{Research attempt: Algebraic malleability survives repetition and unbound tags}
+
+\paragraph{A hiding commitment with a conditional binding argument.}
+Let $G$ be a cyclic group of prime order $\ell\ge3$, and let $g,h$ be generators. For message $m\in\mathbb F_\ell$ and uniform randomness $r\in\mathbb F_\ell$, define
+\[
+ C(m;r)=g^m h^r.
+\]
+For every fixed message this is uniform in $G$, because $r\mapsto h^r$ is a bijection. Hence the commitment is perfectly hiding. If an efficient algorithm finds two openings $(m,r)$ and $(m',r')$ of the same group element with $m\ne m'$, then $r'\ne r$ and
+\[
+ \log_g h=\frac{m-m'}{r'-r}\pmod\ell.
+\]
+Indeed equality of the commitments implies $g^{m-m'}=h^{r'-r}$. Thus under a discrete-log assumption for the chosen parameter-generation distribution, finding two different-message openings would break that assumption. The algebra is proved here; no unconditional discrete-log hardness or concrete parameter security is claimed.
+
+\paragraph{A man-in-the-middle relation with no secret information.}
+Fix $0\ne\delta\in\mathbb F_\ell$. Given an honest commitment $C$, an adversary outputs
+\[
+ C'=Cg^\delta.
+\]
+For every honest opening $(m,r)$, this is a commitment to $m+\delta$ with randomness $r$. Once that opening is revealed, the adversary opens its right-hand commitment as $(m+\delta,r)$. The committed value has the exact related-message relation $m'=m+\delta$, although the adversary did not know $m$ when constructing $C'$. Also $C'\ne C$, so this is not eliminated by an exclusion allowing only identical-copy attacks. This demonstrates malleability in the usual setting allowing the right opening after the left opening. It is a statement about this explicit scheme and schedule, not an impossibility theorem for all one-message commitments.
+
+\paragraph{Two attempted repairs fail on the same calculation.}
+Parallel repetition of this scheme on the same message gives commitments $C_j=g^m h^{r_j}$. Multiplying every $C_j$ by $g^\delta$ preserves a consistent commitment to $m+\delta$, and the honest opening supplies every needed $r_j$. Thus independent repetition improves neither this relation nor its certainty.
+
+Likewise, merely attaching a public tag as a separate field, so that an opening verifies the tag string and the equation $C=g^m h^r$, does not algebraically bind the tag to the commitment. The adversary can choose a different accepted tag and transform the group element as above. A genuine tag-dependent construction may change the algebra or the security proof; this example rules out only the unbound-tag shortcut. Replacing parallel executions by fewer rounds cannot be justified solely by their hiding and binding properties, since these properties coexist here with an exact related-message transformation.
+\section{Verification and adversarial audit}
+Uniform hiding, the two-opening extraction equation, the nonzero denominator and the non-copy condition $C'\ne C$ were checked directly. The attack schedule is specified; no claim is made for a model forbidding the right opening after the left. The repetition and tag failures are proved for the concrete construction, without assuming that every non-malleable scheme has its algebraic form.
+\paragraph{Audit corrections.} Kept computational binding conditional on the stated discrete-log problem and distinguished this malleability example from a universal round lower bound. Did not treat superficial public tagging or parallel repetition as a security proof.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No round-optimal construction, unconditional lower bound, or reduction under the source's specific standard assumptions is produced. The actual result is an explicit failure of a hiding-and-binding plus repetition route. The remaining step is a scheme and simulator that prevent related commitments under the precise concurrent or one-one schedule, rather than only preventing alternate openings of one commitment.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46669} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

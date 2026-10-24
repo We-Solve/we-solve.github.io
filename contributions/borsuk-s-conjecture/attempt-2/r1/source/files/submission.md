@@ -1,6 +1,6 @@
 # An explicit classical Borsuk counterexample certificate in dimension 2277
 
-**Problem:** TOP-1224
+**Problem:** prb_bff4d577d6f24521a9bffca37f2feb6a
 
 **Claim type:** Literature report
 
@@ -51,6 +51,6 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1224.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_bff4d577d6f24521a9bffca37f2feb6a.txt
 https://arxiv.org/pdf/math/9307229
 Exact source versions, statements and uses are described in report.md and source_notes.md.

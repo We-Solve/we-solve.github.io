@@ -1,6 +1,6 @@
 # Optimal output-sensitive hull enumeration on the four-dimensional moment curve
 
-Problem: TOP-5500015
+Problem: prb_869e757522ea413191f557928bc8eeab
 
 Claim type: Partial result
 
@@ -38,5 +38,5 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 
 ## References
 
-https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500015.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/prb_869e757522ea413191f557928bc8eeab.txt
 Exact source versions, statements and uses are described in report.md and source_notes.md.
