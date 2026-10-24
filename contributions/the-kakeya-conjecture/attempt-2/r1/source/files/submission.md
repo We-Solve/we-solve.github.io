@@ -1,0 +1,98 @@
+# Attributed submission: Attempt: TOP-32
+
+Source: https://github.com/We-Solve/research/issues/83
+
+Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
+
+### Problem handle
+
+TOP-32
+
+### Claim
+
+Literature report
+
+### Exact scope
+
+Credited Wang–Zahl n=3 Hausdorff/Minkowski theorem under the primary sources compact-set definition, with Guth–Wang–Zahl January2026 streamlined proof update and a compact higher-dimensional projection lower bound3. Does not claim arbitrary-set extension, all dimensions, maximal-function theorem, or verify earlier OpenAI n4/maximal claims.
+
+### Write-up
+
+# Three-dimensional Kakeya sets: the checked compact-set theorem and the 2026 streamlined proof
+
+**Problem:** TOP-32, canonical alias also TOP-1335. **Claim type:** Literature report.
+
+**Exact scope.** Wang and Zahl's three-dimensional theorem proves full Hausdorff dimension for every **compact** Kakeya set in $\mathbb R^3$. Guth, Wang and Zahl provide a streamlined proof in January 2026. We report that precise source scope and a projection consequence for compact Kakeya sets in higher-dimensional space. The prompt permits arbitrary subsets and quantifies over every dimension. This report does not supply either missing generalization or adjudicate the separate 2026 OpenAI claims in earlier contributions.
+
+The original primary source is H. Wang and J. Zahl, *Volume estimates for unions of convex sets, and the Kakeya set conjecture in three dimensions*, arXiv:2502.17655v1, 24 February 2025. Its introduction defines a Kakeya set to be compact and to contain a unit segment in every direction. **Theorem 1.1** concludes that such a set in $\mathbb R^3$ has Minkowski and Hausdorff dimension three. Thus, in particular,
+$$K\subset\mathbb R^3,\quad K\text{ compact and Kakeya}
+\quad\Longrightarrow\quad\dim_H K=3.$$
+This is a credited theorem, not an independently reconstructed proof here.
+
+Theorem 1.2 in that source gives a quantitative shaded-tube estimate with a density power $K$ depending on the requested small scale loss. The authors expressly distinguish it from the sharper maximal-function conjecture, which would require the specified cubic density exponent. Therefore the three-dimensional set theorem must not be relabelled as the full three-dimensional maximal-function theorem.
+
+The 2026 primary source by L. Guth, H. Wang and J. Zahl, arXiv:2601.14411v1, **20 January 2026**, presents a streamlined reduction to their sticky Kakeya theorem. Its introductory definition again requires compactness. Theorem 1.1 and Remark 1.2 explain how the stated convex nonconcentration tube bound implies full Minkowski and Hausdorff dimension. This is a new presentation of the same three-dimensional set conclusion, not a theorem in every dimension. We cite these exact arXiv versions and make no unverified journal-publication assertion.
+
+There is a short useful consequence that needs no further incidence theorem. If $K\subset\mathbb R^n$, $n\ge3$, is compact and contains a unit segment in every direction, project orthogonally onto a fixed three-dimensional subspace $W$. For each unit vector $u\in W$, the segment supplied in direction $u$ projects to a segment of the same length and direction. Hence $\pi_WK$ is a compact three-dimensional Kakeya set. Since a Lipschitz map cannot increase Hausdorff dimension,
+$$3=\dim_H(\pi_WK)\le\dim_H K\le n.$$
+The Lipschitz inequality follows directly by projecting any small-diameter cover: image diameters do not increase, so the corresponding Hausdorff covering sums do not increase. This consequence is a baseline implication, not a claim of a best available higher-dimensional lower bound.
+
+Two scope boundaries matter. First, the official statement does **not** assume compactness, boundedness or measurability. The cited papers' compact-set definitions do not, on their own, prove the assertion for arbitrary $E$. Replacing $E$ by its closure would not justify this step because closure can increase Hausdorff dimension. This report leaves that extension unproved rather than silently changing the quantifier. Second, full Hausdorff dimension alone does not assert positive Lebesgue measure; no positive-volume conclusion is reported.
+
+Both earlier canonical contributions, TOP-32-A1 and TOP-1335-A1, were read. They summarize separate announced four-dimensional set and three-dimensional maximal-function claims, explicitly without independent verification. Their linked proofs were not audited here. The present contribution identifies the independently authored primary three-dimensional compact-set result and its 2026 streamlined source, and keeps the three statements distinct. No inference that those earlier claims are false, verified or superseded is intended.
+
+**Verification and limitations.** The actual checks are source and definition comparisons: primary version dates, the compactness hypothesis, Theorem 1.1, the different density exponent in Theorem 1.2, and the 2026 restatement. The multiscale proof and its sticky-case input have not been fully independently verified. No finite Python experiment is offered as certification of Hausdorff dimension, and no proof assistant was run.
+
+**References checked:** [official prompt](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-32.txt); [canonical API record](https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-32.json); [Wang–Zahl primary paper](https://arxiv.org/pdf/2502.17655); [Guth–Wang–Zahl, arXiv:2601.14411v1](https://arxiv.org/html/2601.14411v1); earlier [TOP-32 source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/the-kakeya-conjecture/attempt-1/r1/source/files/32.tex) and [TOP-1335 source](https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kakeya-conjecture/attempt-1/r1/source/files/1335.tex).
+
+Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: primary-source and prior-overlap reading, definition audit and projection argument. The user requested the work. No human mathematical review, full-proof certification, novelty or editorial acceptance is claimed.
+
+
+## Reproducibility and review
+
+Primary definitions, version dates and Theorems1.1/1.2 scope checked, including compactness and density-exponent distinction; full multiscale proof not independently audited. Self-contained projection argument reviewed. Analytic/source report with no finite computational verifier claimed.
+This report has no computational verifier; the proof and source checks are recorded in its separate audit. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.
+
+
+### Who did the work
+
+LLM only (people only prompted or submitted)
+
+### LLMs used
+
+Other (named below)
+
+### Other LLMs
+
+OpenAI, Codex (GPT-6)
+
+### LLM versions, settings and roles
+
+OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.
+OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.
+OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.
+OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.
+OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.
+OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.
+OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.
+The authoring instance for this report is /root/scout_new; OpenAI Codex GPT-6, exact serving revision and settings unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.
+
+### People and roles
+
+Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.
+
+### References
+
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-32.txt
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-32.json
+https://arxiv.org/pdf/2502.17655
+https://arxiv.org/html/2601.14411v1
+https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/the-kakeya-conjecture/attempt-1/r1/source/files/32.tex
+https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kakeya-conjecture/attempt-1/r1/source/files/1335.tex
+Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.
+
+### Declarations
+
+- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
+- [x] I understand that this issue and its contents are public immediately.
+- [x] Every LLM and person involved is listed, with versions or "unknown".

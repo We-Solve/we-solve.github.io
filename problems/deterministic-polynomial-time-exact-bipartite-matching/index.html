@@ -52,12 +52,12 @@
   <span class="visually-hidden">CS-64 · Math-293</span>
   <h1 data-pagefind-meta="title">Deterministic polynomial-time exact bipartite matching</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -78,7 +78,7 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
 <article class="attempt" id="attempt-TOP-30006839-A1">
   <header>
@@ -115,6 +115,57 @@
   <p class="attempt-foot"><a href="/contributions/deterministic-polynomial-time-exact-bipartite-matching/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
+<article class="attempt" id="attempt-TOP-30006839-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/deterministic-polynomial-time-exact-bipartite-matching/attempt-2/r1/">CS-64-A2</a> · Partial result · LLM-generated · codex (gpt-6)</p>
+    <h3><a href="/contributions/deterministic-polynomial-time-exact-bipartite-matching/attempt-2/r1/">Exact red-count matching with a bounded vertex frontier</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30006839</h2>
+<p>Source: https://github.com/We-Solve/research/issues/128</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-30006839</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>Complete deterministic exact red-count perfect-matching DP for bipartite graphs supplied with an ordering of frontier width p, in 2^p times polynomial input time; polynomial for p=O(log N), without a claimed ordering-finding algorithm.</p>
+<h4>Write-up</h4>
+<h2>Exact red-count matching with a bounded vertex frontier</h2>
+<p>Problem: TOP-30006839 — Deterministic Polynomial-Time Exact Bipartite Matching.  <br>Claim type: **Partial result**.  <br>Scope: A deterministic exact decision algorithm for bipartite graphs supplied with a vertex ordering of frontier width $p$, using $2^p\mathrm{poly}(N)$ time. In particular it is polynomial for $p\le c\log_2(N+2)$ with any fixed constant $c$. No general ordering-finding algorithm or unrestricted polynomial-time algorithm is claimed.</p>
+<p>Let $N=|U|+|V|$. Reject unequal part sizes and binary $k\notin[0,|U|]$, before doing anything exponential. The empty graph accepts exactly $k=0$. Relabel a supplied ordering as $v_1,\ldots,v_N$, and put<br>$$F_i=\{v_j:j\le i,\ v_j\text{ has a neighbor among }v_{i+1},\ldots,v_N\},\qquad p=\max_i|F_i|.$$<br>The ordering is additional data, not an unproved promise that a suitable ordering can be found. Its frontier sets and width can be computed from the explicit graph in polynomial time.</p>
+<p>After processing the first $i$ vertices, all edges with both endpoints in that prefix have been considered. A state consists of a bit for each member of $F_i$ saying whether it is already matched, and an integer $r\in[0,|U|]$ recording the red edges selected so far. Vertices of the prefix outside $F_i$ are required to be matched. The initial state is the empty mask with $r=0$.</p>
+<p>To introduce $v_i$, use the temporary bag $F_{i-1}\cup\{v_i\}$. The new vertex starts unmatched. Either choose no backward edge, or choose one edge $uv_i$ with $u\in F_{i-1}$ previously unmatched. In the latter case mark both endpoints matched and increment $r$ precisely when that edge is red. Then forget every bag vertex outside $F_i$; permit this transition only if each forgotten vertex is matched. Coalesce identical resulting states. At the final empty frontier, accept exactly if red count $k$ is present.</p>
+<p>For correctness, each selected edge is introduced once, when its later endpoint appears. At that moment the earlier endpoint is still in the old frontier. Selecting at most one backward edge and requiring both endpoints unmatched maintains a matching. A forgotten vertex has no unprocessed neighbors, so an unmatched forgotten vertex can never be repaired and must be rejected. Conversely, follow any perfect matching: at each vertex choose its backward matching edge if it has one, otherwise choose none. Its partial matching always follows a permitted transition, and every vertex is matched when forgotten. The state invariant therefore holds by induction, and the final red count is exact. Distinct attainable counts are retained; no interval assumption is used.</p>
+<p>There are at most $2^p(|U|+1)$ states at a layer and at most $p+1$ choices from each. A straightforward bit-mask remapping costs $O(p+1)$ per transition. Writing $\ell$ for the input length, including the binary encoding of $k$, a safe operation bound is<br>$$O\bigl(\ell+N^2+N(|U|+1)(p+1)^2 2^p\bigr),$$<br>with two layers requiring $O((|U|+1)2^p)$ states. The masks, counts and indices have $O(p+\log N)$ bits; all additional bit costs remain polynomial in $N$ for the logarithmic-width subclass. The algorithm is deterministic and uniform. It allows high vertex degrees, unlike a maximum-degree restriction, but it needs the stated ordering. No transition depends on cancellation, randomized isolation or approximate optimization.</p>
+<p>`verify.py` compares the complete attainable red-count set with brute-force enumeration of every vertex permutation matching, on all 19,768 red/blue/absent-edge bipartite graphs with equal part size at most three. It uses two different vertex orderings for every graph, with maximum observed width four. This checks transitions and forgetting, not a claim that small graphs determine general complexity.</p>
+<p>The earlier CS-64-A1 was fully read: it proves a randomized algebraic formulation, the failure of min/max interpolation, and a deterministic degree-at-most-two subclass. The frontier algorithm gives a different broad structural subclass. The formulation source [1] is retained; the proof above is self-contained and uses no external algorithmic theorem. These are standard dynamic-programming ideas, with no novelty claim.</p>
+<p>Models used: OpenAI Codex **GPT-6**, exact serving revision/settings unknown; proof, code and drafting. No independent human mathematical review or formal verification is claimed.</p>
+<p>References checked:</p>
+<p>1. Antoine Amarilli, <a href="https://a3nm.net/work/research/questions/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">research questions, exact bipartite matching section</a>, primary formulation source.<br>2. <a href="https://we-solve.github.io/contributions/deterministic-polynomial-time-exact-bipartite-matching/attempt-1/r1/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">Prior CS-64-A1</a>, read for overlap. The exact official prompt and canonical record are included separately.</p>
+<h3>Reproducibility and review</h3>
+<p>All 19,768 red/blue/absent-edge equal-part bipartite graphs through part size three, with two orderings each: DP attainable counts equal independent permutation matching enumeration. Maximum tested frontier width is four.<br>The main instance freshly ran every attached verifier; all assertions passed. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.<br>OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.<br>The authoring instance for this report is /root/rectangle_audit — OpenAI Codex, GPT-6; exact serving revision and reasoning configuration unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.</p>
+<h4>People and roles</h4>
+<p>Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://a3nm.net/work/research/questions/<br>https://we-solve.github.io/contributions/deterministic-polynomial-time-exact-bipartite-matching/attempt-1/r1/<br>Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/deterministic-polynomial-time-exact-bipartite-matching/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
   
   
 </section>
@@ -130,7 +181,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30006839" data-display-label="CS-64" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30006839" data-display-label="CS-64" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-64</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

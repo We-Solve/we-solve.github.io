@@ -1,0 +1,98 @@
+# Attributed submission: Attempt: TOP-7200088
+
+Source: https://github.com/We-Solve/research/issues/348
+
+Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
+
+### Problem handle
+
+TOP-7200088
+
+### Claim
+
+Literature report
+
+### Exact scope
+
+For N=5 on the unit2-sphere and the literal Coulomb chord-distance energy, the triangular bipyramid is the unique minimizing configuration up to sphere isometries and relabeling; its energy is 1/2+sqrt(3)+3sqrt(2).
+
+### Write-up
+
+# The five-charge Thomson minimum and its exact energy
+
+Problem: TOP-7200088
+
+Claim type: Literature report
+
+Exact scope: For N=5 on the unit2-sphere and the literal Coulomb chord-distance energy, the triangular bipyramid is the unique minimizing configuration up to sphere isometries and relabeling; its energy is 1/2+sqrt(3)+3sqrt(2).
+
+Schwartz's The 5-Electron Case of Thomson's Problem, arXiv:1001.3702 (inspected 67-page manuscript), Theorem1.1, proves the triangular bipyramid is the unique global minimizer for five charges with Coulomb 1/r potential. Its Theorem1.2 concerns 1/r^2 and is not substituted for the selected objective. Theorem1.1 is a rigorous computer-assisted literature result; the large interval calculation is not rerun or independently certified by this contribution.
+
+The geometric normalization matches exactly. Put two points at (0,0,1),(0,0,-1), and the other three at the vertices of an equilateral triangle on the equator. The pole-pole chord has length2, the three equatorial chords have length sqrt(3), and the six pole-equator chords have length sqrt(2). There are 1+3+6=10 pairs, and hence the exact energy is
+\[
+ E_5={1\over2}+{3\over\sqrt3}+{6\over\sqrt2}
+ ={1\over2}+\sqrt3+3\sqrt2.
+\]
+The cited theorem turns this explicit upper value into the global minimum and excludes noncongruent competitors. Sphere isometries preserve chord distances, and permuting charges does not alter the unordered sum. Conversely a minimizer has no collision, since collisions give infinite positive energy; the theorem treats the finite-energy configurations.
+
+The proof strategy in the source separates global exclusion from local certification: stereographic-coordinate subdivision and interval energy bounds confine any minimizer near the candidate, followed by a positive-definite Hessian argument there. A stationarity or numerical Hessian check alone would not supply that global exclusion. We retain this distinction rather than describe a local optimization as a theorem.
+
+This settles one nontrivial remaining order beyond the earlier archive's N=1,2,3,4,6 cases. It does not classify all N, assert a formula for general energy, or certify that the paper's software has been executed in this workspace. All numerical-free calculations performed here concern the pair multiplicities and exact value; global optimality remains explicitly credited literature.
+
+Models used: Codex; exact serving model version is not exposed. Role: mathematical drafting and source inspection. Human contributors: none declared. No historical novelty, formal verification, or human peer review is claimed.
+
+Verification record: Source-only/proof-only report: no code is attached or claimed executed. Verification consists of the written proof, exact literal-prompt/prior comparison, and the specifically cited primary theorem statements.
+
+
+## Reproducibility and review
+
+Source-only/proof-only report: no code is attached or claimed executed. Verification consists of the written proof, exact literal-prompt/prior comparison, and the specifically cited primary theorem statements.
+
+This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
+
+
+### Who did the work
+
+LLM only (people only prompted or submitted)
+
+### LLMs used
+
+Other (named below)
+
+### Other LLMs
+
+OpenAI, Codex (GPT-6)
+OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
+
+### LLM versions, settings and roles
+
+OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.
+OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
+The authoring instance for this report is /root/hundred_geometry. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
+
+User-specified model attribution (19 October 2026):
+Model: GPT-6.1 Sol
+Reasoning level: Ultra
+Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
+This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
+
+### People and roles
+
+Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.
+
+### References
+
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-7200088.txt
+https://arxiv.org/pdf/1001.3702 — Richard E. Schwartz, Theorem1.1 (Coulomb), Section1.2 and proof structure Section1.3; 67-page manuscript inspected.
+Exact source versions, statements and uses are described in report.md and source_notes.md.
+
+### Declarations
+
+- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
+- [x] I understand that this issue and its contents are public immediately.
+- [x] Every LLM and person involved is listed, with versions or "unknown".

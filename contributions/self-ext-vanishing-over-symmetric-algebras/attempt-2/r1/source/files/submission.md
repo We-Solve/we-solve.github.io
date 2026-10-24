@@ -1,0 +1,128 @@
+# Attributed submission: Attempt: TOP-30007006
+
+Source: https://github.com/We-Solve/research/issues/227
+
+Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
+
+### Problem handle
+
+TOP-30007006
+
+### Claim
+
+Partial result
+
+### Exact scope
+
+Every nonprojective module that is periodic in the stable category of a finite-dimensional symmetric algebra has a nonzero positive self-Ext; in particular the prompt has a positive answer for all representation-finite symmetric algebras.
+
+### Write-up
+
+# Periodic modules force positive self-extensions over symmetric algebras
+
+**Problem:** TOP-30007006
+
+**Claim type:** Partial result
+
+**Exact scope:** Every nonprojective module that is periodic in the stable category of a finite-dimensional symmetric algebra has a nonzero positive self-Ext; in particular the prompt has a positive answer for all representation-finite symmetric algebras.
+
+## Stable periodicity as a complete positive case
+
+Let $A$ be a finite-dimensional symmetric algebra over any field. Write $\underline{\mathrm{Hom}}_A(X,Y)$ for $A$-linear maps modulo maps factoring through finite projective modules, and let $\Omega$ be the syzygy functor on this stable category. If a nonprojective finite module $M$ satisfies
+
+$$\Omega^p M\simeq M\quad\text{in the stable category for some }p\ge1,$$
+
+then $\mathrm{Ext}_A^p(M,M)\ne0$. Thus the vanishing condition in the prompt implies projectivity for every module with stable periodicity. This includes every module over a representation-finite symmetric algebra. These are standard positive cases; they are not claimed as new to the literature.
+
+## Why symmetry supplies the needed homological properties
+
+Symmetric means $A\simeq D(A)=\mathrm{Hom}_k(A,k)$ as $A$-bimodules. The left module $D(A)$ is injective, because
+
+$$\mathrm{Hom}_A(X,D(A))\simeq D(X)$$
+
+is an exact functor of finite-dimensional modules. Hence the regular module $A$ is injective, and every finite projective is injective. Conversely, finite injectives are summands of finite sums of $D(A)$ and hence projective. The finite-module category is therefore Frobenius.
+
+Given $0\to\Omega X\to P\to X\to0$ with $P$ projective, applying $\mathrm{Hom}_A(-,Y)$ gives
+
+$$\mathrm{Ext}_A^1(X,Y)=\mathrm{Hom}_A(\Omega X,Y)/\mathrm{im}\mathrm{Hom}_A(P,Y).$$
+
+The denominator equals the maps factoring through projectives. One containment is immediate from $P$ being projective. Conversely, if $\Omega X\to Q\to Y$ factors through a projective $Q$, injectivity of $Q$ extends the first map over $P$. Thus
+
+$$\mathrm{Ext}_A^q(X,Y)\simeq\underline{\mathrm{Hom}}_A(\Omega^q X,Y)\qquad(q\ge1)$$
+
+by dimension shifting. No positive Ext into $A$ hypothesis is required here.
+
+## The nonzero stable identity
+
+The identity of a nonprojective module is nonzero in the stable category. If it factored as $M\to Q\to M$ with $Q$ projective, then $M$ would be a direct summand of $Q$ and hence projective. A stable isomorphism $\Omega^pM\simeq M$ is therefore a nonzero stable map to $M$. The displayed Ext–stable-Hom identification makes it a nonzero element of $\mathrm{Ext}_A^p(M,M)$, proving the first assertion.
+
+## Representation-finite algebras
+
+Suppose $A$ has only finitely many isomorphism classes of indecomposable finite modules. On its stable category, $\Omega$ is an autoequivalence: its inverse is obtained by taking the cokernel of an embedding into an injective-projective, and the two compositions are the identity up to projective summands by the elementary Schanuel comparison of two such exact sequences. The finite stable category is Krull–Schmidt; the indecomposable nonzero objects are exactly nonprojective indecomposable modules up to stable isomorphism. An autoequivalence permutes their finitely many isomorphism classes. Each such object is consequently periodic under some positive power of $\Omega$.
+
+If $M$ is nonprojective, it has a nonprojective indecomposable summand $X$. Choose a period $p$ for $X$. The preceding result gives $\mathrm{Ext}_A^p(X,X)\ne0$. Additivity in each variable makes this group a direct summand of $\mathrm{Ext}_A^p(M,M)$, so the latter is nonzero. Equivalently, if there are $t$ nonprojective indecomposable stable isomorphism classes, a period for $X$ is at most $t$; a positive self-extension occurs by degree $t$.
+
+## Limit and prior-claim comparison
+
+The conclusion applies to representation-finite symmetric algebras in every characteristic, and also to individual periodic modules over algebras of infinite representation type. It does not assert periodicity for every module over an arbitrary symmetric algebra. A bounded list of numerically zero Ext groups is insufficient without a proven period.
+
+The earlier revision reports an unverified general symmetric-algebra counterexample attributed to a 2026 manuscript. No such example is checked here. If it is valid, its nonprojective module cannot be stably periodic and its algebra cannot be representation-finite, by the independent proof above. That is a useful exact boundary, not a general validation or refutation of the reported manuscript.
+
+## References checked
+
+- Craig Huneke and Graham J. Leuschke, On a conjecture of Auslander and Reiten, formulation of the self-extension problem and homological context: https://arxiv.org/pdf/math/0305001
+- Earlier revision inspected: https://we-solve.github.io/contributions/self-ext-vanishing-over-symmetric-algebras/attempt-1/r1/
+
+
+## Reproducibility and review
+
+Proof only; no computational verification is claimed.
+
+This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
+
+
+### Who did the work
+
+LLM only (people only prompted or submitted)
+
+### LLMs used
+
+Other (named below)
+
+### Other LLMs
+
+OpenAI, Codex (GPT-6)
+OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
+
+### LLM versions, settings and roles
+
+OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.
+OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
+The authoring instance for this report is /root/hundred_algebra. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
+
+User-specified model attribution (19 October 2026):
+Model: GPT-6.1 Sol
+Reasoning level: Ultra
+Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
+This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
+
+### People and roles
+
+Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.
+
+### References
+
+Craig Huneke and Graham J. Leuschke, On a conjecture of Auslander and Reiten, formulation of the self-extension problem and homological context: https://arxiv.org/pdf/math/0305001
+Earlier revision inspected: https://we-solve.github.io/contributions/self-ext-vanishing-over-symmetric-algebras/attempt-1/r1/
+Exact source versions, statements and uses are described in report.md and source_notes.md.
+
+### Declarations
+
+- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
+- [x] I understand that this issue and its contents are public immediately.
+- [x] Every LLM and person involved is listed, with versions or "unknown".

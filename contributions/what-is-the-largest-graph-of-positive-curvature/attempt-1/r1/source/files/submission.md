@@ -1,0 +1,114 @@
+# Attributed submission: Attempt: TOP-3328
+
+Source: https://github.com/We-Solve/research/issues/331
+
+Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
+
+### Problem handle
+
+TOP-3328
+
+### Claim
+
+Literature report
+
+### Exact scope
+
+Report Ghidelli’s exact maximum208 for the prompt’s spherical positive-combinatorial-curvature class, matching repeated face-incidence conventions, minimum degree and prism/antiprism exclusions.
+
+### Write-up
+
+# The published208-vertex curvature bound matches the recorded problem
+
+Problem: TOP-3328
+
+Claim type: Literature report.
+
+Exact scope: Report Ghidelli’s exact maximum208 for the prompt’s spherical positive-combinatorial-curvature class, matching repeated face-incidence conventions, minimum degree and prism/antiprism exclusions.
+
+## Credited theorem and matching hypotheses
+
+Ghidelli’s Theorem3.1 in the inspected extended author version states that a planar PCC graph has at most208 vertices. Definition1.1 means a finite simple connected spherical graph with positive combinatorial curvature everywhere, minimum degree at least3, excluding prisms and antiprisms. Section18 exhibits208-vertex examples, so the bound is attained. The result is published in JCTB158(2023),226–263; the extended version arXiv1708.08502v2 supplies the detailed case analysis. The deep discharging proof and the geometric examples are credited, not independently reverified here.
+
+The source defines curvature by
+
+K(v)=1−deg(v)/2+Σ_(face incidences at v)1/|f|.
+
+Its incident-face objects are explicitly multisets, and face length counts the boundary walk. This agrees with the prompt even when an incidence repeats. The surface is the sphere, the unbounded plane face is included, and no orientable higher-genus or different Ricci-curvature convention is substituted. Thus the exact extremal answer to the recorded class is208 by the cited upper theorem and its credited attaining example.
+
+## A self-contained normalization check
+
+For any finite connected cellular spherical embedding, sum this curvature over all vertices. Degree terms contribute−|E|. For each face, its|f| boundary incidences each contribute1/|f|, giving total1 per face, including repetitions. Therefore
+
+Σ_vK(v)=|V|−|E|+|F|=2
+
+by Euler’s formula. In particular an order bound must control average curvature, not merely its positivity: the average is2/|V| and may be arbitrarily small in allowed infinite families if exclusions are removed.
+
+Indeed an r-prism has two r-gonal faces and r quadrilateral faces. At each of its2r vertices, the face multiset is(4,4,r), giving K=1−3/2+1/4+1/4+1/r=1/r>0. For an r-antiprism the multiset is(3,3,3,r) and degree4, again giving K=1−2+1+1/r=1/r. Their orders2r are unbounded. This directly verifies why the two exclusions are essential rather than a cosmetic qualification.
+
+No208-vertex adjacency list has been reconstructed or certified by a local script here. The attainment statement is explicitly the literature input, and no claim of a new extremal construction or independent completion of the long discharging proof is made.
+
+## Evidence and limits
+
+This is a scoped contribution; no priority claim is made. The proof and the explicitly credited external inputs carry the infinite quantifiers. No human review, formal proof verification, or public submission is claimed. Proof/source review only; no program is attached at authoring time.
+
+## References
+
+- https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3328.txt
+- https://arxiv.org/pdf/1708.08502
+- https://www.sciencedirect.com/science/article/pii/S0095895622000855
+
+
+## Reproducibility and review
+
+Proof/source review only; no code attached at authoring time. Exact hypotheses and boundary cases are addressed in report.md; external theorem proofs are credited rather than claimed independently verified.
+
+This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
+
+
+### Who did the work
+
+LLM only (people only prompted or submitted)
+
+### LLMs used
+
+Other (named below)
+
+### Other LLMs
+
+OpenAI, Codex (GPT-6)
+OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
+
+### LLM versions, settings and roles
+
+OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.
+OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
+OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
+The authoring instance for this report is /root/hundred_graphs. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
+
+User-specified model attribution (19 October 2026):
+Model: GPT-6.1 Sol
+Reasoning level: Ultra
+Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
+This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
+
+### People and roles
+
+Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.
+
+### References
+
+https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3328.txt
+https://arxiv.org/pdf/1708.08502
+https://www.sciencedirect.com/science/article/pii/S0095895622000855
+Exact source versions, statements and uses are described in report.md and source_notes.md.
+
+### Declarations
+
+- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
+- [x] I understand that this issue and its contents are public immediately.
+- [x] Every LLM and person involved is listed, with versions or "unknown".

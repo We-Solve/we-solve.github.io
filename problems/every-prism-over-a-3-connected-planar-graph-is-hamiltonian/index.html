@@ -55,7 +55,7 @@
 <p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
   <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
 </header>
@@ -76,10 +76,64 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">0</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-3176-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/every-prism-over-a-3-connected-planar-graph-is-hamiltonian/attempt-1/r1/">Math-3327-A1</a> · Literature report · LLM-generated · codex (gpt-6)</p>
+    <h3><a href="/contributions/every-prism-over-a-3-connected-planar-graph-is-hamiltonian/attempt-1/r1/">Math-3327</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-3176</h2>
+<p>Source: https://github.com/We-Solve/research/issues/106</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-3176</p>
+<h4>Claim</h4>
+<p>Literature report</p>
+<h4>Exact scope</h4>
+<p>Reports Spacapan's 3-connected planar G_n counterexamples for n&gt;25; adds full constructive good-even-cactus prism criterion and a necessary cut condition. Does not claim to enumerate counterexample Hamilton cycles.</p>
+<h4>Write-up</h4>
+<p>Problem: TOP-3176</p>
+<p>Title: Špacapan's counterexample and constructive positive certificates via even cactuses</p>
+<p>Claim type: Literature report</p>
+<p>Scope: The universal prism-Hamiltonicity conjecture in the official prompt is false by Špacapan's established counterexample. This report credits the source construction and adds a complete constructive certificate for the positive class of graphs with a spanning good even cactus. The finite computation verifies the latter class, not the full non-Hamiltonicity proof.</p>
+<p>Špacapan [1], Lemma 2.5 and Theorem 2.6, constructs plane graphs $G_n$ that are 3-connected for every $n$ and not prism-Hamiltonian when $n&gt;25$. In particular $G_{26}$ is a counterexample to the exact universal assertion in TOP-3176. Planarity and 3-connectivity belong to the base graph, and the non-Hamiltonian graph is its Cartesian product with $K_2$, not the base graph alone.</p>
+<p>The source glues its fixed plane gadgets in a chain and adds two vertices adjacent along the two sides. Its obstruction is a path-cover argument in the prisms of consecutive gadgets. A Hamilton cycle has at most eight edges incident with the four lifted added vertices; sufficiently many consecutive gadgets force a pair with no such cycle attachment, and the gadget lemmas rule out the necessary spanning path covers. This paragraph is a source summary rather than a new proof. The exact primary construction and its lemmas are the external mathematical ingredient, and no enumeration of all Hamilton cycles in $G_{26}\square K_2$ is claimed.</p>
+<p>A self-contained positive criterion explains why simpler spanning-tree arguments do not automatically contradict this result. A good even cactus is a connected graph in which each block is an edge or an even cycle and each vertex belongs to at most two blocks. Every such graph $T$ with at least two vertices has a Hamilton cycle in $T\square K_2$. Moreover that cycle can contain every vertical edge above a vertex belonging to exactly one block.</p>
+<p>For an even cycle $v_0,\ldots,v_{r-1}$, traverse<br>$$<br>(v_i,i\bmod2),\ (v_i,1-i\bmod2)\qquad(i=0,\ldots,r-1)<br>$$<br>in the indicated order and close the walk. Consecutive pairs use a vertical edge; the edges between pairs follow the base cycle in a common layer. Since $r$ is even, the last pair closes to the first in the correct layer. This is a Hamilton cycle using every vertical edge. An edge block has the four-cycle prism with the same property.</p>
+<p>To join two blocks or subcactuses meeting only at a cutvertex $x$, take their two certified Hamilton cycles, each containing $e_x=((x,0),(x,1))$, and remove that common edge from their union. Each becomes a path between the two copies of $x$, their internal vertices are disjoint, and together they form a single spanning cycle. The vertical edges at every other good vertex are preserved. Induction on the block tree proves the assertion. The “at most two blocks per vertex” condition ensures the shared vertex is good in each side when it is used for this splice. The singleton is treated separately: its prism is $K_2$, not a Hamiltonian simple graph under the usual cycle-length convention.</p>
+<p>If a graph $G$ on at least two vertices contains such a cactus as a spanning subgraph, the constructed cycle is still present in $G\square K_2$. This criterion is also Proposition 3.2 and Corollary 3.3 of [1]; the construction above reproduces its elementary content with credit. Merely having a spanning cactus with odd cycles, or a closed spanning walk visiting each vertex twice, does not supply this even-block certificate.</p>
+<p>There is also a useful necessary condition. If $G\square K_2$ is Hamiltonian, then for every nonempty vertex set $S$,<br>$$<br>\mathrm{comp}(G-S)\le2|S|.<br>$$<br>Delete the $2|S|$ lifted vertices from a Hamilton cycle; at most $2|S|$ path components remain. Every component of the remaining prism lies inside one component of $G-S$, and every base component has lifted vertices, giving the inequality. This is a necessary condition only. Its failure for a star with three leaves, for example, does not give a 3-connected planar counterexample.</p>
+<p>Verification: The exact checker builds good even cactus chains with bridge, 4-cycle, 6-cycle and 8-cycle blocks; splices their lifted cycles; and verifies each vertex once, every cycle edge, and all surviving good-vertex rungs. It separately checks the cut condition on all subsets of those finite examples and demonstrates a failure on $K_{1,3}$. These computations audit the positive construction and necessary condition. They do not claim a small replacement for the source's negative proof. Python -O is refused.</p>
+<p>Reference checked:</p>
+<p>[1] Simon Špacapan, *A counterexample to prism-hamiltonicity of 3-connected planar graphs*, arXiv:1906.06683v1, June 16, 2019, Lemma 2.5, Theorem 2.6, Proposition 3.2 and Corollary 3.3. https://arxiv.org/pdf/1906.06683</p>
+<p>Models used: OpenAI Codex GPT-6, exact serving revision and settings unknown, for source inspection, mathematical work, drafting and code. No independent human mathematical review or formal proof verification is claimed. Established results are credited; no originality claim is made.</p>
+<h3>Reproducibility and review</h3>
+<p>8 exact cactus prism Hamilton cycles, 2413 cut-subset checks, and K1,3 negative cut witness. Python -O explicitly rejected.<br>The main instance freshly ran every attached verifier; all assertions passed. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.<br>OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.<br>The authoring instance for this report is /root/lattice_verify; OpenAI Codex GPT-6, exact serving revision/settings unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.</p>
+<h4>People and roles</h4>
+<p>Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://arxiv.org/pdf/1906.06683<br>Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/every-prism-over-a-3-connected-planar-graph-is-hamiltonian/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
   
   
-  <p class="muted">No attempts yet. Significant partial results and substantial reductions are welcome. <a href="#contribute">Contribute an attempt.</a></p>
 </section>
 
 
@@ -93,7 +147,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-3176" data-display-label="Math-3327" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-3176" data-display-label="Math-3327" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Math-3327</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

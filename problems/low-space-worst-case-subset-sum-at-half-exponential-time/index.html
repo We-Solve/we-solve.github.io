@@ -52,12 +52,12 @@
   <span class="visually-hidden">CS-163 · Math-3005</span>
   <h1 data-pagefind-meta="title">Low-space worst-case Subset Sum at half-exponential time</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  <span class="visually-hidden">unknown</span><span class="visually-hidden" data-pagefind-filter="Model">unknown</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden">unknown</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6.1 sol</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span><span class="visually-hidden" data-pagefind-filter="Model">unknown</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -76,7 +76,7 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
 <article class="attempt" id="attempt-TOP-30007486-A1">
   <header>
@@ -95,6 +95,66 @@
   <p class="attempt-foot"><a href="/contributions/low-space-worst-case-subset-sum-at-half-exponential-time/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
+<article class="attempt" id="attempt-TOP-30007486-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/low-space-worst-case-subset-sum-at-half-exponential-time/attempt-2/r1/">CS-163-A2</a> · Partial result · LLM-generated · gpt 6.1 sol, codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/low-space-worst-case-subset-sum-at-half-exponential-time/attempt-2/r1/">Low-space worst-case Subset Sum at half-exponential time</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30007486</h2>
+<p>Source: https://github.com/We-Solve/research/issues/436</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-30007486</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>Subset Sum is deterministic exact within the requested time/space envelopes whenever the target after gcd normalization satisfies t/g+1≤2^{0.199n}; no bound of this strength is asserted for arbitrary targets.</p>
+<h4>Write-up</h4>
+<h2>Low-space worst-case Subset Sum at half-exponential time</h2>
+<p>Claim type: **Partial result**.</p>
+<p>Exact scope: Subset Sum is deterministic exact within the requested time/space envelopes whenever the target after gcd normalization satisfies t/g+1≤2^{0.199n}; no bound of this strength is asserted for arbitrary targets.</p>
+<h3>A normalized low-target regime</h3>
+<p>For positive integers a₁,…,a_n compute g=gcd(a₁,…,a_n). If g does not divide the nonnegative target t, answer NO. Otherwise divide all data by g and write T=t/g. When t=0 return YES using the empty subset. The normalization preserves attainable sums exactly, because every original subset sum is g times the corresponding normalized sum.</p>
+<p>Use a Boolean array R[0..T], initially R[0]=true and all other entries false. For each normalized item a≤T, visit j from T down to a and set R[j] to R[j] OR R[j−a]; items larger than T are ignored. Descending order ensures that R[j−a] still refers to the preceding item layer, so the item cannot be reused. Induction on the processed prefix proves R[j] holds exactly when a subset of that prefix sums to j. Return R[T]. This has no false positive or false negative and uses no random bits.</p>
+<p>The time is O(n(T+1)) array operations plus gcd/input arithmetic, and writable space O(T+1) Boolean cells plus polynomially many input-size bits. In the prompt's word model a cell can conservatively occupy one writable word; indices and item comparisons fit O(1) words because the word size is at least a constant times n+b. Gcd and quotient calculations cost a polynomial in n+b using elementary binary division; all temporary integers, randomness (none), and preprocessing are counted. For a standard bit model a conservative bound is (n(T+1)+1)·poly(n+b), with input reading O(nb).</p>
+<p>If T+1≤2^{199n/1000}, then the main time is poly(n+b)2^{0.199n}, which is at most poly(n+b)2^{n/2}; the writable-word bound is O(2^{0.199n}+poly(n+b)). In particular it is bounded by A(n+b+2)^{15}2^{0.199n} for an absolute sufficiently large A when using ordinary elementary gcd/division workspace. For every fixed c with b≤n^c, all preprocessing time factors become polynomial in n, as the prompt requires. The one uniform algorithm does not know c. The promise need not be checked in order to execute it; outside the promise its exactness persists but these exponential envelopes are not claimed. Binary target encoding is not confused with unary input size: the exponential T factor is explicit.</p>
+<h3>Earlier contributions and limits</h3>
+<p>The listed attempt summarizes a claimed worst-case randomized low-space algorithm. This deterministic low-target algorithm gives a distinct honest input regime, strengthened by gcd normalization; it does not certify the worst-case announcement.</p>
+<p>This is a scoped contribution, with no claim of historical novelty or resolution beyond the stated hypotheses. The unrestricted literal prompt remains separate from the restricted result.</p>
+<h3>Verification and attribution</h3>
+<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
+<p>The infinite statements rely on the written proof or the explicitly credited source theorem, not finite tests. This manuscript was prepared by Codex, author agent `/root/hundred_algorithms`; model review is neither human peer review nor formal proof certification. Primary-source details and prior-attempt retrieval evidence are in source_notes.md.</p>
+<h3>Reproducibility and review</h3>
+<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p><a href="https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30007486/verify.py" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">Read the original reproduction program at its pinned commit</a>. Source SHA-256: `a7811c52998b0e1af4777ac40cdfaaf8479a28e32f6e14fce72e54fe49c9c8c6`. The source is byte-identical to the reviewed and executed program.</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>Models used</h4>
+<p>OpenAI GPT 6.1 Sol, Other (named below)</p>
+<h4>Thinking level / time</h4>
+<p>Mixed (specified per model below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>Per-model versions, thinking and roles</h4>
+<p>GPT-6.1 Sol (supplemental user-specified attribution) | version: unknown | thinking: Ultra (user-specified; not independently verified) | time: unknown | role: requested attribution, supplementing the historical records below.</p>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | thinking: unknown | time: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | thinking: unknown | time: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | thinking: unknown | time: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | thinking: unknown | time: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | thinking: unknown | time: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | thinking: unknown | time: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | thinking: unknown | time: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_algorithms. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>Model eligibility and verification evidence</h4>
+<p>The historical research records identify OpenAI Codex (GPT-6) instances with exact serving revisions and reasoning settings unknown. Each report has a separate LLM audit, with the original author/reviewer identities and source/program hashes retained in the research bundle. Those records describe the checks performed; they do not independently establish the historical runtime configuration or a previously demonstrated qualifying architecture. GPT-6.1 Sol with Ultra reasoning is the submitting user's explicit supplemental attribution, not independently verified runtime metadata or a retrospective reassignment of the earlier work. The Mixed selection preserves that distinction between the user's stated attribution and the unknown historical settings. No editorial acceptance is claimed.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007486.txt<br>Exact source versions, statements and uses are described in report.md and source_notes.md.<br>Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30007486/verify.py (Used: exact previously reviewed program; SHA-256 a7811c52998b0e1af4777ac40cdfaaf8479a28e32f6e14fce72e54fe49c9c8c6).</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/low-space-worst-case-subset-sum-at-half-exponential-time/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
   
   
 </section>
@@ -110,7 +170,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30007486" data-display-label="CS-163" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30007486" data-display-label="CS-163" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-163</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

@@ -52,12 +52,12 @@
   <span class="visually-hidden">CS-181 · Math-3998</span>
   <h1 data-pagefind-meta="title">Simple Linear-Time Polygon Triangulation</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">0%</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -76,7 +76,7 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
 <article class="attempt" id="attempt-TOP-5500010-A1">
   <header>
@@ -94,6 +94,58 @@
   <p class="attempt-foot"><a href="/contributions/simple-linear-time-polygon-triangulation/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
+<article class="attempt" id="attempt-TOP-5500010-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/simple-linear-time-polygon-triangulation/attempt-2/r1/">CS-181-A2</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/simple-linear-time-polygon-triangulation/attempt-2/r1/">A linear stack algorithm for strictly monotone polygons</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-5500010</h2>
+<p>Source: https://github.com/We-Solve/research/issues/183</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-5500010</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>Gives deterministic O(n) real-arithmetic triangulation for simple y-monotone polygons in boundary order, with distinct vertex heights and no three collinear. Does not supply the requested simple deterministic algorithm for arbitrary polygons or solve its bundled shortest-path question.</p>
+<h4>Write-up</h4>
+<h2>A linear stack algorithm for strictly monotone polygons</h2>
+<p>**Problem:** TOP-5500010</p>
+<p>**Claim type:** Partial result</p>
+<p>**Exact scope:** Gives deterministic O(n) real-arithmetic triangulation for simple y-monotone polygons in boundary order, with distinct vertex heights and no three collinear. Does not supply the requested simple deterministic algorithm for arbitrary polygons or solve its bundled shortest-path question.</p>
+<p>Restrict the input to a simple $y$-monotone polygon: every horizontal line meets it in an interval or the empty set. Assume distinct vertex heights and no three collinear. The boundary splits into left and right chains from the highest to lowest vertex, each decreasing strictly in $y$. Find those two extrema and chains in $O(n)$ time, and merge their already sorted vertex sequences in $O(n)$ time. No comparison sort is needed. Orient the boundary counterclockwise, so its forward top-to-bottom chain is the left chain.</p>
+<p>Process the merged order $v_1,\ldots,v_n$, storing an active chain on a stack. Initially push $v_1,v_2$. At each intermediate vertex $v_j$, $3\le j&lt;n$:</p>
+<p>* If $v_j$ lies on the opposite boundary chain from the stack top, connect it to the stack vertices in sequence, outputting the triangles formed with consecutive stack vertices until one stack vertex remains. Reset the stack to $v_{j-1},v_j$.<br>* If it lies on the same chain, pop the top vertex $u$. While the stack is nonempty and the triangle $(v_j,u,w)$ with next stack vertex $w$ lies on the interior side of that chain, output it and pop $w$, replacing $u$ by $w$. The exact test is $\mathrm{orient}(v_j,u,w)&lt;0$ on the left chain and $&gt;0$ on the right chain. Push the last $u$ and then $v_j$.</p>
+<p>At the bottom vertex $v_n$, output the fan to all consecutive stack vertices. Each output triangle contains only input vertices.</p>
+<p>For completeness, the geometric invariant is the following. Above the current sweep level, triangles already output have disjoint interiors and their complement in the processed portion is bounded by the active stack chain and the next unprocessed opposite chain edge; the stack chain bends away from its untriangulated side. On a same-chain step, the strict orientation test identifies precisely the terminal visible diagonals: successive vertices popped are convex ears of this remaining portion. Their triangles lie inside it and peel off disjoint interiors. The first failed test is a reflex bend, so the chain beyond it is not visible through the remaining polygon and must stay active. On an opposite-chain step, monotonicity places the new vertex opposite the entire active chain, and its joining segments remain inside the remaining portion; the fan removes all but the most recent sweep edge. These statements also establish the initial two-vertex invariant. At the bottom there is no unprocessed opposite boundary, and the final fan exhausts the remaining portion. Induction proves coverage, nonoverlap and use of internal diagonals. A triangulation of an n-gon then has $n-2$ triangles, either by Euler's formula or by counting one triangle for each ear removed.</p>
+<p>Initially there are two pushes, and each outer iteration performs at most two pushes, regardless of whether a particular vertex remains active and is pushed again. The total number of pops cannot exceed the total number of pushes. Failed orientation tests cost at most one per iteration. Thus total stack operations, orientation tests and output size are $O(n)$, with $O(n)$ storage. In the stated geometric model each fixed-size orientation costs one operation. On rational coordinates, the same tests are exact determinant computations with polynomial coordinate bit cost; the linear operation count is not a linear bit-time claim.</p>
+<p>**Verification and scope.** The checker implements this stack algorithm and tests an exhaustive finite family of two-chain nonconvex inputs in exact integer arithmetic, rejecting degenerate samples. It checks triangle counts, area sums, internal triangle centroids and noncrossing diagonals. The general proof, not those finite tests, gives the full monotone subclass. The prior attempt treats convex fans and a failed ear-scan complexity argument; a monotone stack mechanism is additional content. Partitioning an arbitrary polygon into monotone parts is not silently included in the $O(n)$ claim.</p>
+<h3>Reproducibility and review</h3>
+<p>Exact integer stack triangulations of an exhaustive fixed finite family of strictly y-monotone polygons, with area/topology checks; no general-polygon claim.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_geometry. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500010.txt<br>https://topp.openproblem.net/p10<br>https://collaborate.princeton.edu/en/publications/triangulating-a-simple-polygon/<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/simple-linear-time-polygon-triangulation/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
   
   
 </section>
@@ -109,7 +161,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-5500010" data-display-label="CS-181" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-5500010" data-display-label="CS-181" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-181</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

@@ -52,12 +52,12 @@
   <span class="visually-hidden">CS-114 · Math-2420</span>
   <h1 data-pagefind-meta="title">Polynomial Algorithms for Mean-Payoff Games and Linear Programming</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  <span class="visually-hidden">unknown</span><span class="visually-hidden" data-pagefind-filter="Model">unknown</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden">unknown</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span><span class="visually-hidden" data-pagefind-filter="Model">unknown</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -76,7 +76,7 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
 <article class="attempt" id="attempt-TOP-30003049-A1">
   <header>
@@ -103,6 +103,59 @@
   <p class="attempt-foot"><a href="/contributions/polynomial-algorithms-for-mean-payoff-games-and-linear-programming/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
+<article class="attempt" id="attempt-TOP-30003049-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/polynomial-algorithms-for-mean-payoff-games-and-linear-programming/attempt-2/r1/">CS-114-A2</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/polynomial-algorithms-for-mean-payoff-games-and-linear-programming/attempt-2/r1/">CS-114: Polynomial Algorithms for Mean-Payoff Games and Linear Programming</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30003049</h2>
+<p>Source: https://github.com/We-Solve/research/issues/197</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-30003049</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>One-player finite mean-payoff threshold games with arbitrary binary signed rewards and binary rational thresholds are decidable deterministically in polynomial bit time, including equality at the threshold, via a strict positive-cycle test.</p>
+<h4>Write-up</h4>
+<h2>TOP-30003049: Polynomial Algorithms for Mean-Payoff Games and Linear Programming</h2>
+<p>Claim type: **Partial result**.</p>
+<p>Exact scope: One-player finite mean-payoff threshold games with arbitrary binary signed rewards and binary rational thresholds are decidable deterministically in polynomial bit time, including equality at the threshold, via a strict positive-cycle test.</p>
+<p>Fix a directed finite graph with at least one outgoing edge at each vertex, a starting vertex s, and one controller who chooses every move and maximizes liminf average reward. Edge rewards w_e are signed binary integers. Let the rational threshold be r=p/q with q&gt;0. Remove vertices not reachable from s, and let N be the remaining vertex count. Every finite walk decomposes into simple directed cycles plus a residual path of fewer than N edges.</p>
+<p>There exists an infinite play with liminf average at least r if and only if a reachable simple cycle has mean at least r. One direction follows by taking a path to that cycle and repeating it: the finite prefix disappears in the average. Conversely, if all simple cycles have mean below r, their integer transformed sums q sum w-p length are at most -1 and their lengths are at most N. Thus each cycle's original mean is at most r-1/(qN). Deleting simple cycles from a finite walk leaves fewer than N residual edges; their total reward is bounded independently of the walk length. Taking the limiting upper average therefore gives at most r-1/(qN), excluding even a limsup of r.</p>
+<p>To distinguish zero transformed cycles without numerical approximation, define<br>\[<br> z_e=(N+1)(q w_e-p)+1.<br>\]<br>For a simple cycle C of length ell&lt;=N, if q sum_C w-p ell&gt;=0 then sum_C z&gt;=ell&gt;0. If that integer is at most -1, then sum_C z&lt;=-(N+1)+ell&lt;0. Therefore the required threshold cycle exists exactly when the reachable z-weighted graph has a strictly positive cycle. This handles equality correctly; merely searching for a strictly positive cycle under q w-p would miss zero-threshold wins.</p>
+<p>Initialize h_0(v)=0 for all reachable vertices, and for t=1,...,N compute synchronously<br>\[<br> h_t(v)=\max\{h_{t-1}(v),\max_{u\to v}(h_{t-1}(u)+z_{uv})\}.<br>\]<br>h_t is the largest weight of a walk of at most t edges ending at v, with any starting vertex. If there are no positive cycles, remove nonpositive cycles from a maximizing walk without decreasing weight, so some maximizing walk has at most N-1 edges and h_N=h_{N-1}. Conversely, if h_N=h_{N-1}, that common vector satisfies h(v)&gt;=h(u)+z_uv on every edge. Summing around a cycle proves it cannot be positive. Thus any coordinate increase in the Nth round is equivalent to YES. This supplies a direct decision algorithm with no cycle-enumeration oracle.</p>
+<p>There are N rounds and O(N+m) work per round. The z weights have bit length O(B+log N), where B counts the threshold and reward encodings, and h_t sums at most N such weights. Ordinary exact signed arithmetic gives polynomial bit cost, with O(N) numeric workspace using two rows. Thresholds do not require a pseudopolynomial loop through reward magnitudes. Predecessor information may be retained if a positive-cycle witness is desired; the stated algorithm only claims the threshold decision.</p>
+<p>The checker compares this test at rational thresholds with independent enumeration of all simple reachable cycles on small digraphs, including negative rewards, self-loops, zero means, inaccessible positive cycles and large binary rewards. The proof covers only one controlling player; it does not solve two-player games or strongly polynomial general linear programming, the other question in the original prompt. The connection with classical minimum/maximum cycle-mean algorithms is credited to Karp; no new unrestricted result is asserted.</p>
+<p>Comparison with the earlier attempt: The earlier item reports broad 2026 quasipolynomial manuscript claims. Here a self-contained polynomial algorithm and explicit arithmetic separation are proved for the genuine one-player subclass; none of those manuscripts is assumed correct.</p>
+<p>References checked:</p>
+<p>- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30003049.txt<br>- Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/polynomial-algorithms-for-mean-payoff-games-and-linear-programming/attempt-1/r1/<br>- Richard M. Karp, A Characterization of the Minimum Cycle Mean in a Digraph, technical report UCB/ERL M77/47 (1977), author-institution record inspected: https://www2.eecs.berkeley.edu/Pubs/TechRpts/1977/29121.html ; published in Discrete Mathematics 23 (1978), 309–311. The elementary positive-cycle algorithm in this report is proved directly, not imported as an unverified formula.</p>
+<h3>Reproducibility and review</h3>
+<p>Written proof completed; standard-library independent finite checker and execution record supplied separately. These checks are finite and no formal verification or human mathematical review is asserted.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_algorithms. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30003049.txt<br>Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/polynomial-algorithms-for-mean-payoff-games-and-linear-programming/attempt-1/r1/<br>Richard M. Karp, A Characterization of the Minimum Cycle Mean in a Digraph, technical report UCB/ERL M77/47 (1977), author-institution record inspected: https://www2.eecs.berkeley.edu/Pubs/TechRpts/1977/29121.html ; published in Discrete Mathematics 23 (1978), 309–311. The elementary positive-cycle algorithm in this report is proved directly, not imported as an unverified formula.<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/polynomial-algorithms-for-mean-payoff-games-and-linear-programming/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
   
   
 </section>
@@ -118,7 +171,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30003049" data-display-label="CS-114" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30003049" data-display-label="CS-114" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-114</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

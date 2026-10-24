@@ -52,12 +52,12 @@
   <span class="visually-hidden">Math-3380</span>
   <h1 data-pagefind-meta="title">Sets with distinct subset sums</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -80,10 +80,62 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">0</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-3379-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/sets-with-distinct-subset-sums/attempt-1/r1/">Math-3380-A1</a> · Partial result · LLM-generated · codex (gpt-6)</p>
+    <h3><a href="/contributions/sets-with-distinct-subset-sums/attempt-1/r1/">Math-3380</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-3379</h2>
+<p>Source: https://github.com/We-Solve/research/issues/117</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-3379</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>Every m-element positive sum-distinct set has sum of squares &gt;=(4^m−1)/3 and maximum &gt;=sqrt((4^m−1)/(3m)); exact exhaustive certificates determine f(1),...,f(6)=1,2,4,7,13,24. A stronger asymptotic literature bound is stated with its o(1) qualifier. The constant-times-2^m conjecture is not proved.</p>
+<h4>Write-up</h4>
+<p>Problem: TOP-3379</p>
+<p>Title: An exact variance obstruction and independently certified first six extremal values</p>
+<p>Claim type: Partial result</p>
+<p>Scope: Every m-element positive sum-distinct set has sum of squares &gt;=(4^m−1)/3 and maximum &gt;=sqrt((4^m−1)/(3m)); exact exhaustive certificates determine f(1),...,f(6)=1,2,4,7,13,24. A stronger asymptotic literature bound is stated with its o(1) qualifier. The constant-times-2^m conjecture is not proved.</p>
+<p>Write-up:</p>
+<p>Let $S=\{a_1,\ldots,a_m\}$ have distinct subset sums. Choose its subset uniformly at random and let $X$ be the sum. The $N=2^m$ values of $X$ are distinct integers $b_0&lt;\cdots&lt;b_{N-1}$, each of probability $1/N$. Independence of the membership bits gives<br>$$\mathrm{Var}(X)=\frac14\sum_{i=1}^m a_i^2.$$<br>For any $N$ distinct integers, the pairwise-difference identity and $b_j-b_i\ge j-i$ imply<br>$$\mathrm{Var}(X)=\frac1{N^2}\sum_{i&lt;j}(b_j-b_i)^2<br>\ge\frac1{N^2}\sum_{i&lt;j}(j-i)^2=\frac{N^2-1}{12}.$$<br>Consequently<br>$$\sum_i a_i^2\ge\frac{4^m-1}{3},\qquad f(m)\ge\sqrt{\frac{4^m-1}{3m}}. \tag{1}$$<br>These formulas hold for every $m\ge1$, not only asymptotically. Since the elements are distinct and at most $M$, a useful stronger finite necessary condition is<br>$$\sum_{j=0}^{m-1}(M-j)^2\ge\frac{4^m-1}{3}. \tag{2}$$<br>The geometric construction $\{1,2,4,\ldots,2^{m-1}\}$ proves $f(m)\le2^{m-1}$ by uniqueness of binary expansion. Thus (1) leaves a factor of order $\sqrt m$, which cannot be replaced by a constant merely by rearranging the variance inequality.</p>
+<p>For mathematical context, Steinerberger’s primary Corollary 2 reproves the stronger known asymptotic bound<br>$$f(m)\ge(1-o(1))\sqrt{2/\pi}\,\frac{2^m}{\sqrt m}.$$<br>The factor $1-o(1)$ is essential. Neither this literature bound nor (1) is a solution of the catalogue’s $c2^m$ target. No optimal-current-status assertion is needed.</p>
+<p>We also independently certify the exact finite values<br>$$\bigl(f(1),f(2),f(3),f(4),f(5),f(6)\bigr)=(1,2,4,7,13,24).$$<br>The search maintains the set of old subset sums as a bitset $B$. Appending $a$ preserves distinctness exactly when $B\mathbin{\&amp;}(B\ll a)=0$, after which the new bitset is their union. Search uses increasing positive elements, so it covers sets without counting their permutations. For each claimed optimum $M$, it produces an explicit witness with $2^m$ different subset sums. Independently, a second implementation enumerates *every* $m$-subset of $\{1,\ldots,M-1\}$ and detects a repeated sum using ordinary Python sets. This proves the lower bound in each finite case without trusting the bitset search alone.</p>
+<p>Verification: `python3 verify.py` records witnesses, complete smaller-range rejection counts and their exact variance identities. These small optimal values are independently checked classical data; they are not claimed as new records or evidence sufficient to extrapolate the conjecture.</p>
+<p>Models used: OpenAI Codex, GPT-6 (exact serving revision and reasoning configuration unknown); source inspection, independent mathematical derivation, exact checker preparation and scope audit.</p>
+<p>Human contributors and roles: The referenced authors receive credit for their stated results. No human review of this contribution is claimed.</p>
+<p>References:</p>
+<p>- S. Steinerberger, Some Remarks on the Erdős Distinct Subset Sums Problem, arXiv:2208.12182, introduction and Corollary 2: https://arxiv.org/pdf/2208.12182</p>
+<h3>Reproducibility and review</h3>
+<p>Independent bitset witnesses and complete ordinary-set rejection of every m-subset below each alleged optimum for m&lt;=6; exact variance inequalities and binary construction checked. Python -O rejected.<br>The main instance freshly ran every attached verifier; all assertions passed. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.<br>OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.<br>The authoring instance for this report is /root/next_scout; OpenAI Codex, GPT-6 (exact serving revision and reasoning configuration unknown). Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.</p>
+<h4>People and roles</h4>
+<p>Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-3379.txt<br>S. Steinerberger, Some Remarks on the Erdős Distinct Subset Sums Problem, arXiv:2208.12182, introduction and Corollary 2: https://arxiv.org/pdf/2208.12182<br>Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/sets-with-distinct-subset-sums/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
   
   
-  <p class="muted">No attempts yet. Significant partial results and substantial reductions are welcome. <a href="#contribute">Contribute an attempt.</a></p>
 </section>
 
 
@@ -97,7 +149,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-3379" data-display-label="Math-3380" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-3379" data-display-label="Math-3380" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Math-3380</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

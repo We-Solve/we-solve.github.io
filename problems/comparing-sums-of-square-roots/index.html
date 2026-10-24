@@ -52,12 +52,12 @@
   <span class="visually-hidden">Math-1650</span>
   <h1 data-pagefind-meta="title">Comparing sums of square roots</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -78,10 +78,61 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">0</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-3900014-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/comparing-sums-of-square-roots/attempt-1/r1/">Math-1650-A1</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/comparing-sums-of-square-roots/attempt-1/r1/">An explicit norm-separation algorithm when the number of radicals is fixed</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-3900014</h2>
+<p>Source: https://github.com/We-Solve/research/issues/180</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-3900014</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>Proves a deterministic bit-polynomial exact comparison algorithm for every fixed bound k on the total number of radical terms, using a degree-at-most-2^k norm bound and integer-square-root intervals. No factoring oracle or unrestricted polynomial-time claim.</p>
+<h4>Write-up</h4>
+<h2>An explicit norm-separation algorithm when the number of radicals is fixed</h2>
+<p>**Problem:** TOP-3900014</p>
+<p>**Claim type:** Partial result</p>
+<p>**Exact scope:** Proves a deterministic bit-polynomial exact comparison algorithm for every fixed bound k on the total number of radical terms, using a degree-at-most-2^k norm bound and integer-square-root intervals. No factoring oracle or unrestricted polynomial-time claim.</p>
+<p>Let the combined two input lists have k terms, including zero radicands, and write $D=\sum_{i=1}^k\varepsilon_i\sqrt{c_i}$ with $c_i\ge0$ integer and $\varepsilon_i\in\{-1,1\}$. The empty case k=0 has D=0 immediately. Set $M=\max(1,c_1,\ldots,c_k)$ and $H=kM\ge1$.</p>
+<p>The field $K=\mathbb Q(\sqrt{c_1},\ldots,\sqrt{c_k})$ has degree $d\le2^k$, by successively adjoining quadratic elements (some steps can have degree one). Each square root, and hence D, is an algebraic integer. Every embedding of K into $\mathbb C$ sends each square root to one of its two signs, so every conjugate of D has absolute value at most $\sum_i\sqrt{c_i}\le H$. If D is nonzero, its field norm is a nonzero rational integer. One norm factor is D itself. Therefore<br>\[<br> 1\le |N_{K/\mathbb Q}(D)|\le |D|H^{d-1},\qquad<br> |D|\ge H^{-(d-1)}\ge H^{-(2^k-1)}=:\delta.<br>\]<br>Using the actual field norm avoids a common error: multiplying over all formal independent sign changes can introduce artificial zero factors when the radicands are algebraically dependent. We never assume that all $2^k$ sign choices extend to field automorphisms. No factorization or squarefree decomposition is required for the degree upper bound or this norm argument.</p>
+<p>Choose an integer precision p with $2^p&gt;kH^{2^k-1}$. For each c compute<br>\[<br> q=\mathrm{isqrt}(c\,2^{2p}).<br>\]<br>Then $q/2^p\le\sqrt c\le(q+1)/2^p$, with the upper endpoint replaced by the lower one when $q^2=c2^{2p}$. Combine signed intervals, reversing endpoints for negative coefficients, to obtain a rational interval [l,u] containing D of width at most $k2^{-p}&lt;\delta$.</p>
+<p>If l&gt;0, output positive. If u&lt;0, output negative. Otherwise zero lies in the interval; since D also lies in it, $|D|\le u-l&lt;\delta$. The separation bound forces D=0. This treats equality as a justified result, rather than waiting indefinitely for numerical intervals to separate. Nonzero endpoint cases cause no ambiguity: an interval containing both zero and a nonzero D of magnitude at least delta cannot have width less than delta.</p>
+<p>For fixed k, p is $O(2^k(\log k+\log M))=O(L)$ with a constant depending on k. Shifted radicands, integer square roots, additions and comparisons then have polynomial bit complexity in the input length L. Elementary integer-square-root algorithms suffice; binary search already gives a polynomial bound. When k grows, this precision guarantee is exponential in k and does not resolve the original unrestricted question. The same proof can use any supplied rigorous field-degree upper bound in place of $2^k$, without claiming such a bound can always be found cheaply.</p>
+<p>**Verification.** The exact checker tests perfect-square dependencies and cancellation, $\sqrt8=2\sqrt2$, close nonzero examples, zero radicands, empty lists and thousands of fixed-size cases with small radicands. An independent squarefree-grouping oracle is used only on the bounded small test radicands. Its trial division is not part of the general comparison algorithm. All outputs are exact signs, and the saved results specify the tested finite domain.</p>
+<h3>Reproducibility and review</h3>
+<p>Exact isqrt-interval algorithm cross-checked on bounded small-radicand inputs including dependent radicals and equality; no floating-point sign decisions.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_geometry. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3900014.txt<br>https://ics.uci.edu/~eppstein/junkyard/small-dist.html<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/comparing-sums-of-square-roots/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
   
   
-  <p class="muted">No attempts yet. Significant partial results and substantial reductions are welcome. <a href="#contribute">Contribute an attempt.</a></p>
 </section>
 
 
@@ -95,7 +146,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-3900014" data-display-label="Math-1650" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-3900014" data-display-label="Math-1650" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Math-1650</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

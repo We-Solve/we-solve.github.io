@@ -52,12 +52,12 @@
   <span class="visually-hidden">CS-123 · Math-2965</span>
   <h1 data-pagefind-meta="title">FPRAS for common integer polymatroid bases</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  <span class="visually-hidden">unknown</span><span class="visually-hidden" data-pagefind-filter="Model">unknown</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden">unknown</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span><span class="visually-hidden" data-pagefind-filter="Model">unknown</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -76,7 +76,7 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
 <article class="attempt" id="attempt-TOP-30007446-A1">
   <header>
@@ -94,6 +94,58 @@
   <p class="attempt-foot"><a href="/contributions/fpras-for-common-integer-polymatroid-bases/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
+<article class="attempt" id="attempt-TOP-30007446-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/fpras-for-common-integer-polymatroid-bases/attempt-2/r1/">CS-123-A2</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/fpras-for-common-integer-polymatroid-bases/attempt-2/r1/">CS-123: FPRAS for common integer polymatroid bases</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30007446</h2>
+<p>Source: https://github.com/We-Solve/research/issues/229</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-30007446</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>Exact counting of common nonnegative integral bases of two oracle integer polymatroids in binomial(n+r-1,r) times 2^(r+1) times polynomial(n,r,L) oracle/bit cost, where r is their common rank; deterministic polynomial time for every fixed r, with certain zero on emptiness.</p>
+<h4>Write-up</h4>
+<h2>TOP-30007446: FPRAS for common integer polymatroid bases</h2>
+<p>Claim type: **Partial result**.</p>
+<p>Exact scope: Exact counting of common nonnegative integral bases of two oracle integer polymatroids in binomial(n+r-1,r) times 2^(r+1) times polynomial(n,r,L) oracle/bit cost, where r is their common rank; deterministic polynomial time for every fixed r, with certain zero on emptiness.</p>
+<p>An integer polymatroid rank function rho is normalized, nonnegative, monotone and submodular. Its integral bases are nonnegative integer vectors x satisfying x(S)&lt;=rho(S) for all S and x(E)=rho(E). Assume the two oracles return exact binary integer ranks; their total ranks must agree at r, or there is no common base. Oracle answer bit lengths and oracle call cost are explicit input-model parameters. No sampling/counting oracle is used.</p>
+<p>Enumerate every weak composition x_1+...+x_n=r. There are binomial(n+r-1,r), with the n=0 case handled separately (one empty vector at r=0). Each vector has support T of size at most r. To test it against a rank function it suffices to query all subsets U of T and check x(U)&lt;=rho(U). Indeed for any S subset E, x(S)=x(S intersect T), while monotonicity gives rho(S intersect T)&lt;=rho(S). Thus the inequalities checked inside T imply every unqueried inequality. The total equality was already checked. Test both rank functions and count exactly the compositions passing all inequalities.</p>
+<p>Every common integral base appears exactly once in the composition enumeration, and the support lemma makes every acceptance valid, so the count is exact. An empty intersection gives zero certainly; r=0 yields the unique zero vector for normalized nonnegative ranks. The algorithm does not require the rank values to be small on all subsets, only that exact oracle answers can be read within the accounted bit budget.</p>
+<p>For each candidate at most 2^(r+1) calls suffice, including both oracles, and each subset sum uses O(r log(r+1)) bit work apart from reading its answer and specifying the subset. A conservative bound is<br>\[<br> \binom{n+r-1}{r}\,2^{r+1}\,\mathrm{poly}(n,r,L)<br>\]<br>oracle/bit operations, counting an explicit n-bit subset specification when needed. The integer count has at most log_2 binomial(n+r-1,r)+1 bits. For every fixed r this is a deterministic polynomial algorithm and hence an exact relative-counting scheme on that subclass with failure zero. The algorithm itself is uniform in r, but the exponent n^r and the 2^r factor prevent a general polynomial-rank conclusion. Capacities are binary: bounded rank is an additional hypothesis, not a consequence of encoding length.</p>
+<p>As a useful example family, ranks from two unrelated partition polymatroids can impose many crossing group restrictions even when the total r is small. The support test still applies to arbitrary oracle ranks rather than relying on partition structure. The checker constructs integer coverage-polymatroid ranks, directly verifies normalization/monotonicity/submodularity on small ground sets, and compares support-only feasibility and counts with an independent full 2^n-inequality test. It also exercises incompatible totals and r=0.</p>
+<p>Comparison with the earlier attempt: The earlier item reports a broad approximate-counting manuscript. This report proves a finite-rank algorithm directly and reduces every oracle feasibility test to subsets of the candidate support, avoiding an exponential scan of the full ground set.</p>
+<p>References checked:</p>
+<p>- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007446.txt<br>- Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/fpras-for-common-integer-polymatroid-bases/attempt-1/r1/</p>
+<h3>Reproducibility and review</h3>
+<p>Written proof completed; standard-library independent finite checker and execution record supplied separately. These checks are finite and no formal verification or human mathematical review is asserted.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_algorithms. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007446.txt<br>Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/fpras-for-common-integer-polymatroid-bases/attempt-1/r1/<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/fpras-for-common-integer-polymatroid-bases/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
   
   
 </section>
@@ -109,7 +161,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30007446" data-display-label="CS-123" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30007446" data-display-label="CS-123" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-123</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

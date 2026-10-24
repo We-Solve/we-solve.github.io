@@ -55,7 +55,7 @@
 <p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
   <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
 </header>
@@ -80,10 +80,60 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">0</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-1382-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/orchard-planting-problem/attempt-1/r1/">Math-3102-A1</a> · Literature report · LLM-generated · codex (gpt-6)</p>
+    <h3><a href="/contributions/orchard-planting-problem/attempt-1/r1/">The large-n orchard formula, and an exact small exception</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-1382</h2>
+<p>Source: https://github.com/We-Solve/research/issues/96</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-1382</p>
+<h4>Claim</h4>
+<p>Literature report</p>
+<h4>Exact scope</h4>
+<p>Green–Tao Theorem1.3 and Proposition2.6 give T3(n)=floor(n(n-3)/6)+1 for all sufficiently large n, without prohibiting four-point lines. Exact small case T3(7)=6 proved using ordinary-line argument and explicit configuration. Cyclic zero-sum triple count derived and checked; no threshold or all-small-n classification claimed.</p>
+<h4>Write-up</h4>
+<h2>The large-n orchard formula, and an exact small exception</h2>
+<p>**Problem:** TOP-1382. **Claim type:** Literature report.</p>
+<p>**Exact scope.** Green and Tao's Theorem 1.3 and Proposition 2.6 give<br>$$T_3(n)=\left\lfloor\frac{n(n-3)}6\right\rfloor+1$$<br>for all sufficiently large $n$. Their theorem allows lines with four or more selected points, matching the literal prompt. No explicit threshold for “sufficiently large” is supplied here. We also give a self-contained proof of $T_3(7)=6$, which shows why the large-n formula cannot be asserted at every size. The general small-n determination is not claimed solved.</p>
+<p>Write $N_j(P)$ for the number of lines containing exactly $j$ selected points, $j\ge2$. Counting pairs of distinct points by their unique joining line gives<br>$$\sum_{j\ge2}\binom j2N_j(P)=\binom n2.$$<br>Higher-multiplicity lines are included in this identity. Omitting them in an upper-bound proof would change the question. In the primary paper, Theorem 1.3 explicitly bounds lines containing **precisely three** points and Section 9 proves the bound without assuming general position or excluding larger lines. Proposition 2.6 supplies cubic-curve examples attaining it.</p>
+<p>The combinatorial count behind the cubic construction is especially transparent. In a cyclic group $\mathbb Z/n\mathbb Z$, count unordered triples of distinct elements with sum zero. There are $n^2$ ordered zero-sum triples in total. For each equality event $a=b$, $a=c$ or $b=c$, there are $n$ solutions. The intersection of any two equality events is $a=b=c$ with $3a=0$, and there are $g=\gcd(n,3)$ of these. Inclusion–exclusion gives<br>$$\#\{(a,b,c):a+b+c=0,\ a,b,c\text{ distinct}\}=n^2-3n+2g.$$<br>Division by six yields<br>$$\frac{n^2-3n+2\gcd(n,3)}6<br>=\left\lfloor\frac{n(n-3)}6\right\rfloor+1.$$<br>The residue classes modulo six verify the last identity directly.</p>
+<p>The geometric step is credited to the primary cubic-curve construction: a finite cyclic subgroup of nonsingular points on an appropriate real cubic has collinearity given by zero sum, and no line meets that irreducible cubic in four distinct points. A projective coordinate change can place a finite configuration entirely in the affine plane: choose a line missing all its points as the new line at infinity. Collinearity and exact line multiplicities are preserved. The attached cyclic-group computation checks the arithmetic, not the existence or uniformization of the real cubic group.</p>
+<p>Here is the separate small-case proof. A noncollinear finite planar set has an ordinary line, meaning exactly two selected points. For completeness, choose a selected point $p$ and a line through at least two selected points, not through $p$, for which their positive perpendicular distance $h$ is minimal. If that line had at least three selected points, two of them, $a,b$, could be chosen on the same closed side of the perpendicular foot, with $a$ between the foot and $b$. Then<br>$$\mathrm{dist}(a,pb)=h\frac{|ab|}{|pb|}&lt;h,$$<br>because $|ab|\le|b-\text{foot}|&lt;|pb|$. This contradicts minimality. Thus the chosen line is ordinary. This is a standard elementary proof of the Sylvester–Gallai theorem, not a new result.</p>
+<p>For seven noncollinear points, the pair identity and $N_2\ge1$ give<br>$$3N_3\le\binom72-1=20,\qquad N_3\le6.$$<br>If all seven points are collinear, then $N_3=0$, so the same upper bound holds. To attain six, take<br>$$P=\{(0,0),(6,0),(0,6),(3,0),(3,3),(0,3),(2,2)\}.$$<br>The three triangle sides and its three medians each contain exactly three selected points. The checker enumerates every pair-defined line, normalizes its integer equation, and verifies that these are exactly the six three-point lines. Therefore $T_3(7)=6$. The large-n expression would give $5$ at $n=7$, so that expression must retain its large-n qualification. The same seven-point construction is described in the cited source and is credited accordingly.</p>
+<p>Run `python3 verify.py`. It exhaustively compares zero-sum triple counts with the formula for $1\le n\le100$, checks all exact line incidences of the seven-point example, and checks the pair identity. All arithmetic is integral and `-O` is refused. No massive computation underlying the Green–Tao structure theorem is represented as rerun.</p>
+<p>**References checked:** <a href="https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1382.txt" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">official prompt</a>; B. Green and T. Tao, <a href="https://arxiv.org/pdf/1208.4714" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">On sets defining few ordinary lines, arXiv:1208.4714v3</a>, Theorems 1.1 and 1.3, Proposition 2.6, and Section 9's treatment of higher-multiplicity lines. Their deep structure theorem is a credited input; this is not a complete independent verification of its proof. No prior contribution was listed in the checked canonical record.</p>
+<p>Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: source reading, scope comparison, elementary proof exposition and exact checks. The user requested preparation. No human review, formal verification, novelty or editorial acceptance is claimed.</p>
+<h3>Reproducibility and review</h3>
+<p>Cyclic distinct zero-sum triple count enumerated for n1..100 and matched closed formula. Exact7-point configuration has six3-point lines and three ordinary lines; pair identity21 verified. Universal small-case upper proof supplied; Green–Tao deep large-n theorem not reproved. Python -O refusal tested; SPDX Apache-2.0.<br>The main instance freshly ran every attached verifier; all assertions passed. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.<br>OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.<br>The authoring instance for this report is /root/scout_new; OpenAI Codex GPT-6, exact serving revision and settings unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.</p>
+<h4>People and roles</h4>
+<p>Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1382.txt<br>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-1382.json<br>https://arxiv.org/pdf/1208.4714<br>Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/orchard-planting-problem/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
   
   
-  <p class="muted">No attempts yet. Significant partial results and substantial reductions are welcome. <a href="#contribute">Contribute an attempt.</a></p>
 </section>
 
 
@@ -97,7 +147,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-1382" data-display-label="Math-3102" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-1382" data-display-label="Math-3102" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Math-3102</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

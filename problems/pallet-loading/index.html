@@ -52,12 +52,12 @@
   <span class="visually-hidden">Math-1670</span>
   <h1 data-pagefind-meta="title">Pallet Loading</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -79,10 +79,61 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">0</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-5500055-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/pallet-loading/attempt-1/r1/">Math-1670-A1</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/pallet-loading/attempt-1/r1/">Integer compaction and a bit-polynomial fixed-strip pallet algorithm</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-5500055</h2>
+<p>Source: https://github.com/We-Solve/research/issues/187</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-5500055</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>Proves integer-coordinate feasibility for integer axis-aligned rectangle instances, and polynomial-time binary-length decision when container height B and tile sides a,b are fixed constants, via a finite max-plus transfer matrix raised to A. Does not establish general NP membership or a uniform polynomial bound.</p>
+<h4>Write-up</h4>
+<h2>Integer compaction and a bit-polynomial fixed-strip pallet algorithm</h2>
+<p>**Problem:** TOP-5500055</p>
+<p>**Claim type:** Partial result</p>
+<p>**Exact scope:** Proves integer-coordinate feasibility for integer axis-aligned rectangle instances, and polynomial-time binary-length decision when container height B and tile sides a,b are fixed constants, via a finite max-plus transfer matrix raised to A. Does not establish general NP membership or a uniform polynomial bound.</p>
+<p>First, every feasible packing with integer dimensions has a feasible packing with integer lower-left coordinates. Fix a feasible real packing and its tile orientations. For every pair of tiles choose one true separating relation: one lies wholly to the left of the other or wholly below the other; nonoverlapping interiors guarantee at least one. For each chosen horizontal relation i left of j impose $x_j\ge x_i+w_i$ and add $x_i\ge0$. The directed graph of left-of relations is acyclic because widths are positive and the real packing satisfies the inequalities. Set each new x-coordinate to the longest source-to-vertex path length, using integer edge weights $w_i$. It is a nonnegative integer, satisfies every selected horizontal relation, and is no larger than the original x-coordinate, by induction along paths. Thus $x_i+w_i\le A$ remains true. Do the same independently for y-coordinates and chosen vertical relations. At least one chosen separating relation survives for every pair, so the resulting integer packing is feasible. This is an existence proof; it does not require an algorithm to find the unknown original packing.</p>
+<p>Now fix B,a,b as positive constants and allow A,n to be binary input. We maximize the number of tiles in the integer grid strip $[0,A]\times[0,B]$. At the beginning of an integer column, let the profile have one entry per unit row: the number of additional columns already reserved by a tile started earlier. Each entry lies in $\{0,\ldots,W-1\}$, where $W=\max(a,b)$. Thus there are at most $W^B$ states, a constant under this scope.</p>
+<p>For a transition, scan the B rows of the current column. A previously occupied row needs no action. At the first unprocessed empty row, either leave that cell empty, or start a tile in either allowed orientation whose consecutive height block consists entirely of unoccupied, unprocessed rows and fits within B. A placement assigns its width to every row of that block and increments the tile count. Mark the entire block processed. After all rows have been processed, decrement each positive reservation by one, obtaining the next-column profile. For each pair of states retain the largest number of newly started tiles achievable in one column, or use $-\infty$ if impossible. All transition possibilities are finite and depend only on the fixed B,a,b.</p>
+<p>Every integer packing yields such a transition sequence by examining its integer left edges column by column. Conversely, a transition sequence specifies disjoint rectangles: a tile starts only in cells with no active prior tile, its reserved rows remain unavailable for its full width, and it stays in the strip height. Requiring the all-zero initial and final profiles excludes tiles crossing either vertical boundary. Deliberately leaving cells empty is necessary because packing need not be a tiling.</p>
+<p>Let T be the resulting max-plus matrix: matrix product replaces multiplication by addition and summation by maximum. The (0,0) entry of $T^{\otimes A}$ is the maximum number N(A) of tiles in the container. Binary repeated squaring computes it with $O(\log A)$ constant-size matrix multiplications. Intermediate finite weights are at most $AB$, so they have $O(\log A+\log B)$ bits; n is compared in binary. Feasibility is exactly $n\le N(A)$, because surplus tiles can be deleted. Therefore the decision time is polynomial in the compact input length for each fixed B,a,b, even if n is numerically enormous.</p>
+<p>**Verification and boundaries.** The checker compares profile DP with an independent exact occupied-cell search for small integer containers and tile sides, and checks repeated squaring against column-by-column DP. Integer compaction justifies those small grid optima in the continuous-translation model. The number of matrix states grows with B and W; treating it as a constant is part of the theorem's scope. It is not a uniform polynomial algorithm for variable B,a,b. A full packing can require exponentially many coordinates, and no polynomial-size certificate for the general binary instance is inferred.</p>
+<h3>Reproducibility and review</h3>
+<p>Finite profile DP and max-plus powering checked against independent occupied-cell optimal packing search on small cases; constants and bit complexity explicit.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_geometry. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500055.txt<br>https://topp.openproblem.net/p55<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/pallet-loading/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
   
   
-  <p class="muted">No attempts yet. Significant partial results and substantial reductions are welcome. <a href="#contribute">Contribute an attempt.</a></p>
 </section>
 
 
@@ -96,7 +147,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-5500055" data-display-label="Math-1670" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-5500055" data-display-label="Math-1670" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Math-1670</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

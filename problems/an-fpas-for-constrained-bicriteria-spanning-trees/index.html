@@ -52,12 +52,12 @@
   <span class="visually-hidden">CS-270 · Math-4459</span>
   <h1 data-pagefind-meta="title">An FPAS for Constrained Bicriteria Spanning Trees</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Partially solved</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Partially solved</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">0%</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Partially solved</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Partially solved</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -76,7 +76,7 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
 <article class="attempt" id="attempt-TOP-30000063-A1">
   <header>
@@ -97,6 +97,59 @@ w(T)&lt;K\widetilde w(T)+(n-1)K
   <p class="attempt-foot"><a href="/contributions/an-fpas-for-constrained-bicriteria-spanning-trees/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
+<article class="attempt" id="attempt-TOP-30000063-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/an-fpas-for-constrained-bicriteria-spanning-trees/attempt-2/r1/">CS-270-A2</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/an-fpas-for-constrained-bicriteria-spanning-trees/attempt-2/r1/">CS-270: An FPAS for Constrained Bicriteria Spanning Trees</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30000063</h2>
+<p>Source: https://github.com/We-Solve/research/issues/192</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-30000063</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>A deterministic FPTAS with no budget violation for constrained bicriteria spanning trees on connected cactus graphs with binary nonnegative integer edge costs and budgets; all scaling, zero-optimum, guessing and bit-cost details are supplied.</p>
+<h4>Write-up</h4>
+<h2>TOP-30000063: An FPAS for Constrained Bicriteria Spanning Trees</h2>
+<p>Claim type: **Partial result**.</p>
+<p>Exact scope: A deterministic FPTAS with no budget violation for constrained bicriteria spanning trees on connected cactus graphs with binary nonnegative integer edge costs and budgets; all scaling, zero-optimum, guessing and bit-cost details are supplied.</p>
+<p>Write c_e&gt;=0 for objective costs, d_e&gt;=0 for resource costs, and B for the exact upper resource budget, all binary integers. A connected cactus has edge-disjoint simple cycles. Every spanning tree keeps all bridges and removes exactly one edge from each cycle: breaking each cycle is necessary; retaining every other edge is sufficient for connectedness and acyclicity. Thus the problem is a multiple-choice minimization with one group per cycle. Option e in cycle C has objective c(C)-c_e and resource d(C)-d_e. Add one fixed group for all bridges with their total objective/resource. Let g be the total number of groups; when the graph is a single vertex the empty tree is handled separately.</p>
+<p>Feasibility alone is checked exactly by independently choosing the least-resource option in every group. If their total exceeds B, no feasible tree exists. A zero-objective feasible solution exists exactly when every group has at least one zero-cost option and the sum of the smallest resources among such options is at most B. If so return it: scaling a zero optimum would be invalid. Otherwise every feasible optimum OPT is an integer at least one. Put U=sum_e c_e; a feasible tree has objective at most U, so U&gt;=OPT&gt;=1.</p>
+<p>Let 0&lt;epsilon&lt;=1 be a binary rational accuracy parameter. Try guesses G=1,2,4,... through the first power of two at least U. At least one guess satisfies OPT&lt;=G&lt;2OPT, with equality G=OPT allowed. For this guess set<br>\[<br> K=\frac{\epsilon G}{2g},\qquad q_{j,a}=\left\lfloor\frac{c_{j,a}}K\right\rfloor,<br> \quad Q=\left\lfloor\frac{2g}{\epsilon}\right\rfloor.<br>\]<br>For every guess run a group dynamic program indexed by scaled total q in [0,Q]. At each q retain the smallest exact resource total achievable with the groups processed; keep an attaining predecessor. Transition through every option, ignoring q sums above Q. Resource comparisons use the original binary integers, never rounded values. At the end choose a smallest q whose stored resource is at most B. If no q is feasible, this guess returns no candidate. Among all candidates return one with least original objective.</p>
+<p>Induction over groups proves the DP invariant. For the good guess an optimal solution has scaled total at most OPT/K&lt;=2g/epsilon, so its integer total is at most Q and it is never truncated (all costs are nonnegative). The DP's feasible solution T has q(T)&lt;=q(T*). Each group incurs rounding error less than K, giving<br>\[<br> c(T)&lt;K(q(T)+g)\le Kq(T^*)+gK<br> \le OPT+\epsilon G/2\le(1+\epsilon)OPT.<br>\]<br>The last weak inequality uses G&lt;2OPT. Feasibility d(T)&lt;=B is exact by the stored resource check. Other guesses cannot spoil this guarantee because the best original-cost candidate is returned, and every candidate is genuinely feasible.</p>
+<p>There are O(log(U+1)) guesses, O(g/epsilon) states, and O(m+1) group options overall. Straight transitions use O((m+1)g epsilon^-1 log(U+1)) arithmetic operations; predecessor memory O(g^2/epsilon) cells suffices per guess. All objective sums, resources, scaled quotients and rationals have bit length polynomial in input length and log(epsilon^-1). Binary U is accounted by log U, not a loop to U. Hence the entire algorithm is fully polynomial in encoded input length and epsilon^-1. Computing cactus blocks and all option sums is polynomial, even with a simple implementation.</p>
+<p>The checker exhaustively compares candidates with all option tuples on random small cacti, checks exact budgets and zero/infeasible cases, and verifies the approximation inequality by rational arithmetic. This is the standard scaling principle made constructive on a precise graph subclass. General graphs lack the independent cycle-choice decomposition, so no unrestricted FPTAS is claimed.</p>
+<p>Comparison with the earlier attempt: The earlier attempt gives a scalarization obstruction and a conditional rounding argument but no required exact oracle. This report constructs the missing scaled-objective/exact-budget dynamic program on cactus blocks and obtains an unconditional FPTAS for that subclass.</p>
+<p>References checked:</p>
+<p>- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30000063.txt<br>- Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/an-fpas-for-constrained-bicriteria-spanning-trees/attempt-1/r1/</p>
+<h3>Reproducibility and review</h3>
+<p>Written proof completed; standard-library independent finite checker and execution record supplied separately. These checks are finite and no formal verification or human mathematical review is asserted.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_algorithms. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30000063.txt<br>Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/an-fpas-for-constrained-bicriteria-spanning-trees/attempt-1/r1/<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/an-fpas-for-constrained-bicriteria-spanning-trees/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
   
   
 </section>
@@ -112,7 +165,7 @@ w(T)&lt;K\widetilde w(T)+(n-1)K
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30000063" data-display-label="CS-270" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30000063" data-display-label="CS-270" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-270</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

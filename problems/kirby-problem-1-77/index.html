@@ -55,7 +55,7 @@
 <p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
   <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
 </header>
@@ -78,10 +78,75 @@ R(n)=\max\{d_R(D,E):c(D)+c(E)\leq n,\ D,E\text{ represent the same knot}\}.
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">0</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-2736-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/kirby-problem-1-77/attempt-1/r1/">Math-1320-A1</a> · Literature report · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/kirby-problem-1-77/attempt-1/r1/">Quadratic Reidemeister lower bounds already occur among unknot diagrams</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-2736</h2>
+<p>Source: https://github.com/We-Solve/research/issues/284</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-2736</p>
+<h4>Claim</h4>
+<p>Literature report</p>
+<h4>Exact scope</h4>
+<p>For every integer m≥1 the Hass–Nowik unknot diagram D_m has 7m−1 crossings and distance from the trivial diagram between 2m²+3m−2 and 2m²+3m; hence the prompt’s uniform R(N) is Ω(N²).</p>
+<h4>Write-up</h4>
+<h2>Quadratic Reidemeister lower bounds already occur among unknot diagrams</h2>
+<p>**Problem:** TOP-2736</p>
+<p>**Claim type:** Literature report</p>
+<p>**Exact scope:** For every integer m≥1 the Hass–Nowik unknot diagram D_m has 7m−1 crossings and distance from the trivial diagram between 2m²+3m−2 and 2m²+3m; hence the prompt’s uniform R(N) is Ω(N²).</p>
+<h3>An explicit quantitative family</h3>
+<p>Hass and Nowik construct a diagram $D_m$ of the unknot with $7m-1$ crossings and prove, in both the plane and the sphere,</p>
+<p>$$2m^2+3m-2\le d_R(D_m,U)\le2m^2+3m.$$</p>
+<p>The family is the diagram in their Figure 2, with the five twist regions parametrized as in that construction. The lower bound applies to **all** Reidemeister sequences, including those that introduce extra crossings. The upper bound is a particular displayed simplification. Thus these are nearly exact distances, within an additive error of two, for an unbounded diagram family.</p>
+<p>For the $R(N)$ in the prompt, $U$ has zero crossings, so the family gives</p>
+<p>$$R(7m-1)\ge2m^2+3m-2.$$</p>
+<p>Because the definition uses total endpoint crossings at most $N$, $R(N)$ is nondecreasing. Taking $m=\lfloor(N+1)/7\rfloor$ proves a quadratic lower bound for every sufficiently large $N$, rather than only a sparse subsequence. For example, when $N\ge13$, $m\ge(N+1)/14$ and $2m^2+3m-2\ge2m^2$, so</p>
+<p>$$R(N)\ge\frac{(N+1)^2}{98}.$$</p>
+<p>No linear uniform upper bound is therefore possible, even after restricting the knot type to the unknot.</p>
+<h3>The obstruction controls every move sequence</h3>
+<p>For each crossing $a$ of an oriented diagram, smooth it compatibly with the orientation and take the linking number of the resulting two-component link. Form a formal sum $I(D)$ of symbols $X_k$ for positive crossings and $Y_k$ for negative crossings with smoothing linking number $k$.</p>
+<p>The source checks that the change under one Reidemeister move, up to sign, is one of</p>
+<p>$$X_0,\quad Y_0,\quad X_k+Y_k,\quad X_k+Y_{k+1},\quad<br>X_k-X_{k+1},\quad Y_k-Y_{k+1}.$$</p>
+<p>Define a homomorphism on this free abelian group by $g(X_k)=1+|k|$ and $g(Y_k)=-1-|k|$. Its change on every listed generator has absolute value at most one. Therefore $|g(I(D))-g(I(E))|$ is a lower bound for $d_R(D,E)$.</p>
+<p>For the constructed family, the source computes</p>
+<p>$$I(D_m)=mX_m+mX_{-m}+(2m-1)X_{-1}+3mY_0.$$</p>
+<p>Applying $g$ gives $2m^2+3m-2$, while $I(U)=0$. This explains why a sequence cannot evade the obstruction by using a different simplification strategy or more intermediate crossings. It is a diagram invariant with bounded move changes, not a knot invariant that would have identical values on all unknot diagrams.</p>
+<h3>What remains undetermined</h3>
+<p>The existence of this family does not provide a matching quadratic upper bound for $R(N)$ over all knots, or even an optimal uniform upper bound for all unknot diagrams. The particular upper bound for $D_m$ must not be generalized from that family to arbitrary diagrams. Likewise, a move-count lower bound is not a lower bound on the maximum crossing number along a path. That is the separate height question in the neighboring prompt.</p>
+<p>The checked paper is Discrete &amp; Computational Geometry44(2010),91–95; its online date is2009. This distinguishes it from Nowik’s different 2009 Duke paper on plane curves. We retain the source’s Theorem2.1 and the exact additive constants.</p>
+<h3>Checked references</h3>
+<p>- Joel Hass and Tahl Nowik, Unknot diagrams requiring a quadratic number of Reidemeister moves to untangle, Discrete Comput.Geom.44(2010),91–95, Theorem2.1 and its proof; author-hosted published PDF: https://u.math.biu.ac.il/~tahl/papers/unknot.pdf</p>
+<h3>Reproducibility and review</h3>
+<p>Source/proof-only report: fresh literal prompt read; no earlier contributions listed; primary theorem and hypotheses checked by browsing; displayed deduction checked algebraically. No program or formal verification is claimed.</p>
+<p>This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_topology. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>Joel Hass and Tahl Nowik, Unknot diagrams requiring a quadratic number of Reidemeister moves to untangle, Discrete Comput.Geom.44(2010),91–95, Theorem2.1 and its proof; author-hosted published PDF: https://u.math.biu.ac.il/~tahl/papers/unknot.pdf<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/kirby-problem-1-77/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
   
   
-  <p class="muted">No attempts yet. Significant partial results and substantial reductions are welcome. <a href="#contribute">Contribute an attempt.</a></p>
 </section>
 
 
@@ -95,7 +160,7 @@ R(n)=\max\{d_R(D,E):c(D)+c(E)\leq n,\ D,E\text{ represent the same knot}\}.
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-2736" data-display-label="Math-1320" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-2736" data-display-label="Math-1320" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Math-1320</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

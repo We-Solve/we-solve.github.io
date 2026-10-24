@@ -55,7 +55,7 @@
 <p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
   <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
 </header>
@@ -76,10 +76,69 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">0</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-3291-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/ptas-for-feedback-arc-set-in-tournaments/attempt-1/r1/">Math-3355-A1</a> · Literature report · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/ptas-for-feedback-arc-set-in-tournaments/attempt-1/r1/">A checked PTAS theorem and an exact feedback-arc recurrence</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-3291</h2>
+<p>Source: https://github.com/We-Solve/research/issues/170</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-3291</p>
+<h4>Claim</h4>
+<p>Literature report</p>
+<h4>Exact scope</h4>
+<p>The literal tournament PTAS question has a positive answer by Kenyon-Mathieu/Mathieu–Schudy; verify the deterministic guarantee from the primary author manuscript and provide a separate exact subset-DP certificate for small tournaments.</p>
+<h4>Write-up</h4>
+<h2>A checked PTAS theorem and an exact feedback-arc recurrence</h2>
+<p>Problem: TOP-3291</p>
+<p>Claim type: Literature report.</p>
+<p>Exact scope: The literal tournament PTAS question has a positive answer by Kenyon-Mathieu/Mathieu–Schudy; verify the deterministic guarantee from the primary author manuscript and provide a separate exact subset-DP certificate for small tournaments.</p>
+<h3>Source theorem and guarantee</h3>
+<p>Kenyon-Mathieu and Schudy announced a PTAS for tournament feedback arc set in ECCC TR06-144 (2006), followed by STOC 2007. The later author manuscript, How to Rank with Fewer Errors, Theorem 1.2, states a randomized weighted-tournament scheme and explicitly supplies a derandomization whose running time is n^{\widetilde O(1/(εb)^{12})}. Set the weight lower-bound parameter b=1 for an ordinary unweighted tournament. For each fixed ε&gt;0 the deterministic time is polynomial in n, and its ranking has cost at most (1+ε)OPT. This directly answers the official formulation. The full approximation analysis is a credited literature theorem, not independently reimplemented here.</p>
+<p>For a ranking π, call an arc backward when its tail appears after its head. Delete all backward arcs. Every retained arc goes forward in the order, so the remaining digraph is acyclic. Conversely, if F is any feedback arc set, topologically order the remaining acyclic digraph. All backward arcs in that order must have belonged to F. Therefore the minimum ranking cost equals the minimum feedback-arc-set size. This proves that the theorem’s ranking output is exactly the required kind of certificate.</p>
+<p>The zero-optimum case presents no additive-error escape: a (1+ε)-approximation must return zero when OPT=0. A tournament is acyclic exactly when it has no directed cycle, and a topological order certifies zero backward arcs. Nothing here substitutes an additive εn² approximation for the requested relative guarantee.</p>
+<h3>Independent exact dynamic program</h3>
+<p>For any vertex subset S let f(S) be the minimum backward-arc count in an order of S. Use f(∅)=0 and</p>
+<p>\[<br>f(S)=\min_{v\in S}\bigl(f(S\setminus\{v\})+<br>|\{u\in S\setminus\{v\}:v\to u\}|\bigr).<br>\]</p>
+<p>Indeed choose v as the last vertex. Its arcs to earlier vertices are backward and contribute exactly the displayed count; all other contributions are internal to S−v. Conversely an optimal order of S has a last vertex and obeys this decomposition. Storing the minimizer reconstructs a ranking, whose backward arcs form a checkable optimum feedback set. The naive implementation costs O(n²2ⁿ) elementary steps and O(n2ⁿ) bits of bounded-size stored values/choices, so it is an exact exponential baseline, not the cited PTAS.</p>
+<h3>Executed checks and limits</h3>
+<p>The supplied verifier compares subset DP against enumeration of all rankings on every labeled tournament through five vertices, then tests reproducibly generated tournaments through order twelve, checking their returned feedback sets are acyclic and the ranking cost matches the DP optimum. It includes a directed triangle, with optimum one, and transitive tournaments, with optimum zero. These tests certify the exact baseline’s bookkeeping; they do not experimentally establish the approximation theorem or imply that exact optimization is polynomial.</p>
+<h3>Attribution and limits</h3>
+<p>These are credited classical results, elementary deductions, or explicit reports of the stated literature theorem. No historical novelty or resolution outside the exact scope is claimed. The proof and checks below do not independently audit any other general-solution announcement in the archive.</p>
+<h3>Checked references</h3>
+<p>- Official TOP-3291 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3291.txt<br>- C. Kenyon-Mathieu and W. Schudy, How to rank with few errors: A PTAS for Weighted Feedback Arc Set on Tournaments, ECCC TR06-144 (2006): https://eccc.weizmann.ac.il/report/2006/144/<br>- C. Mathieu and W. Schudy, How to Rank with Fewer Errors, author manuscript, Theorem 1.2 and derandomization statement: https://cs.brown.edu/people/wschudy/papers/fast_journal.pdf</p>
+<h3>Reproducibility and review</h3>
+<p>Exact standard-library verifier completed with status PASS; see verification.json and verification_stdout.txt.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_graphs. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>Official TOP-3291 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3291.txt<br>C. Kenyon-Mathieu and W. Schudy, How to rank with few errors: A PTAS for Weighted Feedback Arc Set on Tournaments, ECCC TR06-144 (2006): https://eccc.weizmann.ac.il/report/2006/144/<br>C. Mathieu and W. Schudy, How to Rank with Fewer Errors, author manuscript, Theorem 1.2 and derandomization statement: https://cs.brown.edu/people/wschudy/papers/fast_journal.pdf<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/ptas-for-feedback-arc-set-in-tournaments/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
   
   
-  <p class="muted">No attempts yet. Significant partial results and substantial reductions are welcome. <a href="#contribute">Contribute an attempt.</a></p>
 </section>
 
 
@@ -93,7 +152,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-3291" data-display-label="Math-3355" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-3291" data-display-label="Math-3355" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Math-3355</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

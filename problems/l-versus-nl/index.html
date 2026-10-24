@@ -52,12 +52,12 @@
   <span class="visually-hidden">CS-34 · Math-138</span>
   <h1 data-pagefind-meta="title">L versus NL</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  <span class="visually-hidden">openai</span><span class="visually-hidden">unknown</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span><span class="visually-hidden" data-pagefind-filter="Model">unknown</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden">unknown</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span><span class="visually-hidden" data-pagefind-filter="Model">unknown</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -78,7 +78,7 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">3</span></h2>
   
 <article class="attempt" id="attempt-TOP-30006727-A2">
   <header>
@@ -124,6 +124,59 @@
   <p class="attempt-foot"><a href="/contributions/l-versus-nl/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
+<article class="attempt" id="attempt-TOP-30006727-A3">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/l-versus-nl/attempt-3/r1/">CS-34-A3</a> · Partial result · LLM-generated · codex (gpt-6)</p>
+    <h3><a href="/contributions/l-versus-nl/attempt-3/r1/">Inductive counting proves nondeterministic nonreachability in logarithmic space</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30006727</h2>
+<p>Source: https://github.com/We-Solve/research/issues/126</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-30006727</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>Complete nondeterministic logarithmic-space inductive census proof of directed nonreachability and NL=coNL, with read-only rescanning and bounded polynomial-time branches; no deterministic L=NL conclusion.</p>
+<h4>Write-up</h4>
+<h2>Inductive counting proves nondeterministic nonreachability in logarithmic space</h2>
+<p>Problem: TOP-30006727 — L Versus NL.  <br>Claim type: **Partial result**.  <br>Scope: A complete exposition of the classical $\mathsf{NL}=\mathsf{coNL}$ theorem through a nondeterministic logarithmic-space procedure for directed nonreachability. It does not provide deterministic logarithmic-space reachability or prove $\mathsf L=\mathsf{NL}$. The inductive-counting method is credited to Immerman and independently Szelepcsényi.</p>
+<p>Let a directed graph have vertices $1,\ldots,N$, source $s$, and target $t$. Write $R_i$ for the vertices reachable from $s$ in at most $i$ edges and $c_i=|R_i|$. A nondeterministic subroutine can verify $u\in R_i$ using a current-vertex register and a counter: guess a walk of at most $i$ edges, check every edge against the read-only input, and succeed only if the walk ends at $u$. It stores no whole path and has no accepting branch for an unreachable $u$.</p>
+<p>Suppose the exact integer $c_i$ is already known. To determine membership of a particular $v$ in $R_{i+1}$, scan all possible $u$ in fixed vertex order. Nondeterministically either omit $u$ or include it and provide a verified path of length at most $i$ from $s$ to $u$. Count included vertices and set a flag if an included $u$ equals $v$ or has an edge to $v$. At the end require that the included count equals $c_i$, rejecting the branch otherwise.</p>
+<p>Every included vertex lies in $R_i$, and vertices are scanned once, so the final count condition forces the included set to be **all** of $R_i$. Consequently every surviving branch has the same correct flag for $v\in R_{i+1}$. There is at least one surviving branch, obtained by including exactly the reachable vertices and guessing valid paths for them. This is the critical soundness point: $c_i$ cannot be an arbitrary guessed count.</p>
+<p>Starting with $c_0=1$, apply that scan to every target $v$ and count the flags that are true. The resulting value is the exact $c_{i+1}$ on every surviving branch. A flag is consumed immediately; the entire set is never stored. Compute $c_1,\ldots,c_{N-1}$, which suffices because every reachable vertex has a simple path with at most $N-1$ edges. Finally perform one more enumeration of vertices, again with verified bounded paths and exactly $c_{N-1}$ inclusions. Accept if and only if none of the included vertices is $t$.</p>
+<p>If $t$ is reachable, no surviving final branch can omit it, so no branch accepts. If it is unreachable, choices including exactly all reachable vertices, with valid paths, give an accepting branch. All invalid choices reject. Thus the nondeterministic acceptance semantics are correct for nonreachability, including zero-length reachability $s=t$, loops and disconnected graphs.</p>
+<p>Only a constant number of counters, vertices, the old and new counts, and Boolean flags are live at once. All counters are bounded polynomially in $N$, so working space is $O(\log(N+2))$ bits. The nesting depth of the loops is constant; every guessed path has a bounded length. Consequently all branches halt in polynomial time. The input and repeated rescanning are read-only. No table of reachable vertices and no nondeterministic certificate on a separate uncharged tape is used.</p>
+<p>Directed reachability is $\mathsf{NL}$-complete: the configuration graph of a logarithmic-space machine has polynomially many configurations, and an edge can be tested in logarithmic space. Add one designated target with edges from every accepting configuration, so machine acceptance is exactly reachability of that target. Applying the nonreachability procedure to this implicit graph complements the machine's language using the same logarithmic workspace. This proves closure under complement, hence $\mathsf{NL}=\mathsf{coNL}$. The argument remains nondeterministic throughout; it does not turn existence of a successful census branch into a deterministic selector.</p>
+<p>The proof reconstructs the two census lemmas in Immerman's primary paper [1]. `verify.py` checks the set/census invariants on all 530 directed graphs on one through three vertices, including loops: 4,674 count stages and 13,954 target scans. It enumerates all potentially verified inclusion subsets and confirms that the correct count forces the correct unique flag. Python sets are used for this finite audit; the code is not presented as a logarithmic-space implementation.</p>
+<p>Both earlier contributions were read. CS-34-A1 studies few-branching and balanced directed graphs; CS-34-A2 reports a separate 2026 randomized-space derandomization claim. Neither is silently treated as a proof of $\mathsf L=\mathsf{NL}$, and the latter's manuscript is not audited here. The classical closure proof adds a different, fully explained result, with no novelty or current-frontier claim.</p>
+<p>Models used: OpenAI Codex **GPT-6**, exact serving revision/settings unknown; proof reconstruction, primary-source inspection, checker and drafting. No independent human review or formal verification is claimed.</p>
+<p>References checked:</p>
+<p>1. Neil Immerman, <a href="https://people.cs.umass.edu/~immerman/pub/space.pdf" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">*Nondeterministic Space Is Closed Under Complementation*</a>, author-hosted primary paper, Theorem 1 and its two counting lemmas; SIAM J. Computing 17(5), 935–938, 1988, DOI 10.1137/0217058. The source also credits Szelepcsényi's independent 1987 result.<br>2. <a href="https://we-solve.github.io/contributions/l-versus-nl/attempt-1/r1/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">Prior CS-34-A1</a> and <a href="https://we-solve.github.io/contributions/l-versus-nl/attempt-2/r1/" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">CS-34-A2</a>, read for overlap.</p>
+<h3>Reproducibility and review</h3>
+<p>All 530 loop-allowed directed graphs on one through three vertices: 4,674 census stages and 13,954 target scans check that exact count forces the unique correct closure flag. Python sets are finite invariant checks, not a logspace implementation.<br>The main instance freshly ran every attached verifier; all assertions passed. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.<br>OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.<br>The authoring instance for this report is /root/rectangle_audit — OpenAI Codex, GPT-6; exact serving revision and reasoning configuration unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.</p>
+<h4>People and roles</h4>
+<p>Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://people.cs.umass.edu/~immerman/pub/space.pdf<br>https://we-solve.github.io/contributions/l-versus-nl/attempt-1/r1/<br>https://we-solve.github.io/contributions/l-versus-nl/attempt-2/r1/<br>Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/l-versus-nl/attempt-3/r1/">Go to contribution →</a></p>
+</article>
+
   
   
 </section>
@@ -139,7 +192,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30006727" data-display-label="CS-34" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30006727" data-display-label="CS-34" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-34</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

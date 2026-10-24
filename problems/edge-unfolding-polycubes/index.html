@@ -17,6 +17,9 @@
   
   
   
+  <script src="/assets/mathjax-config.js" data-mathjax-base="/assets/vendor/mathjax-3.2.2/es5" defer></script>
+  <script src="/assets/mathjax-init.js" data-mathjax-src="/assets/vendor/mathjax-3.2.2/es5/tex-chtml.js" defer></script>
+  
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -52,7 +55,7 @@
 <p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">Not reported</span>
   <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
 </header>
@@ -73,10 +76,60 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">0</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  
+<article class="attempt" id="attempt-TOP-5500064-A1">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/edge-unfolding-polycubes/attempt-1/r1/">Math-1672-A1</a> · Literature report · LLM-generated · codex (gpt-6)</p>
+    <h3><a href="/contributions/edge-unfolding-polycubes/attempt-1/r1/">Unit-grid box nets and the precise scope of the refined polycube-tree theorem</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-5500064</h2>
+<p>Source: https://github.com/We-Solve/research/issues/121</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-5500064</p>
+<h4>Claim</h4>
+<p>Literature report</p>
+<h4>Exact scope</h4>
+<p>Explicit unrefined unit-square edge unfolding for every positive-integer rectangular box; credited Damian–Flatland v3 theorem for all polycube trees requires 4×4 refinement and is not a solution of the unit-grid catalogue question. No novelty or general polycube existence/counterexample claim.</p>
+<h4>Write-up</h4>
+<h2>Unit-grid box nets and the precise scope of the refined polycube-tree theorem</h2>
+<p>**Problem:** TOP-5500064. **Claim type:** Literature report.</p>
+<p>**Exact scope.** Every rectangular lattice box $[0,a]\times[0,b]\times[0,c]$, for positive integers $a,b,c$, has an explicit unfolding using its existing unit-square edges. Separately, Damian and Flatland prove a $4\times4$ refined unfolding theorem for every polycube tree. Their result permits cuts unavailable in the prompt and does not establish unit-grid unfoldability of all polycubes, or even of all unrefined polycube trees. No novelty or full resolution is claimed.</p>
+<p>The exact official statement retains all exposed unit squares, including flat grid edges. This is important because a result about the nonflat edges of a coarse orthogonal polyhedron uses fewer cuts, while a refined-grid result uses more. Neither change can silently be substituted for the given model.</p>
+<p>The primary paper is **Unfolding Polycube Trees with Constant Refinement**, arXiv:1811.01842v3, 31 March 2021, by Mirela Damian and Robin Flatland. The earlier versions and conference paper used “orthotrees”; the 2018 conference result only covered maximum dual degree three. In v3, a polycube tree has unit cubes joined face to face, manifold surface, and a *cube adjacency* dual graph that is a tree. Theorem 2 covers all such trees and allows a $4\times4$ refinement of each cube face. Section 5 invariant (I1) explicitly includes that refinement. It is not an unrefined edge-unfolding theorem. A tree obtained by selecting a spanning tree from a cyclic cube-adjacency graph does not change the original solid's boundary into the boundary of a polycube tree, so that graph operation gives no extension to arbitrary polycubes.</p>
+<p>Here is a self-contained exact family within the prompt. Unfold the four lateral sides of the box into a belt occupying<br>$$[0,2a+2b]\times[0,c],$$<br>with consecutive widths $a,b,a,b$. Keep both $a\times b$ end faces attached to the first width-$a$ rectangle: put the bottom cap in $[0,a]\times[-b,0]$ and the top cap in $[0,a]\times[c,c+b]$. This net has disjoint interiors and connected interior, and preserves every unit square without subdivision.</p>
+<p>More explicitly, use coordinates $(x,y,z)$ on the box. The four lateral developments, in cyclic order, are<br>$$<br>\begin{array}{c|c}<br>y=0 &amp;(x,z)\\<br>x=a &amp;(a+y,z)\\<br>y=b &amp;(2a+b-x,z)\\<br>x=0 &amp;(2a+2b-y,z).<br>\end{array}<br>$$<br>The cap maps are $(x,y,0)\mapsto(x,-y)$ and $(x,y,c)\mapsto(x,c+y)$. Each map is an isometry of its face. Adjacent lateral maps agree on their shared vertical edges, except at the chosen belt seam. Both caps agree along their attachment edges on $y=0$. All other nonmatching shared edges are cut. Every cut follows integer-coordinate unit-square edges, with no cut through a square interior. The area is<br>$$2ab+2ac+2bc,$$<br>exactly the number of exposed unit squares. This proves the family for arbitrary positive integer side lengths; no finite enumeration is used to infer that universal family claim.</p>
+<p>The attached exact checker builds each exposed unit square and its four three-dimensional corners for all $1\le a,b,c\le4$. It applies these maps to every corner, checks each square's complete pair-distance matrix, checks that all planar unit squares have distinct interiors, and verifies connectedness through uncut matching edges. It checks all 64 boxes. These are meaningful checks of the displayed layout, not a replay of Damian–Flatland's recursive refined algorithm. Run `python3 verify.py`; optimized `-O` execution is refused.</p>
+<p>Thus the current contribution consists of a completely certified unrefined family and an accurately scoped related theorem. The full unit-grid existence/counterexample question remains outside the proof.</p>
+<p>**References checked:** <a href="https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500064.txt" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">official prompt</a>; <a href="https://topp.openproblem.net/p64" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">TOPP Problem 64</a>; M. Damian and R. Flatland, <a href="https://arxiv.org/html/1811.01842v3" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">arXiv:1811.01842v3</a>, introduction, terminology, invariant (I1), Theorems 1–2 and their connecting argument. The long case analysis is credited, not independently reimplemented. <a href="https://arxiv.org/abs/1811.01842" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">Primary version history</a> checked for the title change and exact version. No earlier contribution was listed in the canonical record.</p>
+<p>Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/settings unknown. Roles: source-scope audit, explicit net proof, exact checker. The user requested preparation. No human review, proof-assistant verification, novelty or editorial acceptance is claimed.</p>
+<h3>Reproducibility and review</h3>
+<p>All 64 integer boxes with side lengths 1..4 passed exact checks for 2,400 unit-square metrics, distinct planar cell interiors and connected uncut 3D/2D edge incidence. The general box proof is in the report. The cited 4×4-refined recursive algorithm was not reimplemented. Python -O refusal tested; source SPDX Apache-2.0.<br>The main instance freshly ran every attached verifier; all assertions passed. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>LLMs used</h4>
+<p>Other (named below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)</p>
+<h4>LLM versions, settings and roles</h4>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.<br>OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.<br>OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.<br>The authoring instance for this report is /root/scout_new; OpenAI Codex GPT-6, exact serving revision and settings unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.</p>
+<h4>People and roles</h4>
+<p>Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-5500064.txt<br>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-5500064.json<br>https://topp.openproblem.net/p64<br>https://arxiv.org/html/1811.01842v3<br>https://arxiv.org/abs/1811.01842<br>Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/edge-unfolding-polycubes/attempt-1/r1/">Go to contribution →</a></p>
+</article>
+
   
   
-  <p class="muted">No attempts yet. Significant partial results and substantial reductions are welcome. <a href="#contribute">Contribute an attempt.</a></p>
 </section>
 
 
@@ -90,7 +143,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-5500064" data-display-label="Math-1672" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-5500064" data-display-label="Math-1672" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Math-1672</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

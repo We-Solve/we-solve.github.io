@@ -52,12 +52,12 @@
   <span class="visually-hidden">CS-322 · Math-4511</span>
   <h1 data-pagefind-meta="title">Polynomial-Time Minimization of K-Submodular Functions</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6.1 sol</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">0%</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -76,7 +76,7 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
 <article class="attempt" id="attempt-TOP-30002722-A1">
   <header>
@@ -95,6 +95,68 @@ F(x_1,x_2)=u(x_1)+u(x_2)-3\mathbf1_{\{x_1=x_2=1\}}.
   <p class="attempt-foot"><a href="/contributions/polynomial-time-minimization-of-k-submodular-functions/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
+<article class="attempt" id="attempt-TOP-30002722-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/polynomial-time-minimization-of-k-submodular-functions/attempt-2/r1/">CS-322-A2</a> · Partial result · LLM-generated · gpt 6.1 sol, codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/polynomial-time-minimization-of-k-submodular-functions/attempt-2/r1/">Polynomial-Time Minimization of K-Submodular Functions</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30002722</h2>
+<p>Source: https://github.com/We-Solve/research/issues/379</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-30002722</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>Explicit k-submodular functions given by admissible unary terms and nonnegative star-metric pair interactions on a tree can be minimized exactly in O(n(k+1)²) rational operations, with polynomial bit complexity.</p>
+<h4>Write-up</h4>
+<h2>Polynomial-Time Minimization of K-Submodular Functions</h2>
+<p>Claim type: **Partial result**.</p>
+<p>Exact scope: Explicit k-submodular functions given by admissible unary terms and nonnegative star-metric pair interactions on a tree can be minimized exactly in O(n(k+1)²) rational operations, with polynomial bit complexity.</p>
+<h3>A nontrivial explicit family</h3>
+<p>Labels are {0,1,…,k}, with coordinatewise meet a⊓b=a if a=b and 0 otherwise; join a⊔b is the common label if equal, the nonzero label if one is zero, and 0 if distinct nonzero. A function is k-submodular when F(x)+F(y)≥F(x⊓y)+F(x⊔y).</p>
+<p>On an explicitly supplied forest define<br>F(x)=Σ_v φ_v(x_v)+Σ_{uv} w_{uv} d(x_u,x_v),<br>where w_{uv}≥0 are rational and d(a,b) is 0 for a=b, 1 when exactly one is zero, and 2 for distinct nonzero labels. Require φ_v(a)+φ_v(b)≥2φ_v(0) for all distinct nonzero a,b. This is precisely the unary k-submodular inequality; all other unary cases have equality.</p>
+<p>Here is a complete finite-case justification for the binary term, uniform in k. For a,b,c,e the inequality slack is<br>s=d(a,b)+d(c,e)−d(a⊓c,b⊓e)−d(a⊔c,b⊔e).<br>Its value depends only on which labels are zero and which nonzero labels are equal. Rename nonzero labels in first-occurrence order. The 52 possible renamed quadruples are generated without omission by starting with the empty tuple and, at each next position, appending 0, an already used positive label, or the next unused positive label. Direct substitution gives slack counts 32 of value 0, 16 of value 2, and 4 of value 4; the attached checker prints the entire 52-case certificate. For a hand-checkable complete rule, the recursive enumeration just stated has length four, and the displayed four-term formula evaluates each case using only values 0,1,2. No case with more than four positive labels can occur in four positions, and for smaller k one merely discards patterns using too many labels. Thus every slack is nonnegative. Nonnegative weighting and summation preserve all inequalities, proving this family is k-submodular. The checker is a finite proof of this local lemma, not experimental support for an unbounded search.</p>
+<h3>Exact optimization on the interaction forest</h3>
+<p>Root each component. Define D_v(a) as the minimum cost of its descendant subtree conditional on x_v=a. Then<br>D_v(a)=φ_v(a)+Σ_{u child of v} min_{b∈{0,…,k}}(D_u(b)+w_{uv}d(a,b)).<br>There are no edges between different child subtrees. Conditioning on x_v therefore makes these choices independent, which proves the recurrence by induction. Minimize each root entry and follow stored minimizing labels to output a minimizing assignment. Negative unary costs are allowed. Zero edge weights, isolated vertices, and k≥3 all pose no additional boundary cases. The algorithm would also minimize arbitrary explicit pairwise tree functions; here the finite lemma ensures the advertised family lies in the literal k-submodular class.</p>
+<p>Each edge uses (k+1)² candidate comparisons and additions. With rational encoded data of total length L, all candidate costs are sums of at most O(n) input terms; a common-denominator bound gives polynomially many bits in L, so the arithmetic count yields a polynomial bit-time bound. Input tables have n(k+1) entries and are charged. This is an explicit interaction-tree regime, not an oracle algorithm for general k-submodular minimization.</p>
+<h3>Earlier contributions and limits</h3>
+<p>The previous attempt enumerates orthants and exhibits failed local descent; it mentions later oracle lower-bound claims. This report supplies a distinct explicit interaction-forest class and exact polynomial algorithm, without transferring conclusions across input models.</p>
+<p>This is a scoped contribution, with no claim of historical novelty or resolution beyond the stated hypotheses. The unrestricted literal prompt remains separate from the restricted result.</p>
+<h3>Verification and attribution</h3>
+<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
+<p>The infinite statements rely on the written proof or the explicitly credited source theorem, not finite tests. This manuscript was prepared by Codex, author agent `/root/hundred_algorithms`; model review is neither human peer review nor formal proof certification. Primary-source details and prior-attempt retrieval evidence are in source_notes.md.</p>
+<h3>Reproducibility and review</h3>
+<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p><a href="https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30002722/verify.py" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">Read the original reproduction program at its pinned commit</a>. Source SHA-256: `8e3320ffb15f690b699c3f2e78659a8692fbfa6569ff2f341a84e1aaa31e2af0`. The source is byte-identical to the reviewed and executed program.</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>Models used</h4>
+<p>OpenAI GPT 6.1 Sol, Other (named below)</p>
+<h4>Thinking level / time</h4>
+<p>Mixed (specified per model below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>Per-model versions, thinking and roles</h4>
+<p>GPT-6.1 Sol (supplemental user-specified attribution) | version: unknown | thinking: Ultra (user-specified; not independently verified) | time: unknown | role: requested attribution, supplementing the historical records below.</p>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | thinking: unknown | time: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | thinking: unknown | time: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | thinking: unknown | time: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | thinking: unknown | time: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | thinking: unknown | time: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | thinking: unknown | time: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | thinking: unknown | time: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_algorithms. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>Model eligibility and verification evidence</h4>
+<p>The historical research records identify OpenAI Codex (GPT-6) instances with exact serving revisions and reasoning settings unknown. Each report has a separate LLM audit, with the original author/reviewer identities and source/program hashes retained in the research bundle. Those records describe the checks performed; they do not independently establish the historical runtime configuration or a previously demonstrated qualifying architecture. GPT-6.1 Sol with Ultra reasoning is the submitting user's explicit supplemental attribution, not independently verified runtime metadata or a retrospective reassignment of the earlier work. The Mixed selection preserves that distinction between the user's stated attribution and the unknown historical settings. No editorial acceptance is claimed.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30002722.txt<br>Exact source versions, statements and uses are described in report.md and source_notes.md.<br>Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30002722/verify.py (Used: exact previously reviewed program; SHA-256 8e3320ffb15f690b699c3f2e78659a8692fbfa6569ff2f341a84e1aaa31e2af0).</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/polynomial-time-minimization-of-k-submodular-functions/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
   
   
 </section>
@@ -110,7 +172,7 @@ F(x_1,x_2)=u(x_1)+u(x_2)-3\mathbf1_{\{x_1=x_2=1\}}.
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30002722" data-display-label="CS-322" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30002722" data-display-label="CS-322" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-322</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

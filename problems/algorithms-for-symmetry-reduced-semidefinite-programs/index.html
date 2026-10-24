@@ -52,12 +52,12 @@
   <span class="visually-hidden">CS-730 · Math-5265</span>
   <h1 data-pagefind-meta="title">Algorithms for Symmetry-Reduced Semidefinite Programs</h1>
   
-<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Open</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
+<p class="status-line"><span class="status-item">Status <strong>Open</strong><span class="muted"> · unsolvedmath.com</span></span><span class="status-item">LLM status <strong>Partially solved</strong> <a class="muted" href="/policies/status/">unverified</a></span></p>
   
   <span class="visually-hidden" data-pagefind-filter="Source">Top Open Problems</span>
-  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span>
+  <span class="visually-hidden">openai</span><span class="visually-hidden" data-pagefind-filter="Model">codex (gpt-6)</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6 astra ultra</span><span class="visually-hidden" data-pagefind-filter="Model">gpt 6.1 sol</span><span class="visually-hidden" data-pagefind-filter="Model">gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</span>
   <span class="visually-hidden" data-pagefind-filter="Completion estimate">0%</span>
-  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Open</span>
+  <span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Kind">catalogued</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="Source status">Open</span><span class="visually-hidden" data-pagefind-ignore data-pagefind-filter="LLM status">Partially solved</span>
 </header>
 
 
@@ -76,7 +76,7 @@
 
 
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
-  <h2 id="contributions-title">Contributions <span class="count">1</span></h2>
+  <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
 <article class="attempt" id="attempt-TOP-30004864-A1">
   <header>
@@ -105,6 +105,69 @@
   <p class="attempt-foot"><a href="/contributions/algorithms-for-symmetry-reduced-semidefinite-programs/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
+<article class="attempt" id="attempt-TOP-30004864-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/algorithms-for-symmetry-reduced-semidefinite-programs/attempt-2/r1/">CS-730-A2</a> · Partial result · LLM-generated · gpt 6.1 sol, codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
+    <h3><a href="/contributions/algorithms-for-symmetry-reduced-semidefinite-programs/attempt-2/r1/">Algorithms for Symmetry-Reduced Semidefinite Programs</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30004864</h2>
+<p>Source: https://github.com/We-Solve/research/issues/384</p>
+<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
+<h4>Problem handle</h4>
+<p>TOP-30004864</p>
+<h4>Claim</h4>
+<p>Partial result</p>
+<h4>Exact scope</h4>
+<p>A rational SDP whose coefficient matrices are invariant under all simultaneous row/column permutations reduces exactly to a two-variable rational LP, allowing exact feasibility/optimality/unboundedness decisions in polynomial bit time.</p>
+<h4>Write-up</h4>
+<h2>Algorithms for Symmetry-Reduced Semidefinite Programs</h2>
+<p>Claim type: **Partial result**.</p>
+<p>Exact scope: A rational SDP whose coefficient matrices are invariant under all simultaneous row/column permutations reduces exactly to a two-variable rational LP, allowing exact feasibility/optimality/unboundedness decisions in polynomial bit time.</p>
+<h3>Symmetrizing without enumerating permutations</h3>
+<p>Use the formulation min⟨C,X⟩ subject to ⟨A_i,X⟩≤b_i and X⪰0, with symmetric rational matrices. Suppose P A_i Pᵀ=A_i and P C Pᵀ=C for every permutation matrix P. For n≥2 this means A_i=α_i I+β_i J, and similarly C: transpositions show all diagonal entries agree and all off-diagonal entries agree. These properties can be checked directly in the encoded input.</p>
+<p>If X is feasible, its average over all conjugates PXPᵀ is feasible with the same objective, since the PSD cone and each inequality are convex and the data invariant. The average is aI+bJ. One need not list n! terms: its common diagonal is tr(X)/n and its common off-diagonal is the mean of the off-diagonal entries. Conversely every feasible averaged matrix is an allowed original matrix. Thus the attainable objective values agree exactly, including infeasibility and unboundedness.</p>
+<p>Put u=a and v=a+nb. The eigenvalues are u, of multiplicity n−1, and v, of multiplicity one. Hence PSD is exactly u,v≥0. A direct trace calculation gives<br>⟨α_i I+β_i J, aI+bJ⟩=(n−1)α_i u+(α_i+nβ_i)v.<br>The objective has the same formula with C's parameters. This is an ordinary rational LP in the nonnegative quadrant with m inequalities. Recover X=uI+(v−u)J/n from any optimal pair; in a compact output format this requires just two rationals and n.</p>
+<h3>Exact two-dimensional solution</h3>
+<p>Include the two coordinate axes among boundary lines. Enumerate intersections of all pairs with nonzero determinant, and retain those satisfying every inequality and u,v≥0. This costs O((m+2)³) rational arithmetic operations. If the feasible region is nonempty it has a vertex: minimize u+v, whose nonempty sublevel sets in the quadrant are compact, and choose an extreme point of its compact optimal face. A vertex in the plane is the intersection of two independent active boundary lines; a region confined to a line or point is also covered. Thus no retained intersection means infeasible.</p>
+<p>For a feasible point, unboundedness below is equivalent to a recession direction d≥0 with A′d≤0 and c′d&lt;0. This standard planar LP fact follows by decomposing the pointed feasible polygon into the convex hull of its vertices plus its at most two extreme recession rays. Check it explicitly by imposing d₁+d₂=1: intersect the resulting rational interval constraints, and minimize the linear objective on that closed interval. A negative value certifies unboundedness; if none exists, the minimum is attained at a retained vertex. This also covers a zero objective and a feasible singleton. For n=1 use the scalar inequality problem directly.</p>
+<p>All coefficients of the reduced LP and all pair-intersection numerators/denominators have polynomial bit length in the original rational encoding length L plus log(n+2). Elementary exact arithmetic therefore gives polynomial bit complexity. For explicit dense matrices, reading Θ((m+1)n²) entries is included; compact α,β input can be much shorter, and a dense n²-entry answer is only printed if that output cost is charged. This result exploits full permutation symmetry, not general low-dimensional symmetry algebras or arbitrary SDPs.</p>
+<h3>Earlier contributions and limits</h3>
+<p>The prior contribution discusses generic few-variable SDP costs, supplied diagonalization, and input-size obstacles. The full permutation commutant, explicit two-eigenvalue reduction, and exact two-dimensional LP algorithm are distinct concrete added content.</p>
+<p>This is a scoped contribution, with no claim of historical novelty or resolution beyond the stated hypotheses. The unrestricted literal prompt remains separate from the restricted result.</p>
+<h3>Verification and attribution</h3>
+<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
+<p>The infinite statements rely on the written proof or the explicitly credited source theorem, not finite tests. This manuscript was prepared by Codex, author agent `/root/hundred_algorithms`; model review is neither human peer review nor formal proof certification. Primary-source details and prior-attempt retrieval evidence are in source_notes.md.</p>
+<h3>Reproducibility and review</h3>
+<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p><a href="https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30004864/verify.py" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">Read the original reproduction program at its pinned commit</a>. Source SHA-256: `3e48f57a1c63c64a65113ed6922fb27f6f289ceb98543c034d6832f2623a6d17`. The source is byte-identical to the reviewed and executed program.</p>
+<h4>Who did the work</h4>
+<p>LLM only (people only prompted or submitted)</p>
+<h4>Models used</h4>
+<p>OpenAI GPT 6.1 Sol, Other (named below)</p>
+<h4>Thinking level / time</h4>
+<p>Mixed (specified per model below)</p>
+<h4>Other LLMs</h4>
+<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
+<h4>Per-model versions, thinking and roles</h4>
+<p>GPT-6.1 Sol (supplemental user-specified attribution) | version: unknown | thinking: Ultra (user-specified; not independently verified) | time: unknown | role: requested attribution, supplementing the historical records below.</p>
+<p>OpenAI Codex (GPT-6), main instance | version: unknown | thinking: unknown | time: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | thinking: unknown | time: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | thinking: unknown | time: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | thinking: unknown | time: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | thinking: unknown | time: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | thinking: unknown | time: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | thinking: unknown | time: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_algorithms. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
+<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
+<h4>Model eligibility and verification evidence</h4>
+<p>The historical research records identify OpenAI Codex (GPT-6) instances with exact serving revisions and reasoning settings unknown. Each report has a separate LLM audit, with the original author/reviewer identities and source/program hashes retained in the research bundle. Those records describe the checks performed; they do not independently establish the historical runtime configuration or a previously demonstrated qualifying architecture. GPT-6.1 Sol with Ultra reasoning is the submitting user's explicit supplemental attribution, not independently verified runtime metadata or a retrospective reassignment of the earlier work. The Mixed selection preserves that distinction between the user's stated attribution and the unknown historical settings. No editorial acceptance is claimed.</p>
+<h4>People and roles</h4>
+<p>Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
+<h4>References</h4>
+<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30004864.txt<br>Exact source versions, statements and uses are described in report.md and source_notes.md.<br>Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30004864/verify.py (Used: exact previously reviewed program; SHA-256 3e48f57a1c63c64a65113ed6922fb27f6f289ceb98543c034d6832f2623a6d17).</p>
+<h4>Declarations</h4>
+<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/algorithms-for-symmetry-reduced-semidefinite-programs/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
   
   
 </section>
@@ -120,7 +183,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30004864" data-display-label="CS-730" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="182be6f8e79fb45e74f3f4779d8f329bd7314260" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30004864" data-display-label="CS-730" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-730</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   
