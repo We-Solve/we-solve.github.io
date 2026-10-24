@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-20003153
-
-Source: https://github.com/We-Solve/research/issues/363
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-20003153
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-If every fiber is totally geodesic, every positively curved Riemannian submersion in the prompt has f≤b−1, and Λ²H→V is surjective at every point. No bound for general fibers is claimed.
-
-### Write-up
-
 # The fiber bound and full A-image for totally geodesic fibers
 
 **Problem:** TOP-20003153
@@ -69,58 +49,7 @@ Source/proof-only report: fresh literal prompt read; no earlier contributions li
 
 This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### Models used
-
-OpenAI GPT 6.1 Sol, Other (named below)
-
-### Thinking level / time
-
-Mixed (specified per model below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
-
-### Per-model versions, thinking and roles
-
-GPT-6.1 Sol (supplemental user-specified attribution) | version: unknown | thinking: Ultra (user-specified; not independently verified) | time: unknown | role: requested attribution, supplementing the historical records below.
-
-OpenAI Codex (GPT-6), main instance | version: unknown | thinking: unknown | time: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.
-OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | thinking: unknown | time: unknown | role: developed algebra reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | thinking: unknown | time: unknown | role: developed number-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | thinking: unknown | time: unknown | role: developed graph-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | thinking: unknown | time: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | thinking: unknown | time: unknown | role: developed topology reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | thinking: unknown | time: unknown | role: developed geometry reports and performed separate LLM reviews.
-The authoring instance for this report is /root/hundred_topology. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
-
-User-specified model attribution (19 October 2026):
-Model: GPT-6.1 Sol
-Reasoning level: Ultra
-Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
-This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
-
-### Model eligibility and verification evidence
-
-The historical research records identify OpenAI Codex (GPT-6) instances with exact serving revisions and reasoning settings unknown. Each report has a separate LLM audit, with the original author/reviewer identities and source/program hashes retained in the research bundle. Those records describe the checks performed; they do not independently establish the historical runtime configuration or a previously demonstrated qualifying architecture. GPT-6.1 Sol with Ultra reasoning is the submitting user's explicit supplemental attribution, not independently verified runtime metadata or a retrospective reassignment of the earlier work. The Mixed selection preserves that distinction between the user's stated attribution and the unknown historical settings. No editorial acceptance is claimed.
-
-### People and roles
-
-Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 Xiaoyang Chen, Riemannian submersions from compact four manifolds, arXiv:1409.4027v1 (14 September2014), Proposition1.2, §2 conventions and §3 proof: https://arxiv.org/pdf/1409.4027
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-30006906
-
-Source: https://github.com/We-Solve/research/issues/218
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-30006906
-
-### Claim
-
-Literature report
-
-### Exact scope
-
-Stolz’s theorem settles the exact smooth spin existence criterion for every simply connected closed manifold of dimension >=5. The Rosenberg index in the prompt is identified with the ordinary real alpha invariant in this subcase; a dimension-by-dimension criterion follows.
-
-### Write-up
-
 # The unstabilized finite-group GLR criterion for trivial fundamental group
 
 Problem: TOP-30006906
@@ -73,49 +53,8 @@ Proof/source audit only; no computational verification of the external theorem w
 
 This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.
-OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
-The authoring instance for this report is /root/hundred_topology. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
-
-User-specified model attribution (19 October 2026):
-Model: GPT-6.1 Sol
-Reasoning level: Ultra
-Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
-This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
-
-### People and roles
-
-Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 S. Stolz, Simply connected manifolds of positive scalar curvature, Annals of Mathematics 136 (1992), 511–540, Theorem A. Publisher bibliographic record: https://annals.math.princeton.edu/1992/136-3/p02
 S. Stolz, Positive scalar curvature—constructions and obstructions, arXiv:2202.05904v1, Theorems 1.2, 1.6 and Section 2.2. https://arxiv.org/pdf/2202.05904v1
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

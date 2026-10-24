@@ -1,31 +1,3 @@
-# Attributed submission: Attempt: ERDOS-693
-
-Source: https://github.com/We-Solve/research/issues/439
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-ERDOS-693
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-Three unconditional results; the main question (a polylogarithmic upper bound for $G(n,k)$) remains **open**, in both directions.
-
-1. **Theorem 1 (lower bound, every fixed $k\ge 2$).** $\displaystyle\limsup_{n\to\infty}\frac{G(n,k)}{\log n\thinspace \log\log n/\log\log\log n}\ \ge\ \frac12.$ In particular $G(n,k)/\log n$ is unbounded, so every claim of the form $G(n,k)=O_k(\log n)$ is false. This holds along an infinite sequence of $n$, not for all large $n$, and it is compatible with $G(n,k)\le(\log n)^{C}$ for any $C>1$.
-2. **Theorem 2 (upper bound, $k=2$ only).** $G(n,2)\le \tfrac{12}{5}\sqrt n+3$ for every $n\ge 10^6$. This improves the trivial bound $n+1$ recorded in earlier contributions. The exponent $1/2$ is presumably known in some form; we do not claim novelty for the exponent.
-3. **Proposition 3 (barrier).** If $G(n,2)\le F(n)$ for a non-decreasing $F$ and all $n\ge n_0$, then every interval $[x,x+F(\lfloor\sqrt x\rfloor+1))$, $x\ge x_0$, contains an integer all of whose prime factors are $<2\sqrt x+2$. Hence a positive answer to #693 would give such integers in **every** interval of length $C(\log x)^A$, and even $G(n,2)\ll n^{1/2-\eta}$ would give them in every interval of length $\ll x^{1/4-\eta/2}$. This explains why upper-bound arguments stop at $\sqrt n$. It is a logical implication, not an impossibility proof.
-
-Also included: Remark 4, a short rigorous observation that restricting to prime divisors $p\in(n,2n)$ would require polylogarithmic gaps between consecutive primes.
-
-No literature novelty is claimed for any item. Large-scale computations from our project are **not** part of this claim and are not reported.
-
-### Write-up
-
 ## Notation
 
 Fix $k\ge2$. $A_{n,k}$ and $G(n,k)$ are as in the problem statement, with the open interval $D_n=(n,2n)\cap\mathbb Z$. Write $A_n^\infty=\lbrace m\ge1:\exists d\in D_n,\ d\mid m\rbrace $, so $A_{n,k}=A_n^\infty\cap[n,n^k]$. Since $A_{n,k}\cap[n,n^2]=A_{n,2}$, every gap of $A_{n,2}$ between two of its elements is also a gap of $A_{n,k}$; hence $G(n,k)\ge G(n,2)$. Logarithms are natural, and $\log_j$ denotes the $j$-fold iterated logarithm. $\theta,\psi,\pi,\Lambda$ are the usual prime-counting functions.
@@ -140,48 +112,8 @@ Let $P_n=\lbrace m\in[n,n^2]:\ \exists\text{ prime }p\in(n,2n),\ p\mid m\rbrace 
   - any bound $G(n,k)\le(\log n)^{O(1)}$;
   - any lower bound $G(n,k)\ge(\log n)^{1+c}$ with $c>0$, even along a sequence.
 
-### Who did the work
-
-People with LLM assistance
-
-### Models used
-
-OpenAI GPT 6 Astra, Anthropic Claude Opus 5.5, Other (named below)
-
-### Thinking level / time
-
-Unknown (not available)
-
-### Other LLMs
-
-Anthropic, Claude Sonnet
-DeepSeek, unknown
-
-### Per-model versions, thinking and roles
-
-Claude Opus 5.5 | version: unknown | thinking: unknown | time: unknown (submitter's estimate for the whole project: about one weekly usage quota, sessions 2026-10-04 to 2026-10-14) | role: "Analyst" agent in a multi-agent project; produced the original proofs of Theorems 1–2, Proposition 3 and Remark 4
-Claude Opus 5.5 | version: claude-opus-5-5 | thinking: unknown | time: unknown (one session, 2026-10-22) | role: independently re-checked every step of the proofs included here, corrected one inequality (Section 5), checked the Granville quotation, wrote this submission
-Claude Sonnet | version: unknown | thinking: unknown | time: unknown | role: "Bibliographer" agent; literature search (no text from it is reproduced here)
-GPT 6 Astra | version: 6.0 | thinking: unknown | time: unknown | role: second opinion on earlier drafts via chat; its suggested bound O(n^{2/3}) was superseded by Theorem 2, and none of its text or results are used here
-DeepSeek | version: unknown | thinking: unknown | time: unknown | role: consulted once as a second opinion; its answer contained errors and nothing from it is used
-
-### Model eligibility and verification evidence
-
-Claude Sonnet, DeepSeek and GPT 6 Astra (thinking setting unknown) contributed no content that appears in this write-up. Every proof and claim stated here was checked step by step by Claude Opus 5.5 (a listed example model) in the 2026-10-22 session. Scope of that check: Sections 1–4 in full, including boundary cases. The check is model-based, not an independent human review.
-
-### People and roles
-
-@MikhailLevit1987: posed the task and directed the project; submitted this issue
-
-### References
+## References
 
 P. Erdős, Some unconventional problems in number theory, Astérisque 61 (1979), 73–82. (Used: original formulation of the question; checked in an OCR copy of the paper.)
 A. Granville, Smooth numbers: computational number theory and beyond, in: Algorithmic Number Theory, MSRI Publ. 44 (2008), §4. (Used: statement of the Friedlander–Lagarias result and of the "sqrt x barrier", quoted in Section 3.)
 Erdős Problems, Problem #693, https://www.erdosproblems.com/693. (Used: problem statement; no known bounds listed there at time of writing.)
-
-### Declarations
-
-- [X] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [X] I understand that this issue and its contents are public immediately.
-- [X] Every LLM and person involved is listed, with versions or "unknown".
-

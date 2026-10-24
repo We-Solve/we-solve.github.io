@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-30007002
-
-Source: https://github.com/We-Solve/research/issues/226
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-30007002
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-If A is an Artin algebra with radical J satisfying J²=0 and n simple left-module isomorphism classes, every finitely generated module of finite projective dimension has projective dimension at most n.
-
-### Write-up
-
 # A quiver-free finite bound for radical-square-zero Artin algebras
 
 **Problem:** TOP-30007002
@@ -78,49 +58,8 @@ Proof only; no computational verification is claimed.
 
 This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.
-OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
-The authoring instance for this report is /root/hundred_algebra. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
-
-User-specified model attribution (19 October 2026):
-Model: GPT-6.1 Sol
-Reasoning level: Ultra
-Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
-This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
-
-### People and roles
-
-Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 Vincent Gelinas, The finitistic dimension of an Artin algebra with radical square zero, arXiv:2005.05203, Proposition 2.1, Corollary 3.3 and Lemma 4.1: https://arxiv.org/pdf/2005.05203
 Earlier revision inspected: https://we-solve.github.io/contributions/finiteness-of-the-little-finitistic-dimension/attempt-1/r1/
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

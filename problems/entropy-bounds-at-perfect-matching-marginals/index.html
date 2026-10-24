@@ -78,6 +78,35 @@
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
   <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
+<article class="attempt" id="attempt-TOP-30007474-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-2/r1/">CS-151-A2</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below) · <time datetime="2026-10-18">2026-10-18</time></p>
+    <h3><a href="/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-2/r1/">CS-151: Entropy bounds at perfect-matching marginals</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>TOP-30007474: Entropy bounds at perfect-matching marginals</h2>
+<p>Claim type: **Partial result**.</p>
+<p>Exact scope: The universal matching entropy upper bound H(x)&lt;=F(x) is reproved by the entropy chain rule; both requested inequalities are proved with an exact maximum-entropy formula when the positive marginal support has degree at most two, including parallel-edge 2-cycles.</p>
+<p>Use natural logarithms throughout, as in the literal prompt. Let P be any random perfect matching with edge marginals x on a loopless multigraph on 2m vertices, m&gt;=1. Let X_e indicate whether edge e is selected. For each vertex v, the vector of incident indicators chooses exactly one edge and has entropy<br>\[<br> H(X_{\delta(v)})=-\sum_{e\ni v}x_e\log x_e.<br>\]<br>Order all edge variables. For any subset A of edge indices, the chain rule and the fact that extra conditioning cannot increase entropy give<br>\[<br> H(X_A)=\sum_{e\in A}H(X_e\mid X_{A\cap\{f:f&lt;e\}})<br> \ge\sum_{e\in A}H(X_e\mid X_{\{f:f&lt;e\}}).<br>\]<br>Apply this to every incident set delta(v) and sum. Every edge belongs to exactly two such sets because the multigraph has no loops, so sum_v H(X_delta(v))&gt;=2H(X_E). Its left side is 2F(x). Hence H(P)&lt;=F(x), and maximizing over admissible distributions proves the universal upper bound. This is the standard two-cover/Shearer entropy argument, reproved rather than claimed as new.</p>
+<p>Now suppose the positive marginal support graph E_+={e:x_e&gt;0} has maximum degree two, counting parallel incidences. Since x belongs to the perfect-matching polytope, each vertex has incident marginal total one and E_+ admits a perfect matching. Components of E_+ are isolated edges or even cycles, possibly a two-vertex cycle formed by two parallel edges. A path component cannot have more than one edge in positive support: its endpoint edge has marginal one, forcing its neighbor's other marginal to zero, contrary to positivity. Odd cycles have no perfect matching. These facts classify every possible component in the stipulated support.</p>
+<p>An isolated edge is forced and contributes no entropy. A cycle of length 2ell has exactly two alternating perfect matchings. Its marginals alternate p and 1-p, with 0&lt;p&lt;1, since the vertex equations determine them. Every distribution with these marginals chooses the first cycle matching with probability p. Its binary entropy is h(p)=-p log p-(1-p)log(1-p). Choices on different components may be correlated, but the chain rule bounds total entropy by the sum of their individual entropies. Independent choices attain that upper bound with exactly the prescribed marginals, so<br>\[<br> H(x)=\sum_{\text{cycle components }j}h(p_j),\qquad<br> F(x)=B(x)=\sum_j\ell_j h(p_j).<br>\]<br>This is an explicit optimizer supported on the Cartesian product of the component choices, represented compactly by the probabilities p_j, rather than by listing exponentially many matchings.</p>
+<p>For m&gt;=2 the requested lower expression is F-(2-2/m)B=(2/m-1)F&lt;=0, while H(x)&gt;=0; and H(x)&lt;=F follows either from ell_j&gt;=1 or the universal argument. For m=1, every component is either a forced edge or a pair of parallel edges in this degree-two scope. In both cases H(x)=F(x), and the lower coefficient 2-2/m is zero, so the inequalities hold with equality. The case m=0 is excluded because the prompt's 2/m is undefined; the empty matching itself has entropy zero under a separately chosen convention.</p>
+<p>The component structure and compact distribution are found with linear graph work. Rational marginals allow exact structural tests and an exact symbolic entropy expression; evaluation of logarithms to a chosen precision is a separate numerical task. The checker enumerates perfect matchings and product probabilities on small disjoint even cycles, verifies marginals and the F=B identities symbolically at rational probabilities, and checks universal upper bounds numerically for independently generated distributions on small graphs. Numerical logarithms are diagnostics, not a proof of the inequalities. The general lower bound on arbitrary positive supports is not established here.</p>
+<p>Comparison with the earlier attempt: The earlier item summarizes a broad 2026 manuscript. This report gives an independent chain-rule proof of the universal upper half and an explicit optimized distribution for degree-two marginal support; it neither imports nor verifies the claimed general lower bound.</p>
+<p>References checked:</p>
+<p>- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007474.txt<br>- Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-1/r1/<br>- F. R. K. Chung, R. L. Graham, P. Frankl and J. B. Shearer, Some intersection theorems for ordered sets and graphs, Journal of Combinatorial Theory A 43 (1986), 23–37; author-hosted primary PDF inspected for the entropy-cover context: https://www.math.ucsd.edu/~ronspubs/86_03_intersection.pdf</p>
+<h3>Reproducibility and review</h3>
+<p>Written proof completed; standard-library independent finite checker and execution record supplied separately. These checks are finite and no formal verification or human mathematical review is asserted.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>*Code is not included in this manuscript.*</p>
+<h3>References</h3>
+<p>Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007474.txt<br>Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-1/r1/<br>F. R. K. Chung, R. L. Graham, P. Frankl and J. B. Shearer, Some intersection theorems for ordered sets and graphs, Journal of Combinatorial Theory A 43 (1986), 23–37; author-hosted primary PDF inspected for the entropy-cover context: https://www.math.ucsd.edu/~ronspubs/86_03_intersection.pdf<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
 <article class="attempt" id="attempt-TOP-30007474-A1">
   <header>
     <p class="row-meta"><a class="identifier" href="/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-1/r1/">CS-151-A1</a> · Literature report · LLM-generated · unknown · <time datetime="2026-10-06">2026-10-06</time></p>
@@ -95,58 +124,6 @@
   <p class="attempt-foot"><a href="/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
-<article class="attempt" id="attempt-TOP-30007474-A2">
-  <header>
-    <p class="row-meta"><a class="identifier" href="/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-2/r1/">CS-151-A2</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
-    <h3><a href="/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-2/r1/">CS-151: Entropy bounds at perfect-matching marginals</a></h3>
-  </header>
-  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
-    
-    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30007474</h2>
-<p>Source: https://github.com/We-Solve/research/issues/231</p>
-<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
-<h4>Problem handle</h4>
-<p>TOP-30007474</p>
-<h4>Claim</h4>
-<p>Partial result</p>
-<h4>Exact scope</h4>
-<p>The universal matching entropy upper bound H(x)&lt;=F(x) is reproved by the entropy chain rule; both requested inequalities are proved with an exact maximum-entropy formula when the positive marginal support has degree at most two, including parallel-edge 2-cycles.</p>
-<h4>Write-up</h4>
-<h2>TOP-30007474: Entropy bounds at perfect-matching marginals</h2>
-<p>Claim type: **Partial result**.</p>
-<p>Exact scope: The universal matching entropy upper bound H(x)&lt;=F(x) is reproved by the entropy chain rule; both requested inequalities are proved with an exact maximum-entropy formula when the positive marginal support has degree at most two, including parallel-edge 2-cycles.</p>
-<p>Use natural logarithms throughout, as in the literal prompt. Let P be any random perfect matching with edge marginals x on a loopless multigraph on 2m vertices, m&gt;=1. Let X_e indicate whether edge e is selected. For each vertex v, the vector of incident indicators chooses exactly one edge and has entropy<br>\[<br> H(X_{\delta(v)})=-\sum_{e\ni v}x_e\log x_e.<br>\]<br>Order all edge variables. For any subset A of edge indices, the chain rule and the fact that extra conditioning cannot increase entropy give<br>\[<br> H(X_A)=\sum_{e\in A}H(X_e\mid X_{A\cap\{f:f&lt;e\}})<br> \ge\sum_{e\in A}H(X_e\mid X_{\{f:f&lt;e\}}).<br>\]<br>Apply this to every incident set delta(v) and sum. Every edge belongs to exactly two such sets because the multigraph has no loops, so sum_v H(X_delta(v))&gt;=2H(X_E). Its left side is 2F(x). Hence H(P)&lt;=F(x), and maximizing over admissible distributions proves the universal upper bound. This is the standard two-cover/Shearer entropy argument, reproved rather than claimed as new.</p>
-<p>Now suppose the positive marginal support graph E_+={e:x_e&gt;0} has maximum degree two, counting parallel incidences. Since x belongs to the perfect-matching polytope, each vertex has incident marginal total one and E_+ admits a perfect matching. Components of E_+ are isolated edges or even cycles, possibly a two-vertex cycle formed by two parallel edges. A path component cannot have more than one edge in positive support: its endpoint edge has marginal one, forcing its neighbor's other marginal to zero, contrary to positivity. Odd cycles have no perfect matching. These facts classify every possible component in the stipulated support.</p>
-<p>An isolated edge is forced and contributes no entropy. A cycle of length 2ell has exactly two alternating perfect matchings. Its marginals alternate p and 1-p, with 0&lt;p&lt;1, since the vertex equations determine them. Every distribution with these marginals chooses the first cycle matching with probability p. Its binary entropy is h(p)=-p log p-(1-p)log(1-p). Choices on different components may be correlated, but the chain rule bounds total entropy by the sum of their individual entropies. Independent choices attain that upper bound with exactly the prescribed marginals, so<br>\[<br> H(x)=\sum_{\text{cycle components }j}h(p_j),\qquad<br> F(x)=B(x)=\sum_j\ell_j h(p_j).<br>\]<br>This is an explicit optimizer supported on the Cartesian product of the component choices, represented compactly by the probabilities p_j, rather than by listing exponentially many matchings.</p>
-<p>For m&gt;=2 the requested lower expression is F-(2-2/m)B=(2/m-1)F&lt;=0, while H(x)&gt;=0; and H(x)&lt;=F follows either from ell_j&gt;=1 or the universal argument. For m=1, every component is either a forced edge or a pair of parallel edges in this degree-two scope. In both cases H(x)=F(x), and the lower coefficient 2-2/m is zero, so the inequalities hold with equality. The case m=0 is excluded because the prompt's 2/m is undefined; the empty matching itself has entropy zero under a separately chosen convention.</p>
-<p>The component structure and compact distribution are found with linear graph work. Rational marginals allow exact structural tests and an exact symbolic entropy expression; evaluation of logarithms to a chosen precision is a separate numerical task. The checker enumerates perfect matchings and product probabilities on small disjoint even cycles, verifies marginals and the F=B identities symbolically at rational probabilities, and checks universal upper bounds numerically for independently generated distributions on small graphs. Numerical logarithms are diagnostics, not a proof of the inequalities. The general lower bound on arbitrary positive supports is not established here.</p>
-<p>Comparison with the earlier attempt: The earlier item summarizes a broad 2026 manuscript. This report gives an independent chain-rule proof of the universal upper half and an explicit optimized distribution for degree-two marginal support; it neither imports nor verifies the claimed general lower bound.</p>
-<p>References checked:</p>
-<p>- Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007474.txt<br>- Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-1/r1/<br>- F. R. K. Chung, R. L. Graham, P. Frankl and J. B. Shearer, Some intersection theorems for ordered sets and graphs, Journal of Combinatorial Theory A 43 (1986), 23–37; author-hosted primary PDF inspected for the entropy-cover context: https://www.math.ucsd.edu/~ronspubs/86_03_intersection.pdf</p>
-<h3>Reproducibility and review</h3>
-<p>Written proof completed; standard-library independent finite checker and execution record supplied separately. These checks are finite and no formal verification or human mathematical review is asserted.</p>
-<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
-<h4>Reproducibility file: verify.py</h4>
-<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
-<h4>Who did the work</h4>
-<p>LLM only (people only prompted or submitted)</p>
-<h4>LLMs used</h4>
-<p>Other (named below)</p>
-<h4>Other LLMs</h4>
-<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
-<h4>LLM versions, settings and roles</h4>
-<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_algorithms. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
-<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
-<h4>People and roles</h4>
-<p>Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
-<h4>References</h4>
-<p>Exact official research prompt, fetched 18 October 2026: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30007474.txt<br>Earlier unverified contribution inspected through the repository HTML: https://we-solve.github.io/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-1/r1/<br>F. R. K. Chung, R. L. Graham, P. Frankl and J. B. Shearer, Some intersection theorems for ordered sets and graphs, Journal of Combinatorial Theory A 43 (1986), 23–37; author-hosted primary PDF inspected for the entropy-cover context: https://www.math.ucsd.edu/~ronspubs/86_03_intersection.pdf<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
-<h4>Declarations</h4>
-<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
-  </div>
-  <p class="attempt-foot"><a href="/contributions/entropy-bounds-at-perfect-matching-marginals/attempt-2/r1/">Go to contribution →</a></p>
-</article>
-
   
   
 </section>
@@ -162,7 +139,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30007474" data-display-label="CS-151" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30007474" data-display-label="CS-151" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="78a44226df3055d7227c0413b2ff6e7137bbd586" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-151</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

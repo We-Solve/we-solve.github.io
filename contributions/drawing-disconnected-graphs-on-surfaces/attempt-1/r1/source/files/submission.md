@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-3321
-
-Source: https://github.com/We-Solve/research/issues/171
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-3321
-
-### Claim
-
-Literature report
-
-### Exact scope
-
-Credit Beaudou–Gerbaud–Grappe–Palesi’s theorem for two connected loopless graphs on the Klein bottle; independently prove the every-optimum conclusion on any surface whenever one of the two graphs is planar.
-
-### Write-up
-
 # The Klein-bottle theorem and a planar-component reduction on every surface
 
 Problem: TOP-3321
@@ -72,50 +52,9 @@ Proof/source-only contribution. Primary theorem and exact hypotheses checked; no
 
 This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.
-OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
-The authoring instance for this report is /root/hundred_graphs. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
-
-User-specified model attribution (19 October 2026):
-Model: GPT-6.1 Sol
-Reasoning level: Ultra
-Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
-This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
-
-### People and roles
-
-Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 Official TOP-3321 prompt: https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-3321.txt
 L. Beaudou, A. Gerbaud, R. Grappe, F. Palesi, Drawing disconnected graphs on the Klein bottle, arXiv:0810.0508v2, Introduction and Theorem 2: https://arxiv.org/pdf/0810.0508
 M. DeVos, B. Mohar, R. Šámal, original problem entry, Drawing disconnected graphs on surfaces: https://www.openproblemgarden.org/op/drawing_disconnected_graphs_on_surfaces
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

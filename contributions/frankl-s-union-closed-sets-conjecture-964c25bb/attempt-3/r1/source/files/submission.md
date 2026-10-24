@@ -1,34 +1,3 @@
-# Attributed submission: Attempt: TOP-55
-
-Source: https://github.com/We-Solve/research/issues/438
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-55
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-**Proved (Theorem 1).** Every nonempty finite union-closed family $\mathcal F$ of nonempty sets with height $H(\mathcal F)\le5$ has an element lying in more than $|\mathcal F|/2$ members. Here $H(\mathcal F)$ is the largest number of members in a strict chain $A_1\subsetneq\dots\subsetneq A_s$.
-
-**Consequence for the stated problem (Corollary 2).** Frankl's conjecture, in exactly the stated form, holds for every finite union-closed family $\mathcal A$ with $\bigcup\mathcal A\ne\varnothing$ whose nonempty members contain no strict chain of more than five sets, i.e. $H(\mathcal A\setminus\{\varnothing\})\le5$. Equivalently: for all such families with $\varnothing\in\mathcal A$ and $H(\mathcal A)\le6$, and all with $\varnothing\notin\mathcal A$ and $H(\mathcal A)\le5$.
-
-**Assumptions.** None. The proof is self-contained and elementary; it re-proves the four auxiliary lemmas it takes from Tian's preprint [T]. No computer calculation is used in the proof.
-
-**Relation to earlier work.** Tian [T] (arXiv preprint, August 2026) proved the empty-set-free statement for height at most four and gave structural results for a smallest height-five counterexample, leaving height five open ([T], Remark 1.4 and Section 8). Theorem 1 settles height five. Since it contains the height-four case, it also gives an independent proof of [T, Theorem 1.1]. The new ingredients are: every co-singleton is a member of a minimal counterexample (extending [T, Theorem 4.1] from critical elements to all elements); the pair closures form a linear space whose lines of size $\ge3$ all have Tian's three-trace normal form; a sharp size bound for union-closed families of height three (Lemma 4.1); and a counting argument at a point lying on the fewest lines (Theorem 5.2). A literature search on 2026-10-20 found no other proof of the height-five case.
-
-**Still open.** Frankl's conjecture for families whose nonempty members contain a strict chain of six or more sets, and the conjecture in general. Section 8 explains where the method uses height five.
-
-**Verification.** Checked by an independent Claude Fable 5.1 instance with no access to the authoring conversation (details in the eligibility field). No person has checked the proof.
-
-
-### Write-up
-
 ## 0. Statement and result
 
 The problem statement is kept unchanged. A finite family $\mathcal F$ of finite sets is *union-closed* if $A\cup B\in\mathcal F$ for all $A,B\in\mathcal F$. Frankl's conjecture asserts that if $\bigcup\mathcal F\neq\varnothing$, then some $x\in\bigcup\mathcal F$ lies in at least $|\mathcal F|/2$ members. This contribution proves the conjecture for families of bounded height only. It is not a proof of the conjecture.
@@ -219,67 +188,8 @@ An independent model check is described in the eligibility field.
 
 **Reference.** [T] C. Tian, arXiv:2608.25147 (2026).
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### Models used
-
-Anthropic Claude Opus 5.5
-
-### Thinking level / time
-
-Max
-
-### Other LLMs
-
-Fable 5.1
-
-### Per-model versions, thinking and roles
-
-Claude Opus 5.5 | version: claude-opus-5-5 via Claude Code CLI (exact build unknown) | thinking: max (Claude Code `/effort max` in both sessions; never changed during the mathematical work) | time: wall-clock about 8 h on 2026-10-19 (12:40–20:56 UTC, including two usage-limit pauses; structural lemmas) and about 2 h 45 min on 2026-10-20 (07:47–10:34 UTC; Lemma 4.1, Theorem 5.2, write-up); active compute time unknown | role: literature reading, found and wrote all proofs, sanity-check scripts, self-audit, this write-up
-Claude Fable 5.1 | version: claude-fable-5-1, run as a Claude Code subagent (exact build unknown) | thinking: unknown (agent default; not set explicitly) | time: about 15 minutes for the completed review on 2026-10-20 | role: independent referee — re-derived every step of the proof from the written notes in a fresh context and ran its own checks
-
-
-### Model eligibility and verification evidence
-
-Both models are listed examples (Opus 5.5 and Fable).
-
-Independent correctness check by Claude Fable 5.1:
-- **Setup.** It ran as a fresh subagent with no access to the authoring conversation. It was instructed to act as a skeptical referee and to find errors.
-- **Checked scope.** The complete proof as written in the authors' notes: the same lemmas, steps and arguments as Sections 0–7 of this write-up, with different numbering.
-- **Method.** It re-derived every step by hand. It verified every algebraic rearrangement in Theorems 5.2 and 6.1 with exact rational arithmetic, and ran the small cases of Theorem 6.1. It also tested Lemmas 3.1–5.1 on about 9,500 union-closed families and the linear-space part on 6,000 linear spaces, with no violations.
-- **Verdict.** Correct. It made eight minor or cosmetic remarks, all incorporated here:
-  - nonemptiness of $\mathcal F$;
-  - the existence of an undominated dominator (Lemma 2.1, Step 4);
-  - why the cover lines are distinct;
-  - the cases $r_0\le2$;
-  - numerical values for $n=6,7$;
-  - the existence of "largest avoiding members";
-  - clashes of notation;
-  - Corollary 2 when $\varnothing\notin\mathcal A$.
-- **Reviewer's scripts and outputs (pinned commit).** https://github.com/fersuarezz/frankl-height5/tree/d21ead9862fdfa553212c83ab5270fbe3c2fb716/review
-- **Earlier runs.** One review run failed at once with a connection error. A second was stopped by the user after it had re-checked Lemmas 1.2 and 4.1 exhaustively for $m\le5$.
-- **Limit of the check.** This final write-up is a re-exposition of the checked notes by the authoring model and was not itself re-read by the reviewer.
-
-The authoring model also audited the proof twice. No person has checked it.
-
-
-### People and roles
-
-@fersuarezz: prompted the model and submitted the issue; no mathematical contribution.
-
-
-### References
+## References
 
 C. Tian, Frankl's Conjecture at Height Four and the Structure of Height-Five Counterexamples, arXiv:2608.25147v1 (25 Aug 2026; the PDF is titled "Frankl's union-closed sets conjecture: height four and structural reductions at height five"). (Used: Lemmas 2.1–2.3 and 3.1, re-proved here as Lemmas 1.1–1.2; Theorems 4.1 and 5.2 and Proposition 5.3, extended here from critical elements to all elements in Lemmas 2.1, 3.1(b) and 3.3; the statement that the height-five case is open.)
 H. Bruhn, O. Schaudt, The journey of the union-closed sets conjecture, Graphs Combin. 31 (2015), 2043–2074, doi:10.1007/s00373-014-1515-0; arXiv:1309.3297. (Used: formulation of the conjecture, source S1 of the problem; background.)
 we-solve contributions Math-415-A1 and Math-415-A2 (A2 is the authors' earlier, unrelated partial result on separating families). (Read to avoid repetition; not used in the proof.)
-
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

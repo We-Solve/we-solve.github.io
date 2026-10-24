@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-52
-
-Source: https://github.com/We-Solve/research/issues/236
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-52
-
-### Claim
-
-Literature report
-
-### Exact scope
-
-Credited Tardos strong-polynomial LP applies to arbitrary dense integer constraint matrices with |A_ij|≤(m+n)^c for fixed c, with unrestricted rational right-hand sides/objectives; the coefficient-unrestricted question is not settled.
-
-### Write-up
-
 # Smale's 9th Problem: Linear Programming in Polynomial Time
 
 Claim type: **Literature report**.
@@ -57,50 +37,9 @@ Source-only literature report: no program is attached and no implementation of T
 
 This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.
-OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
-The authoring instance for this report is /root/hundred_algorithms. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
-
-User-specified model attribution (19 October 2026):
-Model: GPT-6.1 Sol
-Reasoning level: Ultra
-Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
-This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
-
-### People and roles
-
-Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-52.txt
 Éva Tardos, A Strongly Polynomial Algorithm to Solve Combinatorial Linear Programs, Operations Research 34(2) (1986), pp.250–256, primary publisher abstract and bibliographic record: https://pubsonline.informs.org/doi/abs/10.1287/opre.34.2.250?journalCode=opre . Full original proof not retrieved through the publisher PDF link; abstract-level dependence is reported honestly.
 Dadush, Koh, Natura, Olver, Végh, A Strongly Polynomial Algorithm for Linear Programs with At Most Two Nonzero Entries per Row or Column, STOC2024 primary author copy, §1.1 matrix-dependent Tardos background and §1.3 model distinctions: https://www.laszlovegh.eu/papers/dadush-koh-natura-olver-vegh-stoc.pdf . This source is supplementary context, not a replacement for Tardos attribution.
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

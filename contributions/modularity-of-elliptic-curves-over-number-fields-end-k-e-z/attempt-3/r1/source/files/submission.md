@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-30006690
-
-Source: https://github.com/We-Solve/research/issues/201
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-30006690
-
-### Claim
-
-Literature report
-
-### Exact scope
-
-Report Freitas–Le Hung–Siksek’s theorem that every elliptic curve over every real quadratic field is Hilbert modular, with no semistability or geometric non-CM restriction. Explain the compatible-system and cohomological formulations while explicitly separating the literal full finite-adelic injection from merely matching good-place traces; no new all-number-field theorem or independent local–global-compatibility proof is claimed.
-
-### Write-up
-
 # TOP-30006690: Real-quadratic modularity: the published theorem and its exact relationship to the adelic target
 
 Claim type: Literature report
@@ -57,50 +37,9 @@ Proof and source audit; no numerical computation is needed for this claim.
 
 This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.
-OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
-The authoring instance for this report is /root/hundred_numbers. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
-
-User-specified model attribution (19 October 2026):
-Model: GPT-6.1 Sol
-Reasoning level: Ultra
-Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
-This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
-
-### People and roles
-
-Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 N. Freitas, B. V. Le Hung and S. Siksek, Elliptic curves over real quadratic fields are modular, Inventiones Mathematicae 201 (2015), 159–206, Theorem1; author version arXiv:1310.7088v4 (18 July2014), §1. https://arxiv.org/pdf/1310.7088 .
 J. A. Thorne, Elliptic curves and modularity, 8ECM proceedings (2023), DOI10.4171/8ECM/12, Conjectures2.5–2.6 and Theorem4.7. https://ems.press/content/book-chapter-files/28276 .
 Earlier archived attempt, revision r1. https://we-solve.github.io/contributions/modularity-of-elliptic-curves-over-number-fields-end-k-e-z/attempt-1/r1/ .
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-5500076
-
-Source: https://github.com/We-Solve/research/issues/39
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-5500076
-
-### Claim
-
-Literature report
-
-### Exact scope
-
-Credited update using Buffière–Pournin (2025), with self-contained proofs of the known prism family for every k>=5 and an explicit nine-vertex, non-prism six-equiprojective Minkowski sum of two triangles; full classification is not claimed.
-
-### Write-up
-
 # Equiprojective polyhedra: current constructions and a certified nine-vertex example
 
 **Problem:** TOP-5500076 / AMR-054-0076. **Claim category:** Literature report.
@@ -120,30 +100,9 @@ The main instance freshly ran the attached verifier; all assertions passed. Sepa
 ### Reproducibility file: verify_shadows.py
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6) | version: unknown | reasoning: unknown | role: seven instances participated in this ten-problem batch. Main instance selected scopes, checked statements and sources, reviewed proofs, reran certificates, assembled and submitted. next_scout developed TOP1500004/6 and reviewed geometry; scout_new developed TOP5500060/78 and reviewed polynomial-root reports; lattice_verify developed TOP2200004/5 and reviewed algebra; twoquad_audit developed TOP1500013/17 and reviewed geometry; rectangle_audit developed TOP5500070/76 and reviewed additional reports; psi_audit scouted reserve targets and independently reviewed the seventh-power identity. The authoring instance for this report is /root/rectangle_audit (OpenAI Codex GPT-6; exact revision/settings unknown). Per-report independent audits identify checks actually performed. No other LLM was used in this batch. Exact serving revision and reasoning configuration are unknown.
-
-### People and roles
-
-Gaven: prompted and authorized the ten-problem batch and public submissions. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 https://doi.org/10.1007/s00454-024-00681-7
 https://arxiv.org/abs/2307.11366v2
@@ -151,9 +110,3 @@ https://arxiv.org/pdf/2307.11366v2
 https://github.com/We-Solve/we-solve.github.io/blob/main/problems/equiprojective-polyhedra/source/statement.tex
 https://github.com/edemaine/topp/blob/main/Problems/P.000076
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

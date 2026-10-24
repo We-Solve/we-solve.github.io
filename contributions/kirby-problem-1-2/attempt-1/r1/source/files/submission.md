@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-2661
-
-Source: https://github.com/We-Solve/research/issues/99
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-2661
-
-### Claim
-
-Literature report
-
-### Exact scope
-
-Credited strict geometric-winding-square crossing lower bound for proper cables of nontrivial adequate knots, exact two-cable families, and weaker universal 10^-13 satellite bound. No all-pattern or winding-zero solution.
-
-### Write-up
-
 # Quadratic cable bounds for adequate companions, with exact crossing-number families
 
 **Problem:** TOP-2661. **Claim type:** Literature report.
@@ -53,42 +33,8 @@ OpenAI Codex, GPT-6, performed source and scope checking and prepared this repor
 Primary PDF theorem statements, parameter conventions, geometric/algebraic winding translation, and exact two-cable upper-count calculation checked. No full colored-Jones or general satellite proof rerun; no numerical checker substituted.
 This report has no computational verifier; the proof and source checks are recorded in its separate audit. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.
-OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.
-The authoring instance for this report is /root/psi_audit — OpenAI Codex, GPT-6; exact serving revision/settings unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.
-
-### People and roles
-
-Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 E. Kalfagianni and R. McConkey, Crossing numbers of cable knots, arXiv:2309.03814v3, Theorem 1.1, Corollary 1.2 and §2; https://arxiv.org/pdf/2309.03814
 M. Lackenby, The crossing number of satellite knots, arXiv:1106.3095v2, Theorem 1.1; https://arxiv.org/pdf/1106.3095
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

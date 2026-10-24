@@ -1,48 +1,3 @@
-# Attributed submission: Attempt: TOP-3100089
-
-Source: https://github.com/We-Solve/research/issues/132
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-TOP-3100089
-
-### Claim
-Computational evidence
-
-### Exact scope
-Independent verification of contribution Math-3818-A1, which claims a full disproof of the
-four-total-edit pressing-connectivity assertion recorded as UnsolvedMath ID 3100089.
-
-We re-implemented the pressing rule exactly as recorded in the problem statement, from
-scratch, and exhaustively enumerated the complete legal pressing tree of the graph in
-Math-3818-A1 (the 5-cycle 1-2-3-4-5-1 with pendant vertex 6 at 2; initially black
-vertices {4,5}). The enumeration is finite and complete — no sampling.
-
-Confirmed, in full agreement with Math-3818-A1:
-- The complete successful-word family is exactly {432651, 512643}.
-- The legal tree has 19 prefixes; the maximal stalled words are exactly
-  4321, 4351, 5123, 5143.
-- All ten state rows of the published proof table (remaining edges and black set after
-  each prefix on the branch beginning with 4) are correct.
-- LCS(432651, 512643) = 2 and the insertion-deletion distance is exactly 8
-  (verified both by dynamic programming and by |sigma|+|tau|-2*LCS = 8).
-- Hence H_4(G) has two vertices at distance 8 > 4 and is disconnected: the recorded
-  four-total-edit universal assertion is false.
-- The colour-preserving automorphism rho = (1 3)(4 5) maps the graph and the black set
-  to themselves and sigma to tau. (Both branches were also enumerated directly, so the
-  verification does not depend on the symmetry argument.)
-
-Not claimed / not checked:
-- No resolution of the distinct eight-total-edit / LCS-deficit-four formulation
-  (Bixby-Flint-Miklos Conjecture 6 as discussed in Math-3818-A1).
-- The original attempt's F_2 principal-determinant cross-check was NOT reproduced; a
-  direct simulation method was used instead (two independent implementations, below).
-- The attribution of the four-edit wording to Cooper-Davis Conjecture 1 was checked
-  only at the level of the arXiv record and abstract of arXiv:1502.07450, not against
-  the conjecture's text in the paper.
-
-### Write-up
 ## Result
 
 **Independent computational verification of Math-3818-A1.** The claimed six-vertex
@@ -123,30 +78,10 @@ general graphs. Historical novelty of the counterexample is not addressed here.
 ## Verifier source (Python 3, standard library only)
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
-### Who did the work
-People with LLM assistance
+## References
 
-### LLMs used
-Other (named below)
-
-### Other LLMs
-Meta, Muse Spark
-
-### LLM versions, settings and roles
-Muse Spark | version: unknown | reasoning: unknown | role: designed and wrote the independent verifier (both implementations), ran the exhaustive enumeration, audited the published proof table and counts, and drafted this write-up. The mathematical check itself is performed by the deterministic program reproduced above.
-
-### People and roles
-Carlos Mucha (@cmucha46): selected the target, set the verification methodology (independent re-implementation from the recorded statement; no reliance on the original attempt's code), reviewed the results, and authorized this submission.
-
-### References
 - we-solve problem page and research prompt for TOP-3100089 (UnsolvedMath ID 3100089, AMR-030-0089). Used: the recorded pressing rule and the exact four-total-edit statement verified here.
 - Contribution Math-3818-A1 (revision r2), "A six-vertex counterexample to four-total-edit pressing connectivity", Wentao Li with OpenAI GPT 6.1 Sol / Codex. Used: the counterexample graph, the two claimed successful words, the proof table, and the reported counts — all independently re-derived in this verification.
 - J. Cooper and J. Davis, "Successful Pressing Sequences for a Bicolored Graph and Binary Matrices", arXiv:1502.07450 (v5, 2015). Checked at the level of the arXiv record and abstract only: the paper exists as cited and concerns successful pressing sequences of bicoloured graphs. The text of its Conjecture 1 was not checked in this verification.
-
-### Declarations (submitter must confirm each before posting)
-- [X] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [X] I understand that this issue and its contents are public immediately.
-- [X] Every LLM and person involved is listed, with versions or "unknown".
-

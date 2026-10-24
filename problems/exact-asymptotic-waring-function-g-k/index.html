@@ -81,6 +81,39 @@
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
   <h2 id="contributions-title">Contributions <span class="count">2</span></h2>
   
+<article class="attempt" id="attempt-TOP-30006788-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/exact-asymptotic-waring-function-g-k/attempt-2/r1/">Math-204-A2</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below) · <time datetime="2026-10-18">2026-10-18</time></p>
+    <h3><a href="/contributions/exact-asymptotic-waring-function-g-k/attempt-2/r1/">Math-204: A uniform descent obstruction for exponents divisible by four, and the known exact G(4)</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>TOP-30006788: A uniform descent obstruction for exponents divisible by four, and the known exact G(4)</h2>
+<p>Claim type: Partial result</p>
+<p>Exact scope: For every exponent k divisible by4, prove G(k)≥2^(v_2(k)+2) using an explicit infinite family N_a=(2^k+2^(v_2(k)+2)−1)·2^(ka) not representable with one fewer terms. For k=4, combine the obstruction with the credited classical Davenport upper theorem to record G(4)=16. No exact value for arbitrary k is claimed.</p>
+<p>The prompt's domain is k≥3. The following self-contained obstruction applies to infinitely many of those exponents, including every k divisible by four. It extends the earlier report's isolated fourth-power descent to a formula depending on the exact two-adic valuation of k. For k=4, Davenport's published eventual sufficiency theorem gives the matching known value G(4)=16 [1,2]; that difficult upper theorem is credited, not reproved.</p>
+<p>Fix 4∣k, put t=v₂(k)≥2 and R=2^{t+2}. Every odd integer x satisfies<br>\[<br> x^k\equiv1\pmod R.\tag{1}<br>\]<br>Indeed x²≡1 mod8, and repeated squaring shows that if A≡1 mod2^j with j≥3, then A²≡1 mod2^{j+1}. Starting with x² and squaring t−1 times gives x^{2^t}≡1 mod2^{t+2}. Raising to the odd exponent k/2^t preserves that congruence. Every even kth power is divisible by 2^k, and k≥t+2, so it is zero modulo R.</p>
+<p>Now suppose a positive integer divisible by R is a sum of at most R−1 nonnegative kth powers. By (1), its residue modulo R is the number of odd bases. That count lies between zero and R−1, so divisibility by R forces it to be zero. All bases are even. Dividing the representation by 2^k gives another representation with the same number of terms.</p>
+<p>Set<br>\[<br> C_k=2^k+R-1,\qquad N_a=C_k\,2^{ka}\quad(a\ge0).<br>\]<br>The inequality k≥t+2 implies R≤2^k, so C_k&lt;2^{k+1}. Also 2^{k+1}&lt;3^k for k≥2. The only kth powers below C_k are therefore 0,1,2^k. A representation of C_k cannot use two copies of 2^k. With no such copy it needs C_k ones, more than R−1 terms. With one copy it needs R−1 additional ones and hence exactly R terms. Thus C_k is not representable with at most R−1 terms.</p>
+<p>If N_a were so representable, for a≥1 it would be divisible by R, so every base would be even by the preceding residue argument. Divide by 2^k and repeat a times. This would represent C_k with at most R−1 terms, a contradiction. Since N_a→∞,<br>\[<br> \boxed{G(k)\ge2^{v_2(k)+2}\qquad(4\mid k).}\tag{2}<br>\]<br>Zeros are permitted and cause no issue: padding to R−1 terms does not change the parity count. All terms and bases remain nonnegative during descent.</p>
+<p>For k=4, R=16 and C₄=31, so the obstruction becomes 31·16^a. Combined with Davenport's theorem that every sufficiently large integer is a sum of at most sixteen fourth powers, it gives the classical equality G(4)=16. For k=8, (2) gives G(8)≥32, with obstructed seed 287 and family 287·256^a. For k=12 it gives G(12)≥16. These are lower bounds on the eventual function G, because the examples are unbounded, rather than merely obstructions among small exceptional integers.</p>
+<p>**Verification.** The exact program checks the odd-residue identity for all residue classes modulo R for k=4,8,12,16,20,24,32. It independently computes the minimum number of kth powers for every integer up to C_k when k≤16, using integer dynamic programming. The seed minima equal R in those cases; the written descent proves the whole infinite family without constructing its huge members. Computation is diagnostic; no tested range is promoted to universal eventual sufficiency.</p>
+<p>**Scope audit.** This does not determine G(k) for general k, and the proof does not assert that (2) is sharp beyond k=4. The imported Davenport upper bound is a theorem of eventual representation; it does not assert sixteen fourth powers suffice for every small positive integer. The earlier archived report gave a general counting bound and the k=4 descent. The valuation-dependent infinite exponent family is the distinct extension here, with the known upper theorem carefully separated.</p>
+<h3>Checked references</h3>
+<p>[1] H. Davenport, On Waring’s problem for fourth powers, Annals of Mathematics 40 (1939), 731–747. Primary publisher record https://www.jstor.org/stable/1968889 .</p>
+<p>[2] NIST Digital Library of Mathematical Functions, §27.13(iii), Waring’s problem, version1.2.8 (15September2026), distinguishes g(k) from G(k) and records G(4)=16. https://dlmf.nist.gov/27.13 .</p>
+<p>[3] Earlier archived attempt, revision r1. https://we-solve.github.io/contributions/exact-asymptotic-waring-function-g-k/attempt-1/r1/ .</p>
+<h3>Reproducibility and review</h3>
+<p>Run verify.py: complete modular-residue checks at seven exponents and independent integer dynamic-programming minima for seeds with k≤16; infinite descent is supplied in the written proof.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p>*Code is not included in this manuscript.*</p>
+<h3>References</h3>
+<p>H. Davenport, On Waring’s problem for fourth powers, Annals of Mathematics 40 (1939), 731–747. Primary publisher record https://www.jstor.org/stable/1968889 .<br>NIST Digital Library of Mathematical Functions, §27.13(iii), Waring’s problem, version1.2.8 (15September2026), distinguishes g(k) from G(k) and records G(4)=16. https://dlmf.nist.gov/27.13 .<br>Earlier archived attempt, revision r1. https://we-solve.github.io/contributions/exact-asymptotic-waring-function-g-k/attempt-1/r1/ .<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/exact-asymptotic-waring-function-g-k/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
 <article class="attempt" id="attempt-TOP-30006788-A1">
   <header>
     <p class="row-meta"><a class="identifier" href="/contributions/exact-asymptotic-waring-function-g-k/attempt-1/r1/">Math-204-A1</a> · Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-01">2026-10-01</time></p>
@@ -100,62 +133,6 @@
   <p class="attempt-foot"><a href="/contributions/exact-asymptotic-waring-function-g-k/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
-<article class="attempt" id="attempt-TOP-30006788-A2">
-  <header>
-    <p class="row-meta"><a class="identifier" href="/contributions/exact-asymptotic-waring-function-g-k/attempt-2/r1/">Math-204-A2</a> · Partial result · LLM-generated · codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
-    <h3><a href="/contributions/exact-asymptotic-waring-function-g-k/attempt-2/r1/">Math-204: A uniform descent obstruction for exponents divisible by four, and the known exact G(4)</a></h3>
-  </header>
-  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
-    
-    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30006788</h2>
-<p>Source: https://github.com/We-Solve/research/issues/210</p>
-<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
-<h4>Problem handle</h4>
-<p>TOP-30006788</p>
-<h4>Claim</h4>
-<p>Partial result</p>
-<h4>Exact scope</h4>
-<p>For every exponent k divisible by4, prove G(k)≥2^(v_2(k)+2) using an explicit infinite family N_a=(2^k+2^(v_2(k)+2)−1)·2^(ka) not representable with one fewer terms. For k=4, combine the obstruction with the credited classical Davenport upper theorem to record G(4)=16. No exact value for arbitrary k is claimed.</p>
-<h4>Write-up</h4>
-<h2>TOP-30006788: A uniform descent obstruction for exponents divisible by four, and the known exact G(4)</h2>
-<p>Claim type: Partial result</p>
-<p>Exact scope: For every exponent k divisible by4, prove G(k)≥2^(v_2(k)+2) using an explicit infinite family N_a=(2^k+2^(v_2(k)+2)−1)·2^(ka) not representable with one fewer terms. For k=4, combine the obstruction with the credited classical Davenport upper theorem to record G(4)=16. No exact value for arbitrary k is claimed.</p>
-<p>The prompt's domain is k≥3. The following self-contained obstruction applies to infinitely many of those exponents, including every k divisible by four. It extends the earlier report's isolated fourth-power descent to a formula depending on the exact two-adic valuation of k. For k=4, Davenport's published eventual sufficiency theorem gives the matching known value G(4)=16 [1,2]; that difficult upper theorem is credited, not reproved.</p>
-<p>Fix 4∣k, put t=v₂(k)≥2 and R=2^{t+2}. Every odd integer x satisfies<br>\[<br> x^k\equiv1\pmod R.\tag{1}<br>\]<br>Indeed x²≡1 mod8, and repeated squaring shows that if A≡1 mod2^j with j≥3, then A²≡1 mod2^{j+1}. Starting with x² and squaring t−1 times gives x^{2^t}≡1 mod2^{t+2}. Raising to the odd exponent k/2^t preserves that congruence. Every even kth power is divisible by 2^k, and k≥t+2, so it is zero modulo R.</p>
-<p>Now suppose a positive integer divisible by R is a sum of at most R−1 nonnegative kth powers. By (1), its residue modulo R is the number of odd bases. That count lies between zero and R−1, so divisibility by R forces it to be zero. All bases are even. Dividing the representation by 2^k gives another representation with the same number of terms.</p>
-<p>Set<br>\[<br> C_k=2^k+R-1,\qquad N_a=C_k\,2^{ka}\quad(a\ge0).<br>\]<br>The inequality k≥t+2 implies R≤2^k, so C_k&lt;2^{k+1}. Also 2^{k+1}&lt;3^k for k≥2. The only kth powers below C_k are therefore 0,1,2^k. A representation of C_k cannot use two copies of 2^k. With no such copy it needs C_k ones, more than R−1 terms. With one copy it needs R−1 additional ones and hence exactly R terms. Thus C_k is not representable with at most R−1 terms.</p>
-<p>If N_a were so representable, for a≥1 it would be divisible by R, so every base would be even by the preceding residue argument. Divide by 2^k and repeat a times. This would represent C_k with at most R−1 terms, a contradiction. Since N_a→∞,<br>\[<br> \boxed{G(k)\ge2^{v_2(k)+2}\qquad(4\mid k).}\tag{2}<br>\]<br>Zeros are permitted and cause no issue: padding to R−1 terms does not change the parity count. All terms and bases remain nonnegative during descent.</p>
-<p>For k=4, R=16 and C₄=31, so the obstruction becomes 31·16^a. Combined with Davenport's theorem that every sufficiently large integer is a sum of at most sixteen fourth powers, it gives the classical equality G(4)=16. For k=8, (2) gives G(8)≥32, with obstructed seed 287 and family 287·256^a. For k=12 it gives G(12)≥16. These are lower bounds on the eventual function G, because the examples are unbounded, rather than merely obstructions among small exceptional integers.</p>
-<p>**Verification.** The exact program checks the odd-residue identity for all residue classes modulo R for k=4,8,12,16,20,24,32. It independently computes the minimum number of kth powers for every integer up to C_k when k≤16, using integer dynamic programming. The seed minima equal R in those cases; the written descent proves the whole infinite family without constructing its huge members. Computation is diagnostic; no tested range is promoted to universal eventual sufficiency.</p>
-<p>**Scope audit.** This does not determine G(k) for general k, and the proof does not assert that (2) is sharp beyond k=4. The imported Davenport upper bound is a theorem of eventual representation; it does not assert sixteen fourth powers suffice for every small positive integer. The earlier archived report gave a general counting bound and the k=4 descent. The valuation-dependent infinite exponent family is the distinct extension here, with the known upper theorem carefully separated.</p>
-<h3>Checked references</h3>
-<p>[1] H. Davenport, On Waring’s problem for fourth powers, Annals of Mathematics 40 (1939), 731–747. Primary publisher record https://www.jstor.org/stable/1968889 .</p>
-<p>[2] NIST Digital Library of Mathematical Functions, §27.13(iii), Waring’s problem, version1.2.8 (15September2026), distinguishes g(k) from G(k) and records G(4)=16. https://dlmf.nist.gov/27.13 .</p>
-<p>[3] Earlier archived attempt, revision r1. https://we-solve.github.io/contributions/exact-asymptotic-waring-function-g-k/attempt-1/r1/ .</p>
-<h3>Reproducibility and review</h3>
-<p>Run verify.py: complete modular-residue checks at seven exponents and independent integer dynamic-programming minima for seeds with k≤16; infinite descent is supplied in the written proof.</p>
-<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
-<h4>Reproducibility file: verify.py</h4>
-<p>[Executable fenced material omitted from this text-only security-screened package; original retained privately.]</p>
-<h4>Who did the work</h4>
-<p>LLM only (people only prompted or submitted)</p>
-<h4>LLMs used</h4>
-<p>Other (named below)</p>
-<h4>Other LLMs</h4>
-<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
-<h4>LLM versions, settings and roles</h4>
-<p>OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_numbers. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
-<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
-<h4>People and roles</h4>
-<p>Gaven (@gavenren): prompted the hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
-<h4>References</h4>
-<p>H. Davenport, On Waring’s problem for fourth powers, Annals of Mathematics 40 (1939), 731–747. Primary publisher record https://www.jstor.org/stable/1968889 .<br>NIST Digital Library of Mathematical Functions, §27.13(iii), Waring’s problem, version1.2.8 (15September2026), distinguishes g(k) from G(k) and records G(4)=16. https://dlmf.nist.gov/27.13 .<br>Earlier archived attempt, revision r1. https://we-solve.github.io/contributions/exact-asymptotic-waring-function-g-k/attempt-1/r1/ .<br>Exact source versions, statements and uses are described in report.md and source_notes.md.</p>
-<h4>Declarations</h4>
-<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
-  </div>
-  <p class="attempt-foot"><a href="/contributions/exact-asymptotic-waring-function-g-k/attempt-2/r1/">Go to contribution →</a></p>
-</article>
-
   
   
 </section>
@@ -171,7 +148,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30006788" data-display-label="Math-204" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30006788" data-display-label="Math-204" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="78a44226df3055d7227c0413b2ff6e7137bbd586" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Math-204</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

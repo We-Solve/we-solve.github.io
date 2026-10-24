@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-32
-
-Source: https://github.com/We-Solve/research/issues/83
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-32
-
-### Claim
-
-Literature report
-
-### Exact scope
-
-Credited Wang–Zahl n=3 Hausdorff/Minkowski theorem under the primary sources compact-set definition, with Guth–Wang–Zahl January2026 streamlined proof update and a compact higher-dimensional projection lower bound3. Does not claim arbitrary-set extension, all dimensions, maximal-function theorem, or verify earlier OpenAI n4/maximal claims.
-
-### Write-up
-
 # Three-dimensional Kakeya sets: the checked compact-set theorem and the 2026 streamlined proof
 
 **Problem:** TOP-32, canonical alias also TOP-1335. **Claim type:** Literature report.
@@ -53,35 +33,7 @@ Prepared by OpenAI Codex, GPT-6, `/root/scout_new`; exact serving revision/setti
 Primary definitions, version dates and Theorems1.1/1.2 scope checked, including compactness and density-exponent distinction; full multiscale proof not independently audited. Self-contained projection argument reviewed. Analytic/source report with no finite computational verifier claimed.
 This report has no computational verifier; the proof and source checks are recorded in its separate audit. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.
-OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.
-The authoring instance for this report is /root/scout_new; OpenAI Codex GPT-6, exact serving revision and settings unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.
-
-### People and roles
-
-Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-32.txt
 https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/api/v1/problems/TOP-32.json
@@ -90,9 +42,3 @@ https://arxiv.org/html/2601.14411v1
 https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/the-kakeya-conjecture/attempt-1/r1/source/files/32.tex
 https://github.com/We-Solve/we-solve.github.io/blob/main/contributions/kakeya-conjecture/attempt-1/r1/source/files/1335.tex
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

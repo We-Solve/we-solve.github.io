@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-176
-
-Source: https://github.com/We-Solve/research/issues/242
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-176
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-For every real x>=2, Y(x)=j(P_x)-1 where P_x=product_(p<=x)p and j(P) is the least length forcing a coprime integer in every consecutive interval. This gives a complete exact cyclic-gap algorithm; Iwaniec’s published corollary yields Y(x)<<x^2. No sharp asymptotic or x^(1+o(1)) upper bound is proved.
-
-### Write-up
-
 # The covering maximum is exactly a cyclic Jacobsthal gap
 
 Problem: TOP-176  
@@ -59,51 +39,10 @@ The main instance freshly ran every attached Python checker successfully. A sepa
 ### Reproducibility file: verify.py
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.
-OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
-The authoring instance for this report is /root/hundred_numbers. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
-
-User-specified model attribution (19 October 2026):
-Model: GPT-6.1 Sol
-Reasoning level: Ultra
-Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
-This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
-
-### People and roles
-
-Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 H.Iwaniec, On the problem of Jacobsthal, Demonstratio Math.XI(1978), original text Corollary p226, https://www.researchgate.net/publication/247044626_On_the_problem_of_Jacobsthal
 Iwaniec publisher DOI10.1515/dema-1978-0121
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

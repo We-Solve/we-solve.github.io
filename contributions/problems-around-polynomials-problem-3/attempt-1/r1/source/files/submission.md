@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-2200006
-
-Source: https://github.com/We-Solve/research/issues/49
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-2200006
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-Exact planar maximum N_SOS(k,2)=k^2 for all k, including arbitrary numbers of squares and positive-dimensional components, with a self-contained gcd/solitary-point/Bézout proof. Exact k^ell maximum only in the subclass with finite complex common zero set. Also N_SOS(k,1)=k and N_SOS(1,ell)=1. No universal k^ell formula or general higher-dimensional solution is claimed.
-
-### Write-up
-
 # Exact planar SOS maximum, with the complex-isolation hypothesis made explicit
 
 **Problem:** TOP-2200006 / Math-1839.  
@@ -125,45 +105,11 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 ### Reproducibility file: verify.py
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, reran all attached programs, assembled and submitted.
-OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the rank and decomposition reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the Hilbert-series reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the SOS, half-plane and discrete-operator reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the Descartes and weighted-tropical reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the tetrahedralization, compatible-triangulation and grid-TSP reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the unfolding, coloring and rolling-die reports; participated in separate LLM review.
-The authoring instance for this report is /root/lattice_verify; OpenAI Codex GPT-6, exact serving revision and reasoning settings unknown; source research, mathematical proof, exact verification code and execution.. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.
-
-### People and roles
-
-Gaven: prompted and authorized the twenty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-2200006.txt
 Boris Shapiro, Problems Around Polynomials (2015), Section 3; https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/14-08/
 DannyExperiments, Many Isolated Real Zeros of Sums of Squares, first two sections, commit 41e3d18a8c536e5a859201afd5faefe2b0ecd315; https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/blob/41e3d18a8c536e5a859201afd5faefe2b0ecd315/paper/manuscript.tex
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

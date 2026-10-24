@@ -78,6 +78,41 @@
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
   <h2 id="contributions-title">Contributions <span class="count">3</span></h2>
   
+<article class="attempt" id="attempt-TOP-30003997-A2">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/hardness-of-path-cost-arborescence-optimization/attempt-2/r1/">CS-357-A2</a> · Partial result · LLM-generated · gpt 6.1 sol, codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below) · <time datetime="2026-10-19">2026-10-19</time></p>
+    <h3><a href="/contributions/hardness-of-path-cost-arborescence-optimization/attempt-2/r1/">Hardness of Path-Cost Arborescence Optimization</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Hardness of Path-Cost Arborescence Optimization</h2>
+<p>Claim type: **Partial result**.</p>
+<p>Exact scope: Distinguishing optimum zero is NP-hard for destination-specific path-cost spanning arborescences even on DAGs with indegree≤2, outdegree≤2, underlying undirected degree≤3 and only 0/1 costs.</p>
+<h3>Bounded-degree routing of a shared assignment</h3>
+<p>Start from a Boolean formula in nonempty clauses of at most three literals, with tautologies and repeated literals removed. The standard gate-variable conversion to this form, and the Cook–Levin starting hardness, are explicitly explained in both listed prior attempts; we use the same credited starting problem. The added step here bounds every graph degree.</p>
+<p>For each variable x_i create selectors t_i,f_i and a vertex v_i, with arcs t_i→v_i and f_i→v_i. Reach all selectors from one root r by a directed binary out-tree whose leaves are the selectors, using fresh internal vertices. Each nonroot vertex of this tree has one incoming arc and at most two outgoing arcs.</p>
+<p>From v_i use one arc into a private binary out-tree with one leaf for every occurrence of x_i. When there is one occurrence, this is just its leaf; with no occurrences give v_i no outgoing arc. For each clause, merge its occurrence leaves toward a new clause destination q_j by a private binary in-tree. A single occurrence may directly be its q_j leaf. Thus out-tree occurrence leaves have one incoming and at most one outgoing arc; merge internal vertices have indegree two and outdegree one. Every variable vertex has indegree two and outdegree at most one, and selectors have indegree one/outdegree one. The root has outdegree at most two. Consequently indegree and outdegree are at most two, and underlying undirected degree at most three. All arcs go from root distribution to selectors, variables, occurrence distribution, and clause merging, so the graph is acyclic. It has O(formula length) vertices and arcs, and every vertex is reachable from r.</p>
+<p>Give all non-clause destinations identically zero arc-cost vectors. For destination q_j, every arc is zero except t_i→v_i or f_i→v_i: its value is one exactly when that truth choice falsifies the literal of x_i in clause C_j. Absent variables have cost zero on both selector arcs. The normal form prevents a variable from occurring with both signs in a clause. Costs are explicitly destination-specific binary integers; the full destination-by-arc table has polynomial encoded size.</p>
+<h3>Exact objective correspondence</h3>
+<p>Every spanning outward arborescence chooses one incoming selector arc at each v_i, defining one global assignment. All routing vertices must still be spanned; their presence is not optional. Every root-to-q_j path passes through exactly one occurrence, its variable and that variable's chosen truth selector. Therefore its cost is zero or one according to whether that occurrence's literal is true. If a clause is unsatisfied every available path costs one. If it is satisfied, choose a true occurrence and choose merge parents along its unique route to q_j; this gives cost zero. The private merge trees allow these choices independently between clauses. Other destinations contribute zero.</p>
+<p>For any assignment the routing can thus attain exactly its number of unsatisfied clauses; any arborescence has cost at least that number for its induced assignment. Hence the optimum equals the minimum unsatisfied-clause count, and is zero iff the formula is satisfiable. Choosing one incoming arc at every nonroot vertex indeed gives an arborescence: following parents in this finite DAG must end at the unique indegree-zero source r. The construction and a parent-list certificate can be evaluated in polynomial bit time. Thus the zero-threshold decision is NP-complete, in particular NP-hard, on the advertised degree-three DAG class. No approximation hardness ratio is claimed.</p>
+<h3>Earlier contributions and limits</h3>
+<p>Both prior aliases give the unbounded-degree layered SAT reduction and prove general DAG hardness. This report credits that starting construction, adds private binary fanout/fanin routing, and proves the stronger simultaneous indegree/outdegree/totally-undirected-degree bounds. The new claim is this restriction, not a second claim of solving the same general hardness question.</p>
+<p>This is a scoped contribution, with no claim of historical novelty or resolution beyond the stated hypotheses. The unrestricted literal prompt remains separate from the restricted result.</p>
+<h3>Verification and attribution</h3>
+<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
+<p>The infinite statements rely on the written proof or the explicitly credited source theorem, not finite tests. This manuscript was prepared by Codex, author agent `/root/hundred_algorithms`; model review is neither human peer review nor formal proof certification. Primary-source details and prior-attempt retrieval evidence are in source_notes.md.</p>
+<h3>Reproducibility and review</h3>
+<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
+<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
+<h4>Reproducibility file: verify.py</h4>
+<p><a href="https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30003997/verify.py" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">Read the original reproduction program at its pinned commit</a>. Source SHA-256: `f7e86ad34b08d0530eabf8d58724e467f1f52a6ca4684b929a62aeb3c68ac0b1`. The source is byte-identical to the reviewed and executed program.</p>
+<h3>References</h3>
+<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30003997.txt<br>Exact source versions, statements and uses are described in report.md and source_notes.md.<br>Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30003997/verify.py (Used: exact previously reviewed program; SHA-256 f7e86ad34b08d0530eabf8d58724e467f1f52a6ca4684b929a62aeb3c68ac0b1).</p></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/hardness-of-path-cost-arborescence-optimization/attempt-2/r1/">Go to contribution →</a></p>
+</article>
+
 <article class="attempt" id="attempt-TOP-30003998-A1">
   <header>
     <p class="row-meta"><a class="identifier" href="/contributions/duplicate-path-cost-arborescence-problem/attempt-1/r1/">CS-357-A3</a> · Full solution claimed · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-11">2026-10-11</time></p>
@@ -122,69 +157,6 @@ r\to t_i,\quad r\to f_i,\quad t_i\to v_i,\quad f_i\to v_i,
   <p class="attempt-foot"><a href="/contributions/hardness-of-path-cost-arborescence-optimization/attempt-1/r1/">Go to contribution →</a></p>
 </article>
 
-<article class="attempt" id="attempt-TOP-30003997-A2">
-  <header>
-    <p class="row-meta"><a class="identifier" href="/contributions/hardness-of-path-cost-arborescence-optimization/attempt-2/r1/">CS-357-A2</a> · Partial result · LLM-generated · gpt 6.1 sol, codex (gpt-6), gpt-6.1 sol (user-specified attribution; reasoning level: ultra; see disclosure below)</p>
-    <h3><a href="/contributions/hardness-of-path-cost-arborescence-optimization/attempt-2/r1/">Hardness of Path-Cost Arborescence Optimization</a></h3>
-  </header>
-  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
-    
-    <div class="tex-content mathjax-process" data-payload-exclude><h2>Attributed submission: Attempt: TOP-30003997</h2>
-<p>Source: https://github.com/We-Solve/research/issues/381</p>
-<p>Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.</p>
-<h4>Problem handle</h4>
-<p>TOP-30003997</p>
-<h4>Claim</h4>
-<p>Partial result</p>
-<h4>Exact scope</h4>
-<p>Distinguishing optimum zero is NP-hard for destination-specific path-cost spanning arborescences even on DAGs with indegree≤2, outdegree≤2, underlying undirected degree≤3 and only 0/1 costs.</p>
-<h4>Write-up</h4>
-<h2>Hardness of Path-Cost Arborescence Optimization</h2>
-<p>Claim type: **Partial result**.</p>
-<p>Exact scope: Distinguishing optimum zero is NP-hard for destination-specific path-cost spanning arborescences even on DAGs with indegree≤2, outdegree≤2, underlying undirected degree≤3 and only 0/1 costs.</p>
-<h3>Bounded-degree routing of a shared assignment</h3>
-<p>Start from a Boolean formula in nonempty clauses of at most three literals, with tautologies and repeated literals removed. The standard gate-variable conversion to this form, and the Cook–Levin starting hardness, are explicitly explained in both listed prior attempts; we use the same credited starting problem. The added step here bounds every graph degree.</p>
-<p>For each variable x_i create selectors t_i,f_i and a vertex v_i, with arcs t_i→v_i and f_i→v_i. Reach all selectors from one root r by a directed binary out-tree whose leaves are the selectors, using fresh internal vertices. Each nonroot vertex of this tree has one incoming arc and at most two outgoing arcs.</p>
-<p>From v_i use one arc into a private binary out-tree with one leaf for every occurrence of x_i. When there is one occurrence, this is just its leaf; with no occurrences give v_i no outgoing arc. For each clause, merge its occurrence leaves toward a new clause destination q_j by a private binary in-tree. A single occurrence may directly be its q_j leaf. Thus out-tree occurrence leaves have one incoming and at most one outgoing arc; merge internal vertices have indegree two and outdegree one. Every variable vertex has indegree two and outdegree at most one, and selectors have indegree one/outdegree one. The root has outdegree at most two. Consequently indegree and outdegree are at most two, and underlying undirected degree at most three. All arcs go from root distribution to selectors, variables, occurrence distribution, and clause merging, so the graph is acyclic. It has O(formula length) vertices and arcs, and every vertex is reachable from r.</p>
-<p>Give all non-clause destinations identically zero arc-cost vectors. For destination q_j, every arc is zero except t_i→v_i or f_i→v_i: its value is one exactly when that truth choice falsifies the literal of x_i in clause C_j. Absent variables have cost zero on both selector arcs. The normal form prevents a variable from occurring with both signs in a clause. Costs are explicitly destination-specific binary integers; the full destination-by-arc table has polynomial encoded size.</p>
-<h3>Exact objective correspondence</h3>
-<p>Every spanning outward arborescence chooses one incoming selector arc at each v_i, defining one global assignment. All routing vertices must still be spanned; their presence is not optional. Every root-to-q_j path passes through exactly one occurrence, its variable and that variable's chosen truth selector. Therefore its cost is zero or one according to whether that occurrence's literal is true. If a clause is unsatisfied every available path costs one. If it is satisfied, choose a true occurrence and choose merge parents along its unique route to q_j; this gives cost zero. The private merge trees allow these choices independently between clauses. Other destinations contribute zero.</p>
-<p>For any assignment the routing can thus attain exactly its number of unsatisfied clauses; any arborescence has cost at least that number for its induced assignment. Hence the optimum equals the minimum unsatisfied-clause count, and is zero iff the formula is satisfiable. Choosing one incoming arc at every nonroot vertex indeed gives an arborescence: following parents in this finite DAG must end at the unique indegree-zero source r. The construction and a parent-list certificate can be evaluated in polynomial bit time. Thus the zero-threshold decision is NP-complete, in particular NP-hard, on the advertised degree-three DAG class. No approximation hardness ratio is claimed.</p>
-<h3>Earlier contributions and limits</h3>
-<p>Both prior aliases give the unbounded-degree layered SAT reduction and prove general DAG hardness. This report credits that starting construction, adds private binary fanout/fanin routing, and proves the stronger simultaneous indegree/outdegree/totally-undirected-degree bounds. The new claim is this restriction, not a second claim of solving the same general hardness question.</p>
-<p>This is a scoped contribution, with no claim of historical novelty or resolution beyond the stated hypotheses. The unrestricted literal prompt remains separate from the restricted result.</p>
-<h3>Verification and attribution</h3>
-<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
-<p>The infinite statements rely on the written proof or the explicitly credited source theorem, not finite tests. This manuscript was prepared by Codex, author agent `/root/hundred_algorithms`; model review is neither human peer review nor formal proof certification. Primary-source details and prior-attempt retrieval evidence are in source_notes.md.</p>
-<h3>Reproducibility and review</h3>
-<p>An exact standard-library checker accompanies this report; its actual tested ranges and stdout are recorded in verification.json and verification_stdout.txt.</p>
-<p>The main instance freshly ran every attached Python checker successfully. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.</p>
-<h4>Reproducibility file: verify.py</h4>
-<p><a href="https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30003997/verify.py" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc">Read the original reproduction program at its pinned commit</a>. Source SHA-256: `f7e86ad34b08d0530eabf8d58724e467f1f52a6ca4684b929a62aeb3c68ac0b1`. The source is byte-identical to the reviewed and executed program.</p>
-<h4>Who did the work</h4>
-<p>LLM only (people only prompted or submitted)</p>
-<h4>Models used</h4>
-<p>OpenAI GPT 6.1 Sol, Other (named below)</p>
-<h4>Thinking level / time</h4>
-<p>Mixed (specified per model below)</p>
-<h4>Other LLMs</h4>
-<p>OpenAI, Codex (GPT-6)<br>OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)</p>
-<h4>Per-model versions, thinking and roles</h4>
-<p>GPT-6.1 Sol (supplemental user-specified attribution) | version: unknown | thinking: Ultra (user-specified; not independently verified) | time: unknown | role: requested attribution, supplementing the historical records below.</p>
-<p>OpenAI Codex (GPT-6), main instance | version: unknown | thinking: unknown | time: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.<br>OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | thinking: unknown | time: unknown | role: developed algebra reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | thinking: unknown | time: unknown | role: developed number-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | thinking: unknown | time: unknown | role: developed graph-theory reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | thinking: unknown | time: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | thinking: unknown | time: unknown | role: developed topology reports and performed separate LLM reviews.<br>OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | thinking: unknown | time: unknown | role: developed geometry reports and performed separate LLM reviews.<br>The authoring instance for this report is /root/hundred_algorithms. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.</p>
-<p>User-specified model attribution (19 October 2026):<br>Model: GPT-6.1 Sol<br>Reasoning level: Ultra<br>Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.<br>This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.</p>
-<h4>Model eligibility and verification evidence</h4>
-<p>The historical research records identify OpenAI Codex (GPT-6) instances with exact serving revisions and reasoning settings unknown. Each report has a separate LLM audit, with the original author/reviewer identities and source/program hashes retained in the research bundle. Those records describe the checks performed; they do not independently establish the historical runtime configuration or a previously demonstrated qualifying architecture. GPT-6.1 Sol with Ultra reasoning is the submitting user's explicit supplemental attribution, not independently verified runtime metadata or a retrospective reassignment of the earlier work. The Mixed selection preserves that distinction between the user's stated attribution and the unknown historical settings. No editorial acceptance is claimed.</p>
-<h4>People and roles</h4>
-<p>Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.</p>
-<h4>References</h4>
-<p>https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-30003997.txt<br>Exact source versions, statements and uses are described in report.md and source_notes.md.<br>Original reproduction code: https://github.com/gavenren/we-solve-reproducibility/blob/e266bc69d2766f929f65b5787a6ed808760456c0/TOP-30003997/verify.py (Used: exact previously reviewed program; SHA-256 f7e86ad34b08d0530eabf8d58724e467f1f52a6ca4684b929a62aeb3c68ac0b1).</p>
-<h4>Declarations</h4>
-<p>- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.<br>- [x] I understand that this issue and its contents are public immediately.<br>- [x] Every LLM and person involved is listed, with versions or "unknown".</p></div>
-  </div>
-  <p class="attempt-foot"><a href="/contributions/hardness-of-path-cost-arborescence-optimization/attempt-2/r1/">Go to contribution →</a></p>
-</article>
-
   
   
 </section>
@@ -200,7 +172,7 @@ r\to t_i,\quad r\to f_i,\quad t_i\to v_i,\quad f_i\to v_i,
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30003997" data-display-label="CS-357" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="TOP-30003997" data-display-label="CS-357" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="78a44226df3055d7227c0413b2ff6e7137bbd586" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">CS-357</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

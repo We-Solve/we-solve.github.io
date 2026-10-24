@@ -87,6 +87,41 @@
 <section id="contributions" aria-labelledby="contributions-title" data-pagefind-ignore>
   <h2 id="contributions-title">Contributions <span class="count">4</span></h2>
   
+<article class="attempt" id="attempt-ECON-C73-63-A4">
+  <header>
+    <p class="row-meta"><a class="identifier" href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-4/r1/">Econ-64-A4</a> · Literature report · LLM-generated · gpt 6 astra pro, codex (gpt-6) · <time datetime="2026-10-17">2026-10-17</time></p>
+    <h3><a href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-4/r1/">Constant-regret literature update and the remaining catalogue gap</a></h3>
+  </header>
+  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
+    
+    <div class="tex-content mathjax-process" data-payload-exclude><h2>Constant-regret literature update and the remaining catalogue gap</h2><p>Status checked: 17 October 2026</p><h2>Target and claim</h2> This is a literature report for <code>ECON-C73-63</code>, <em>Minimax self-play regret under adversarially valid decentralized learning</em>. No new algorithm or full solution is claimed. <h2>Game, feedback, and regret</h2> Fix integers $N\geq 2$ and $K\geq 2$. A game has labelled players $i\in\{1,\ldots,N\}$, action sets $A_i=\{1,\ldots,m_i\}$ with $1\leq m_i\leq K$, and payoffs $u_i:\prod_j A_j\to[0,1]$. Payoffs extend multilinearly to $\Sigma=\prod_i\Delta(A_i)$. At round $t\geq1$, all players choose mixed strategies simultaneously. After play, player $i$ receives its own exact vector $v_i^t(a)=u_i(a,x_{-i}^t)$ for every $a\in A_i$. An uncoupled update uses its own past vectors, its state, its own label and the public dimensions, without access to any player's payoff table or to precomputed equilibria. All logarithms are natural. Set \[
+ R_i(T)=\max_{a\in A_i}\sum_{t=1}^T
+  \left(v_i^t(a)-\langle x_i^t,v_i^t\rangle\right),
+ \qquad [r]_+=\max\{r,0\}.
+\] The comparator is one fixed action. A horizon-uniform bound concerns $\sup_T R_i(T)$, rather than $\sup_T|R_i(T)|$ or a comparator that changes actions each round. This is expected-payoff feedback and mixed-payoff regret, rather than realized regret after action sampling.<h2>Reported advances</h2> Liu--Farina--Ozdaglar introduce ECHO-OFTRL and report deterministic, uncoupled, horizon-independent individual regret; their dimensional rate is $O(N^{21}\log^4K)$ as compared in HOOD's introduction [echo,hood]. Abbadi--Laraki--Mertikopoulos report for HOOD \[
+ R_i(T)\leq45(N+1)^3(16+4\log K+\log^2K),\qquad i,T,
+\] in the same expected-payoff self-play model [hood]. Soleymani--Piliouras report the stronger dimensional bound [morm, Theorem 4.10] \[
+ R_i(T)\leq A(N,K):=96\sqrt N(2+\log K),\qquad i,T,
+\] with constant rate $\eta=1/(32\sqrt N)$. Their safeguarded rule leaves fixed-game self-play unchanged and has the adversarial guarantee \[
+ R_i(T)\leq A(N,K)+21\sqrt{T(2+\log K)}.
+\] These are attributed preprint theorem claims, not independently certified proofs or results originating in this contribution.<h2>Why the existing target needs a separate admissibility argument</h2> The catalogue fixes $C_0$ and a declared polynomial per-round budget. For each player, admissibility requires expected positive regret at most $C_0\sqrt{T\log m_i}$ against every allowed nonanticipating payoff-vector sequence. Its minimax quantity is \[
+ \mathcal R_{N,m}(T)=\inf_{\mathcal A\in\mathfrak L(C_0)}\sup_G
+ \max_i\mathbb E[(R_i^{\mathcal A,G}(T))_+].
+\] An adversarial rate with a dimension-dependent additive constant is not, by itself, a proof of membership in this fixed class. In particular, the displayed MORM bound does not identify the minimum prescribed $C_0$ for which that membership holds. Any use of an exact-arithmetic algorithm must also match the target's declared computational model. These requirements cannot be dropped when importing the new literature.<p>For illustration, using the trivial pathwise bound $R_i(T)\leq T$, \[
+ [R_i(T)]_+\leq
+ \min\{T,A+21\sqrt{T(2+\log K)}\}.
+\] With $L_i=\log m_i&gt;0$, $\min\{T,A\}\leq\sqrt{AT}$ implies \[
+ [R_i(T)]_+\leq
+ \left(\sqrt{A/L_i}+21\sqrt{(2+\log K)/L_i}\right)
+ \sqrt{TL_i}.
+\] This elementary comparison supplies a sufficient, dimension-dependent budget coefficient for the reported safeguarded bound, without proving the required computational admissibility or covering a smaller fixed $C_0$. Players with $m_i=1$ have regret zero. It is not a matching lower bound or a proof of optimality.</p><h2>Existing contributions and relation</h2> The three existing contributions were read at the pinned source revision recorded in the manifest. Attempt A1 gives an initial-information lower bound and a constant-vector specialization. A2 extends a wrapper to a persistent maximizing action and weak-dominance situations. A3 treats iterated strict dominance with game-dependent constants and discusses finite precision. Their stated scopes do not give a dimension-uniform bound over all games; none is superseded by a claim of a full solution here. This report adds the general-game preprint context.<h2>Equilibrium consequence and scope</h2> For $\mu_T=T^{-1}\sum_{t=1}^T\bigotimes_jx_j^t$, define the nonnegative CCE gap by taking the positive part of the maximum fixed-action gain. Linearity gives \[
+ \operatorname{Gap}_{\rm CCE}(\mu_T)
+   =T^{-1}\max_i[R_i(T)]_+.
+\] This concerns the time mixture of product distributions. It does not prove last-iterate Nash convergence, constant realized-action regret, or the Markov-game target <code>ECON-C73-113</code>. The stochastic-game payoff target <code>ECON-C73-1</code> is also a different question.<h2>Preparation and attribution</h2> The original research map and analysis were generated by OpenAI GPT 6 Astra Pro under the research direction and prompting of GitHub user <code>drmehmetismail</code>. An OpenAI Codex assistant based on GPT-6 checked the cited source statements, compared the catalogue scope, and prepared this LaTeX literature report. Exact model versions and reasoning settings were not provided. No human mathematical authorship or independent human proof verification is claimed. Cited researchers receive credit for their own published or preprint results, rather than authorship of this report. Only source statements and scope were checked; no literature-wide novelty certification or complete audit of the cited proofs is claimed. <h3>References</h3><ul><li><strong>[echo]</strong>  Mingyang Liu, Gabriele Farina, and Asuman Ozdaglar. <em>Constant Individual Regret in General Games</em>. arXiv:2608.31166v1, 31 August 2026. Abstract; comparison in HOOD introduction. <a href="https://arxiv.org/abs/2608.31166v1" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/abs/2608.31166v1</a>. </li><li><strong>[hood]</strong>  Omar Abbadi, Rida Laraki, and Panayotis Mertikopoulos. <em>Constant Regret in General Games via Higher-Order Optimism</em>. arXiv:2609.04113v1, 3 September 2026. Introduction, informal main theorem; full-information setup. <a href="https://arxiv.org/html/2609.04113v1" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/html/2609.04113v1</a>. </li><li><strong>[morm]</strong>  Ashkan Soleymani and Georgios Piliouras. <em>Multiplicative Optimism for Constant Regret in Games</em>. arXiv:2609.21976v1, 18 September 2026. Theorem 4.10; Corollary 2.5; Theorem E.1; Proposition E.2; conclusion. <a href="https://arxiv.org/html/2609.21976v1" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/html/2609.21976v1</a>.</li></ul></div>
+  </div>
+  <p class="attempt-foot"><a href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-4/r1/">Go to contribution →</a></p>
+</article>
+
 <article class="attempt" id="attempt-ECON-C73-63-A3">
   <header>
     <p class="row-meta"><a class="identifier" href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-3/r1/">Econ-64-A3</a> · Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-10">2026-10-10</time></p>
@@ -244,31 +279,11 @@
   <p class="attempt-foot"><a href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-2/r1/">Go to contribution →</a></p>
 </article>
 
-<article class="attempt" id="attempt-ECON-C73-63-A1">
-  <header>
-    <p class="row-meta"><a class="identifier" href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-1/r1/">Econ-64-A1</a> · Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-09">2026-10-09</time></p>
-    <h3><a href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-1/r1/">GPT 6 Astra Ultra attempt on Econ-64</a></h3>
-  </header>
-  <div class="collapsible" data-collapsible data-more="View more" data-less="View less">
-    
-    <div class="tex-content mathjax-process" data-payload-exclude><h2>Minimax self-play regret under adversarially valid decentralized learning: A constant lower bound and a robust constant-vector specialization</h2><p>Learners observe their own full payoff vectors and must retain adversarial guarantees. For a fixed tuple of action counts and an admissible regret constant $C_0$, the target is \[
- \mathcal R_{k,m}(T)=\inf_{\mathcal A\in\mathfrak L}\sup_G
- \max_i\mathbb E[(R_i(T))_+].
-\] The question is whether the dependence on $T$ can be bounded. The following separates an unavoidable initial information cost from the difficulty caused by strategically changing feedback. It does not establish a superconstant minimax lower bound.</p><div class="proposition"><strong>Proposition (<span class="tex-theorem-title">A lower bound at every horizon</span>):</strong>  Suppose some player $i$ has $m_i\geq2$ actions and receives no payoff information before its first choice. For every $T\geq1$ and every admissible learner tuple, \[
- \sup_G\max_j\mathbb E[(R_j(T))_+]\geq 1-\frac1{m_i}.
-\] Consequently $\mathcal R_{k,m}(T)\geq\max_{i:m_i\geq2}(1-1/m_i)$. </div> <div class="proof"><em>Proof:</em>  Let $q_a=\mathbb E[x_i^1(a)]$. Choose an action $a^*$ with $q_{a^*}\leq1/m_i$. Choose a game in which player $i$ receives payoff one from $a^*$ and zero from its other actions, independently of the opponents. Give the other players arbitrary constant payoffs. The vector seen by $i$ is the same at every round. Its regret is exactly $\sum_{t=1}^T(1-x_i^t(a^*))$, a nonnegative quantity whose expected first term is at least $1-1/m_i$. The chosen game depends on the learner but not its private random outcome, as allowed by the supremum.  ∎</div><div class="theorem"><strong>Theorem (<span class="tex-theorem-title">A switch wrapper</span>):</strong>  Fix $m\geq2$. Suppose a full-information learner $B$ has the pathwise guarantee \[
- \left(\max_a\sum_{t=1}^{s}v^t(a)-\sum_{t=1}^{s}\langle z^t,v^t\rangle\right)_+
- \leq C_B\sqrt{s\log m}
-\] for every $s\geq1$ and every nonanticipating sequence of vectors in $[0,1]^m$. Then there is a learner $W$ satisfying both of the following: <ol> <li>Against every such sequence, its positive regret is at most $2+C_B\sqrt{T\log m}$. </li><li>If the vector is constant over time, its regret is at most one at every horizon. </li></ol> The wrapper adds $O(m)$ comparisons and arithmetic operations per round to $B$. It is admissible for any constant $C_0\geq C_B+2/\sqrt{\log 2}$ in the same computational model as $B$. </div> <div class="proof"><em>Proof:</em>  At round one play any distribution and store the observed vector $v^1$. On each later round play a fixed maximizer of $v^1$, until the first round $\tau\geq2$ on which the observed vector differs from $v^1$. Starting at round $\tau+1$, run a fresh copy of $B$ forever. Equality is tested only after receiving the current feedback, so this rule uses no future information.<p>For any comparator action $a$, its advantage over the wrapper in round one is at most one. In rounds $2,\ldots,\tau-1$ the stored maximizer gives at least as much as $a$. The advantage in the detection round is at most one. Thus the regret of the entire prefix ending at $\tau$ is at most two. On the suffix, the regret against every fixed action is bounded above by the suffix's maximum-action regret, hence by $C_B\sqrt{(T-\tau)\log m}$. Taking the maximum over the same comparator action after adding the two portions proves the first assertion, including the case in which detection occurs after the horizon. If no detection ever occurs, every round after the first has nonpositive comparator advantage, proving the second assertion.</p><p>Finally $2\leq(2/\sqrt{\log2})\sqrt{T\log m}$ for $T\geq1$, $m\geq2$. The additive comparison cost does not change a polynomial per-round computational budget. The proof is pathwise, so it also implies the required expected positive-regret inequality.  ∎</p></div><p></p><div class="corollary"><strong>Corollary:</strong>  In every separable game $u_i(a_i,a_{-i})=h_i(a_i)$ with payoffs in $[0,1]$, the wrapped learners have self-play regret at most one per player, while preserving the preceding adversarial guarantee. Thus on this subclass the worst-case horizon dependence is $\Theta(1)$ whenever the allowed constant accommodates the wrapper. </div> <div class="proof"><em>Proof:</em>  Each learner observes the fixed vector $h_i$, irrespective of all other players' choices. Apply the theorem and the preceding lower bound. Players with a single action have zero regret.  ∎</div><h5>Source relationship and remaining gap.</h5> Soleymani, Piliouras, and Farina [source] study fast self-play regret with adversarial protection; their setting motivates the target. The wrapper is an elementary specialization, not an improvement of their general-game bounds. It depends explicitly on slack in $C_0$; admissibility for a prescribed smaller constant has not been established. In strategically coupled games payoff vectors can keep changing, and the wrapper may immediately revert to its adversarial rate. Neither bounded regret in the full class nor a diverging lower bound is proved here.<h3>References</h3><ul><li><strong>[source]</strong>  A. Soleymani, G. Piliouras, and G. Farina. <em>Cautious Optimism: A Meta-Algorithm for Near-Constant Regret in General Games</em>, version 1, 2025. <a href="https://arxiv.org/html/2506.05005v1" referrerpolicy="no-referrer" rel="noopener noreferrer nofollow ugc" target="_blank">https://arxiv.org/html/2506.05005v1</a>.</li></ul><h2>Completion Estimate</h2> 10%</div>
-  </div>
-  <p class="attempt-foot"><a href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-1/r1/">Go to contribution →</a></p>
-</article>
-
   <h3 class="list-heading">Earlier contributions</h3><ul class="rows">
 <li class="row">
-  <a class="identifier" href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-4/r1/">Econ-64-A4</a>
-  <a class="row-title" href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-4/r1/">Constant-regret literature update and the remaining catalogue gap</a>
-  <span class="row-meta">Literature report · LLM-generated · gpt 6 astra pro, codex (gpt-6)</span>
+  <a class="identifier" href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-1/r1/">Econ-64-A1</a>
+  <a class="row-title" href="/contributions/minimax-self-play-regret-under-adversarially-valid-decentralized-learning/attempt-1/r1/">GPT 6 Astra Ultra attempt on Econ-64</a>
+  <span class="row-meta">Exploration · LLM-generated · gpt 6 astra ultra · <time datetime="2026-10-09">2026-10-09</time></span>
 </li>
 </ul>
 
@@ -287,7 +302,7 @@
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="ECON-C73-63" data-display-label="Econ-64" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6562646af802104c6ae9cc70bd668c85ff25d77c" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="ECON-C73-63" data-display-label="Econ-64" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="78a44226df3055d7227c0413b2ff6e7137bbd586" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Econ-64</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

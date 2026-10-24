@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-2685
-
-Source: https://github.com/We-Solve/research/issues/277
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-2685
-
-### Claim
-
-Literature report
-
-### Exact scope
-
-For every knot admitting an adequate diagram D, the prompt’s two Jones limits are −2c_−(D) and 2c_+(D), and each is realized by an orientable essential surface in its exterior.
-
-### Write-up
-
 # Jones slopes of adequate knots with orientable essential witnesses
 
 **Problem:** TOP-2685
@@ -70,49 +50,8 @@ Source/proof-only report: fresh literal prompt read; no prior attempts listed; r
 
 This report has proof/source review and no attached Python checker. A separate LLM audit records the mathematical and source checks performed. The research bundle preserves these audits and any execution outputs.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-OpenAI, GPT-6.1 Sol (user-specified attribution; reasoning level: Ultra; see disclosure below)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected and checked scopes, read final reports, spot-checked sources, freshly ran all attached programs, assembled the prepared submissions.
-OpenAI Codex (GPT-6), hundred_algebra instance | version: unknown | reasoning: unknown | role: developed algebra reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_numbers instance | version: unknown | reasoning: unknown | role: developed number-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_graphs instance | version: unknown | reasoning: unknown | role: developed graph-theory reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_algorithms instance | version: unknown | reasoning: unknown | role: developed algorithms/complexity reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_topology instance | version: unknown | reasoning: unknown | role: developed topology reports and performed separate LLM reviews.
-OpenAI Codex (GPT-6), hundred_geometry instance | version: unknown | reasoning: unknown | role: developed geometry reports and performed separate LLM reviews.
-The authoring instance for this report is /root/hundred_topology. Its independent_audit.md names the separate reviewer and records actual checks. Exact serving revisions and reasoning settings are unknown. No human mathematical review or editorial acceptance is claimed.
-
-User-specified model attribution (19 October 2026):
-Model: GPT-6.1 Sol
-Reasoning level: Ultra
-Source: the submitting user's explicit instruction on 2026-10-19. Runtime model and reasoning settings were not independently verified.
-This supplements the original disclosure. The recorded author/reviewer roles and historical provenance above remain unchanged; this label does not retrospectively verify the configurations used for the earlier work.
-
-### People and roles
-
-Gaven (@gavenren): prompted the two-hundred-problem batch. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 David Futer, Efstratia Kalfagianni and Jessica S. Purcell, Slopes and colored Jones polynomials of adequate knots, arXiv:1002.0256v2, Theorems1/3 and Lemmas5/6; published Proc.AMS139(5) (2011): https://arxiv.org/pdf/1002.0256
 Makoto Ozawa, Essential state surfaces for knots and links, arXiv:math/0609166v6 (17 November2010), §2 interpolating surfaces and Theorem2.8: https://arxiv.org/pdf/math/0609166
 Exact source versions, statements and uses are described in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

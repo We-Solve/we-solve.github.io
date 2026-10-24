@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-2673
-
-Source: https://github.com/We-Solve/research/issues/102
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-2673
-
-### Claim
-
-Literature report
-
-### Exact scope
-
-Credited universal nonabelian SU(2) surgery representation slopes: nonzero |r|<=2, slope 3, and the explicit prime-power-numerator hypotheses of Baldwin–Li–Sivek–Ye Theorem 1.4, with negatives; dense power-of-two family in (3,7), and exclusions ±5. No exact classification of all rational slopes.
-
-### Write-up
-
 # Certified universal SU(2) surgery slopes, including an infinite family beyond five
 
 **Problem:** TOP-2673. **Claim type:** Literature report.
@@ -58,43 +38,9 @@ The exact official prompt and empty prior-contribution API list are saved locall
 Read actual primary author PDF and arXiv/published theorem statements with every prime-power, coprimality, interval and endpoint condition. Independently checked cyclic-abelianization translation, mirror symmetry and power-of-two density deduction. Deep existence proofs remain literature inputs.
 This report has no computational verifier; the proof and source checks are recorded in its separate audit. Separate LLM audit notes in the research bundle record the proof and source checks actually performed. These reviews are not human peer review.
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.
-OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.
-The authoring instance for this report is /root/psi_audit — OpenAI Codex, GPT-6; exact serving revision/settings unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.
-
-### People and roles
-
-Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 P. B. Kronheimer and T. S. Mrowka, Dehn surgery, the fundamental group and SU(2), Theorem 1; https://people.math.harvard.edu/~kronheim/hrpthree.pdf
 J. A. Baldwin, Z. Li, S. Sivek and F. Ye, Small Dehn surgery and SU(2), arXiv:2110.02874v1, Theorems 1.2 and 1.4; https://arxiv.org/pdf/2110.02874
 Baldwin–Li–Sivek–Ye, published Geometry & Topology 28 (2024), 1891–1922, same Theorem 1.4; https://spiral.imperial.ac.uk/server/api/core/bitstreams/17b1d9e1-127d-48c2-9574-6e206a790d1e/content
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

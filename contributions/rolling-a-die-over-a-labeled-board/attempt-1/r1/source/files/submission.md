@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-5500068
-
-Source: https://github.com/We-Solve/research/issues/60
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-5500068
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-An explicit fully labeled 18x13 rectangular board with one prescribed corner die orientation has at least two distinct legal paths visiting every cell exactly once, and two different closing Hamiltonian cycles restoring the full orientation. Corrects one label in domotorp's credited 2012 source diagram and supplies complete integer-permutation certificates. Refutes uniqueness only; decision complexity remains unclassified here. Includes NP membership and an exact visited-subset exponential algorithm, without a novelty claim.
-
-### Write-up
-
 # A corrected, fully certified rectangular-board nonuniqueness example
 
 **Problem:** TOP-5500068, Rolling a Die over a Labeled Board.  
@@ -133,50 +113,16 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 ### Reproducibility file: independent_verify.py
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
 ### Reproducibility file: verify.py
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, reran all attached programs, assembled and submitted.
-OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the rank and decomposition reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the Hilbert-series reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the SOS, half-plane and discrete-operator reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the Descartes and weighted-tropical reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the tetrahedralization, compatible-triangulation and grid-TSP reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the unfolding, coloring and rolling-die reports; participated in separate LLM review.
-The authoring instance for this report is /root/scout_new; OpenAI Codex GPT-6, exact serving revision and settings unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.
-
-### People and roles
-
-Gaven: prompted and authorized the twenty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 https://github.com/edemaine/topp/blob/main/Problems/P.000068
 https://mathoverflow.net/questions/87437/die-rolling-hamiltonian-cycles/89493
 https://people.csail.mit.edu/schulz/papers/RollingFull.pdf
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

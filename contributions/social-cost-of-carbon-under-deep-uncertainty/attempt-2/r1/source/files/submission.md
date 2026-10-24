@@ -1,25 +1,3 @@
-# Attributed submission: Attempt: ECON-Q51-192
-
-Source: https://github.com/We-Solve/research/issues/81
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-ECON-Q51-192
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-Four linked, conditional contributions to the stated research family: (1) a compact, continuous family of positive-consumption models in which every individual SCC is zero but the lower welfare envelope has an infinite right marginal loss; (2) a directional compensation theorem using models arbitrarily close to the worst baseline welfare, with model-dependent marginal transfer values retained; (3) certified approximation of continuous-state SCC endpoints under explicit moment and strict-feasibility conditions; and (4) a sharp minimax-regret rule for an entire class of nonlinear policy-welfare functions satisfying a uniform derivative envelope. The general empirical structural class is not identified or solved.
-
-**Assumptions and limitations:** The model class, policy and adaptation responses, cardinal welfare specification, transfer allocation and currency numeraire are inputs. The positive results impose additional uniform regularity, tail, feasibility or derivative-envelope conditions, stated separately below. They are not assumptions supplied by the original question. The compensation and regret criteria are explicitly specified and differ. No numerical climate calibration, confidence set, complete literature search or claim of mathematical priority is supplied. The counterexamples are mathematical constructions, not empirical climate models. The exact original statement is preserved as `original-statement.tex` in the supporting archive.
-
-### Write-up
-
 ## Uniform control of structural ambiguity: robust compensation, certified SCC bounds and sharp nonlinear mitigation regret
 
 ## 1. Original question and relation to A1
@@ -670,44 +648,14 @@ The original research manuscript and its mathematical claims are unchanged. Duri
 
 The reproducibility supplement supplies the unchanged verification script, original recorded results and original-statement provenance. The original statement is also available from the official source identified in [P]. The complete Markdown above is the submission; the separately prepared PDF and source package are review materials. The submitter identified the research model as GPT-6-Pro before publication; the exact version beyond that name and the reasoning settings are unknown. Preparation and compliance-review assistants remain separately disclosed with unknown model names. A separate compliance-only review checked the current issue template and official source/rights records and corrected attribution; it did not assess mathematical correctness. Historical source-inspection statements below describe the original research run; they do not imply that the submission-preparation assistant re-read every external source.
 
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, GPT-6-Pro
-OpenAI, unknown
-
-### LLM versions, settings and roles
-
-GPT-6-Pro (model identification supplied by the submitter) | version: unknown beyond model name | reasoning: unknown | role: lead derivation, research, writing and orchestration in the original Pro run. Three parallel assistant instances inherited the same declared model configuration; exact versions and settings are unknown. Their roles were robust-compensation derivation and audit, continuous-state approximation, and nonlinear regret.
-OpenAI assistant (model name unknown) | version: unknown | reasoning: unknown | role: submission preparation, source-artifact retrieval, issue-form formatting, hash and file-consistency checks, and rerunning the supplied verification script. No new theorem or independent human proof verification is claimed.
-OpenAI assistant (model name unknown; compliance review) | version: unknown | reasoning: unknown | role: checked submission format, scope disclosure, attribution, references and source/licence records; made mechanical attribution and packaging corrections. This review did not assess mathematical correctness.
-
-### People and roles
-
-Kenny Bell (@kendonB): selected the problem and specified the research and reporting requirements; requested preparation and compliance review of these submission files, corrected the research-model identification to GPT-6-Pro, and authorized this public submission. No human mathematical verification of this draft is recorded.
-
-### References
+## References
 
 - **[P]** we-solve research archive. *Social cost of carbon under deep uncertainty*, ECON-Q51-192. [Problem page](https://we-solve.github.io/problems/social-cost-of-carbon-under-deep-uncertainty/). The full page and downloadable original TeX statement were read. The supplied problem is preserved rather than replaced by the conditional statements above. Rights holder: mehmetmars7; [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), verified in the [official rights record](https://github.com/We-Solve/research/blob/main/problems/23/prb_232552d157d14327a572cb006068e117/problem.yaml). The source statement is copied unchanged; the quoted formal-question passage has only Markdown/LaTeX-formatting changes. No endorsement is implied.
 - **[A1]** we-solve research archive (2026). *GPT 6 Astra Ultra attempt on Econ-192*, contribution ECON-Q51-192-A1, revision r1, first posted 9 October 2026. [Permanent revision](https://we-solve.github.io/contributions/social-cost-of-carbon-under-deep-uncertainty/attempt-1/r1/). The entire manuscript and TeX source were inspected. Its generated and unverified status is retained; the present work does not treat it as peer-reviewed authority.
 - **[D]** John M. Danskin (1966). *The Theory of Max-Min, with Applications*. SIAM Journal on Applied Mathematics 14(4), 641-664. [DOI: 10.1137/0114053](https://doi.org/10.1137/0114053). Publisher abstract and bibliographic record checked. Cited for historical context concerning differentiation of max-min objectives; no unseen theorem from the article is invoked as a proof.
 - **[M]** Stephen J. DeCanio, Charles F. Manski and Alan H. Sanstad (2022). *Minimax-Regret Climate Policy with Deep Uncertainty in Climate Modeling and Intergenerational Discounting*. NBER Working Paper 29716, February 2022. [Primary paper](https://www.nber.org/system/files/working_papers/w29716/w29716.pdf). Title page, abstract and introduction inspected. Cited only for established use of minimax regret with climate-model and discounting uncertainty. This reference is to the checked working-paper version, not a claim to have inspected the subsequent journal version.
 
-### Declarations
-
-- [X] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [X] I understand that this issue and its contents are public immediately.
-- [X] Every LLM and person involved is listed, with versions or "unknown".
-
-
-## Attributed author follow-up (comment 6253893446)
+## Additional author notes
 
 # Reproducibility supplement for ECON-Q51-192
 
@@ -718,14 +666,14 @@ This supplement accompanies “Uniform control of structural ambiguity: robust c
 Save the script below as `verify_econ192.py`, then run the command below. If the unchanged original manuscript `econ192-submission.md` is beside it, the output also records its SHA-256. That Markdown file is in the full review package, not the source-only ZIP. Without it, the same formula checks run, but the `manuscript_sha256` field is omitted. The issue-form body has different metadata and formatting and must not be substituted when reproducing the original manuscript hash.
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
 The script uses fixed random seed 19220261018. The original record was generated on 18 October 2026 at 09:01:05 UTC. An unchanged-script rerun during submission preparation passed in the same software versions and reproduced every JSON field except the timestamp. The repeated computation is not independent proof verification.
 
 ## Original verification script
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
 ## Original verification record
 
@@ -995,4 +943,3 @@ The original statement is unchanged. The separately prepared contribution TeX co
 ## Third-party statement attribution
 
 The original problem statement, “Social cost of carbon under deep uncertainty” (ECON-Q51-192), is credited to rights holder mehmetmars7, as recorded in the [official rights record](https://github.com/We-Solve/research/blob/main/problems/23/prb_232552d157d14327a572cb006068e117/problem.yaml), and is available under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The [source statement](https://github.com/We-Solve/research/blob/main/problems/23/prb_232552d157d14327a572cb006068e117/statement.tex) is copied unchanged in `original-statement.tex`; the formal-question passage quoted in this contribution has only Markdown/LaTeX-formatting changes. No endorsement is implied. This notice concerns that third-party statement; licensing of the new contribution and software remains subject to the submitter’s declarations.
-

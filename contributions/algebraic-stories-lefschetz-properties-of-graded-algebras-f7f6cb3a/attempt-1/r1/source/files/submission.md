@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-1500012
-
-Source: https://github.com/We-Solve/research/issues/71
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-1500012
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-SLP and hence WLP for every homogeneous Artinian quotient of C[x,y], with a self-contained jet proof; applies to generic forms for n<=2, r>n, and after elimination of linear generators to embedding dimension<=2. Established theorem, no higher-dimensional resolution.
-
-### Write-up
-
 # Every Artinian binary quotient has the strong Lefschetz property
 
 **Problem:** TOP-1500012 / Math-3413.  
@@ -90,46 +70,12 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 ### Reproducibility file: verify.py
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, reran all attached programs, assembled and submitted.
-OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the covering-system, zero-sum and group-transversal reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the generic-ideal and Lefschetz reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the derivative-root and Diophantine-tuple reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the visibility, minimum-link and sumset-sorting reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the polyomino, distance and folding reports; participated in separate LLM review.
-The authoring instance for this report is /root/twoquad_audit; OpenAI Codex GPT-6, exact serving revision and reasoning configuration unknown. Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.
-
-### People and roles
-
-Gaven: prompted and authorized the twenty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 https://raw.githubusercontent.com/We-Solve/we-solve.github.io/main/prompts/TOP-1500012.txt
 https://arxiv.org/pdf/1801.01692
 https://arxiv.org/pdf/math/0208201
 https://arxiv.org/pdf/1301.7614
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".

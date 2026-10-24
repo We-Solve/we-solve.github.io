@@ -1,23 +1,3 @@
-# Attributed submission: Attempt: TOP-60
-
-Source: https://github.com/We-Solve/research/issues/86
-
-Acceptance, if recorded, means accepted after security screening. Contributor claims below are attributed claims, not mathematical verification.
-
-### Problem handle
-
-TOP-60
-
-### Claim
-
-Partial result
-
-### Exact scope
-
-For every n>=2 outside residues 1,121,169,289,361,529 modulo 840, construct positive integer x,y,z with 4/n=1/x+1/y+1/z. The attached coefficient checker proves all 18 additional progression identities exactly; the six residual classes remain unproved in general.
-
-### Write-up
-
 Problem: TOP-60
 
 Title: A complete polynomial certificate for the classical six-class modulus-840 reduction
@@ -100,44 +80,10 @@ The main instance freshly ran every attached verifier; all assertions passed. Se
 ### Reproducibility file: verify.py
 
 
-[Executable fenced material omitted from this text-only security-screened package; original retained privately.]
+*Code is not included in this manuscript.*
 
-
-### Who did the work
-
-LLM only (people only prompted or submitted)
-
-### LLMs used
-
-Other (named below)
-
-### Other LLMs
-
-OpenAI, Codex (GPT-6)
-
-### LLM versions, settings and roles
-
-OpenAI Codex (GPT-6), main instance | version: unknown | reasoning: unknown | role: selected scopes, reviewed statements and proofs, checked sources, wrote the independent TOP-54 interpolation checker, reran all attached programs, assembled and submitted.
-OpenAI Codex (GPT-6), next_scout instance | version: unknown | reasoning: unknown | role: developed the number-theory reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), twoquad_audit instance | version: unknown | reasoning: unknown | role: developed the algebra reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), lattice_verify instance | version: unknown | reasoning: unknown | role: developed the graph-signing, coloring and complexity reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), psi_audit instance | version: unknown | reasoning: unknown | role: developed the topology reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), rectangle_audit instance | version: unknown | reasoning: unknown | role: developed the algorithms and complexity reports; participated in separate LLM review.
-OpenAI Codex (GPT-6), scout_new instance | version: unknown | reasoning: unknown | role: developed the geometry reports; participated in separate LLM review.
-The authoring instance for this report is /root/next_scout; OpenAI Codex, GPT-6 (exact serving revision and reasoning configuration unknown). Per-report independent audits identify the reviewer and checks actually performed. Exact serving revisions and reasoning configurations are unknown. No other LLM was used in this batch.
-
-### People and roles
-
-Gaven: prompted and authorized the fifty-problem batch and public submissions. No human mathematical contribution or human verification is claimed.
-
-### References
+## References
 
 https://github.com/We-Solve/we-solve.github.io/blob/main/prompts/TOP-60.txt
 C. Elsholtz and T. Tao, Counting the number of solutions to the Erdős–Straus equation on unit fractions, primary full text, discussion before Proposition 1.9 of polynomial-solvable classes modulo 840: https://arxiv.org/pdf/1107.1010
 Only the listed sources and the exact source statements in report.md are relied on. Full source details and theorem/version scope appear in report.md and source_notes.md.
-
-### Declarations
-
-- [x] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
-- [x] I understand that this issue and its contents are public immediately.
-- [x] Every LLM and person involved is listed, with versions or "unknown".
