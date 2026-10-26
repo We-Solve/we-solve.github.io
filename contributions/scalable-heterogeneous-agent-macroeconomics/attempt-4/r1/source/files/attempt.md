@@ -1,0 +1,465 @@
+# Sharp stationary error certificates with endogenous capital prices
+
+## Editorial scope note
+
+**Partial result: stationary residuals and sensitivity in an explicitly solvable heterogeneous-agent economy.** The result concerns stationary distributions and their associated prices. It does not solve the original equilibrium-function problem across an aggregate-state domain. The sharp bounds are worst-case guarantees over admissible candidates, not unavoidable errors for every algorithm. The certificate is evaluable from certified residual bounds; obtaining those bounds for arbitrary representations is separate. Novelty and practical superiority remain unverified.
+
+## Complete submitted scope
+
+We prove a sharp residual-to-stationary-equilibrium error theorem for an explicitly specified recurrent heterogeneous-agent production economy. Capital is bounded, its rental price is endogenous, both asset constraints bind, and the unique stationary wealth distribution is nondegenerate. The exact nonlinear population dynamics converge to this equilibrium from every initial asset distribution at a uniform geometric rate in total variation.
+
+Nevertheless, for a fixed middle-income (nonreset) probability r, the best possible local error order for the declared projected household-optimality and stationary-distribution residual is linear, $\varepsilon\log(1/\varepsilon)$, or $\varepsilon^\alpha$, according as r is below, equal to, or above 6/11; here $\alpha=-\log(r)/\log(11/6)$. Explicit feasible candidates attain these orders in the stationary rental price and mean wealth. We provide an explicit certificate for every admissible candidate, not merely the examples; obtaining certified residual evaluations for arbitrary input representations remains a separate requirement.
+
+This addresses stationary accuracy and propagation into long-run moments. The households are short-lived and have warm-glow bequest preferences; the distribution recurs indefinitely. There is no aggregate uncertainty or infinitely lived household continuation problem. The result concerns stationary allocations and prices, rather than a counterexample to every error bound on the original problem's policy/price/one-step-transition functions. We do not claim a full solution, a new general Markov perturbation principle, a calibrated benchmark, or practical performance superiority.
+
+#### Sharp stationary error certificates with endogenous capital prices
+
+**Relation to the original question.** The original research family and its statement remain those of [P]. The economy below is a separate specialization. Earlier attempts [A1, A2] give abstract contraction certificates; [A3] gives a two-date bond economy, compression bounds, and a discontinuous borrowing-share example. Our main target is different: recurrent stationary mean wealth and its market-clearing rental price. The error arises even for these continuous observables. Regeneration, coupling, and Markov perturbation bounds are established methods [R]; no priority claim for those methods is made.
+
+#### 1. Primitives, optimization, and accounting
+
+Fix r∈(0,1), and put p=1−r. There is an atomless population of unit mass of dynasties. At every integer date one adult per dynasty inherits capital a∈[0,1], consumes c, and leaves capital b∈[0,1] to its successor. Adults live one date. Their objective is
+
+$$
+\log c+\frac12\log(4+b).
+\tag{1}
+$$
+
+The second term is direct warm-glow utility, not a descendant's continuation value; the constant four is a preference shift, not a resource. Independent income draws have the specified cross-sectional law
+
+$$
+(y_-,y_0,y_+)=(1,8,14),\qquad
+(\Pr(-),\Pr(0),\Pr(+))=(p/2,r,p/2).
+\tag{2}
+$$
+
+Draws are independent of inherited capital and of previous draws. Population evolution is the exact measure transition under this kernel, not a finite-population simulation.
+
+Capital fully depreciates after production. A competitive firm chooses nonnegative capital, has technology F(K)=6K−K²/2, and rents capital at gross rental price R. For K>0, profit maximization and capital-market clearing give the following price; at K=0 we explicitly select the supporting price R(0)=6:
+
+$$
+R(K)=6-K,\qquad
+\Pi(K)=F(K)-R(K)K=K^2/2.
+\tag{3}
+$$
+
+The government owns the firm and purchases G=Π goods. It has a balanced budget. One unit of current goods installs one unit of next-date capital. The adult's budget is
+
+$$
+c+b=y_s+Ra,\qquad c>0,\quad b\in[0,1].
+\tag{4}
+$$
+
+Prices lie in [5,6] on the declared domain. Strict concavity of (1) after substituting (4) gives the unique optimal policy
+
+$$
+d_s(a;R)=\frac{y_s+Ra-8}{3},\qquad
+b_s^R(a)=\Pi_{[0,1]}d_s(a;R),
+\tag{5}
+$$
+
+where Π denotes clipping to the interval. In particular,
+
+$$
+b_-^R(a)=0,\qquad
+b_0^R(a)=T_L(a):=\min(1,La),\qquad
+b_+^R(a)=1,\qquad L=R/3\in[5/3,2].
+\tag{6}
+$$
+
+Indeed, the low-income unconstrained choice is at most −1/3 and the high-income choice is at least 2. In the middle state the upper constraint switches at a=1/L, and the lower constraint binds at a=0. The second derivative is
+
+$$
+-\frac{1}{(y_s+Ra-b)^2}-\frac{1}{2(4+b)^2}<0.
+$$
+
+The objective tends to minus infinity at a zero-consumption boundary. The clipped choices in (5) have strictly positive consumption: at least 1, 8, and 13 in the three respective states. Thus the optimization includes attainment, both constraints, and their boundary cases.
+
+Let μ be any Borel probability law on [0,1], K=∫a dμ, and K'=∫b_s(a) d(μ⊗Pr). Aggregating budgets yields
+
+$$
+C+K'+G=\mathbb E y_s+RK+\Pi
+=\mathbb E y_s+F(K).
+\tag{7}
+$$
+
+This identity holds away from stationarity too. The government purchase accounts explicitly for profits that are not household income.
+
+#### 2. Unique stationary equilibrium and global convergence
+
+Write
+
+$$
+\lambda=\tfrac12\delta_0+\tfrac12\delta_1,\qquad
+L(\mu)=2-\tfrac13\int a\,d\mu .
+$$
+
+The exact nonlinear population transition on the full domain D=P([0,1]) is
+
+$$
+\mathcal T(\mu)=p\lambda+r(T_{L(\mu)})_\#\mu.
+\tag{8}
+$$
+
+Here T#μ denotes the law obtained by applying T to a draw from μ. Every map T_L in (8) fixes both 0 and 1, and therefore fixes λ.
+
+**Proposition 1.** The stationary equilibrium is unique and has
+
+$$
+\mu_*=\lambda,\qquad K_*=\tfrac12,\qquad R_*=\tfrac{11}{2},
+\qquad L_*=\tfrac{11}{6}.
+\tag{9}
+$$
+
+For every initial μ₀ and every t≥0,
+
+$$
+d_{\rm TV}(\mathcal T^t(\mu_0),\lambda)\le r^t,
+\tag{10}
+$$
+
+where dTV(μ,ν)=sup_B|μ(B)−ν(B)|.
+
+**Proof.** Let L_j=L(μ_j). Iterating (8) and using T_L#λ=λ gives
+
+$$
+\mu_t=(1-r^t)\lambda+
+r^t(T_{L_{t-1}}\circ\cdots\circ T_{L_0})_\#\mu_0.
+$$
+
+The distance between two probability laws is at most one in the declared TV convention, proving (10). The law λ is stationary. Applying (10) to any other stationary law proves uniqueness. Prices and policies are then fixed by (3) and (5). Both wealth atoms and all three income states have positive probability. ∎
+
+Thus the result does not rely on multiple stationary equilibria or a failure to converge from remote initial states.
+
+#### 3. A complete residual and a computable certificate
+
+For probability laws on [0,1], use
+
+$$
+W_1(\mu,\nu)=\inf_{\gamma\in\Pi(\mu,\nu)}
+\int|x-y|\,d\gamma(x,y).
+$$
+
+A candidate is a law ν and Borel policies b_s:[0,1]→[0,1]. Set Kν=∫a dν and Rν=6−Kν. Require b_s(a)<y_s+Rνa for every a,s. Consumption, government purchases, and prices are defined by (3)–(4). Thus feasibility, budgets, the firm's optimum, and capital-market clearing are imposed exactly by the representation, and (7) holds identically.
+
+Let U'_s(a,b;R) be the derivative of the household objective with respect to b. Define
+
+$$
+\sigma_s(a,b;R)=b-d_s(a;R)
+=-\frac{(y_s+Ra-b)(4+b)}{3/2}U'_s(a,b;R).
+$$
+
+The multiplier is positive. The normalized projected optimality residual is
+
+$$
+\eta=\sup_{s,a}
+\left|b_s(a)-\Pi_{[0,1]}\bigl(b_s(a)-\sigma_s(a,b_s(a);R_\nu)\bigr)\right|
+=\sup_{s,a}|b_s(a)-b_s^{R_\nu}(a)|.
+\tag{11}
+$$
+
+Its zero conditions are σ=0 in the interior, σ≥0 at b=0, and σ≤0 at b=1. Correctly signed slack inequalities contribute zero. This includes both complementary constraints; a product of multipliers is not silently substituted for (11).
+
+Define P_b(a,·)=Σ_s Pr(s)δ_{b_s(a)}, and
+
+$$
+\rho=W_1(\nu,\nu P_b),\qquad
+\mathcal R(b,\nu)=\max\{\eta,\rho\}.
+\tag{12}
+$$
+
+The zero set of (12) is exactly the stationary equilibrium. Compare candidates using
+
+$$
+\operatorname{dist}_*(b,\nu)=
+\max\left\{
+W_1(\nu,\lambda),\quad
+|R_\nu-R_*|,\quad
+\sup_{s,a}|b_s(a)-b_s^{R_*}(a)|
+\right\}.
+\tag{13}
+$$
+
+The supremum includes all individual states, including zero-population states.
+
+For L>1 and u≥0 put
+
+$$
+\Psi_{r,L}(u)=
+\inf_{n\in\mathbb Z_{\ge0}}
+\left\{r^n+u\sum_{j=0}^{n-1}(rL)^j\right\}.
+\tag{14}
+$$
+
+The empty sum is zero. Any selected integer n gives a valid finite certificate; computing the infimum is unnecessary.
+
+**Theorem 2.** Every admissible candidate satisfies, with s=η+ρ and Lν=Rν/3,
+
+$$
+W_1(\nu,\lambda)\le\Psi_{r,L_\nu}(s),\qquad
+\operatorname{dist}_*(b,\nu)
+\le\eta+\Psi_{r,L_\nu}(s).
+\tag{15}
+$$
+
+For each fixed r, as E↓0 the worst-case distance over all candidates with R(b,ν)≤E has upper order
+
+$$
+\begin{cases}
+O(E),&r<6/11,\\
+O(E\log(1/E)),&r=6/11,\\
+O(E^\alpha),&r>6/11,\quad
+\alpha=-\log r/\log(11/6)\in(0,1).
+\end{cases}
+\tag{16}
+$$
+
+Constants may depend on r. These are global candidate certificates and local small-residual rates, not bounds uniform as r approaches one.
+
+**Proof.** Freeze the candidate's price and consider the exact household kernel
+
+$$
+P_\nu(a,\cdot)=p\lambda+r\delta_{T_{L_\nu}(a)}.
+$$
+
+Its invariant law is λ. A common reset coupling gives
+
+$$
+W_1(\zeta P_\nu,\xi P_\nu)\le rL_\nu W_1(\zeta,\xi),
+\qquad
+W_1(\zeta P_\nu^n,\lambda)\le r^n .
+$$
+
+The latter follows from the same reset decomposition as Proposition 1, with the price frozen. A same-state, same-income coupling and (11) imply
+
+$$
+W_1(\nu,\nu P_\nu)\le\rho+\eta=s.
+$$
+
+Telescoping through n iterates therefore gives
+
+$$
+W_1(\nu,\lambda)\le
+s\sum_{j=0}^{n-1}(rL_\nu)^j+r^n.
+\tag{17}
+$$
+
+Also |Rν−R*|≤W₁(ν,λ), and (5) is 1/3-Lipschitz in R on a∈[0,1]. Hence policy distance is at most η+W₁(ν,λ)/3, proving (15).
+
+It remains to justify the threshold L*, rather than replacing Lν by its rough global upper bound 2. Since T_L(a)≥a for L≥1,
+
+$$
+\int a\,d(\nu P_\nu)-K_\nu
+\ge p(1/2-K_\nu).
+$$
+
+The absolute mean difference is bounded by W₁(ν,νPν)≤s. Consequently
+
+$$
+(1/2-K_\nu)_+\le s/p,\qquad
+L_\nu\le L_*+\frac{s}{3p}.
+\tag{18}
+$$
+
+For 0<s<1 take n_s=⌈log(1/s)/log L*⌉. For every j≤n_s,
+
+$$
+(rL_\nu)^j\le
+(rL_*)^j\exp\!\left(\frac{s n_s}{3pL_*}\right).
+$$
+
+The exponential factor tends to one. In (17), the finite geometric sum is bounded, proportional to n_s, or of order (rL*)^{n_s}, according as rL* is below, equal to, or above one. The last term is r^{n_s}≤s^{−log r/log L*}. This proves the three rates in s. Since E≤η+ρ≤2E when E=R(b,ν), it proves (16). If s=0, letting n→∞ in (17) gives the exact equilibrium directly. ∎
+
+#### 4. Sharpness with endogenous price feedback
+
+For e∈(0,1] and L>1 define
+
+$$
+u_j(e,L)=\min\left\{1,\frac{e(L^j-1)}{L-1}\right\},\qquad
+\Phi_{r,L}(e)=p\sum_{j=0}^{\infty}r^j u_j(e,L).
+\tag{19}
+$$
+
+This is the stationary mean of a process that resets to zero with probability p and otherwise applies min(1,La+e). Its unique invariant law is pΣ_j r^jδ_{u_j}. Uniqueness follows by coupling reset events: failure to reset for n periods has probability r^n.
+
+Let N=⌈log(1+(L−1)/e)/log L⌉ be the first saturation time. Summing the saturated tail exactly gives
+
+$$
+\Phi_{r,L}(e)=
+\frac{pe}{L-1}\sum_{j=0}^{N-1}(rL)^j
+-\frac{e}{L-1}(1-r^N)+r^N.
+\tag{20}
+$$
+
+Thus for fixed r,L,
+
+$$
+\Phi_{r,L}(e)=
+\begin{cases}
+\dfrac{r}{1-rL}e+o(e),&rL<1,\\[4pt]
+\dfrac{r}{\log L}e\log(1/e)+O(e),&rL=1,\\[4pt]
+\Theta(e^{-\log r/\log L}),&rL>1.
+\end{cases}
+\tag{21}
+$$
+
+For the first line, divide (19) by e and sum the dominating convergent geometric series. For the second, use p/(L−1)=r and N=log(1/e)/log L+O(1) in (20); the other terms are O(e). For the third, the tail r^N is a lower bound of order e^{−log r/log L}; the unsaturated geometric sum and that tail are both bounded above by a constant times the same power. We claim an order, not a limiting coefficient, in this last regime.
+
+**Theorem 3.** There is a family of admissible candidates with exact residual e and
+
+$$
+W_1(\nu_e,\lambda)
+=K_e-\tfrac12
+=|R_e-R_*|
+=:\Delta_e
+\sim \tfrac12\Phi_{r,L_*}(e).
+\tag{22}
+$$
+
+Consequently all three upper orders in (16) are sharp. In the critical and supercritical cases, no finite C gives dist*≤C R throughout any neighborhood of the stationary equilibrium.
+
+**Proof.** Choose K_e as the solution of
+
+$$
+K_e=\tfrac12+\tfrac12\Phi_{r,\,2-K_e/3}(e).
+\tag{23}
+$$
+
+Each term in (19) is continuous and nondecreasing in L; bounded geometric domination gives continuity of the sum. The right side of (23) is therefore continuous and nonincreasing in K. At K=1/2 it exceeds 1/2, while at K=1 it is at most (1+r)/2<1. Thus exactly one solution exists in (1/2,1).
+
+Set R_e=6−K_e and L_e=R_e/3. Leave the low and high policies at zero and one, and set the middle policy to min(1,L_ea+e). Define
+
+$$
+\nu_e=\frac p2\sum_{j=0}^{\infty}r^j
+\delta_{u_j(e,L_e)}+\frac12\delta_1.
+\tag{24}
+$$
+
+This law is exactly invariant under those policies. Its mean is exactly K_e by (23), so the rental price clears the capital market. The policies are feasible for the original income specification; middle-state consumption is at least seven. Their household residual at price R_e is exactly e, attained at a=0 in the middle state. Every other residual is zero, so R(b^e,ν_e)=e.
+
+Coupling the common half mass at one identically and moving the remaining half from zero to its law in (24) costs Δ_e. Every coupling costs at least the absolute mean difference. This proves the equalities in (22).
+
+For the asymptotic statement, put Φ*=Φ_{r,L*}(e), and let N* be its first saturation time. Equation (23) gives
+
+$$
+0<\Delta_e=\tfrac12\Phi_{r,L_e}(e)\le\tfrac12\Phi_*,
+\qquad L_e=L_*-\Delta_e/3.
+$$
+
+Let q=L_e/L*. For j≤N*, termwise comparison of the geometric sums in (19) gives u_j(e,L_e)≥q^{N*}u_j(e,L*). For j>N*, monotonicity in j and saturation of the L* orbit give the same bound. Therefore
+
+$$
+\tfrac12 q^{N_*}\Phi_*\le\Delta_e\le\tfrac12\Phi_*.
+$$
+
+By (21), N*Φ*→0. Since 1−q=Δ_e/(3L*)≤Φ*/(6L*), Bernoulli's inequality implies q^{N*}→1. This proves (22). The policy distance to the true equilibrium is at most e+Δ_e/3 and the price distance is Δ_e, so these candidates approach the equilibrium while attaining all three rates. ∎
+
+These candidates are also exact stationary equilibria of a nearby primitive economy obtained by changing only middle-state income from 8 to 8+3e. This interpretation is separate from their residual e in the original economy.
+
+**Exact household optimization does not remove the obstruction.** Keep ν_e and its clearing price R_e, but replace the candidate policies by the exact original-economy policies b^{R_e}. Now η=0. Since the perturbed middle policy dominates the exact middle policy, coupling the same state and income gives
+
+$$
+\rho_e=W_1(\nu_e,\nu_e P_{\nu_e})
+=r\int\left[\min(1,L_ea+e)-\min(1,L_ea)\right]\,d\nu_e(a),
+\qquad
+\frac{rp}{2}e\le\rho_e\le re.
+$$
+
+The coupling cost equals the mean difference because every displacement has the same sign. The lower bound uses ν_e({0})=p/2. Hence ρ_e is of order e, while the stationary mean and rental-price errors remain Δ_e. The sharp orders therefore also hold when the only nonzero residual is stationary-distribution inconsistency.
+
+A related discontinuous outcome is the inherited-capital atom at zero: ν_e({0})=p/2 for every e>0, whereas λ({0})=1/2. This is secondary to the continuous mean and price error in (22), not the basis for the sharp-rate claim.
+
+#### 5. What the certificate says about computation and estimation
+
+The bounds are computable from declared primitives, household residuals, and a certified W₁ stationarity residual. Formula (17) needs only a chosen finite n; formula (20) sums its tail exactly. For the explicit family, the invariant law has at most N+1 distinct atoms, with its saturated tail combined at one. Generating the orbit uses O(N)=O(log(1/e)) arithmetic operations for fixed L>1. This is an arithmetic count for the displayed orbit after its parameters are supplied, not a cost bound for a general equilibrium solver. The scalar equation (23) can be bracketed by its proved monotonicity. Verified numerical evaluation and rounding enclosures would be additional implementation work.
+
+For a k-Lipschitz observable φ,
+
+$$
+\left|\int\phi\,d\nu-\int\phi\,d\lambda\right|
+\le k\,\Psi_{r,L_\nu}(\eta+\rho).
+$$
+
+The wealth mean and stationary rental price attain the sharp orders, so the nonlinear error budget cannot generally be replaced by a linear one.
+
+For a declared sampling experiment, let X_i=K_*+ξ_i, with independent ξ_i∼N(0,σ²) and known σ>0. Using the numerically computed mean K_e in the normalized sample moment gives exactly
+
+$$
+\frac{\sqrt n(\bar X-K_e)}{\sigma}
+=Z-\frac{\sqrt n\,\Delta_e}{\sigma},
+\qquad Z\sim N(0,1).
+$$
+
+Thus numerical bias is negligible at the n^{−1/2} sampling scale precisely when √n Δ_e→0. For sequences e_n→0 in the sharp family, this is equivalent to
+
+$$
+\begin{cases}
+e_n=o(n^{-1/2}),&r<6/11,\\
+e_n\log(1/e_n)=o(n^{-1/2}),&r=6/11,\\
+e_n=o(n^{-1/(2\alpha)}),&r>6/11.
+\end{cases}
+$$
+
+This is an illustrative measurement model, not a likelihood theorem for a latent macroeconomic time series. Counterfactual errors for Lipschitz outcomes can be bounded by adding the two regime-specific certificates, provided each regime satisfies its stated assumptions.
+
+#### 6. Audit and remaining limits
+
+The statements cover atoms, saturation ties, both bounds, zero-population types in household residuals, every initial distribution in Proposition 1, and every admissible stationary candidate in Theorem 2. The endpoint r=0 is trivial complete resetting; r=1 is excluded because regeneration and uniqueness can fail. Rate constants are not asserted uniform near r=1.
+
+The original problem's global function object and the stationary target are distinct. In the explicit family the candidate rental-price function at any fixed distribution can be computed exactly as R(μ)=6−∫a dμ, and its policy/one-step-transition errors are O(e). The amplified stationary price compares the different invariant states selected by those dynamics. We therefore do not claim to disprove a linear bound for every metric on the original function object.
+
+The contribution leaves open infinitely lived optimizing households, aggregate risk, a general stationary-recursive solver, asset-tail truncation, generic distribution compression, certified acquisition of arbitrary-measure inputs, dependent-data filtering, and matched hardware benchmarks. Global convergence of the perturbed nonlinear map is not inferred from frozen-kernel mixing; only its stationary existence and uniqueness are proved here. General mathematical novelty has not been established.
+
+The proofs and economic accounting are subject to the disclosed separate LLM review. This is not proof-assistant verification or independent human peer review. No executable code or PDF is part of this submission, and no numerical benchmark is claimed.
+
+## References
+
+[P] We-solve, “Scalable heterogeneous-agent macroeconomics,” ECON-C63-35. [Research prompt](https://we-solve.github.io/prompts/ECON-C63-35.txt), [problem page](https://we-solve.github.io/problems/scalable-heterogeneous-agent-macroeconomics/), and [rights metadata](https://github.com/We-Solve/we-solve.github.io/blob/main/problems/scalable-heterogeneous-agent-macroeconomics/problem.yaml). The complete downloaded prompt and its quoted statement were read; the rights metadata were checked. The original statement is attributed to mehmetmars7 under CC BY 4.0; this submission's specialized economy is separate.
+
+[A1] We-solve research archive, “GPT 6 Astra Ultra attempt on Econ-36,” revision r1. [Permanent revision](https://we-solve.github.io/contributions/scalable-heterogeneous-agent-macroeconomics/attempt-1/r1/). Complete displayed manuscript read for overlap; an unverified archive contribution, not an external correctness certificate.
+
+[A2] We-solve research archive, “GPT 6 Astra Pro attempt on Econ-36,” revision r1. [Permanent revision](https://we-solve.github.io/contributions/scalable-heterogeneous-agent-macroeconomics/attempt-2/r1/). Complete displayed manuscript read for overlap; an unverified archive contribution.
+
+[A3] We-solve research archive, contribution submitted by @kendonB, “A globally certified borrowing-constrained bond economy, sharp limits to moment compression, and the cost of distribution-state validation,” revision r1. [Permanent revision](https://we-solve.github.io/contributions/scalable-heterogeneous-agent-macroeconomics/attempt-3/r1/). Complete displayed manuscript read, including its appendices. Used to distinguish the prior two-date results and its discontinuous borrowing-share example from our recurrent stationary mean/price result; no independent verification of every prior theorem is claimed.
+
+[R] Daniel Rudolf and Nikolaus Schweizer (2018), “Perturbation theory for Markov chains via Wasserstein distance,” Bernoulli 24(4A), 2610–2639, [DOI: 10.3150/17-BEJ938](https://doi.org/10.3150/17-BEJ938), [author manuscript, arXiv:1503.04123v3](https://arxiv.org/html/1503.04123v3). Bibliographic metadata were checked against the institutional record and author manuscript. Checked scope: Section 2's Wasserstein ergodicity condition and the perturbation results in Section 3, particularly Corollary 3.2. Used as methodological context: contraction of iterated kernels in W₁ is stronger than mere TV convergence from all initial laws. Our elementary bounds are proved in the text, and a full audit of that paper is not claimed.
+
+# Original contribution disclosures
+
+## Contribution mode
+
+LLM only (people only prompted or submitted)
+
+## Models used
+
+OpenAI GPT 6.1 Sol, Other (named below)
+
+## Thinking level / time
+
+Mixed (specified per model below)
+
+## Other models
+
+OpenAI, Codex based on GPT-6; precise model designation unknown
+
+## Submitted per-model details
+
+OpenAI GPT 6.1 Sol (configured identifier gpt-6.1-sol) | version: unknown | thinking: Extra high (explicit tool setting xhigh) | time: unknown; no fixed time budget was configured | roles: three separate agents: recurrent-distribution derivation; correctness/scope review and proof refinements; and an alternative dynamic-economy exploration, excluded from the claimed results, followed by a fresh independent check of the selected final manuscript.
+
+OpenAI Codex based on GPT-6 (precise model designation unknown) | version: unknown | thinking: unknown | time: unknown | roles: source reading, research coordination, endogenous-production extension and residual certificate derivation, synthesis, and submission preparation.
+
+## Submitted verification evidence
+
+The three separate agents were explicitly selected as gpt-6.1-sol with the thinking setting xhigh (Extra high), rather than inferring their settings from a model name. The [current submission form](https://raw.githubusercontent.com/we-solve/research/main/.github/ISSUE_TEMPLATE/attempt.yml) lists GPT 6.1 Sol at High or above as an eligible example. Exact backend snapshots are unavailable and are recorded as unknown.
+
+The primary assistant's precise designation and thinking setting are unavailable. Its contribution uses the correctness-check route. Two separate GPT 6.1 Sol agents at Extra high completed reviews on 25 October 2026. Both checked the economic specification and accounting, household attainment and both complementary bounds, Proposition 1, Theorems 2–3 and their proofs, the exact-household stationarity-only variant, limiting regimes, computational qualifications, sampling-error rates, and scope relative to A1–A3. One reviewer supplied proof refinements; the other had explored a separate, excluded dynamic-economy alternative and then independently checked the selected final manuscript.
+
+The reviews found no remaining substantive mathematical error after the zero-capital price selection and vanishing-tolerance sampling qualifications were made explicit. This paragraph records the actual reviewer configuration, checked scope, and findings; no public execution-log link is available. These are separate LLM reasoning checks, not proof-assistant verification, human peer review, an exhaustive novelty audit, or a guarantee of acceptance.
+
+## People and roles
+
+Antonio Mele (@meleantonio): requested the research and controls submission approval. No human mathematical verification or additional human coauthor is claimed.
+
+## Editorial preparation disclosure
+
+OpenAI Codex based on GPT-6 (precise backend version and reasoning setting unknown) prepared the publication formatting, metadata, and scope notes at the owner's request. The complete submitted write-up, references, scope, and original model/person disclosures are retained.
