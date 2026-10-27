@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800432}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\F_2=\{0,1\}\) be the field with two elements. For a positive integer \(n\), a polynomial function \(p:\F_2^n\to\F_2\) has degree at most \(d\) if it admits a multilinear polynomial representation over \(\F_2\) of total degree at most \(d\). Thus the degree restriction in the source is \(\deg p\leq\lfloor\log_2 n\rfloor\).
+
+An explicit function ``in \(\mathsf{NP}\)'' is naturally interpreted as a family \((f_n)\), with \(f_n:\F_2^n\to\F_2\), for which the language \(\{x\in\{0,1\}^*:f_{|x|}(x)=1\}\) belongs to \(\mathsf{NP}\). This interpretation supplies the usual uniform complexity meaning; the record itself writes a single function \(f\) and does not explicitly quantify the input lengths.
+
+The supplied problem asks for such an explicit family satisfying the recorded bound
+\[
+ \left|\mathbb E\left[(-1)^{\langle f_n(\mathbf x),p(\mathbf x)\rangle}\right]\right|
+ \leq \frac1n
+ \qquad\text{for every }p:\F_2^n\to\F_2
+ \text{ with }\deg p\leq\lfloor\log_2 n\rfloor.
+\]
+\textbf{Unresolved formulation qualifications.} The record does not define the brackets \(\langle f_n(\mathbf x),p(\mathbf x)\rangle\), the distribution in the expectation, or the range of input lengths for which the bound must hold. In particular, for scalar field elements the ordinary inner product is their product, whereas the usual Boolean correlation under the uniform distribution is
+\[
+ \operatorname{Corr}_n(f_n,p)
+ :=\left|2^{-n}\sum_{x\in\F_2^n}(-1)^{f_n(x)+p(x)}\right|,
+\]
+where the sum in the exponent is taken in \(\F_2\) and then represented by \(0\) or \(1\). These are different expressions. If this usual correlation is intended, the requested inequality would be \(\operatorname{Corr}_n(f_n,p)\leq 1/n\) for every polynomial of the stated degree. This is a conditional interpretation, not a correction established by the supplied evidence. Whether the requirement is for every positive input length or only all sufficiently large input lengths also requires clarification.
+
+The source reports the following context, using its term ``correlation.'' It says that the problem appears open even with \(1/\sqrt n\) replacing \(1/n\). Define \(\mathrm{mod}_{3,n}(x)=1\) exactly when the number of coordinates of \(x\) equal to \(1\) is congruent to \(1\) modulo \(3\), and set it to \(0\) otherwise. The source attributes to Smolensky [Smo87] a correlation bound of \(2/3\) against every \(\F_2\)-polynomial of degree at most \(c\sqrt n\), for an absolute constant \(c>0\). It further says that related applications of his techniques seem to encounter a barrier to obtaining correlation \(o(1/\sqrt n)\). The source attributes to Babai, Nisan, and Szegedy [BNS92] an implicit construction of a function in \(\mathsf P\) with correlation at most \(\exp(-n^{\Theta(1)})\) against every \(\F_2\)-polynomial of degree at most \(0.99\log_2 n\), and also refers to [VW08]. It attributes a similar, slightly worse result for \(\mathrm{mod}_{3,n}\) to Bourgain [Bou05], also referring to [GRS05]. These are supplied contextual claims, not independently verified results or a current literature assessment.
+\subsection{Short English statement}
+Construct a uniformly explicit Boolean function family in \(\mathsf{NP}\) whose correlation with every \(\F_2\)-polynomial of degree at most \(\log_2 n\) is at most \(1/n\). The supplied exponent notation, probability distribution, and quantification over input lengths remain unresolved, so the usual uniform Boolean correlation interpretation is conditional. The registry labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record with permanent ID \(800432\), exact source problem code \texttt{catalogue entry}, title ``Analysis of Boolean Functions --- Correlation Bounds for Polynomials.'' The supplied status is \texttt{open}.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 1, ``Correlation Bounds for Polynomials'': \url{https://arxiv.org/abs/1204.6447}. The record lists O'Donnell as proposer in 2012, while its source attribution describes the problem as folklore dating back to [Raz87,Smo87].
+\item Supplied provenance: extraction method \texttt{arxiv\_latex}; recorded access date 2026-10-16. This date is supplied provenance, not a claim of access or independent verification in this draft. The record was created and updated on 2026-10-16 and identifies upstream revision \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Additional references supplied only by labels and contextual attribution: [Raz87]; Smolensky [Smo87]; Babai, Nisan, and Szegedy [BNS92]; [VW08]; Bourgain [Bou05]; [GRS05]. Full bibliographic entries and separate links for these references are absent from the supplied record.
+\end{itemize}
+\end{document}

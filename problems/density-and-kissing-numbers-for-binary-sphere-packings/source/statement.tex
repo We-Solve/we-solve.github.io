@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002166}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A binary ball packing consists of balls \(B(x_a,r_{t(a)})\subset\R^n\), where \(n\geq1\), \(r_1,r_2>0\), and \(t(a)\in\{1,2\}\), satisfying
+\[
+\lVert x_a-x_b\rVert\geq r_{t(a)}+r_{t(b)}\qquad(a\ne b).
+\]
+Thus distinct balls have disjoint interiors. The source does not specify the dimension, so \(n\) is an unresolved parameter; this notation does not assert that the intended question quantifies over every dimension.
+
+The following gives an explicit conditional interpretation of the unspecified averaging conventions. Put \(Q_R=[-R,R]^n\) and
+\[
+N_i(R)=\#\{a:x_a\in Q_R,\ t(a)=i\}.
+\]
+If prescribed proportion means proportion by number of balls, one may require, for a prescribed \(p\in(0,1)\),
+\[
+\lim_{R\to\infty}\frac{N_1(R)}{N_1(R)+N_2(R)}=p,
+\qquad
+\lim_{R\to\infty}\frac{N_2(R)}{N_1(R)+N_2(R)}=1-p.
+\]
+Here the total count must tend to infinity. The source does not specify whether the proportion is by number or by occupied volume, whether zero proportions are allowed, or which spatial averaging convention is intended. These choices remain unresolved.
+
+For a packing \(\mathcal P\) for which the following limit exists, define its density under this convention by
+\[
+\delta(\mathcal P)=\lim_{R\to\infty}
+\frac{\operatorname{vol}_n\!\left(Q_R\cap\bigcup_a B(x_a,r_{t(a)})\right)}{(2R)^n}.
+\]
+Two balls touch when the distance between their centers equals the sum of their radii. Define the mean number of type \(j\) balls touching a type \(i\) ball, when the limit exists, by
+\[
+k_{ij}(\mathcal P)=\lim_{R\to\infty}\frac{1}{N_i(R)}
+\sum_{\substack{a:x_a\in Q_R\\t(a)=i}}
+\#\{b\ne a:t(b)=j,\ \lVert x_a-x_b\rVert=r_i+r_j\},
+\qquad i,j\in\{1,2\}.
+\]
+Neighbors in this formula may have centers outside \(Q_R\). The indexing convention is explicit here because the source does not define it. Existence of these limits is an additional condition of this interpretation, not a supplied hypothesis.
+
+Under a fixed choice of dimension, proportion convention, and admissible packing class, the density question asks for
+\[
+D_n(r_1,r_2;p)=\sup_{\mathcal P}\delta(\mathcal P),
+\]
+where the supremum ranges over packings satisfying those choices. Calling this a supremum does not assert that an optimizing packing exists. The source also asks to determine the mean kissing numbers \(k_{11},k_{12},k_{21},k_{22}\). It does not specify whether these are to be characterized for all admissible packings, only for density optimizers, along sequences approaching optimal density, or as separate extrema. Consequently no unique kissing-number optimization problem is determined by the supplied text.
+
+Let \(\Delta_n\) denote the supremal density for congruent balls in \(\R^n\), using the same density convention. The near-equal-radii subquestion asks whether \(D_n(r_1,r_2;p)=\Delta_n\) when the radii are sufficiently close. A possible precise reading is whether, for fixed \(n\) and \(p\), there exists \(\varepsilon>0\) such that this equality holds whenever \(r_1,r_2>0\) and \(\lvert r_1/r_2-1\rvert<\varepsilon\). The source does not specify these quantifiers, whether the threshold is uniform in the proportion, or the meaning of the accompanying phrase that the two sizes do not mix. Density equality alone does not specify a segregation property of optimizing packings. A separate definition and quantification of nonmixing are required before that part can be stated precisely.
+\subsection{Short English statement}
+For balls of two prescribed radii occurring in a prescribed proportion, determine the greatest packing density and the four mean contact counts between ball types. The source also asks whether sufficiently similar radii give the congruent-ball density and prevent mixing. Dimension, proportion and averaging conventions, the intended contact-count optimization, and the meaning of nonmixing remain unspecified; the displayed formalization is conditional on these choices.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002166\), title \emph{Density and Kissing Numbers for Binary Sphere Packings}, exact source problem code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. No individual proposer is supplied. The proposed year is recorded as 2012.
+\item Supplied report citation: \emph{Optimal and Near Optimal Configurations on Lattices and Manifolds} (2013), Oberwolfach Reports, pp.\ 2429--2492, DOI 10.4171/owr/2012/40. \url{https://doi.org/10.4171/owr/2012/40}. The supplied record labels the statement \texttt{corrected\_verified} and reports that the official open-problem session includes the density, mean-kissing-number, and near-equal-radii questions. This source-verification claim is supplied metadata, not an independent verification here.
+\item Supplied literature reference, labeled de Laat--de Oliveira Filho--Vallentin: \url{https://arxiv.org/abs/1206.2608}.
+\item Supplied literature reference, labeled Hopkins--Jiao--Stillinger--Torquato: \url{https://doi.org/10.1103/PhysRevLett.107.125501}.
+\item Supplied literature assessment checked on \texttt{2026-08-21}: the record labels the problem open and reports known bounds, exact results for selected radius ratios, and candidate phase diagrams, while reporting no general maximal-density or kissing-number classification and no general no-mixing theorem for close radii. This is supplied dated curation derived from the OWR material, not an independently verified assessment. Its time-sensitive status and cited claims require independent verification.
+\end{itemize}
+\end{document}

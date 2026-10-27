@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000546}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The December 2014 source asks for an algorithm for Weaver's vector-partition theorem and, similarly, for paving. It does not specify the quantitative version, input encoding, accuracy, running-time requirement, or use of randomness. Those choices are essential to distinguish an efficient constructive problem from exhaustive finite search.
+
+One standard quantitative vector-partition target is as follows. Given \(v_1,\ldots,v_m\in\C^d\) with
+\[
+\sum_{i=1}^m v_iv_i^*=I_d,\qquad \max_i\|v_i\|_2^2\leq\alpha,
+\]
+produce an actual partition \(\{1,\ldots,m\}=S\sqcup S^c\) with both sums bounded in Loewner order by
+\[
+\sum_{i\in S}v_iv_i^*\preceq\left(\frac1{\sqrt2}+\sqrt\alpha\right)^2I_d,
+\qquad
+\sum_{i\notin S}v_iv_i^*\preceq\left(\frac1{\sqrt2}+\sqrt\alpha\right)^2I_d.
+\]
+Here \(v_i^*\) is conjugate transpose and \(B\preceq C\) means \(C-B\) is positive semidefinite. This makes explicit a Marcus--Spielman--Srivastava-scale interpretation mentioned by the aid; the original one-line source does not itself state these constants or require this particular version. The vectors must be assigned whole, unless a different output model is explicitly allowed.
+
+A corresponding dimension-independent paving target takes a finite zero-diagonal matrix \(A\in M_m(\C)\) with \(\|A\|_{\mathrm{op}}\leq1\) and an accuracy \(\varepsilon>0\), and asks for a coordinate partition \(S_1\sqcup\cdots\sqcup S_r=\{1,\ldots,m\}\) such that
+\[
+\|P_{S_j}AP_{S_j}\|_{\mathrm{op}}\leq\varepsilon\quad(1\leq j\leq r),
+\]
+with a permitted number \(r=r(\varepsilon)\) independent of \(m\) and \(A\). Here \(P_S\) is the diagonal coordinate projection. Self-adjoint restrictions, the allowed dependence of runtime on \(\varepsilon\), and rational/finite-precision versions must be fixed in an algorithmic theorem; the source leaves them open. Merely knowing a partition exists, or enumerating every partition, does not establish an efficient algorithm.
+
+The attached aid supplies only a dense-regime, constant-error claim. For a rationally encoded Parseval frame satisfying
+\[
+\max_i\|v_i\|_2^2\leq\frac1{49d},
+\]
+it reports a deterministic algorithm with polynomial Turing bit complexity returning an unsplit partition for which
+\[
+\frac14 I_d\preceq\sum_{i\in S}v_iv_i^*\preceq\frac34 I_d,
+\qquad
+\frac14 I_d\preceq\sum_{i\notin S}v_iv_i^*\preceq\frac34 I_d.
+\]
+Unequal vector norms are allowed; the aid excludes splitting, duplication, and reweighting. It describes repeatedly selecting the minimum normalized leverage \((v_i^*B^{-1}v_i)/\|v_i\|^2\) until the selected trace crosses \(d/2\). However, it does not define the matrix \(B\), its initialization and updates, or handling of zero vectors in that quotient, so this summary is not itself a complete executable algorithm.
+
+The aid explicitly says that its dense construction does not achieve the general \(O(\sqrt\alpha)\) partition scale or a dimension-independent constructive paving theorem, and describes those general algorithmic targets as open in the literature it checked. These are supplied unreviewed claims with a limited literature scope, not an independent current-status conclusion.
+\subsection{Short English statement}
+Construct vector partitions and coordinate pavings effectively, with the quantitative guarantees and computational model stated explicitly. The supplied aid reports a deterministic polynomial-bit algorithm only in a dimension-dependent dense regime and does not provide all details needed to reproduce its greedy rule.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Beyond Kadison--Singer: paving and consequences}, December 2014 according to the supplied verification, item b5: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID \(20000546\), exact source code \texttt{catalogue entry}; canonical \texttt{aim-analysis-notes.json}, notes[77].
+\item The source names Weaver and the paving conjecture; the attached aid names the Marcus--Spielman--Srivastava scale. No full theorem or algorithm bibliography is supplied. Attempt 1 is explicitly machine-generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

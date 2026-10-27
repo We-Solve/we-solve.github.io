@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005789}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A Coxeter system is a pair \((W,S)\) with presentation
+\[
+W=\left\langle S\ \middle|\ (st)^{m_{st}}=1\text{ whenever }m_{st}<\infty\right\rangle,
+\]
+where \(m_{ss}=1\) and \(m_{st}=m_{ts}\in\{2,3,\ldots\}\cup\{\infty\}\) for distinct \(s,t\in S\). Its rank is \(|S|\); a diagram records the Coxeter matrix under the chosen diagram convention. The supplied excerpt does not specify which diagrams represent distinct vertices of the Coxeter galaxy, its simplex rule, or the definitions of vertical and horizontal moves. Those definitions must be recovered from the cited sources before the following formulation can become a fully specified mathematical problem.
+
+Write \(\mathcal G\) for the source's Coxeter galaxy and \(V(\mathcal G)\) for its vertex set. Two vertices are in the same connected component when they can be joined by a finite edge path in its \(1\)-skeleton. A move type can be represented abstractly by a relation \(R\subseteq V(\mathcal G)\times V(\mathcal G)\), whose pairs are its permitted applications. This notation does not supply the missing criteria for admissible move types or their vertical and horizontal classifications.
+
+\textbf{Question 3.1, Reachability and Coloring Problem, conditional on the source definitions.} Does there exist a finite collection \(\mathscr M\) of admissible vertical and horizontal move types such that, for every ordered pair \(v,w\in V(\mathcal G)\) in the same connected component, there exist an integer \(k\geq0\), vertices \(v_0,\ldots,v_k\), and move types \(T_1,\ldots,T_k\in\mathscr M\) satisfying
+\[
+v_0=v,\qquad v_k=w,\qquad
+(v_{i-1},v_i)\in R_{T_i}\quad(1\leq i\leq k)?
+\]
+The collection \(\mathscr M\) must be independent of the vertices and of their connected component. The case \(k=0\) permits the path from a vertex to itself. The intended moves must preserve connected components; their exact relation to edges of \(\mathcal G\) is not specified in the excerpt.
+
+The accompanying algorithmic question asks whether a procedure can construct such a finite sequence between two vertices in the same component and identify the kinds of moves used along it. An explicit output would consist of \((v_0,T_1,v_1,\ldots,T_k,v_k)\). This describes a possible precise output specification, not a supplied definition of the word ``kinds.'' The excerpt gives neither effective input encodings nor a requirement for the procedure's behavior on vertices in different components. Thus an algorithm required to halt under a same-component promise must be distinguished from an algorithm deciding whether arbitrary vertices are connected.
+
+\textbf{Supplied structural context.} The excerpt attributes the following assertions to Theorem 2.1: \(\mathcal G\) is a locally finite, infinite-dimensional simplicial complex whose connected components are finite simplices; the Coxeter-group isomorphism problem reduces to algorithmically computing the vertical core, a proper subcomplex, or a spine of that core; and the subcomplex \(\mathcal G_{\leq3}\) comprising the first three rank layers is one-dimensional, equals its vertical core, and has a decidable group isomorphism problem. The excerpt does not define the vertical core or the intended spine. These are reported source assertions, not independently verified conclusions of this draft.
+
+For a group \(W\), its profinite completion is
+\[
+\widehat W=\varprojlim_{\substack{N\trianglelefteq W\\[W:N]<\infty}}W/N.
+\]
+The supplied Theorem 4.1 asserts rigidity within the class of Coxeter groups admitting diagrams in \(\mathcal G_{\leq3}\): for any two groups \(W,W'\) in this class,
+\[
+W\cong W'\quad\Longleftrightarrow\quad
+\widehat W\cong\widehat {W'}
+\quad\text{as profinite topological groups}.
+\]
+The restriction to this class is essential; the excerpt does not assert rigidity against arbitrary groups. It states that the proof uses profinite techniques and builds on results of Bridson--Conder--Reid, without supplying a separate bibliographic reference for those results.
+
+The excerpt also asks how layer dimension grows with rank, whether a graph determines the number of vertices in the intersection of its component with a given layer, and how profinite rigidity contributes to studying the galaxy. These are accompanying questions, not replacements for Question 3.1. Their precise formulations require the omitted definitions and an explanation of what graph is supplied as input. The supplied literature assessment describes the overall status as partially solved and the role and effectiveness of profinite rigidity in the full galaxy as unresolved; it does not provide a finite move list or an algorithm resolving Question 3.1.
+\subsection{Short English statement}
+The question asks for one finite collection of permitted vertical and horizontal move types that connects every pair of vertices in each component of the Coxeter galaxy, together with an algorithm identifying the moves along a connecting path. The supplied record omits the definitions needed to specify the galaxy and admissible moves completely. It reports structural and profinite-rigidity results for the first three rank layers, but these do not supply a resolution of the full navigation question.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005789\), title ``Finite Moves for Coxeter Presentations,'' exact source code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2024 and names no individual proposer. Its labels \texttt{partially\_solved} and \texttt{corrected\_verified}, including the assertion that reconstruction was checked against the official report, are supplied registry metadata rather than independent verification here.
+\item \emph{Mini-Worskhop: Artin Groups meet Triangulated Categories} (2024), Oberwolfach Reports, pp.\ 203--234, DOI 10.4171/owr/2024/4, \url{https://doi.org/10.4171/owr/2024/4}. This is the supplied source report and the literature-source link labelled ``original OWR report.'' The excerpt identifies Question 3.1 and Theorems 2.1 and 4.1. The report title is retained as supplied.
+\item Santos Rego--Schwer, \emph{The galaxy of Coxeter groups}, DOI 10.1016/j.jalgebra.2023.12.006, \url{https://doi.org/10.1016/j.jalgebra.2023.12.006}. This is the second supplied literature-source link; no additional bibliographic details are supplied.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the record reports profinite rigidity for the first three galaxy layers and its usefulness for the restricted isomorphism problem, while describing its role and effectiveness in the full galaxy as unresolved. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The source explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

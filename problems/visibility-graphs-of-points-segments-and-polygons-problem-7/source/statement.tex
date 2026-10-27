@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800537}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G=(V,E)\) be a finite simple undirected graph with \(V=\{v_1,\ldots,v_n\}\) and \(n\geq 1\). The simple undirected graph convention is implicit in the supplied formulation.
+
+An obstacle representation places the vertices at distinct points \(P=(p_1,\ldots,p_n)\) in \(\R^2\) and uses a finite family \(\mathcal O\) of obstacles such that, for every \(1\leq i<j\leq n\),
+\[
+ [p_i,p_j]\cap\bigcup_{O\in\mathcal O}O\neq\varnothing
+ \quad\Longleftrightarrow\quad
+ \{v_i,v_j\}\notin E,
+\]
+where \([p_i,p_j]=\{(1-t)p_i+tp_j:0\leq t\leq 1\}\). Here the displayed intersection condition follows the supplied wording literally. The source record does not specify the permitted geometric form of obstacles, whether obstacles may overlap or contain vertex points, whether point placements must satisfy general position conditions, or whether contact with an obstacle boundary blocks visibility. Consequently, the admissibility convention must be recovered from the cited source before this becomes a fully specified invariant.
+
+For a fixed admissibility convention \(\mathcal A\), let \(\mathcal R_{\mathcal A}(G)\) be the collection of representations satisfying that convention and the displayed visibility condition. Define
+\[
+ \operatorname{obs}_{\mathcal A}(G)
+ =\min\{\lvert\mathcal O\rvert:(P,\mathcal O)\in\mathcal R_{\mathcal A}(G)\},
+\]
+with value \(+\infty\) if this collection is empty.
+
+\textbf{Question, conditional on the intended obstacle convention.} Does there exist an absolute constant \(C>0\) such that, for every integer \(n\geq1\) and every finite simple undirected graph \(G\) on \(n\) vertices,
+\[
+ \operatorname{obs}_{\mathcal A}(G)\leq Cn?
+\]
+For \(n\geq1\), this is equivalent to asking for a uniform affine upper bound. The convention \(\mathcal A\) must be the one intended by the cited authors; it is not quantified over in this question.
+
+The supplied account also states the elementary upper bound \(\binom n2\), justified there by placing an obstacle to block each required pair. This is retained as source background under the intended convention, without independently verifying its geometric hypotheses.
+\subsection{Short English statement}
+Place the vertices of a graph in the plane and block precisely the segments corresponding to nonedges. Is the minimum required number of obstacles at most a universal constant times the number of vertices? The permitted obstacles and their boundary and placement conventions are missing from the supplied record, so the statement remains conditional on recovering those conventions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record: permanent ID \(800537\), source problem code \texttt{catalogue entry}, title ``Visibility Graphs of Points, Segments and Polygons --- Problem 7.'' The registry labels the problem open and attributes its 2010 proposal to Ghosh and Goswami; these are supplied metadata, not independently verified conclusions.
+\item Ghosh and Goswami, \emph{Unsolved Problems in Visibility Graphs of Points, Segments and Polygons} (2010), Problem 7. Supplied source URL: \url{https://arxiv.org/abs/1012.5187}. The supplied provenance records access on 2026-10-16 and extraction method \texttt{arxiv\_latex}; neither access nor extraction was independently performed for this draft.
+\item The supplied survey excerpt attributes both obstacle representations and this question to ``Alpet et al.'' with reference label \texttt{[akl-ong-2010]}. No complete bibliographic entry for that reference is supplied; the spelling and label are retained without correction.
+\end{itemize}
+\end{document}

@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002822}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a prime power $q$, let $U_n(\F_q)$ be the upper unitriangular subgroup and $B_n(\F_q)$ the upper triangular invertible subgroup of $\operatorname{GL}_n(\F_q)$. The workshop asks to carry the $U_n$ supercharacter constructions over to $B_n$: is there a similar ``(module to a) Hopf algebra''? The supplied source verification treats this parenthetical as an editorial ambiguity already present in the source. Accordingly, retain both targets: a Hopf algebra of Borel superclass functions, and a module attached to an appropriate Hopf algebra. The phrase ``all of the $U_n$ work'' does not identify a finite list of constructions to extend.
+
+The aid reports that Panov's 2018 work supplies a natural supercharacter theory of $B_n(\F_q)$ for which
+\[
+H=\bigoplus_{n\geq0}\operatorname{SCF}(B_n(\F_q))
+\]
+is a graded Hopf algebra isomorphic to partially symmetric functions in noncommuting variables. Here $\operatorname{SCF}$ means the complex span of superclass indicators for that particular theory, and the degree-zero term is $\C$. Neither the full supercharacter theory nor formulas for the Hopf operations are included in this record; arbitrary induction and restriction operations are not implicitly asserted to give this structure.
+
+For that reported Hopf algebra, the further assertions in the aid are as follows. Its rigged-partition basis has indices describable by a subset $R\subseteq[n]$ of nonidentity torus decorations, a choice of label in $\F_q^\times\setminus\{1\}$ at each point of $R$, and a set partition of $[n]\setminus R$. Let $H_{n,r}$ be the span of basis elements with $|R|=r$. The claimed bigrading satisfies
+\[
+H=\bigoplus_{n\geq0}\bigoplus_{r=0}^n H_{n,r},\qquad
+H_{n,r}H_{m,s}\subseteq H_{n+m,r+s},\qquad
+\Delta H_{n,r}\subseteq\bigoplus_{a+b=n,\,u+v=r}H_{a,u}\otimes H_{b,v}.
+\]
+Writing $\operatorname{Bell}(k)$ for the number of set partitions of a $k$-element set, including $\operatorname{Bell}(0)=1$, the reported dimensions are
+\[
+\dim_\C H_{n,r}=\binom nr(q-2)^r\operatorname{Bell}(n-r).
+\]
+For $q=2$ the only nonzero torus degree is $r=0$; the factor with exponent zero is interpreted as $1$.
+
+Let $A=\operatorname{NCSym}$ be the Hopf algebra of symmetric functions in noncommuting variables, identified in the aid with the diagonal-averaged unitriangular Hopf algebra. The aid asserts a Hopf inclusion $i:A\longrightarrow H$ onto $\bigoplus_n H_{n,0}$ and a Hopf projection $p:H\longrightarrow A$ satisfying
+\[
+p\circ i=\operatorname{id}_A,\qquad p(H_{n,r})=0\quad(r>0).
+\]
+In its function model, $p$ evaluates all nonidentity torus letters at zero. Thus $H$ has the left $A$-module structure $a\cdot h=i(a)h$ and left $A$-comodule structure $(p\otimes\operatorname{id})\Delta$. The corresponding asserted Radford biproduct is
+\[
+H\simeq K\mathbin{\#} A,\qquad
+K=\{h\in H:(\operatorname{id}\otimes p)\Delta(h)=h\otimes1\},
+\]
+where $K$ carries the associated braided Hopf structure. These are supplied literature and research-aid assertions, requiring verification of the precise basis, operations and identifications.
+\subsection{Short English statement}
+Extend unitriangular supercharacter constructions to finite Borel groups. The source's ambiguous wording asks for either a Hopf algebra or an associated module; the supplied aid reports a Borel Hopf algebra and a split projection to $\operatorname{NCSym}$, with a refined dimension formula.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002822$, source code \texttt{catalogue entry}; canonical \texttt{aim-representation-theory-notes.json}, \texttt{notes[93]}.
+\item AIM Problem Lists, Representation theory, workshop \emph{Supercharacters and combinatorial Hopf algebras}, Problem 1.10, supplied PDF source: \url{https://aimath.org/WWN/supercharacters/supercharacters.pdf}. No remarks or original literature references are supplied. The source-verification field reports that ``(module to a)'' is original wording; the registry statement status is \texttt{reconstructed\_unverified}.
+\item Panov's 2018 work is cited by name and year in the supplied research summary for the Borel Hopf algebra and partially symmetric function identification; no title or complete bibliographic citation is supplied.
+\item Research attempt 1 is labeled \texttt{partial\_result}, problem status \texttt{solved}, classification \texttt{SOLVED-IN-LITERATURE}, rigor \texttt{proved}, and novelty confidence low. Its bigrading, projection and biproduct claims are machine-generated research aid, not peer reviewed, and require independent verification before citation.
+\end{itemize}
+\end{document}

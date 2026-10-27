@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3900002}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $P\subset\R^d$ be a convex polytope. A geometric triangulation $\mathcal T$ of $P$ is a finite simplicial complex embedded in $\R^d$ whose union is $P$, with intersections of its simplices equal to common faces. Whether extra vertices, called Steiner vertices, are allowed is not stated in the source. The question also does not specify whether it seeks a triangulation of the solid polytope or only of its boundary; these are different tasks.
+
+The source asks for triangulations with every vertex degree, or every edge degree, bounded by a constant or a polylogarithmic function of input size. For example, two possible vertex-degree statistics are
+\[
+ \deg_1(v)=|\{u:\{u,v\}\text{ is an edge of }\mathcal T\}|,
+ \qquad
+ \deg_d(v)=|\{\sigma\in\mathcal T:\dim\sigma=d,\ v\in\sigma\}|.
+\]
+A usual incidence interpretation of edge degree is
+\[
+ \deg_d(e)=|\{\sigma\in\mathcal T:\dim\sigma=d,\ e\subseteq\sigma\}|.
+\]
+The record does not select among degree conventions, so these displayed definitions describe possible meanings rather than an imposed repair.
+
+Once the dimension scope, allowed vertices, triangulated domain, degree statistic $D(\mathcal T)$, and input-size parameter $n(P)$ are fixed, the respective targets have the form
+\[
+ \exists C\ \forall P\ \exists\mathcal T\text{ triangulating }P,
+       \quad D(\mathcal T)\le C,
+\]
+or, for some constants $C,c>0$,
+\[
+ \forall P\ \exists\mathcal T\text{ triangulating }P,
+       \quad D(\mathcal T)\le C(\log(2+n(P)))^c.
+\]
+Here $D$ is the maximum of the selected degree statistic over all relevant vertices or edges. These are separate vertex-degree and edge-degree questions; the source does not explicitly require both bounds in the same triangulation. It does not say whether $d$ is fixed, whether constants may depend on $d$, or whether input size means number of vertices, facets, or encoding length.
+\subsection{Short English statement}
+Can every convex polytope be triangulated with uniformly bounded, or at least polylogarithmically bounded, local vertex or edge complexity? The supplied summary identifies this as a question of Pankaj Agarwal and Sandeep Sen and says no resolution was verified in the literature it could reach.
+
+It separately reports NP-hardness, and an NP-completeness result, for minimizing the number of simplices in triangulations of convex three-dimensional polytopes. That size objective does not settle the requested degree bounds. The summary attributes the earlier size question to Bern and Eppstein (1992) and the hardness result to De Loera--Richter-Gebert. Its final list is truncated. The source index's open label and the OPEN-TRIAGE classification are supplied assessments; provenance says item-level later resolution was not checked.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 3900002, source code catalogue entry, ``Bounded-degree triangulations.'' Dataset curation and metadata: Ulam AI and UnsolvedMath Contributors, CC BY 4.0.
+\item David Eppstein, \emph{The Geometry Junkyard: Open Problems}, \url{https://ics.uci.edu/~eppstein/junkyard/open.html}, item attributing the bounded-degree question to Pankaj Agarwal and Sandeep Sen; HTML extraction, accessed 2026-07-29.
+\item De Loera--Richter-Gebert, ``The complexity of finding small triangulations of convex 3-polytopes,'' arXiv:math/0012177, also reported in \emph{Discrete \& Computational Geometry}, as cited in the supplied research summary. Complete journal details are absent. Bern and Eppstein (1992) are cited there as having asked the related size question, without a complete reference.
+\item Source provenance marks status evidence NEEDS\_REVIEW and rights NEEDS\_REVIEW: public access was verified, but redistribution permission was not established. This qualification is separate from the dataset licence.
+\end{itemize}
+\end{document}

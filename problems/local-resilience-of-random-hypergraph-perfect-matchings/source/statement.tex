@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005486}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Conditional formulation of the recorded hypergraph question.} The clean statement concerns local resilience of perfect matchings. It omits a necessary divisibility condition, does not specify the range of the uniformity parameter, and conflicts with the supplied original excerpt. The following is therefore a proposed precise interpretation requiring source review.
+
+For an integer \(k\geq 2\), let \([n]=\{1,\ldots,n\}\). Under the standard binomial interpretation, \(G_k(n,p)\) is the random \(k\)-uniform hypergraph on \([n]\) in which each \(k\)-element subset is an edge independently with probability \(p\). For a hypergraph \(H\), write \(E(H)\) for its edge set and \(d_H(v)=|\{e\in E(H):v\in e\}|\). A perfect matching is a family of pairwise disjoint edges whose union is \([n]\); consequently, it requires \(k\mid n\).
+
+For \(\varepsilon>0\), define \(\mathcal R_\varepsilon(H)\) to mean that, for every set of deleted edges \(D\subseteq E(H)\) satisfying
+\[
+ |\{e\in D:v\in e\}|\leq\varepsilon d_H(v)
+ \qquad\text{for every }v\in[n],
+\]
+the hypergraph \(([n],E(H)\setminus D)\) has a perfect matching. Thus the deletion bound is relative to each vertex's degree in the original hypergraph, and the matching requirement holds simultaneously for every permitted deletion set.
+
+A precise candidate for the clean statement is: for every integer \(k\geq2\), do there exist constants \(C_0(k)>0\) and \(\varepsilon_0(k)>0\) such that, for every fixed \(C\geq C_0(k)\) and every fixed \(0<\varepsilon\leq\varepsilon_0(k)\),
+\[
+ \lim_{\substack{n\to\infty\\k\mid n}}
+ \Pr\!\left[
+ \mathcal R_\varepsilon\!\left(
+ G_k\!\left(n,\frac{C\log n}{n^{k-1}}\right)
+ \right)\right]=1?
+\]
+Here \(\log\) is interpreted as the natural logarithm. The restriction \(k\mid n\), the range \(k\geq2\), the binomial model, and the displayed dependence of the constants are explicit interpretive qualifications, not hypotheses verified from the report. Without the divisibility restriction the claimed conclusion fails whenever \(k\nmid n\). For \(k=1\), the displayed edge probability exceeds \(1\) for all sufficiently large \(n\), so that case is not defined by the usual binomial model.
+
+\textbf{Conflicting original excerpt.} The supplied original text starts with an unattributed first-person assertion that its speaker and Asaf Ferber conjectured a resilience version of a preceding theorem, which is absent. It then switches to a different question headed ``Coloring inhomogeneous random graphs'', attributed there to Mikhail Isaev. That question uses a graphon \(W:[0,1]^2\to(\eta,1-\eta)\), where \(0<\eta<1/2\), and constructs an exchangeable graph \(G(n,W)\) by sampling uniform points \(X_1,\ldots,X_n\) and adding edges independently conditional on those points, with probabilities \(W(X_i,X_j)\). It asks about convergence of a normalized expectation of the chromatic number \(\chi(G(n,W))\). The normalization appears in the extraction as \(\texttt{logn n}\), so its mathematical meaning is unresolved; \((\log n/n)\mathbb E[\chi(G(n,W))]\) is a possible reading, not an adopted correction. The excerpt reports a positive answer for block graphons, continuous graphons, and monotone graphons. These supplied claims belong to the conflicting graphon question and do not establish the hypergraph formulation.
+\subsection{Short English statement}
+The clean record asks whether a sparse random \(k\)-uniform hypergraph retains a perfect matching after every deletion that removes at most an \(\varepsilon\)-fraction of each vertex's incident edges. A precise candidate is given along integers divisible by \(k\), with the added conventions identified explicitly. The original excerpt instead contains a graphon coloring question with corrupted normalization, so the intended target requires human source review. The supplied designation ``partially solved'' is dated curation, not an independently verified mathematical conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005486\), title ``Local Resilience of Random-Hypergraph Perfect Matchings'', exact source problem code \texttt{catalogue entry}; Oberwolfach Reports Open Problems collection, proposed year 2023. The clean and original statements are both retained as supplied evidence.
+\item Supplied report citation: \emph{Random Graphs: Combinatorics, Complex Networks and Disordered Systems} (2023), Oberwolfach Reports, pp.\ 883--914, DOI \texttt{10.4171/owr/2023/16}. \url{https://doi.org/10.4171/owr/2023/16}. The background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source labeled ``Hypergraph matching resilience'': \url{https://arxiv.org/abs/1908.01435}.
+\item Supplied literature source labeled ``Random hypergraph Dirac theorems'': \url{https://arxiv.org/abs/2006.04370}.
+\item Supplied literature source labeled ``OWR 2023 report'': \url{https://ems.press/content/serial-article-files/47010?nt=1}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem ``partially solved'', describes the stated local resilience conjecture as unresolved, and says that related random-hypergraph resilience and transference theorems prove substantial special cases. This is supplied dated literature triage derived from the OWR curation, not independently verified here; its status and cited claims require independent checking.
+\item The registry labels its clean statement \texttt{corrected\_verified} and reports that it was checked against the official Oberwolfach report and preserves its hypotheses, notation, and target. That is a supplied verification claim, not a verification performed here, and it does not resolve the conflicting original excerpt. The proposer field is empty. The excerpt mentions Asaf Ferber and an unidentified first-person speaker for a preceding resilience conjecture, and Mikhail Isaev for the graphon coloring question; attribution of the clean hypergraph question remains unresolved.
+\end{itemize}
+\end{document}

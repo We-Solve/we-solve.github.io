@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002734}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks two related questions about weak linear-programming duality and strongly polynomial circuits for linear programming. It does not specify enough encoding or computational conventions to determine unique formal statements of either question.
+
+For orientation, a conventional real formulation of weak duality is the following. Let \(m,n\geq 1\), \(A\in\R^{m\times n}\), \(b\in\R^m\), \(c\in\R^n\), \(x\in\R^n\), and \(y\in\R^m\). All vector inequalities are coordinatewise. Then
+\[
+\bigl(x\geq 0\ \land\ Ax\leq b\ \land\ y\geq 0\ \land\ A^{\mathsf T}y\geq c\bigr)
+\ \Longrightarrow\ c^{\mathsf T}x\leq b^{\mathsf T}y.
+\]
+Here \(x\) and \(y\) are feasible solutions of the corresponding primal and dual programs. This is an explicitly illustrative convention: the source record does not specify the coefficient domain, primal--dual convention, or encoding intended by its phrase ``variable-matrix form.'' In particular, treating the entries of \(A\) as variables introduces products of matrix entries and solution coordinates, whose representation in a proof system must be specified.
+
+\begin{enumerate}
+\item Does the intended variable-matrix weak-duality family \(\mathrm{WD}\) have no polynomial-size proof family in the Lov\'asz--Schrijver system, abbreviated LS? To express the requested lower bound precisely after the missing conventions are fixed, let \(\mathrm{WD}_N\) denote an encoded instance family indexed by its specified size parameter \(N\geq 1\), and let \(s_{\mathrm{LS}}(\mathrm{WD}_N)\) be its minimum proof size, with value \(+\infty\) if no proof exists. The proposed absence of a polynomial bound would mean
+\[
+\neg\exists C>0\ \exists k\in\Z_{\geq 0}\ \forall N\geq 1:\quad
+s_{\mathrm{LS}}(\mathrm{WD}_N)\leq C N^k.
+\]
+This is a conditional formalization template. The supplied record does not define \(\mathrm{WD}_N\), \(N\), the LS variant, the proof-size measure, or whether proofs of implications or refutations of encoded counterexamples are intended.
+\item Do strongly polynomial circuits for linear programming exist? The intended circuit family must solve the specified class of linear-programming instances under a specified input and output representation. The phrase ``strongly polynomial'' suggests a resource bound polynomial in the numbers of variables and constraints, independent of the numerical magnitudes of the data. However, the record does not specify the allowed gates, uniformity requirements, treatment of numerical representation, required output, or handling of infeasible and unbounded instances. Consequently, it does not determine a precise circuit-existence assertion.
+\end{enumerate}
+
+The supplied background associates the first question with the unresolved existence of strongly polynomial algorithms for general linear programming. It supplies no precise reduction or equivalence, and it does not identify circuits with algorithms. The registry labels the problem open; that label and the accompanying literature assessment are supplied curation, not independently verified mathematical conclusions.
+\subsection{Short English statement}
+The problem asks whether weak duality with a variable constraint matrix requires more than polynomial-size Lov\'asz--Schrijver proofs, and whether strongly polynomial circuits can solve linear programming. Precise statements require missing choices about encodings, proof systems, circuit models, and outputs. The supplied open status requires independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete source record: permanent ID \(30002734\), source problem code \texttt{catalogue entry}, title ``Weak Duality Proof Complexity and Strongly Polynomial Linear Programming,'' collection ``Oberwolfach Reports Open Problems.'' No individual proposer is supplied. The proposed year is recorded as 2014. The registry marks the wording ``exact'' and states that it was retained byte-for-byte; these are supplied metadata claims.
+\item Supplied report citation: \emph{Mathematical Logic: Proof Theory, Constructive Mathematics} (2015), Oberwolfach Reports, pp.~2933--2986, DOI \texttt{10.4171/owr/2014/52}. \url{https://doi.org/10.4171/owr/2014/52}. The background describes Oberwolfach Reports as documenting workshops and their open-problem discussions. No problem-specific page or passage is supplied.
+\item Supplied literature source: ``TOPP, strongly polynomial linear programming.'' \url{https://topp.openproblem.net/p8}.
+\item Supplied literature source: ``original OWR report.'' \url{https://doi.org/10.4171/owr/2014/52}.
+\item Supplied literature source: ``MFCS 2025, current LP status.'' \url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol345-mfcs2025/html/LIPIcs.MFCS.2025.33/LIPIcs.MFCS.2025.33.html}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open, associates the conjectured LS lower bound with strongly polynomial algorithms for general linear programming, and reports that algorithmic question as unresolved. This is supplied dated curation derived from the OWR record, not an independently verified assessment. The supplied background explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

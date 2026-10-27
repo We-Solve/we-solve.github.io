@@ -1,0 +1,101 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003810}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\begin{enumerate}
+\item \textbf{Deterministic unitary matrices.} For a positive integer \(n\), let \(M_n(\C)\) denote the complex \(n\times n\) matrices, with adjoint \(U^*\) and operator norm induced by the Euclidean norm on \(\C^n\). The finite-dimensional existence question in the supplied statement is to find positive integers \(n,k\), a real number \(C>0\), and explicitly specified unitary matrices \(U_1,\ldots,U_k\in M_n(\C)\), such that
+\[
+ k>\exp(2C^2)
+\]
+and, for every \((a_{ij})_{i,j=1}^k\in M_k(\C)\),
+\[
+ \left\|\sum_{\substack{1\leq i,j\leq k\\i\ne j}}a_{ij}U_iU_j^*\right\|
+ \leq C\left(\sum_{\substack{1\leq i,j\leq k\\i\ne j}}|a_{ij}|^2\right)^{1/2}.
+\]
+Here unitary means \(U_i^*U_i=U_iU_i^*=I_n\); diagonal coefficients do not enter the inequality. The record asks for deterministic, or non-random, examples. It does not specify an algorithmic meaning of explicitness, a prescribed dimension, or whether a family with additional uniformity requirements is intended.
+
+\item \textbf{Cocycles and Sch\"urmann triples.} Let \(\mathcal A\) denote the compact-quantum-group algebra called \(A\) in the source, and let \(\varepsilon:\mathcal A\to\C\) be its counit. In the usual algebraic convention, a \(\pi\)--\(\varepsilon\) cocycle is a linear map \(\eta:\mathcal A\to D\), where \(\pi\) is a unital \(*\)-representation on a complex pre-Hilbert space \(D\), satisfying
+\[
+ \eta(xy)=\pi(x)\eta(y)+\eta(x)\varepsilon(y)
+ \qquad(x,y\in\mathcal A).
+\]
+With inner products linear in the second argument, extension to a Sch\"urmann triple means finding a linear functional \(L:\mathcal A\to\C\) such that \(L(1)=0\), \(L(x^*)=\overline{L(x)}\), and
+\[
+ L(xy)=\varepsilon(x)L(y)+L(x)\varepsilon(y)
+       +\langle\eta(x^*),\eta(y)\rangle
+ \qquad(x,y\in\mathcal A).
+\]
+The source calls the assertion that every such cocycle extends condition \((\mathrm{AC})\). Its question is whether, for every compact-quantum-group algebra \(\mathcal A\),
+\[
+ (\mathrm{AC})\quad\Longleftrightarrow\quad
+ H^2(\mathcal A,{}_{\varepsilon}\C_{\varepsilon})=0.
+\]
+The coefficient bimodule \({}_{\varepsilon}\C_{\varepsilon}\) has actions \(x\cdot z=\varepsilon(x)z\) and \(z\cdot x=z\varepsilon(x)\). The usual algebraic reading of \(H^2\) is second Hochschild cohomology with these coefficients. The supplied record does not explicitly specify the cohomology theory, the algebraic versus completed meaning of compact-quantum-group algebra, or the allowed representation spaces and continuity requirements. The definitions above explain the standard algebraic reading; confirmation of these conventions remains necessary.
+
+\item \textbf{Type III Orlicz reduction.} The requested task is to extend the Haagerup reduction theorem to type III Orlicz spaces. The record supplies no version of that theorem, definition of the relevant noncommutative Orlicz spaces, hypotheses on the Orlicz function or von Neumann algebra, or required approximation and convergence conclusions. Consequently this component specifies a research objective but does not determine a complete quantified mathematical statement.
+
+\item \textbf{Entropy inequalities.} The original record describes the first question as concerning von Neumann states. Let \(\varphi,\psi\) be the positive states appearing there, on a common von Neumann algebra, and formally set
+\[
+ \delta(\varphi,\psi)
+ =H\!\left(\frac{\varphi+\psi}{2}\right)
+  -\frac{H(\varphi)+H(\psi)}{2}.
+\]
+For a hermitian functional \(\omega\), write \(|\omega|=\omega_++\omega_-\) for the positive functional obtained from its Jordan decomposition \(\omega=\omega_+-\omega_-\). The first question asks whether, for every such pair of states and every positive operator \(A\),
+\[
+ |\varphi-\psi|(A)
+ \leq
+ \left(8\,\delta(\varphi,\psi)\,(\varphi+\psi)(A^2)\right)^{1/2}.
+\]
+Here \((\varphi+\psi)(A^2)=\varphi(A^2)+\psi(A^2)\) whenever these evaluations are defined. The record does not specify normality of the states, the admissible operator class, finiteness conditions, or the definition of \(H\) in this setting. Thus the displayed expression cannot yet be asserted to be well-defined for every intended input.
+
+The second question asks whether, for every completely positive trace-preserving map \(T\) and every density matrix \(\varphi\) in its domain,
+\[
+ 1-\bigl\|T(\varphi^{1/2})\bigr\|_2^2
+ \leq 4\bigl(H(T\varphi)-H(\varphi)\bigr).
+\]
+A density matrix is a positive matrix of trace one, and \(\varphi^{1/2}\) is its positive square root. For matrix algebras with the ordinary trace, the usual Hilbert--Schmidt convention is \(\|X\|_2^2=\operatorname{Tr}(X^*X)\). Complete positivity means that every matrix amplification of \(T\) preserves positivity; trace preservation means \(\operatorname{Tr}(T(X))=\operatorname{Tr}(X)\). The record supplies no input or output dimensions, further restrictions on \(T\), entropy definition, logarithm base, or trace normalization. In particular, adopting \(H(\rho)=-\operatorname{Tr}(\rho\log\rho)\) would require confirming the logarithm convention and, outside the matrix setting, additional structure and finiteness hypotheses. Both inequalities are retained exactly as supplied, with their constants \(8\) and \(4\); these missing qualifications are unresolved.
+
+\item \textbf{Generator and radial masas.} Let \(F_2=\langle a,b\rangle\) be the free group on two generators and let \(M=\operatorname{VN}(F_2)\) be its group von Neumann algebra. Identify \(a,b\) with their left regular unitary operators. Its canonical trace satisfies \(\tau(\lambda(g))=0\) for \(g\ne e\) and \(\tau(1)=1\). A masa is a maximal abelian von Neumann subalgebra. Write
+\[
+ B_{\mathrm{gen}}=\{a\}'',\qquad
+ B_{\mathrm{rad}}=\{a+a^{-1}+b+b^{-1}\}'',
+\]
+where the double commutant denotes the generated von Neumann algebra. There are two questions:
+\begin{enumerate}
+\item Does there exist a von Neumann algebra \(*\)-automorphism \(\alpha:M\to M\) such that \(\alpha(B_{\mathrm{gen}})=B_{\mathrm{rad}}\)?
+\item Does there exist a masa \(B\subseteq M\) that is free from \(B_{\mathrm{rad}}\) with respect to \(\tau\)? Here freeness means that \(\tau(x_1\cdots x_m)=0\) for every integer \(m\geq1\) and every alternating sequence of elements from \(B\) and \(B_{\mathrm{rad}}\) with \(\tau(x_j)=0\) for all \(j\).
+\end{enumerate}
+\end{enumerate}
+These are independent questions bundled in one source record. The supplied open label and verification labels are source metadata, not independent mathematical verification of these formulations or their current status.
+\subsection{Short English statement}
+This record bundles questions about deterministic unitary matrices, cocycle extension and cohomology, type III Orlicz reduction, two entropy inequalities, and generator and radial masas in \(\operatorname{VN}(F_2)\). Several components lack hypotheses or definitions needed for a complete precise formulation. The supplied curation labels the collection open; this statement-only draft preserves that attribution and requires human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30003810\), source problem code \texttt{catalogue entry}, title: \emph{Collected Problems in Operator Algebras and Quantum Information}. The supplied record belongs to \emph{Oberwolfach Reports Open Problems}; no individual proposer is named, and the supplied proposed year is 2018.
+\item Supplied source citation: \emph{Interactions between Operator Space Theory and Quantum Probability with Applications to Quantum Information} (2019), \emph{Oberwolfach Reports}, pp.~1293--1379, DOI: \url{https://doi.org/10.4171/owr/2018/22}. The same link is supplied under the literature-source label \emph{Oberwolfach Report 22}. The background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature assessment, checked on \texttt{2026-08-21}: status \emph{open}. The assessment describes the extracted record as a fragment bundling independent questions and states that unresolved components remain and no single complete resolution exists. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; time-sensitive status and cited claims require independent checking.
+\item Supplied statement metadata: \texttt{statement\_status = corrected\_verified}. The supplied verification note says that the official problem-session report was checked and that all five source problems and the definitions needed to interpret their formulas were restored. This is an attributed verification claim from the record; this draft does not independently confirm it. The supplied record was updated on \texttt{2026-09-16T12:06:53Z}.
+\end{itemize}
+\end{document}

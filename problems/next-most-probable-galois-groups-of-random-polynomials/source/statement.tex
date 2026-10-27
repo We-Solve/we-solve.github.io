@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005647}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks for the next-most-probable Galois group of a random integer polynomial of fixed degree in a large coefficient box. It does not specify the coefficient distribution, whether the polynomial is monic, the permitted degrees, or the treatment of repeated roots. Consequently, the following is a precise conditional formulation of the target; these missing choices require review.
+
+Fix an integer \(n\geq 2\). Two possible coefficient boxes, neither uniquely selected by the record, are
+\[
+\mathcal B^{\mathrm{mon}}_{n,H}=\left\{x^n+\sum_{i=0}^{n-1}a_i x^i:a_i\in\Z,\ |a_i|\leq H\right\}
+\]
+and
+\[
+\mathcal B^{\mathrm{all}}_{n,H}=\left\{\sum_{i=0}^{n}a_i x^i:a_i\in\Z,\ |a_i|\leq H,\ a_n\neq0\right\},
+\qquad H\in\N,\ H\geq1.
+\]
+For a chosen box \(\mathcal B_{n,H}\), equip it with the uniform probability measure. This uniformity is an explicit possible interpretation, not a fully specified hypothesis in the supplied excerpt. If \(f\) has \(n\) distinct roots, let \(K_f\) be its splitting field over \(\Q\). The action of \(\operatorname{Gal}(K_f/\Q)\) on those roots defines a subgroup \(G_f\leq S_n\), determined up to conjugacy in \(S_n\).
+
+For a subgroup \(G\leq S_n\), define
+\[
+p_{n,H}([G])=
+\frac{\#\{f\in\mathcal B_{n,H}:f\text{ has distinct roots and }G_f\text{ is conjugate to }G\}}{\#\mathcal B_{n,H}}.
+\]
+Here \([G]\) denotes its \(S_n\)-conjugacy class. This definition retains all polynomials in the denominator and excludes repeated-root polynomials from the numerator; the source does not specify this convention. A formulation conditioned on distinct roots would instead divide by the number of distinct-root polynomials.
+
+For the chosen model and degree, determine the asymptotic behavior, as \(H\to\infty\), of
+\[
+M_n(H)=\max_{\substack{[G]\text{ a conjugacy class}\text{ of subgroups of }S_n\\G\neq S_n}}p_{n,H}([G]),
+\]
+and identify the conjugacy classes attaining this maximum, including any ties or dependence on \(H\). In particular, the clean statement asks whether the dominant proper subgroup is the alternating group \(A_n\), a point stabilizer
+\[
+\operatorname{Stab}_{S_n}(1)=\{\sigma\in S_n:\sigma(1)=1\}\cong S_{n-1},
+\]
+or another subgroup, and asks for the corresponding asymptotic probability. For \(n=2\), the two named candidates coincide. Conditioning on irreducibility would exclude point stabilizers for \(n\geq2\), so such conditioning cannot be added silently.
+
+The original excerpt also mentions an Odlyzko--Poonen irreducibility conjecture in the schematic form
+\[
+\Pr\bigl(f\text{ is irreducible over }\Q\mid f(0)\neq0\bigr)\longrightarrow1.
+\]
+The polynomial distribution and limiting parameter for that assertion are absent. It therefore cannot be identified with the fixed-degree large-box formulation above or made into a separate precise conjecture from this record alone. The final sentence refers to passage from finite fields to \(p\)-adic fields and a conjecture attributed to Bhargava--Cremona--Fisher--Gajovic, but is truncated before stating its content; no mathematical target can be recovered from that fragment.
+
+The labels \texttt{open} and \texttt{corrected\_verified}, and the claim of verification against the official report, are supplied registry annotations. They are not independent verification of this formulation or of its current mathematical status.
+\subsection{Short English statement}
+For a specified distribution on integer polynomials of fixed degree with growing coefficient bounds, identify the most probable proper Galois subgroup of \(S_n\) and determine its asymptotic probability. The record asks particularly about \(A_n\) and a point stabilizer, but leaves the sampling model and degree range incomplete. Its additional irreducibility and \(p\)-adic references do not contain enough hypotheses for precise separate statements.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30005647\), source code \texttt{catalogue entry}, title \emph{Next-Most-Probable Galois Groups of Random Polynomials}. The supplied record belongs to the Oberwolfach Reports Open Problems collection; no individual proposer is specified.
+\item Supplied report citation: \emph{MFO--RIMS Tandem Workshop: Arithmetic Homotopy and Galois Theory (2024)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2023/42}, pp.\ 2377--2488. \url{https://doi.org/10.4171/owr/2023/42}. The record separately gives proposed year 2023 and an \texttt{owr-year:2023} tag; the relationship between these dates and the citation's 2024 designation requires checking.
+\item The original excerpt ends with the apparent contribution title \emph{Past and Present of Probabilistic Galois Theory: A Comprehensive Overview} and the name Lior Bary-Soroker. Their placement suggests contribution attribution, but the excerpt does not establish individual authorship of each conjecture or identify an exact page.
+\item Supplied literature reference: Bhargava, van der Waerden conjecture. \url{https://annals.math.princeton.edu/2025/201-2/p01}.
+\item Supplied literature reference: Breuillard--Varju, conditional Odlyzko--Poonen result. \url{https://arxiv.org/abs/1810.13360}.
+\item Supplied literature reference: OWR report. \url{https://doi.org/10.4171/owr/2023/42}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation states that Bhargava's 2025 work proves the van der Waerden asymptotic in the large-box model, while the extracted record also contains the Odlyzko--Poonen irreducibility conjecture, described there as unconditional only in special coefficient distributions; it therefore labels the combined extracted claim open. This is supplied dated curation, not independently verified. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

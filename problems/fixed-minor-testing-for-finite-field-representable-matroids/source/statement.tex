@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001427}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(F\) be a finite field. A finite matroid \(M=(E,\mathcal I)\) consists of a finite ground set \(E\) and a family \(\mathcal I\subseteq 2^E\) of independent sets satisfying the hereditary and augmentation axioms, with \(\varnothing\in\mathcal I\). Its rank function is \(r_M(X)=\max\{|I|:I\subseteq X,\ I\in\mathcal I\}\). The matroid is \(F\)-representable if there is a matrix over \(F\), with columns indexed by \(E\), whose linearly independent column sets are exactly \(\mathcal I\).
+
+For disjoint subsets \(C,D\subseteq E\), deletion restricts the matroid to the remaining elements, and contraction is specified by
+\[
+r_{M/C}(X)=r_M(X\cup C)-r_M(C),\qquad X\subseteq E\setminus C.
+\]
+A matroid \(N\) is a minor of \(M\) if \((M/C)\setminus D\cong N\) for some such \(C,D\). Here an isomorphism is a bijection of ground sets preserving independent sets; it need not preserve any chosen matrix representation.
+
+\textbf{Question, with the input qualification made explicit.} For every fixed finite field \(F\) and every fixed finite \(F\)-representable matroid \(N\), is there an algorithm deciding whether an input finite \(F\)-representable matroid \(M\) has an \(N\)-minor, in time polynomial in the input length?
+
+The supplied record does not specify how the input matroid is presented. Under the matrix-input interpretation, the precise question is whether there exist an algorithm \(A_{F,N}\), a constant \(c_{F,N}>0\), and an exponent \(k_{F,N}\in\N\) such that, for every finite matrix \(B\) over \(F\), the algorithm decides
+\[
+\exists C,D\subseteq E(B),\qquad C\cap D=\varnothing,\qquad
+(M(B)/C)\setminus D\cong N
+\]
+within \(c_{F,N}(1+L(B))^{k_{F,N}}\) steps. Here \(E(B)\) indexes the columns, \(M(B)\) is their linear-dependence matroid, and \(L(B)\) is the length of an explicit matrix encoding, including its dimensions. The field and target matroid are fixed before the input varies; the algorithm and polynomial bound may depend on both. This matrix-input interpretation, and the finite-matroid setting implicit in algorithmic testing, require confirmation against the source. The record does not settle an alternative oracle-input formulation.
+\subsection{Short English statement}
+For each fixed finite field \(F\) and fixed \(F\)-representable target matroid \(N\), can one recognize in polynomial time whether an input \(F\)-representable matroid has a minor isomorphic to \(N\)? The input presentation is unspecified; the detailed formulation uses an explicitly supplied matrix and flags that interpretation for review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied record with permanent ID \(30001427\), exact source problem code \texttt{catalogue entry}, title \emph{Fixed-Minor Testing for Finite-Field-Representable Matroids}, in the Oberwolfach Reports Open Problems collection. The supplied proposed year is 2010; no individual proposer is identified.
+\item Supplied source citation: \emph{Graph Theory} (2010), Oberwolfach Reports, pp.\ 521--580, DOI 10.4171/owr/2010/11. \url{https://doi.org/10.4171/owr/2010/11}. The background identifies Oberwolfach Reports as workshop reports documenting open-problem discussions.
+\item Supplied literature reference: Geelen--Gerards--Whittle, matroid-minor program. \url{https://ir.cwi.nl/pub/11677/11677D.pdf}. No fuller bibliographic identification is supplied.
+\item Supplied literature reference: Oberwolfach Report 11/2010. \url{https://doi.org/10.4171/owr/2010/11}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem partially solved and states that minor testing is polynomial for important special cases such as bounded branch-width and certain planar minors, while the conjecture for arbitrary fixed \(N\) over any finite field remains open. This is supplied dated curation, not an independently verified assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}. Its accompanying verification note reports that the mathematical content was checked against the official Oberwolfach report and that notation, context, and question form were normalized without changing the source-level claim. This is a supplied verification claim; no independent source inspection is asserted here.
+\end{itemize}
+\end{document}

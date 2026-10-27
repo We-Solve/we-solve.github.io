@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001990}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A finite lattice is a nonempty finite partially ordered set \((L,\leq_L)\) in which every pair has a least upper bound \(x\vee_L y\) and a greatest lower bound \(x\wedge_L y\). A set \(A\subseteq\N\) is computably enumerable (recursively enumerable) if an algorithm enumerates its elements.
+
+The supplied question is: Does there exist a finite lattice that cannot be embedded into the recursively enumerable cl-degrees or ibT-degrees?
+
+The following gives a conditional formalization, since the supplied record does not define the reducibilities or the intended embedding convention. Under an explicit query-index convention, write \(A\leq_{\mathrm{cl}}B\) if there exist an oracle Turing functional \(\Phi\) and \(c\in\N\) such that, for every \(n\in\N\), \(\Phi^B(n)\) halts with output \(\chi_A(n)\) and every oracle query has index at most \(n+c\). Write \(A\leq_{\mathrm{ibT}}B\) if such a functional exists with every query on input \(n\) having index at most \(n\). Here \(\N=\{0,1,2,\ldots\}\) and \(\chi_A\) is the characteristic function of \(A\). These explicit conventions require comparison with the cited report; a bound on queried indices and a bound on the length of the queried prefix differ by one.
+
+For \(r\in\{\mathrm{cl},\mathrm{ibT}\}\), define \(A\equiv_r B\) by \(A\leq_r B\) and \(B\leq_r A\). Let
+\[
+\mathcal D_r^{\mathrm{ce}}=\{[A]_r:A\subseteq\N\text{ is computably enumerable}\},
+\qquad [A]_r\leq_r[B]_r\iff A\leq_r B.
+\]
+An order embedding \(e:L\to\mathcal D_r^{\mathrm{ce}}\) is an injective map satisfying
+\[
+\forall x,y\in L,\qquad x\leq_L y\iff e(x)\leq_r e(y).
+\]
+A lattice embedding, in the stronger ambient-operation sense, additionally requires that for every \(x,y\in L\), the ambient least upper bound and greatest lower bound of \(e(x),e(y)\) exist in \(\mathcal D_r^{\mathrm{ce}}\) and equal \(e(x\vee_L y)\) and \(e(x\wedge_L y)\), respectively. This definition does not assume that the entire degree structure is a lattice. The record does not say whether embeddings must preserve any designated ambient least or greatest elements.
+
+For a fixed embedding convention, put
+\[
+P_r:\quad \exists\text{ a finite lattice }L\ \text{such that no embedding }L\longrightarrow\mathcal D_r^{\mathrm{ce}}\text{ exists}.
+\]
+The source wording leaves the role of ``or'' unresolved: it may pose \(P_{\mathrm{cl}}\) and \(P_{\mathrm{ibT}}\) as separate questions, ask for \(P_{\mathrm{cl}}\lor P_{\mathrm{ibT}}\), or ask for a single finite lattice admitting an embedding into neither structure. Consequently, neither one logical target nor one embedding convention is asserted here as the uniquely intended formulation.
+\subsection{Short English statement}
+The problem asks whether some finite lattice is excluded from the degree structures of computably enumerable sets under computable-Lipschitz or identity-bounded Turing reducibility. The supplied record labels the problem open. The precise embedding requirement and the logical scope of ``or'' require source clarification; the definitions above provide conditional readings for human review.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: supplied complete UnsolvedMath source record, permanent ID \(30001990\), exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection.
+\item Supplied authoritative reference: \emph{Computability Theory} (2012), \emph{Oberwolfach Reports}, pp.~397--455, DOI \texttt{10.4171/owr/2012/08}. Supplied source URL and literature-source link labelled ``original Oberwolfach report'': \url{https://doi.org/10.4171/owr/2012/08}. The background describes these reports as documenting mathematical workshops and their open-problem discussions. No individual proposer is identified in the record; the proposed year is 2012.
+\item The registry marks the statement as exact and supplies a verification note stating that its mathematical content was checked against the official report, with notation, context, and question form normalized without changing the source-level claim. This is supplied provenance, not an independent verification performed for this draft.
+\item Supplied literature assessment, checked on exactly \texttt{2026-08-21}: status ``open''; the curation reports that no complete answer to this exact question was located and lists the original report as the source checked. This is supplied dated curation and literature triage, not an independently verified assessment. The supplied background explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

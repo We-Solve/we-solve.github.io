@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002987}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record poses a methodological problem and does not specify a theorem or a quantitative criterion of faithful simulation. The following notation makes the requested task explicit without supplying the missing statistical assumptions.
+
+Let \(n\geq 2\) denote a number of sampled allele copies, and let \(J\) be a finite set of variant alleles under consideration. For each \(j\in J\), let
+\[
+X_j\in\{0,1,\ldots,n\},\qquad \widehat p_j=\frac{X_j}{n}
+\]
+be its sample allele count and sample allele frequency. Under the convention that counts refer to copies of a designated variant allele, define
+\[
+S_k=\sum_{j\in J}\mathbf 1_{\{X_j=k\}},\qquad k\in\{1,2\}.
+\]
+Thus \(S_1\) counts singleton variants and \(S_2\) counts doubleton variants. For a specified rarity threshold \(\tau\in(0,1)\), the variants rare according to their observed sample frequencies would be
+\[
+R_\tau=\{j\in J:0<\widehat p_j\leq\tau\}.
+\]
+These are bookkeeping conventions, not additional source hypotheses. The source does not specify whether rarity instead refers to population frequency, whether the counted allele is minor, derived, or otherwise designated, or whether the sample size counts individuals or allele copies. It also supplies no value of \(\tau\).
+
+\textbf{Problem.} Develop a procedure for generating or simulating genetic-variant data for comparisons of association methods such that allele-frequency data from small samples faithfully represent rare variants, including singletons and doubletons. In the notation above, the procedure must address the behavior of the relevant allele counts and frequencies, including the singleton and doubleton counts, under the intended population and sampling scheme.
+
+The intended population law, sampling scheme, range of small sample sizes, and mathematical meaning of ``faithfully represent'' are unspecified. In particular, the record supplies neither a target distribution nor an approximation criterion or tolerance. Consequently, it does not determine a precise distributional equality, approximation bound, or universally quantified performance guarantee. Those qualifications must be resolved before this methodological question can become a fully specified mathematical assertion.
+\subsection{Short English statement}
+The problem asks how to simulate genetic data so that small samples represent rare alleles, especially alleles observed once or twice, well enough to compare association methods. The source leaves the population model, rarity convention, sampling design, and required accuracy unspecified, so this remains a methodological question requiring further specification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied record for permanent ID \(30002987\), source problem code \texttt{catalogue entry}, title \emph{Faithful Simulation of Rare Genetic Variants}; registry path \texttt{data/unsolvedmath/problems.json}. This attribution refers to the supplied record, without independent inspection of the registry.
+\item Supplied primary source citation: \emph{Mini-Workshop: Recent Developments in Statistical Methods with Applications to Genetics and Genomics} (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/52, pp. 2969--3005. \url{https://doi.org/10.4171/owr/2015/52}. The record attributes the question to workshop open-problem discussions, lists proposed year 2015, and names no individual proposer.
+\item Supplied literature source, labelled ``Gazave et al. demographic model'': \url{https://arxiv.org/abs/1309.6551}.
+\item Supplied literature source, labelled ``Recent rare-variant review'': \url{https://pubmed.ncbi.nlm.nih.gov/37974506/}.
+\item Literature assessment dated \texttt{2026-08-21}: the supplied curation labels the problem open, describes the extracted text as a methodological note rather than a standalone theorem, states that newer demographic models exist, and reports that no definitive resolution of the underlying problem was identified. This is supplied dated curation, not an independently verified assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

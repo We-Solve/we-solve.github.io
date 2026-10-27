@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001920}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \((M,g)\) be a compact Riemannian surface and let \(f:M\to\R\) be a Morse function. For a connected component \(K\) of a level set, use its one-dimensional Hausdorff measure \(\mathcal H_g^1(K)\), including when a critical level component is a finite graph. Set
+\[
+ W_b(f;g)=\sup_{t\in\R}\ \sup_{K\in\pi_0(f^{-1}(t))}\mathcal H_g^1(K),\qquad
+ L_b(M,g)=\inf_{f\text{ Morse}}W_b(f;g),
+\]
+where an empty fiber contributes zero. The supplied statement verification reconstructs the omitted definition (b) as the length of the largest connected component, rather than the total length of the fiber. A supremum avoids an unnecessary attainment assumption.
+
+Guth's Question 8.7.3 asks whether there is a universal \(C<\infty\), independent of the surface, its genus, and its metric, such that
+\[
+ L_b(M,g)\le C\sqrt{\operatorname{area}_g(M)}.
+\]
+The excerpt says compact surface; its asserted pants consequence concerns closed orientable surfaces of genus \(G\ge2\). Boundary conditions, orientability, and connectedness for the full original domain are not specified in the supplied omitted introductory material. The displayed question is consequently subject to that domain qualification.
+
+For the Reeb quotient \(q_f:M\to\mathcal R_f\), which identifies points in the same connected level component, the reported identity is
+\[
+ W_b(f;g)=\sup_{y\in\mathcal R_f}\mathcal H_g^1(q_f^{-1}(y)).
+\]
+Here the measure is taken on the fiber in \(M\), not as length in the quotient graph. For \(a>0\), the reported scaling is \(L_b(M,a^2g)=aL_b(M,g)\), and likewise for \(W_b\).
+
+To state the supplied partial result precisely, call a Morse function excellent when its critical values are pairwise distinct, and define \(L_b^{\mathrm{ex}}\) by restricting the infimum to these functions. For a closed orientable surface of genus \(G\ge2\), let
+\[
+ P(M,g)=\inf_{\mathcal P}\max_{\gamma\in\mathcal P}\operatorname{length}_g(\gamma),
+\]
+where \(\mathcal P\) ranges over pants decompositions by \(3G-3\) pairwise disjoint simple closed geodesics. The research aid reports that every excellent Morse function yields a pants decomposition from regular level circles, giving
+\[
+ P(M,g)\le W_b(f;g),\qquad P(M,g)\le L_b^{\mathrm{ex}}(M,g),\qquad L_b(M,g)\le L_b^{\mathrm{ex}}(M,g).
+\]
+The comparison alone does not replace \(L_b^{\mathrm{ex}}\) by \(L_b\); the needed generic approximation assertion is not supplied. The original text asserts a pants consequence of an affirmative answer, whereas the aid establishes its stated reduction for an excellent-Morse bound.
+
+For curvature \(-1\) hyperbolic metrics on genus \(G\) surfaces, define the Bers constant \(B_G=\sup_g P(M,g)\). The aid reports that a uniform excellent-Morse bound with constant \(C\), together with \(\operatorname{area}(M,g)=4\pi(G-1)\), would imply
+\[
+ B_G\le2C\sqrt{\pi(G-1)}.
+\]
+Using its attributed Buser lower bound \(B_G\ge\sqrt{6G-2}\), it records the necessary inequalities
+\[
+ C\ge\sqrt{\frac{6G-2}{4\pi(G-1)}},\qquad
+ \lim_{G\to\infty}\sqrt{\frac{6G-2}{4\pi(G-1)}}=\sqrt{\frac3{2\pi}}.
+\]
+These are reported normalization and comparison claims requiring review, not a resolution of the universal bound. The source says the three preceding invariants have different genus dependence if the answer is positive, but does not supply the other two definitions. It also proposes higher-dimensional analogues with \((n-1)\)-complex fibers, measuring either total volume or largest-component volume, and explicitly says their relation to closed geodesics is unclear; it specifies no complete higher-dimensional statement.
+\subsection{Short English statement}
+Guth asks for an area-normalized universal bound on the largest connected component of a Morse level set, after optimizing the Morse function. The supplied aid reports a Reeb-fiber identity and a pants-width comparison for excellent Morse functions. Its excellent-Morse restriction and the missing general-domain hypotheses must remain visible; the general bound is not settled by the reported reduction.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001920, exact source code catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[257]}, tag \texttt{question}; AIM Workshop Problem Lists, Geometry, Geodesics, source item 8.7, Question 8.7.3 attributed to Guth (Larry Guth in the verification field). Record created and updated 14 August 2026.
+\item Burns--Matveev, \emph{Open problems and questions about geodesics}, Section 8.7, as identified by the supplied verification; source URL \url{https://aimath.org/pastworkshops/geodesicsproblems.pdf}. The original question and the verification restoring definition (b) are supplied in the record; the linked PDF was not accessed.
+\item Original reference label [Buser1992], cited for partial results even for hyperbolic surfaces. No complete bibliographic entry or location for the particular lower bound is supplied; these require source checking.
+\item Supplied research attempt 1: result status \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence \texttt{low}, classification \texttt{PARTIAL-PROGRESS}; registry status \texttt{partially\_solved}. These are dated source labels, not independent certification. Candidate contribution: Reeb--pants comparison and normalization audit, including its genericity qualification. The aid says the universal bound remains open.
+\item Attribution: Ulam AI / UnsolvedMath Contributors; CC BY 4.0. The research aid is machine generated and not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800523}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) be an integer and let \(\lambda=(\lambda_1,\ldots,\lambda_n)\in(0,\infty)^n\). Write \([n]=\{1,\ldots,n\}\) and interpret the source's set of ``orthonormal matrices'' as the real orthogonal group
+\[
+O(n)=\{V\in\R^{n\times n}:V^\top V=I_n\}.
+\]
+The source does not explicitly specify the matrix field; this draft uses the real interpretation suggested by its transpose notation. For \(V\in O(n)\), put
+\[
+K(V)=V^\top\operatorname{diag}(\lambda_1,\ldots,\lambda_n)V.
+\]
+Thus \(K(V)\) is positive definite. For an integer \(k\) with \(1\leq k\leq n\) and a subset \(\mathcal I\subseteq[n]\) of cardinality \(k\), let \(K_{:,\mathcal I}\), \(K_{\mathcal I,\mathcal I}\), and \(K_{\mathcal I,:}\) denote the corresponding column, principal, and row submatrices. Define the trace error
+\[
+R(K,\mathcal I)=\operatorname{Tr}\!\left(K-K_{:,\mathcal I}K_{\mathcal I,\mathcal I}^{-1}K_{\mathcal I,:}\right).
+\]
+The inverse exists because \(K\) is positive definite. Define
+\[
+x_k(\lambda)=\max_{V\in O(n)}\ \min_{\substack{\mathcal I\subseteq[n]\\|\mathcal I|=k}}R(K(V),\mathcal I).
+\]
+For \(0\leq j\leq n\), define the elementary symmetric polynomial by
+\[
+e_j(\lambda)=\sum_{\substack{J\subseteq[n]\\|J|=j}}\prod_{i\in J}\lambda_i,
+\qquad e_0(\lambda)=1,
+\]
+and set \(e_{n+1}(\lambda)=0\). For any \(K=K(V)\), volume sampling of \(k\) indices, denoted \(k\text{-}\mathrm{DPP}(K)\), is the probability distribution
+\[
+\Pr(\mathcal I=J)=\frac{\det K_{J,J}}{\displaystyle\sum_{\substack{L\subseteq[n]\\|L|=k}}\det K_{L,L}}
+=\frac{\det K_{J,J}}{e_k(\lambda)},\qquad |J|=k.
+\]
+The supplied record states that the expected trace error depends only on \(\lambda\), and gives
+\[
+y_k(\lambda):=\mathbb E_{\mathcal I\sim k\text{-}\mathrm{DPP}(\operatorname{diag}(\lambda))}
+ R(\operatorname{diag}(\lambda),\mathcal I)
+=(k+1)\frac{e_{k+1}(\lambda)}{e_k(\lambda)}.
+\]
+\textbf{Requested problem.} Determine sharp comparison bounds between \(x_k(\lambda)\), the worst over orthogonal conjugations of the minimum trace error obtainable by selecting \(k\) columns, and \(y_k(\lambda)\), the volume-sampling expected trace error, as the positive spectrum \(\lambda\), dimension \(n\), and subset size \(k\) vary.
+
+\textbf{Unresolved qualifications.} The source requests ``a tightness bound(s)'' without specifying an additive or multiplicative comparison, the permitted dependence of a bound on \(n,k,\lambda\), or a precise sharpness criterion. Consequently, it does not determine a unique inequality to prove. The source also omits the range of \(k\); the definitions above use the usual nonempty-subset range \(1\leq k\leq n\). At \(k=n\), both quantities are zero, so a ratio comparison is undefined there; the nontrivial comparison concerns \(1\leq k<n\). Inclusion of \(k=0\) would require additional empty-matrix conventions not stated in the record.
+\subsection{Short English statement}
+For a prescribed positive spectrum, compare the largest possible optimal column-selection trace error with the expected trace error from volume sampling. The requested comparison should be sharp, but the source leaves its form and sharpness criterion unspecified. The registry labels this problem open; that label is supplied source data, not an independently verified assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800523\), exact source code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 32.'' The supplied record attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels its status as open.
+\item Supplied source list: Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 32. Supplied URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not a claim of independent source access or verification.
+\item The statement attaches the reference label \texttt{Guruswami2012-optimal} to the elementary-symmetric-polynomial formula. No bibliography entry, full title, author list, or URL for that reference is supplied, so its exact identity and supporting scope remain unresolved.
+\end{itemize}
+\end{document}

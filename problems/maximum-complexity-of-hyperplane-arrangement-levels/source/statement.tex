@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004516}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+An affine hyperplane in \(\R^d\) is a set \(H=\{x\in\R^d:a\cdot x=b\}\), where \(a\ne0\). An arrangement \(\mathcal A\) of \(n\) hyperplanes is the subdivision induced by those hyperplanes.
+
+The supplied problem asks for the correct asymptotic order of the maximum size \(f_k^{(d)}(n)\) of the \(k\)-level of such an arrangement. The record does not specify the convention for a level, the meaning of its size, or the admissible arrangements. Consequently, the following describes a possible level convention explicitly, without asserting that it is the source's intended convention.
+
+Choose a vertical direction \(v\ne0\), and suppose that every hyperplane is transverse to \(v\). Write \(H_i=\{x:a_i\cdot x=b_i\}\), choosing the sign of each equation so that \(a_i\cdot v>0\). At a point \(x\), the number of hyperplanes strictly below \(x\), measured along \(v\), is
+\[
+\ell_{\mathcal A,v}(x)=\bigl|\{i\in\{1,\ldots,n\}:a_i\cdot x>b_i\}\bigr|.
+\]
+One possible zero-based convention, for \(k\in\{0,\ldots,n-1\}\), is
+\[
+L_k(\mathcal A;v)=\overline{\left\{x\in\bigcup_{i=1}^nH_i:
+ x\text{ lies on exactly one }H_i,\quad \ell_{\mathcal A,v}(x)=k\right\}}.
+\]
+This definition includes boundary points by closure. Other indexing and boundary conventions must be reconciled with the original source before this convention is adopted.
+
+Once an admissible class \(\mathfrak A_{n,d}\), a level convention, and a combinatorial size statistic \(s\) have been fixed, the intended extremal quantity has the form
+\[
+f_k^{(d)}(n)=\max_{\mathcal A\in\mathfrak A_{n,d}}s\bigl(L_k(\mathcal A)\bigr).
+\]
+The requested problem is to determine its sharp asymptotic order in the intended parameter range. The source record does not determine whether \(s\) counts vertices, top-dimensional faces, or faces of all dimensions; it also leaves general-position assumptions and the asymptotic roles of \(d\) and \(k\) unspecified. The original statement refers to lower and upper bounds, but neither bound is supplied. Thus a unique, fully quantified extremal statement cannot yet be recovered.
+\subsection{Short English statement}
+Determine the sharp asymptotic maximum complexity of the \(k\)-level of an arrangement of \(n\) hyperplanes in \(\R^d\). The supplied record leaves the complexity statistic, arrangement hypotheses, indexing convention, parameter range, and referenced bounds unresolved. The explicit level definition above is conditional and requires source confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004516\), source problem code \texttt{catalogue entry}; registry locations designated by the project are \texttt{data/unsolvedmath/problems.json} and \texttt{catalog/problems.json}. Title: \emph{Maximum Complexity of Hyperplane Arrangement Levels}.
+\item Supplied report citation: \emph{Discrete Geometry (2021)}, Oberwolfach Reports, DOI 10.4171/owr/2020/30, pp.\ 1469--1528. \url{https://doi.org/10.4171/owr/2020/30}. The record gives proposed year 2020 and names no proposer. This authoritative report citation is supplied, but its contents have not been independently checked here.
+\item Supplied literature reference: Felsner--Valtr, \emph{On the Average Complexity of the k-Level}. \url{https://page.math.tu-berlin.de/~felsner/Paper/klevel.pdf}.
+\item Supplied literature reference: \emph{On the Complexity of the k-Level in Arrangements of Pseudoplanes}. \url{https://arxiv.org/abs/1903.07196}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the record labels the problem partially solved and states that expected \(k\)-level complexity is known for the stated line and great-circle random models, while the higher-dimensional problem retains an asymptotic gap. This is supplied dated curation derived from the Oberwolfach Reports collection, not independently verified here. The random models themselves are not specified in the supplied record; the record requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

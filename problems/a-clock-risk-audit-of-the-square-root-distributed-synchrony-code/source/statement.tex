@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000863}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This record is Chapter F, ``Distributed Synchrony,'' of workshop talk notes, not a stated open mathematical problem. The supplied verification corrects ``Syncrhony'' and ``syncrhonized,'' identifies the printed ``Zhohua Zhang'' as Zuohua Zhang, removes page number 8 and the line-break artifact ``synap-tic,'' and leaves the broken long-distance-signaling sentence uncompleted. Dana Ballard is labeled speaker.
+
+The talk proposes a \(T=20\,\mathrm{ms}\) clock and a signal code whose firing probability and normalized phase offset are both \(\sqrt P\). For a probabilistic interpretation, require \(0\le P\le1\) and set \(u=\sqrt P\). The supplied aid analyzes the explicit local, unwrapped model
+\[
+ B_i\sim\operatorname{Bernoulli}(u),\qquad
+ Z_i=B_i(u+\delta+\xi_i),\qquad
+ \widehat P_n=n^{-1}\sum_{i=1}^n Z_i,
+\]
+where the \(B_i\) are independent across cycles, \(\xi_i\) are independent centered phase errors with variance \(\sigma^2\), independent of the firing indicators, and \(\delta\) is a fixed common normalized reference offset. These independence and centering conditions, and unwrapping of phase, are model assumptions added by the aid rather than specified in the talk. The reported formulas are
+\[
+ \E\widehat P_n=P+u\delta,\qquad
+ \operatorname{Var}(\widehat P_n)
+ =\frac{u(1-u)(u+\delta)^2+u\sigma^2}{n},
+\]
+\[
+ \E(\widehat P_n-P)^2
+ =P\delta^2+\frac{u(1-u)(u+\delta)^2+u\sigma^2}{n}.
+\]
+An unknown or unremoved fixed reference error therefore leaves the reported asymptotic floor \(P\delta^2\); a known offset can be subtracted from each firing's phase, while pilot estimation requires its own error analysis. At \(P=0\) no firing phase is observed. A circular phase at an endpoint of the normalized interval must not silently be treated as an unwrapped linear value.
+
+The aid also reports a clock-reference identifiability obstruction. Phase-only observations of \(\phi+\delta\) modulo a cycle cannot distinguish an unknown transmitted phase from an unknown reference shift without additional reference information. This phase-only obstruction does not make the whole scalar \(P\) unidentifiable under the stipulated square-root code: repeated firing counts still estimate \(u\). The exact scope of the aid's phrase ``phase coordinate nonidentifiable'' needs this distinction.
+
+For timing multiplexing, let \(K\ge2\) distinct centers lie on the circle of circumference \(T\), use circular distance, and let \(d_{\min}\) be their minimum pairwise distance. If each transmitted timing center may be displaced by at most \(J>0\), the aid reports uniform unique nearest-center decoding exactly when
+\[
+ d_{\min}>2J,
+ \qquad\text{hence}\qquad K<\frac{T}{2J}.
+\]
+Equality allows a midpoint tie. For \(J=0\), distinct centers are sufficient and this jitter model gives no finite quotient bound on \(K\). This bounded-displacement result is separate from the variance-only jitter model above.
+
+The source's biological discussion supplies important qualifications without a complete dynamical model. The proposed goals are fast reliable inter-cortical communication, multiplexing, and reproducing cell responses; image reconstruction is the stated task. The claimed reproduction of peristimulus time histograms requires stimulus synchronization to the internal clock, justified in the discussion by an assumed synchronized retinal input. Receptive fields depend on chosen synaptic weights. Learning and prediction costs are not separated, and the feedback rule is said to be motivated by EM, not established as an EM algorithm. Feedback is described as ``shutup''; Steve raises excitatory-feedback experiments and disputes an explanation of end stopping by V2 feedback, while Alessandra mentions excitatory center and inhibitory surround feedback. These are attributed discussion statements, not reconciled experimental conclusions. Phase is used for both coding and multiplexing; clock width is related informally to thread count. Bill's question about resetting memory is answered by assumed ``magical swap space,'' and random-number generation is attributed to unspecified known mechanisms. The clock is invoked to align feedback, with an integrate-and-fire neuron plus random-number generator mentioned in response to model-dependent synchronization, including a reference spelled ``Aertson.'' No reset, random-generation, synaptic-update, or synchronization equations are supplied, and the talk's criticism of rate coding is not adopted as a proved impossibility theorem.
+\subsection{Short English statement}
+This talk summary describes a clocked spike-probability and phase code rather than posing an open theorem. The supplied aid analyzes a particular square-root decoder, separates jitter from reference error, and gives a timing-packing condition while leaving the biological mechanism and several discussion claims unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000863\), source code \texttt{catalogue entry}; \texttt{aim-biology-notes.json}, \texttt{notes[27]}, canonical tag \texttt{section}.
+\item AIM workshop notes, \emph{Inference and Prediction in Neocortical Circuits}, Chapter F, ``Distributed Synchrony'': \url{https://aimath.org/WWN/brain/brain.pdf}. Zuohua Zhang, printed as ``Zhohua Zhang,'' and Dana Ballard, labeled speaker. Discussion names Steve, Alessandra, and Bill are supplied without full identities. No PDF was accessed for this draft.
+\item Statement status \texttt{corrected\_verified}. The supplied verification attributes the name correction to primary publications without giving their citations; no original literature field or authoritative reference for the candidate decoder results is supplied.
+\item Research attempt 1: \texttt{context\_only}, problem status at run \texttt{not\_a\_problem}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{open}, classification \texttt{OPEN-TRIAGE}, suggested difficulty L2. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed and must be independently verified before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

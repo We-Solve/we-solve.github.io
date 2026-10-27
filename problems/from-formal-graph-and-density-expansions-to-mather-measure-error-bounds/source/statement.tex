@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002491}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Diogo Gomes's Problem 35 concerns small perturbations of a completely integrable Hamiltonian and a nonresonant unperturbed torus. It reports uniform formal approximations of the corresponding viscosity solution and formal density expansions, and asks how well the Mather measures themselves are approximated. In a usual action-angle model, \(H_0=H_0(p)\) and nonresonance of a torus means \(k\cdot\nabla H_0(p_0)\ne0\) for all \(0\ne k\in\Z^n\). The source does not specify a perturbation family, regularity, Diophantine constants, norms, uniqueness of the measure, or a quantitative order to prove.
+
+A Mather measure is an invariant probability minimizing the cohomology-adjusted Lagrangian action; its cotangent version is obtained by the Legendre map. The aid's transfer lemma is purely metric and applies whenever the relevant phase-space probabilities have graph representations. On a compact base \(X\) with reference measure \(\dd x\), let
+\[
+ \mu=(x\mapsto(x,G(x)))_*(m(x)\,\dd x),\qquad
+ \widetilde\mu=(x\mapsto(x,\widetilde G(x)))_*(\widetilde m(x)\,\dd x),
+\]
+where \(m,\widetilde m\ge0\), \(\int m=\int\widetilde m=1\), and both graphs lie in a common phase-space metric set of finite diameter \(D\). Assume that the distance between two points over the same base point is bounded by the indicated fiber distance \(|G(x)-\widetilde G(x)|\), as in the product metric. Define \(W_1\) as the infimum, over probability couplings, of the mean phase-space distance. The aid gives
+\[
+ W_1(\mu,\widetilde\mu)
+ \le\int_X\min\{m,\widetilde m\}|G-\widetilde G|\,\dd x
+ +\frac D2\|m-\widetilde m\|_{L^1}.
+\]
+The common-density mass is matched over each base point and the remaining mass is half the \(L^1\) density difference.
+
+Thus, for a perturbation parameter \(\varepsilon\) and order-\(N\) approximants defining genuine probabilities in one common bounded phase-space region, bounds
+\[
+ \|G_\varepsilon-G_{\varepsilon,N}\|_\infty
+ \le C_G|\varepsilon|^{N+1},\qquad
+ \|m_\varepsilon-m_{\varepsilon,N}\|_1
+ \le C_m|\varepsilon|^{N+1}
+\]
+imply
+\[
+ W_1(\mu_\varepsilon,\mu_{\varepsilon,N})
+ \le(C_G+DC_m/2)|\varepsilon|^{N+1}.
+\]
+A formal density truncation that is negative or unnormalized is not automatically a probability; any positivity or normalization correction needs its own error bound. For cotangent graphs \(G_\varepsilon=c+D u_\varepsilon\), the required estimate is on gradients, not just potentials. Conversion to velocity graphs requires corresponding control of the Legendre map.
+
+The aid's smooth oscillatory obstruction can be made explicit on \(X=\R/\Z\):
+\[
+ u_j(x)=\frac{\sin(2\pi jx)}{2\pi j},\quad
+ u_0=0,\quad m_j=m_0=1,\quad
+ G_j=u_j'=\cos(2\pi jx),\quad G_0=0.
+\]
+Although \(\|u_j-u_0\|_\infty\to0\), in the product metric on \(X\times[-1,1]\) the graph probabilities satisfy
+\[
+ W_1(\mu_j,\mu_0)=\int_0^1|\cos(2\pi jx)|\,\dd x=2/\pi.
+\]
+This demonstrates the failure of a general graph-measure estimate based only on uniform potentials and exact density agreement. It is not asserted that these graphs are Mather measures for the specific near-integrable family in the original problem. The transfer lemma reduces that problem to invariant-graph and density remainder estimates; it does not itself prove those dynamical estimates or their small-divisor assumptions.
+\subsection{Short English statement}
+To approximate phase-space Mather measures, the aid bounds Wasserstein error by graph displacement and density error. Uniform approximation of the viscosity potential alone is insufficient: an oscillatory example has vanishing potential error but a fixed measure error. The needed invariant-graph and density remainder estimates remain separate dynamical work.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002491\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[102]}.
+\item Diogo Gomes, Problem 35, AIM \emph{New connections between dynamical systems and PDE's}; supplied reference \url{https://aimath.org/WWN/dynpde/dynpde.pdf}. The verification field reports that the official workshop page corrects OCR number 5 to 35 and removes the isolated trailing page digit 3. No source was accessed here.
+\item Supplied research attempt 1: \texttt{partial\_result}, run and registry status \texttt{partially\_solved}, rigor label \texttt{proved}, low novelty confidence; classification \texttt{PARTIAL-PROGRESS}, statement status \texttt{reconstructed\_unverified}, created and updated 14 August 2026. No proposer year, original remarks, literature entry, or primary citation for the coupling lemma is supplied.
+\item The research aid explicitly says it is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

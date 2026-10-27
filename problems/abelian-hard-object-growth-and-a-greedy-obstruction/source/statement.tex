@@ -1,0 +1,50 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000977}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Problem 12.} Persi Diaconis asks for an abelian growth model of non-overlapping discs in the plane. James Propp reports an abelian non-nesting-disc model, with a firing moving a disc totally contained in another in a fixed way, but supplies no precise rule. Anton Dochtermann asks the analogous question for non-overlapping intervals on a line. Growth, overlap, legal firing, termination and abelianity are not defined in the source, so it does not specify one unique existence problem.
+
+\textbf{Reported discrete accretion interpretation.} The aid describes a nearest-neighbor stack model on $\Z^d$. A concrete capacity-one formulation is: start with finitely many particles; each site has a fixed instruction stack of directions in $\{\pm e_1,\ldots,\pm e_d\}$, with every direction appearing infinitely often. A site with at least two particles may fire, sending one particle to the neighbor specified by its next unused instruction and advancing its local counter. A stable site holds at most one particle. The occupied sites accumulate as particles are added; this is accretion of new objects, rather than continuous increase of every existing radius. The summary does not print its full local rule, so this explicit formulation must be matched to the underlying attempt.
+
+Under that finite-input, fair-stack interpretation, the aid reports that every maximal legal stabilization terminates and that the number of firings at each site (the odometer), final particle state and resulting packing are independent of firing order. Addition followed by stabilization commutes when the instruction counters are included in the state. No uniform runtime bound is supplied.
+
+Represent each occupied site by an interval in dimension one or a disc in dimension two, of fixed radius $0<r\leq1/2$ at unit-spaced lattice centers. Their interiors are disjoint; boundary contact at $r=1/2$ is allowed. Thus the model yields non-overlapping intervals/discs within this declared lattice-accretion interpretation. It does not establish abelianity for arbitrary continuously growing discs at arbitrary centers.
+
+\textbf{Reported obstruction to irreversible maximal-radius growth.} Fix centers and target radii. The natural greedy rule chooses one object and increases its radius maximally until its target or first contact, without moving centers or shrinking previous objects. For centers $0,2,3$ on a line, initial radii zero and common target $3/4$, different update orders give the distinct terminal radius vectors
+\[
+ (3/4,3/4,1/4),\qquad(3/4,1/4,3/4).
+\]
+Both satisfy all pairwise non-overlap inequalities $r_i+r_j\leq|x_i-x_j|$, but the first-grown member of the pair at $2,3$ blocks the other. The same collinear-center example applies to planar discs. Hence this specified maximal-growth rule is nonconfluent.
+
+The aid therefore gives an affirmative discrete accretion model and a negative result for one different natural rule. Neither settles every plausible interpretation of the original continuous-geometric request or supplies the missing Propp non-nesting algorithm.
+\subsection{Short English statement}
+The source asks for order-independent non-overlapping disc or interval growth without fixing the rules. The aid reports an abelian finite-input lattice-accretion interpretation, and shows that a natural fixed-center greedy radius-growth rule has two different terminal states. These are model-dependent partial answers.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000977$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[101]}.
+\item AIM workshop ``Generalizations of chip-firing and the critical group,'' PDF Problem 12: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. Attributions: Persi Diaconis, James Propp, Anton Dochtermann.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{unknown}, internal rigor \texttt{proved}, low novelty confidence; current registry partially solved. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. No complete external references or original literature entry supplied.
+\end{itemize}
+\end{document}

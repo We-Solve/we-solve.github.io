@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002291}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Miller's Question 7 asks, for every countable graph \((V,E)\), for a characteristic-zero field \(K\), polynomials \(P\in\Q[x,t]\), \(Q,R\in\Q[x,y,z]\), and a bijection
+\[
+\alpha:V\longrightarrow\{x\in K:\exists t\in K\ P(x,t)=0\},
+\]
+such that for every pair of vertices,
+\[
+(v,w)\in E\Longleftrightarrow\exists z\ R(\alpha(v),\alpha(w),z)=0,
+\quad
+(v,w)\notin E\Longleftrightarrow\exists z\ Q(\alpha(v),\alpha(w),z)=0.
+\]
+The graph is usually read as simple and undirected, so the nonedge test must include the diagonal. Uniformity of the polynomials across all graphs is not explicitly quantified in the original sentence.
+
+The supplied aid reports a 2018 solution by Miller--Poonen--Schoutens--Shlapentokh under the model-theoretic convention that an existential variable may stand for a fixed finite tuple. Their vertex locus uses one scalar coordinate and an existential curve-coordinate witness, but their marker predicates require two curve coordinates. Consequently this does not directly establish the literal strengthening with a single scalar \(z\) and \(Q,R\) exactly in \(\Q[x,y,z]\). No uniform scalar encoding of an arbitrary witness tuple is assumed.
+
+Diagonal guards also matter. For distinct-vertex edge/nonedge predicates \(E_0,N_0\), the loop-free versions are \((x\ne y)\wedge E_0\) and \((x=y)\vee N_0\). In a field, \(x\ne y\) is expressed by an additional witness \(u\) with \((x-y)u=1\). Such guards preserve existential definability but do not automatically preserve the one-scalar/one-polynomial arity printed in the question.
+
+Poonen's source suggestion is to use a curve without nontrivial automorphisms. The infinite empty-graph subproblem asks for algebraically independent \(x_i\), additional generators \(t_i\), and
+\[
+K=\Q(x_i,t_i:i\in\N),\qquad P(x_i,t_i)=0,
+\]
+with projected \(P\)-locus exactly \(\{x_i:i\in\N\}\), and with every permutation \(\pi\) of \(\N\) extending uniquely to an automorphism sending \(x_i\) to \(x_{\pi(i)}\).
+
+The aid gives a conditional coordinate-rigidity proposition. Choose a geometrically integral curve over \(\Q\) with smooth projective model \(C\) of genus greater than one, no \(\Q\)-point, and geometrically trivial birational automorphism group, remaining trivial after every base extension. Form the directed union of function fields of finite powers of \(C\), with factors indexed by \(\N\). The reported result says its \(C\)-points are exactly the factor generic points. For a suitable plane model \(P(x,t)=0\), whose field-valued points introduce no spurious points from singularities or omitted charts, this gives the required projected locus and generators. The \(x_i\) are algebraically independent, and \(\operatorname{Aut}(K/\Q)\cong\operatorname{Sym}(\N)\); uniqueness is already forced by the specified images of \(x_i\).
+
+The record supplies no actual polynomial or full verification of a curve meeting those hypotheses. It reports the empty-graph subproblem solved through this construction, but the conditional rigidity statement must not be replaced by an invented curve. Neither it nor the tuple-witness graph theorem certifies the literal one-scalar edge/nonedge strengthening.
+\subsection{Short English statement}
+Encode a countable graph in a field using existential vertex, edge and nonedge predicates. The supplied aid reports a published tuple-witness solution and an empty-graph rigidity construction. It explicitly leaves the printed one-scalar witness requirement unverified, with diagonal and curve-model conventions preserved.
+\subsection{Sources}
+\begin{itemize}
+\item Miller, Question 7, and Poonen's rigid-curve suggestion, AIM workshop \emph{Definability and decidability problems in number theory}: \url{https://aimath.org/pastworkshops/definabilityinntproblems.pdf}.
+\item Miller, Poonen, Schoutens and Shlapentokh (2018), as supplied by the research aid, without title, identifier or complete theorem statement. The original literature field is empty.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20002291, code \texttt{catalogue entry}; canonical \texttt{aim-logic-notes.json}, \texttt{notes[66]}; updated 14 August 2026. Its verification identifies the scalar-versus-tuple ambiguity as genuine, not OCR damage.
+\item Attempt 1: partial result, partially solved status, rigor label proved, novelty confidence low. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

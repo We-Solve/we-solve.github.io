@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004440}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a standard real-polynomial formulation, let \(n\geq 1\), let \(\N_0=\{0,1,2,\ldots\}\), and write \(x^\alpha=\prod_{i=1}^n x_i^{\alpha_i}\) and \(|\alpha|=\sum_{i=1}^n\alpha_i\) for \(\alpha\in\N_0^n\). If \(\mu\) is a finite positive Borel measure on \(\R^n\) with all absolute monomial moments finite, define
+\[
+y_\alpha=\int_{\R^n}x^\alpha\,\dd\mu(x).
+\]
+This supplies a conventional setting for the question; the source does not specify a dimension, moment order, measure normalization, or integrability convention. In particular, the condition \(y_0=1\) is not imposed.
+
+For any formal real sequence \(y=(y_\alpha)_{\alpha\in\N_0^n}\), define the linear functional \(L_y\) on \(\R[x_1,\ldots,x_n]\) by \(L_y(x^\alpha)=y_\alpha\). For \(r\in\N_0\), its moment matrix is
+\[
+M_r(y)=\bigl(y_{\alpha+\beta}\bigr)_{|\alpha|,|\beta|\leq r}.
+\]
+For a polynomial \(g(x)=\sum_\gamma g_\gamma x^\gamma\), its localization matrix is
+\[
+M_r(g y)=\left(\sum_\gamma g_\gamma y_{\alpha+\beta+\gamma}\right)_{|\alpha|,|\beta|\leq r}.
+\]
+Thus \(M_r(y)\succeq0\) is equivalent to \(L_y(p^2)\geq0\) for every real polynomial \(p\) of degree at most \(r\), and \(M_r(g y)\succeq0\) is equivalent to \(L_y(gp^2)\geq0\) for every such \(p\).
+
+Given \(m\in\N_0\) and real polynomials \(g_1,\ldots,g_m\), let
+\[
+K=\{x\in\R^n:g_j(x)\geq0\text{ for }1\leq j\leq m\}.
+\]
+A measure concentrated on \(K\), meaning \(\mu(\R^n\setminus K)=0\), satisfies
+\[
+M_r(y)\succeq0,\qquad M_r(g_jy)\succeq0
+\quad(r\in\N_0,\ 1\leq j\leq m).
+\]
+Here a sum of squares is a finite sum of squares of real polynomials. At all orders, these matrix conditions are equivalent to
+\[
+L_y\!\left(\sigma_0+\sum_{j=1}^m g_j\sigma_j\right)\geq0
+\]
+for every choice of sums of squares \(\sigma_0,\ldots,\sigma_m\). At a fixed order, the corresponding equivalence uses only squares whose degrees fit the chosen matrix indices. For truncated data, each matrix is defined only when all moments appearing in its entries are supplied. No compactness or Archimedean hypothesis is supplied, and no converse asserting the existence of a representing measure is part of this formulation.
+
+\textbf{Problem.} Characterize the inequalities among moments that can be deduced from positive semidefiniteness of moment matrices. More generally, for measures concentrated on \(K\), characterize the additional inequalities deducible from positive semidefiniteness of the localization matrices associated with its defining polynomials.
+
+One precise conditional interpretation is the following: after specifying a family \(\mathcal C\) of the matrix constraints above and an admissible class of expressions \(F\) depending on a finite index set \(A\subset\N_0^n\), characterize those \(F\) for which
+\[
+\forall y\in\R^{\N_0^n},\qquad
+\bigl[y\text{ satisfies every constraint in }\mathcal C\bigr]
+\Longrightarrow F\bigl((y_\alpha)_{\alpha\in A}\bigr)\geq0.
+\]
+The supplied record does not specify the admissible expressions, the matrix orders, the meaning of deduction, or whether this quantifier should range over formal sequences or only realizable moment sequences. Consequently, this is an explicit formulation scheme requiring those qualifications to be resolved, rather than a uniquely determined classification problem.
+\subsection{Short English statement}
+Determine which inequalities between moments are forced by positive semidefinite moment matrices, and which further inequalities follow from localization matrices encoding semialgebraic support constraints. The source leaves the class of inequalities, matrix orders, normalization, and meaning of deduction unspecified; these choices require mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004440\), source problem code \texttt{catalogue entry}, titled ``Moment Inequalities from Positive Semidefinite Localization Matrices,'' in the Oberwolfach Reports Open Problems collection. The proposed year is recorded as 2020; no individual proposer is supplied.
+\item Supplied report citation: \emph{Real Algebraic Geometry with a View Toward Hyperbolic Programming and Free Probability} (2021), Oberwolfach Reports, pp.\ 639--712, DOI \texttt{10.4171/owr/2020/12}. Supplied source URL and literature-source link labeled ``Oberwolfach Report 12/2020'': \url{https://doi.org/10.4171/owr/2020/12}. The background describes these reports as records of mathematical workshops and their open-problem discussions.
+\item Supplied literature-source label: Blekherman--Rincon--Sinn--Vinzant--Yu (2025), \url{https://doi.org/10.1112/jlms.70311}. No paper title or precise theorem reference is supplied.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem ``partially solved.'' It attributes explicit limitations and examples of moment inequalities not obtainable from sums of squares to the workshop work, and combinatorial descriptions in important semialgebraic cases to the 2025 paper. It states that a general classification of inequalities learnable from sums-of-squares positivity remains open. These are supplied dated curation claims, not independently verified conclusions; the background expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official report was checked, retaining both the general moment-matrix question and its localization-matrix extension. This is supplied verification metadata, not a claim that the present draft independently consulted the report.
+\end{itemize}
+\end{document}

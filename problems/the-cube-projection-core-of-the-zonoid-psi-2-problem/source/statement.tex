@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001294}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Paouris's Problem 7 asks which convex bodies are \(\psi_2\)-bodies, whether zonoids are \(\psi_2\)-bodies, and whether projections of \(\psi_2\)-bodies are again \(\psi_2\)-bodies. The source remarks that \(B_p^n=\{x:\sum_i|x_i|^p\le1\}\) for \(2\le p<\infty\), and \(B_\infty^n=[-1,1]^n\), are known examples. No quantitative constants or dependence on \(p\) are stated.
+
+For a real random variable \(Z\), fix the Orlicz convention
+\[
+\|Z\|_{\psi_2}=\inf\{t>0:\ \E\exp(Z^2/t^2)\le2\}.
+\]
+If \(X\) is uniform on an origin-symmetric convex body \(K\), define
+\[
+b_2(K)=\sup_{\theta\ne0}\frac{\|\langle X,\theta\rangle\|_{\psi_2}}{(\E|\langle X,\theta\rangle|^2)^{1/2}}.
+\]
+The interesting issue is a bound uniform in the ambient dimensions and the family of bodies: each individual bounded full-dimensional body already has a finite such constant. For nonsymmetric bodies a centering convention must be specified. Subtracting \(\E X\) gives a translation-invariant version; on symmetric bodies centered at the origin it agrees with the displayed definition. The aid calls \(b_2\) affine invariant; for the displayed uncentered formula the precise invariance is under invertible linear maps, whereas full affine invariance requires this centering convention.
+
+A zonotope is a finite Minkowski sum of line segments, and a zonoid is a Hausdorff limit of zonotopes. Translate their centers to the origin and work in their full-dimensional spans. The aid establishes the quantitative reduction
+\[
+\sup_{\substack{K\text{ a full-dimensional zonoid}\\\text{in any dimension}}}b_2(K)
+=
+\sup_{\substack{N\ge1,\ E\subseteq\R^N\\1\le\dim E\le N}}b_2(P_E[-1,1]^N),
+\]
+where the right side uses normalized uniform volume on the projected body in \(E\), not the distribution of a projected uniform cube point. Consequently a dimension-free constant bounds all zonoids exactly when the same constant bounds all orthogonal projections of cubes.
+
+For a surjective linear map \(A:\R^N\to\R^k\), let \(E=(\ker A)^\perp\). Then \(T=A|_E:E\to\R^k\) is invertible and
+\[
+A[-1,1]^N=T(P_E[-1,1]^N).
+\]
+Invertible-linear invariance of \(b_2\) handles zonotopes, and the same bound passes to full-dimensional Hausdorff limits, giving the equality without loss in the chosen Orlicz-to-\(L_2\) constant.
+
+The distinction of measures is essential. If \(U\) is uniform on the cube and \(\dim E=k\), then \(P_EU\) has density
+\[
+f_E(z)=2^{-N}\operatorname{vol}_{N-k}\bigl([-1,1]^N\cap(z+E^\perp)\bigr)
+\]
+on \(Q=P_E[-1,1]^N\), whereas the uniform law on \(Q\) has constant density \(1/\operatorname{vol}_k(Q)\). The marginal law inherits subgaussian estimates for its linear functionals from the cube; that does not identify it with the uniform law on the support. The aid describes the remaining cube-projection question as a dimension-free deweighting problem between these two measures.
+
+For the broader projection question, a quantitative formulation would seek dimension-free control of the \(\psi_2\) constant of uniform measure on \(P_EK\) in terms of that of uniform measure on \(K\). The source does not specify the control function, centering conventions or allowed family. The zonoid reduction concerns the cube-restricted core and does not establish this general projection statement or a characterization of all \(\psi_2\)-bodies.
+
+The registry labels the entry partially solved and classification partial progress. Attempt 1 is labeled reduction, with problem open at the run, internal rigor proved and novelty confidence low. The supplied research aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\subsection{Short English statement}
+The question concerns dimension-free subgaussian bounds for uniform measures on convex bodies, especially zonoids and projections. The supplied reduction identifies the zonoid problem exactly with uniform bounds for projections of cubes. The projected uniform cube distribution is generally weighted by fiber volumes, so its inherited bounds do not automatically give bounds for uniform measure on the projected body.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001294\), source code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[25]}.
+\item AIM, \emph{Algorithmic convex geometry}, Problem 7 (Grigoris Paouris), including the remark about \(B_p^n\), \(p\ge2\): \url{https://aimath.org/WWN/convexgeometry/convexgeometry.pdf}.
+\item Supplied research attempt 1 and statement-verification note, registry update August 14, 2026. The original literature field is empty; no separate authoritative citation or full bibliographic reference for the reduction is supplied. No independent source visit or current-status verification is claimed.
+\end{itemize}
+\end{document}

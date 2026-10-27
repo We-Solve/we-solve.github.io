@@ -1,0 +1,50 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001007}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks, through Matt Baker, whether Peter Winkler's infinite-cover proof for a pentagon numbers puzzle extends to usual chip-firing on general graphs. Baker mentions a potential-theoretic solution with Farbod [9]. In response to Matt Macauley, he says the pentagon game is a special case of a Coxeter numbers game, but that numbers games and general-graph chip-firing are distinct extensions of the cycle game. The original does not specify the complete move rules or a proposed general termination theorem.
+
+The attached aid treats the following precise borrowing versions on a finite connected undirected graph with Laplacian $L$. For integer configuration $D$, a unit borrowing move at $v$ with $D_v<0$ replaces $D$ by $D+Le_v$. A batch move at signed value $y=D_v<0$ replaces it by $D-yLe_v$, i.e. performs $-y$ such borrowings. On degree-two vertices this changes $D_v$ to $-D_v$ and adds $y$ to each neighbor, the cycle numbers-game rule. Both moves preserve total $s=\sum_vD_v$.
+
+The aid reports a corrected periodic-partial-sum/inversion-orbit proof that positive-total integer cycle games terminate in its intended versions. It does not reproduce the entire lift proof here. It refutes the naive corresponding assertion that positive total suffices on every graph: for each $m\ge3$, use $K_{2,m}$ with initial value $-1$ on the two-vertex part and $+1$ on the other $m$ vertices. Borrow once at each of the first two vertices; both then have value $m-1$ and all other vertices value $-1$. Borrow once at each of those $m$ vertices, restoring the initial configuration. This is a legal period of $m+2$ moves. Every chosen debt is $-1$, so the same orbit is legal for batch moves. Its total is $m-2>0$ and genus is $m-1$; equivalently genus $g\ge2$ gives a periodic configuration of degree $g-1$ on $K_{2,g+1}$.
+
+For an explicit energy normalization let $N=|V|$, $L^+$ be the Moore--Penrose pseudoinverse, and
+\[
+\mathcal E(D)=\sum_{o\in V}(D-se_o)^tL^+(D-se_o).
+\]
+For a batch move at degree-$d$ vertex with signed negative value $y$, the aid's summed Baker--Shokrieh energy change is
+\[
+\mathcal E(D-yLe_v)-\mathcal E(D)=N(d-2)y^2+2sy.
+\]
+Here $y$ is the negative entry, not its positive magnitude. For $d=2$ and $s>0$ the change is negative; in larger degree the first term can defeat that decrease. This isolates the degree-two mechanism in that proof route. A periodic positive-total example obstructs extending the cycle termination statement verbatim, not every possible use of covering spaces in graph chip-firing.
+\subsection{Short English statement}
+Can Winkler's infinite-cover cycle method extend to general chip-firing? The supplied aid gives a periodic positive-total obstruction on complete bipartite graphs and an exact energy-change identity explaining why the degree-two cycle argument does not transfer directly.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001007$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[131]}.
+\item American Institute of Mathematics, \emph{Problems from the AIM Chip-Firing Workshop}, problem 42, attributed to Matt Baker with a question from Matt Macauley: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. It cites Peter Winkler's puzzle book as [35] and Baker's work with Farbod as [9]; complete entries are absent. No PDF inspection is claimed here.
+\item Attached research attempt 1: counterexample, recorded run status partially solved, rigor proved, novelty confidence low; registry status solved, classification SOLVED-BY-YOU. Its summary names Baker--Shokrieh energy. These are supplied metadata, not a claim of a new solution by this draft. The machine-generated aid is not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

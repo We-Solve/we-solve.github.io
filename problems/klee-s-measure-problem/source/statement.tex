@@ -1,0 +1,49 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3800018}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix an integer $d\geq3$. The input is a collection of $n$ axis-aligned boxes
+\[
+B_i=\prod_{j=1}^d[a_{ij},b_{ij}]\subset\R^d,\qquad a_{ij}\leq b_{ij},\quad 1\leq i\leq n.
+\]
+Klee's measure problem asks to compute exactly
+\[
+\operatorname{vol}_d\left(\bigcup_{i=1}^n B_i\right),
+\]
+where $\operatorname{vol}_d$ is $d$-dimensional Lebesgue measure. The source asks for the optimal worst-case running time as $n\to\infty$, with $d$ fixed. In dimension three it asks in particular whether there is a near-linear algorithm or an $\Omega(n^{3/2})$ lower bound, and asks whether restrictions to fat boxes or equal-sized boxes permit faster algorithms.
+
+A usual fatness condition bounds $\max_j(b_{ij}-a_{ij})/\min_j(b_{ij}-a_{ij})$ by a fixed constant for every positive-volume box. This is an indicated convention only: the source gives no fatness parameter or definition. Likewise, equal-sized could mean translates of one box or another size restriction; equal volume is a distinct condition. The coordinate/computation model, treatment of randomization, and meaning of near-linear are not specified.
+
+The supplied research summary reports $O(n^{3/2})$ in three dimensions and $O(n^{d/2})$ in fixed dimension, and conditional lower bounds of exponent $3/2-o(1)$ under a 3-uniform hyperclique hypothesis, with extensions to higher dimensions. Conditional exponent optimality is not an unconditional $\Omega(n^{3/2})$ lower bound. The original algorithm/lower-bound alternatives and the restricted-box variants must therefore be distinguished from this supplied partial-progress assessment.
+\subsection{Short English statement}
+Determine the optimal time to compute the volume of a union of axis-aligned boxes in fixed dimension at least three, including faster algorithms for fat or equal-sized boxes. The supplied progress report gives conditional exponent optimality, leaving unconditional and restricted-input questions separate.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 3800018, exact source code catalogue entry, ``Klee's measure problem''; proposed by Jeff Erickson and cited proposers. Registry status partially solved, classification PARTIAL-PROGRESS.
+\item Jeff Erickson, \emph{Open Problems in Computational Geometry}, ``Klee's measure problem'', \url{https://jeffe.cs.illinois.edu/open/}. Supplied HTML extraction accessed July 29, 2026. The source warns that its pages have not been systematically updated since 2001.
+\item The supplied research summary cites K\"unnemann, FOCS 2022, for a three-dimensional conditional lower bound under the 3-uniform hyperclique hypothesis, and a SoCG 2023 higher-dimensional generalization. No titles, full author lists, theorem hypotheses, or formulation of that hypothesis are provided. The summary says unconditional optimality and fat/equal-box questions are not fully closed, while unit-hypercube cases allow faster algorithms. These supplied claims are not independently verified here.
+\item Provenance flags status and rights NEEDS\_REVIEW: public access was verified, later systematic source updates are absent, and redistribution permission was not established.
+\end{itemize}
+\end{document}

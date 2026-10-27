@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000404}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Brian Conrey's question asks for a function-field analogue of the Nyman--Beurling criterion that could lead to a different proof of RH. The source literally says ``Nymon-Barling''; Nyman--Beurling is the attached aid's explicit reconstruction.
+
+For a smooth projective geometrically connected curve \(C/\F_q\) of genus \(g\), let \(A_n\) count effective divisors of degree \(n\), put \(A_{-1}=A_{-2}=0\), and write
+\[
+Z_C(u)=\sum_{n\geq0}A_nu^n=\frac{P_C(u)}{(1-u)(1-qu)},
+\qquad P_C(u)=\prod_{i=1}^{2g}(1-\alpha_i u).
+\]
+Curve RH is \(|\alpha_i|=\sqrt q\) for all \(i\). The aid pole-kills and critically normalizes the divisor sequence:
+\[
+\pi_n=q^{-n/2}\bigl(A_n-(q+1)A_{n-1}+qA_{n-2}\bigr),
+\qquad Q_C(z)=\sum_n\pi_nz^n=P_C(z/\sqrt q).
+\]
+This is a polynomial with constant coefficient one. Its zeros \(\beta_i=\sqrt q/\alpha_i\) satisfy reciprocity through \(Q_C(z)=z^{2g}Q_C(1/z)\).
+
+Let \(H^2\) be the Hardy space of analytic series \(\sum c_nz^n\) on the unit disk with norm squared \(\sum|c_n|^2\). The aid reports the exact shift-cyclicity criterion
+\[
+\mathrm{RH}(C)\quad\Longleftrightarrow\quad
+\overline{\operatorname{span}\{z^jQ_C:j\geq0\}}=H^2.
+\]
+More precisely, if \(B\) is the finite Blaschke product for the zeros of \(Q_C\) strictly inside the disk, with multiplicities, that closed span is \(BH^2\), and
+\[
+\operatorname{dist}(1,BH^2)^2
+=1-|B(0)|^2
+=1-\prod_{|\beta_i|<1}|\beta_i|^2.
+\]
+Boundary zeros do not enter the Blaschke product. Reciprocity makes absence of interior zeros equivalent to all zeros being on the unit circle.
+
+For \(V_N=\operatorname{span}\{Q_C,zQ_C,\ldots,z^NQ_C\}\), let \(G_N\) be the Gram matrix of this ordered list in \(H^2\), and put \(D_N=\operatorname{dist}(1,V_N)\). The aid reports
+\[
+D_N^2=1-(G_N^{-1})_{00},
+\qquad
+\sqrt{1-D_N^2}\leq|\beta_i|\leq(1-D_N^2)^{-1/2}
+\quad\text{for every zero }\beta_i.
+\]
+The same symmetric annulus applies to normalized reciprocal roots \(\alpha_i/\sqrt q\). The coefficients form a finite convolution Gram matrix, so these are finite optimal-approximant calculations.
+
+This supplies an exact criterion and quantitative reduction. It does not independently establish cyclicity or a new proof of Weil RH, which is the additional goal in the original question. The record gives no separate argument proving the required density without known RH.
+\subsection{Short English statement}
+Construct a Nyman--Beurling-type criterion for function-field RH and seek an independent proof through it. The attached aid reports a pole-killed divisor-sequence Hardy-space criterion and finite Gram-matrix annuli, explicitly distinguishing this reduction from a new proof of RH.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000404\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-algebraic-number-theory-notes.json}, notes[55].
+\item AIM workshop ``Arithmetic statistics over finite fields and function fields,'' Question 26, attributed to Brian Conrey; supplied URL \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. The literal ``Nymon-Barling'' is reconstructed as Nyman--Beurling by the supplied aid. No year or full criterion citation is supplied; the literature field is empty. The PDF was not consulted here.
+\item Attached research attempt 1, ``A Hardy-space cyclicity criterion for curve RH,'' referring to Weil RH without a full publication citation.
+\end{itemize}
+\end{document}

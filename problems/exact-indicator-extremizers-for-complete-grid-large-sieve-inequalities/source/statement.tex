@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000740}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Write \(e(t)=e^{2\pi it}\) and \(S(\alpha)=\sum_{n=M+1}^{M+N}a_ne(\alpha n)\), with integer \(M\), \(N\ge1\). Helfgott's source question asks whether the standard large sieve remains best possible when \(a_n\in\{0,1\}\); Vaughan's affirmative response is a prediction. The excerpt does not specify the sampling set, exact constant or asymptotic regime, and the supplied record distinguishes two interpretations.
+
+In the analytic version, points \(\alpha_j\in\R/\Z\) are circularly \(\delta\)-separated, and
+\[
+ \sum_j|S(\alpha_j)|^2\le(N-1+\delta^{-1})\sum_n|a_n|^2.
+\]
+The report's complete-grid lemma takes \(\alpha_j=j/R\), \(0\le j<R\), \(R\ge1\), and asserts
+\[
+ \sup_{0\ne a\in\{0,1\}^N}
+ \frac{\sum_{j=0}^{R-1}|S(j/R)|^2}{\sum_n a_n^2}
+ =R\lceil N/R\rceil.
+\]
+This equals the unrestricted complex-coefficient operator norm. An extremizer is the indicator of a residue class modulo \(R\) containing the largest number of indices in the length-\(N\) interval. If \(N\equiv1\pmod R\), the value is exactly \(N+R-1\). For fixed \(0<\delta\le1\), choose \(R=\lfloor\delta^{-1}\rfloor\), so the grid is admissibly separated; along infinitely many such lengths the gap from \(N-1+\delta^{-1}\) is \(\delta^{-1}-R<1\). Exact equality with that analytic factor occurs when \(\delta^{-1}=R\).
+
+In the distinct arithmetic/Farey version, the sampling set is all reduced fractions of denominator at most \(Q\), including \(1/1\) as zero modulo one:
+\[
+ \mathcal L_Q(a)=\sum_{q\le Q}\sum_{\substack{1\le h\le q\\(h,q)=1}}|S(h/q)|^2
+ \le(N-1+Q^2)\sum_n|a_n|^2.
+\]
+The supplied verification obtains this from the analytic spacing \(\delta=Q^{-2}\). The report says singleton and all-ones indicators show the \(N+Q^2\) order up to an absolute factor, but leave its critical leading constant unresolved. A complete rational grid is not silently identified with this fixed Farey set. Thus the exact indicator-extremizer result resolves the grid/analytic sharpness interpretation, not every possible arithmetic leading-constant formulation of the source question.
+\subsection{Short English statement}
+Is the large sieve still sharp for zero-one coefficients? The supplied report gives exact complete-grid indicator extremizers and near-sharp analytic-spacing constants, while distinguishing the Farey-sampling problem where only order-of-magnitude sharpness is claimed.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000740\), source code \texttt{catalogue entry}; AIM analytic number theory corpus, \texttt{aim-analytic-number-theory-notes.json}, notes[103]. Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0.
+\item AIM \emph{Gaps between primes}, item 2, ``On the large sieve, I'', question by H. Helfgott and comment by R. C. Vaughan: \url{https://aimath.org/WWN/primegaps/WorkshopProblems.pdf}. Original remarks and literature fields are empty. The extracted clean field is damaged; the original exponential-sum target is retained.
+\item The supplied verification explicitly treats both analytic separated-point and arithmetic/Farey readings, whose sharpness questions differ. No independent source inspection or complete primary large-sieve citation is supplied here.
+\item Registry dated August 14, 2026: statement \texttt{reconstructed\_unverified}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}; attempt 1 records problem status unknown, partial result, rigor proved, novelty confidence low. The grid norm and restricted sharpness conclusions are machine-generated research aids, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

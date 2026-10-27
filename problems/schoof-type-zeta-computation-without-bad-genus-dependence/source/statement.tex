@@ -1,0 +1,51 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800010}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(C/\F_q\) be a smooth projective geometrically connected curve of genus \(g\), with \(q\) a prime power. Its zeta function is
+\[
+Z(C,T)=\exp\left(\sum_{r\ge1}\#C(\F_{q^r})\frac{T^r}{r}\right)
+=\frac{P_C(T)}{(1-T)(1-qT)},
+\]
+where \(P_C(T)\in\Z[T]\), \(P_C(0)=1\), and \(\deg P_C=2g\). Exact computation can therefore output the coefficients of \(P_C\), rather than an infinite power series.
+
+Kedlaya asks for a Schoof-style method without unfavorable genus dependence. On the joint-polynomial interpretation stated in the supplied research summary, the desired classical running time is bounded by
+\[
+C_0(g+1)^A(\log q)^B
+\]
+with constants \(C_0,A,B\) independent of \(g,q\), under an appropriately efficient input representation. A result with \(g\) fixed and an exponent or constant depending badly on \(g\) does not establish this target. The method should compute the exact zeta function for the intended general curve class, not only approximate point counts or a single extension-field count.
+
+The source does not specify how the curve is encoded, whether the genus is given, the relation of input length to \(g,\log q\), bit versus arithmetic-operation complexity, or deterministic versus randomized computation. For arbitrary redundant equations, a bound independent of description length would not define a reasonable total-input algorithm; one must specify an efficient presentation or include input size in the bound. The exact requirement that the solution adapt Schoof's method rather than merely use any classical algorithm also needs interpretation.
+
+The supplied research summary reports Pila's fixed-genus extension of Schoof and says joint polynomial dependence remains open for classical algorithms. It separately reports a quantum polynomial-time method using Shor-type computations of Jacobian group orders over extensions. That quantum statement is not treated as a solution to the classical task, and no exact genus complexity or computational hypotheses are invented for either cited method.
+\subsection{Short English statement}
+Develop an exact classical Schoof-type curve-zeta algorithm with running time polynomial jointly in genus and \(\log q\), with input encoding and cost model stated. Fixed-genus and quantum results do not by themselves meet that target.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(8800010\), exact source code \texttt{catalogue entry}, ``Schoof-type zeta computation without bad genus dependence.'' Proposer Kiran Kedlaya.
+\item IPAM \emph{Workshop on Number Theory and Cryptography --- Open Problems} (2006), attachment 6220, recorded PDF pages 9--12, logical slide 5; schedule \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}. Recorded access 2026-07-29; pdf-and-legacy-ppt visual-audit extraction.
+\item Supplied OPEN-TRIAGE summary mentions Pila's generalization of Schoof, and Kedlaya handouts called ``kanpur2023'' and ``google2024,'' plus a Shor-based quantum analogue. Full references, links, and precise theorem hypotheses are not supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800504}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\mathbb K\in\{\R,\C\}\), let \(A\in\mathbb K^{n\times n}\), and let \(M\in\mathbb K^{n\times n}\) be invertible. Write
+\[
+B=M^{-1}A,\qquad c=M^{-1}b,
+\]
+so that left preconditioning transforms \(Ax=b\) into \(Bx=c\). In the real setting, nonsymmetry means \(A\ne A^{\mathsf T}\); in the complex setting, nonselfadjointness means \(A\ne A^*\), where \(A^*\) denotes the conjugate transpose. The source does not specify the scalar field or explicitly identify whether this requirement concerns the original operator, its discretization, or the preconditioned matrix.
+
+For clarity, standard unrestarted GMRES applied to \(Bx=c\), with initial guess \(x_0\) and residual \(r_0=c-Bx_0\), selects
+\[
+x_k\in\operatorname*{arg\,min}_{x\in x_0+\mathcal K_k(B,r_0)}\|c-Bx\|_2,
+\qquad
+\mathcal K_k(B,r_0)=\operatorname{span}\{r_0,Br_0,\ldots,B^{k-1}r_0\},
+\]
+with \(\mathcal K_0(B,r_0)=\{0\}\). This describes the conventional left-preconditioned, unrestarted interpretation of the displayed matrix \(M^{-1}A\); the source does not specify restart choices, arithmetic, or the criterion for accepting an approximate solution.
+
+\textbf{Requested model problem.} Find an interesting nonselfadjoint, respectively nonsymmetric, model problem and a preconditioner for which a theoretical result describing the eigenvalue distribution of \(M^{-1}A\) corresponds to the actual convergence behavior of GMRES. Determine the particular properties of that problem that imply this correspondence.
+
+The source gives the following illustrative target: if \(M^{-1}A\) has \(m\) eigenvalue clusters, GMRES should obtain an acceptable approximate solution in \(\mathcal O(m)\) steps. To make this example a precise quantitative statement, a proposed model must specify a family of systems, the meaning of an eigenvalue cluster, the acceptance criterion, the admissible right-hand sides and initial guesses, and the parameters over which the iteration bound is uniform. For example, after these choices, the intended type of estimate would be
+\[
+k_{\mathrm{acc}}\le C m,
+\]
+where \(k_{\mathrm{acc}}\) is the first acceptable iteration and the allowed dependence of \(C\) must be stated. The source supplies none of these quantitative choices. Its example is therefore an intended correspondence to be made precise, rather than a fully quantified assertion that eigenvalue clustering alone guarantees this bound. The word ``interesting'' also has no supplied mathematical criterion.
+\subsection{Short English statement}
+Find a nonselfadjoint or nonsymmetric model problem whose preconditioned eigenvalue distribution predicts the observed GMRES convergence, and identify the properties responsible. The suggested example relates \(m\) eigenvalue clusters to \(\mathcal O(m)\) iterations. Cluster geometry, accuracy requirements, algorithmic choices, and uniformity of the bound remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record with permanent ID \(800504\), source problem code \texttt{catalogue entry}, and title ``Linear Systems and Eigenvalue Problems --- Problem 13.'' The registry attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels it open. This status is supplied metadata, not an independently verified mathematical or literature assessment.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 13. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The background records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance notes, not a claim of independent access or verification.
+\item Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}. The registry record was created and updated on 2026-10-16. No separate dated literature assessment or additional literature references are supplied.
+\end{itemize}
+\end{document}

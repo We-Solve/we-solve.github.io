@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001861}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(F=F(X)\) be the free group on a finite basis \(X\), and let \(S\) be a finite set. Write \(S^0=\{\varepsilon\}\), where \(\varepsilon\) is the empty word, and put \(S^*=\bigsqcup_{n\geq 0}S^n\). Let \(\operatorname{Sym}(S)\) be the group of permutations of \(S\), and define the permutational wreath product by
+\[
+F\wr_S\operatorname{Sym}(S)=F^S\rtimes\operatorname{Sym}(S),
+\qquad (\sigma\cdot h)_t=h_{\sigma^{-1}(t)}.
+\]
+Interpret the supplied wreath recursion as a group homomorphism
+\[
+\phi:F\longrightarrow F^S\rtimes\operatorname{Sym}(S),
+\qquad \phi(g)=((g_t)_{t\in S},\sigma_g).
+\]
+Using the displayed coordinate convention, define actions \(\rho_n:F\to\operatorname{Sym}(S^n)\) recursively by
+\[
+\rho_0(g)(\varepsilon)=\varepsilon,
+\qquad
+\rho_{n+1}(g)(sw)=\sigma_g(s)\,\rho_n(g_{\sigma_g(s)})(w)
+\quad(s\in S,\ w\in S^n).
+\]
+Here juxtaposition on the right denotes concatenation of a letter and a word. Define
+\[
+N=\bigcap_{n\geq0}\ker\rho_n
+ =\{g\in F:\rho_n(g)(v)=v\text{ for every }n\geq0\text{ and every }v\in S^n\}.
+\]
+Thus \(N\) is the kernel of the action on \(S^*\).
+
+The question is whether there exist a finite basis \(X\), a finite set \(S\), and a homomorphism \(\phi\) as above for which \(F/N\) has an undecidable word problem. Explicitly, can these data be chosen so that no algorithm halts on every finite word \(u\) over \(X\cup X^{-1}\) and correctly decides whether
+\[
+[u]_F\in N,
+\quad\text{equivalently, whether }[u]_{F/N}=1?
+\]
+Undecidability here concerns the word problem of one fixed quotient, not merely a uniform decision problem as \(\phi\) varies. No positive lower bound on \(|X|\) or \(|S|\), nor any additional restriction on \(\phi\), is stated in the supplied record. The homomorphism interpretation is needed for the asserted group actions; the complete report passage is not supplied, so any additional hypotheses in its construction remain unverified.
+\subsection{Short English statement}
+Can a finitely generated free group, acting on all finite words over a finite alphabet through a wreath recursion, have an image with an undecidable word problem? The question asks for one fixed quotient by the kernel of this action. This is a statement-only draft; the supplied open status and report-verification claims require independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30001861\), source problem code \texttt{catalogue entry}, titled ``Undecidable Word Problems in Wreath Product Quotients,'' in the Oberwolfach Reports Open Problems collection. The record gives proposed year \(2011\) and names no individual proposer.
+\item Supplied report citation: \emph{Computational Group Theory (2012)}, Oberwolfach Reports, pp.~2113--2161, DOI \texttt{10.4171/owr/2011/37}: \url{https://doi.org/10.4171/owr/2011/37}. This is also the supplied literature source labeled ``OWR report 37.'' The citation's title year \(2012\) differs from the proposed year \(2011\) and the year appearing in the DOI; the discrepancy is retained without resolution.
+\item Supplied literature assessment, checked on \texttt{2026-08-21}: the record labels the problem open, says that the report presents the question as unresolved, and reports finding no later source establishing a decision procedure or undecidability for this exact quotient. This is supplied dated curation, not an independently verified literature assessment.
+\item The supplied statement status is \texttt{corrected\_verified}. Its verification note reports that the official report was checked and that the wreath recursion, iterated actions, and defining kernel were restored. This draft preserves that provenance claim without independently verifying it.
+\end{itemize}
+\end{document}

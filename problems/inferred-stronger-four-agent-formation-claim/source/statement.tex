@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002807}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(p_i(t)\in\R^2\), \(i\in\{1,2,3,4\}\), denote the positions of four labelled agents, and write \(p=(p_1^\top,p_2^\top,p_3^\top,p_4^\top)^\top\in\R^8\). For prescribed target distances \(\bar d_{ij}=\bar d_{ji}\geq0\), define
+\[
+e_{ij}(p)=\lVert p_i-p_j\rVert^2-\bar d_{ij}^{\,2},\qquad
+\dot p_i=\sum_{\substack{j=1\\j\ne i}}^4 e_{ij}(p)(p_j-p_i).
+\]
+The sum includes all other agents, so the interaction graph is the complete graph on four vertices. Define the desired distance-realization set by
+\[
+\mathcal D=\left\{p\in\R^8:\ \lVert p_i-p_j\rVert^2=\bar d_{ij}^{\,2}\text{ for every }1\leq i<j\leq4\right\}.
+\]
+Interpreting the target as a planar formation requires \(\mathcal D\ne\varnothing\). A target realization \(q\in\mathcal D\) is described in the record as either a nonrectangular quadrilateral or a triangle with an interior agent. The latter conventionally means that three target points are noncollinear and the fourth lies in the strict interior of their convex hull. The record does not specify quadrilateral vertex order, convexity, exclusions of degeneracies, or additional hypotheses on the target distances. These conventions therefore require review. Distance constraints alone also allow translations, rotations, and reflected realizations.
+
+The retained stronger assertion, under an all-initial-conditions interpretation of ``global convergence,'' would be: for every target covered by the intended geometric hypotheses and every \(p^0\in\R^8\), the solution with \(p(0)=p^0\) exists for all \(t\geq0\) and satisfies
+\[
+\lim_{t\to\infty}\sum_{1\leq i<j\leq4}e_{ij}(p(t))^2=0.
+\]
+This specifies convergence of distance errors; the record does not specify whether convergence to a single configuration is additionally intended.
+
+\textbf{Unresolved source qualification.} This is a transcription of an inferred stronger claim, not a verified problem statement. The supplied registry marks the statement as \texttt{unrecoverable} and says that the official report instead asks whether incorrect equilibria are saddle points, a question represented separately by \texttt{OWR-13497-006}. It explicitly declines to promote a separate clean statement for this record. Moreover, coincident-agent configurations are stationary under the displayed dynamics and need not belong to \(\mathcal D\), so an unrestricted global-convergence reading is incompatible with nondegenerate targets. No exceptional initial set is supplied. The background instead discusses almost-global convergence, whose exceptional set and hypotheses are not provided. Consequently, a precise, source-supported convergence conjecture cannot be recovered here without changing or supplementing the record.
+\subsection{Short English statement}
+Four planar agents adjust their positions using errors in all six prescribed pairwise distances. The retained record asks for convergence to nonrectangular quadrilateral targets or to a triangle with an interior agent. Its own verification notes reject this as an independently supported problem statement: unrestricted global convergence has stationary counterconfigurations, while the background refers to almost-global convergence under unspecified conditions. The report's source-backed saddle-point question is recorded separately as \texttt{OWR-13497-006}. This statement-only draft preserves permanent ID \(30002807\) and requires human mathematical and source review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30002807\), exact source problem code \texttt{catalogue entry}, title ``Inferred Stronger Four-Agent Formation Claim,'' Oberwolfach Reports Open Problems collection; proposed year: 2015. No individual proposer is supplied. The supplied status is \texttt{open}; the supplied statement status is \texttt{unrecoverable}. These are registry labels, not independently verified mathematical conclusions.
+\item Supplied report citation: \emph{Control Theory: A Mathematical Perspective on Cyber-Physical Systems} (2015), Oberwolfach Reports, pp.\ 597--659, DOI 10.4171/owr/2015/12. \url{https://doi.org/10.4171/owr/2015/12}. The supplied statement-verification note says that the report asks whether incorrect equilibria are saddle points, with that source-backed question represented by \texttt{OWR-13497-006}; it does not support the stronger assertion as a separate problem. No narrower problem locator is supplied.
+\item Supplied literature reference labelled ``Summers, Yu, Anderson and Dasgupta'': \url{https://doi.org/10.1109/CDC.2009.5399780}. No title or detailed theorem hypotheses are supplied.
+\item Supplied literature reference labelled ``Later K4 formation analysis'': \url{https://openresearch-repository.anu.edu.au/bitstream/1885/198778/6/201704\%20Kn\%20formation\%20TAC.pdf}. The link retains the backslash-percent spelling supplied in the record; no authors or full bibliographic citation are supplied for this reference.
+\item Literature assessment checked at \textbf{2026-08-21}: the supplied curation labels the problem open and states that almost-global convergence is established for rectangular four-agent formations under stated conditions, while extension to general quadrilaterals or a triangle with an interior agent remains unresolved. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. The cited conditions and time-sensitive status require independent verification.
+\end{itemize}
+\end{document}

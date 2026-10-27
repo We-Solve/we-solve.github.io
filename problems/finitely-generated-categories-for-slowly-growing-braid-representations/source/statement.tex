@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003706}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer \(n\geq 2\), the braid group \(B_n\) has presentation
+\[
+B_n=\left\langle \sigma_1,\ldots,\sigma_{n-1}\ \middle|\ \sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1}\ (1\leq i\leq n-2),\quad \sigma_i\sigma_j=\sigma_j\sigma_i\ (|i-j|\geq 2)\right\rangle.
+\]
+Set \(B_1=\{1\}\) as a convention for the formulation below. The symmetric group \(S_n\) is the group of permutations of an \(n\)-element set. The category \(\mathrm{FI}\) consists of finite sets and injective maps; the automorphism group of an \(n\)-element object is \(S_n\).
+
+For a field \(k\), a representation of \(B_n\) is a vector space \(V_n\) over \(k\) with a homomorphism \(\rho_n:B_n\to\mathrm{GL}_k(V_n)\). For an essentially small category \(\mathcal C\), a \(\mathcal C\)-module over \(k\) means a covariant functor \(M:\mathcal C\to\mathrm{Vect}_k\). It is finitely generated if there are finitely many objects \(d_1,\ldots,d_r\) and vectors \(x_i\in M(d_i)\) such that, for every object \(d\),
+\[
+M(d)=\operatorname{span}_k\{M(f)(x_i):1\leq i\leq r,\ f\in\operatorname{Hom}_{\mathcal C}(d_i,d)\}.
+\]
+These definitions describe a possible field-valued interpretation; the source does not specify a coefficient field or ring.
+
+\textbf{Source question.} Is there a category playing for the braid groups \(B_n\) the role that \(\mathrm{FI}\) plays for the symmetric groups \(S_n\), such that every slowly growing sequence of braid-group representations arises from a finitely generated module over that category?
+
+A conditional formal framework for this question is the following. After fixing coefficients and defining the predicate \(\mathsf{Slow}\) on representation sequences, seek a single essentially small category \(\mathcal C\), objects \(c_n\), and homomorphisms
+\[
+\iota_n:B_n\longrightarrow\operatorname{Aut}_{\mathcal C}(c_n)
+\]
+such that
+\[
+\begin{gathered}
+\text{for every sequence }(V_n,\rho_n)_{n\geq1}\text{ satisfying }\mathsf{Slow},\\
+\text{there exist a finitely generated }M:\mathcal C\to\mathrm{Vect}_k
+\text{ and isomorphisms }\phi_n:V_n\xrightarrow{\sim}M(c_n),\\
+\phi_n\rho_n(b)=M(\iota_n(b))\phi_n
+\qquad(n\geq1,\ b\in B_n).
+\end{gathered}
+\]
+Here the category and its braid-group actions are chosen before the universally quantified representation sequence. The source does not specify whether the homomorphisms \(\iota_n\) should be isomorphisms, what additional structure the category must possess, or whether realization is required in every rank or only eventually. Consequently this framework explains one meaning of realization, but is not asserted to be a uniquely determined formalization of the source.
+
+\textbf{Unresolved qualifications.} The source gives no definition or numerical bound for ``slowly growing,'' no coefficient domain or characteristic, no explicit finite-dimensionality hypothesis, and no compatibility conditions between successive representations. It also does not identify the precise \(\mathrm{FI}\)-module theorem being used as the model. These missing data prevent a fully specified conjecture. In particular, polynomial growth, subexponential growth, and linear growth must not be substituted for the undefined predicate without further evidence.
+\subsection{Short English statement}
+The question asks for a common categorical framework in which every slowly growing sequence of braid-group representations comes from a finitely generated functor. The source leaves the growth condition, coefficients, compatibility requirements, and required categorical structure unspecified, so the displayed formulation is conditional on resolving those choices. The supplied record labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003706\), source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The supplied proposed year is 2018; no individual proposer is named.
+\item Supplied source citation: \emph{Topology of Arrangements and Representation Stability (2019)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2018/2}, pp.\ 43--123. Supplied source URL: \url{https://doi.org/10.4171/owr/2018/2}. The background describes these reports as records of mathematical workshops and their open-problem discussions. The supplied title year is 2019, whereas the report identifier and proposed year refer to 2018; this draft preserves both.
+\item Supplied literature source: Oberwolfach Report 2/2018, \url{https://doi.org/10.4171/owr/2018/2}.
+\item Supplied literature source: Marin, braid-group representations, \url{https://arxiv.org/abs/math/0502118}. No more precise bibliographic information or supporting theorem is supplied.
+\item Literature assessment checked at \texttt{2026-08-21}: the supplied curation labels the problem open and states that the proposed classification remains unresolved in general, and that known linear-growth cases do not establish an analogue for all slow growth. This is supplied dated curation, not an independently verified literature assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry supplies statement status \texttt{corrected\_verified} and reports that the official problem-session report was checked and that this is its canonical, more complete extraction. These are supplied provenance assertions; this draft does not claim to have visited or independently checked either linked source.
+\end{itemize}
+\end{document}

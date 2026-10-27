@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002894}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Peter Ebenfelt's Problem 12 asks for hypersurface hypotheses forcing transversality of every noncollapsed holomorphic map. Let \(0\in M\subset\C^{n+1}\), \(0\in M'\subset\C^{N+1}\) be \(C^\infty\) or real-analytic real hypersurfaces, \(n\le N\), and let \(H:(\C^{n+1},0)\to(\C^{N+1},0)\) be holomorphic with \(H(M)\subset M'\). Assume no full neighborhood is mapped into \(M'\). Determine conditions on \(M,M'\) under which every such \(H\) is transverse at 0, meaning
+\[
+ d_0H(T_0\C^{n+1})+T_0M'=T_0\C^{N+1}
+\]
+as real tangent spaces. More generally the target tangent spaces are based at \(H(x)\). With real defining functions \(\rho,\rho'\), write \(\rho'\circ H=a\rho\); on \(M\), transversality is equivalent to \(a(x)\ne0\).
+
+The source records equal-dimensional finite-map transversality when either hypersurface is of finite type, and transversality when both are strictly pseudoconvex, under its noncollapse assumptions. A finite holomorphic germ here has isolated fiber over 0, with the usual equal-dimensional interpretation in that statement. These are reported background cases, not a complete criterion.
+
+The supplied verification restores the fractions and signs in the source's example:
+\[
+ H(z,w)=(z+z^2+\tfrac i2w,\ z-z^2-\tfrac i2w,\ -2zw),
+\]
+\[
+ M=\{\operatorname{Im}w=|z|^2\},\qquad
+ M'=\{\operatorname{Im}W=-|Z_1|^2+|Z_2|^2\}.
+\]
+For \(\rho=\operatorname{Im}w-|z|^2\) and \(\rho'=\operatorname{Im}W+|Z_1|^2-|Z_2|^2\), the aid reports the exact identity
+\[
+ \rho'\circ H=-2(z+\overline z)\rho.
+\]
+Thus the map is transverse precisely on \(M\setminus\{\operatorname{Re}z=0\}\), and fails at 0 despite not collapsing a neighborhood into the target. The target is indefinite, so this does not contradict the strictly pseudoconvex case.
+
+\textbf{Quadratic ansatz classified in the aid.} For \(a,b,c\in\C\), set
+\[
+ H_{a,b,c}(z,w)=(z+az^2+bw,\ z-az^2-bw,\ czw).
+\]
+The aid reports
+\[
+ H_{a,b,c}(M)\subset M'
+ \quad\Longleftrightarrow\quad
+ a=2i\overline b,\quad c=-4i\overline b.
+\]
+Under these conditions,
+\[
+ \rho'\circ H_{a,b,c}=(cz+\overline{cz})\rho.
+\]
+If \(b=0\), the map is \((z,z,0)\) and is collapsed into \(M'\). If \(b\ne0\), it is an immersion at 0 and a finite germ of multiplicity one onto its image, with exact nontransversality locus \(\operatorname{Re}(cz)=0\) on \(M\). Finite here is in the positive-codimension, finite-onto-image sense and does not invoke the source's equal-dimensional result. The original example is \((a,b,c)=(1,i/2,-2)\).
+
+The aid also reports post-workshop criteria involving equal-dimensional generic-full-rank maps, Levi-rank/dimension/Jacobian-rank-stratum inequalities in positive codimension, and a 2025 low-codimension theorem for maps into same-signature hyperquadrics. Their exact inequalities, scope and references are absent; no quantitative criterion is invented from those summaries. The classification of the displayed ansatz is not a classification of all holomorphic maps or a solution of the general hypersurface-condition problem.
+\subsection{Short English statement}
+The source seeks hypotheses making every noncollapsed hypersurface map transverse. The aid verifies an indefinite-target counterexample and classifies a quadratic family containing it, with an exact real multiplier detecting transversality. Positive-codimension finite immersions can still fail transversality; broader reported criteria need their missing hypotheses and references.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002894, catalogue entry; canonical \texttt{aim-several-complex-variables-notes.json}, notes[51].
+\item AIM \emph{Complexity of mappings in CR geometry}, Problem 12, proposed by Peter Ebenfelt, \url{https://aimath.org/WWN/complexitycrmap/complexitycrmap.pdf}. The supplied verification reports removing a running header and recovering primes, fractions and tangent subscripts by PDF inspection; this draft does not repeat that check.
+\item The verification cross-checks the example against published Example 2.4 of Baouendi--Ebenfelt--Rothschild, without a full title, date or bibliographic entry.
+\item Machine-generated research attempt 1, partial-result/partially-solved labels, reported rigor proved and low novelty confidence. It mentions post-workshop and 2025 criteria without full citations. Its ansatz classification is not peer reviewed and requires independent verification.
+\end{itemize}
+\end{document}

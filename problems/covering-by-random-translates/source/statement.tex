@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 169}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a prime \(p\), write \(G_p=\Z/p\Z\). For a nonempty set \(A\subseteq G_p\), define its translate-covering number by
+\[
+\tau_p(A)=\min\bigl\{|B|:B\subseteq G_p,\ A+B=G_p\bigr\},
+\qquad A+B=\{a+b:a\in A,\ b\in B\}.
+\]
+Thus \(\tau_p(A)\leq k\) means that at most \(k\) translates \(A+b\) cover \(G_p\); overlap is permitted.
+
+The supplied question asks whether a random set of size \(\sqrt p\) almost surely has covering number at most \(100\sqrt p\). Since \(\sqrt p\notin\Z\) for prime \(p\), that cardinality is not literal. To display the precise missing conventions, fix a choice
+\[
+m_p\in\{\lfloor\sqrt p\rfloor,\lceil\sqrt p\rceil\},
+\]
+and let \(A_p\) be uniform among the \(m_p\)-element subsets of \(G_p\). If ``almost surely'' is intended to mean with probability tending to one as \(p\) tends to infinity through primes, the resulting candidate assertion is
+\[
+\lim_{\substack{p\to\infty\\p\ \mathrm{prime}}}
+\Pr\bigl(\tau_p(A_p)\leq\lfloor100\sqrt p\rfloor\bigr)=1.
+\]
+The floor in the bound expresses an integer covering number being at most the real number \(100\sqrt p\). The two choices of \(m_p\), and the asymptotic meaning of the probability phrase, are explicit possible conventions, not decisions supplied by the original statement; no equivalence between variants is asserted.
+
+The supplied triage dated 2026-08-17 identifies this as Green's Problem 39, labels it open, and reports that Green did not know the analogous assertion even with \(100\) replaced by \(1.01\). It reports no verified high-probability \(O(\sqrt p)\)-translate covering theorem at the stated density. These are supplied dated assessments rather than a new literature conclusion.
+\subsection{Short English statement}
+Does a uniformly random subset of roughly \(\sqrt p\) elements in \(\Z/p\Z\) admit a cover of the whole group by at most \(100\sqrt p\) of its translates, with probability tending to one? The original wording needs an integer size convention and a precise probability interpretation before this candidate formulation is fixed.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 169, source code catalogue entry, ``Covering by Random Translates,'' including supplied literature triage dated 2026-08-17.
+\item B. Green, \emph{100 Open Problems}, Problem 39, supplied version retrieved 2026-08-17: \url{https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf}. The supplied triage matches the local code catalogue entry to this problem and records the comparison with the constant \(1.01\).
+\end{itemize}
+\end{document}

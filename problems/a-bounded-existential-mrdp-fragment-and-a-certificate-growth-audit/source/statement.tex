@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002339}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\mathsf I\Delta_0$ be arithmetic in the ordered semiring language with induction for every bounded formula, with parameters: bounded quantifiers have the form $\forall u\le t$ or $\exists u\le t$, and the induction instance is
+\[
+ [\varphi(0,\vec z)\wedge\forall x(\varphi(x,\vec z)\to\varphi(x+1,\vec z))]
+       \to\forall x\,\varphi(x,\vec z).
+\]
+Variables range over $\N$, including zero. A polynomial with integer coefficients is represented in this language by moving negative terms to the other side of an equation.
+
+\textbf{Question 2, P.~D'Aquino.} Does $\mathsf I\Delta_0$ prove DPRM in the following representation-by-formula sense: for every arithmetic $\Sigma_1$ formula $\psi(\vec x)$, is there an integer polynomial $P(\vec x,\vec y)$ such that
+\[
+ \mathsf I\Delta_0\vdash
+ \forall\vec x\bigl(\psi(\vec x)\leftrightarrow
+                         \exists\vec y\,P(\vec x,\vec y)=0\bigr)?
+\]
+The quantification over formulas and choice of $P$ are metamathematical, and the equivalence must be provable inside the weak theory, not merely true in the standard natural numbers. The source states that a positive answer would imply $\mathsf{NP}=\mathsf{coNP}$. The aid reports the full question open; its partial fragment is not a proof of that complexity equality.
+
+\textbf{Supplied bounded-existential fragment.} For every fixed formula whose negation-normal form is generated from polynomial/order literals by conjunction, disjunction and bounded existential quantification, with no bounded universal quantifier, the aid asserts an effective translation to one Diophantine equation with equivalence provable in pure $\mathsf I\Delta_0$. Strict comparisons and disequalities can be expressed through finite existential alternatives in the ordered natural numbers. Bounded existential witnesses also require their explicit bound equations. This compiler does not handle a bounded universal block by merely introducing finitely many witnesses of unspecified length: sequence coding for that block is the identified remaining generic obstruction.
+
+\textbf{Expanded-language and certificate context.} The final source line introduces $\{+,\cdot,0,1,\#,\le\}$ with the aid's recovered operation
+\[
+ \#(x,y)=x^{\lfloor\log_2y\rfloor}\qquad(y\ge1).
+\]
+Its value at $y=0$, the convention for zero to the zeroth power, and the axioms for a total function symbol are absent; a total extension would need these fixed. This operation is not silently replaced by another commonly named smash function. Nor is adding it to a language identified with proving its totality in pure $\mathsf I\Delta_0$.
+
+For this operation on its defined domain, each fixed term built from the stated symbols has output binary length bounded by a polynomial in the input binary lengths. In particular, a single $\#$ application has length bounded by $1+|x||y|$ up to the fixed encoding convention; fixed nesting preserves polynomial length. The aid uses this to audit a conditional certificate argument: \emph{if} the relevant Parikh witness-bounding theorem supplies fixed-term bounds for Diophantine representations of both a fixed bounded predicate and its complement, then the witnesses have polynomial bit length and their fixed polynomial equations can be checked in polynomial time. These are NP/coNP certificate statements under that formalization, not an unconditional application of Parikh's theorem to an unspecified expanded theory. The full advertised complexity consequence also needs the appropriate encoding of decision problems in the chosen arithmetic. The local compiler and fixed-term growth analysis isolate a proof-theoretic obstacle rather than settle the full DPRM scheme.
+\subsection{Short English statement}
+D'Aquino asks whether every $\Sigma_1$ relation has a Diophantine representation provable in bounded-induction arithmetic. The aid handles the fragment without bounded universal quantifiers and checks polynomial bit growth for the source's logarithmic-exponent operation. Witness bounds and the advertised NP/coNP implication retain their formalization hypotheses; the full representation question remains unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002339, source code catalogue entry; canonical \texttt{aim-logic-notes.json}, notes[114].
+\item AIM \emph{Problems related to ``Extensions of Hilbert's Tenth Problem''}, Question 2 (P.~D'Aquino), moderated by B.~Poonen and T.~Scanlon, recorded by J.~Demeyer, p.~1: \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}.
+\item The source states the conditional $\mathsf{NP}=\mathsf{coNP}$ consequence. The aid invokes Parikh witness bounding and describes a Wilkie complexity-consequence audit, but supplies no full proving citations or exact expanded-theory hypotheses.
+\item Registry research attempt 1, dated 2026-08-14: partial result, status at run open, rigor ``proved'', novelty confidence low. The explicitly machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

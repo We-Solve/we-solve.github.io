@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000051}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For integers $n,d\ge1$ and an $n$-point set $M=\{x_1,\ldots,x_n\}\subset[0,1]^d$, define its star discrepancy by
+\[
+ D_n^*(M)=\sup_{t\in[0,1]^d}
+ \left|\frac1n\#\left(M\cap\prod_{j=1}^d[0,t_j)\right)
+                     -\prod_{j=1}^dt_j\right|.
+\]
+The requested construction has a single absolute constant $C$ independent of both $n$ and $d$ such that
+\[
+ D_n^*(M)\le C\sqrt{d/n}.
+\]
+The main question asks for an explicit construction, in time polynomial in $n$ and $d$, of such a point set for every pair $(n,d)$. The weaker alternative asks for an explicitly described small finite candidate family
+\[
+ S_{n,d}\subset[0,1]^{dn}
+\]
+guaranteed to contain an ordered configuration of $n$ distinct points whose associated set has the same bound. The cube of dimension $dn$ encodes all $nd$ coordinates; it is not the point domain itself.
+
+The source does not quantify ``small'', prescribe a seed length or success fraction in the family, or choose a bit-complexity versus real-arithmetic model for coordinate output. These must be specified for a sharp algorithmic theorem. In particular, an unspecified singleton containing an existentially chosen good configuration would not satisfy the intended explicit or reduced-randomness goal. A guarantee that a family contains one good configuration is also distinct from an efficient procedure selecting that member.
+
+The literature assessment checked on 21 August 2026 says the existential $O(\sqrt{d/n})$ bound is classical and that explicit and pseudorandom constructions give substantial progress, while a small finite sample space or fully explicit polynomial-time construction at the stated high-dimensional goal remains open in that assessment. The question concerns uniform dependence on dimension, so a fixed-dimension discrepancy bound with an uncontrolled dimension-dependent constant is insufficient. These status claims are dated curation requiring independent verification.
+\subsection{Short English statement}
+Construct high-dimensional point sets with star discrepancy at most an absolute constant times $\sqrt{d/n}$ in polynomial time, or explicitly give a small candidate family containing one. The second option reduces randomness but does not by itself select a good candidate.
+\subsection{Sources}
+\begin{itemize}
+\item \emph{Discrepancy Theory and Its Applications} (2004), Oberwolfach Reports, DOI 10.4171/owr/2004/13, pp. 673--722, \url{https://doi.org/10.4171/owr/2004/13}.
+\item Literature assessment checked 21 August 2026: ``Pseudorandom generators and discrepancy,'' \url{https://arxiv.org/abs/2004.14158}; ``Explicit low-discrepancy constructions,'' \url{https://arxiv.org/abs/1308.4252}; ``OWR 13/2004,'' \url{https://doi.org/10.4171/OWR/2004/13}.
+\item Local UnsolvedMath registry, permanent ID $30000051$, exact source code \texttt{catalogue entry}, created 25 August 2026 and updated 16 September 2026. The clean statement is labelled corrected and verified against the official report, restoring the quantitative target and polynomial-time alternative.
+\end{itemize}
+\end{document}

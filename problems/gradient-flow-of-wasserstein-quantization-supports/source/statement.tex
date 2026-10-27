@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003665}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(d\geq 1\) be an integer and let \(K\subset\R^d\) be compact. The source concerns a density supported in \(K\). In the usual probability-measure formulation, this would mean a measurable function \(\rho:\R^d\to[0,\infty)\) with \(\rho=0\) almost everywhere outside \(K\) and \(\int_{\R^d}\rho(x)\,\dd x=1\), defining \(\mu=\rho\,\dd x\). Probability normalization is needed for this formulation but is not explicitly stated in the source; no additional regularity or positivity assumption on \(\rho\) is supplied.
+
+For an order \(1\leq p<\infty\), the \(p\)-Wasserstein distance between probability measures \(\alpha,\beta\) on \(\R^d\) with finite \(p\)-th moments is
+\[
+W_p(\alpha,\beta)=\left(\inf_{\pi\in\Pi(\alpha,\beta)}\int_{\R^d\times\R^d}|x-y|^p\,\dd\pi(x,y)\right)^{1/p},
+\]
+where \(\Pi(\alpha,\beta)\) denotes their couplings and \(|\cdot|\) is the Euclidean norm. The source does not specify the Wasserstein order; this family of definitions does not select one.
+
+For a positive integer \(N\), represent candidate sites by \(X_N=(x_1,\ldots,x_N)\), with associated set \(S_N=\{x_1,\ldots,x_N\}\). One conventional quantization energy, allowing the atomic weights to be optimized, is
+\[
+Q_{N,p}(X_N)=\inf_{\substack{a_i\geq0\ (1\leq i\leq N)\\\sum_{i=1}^N a_i=1}}W_p\!\left(\mu,\sum_{i=1}^N a_i\delta_{x_i}\right)^p,
+\]
+where \(\delta_x\) is the unit point mass at \(x\). A different convention prescribes equal weights and uses
+\[
+\nu_N=\frac1N\sum_{i=1}^N\delta_{x_i},\qquad W_p(\mu,\nu_N)^p.
+\]
+The source does not distinguish these conventions, specify whether to use \(W_p\) or its \(p\)-th power, or say whether sites must remain distinct. These choices must therefore remain unresolved. The admissible sites might lie in \(K\) or in a larger ambient domain; the source supplies no constraint or boundary rule.
+
+\textbf{Statement of the supplied problem.} For the intended \(N\)-point Wasserstein quantization model of \(\mu\), characterize the evolution of the support set \(S_N(t)\) under steepest descent, and determine how this discrete evolution compares, as \(N\to\infty\), with the Wasserstein gradient flow of the limiting energy.
+
+\textbf{Unresolved formulation.} Steepest descent requires a specified energy and a metric on the evolving configurations or atomic measures. For example, a differentiable configuration energy \(E_N\) with the Euclidean product metric would give the conditional definition \(\dot x_i(t)=-\nabla_{x_i}E_N(X_N(t))\); this is only an illustration of a possible convention, not an evolution law asserted by the source. A precise limiting comparison also requires the definition and normalization of the limiting energy, its measure domain, its Wasserstein metric, the representation of configurations as measures, initial-data assumptions, any time rescaling, and the topology and time interval of comparison. None is specified. Consequently, the supplied record determines a research question but does not determine a unique evolution equation or a fully quantified convergence assertion.
+\subsection{Short English statement}
+For a density supported on a compact subset of \(\R^d\), describe how the sites of an \(N\)-point Wasserstein quantization move under steepest descent and compare their evolution, as \(N\to\infty\), with the Wasserstein gradient flow of a limiting energy. The source leaves the quantization convention, descent metric, limiting energy, scaling, initial data, and boundary conditions unspecified, so a unique precise convergence statement cannot yet be extracted.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, with \texttt{catalog/problems.json} as the supplementary registry specified by the project; supplied permanent UnsolvedMath ID \(30003665\), exact source problem code \texttt{catalogue entry}, title \emph{Gradient Flow of Wasserstein-Quantization Supports}. The supplied record belongs to the Oberwolfach Reports Open Problems collection. No individual proposer is identified.
+\item Supplied report citation: \emph{Variational Methods for Evolution (2018)}, Oberwolfach Reports, pp.\ 3185--3261, DOI \texttt{10.4171/owr/2017/54}, \url{https://doi.org/10.4171/owr/2017/54}. The record gives proposed year 2017; the citation's parenthetical year is retained as supplied.
+\item Supplied literature source: \emph{A gradient flow perspective on quantization}, \url{https://arxiv.org/abs/1711.01652}.
+\item Supplied literature source: \emph{Quantization in space dimension two}, \url{https://doi.org/10.1016/j.anihpc.2017.12.003}.
+\item Supplied literature source: \emph{OWR Report 54/2017}, \url{https://ems.press/content/serial-article-files/46718}.
+\item Literature assessment dated \texttt{2026-08-21}: the supplied curation labels the problem partially solved and reports that optimal-measure asymptotics and a gradient-flow viewpoint have been developed in one dimension and selected two-dimensional settings, while the general evolution and Wasserstein-flow comparison remain open. This is supplied dated curation, not an independently verified assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}; its accompanying qualification says that mathematical content was preserved while notation, typography, and sentence structure were repaired for publication. This is a registry annotation, not independent mathematical verification of this draft or of the cited literature.
+\end{itemize}
+\end{document}

@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005758}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each integer \(n\geq 0\), let \(S_n\) be the set of permutations of \(\{1,\ldots,n\}\), with \(S_0\) consisting of the empty permutation. For \(\sigma\in S_k\) and \(\pi\in S_n\), write \(\sigma\leq\pi\) if there are indices \(1\leq i_1<\cdots<i_k\leq n\) such that, for all \(a,b\in\{1,\ldots,k\}\),
+\[
+\sigma(a)<\sigma(b)\quad\Longleftrightarrow\quad\pi(i_a)<\pi(i_b).
+\]
+A permutation class is a subset \(\mathcal C\subseteq\bigcup_{n\geq0}S_n\) closed downward under this containment relation.
+
+A quasi-order \((L,\preceq_L)\) is well-quasi-ordered if every infinite sequence \(\ell_1,\ell_2,\ldots\) in \(L\) has indices \(r<s\) with \(\ell_r\preceq_L\ell_s\). An \(L\)-labelled permutation is a pair \((\pi,\lambda)\), where \(\pi\in S_n\) and \(\lambda:\{1,\ldots,n\}\to L\). Define
+\[
+(\sigma,\mu)\leq_L(\pi,\lambda)
+\]
+if there is a pattern-containment embedding \(i_1<\cdots<i_k\) as above such that \(\mu(a)\preceq_L\lambda(i_a)\) for every \(1\leq a\leq k\). Call \(\mathcal C\) labelled well-quasi-ordered if, for every well-quasi-ordered label quasi-order \(L\), the collection of all \(L\)-labelled permutations whose underlying permutations belong to \(\mathcal C\) is well-quasi-ordered under \(\leq_L\).
+
+For a permutation class \(\mathcal C\), define its ordinary generating function by
+\[
+F_{\mathcal C}(x)=\sum_{n\geq0}|\mathcal C\cap S_n|x^n\in\Q[[x]].
+\]
+Here the coefficients count underlying permutations, without additional labels. Say that this generating function is algebraic if there exists a nonzero polynomial \(P(X,Y)\in\Q[X,Y]\) such that \(P(x,F_{\mathcal C}(x))=0\) as a formal power series.
+
+\textbf{Question.} Is it true that, for every permutation class \(\mathcal C\),
+\[
+\mathcal C\text{ is labelled well-quasi-ordered}
+\quad\Longrightarrow\quad
+\exists\,0\neq P(X,Y)\in\Q[X,Y]\text{ with }P(x,F_{\mathcal C}(x))=0?
+\]
+
+The supplied excerpt does not explicitly define labelled well-quasi-ordering or specify the generating-function convention; the formulation above uses the standard interpretation with every well-quasi-ordered label quasi-order and ordinary enumeration by permutation length. Including or excluding the empty permutation changes the series only by a constant and does not change its algebraicity. The excerpt presents this question as a possible rescue of one direction of its ``False Conjecture 1'' by strengthening the hypothesis to labelled well-quasi-ordering, and attributes the question to Brignall and Vatter, reference [7] in the report. The text of that conjecture and the full reference [7] are not supplied here.
+\subsection{Short English statement}
+Does every permutation class that remains well-quasi-ordered when its entries receive labels from any well-quasi-ordered set have an algebraic ordinary generating function counting its underlying permutations by length? The supplied record labels this question open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005758\), source problem code \texttt{catalogue entry}, title: \emph{Algebraicity of Labelled Well-Quasi-Ordered Permutation Classes}. The registry records proposed year 2024 and supplies the status \texttt{open}. Its statement status is \texttt{corrected\_verified}; its verification note reports a direct check of the official report and restoration of definitions. These are supplied registry assertions, not verification performed for this draft.
+\item \emph{Mini-Workshop: Permutation Patterns} (2024), Oberwolfach Reports, pp.~273--308, DOI \texttt{10.4171/owr/2024/6}. Supplied source report and literature-source link: \url{https://doi.org/10.4171/owr/2024/6}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The excerpt attributes the question to Brignall and Vatter [7]; a full bibliographic entry and a precise page for this question are not supplied.
+\item Supplied literature source labelled ``primary wqo-enumeration paper'': \url{https://arxiv.org/abs/2211.12397}. The record supplies no full bibliographic entry for this link and does not explicitly identify it with report reference [7].
+\item Supplied literature assessment, checked on \texttt{2026-08-22}: the record states that the primary literature leaves algebraicity for labelled well-quasi-ordered classes as a future question, and that later counterexamples for ordinary well-quasi-ordering do not settle the stronger labelled case. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. The supplied background requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

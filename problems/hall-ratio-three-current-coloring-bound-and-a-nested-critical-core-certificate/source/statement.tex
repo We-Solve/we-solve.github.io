@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000943}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G$ be a finite simple graph, $\Delta(G)$ its maximum degree, $\alpha(G)$ its independence number, and $\chi(G)$ its chromatic number. Its Hall ratio is
+\[
+ \rho(G)=\max_{\varnothing\ne U\subseteq V(G)}\frac{|U|}{\alpha(G[U])}.
+\]
+The hypothesis $\alpha(H)\geq|V(H)|/3$ for every subgraph $H\subseteq G$ is equivalent to $\rho(G)\leq3$; it suffices to test induced subgraphs. In particular such a graph is $K_4$-free.
+
+The source question, attributed there to ``Jacque Verstraete,'' asks for a fixed positive power saving $\chi(G)\leq d^{1-\epsilon}$ when $d=\Delta(G)$ and $\rho(G)\leq3$. Literally quantified over every degree, this inequality fails for small examples such as a triangle ($d=2$, $\chi=3$). The substantive asymptotic interpretation is
+\[
+ \exists\epsilon\in(0,1)\ \exists d_0\ \forall G:\quad
+ \rho(G)\leq3,\ \Delta(G)\geq d_0
+ \ \Longrightarrow\ \chi(G)\leq\Delta(G)^{1-\epsilon}.
+\]
+Equivalently one may allow an absolute multiplicative constant and restrict to positive maximum degree. This convention is made explicit because the source omits a degree threshold.
+
+Its motivating examples are Kneser graphs $KG_{3t,t}$, whose vertices are the $t$-element subsets of a $3t$-element set, adjacent when disjoint: the source reports the hereditary independence condition and chromatic number $\Theta(\log d)$ for their maximum degree $d$.
+
+The source also quotes a Shearer independence estimate for $K_4$-free graphs and then writes $\chi(G)\leq |V(G)|/\alpha(G)$. That latter inequality is reversed in general: $\chi(G)\geq |V(G)|/\alpha(G)$. Thus the printed deduction of a chromatic upper bound is not retained as valid. The attached aid instead attributes to Davies--Kang--Pirot--Sereni the directly applicable bound
+\[
+ \chi(G)\leq(\kappa_3+o(1))\frac{\Delta(G)}{\log\Delta(G)}
+ \quad\text{for }\rho(G)\leq3,\quad\Delta(G)\to\infty,
+\]
+with a constant $\kappa_3$; it reports this as the strongest directly applicable bound at its run, not a fixed power saving.
+
+The aid's additional certificate is: if $G$ is $k$-chromatic and $\rho(G)\leq3$, then it contains a nested chain $F_1\subset\cdots\subset F_k$ of vertex-critical $j$-chromatic graphs $F_j$, satisfying
+\[
+ \delta(F_j)\geq j-1,\qquad
+ |V(F_{j-1})|\leq\left\lfloor\frac{2|V(F_j)|}{3}\right\rfloor\quad(2\leq j\leq k).
+\]
+Here vertex-critical means that deleting any vertex lowers the chromatic number. A maximum independent-set deletion from $F_j$ leaves a $(j-1)$-chromatic graph containing $F_{j-1}$. In particular $|V(F_k)|\geq a_k$, where $a_1=1$, $a_j=\lceil3a_{j-1}/2\rceil$, and hence $|V(F_k)|\geq(3/2)^{k-1}$. This vertex-count certificate does not resolve the degree power-saving question.
+\subsection{Short English statement}
+Does Hall ratio at most three force a fixed power improvement over the maximum degree in coloring? The source needs an asymptotic degree convention and contains a reversed inequality. The supplied aid reports a logarithmic improvement and an exponential-size critical-subgraph certificate, rather than the requested power saving.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Graph Ramsey theory}, question 21, ``Chromatic number of graphs with everywhere high independence number,'' attributed in the extract to Jacque Verstraete: \url{https://www.overleaf.com/read/mnvcscjjysvg}. It names Shearer for an independence bound $\alpha(G)\geq c|V(G)|\log d/(d\log\log d)$ in $K_4$-free graphs, without a full citation.
+\item The attached aid names Davies--Kang--Pirot--Sereni for the Hall-ratio coloring bound, without full bibliographic details.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20000943, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[67]}. Attached attempt 1, partial result, problem status at run open, rigor proved, low novelty confidence; machine-generated, not peer reviewed, and requiring independent verification before citation.
+\end{itemize}
+\end{document}

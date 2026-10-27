@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3000035}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $n\geq1$, let $A\in\{0,1\}^{n\times n}$, and set
+\[
+ P=\{x\in\R^n:Ax\leq\mathbf1,\ x\leq\mathbf1\},
+\]
+with componentwise inequalities and no lower bound $x\geq0$. A facet is an actual codimension-one face, not simply a row of a possibly redundant inequality description. Let $\mathcal F(P)$ be the facets and let $c:\mathcal F(P)\to\{1,\ldots,n\}$ assign one color to each, with exactly two facets of each color.
+
+Writing $e_i$ for the $i$th coordinate vector, the source further requires that a facet ``with extreme direction $-e_i$'' not have color $i$. The recession cone of $P$ is the negative orthant, with extreme rays $\R_{\geq0}(-e_i)$. Under the natural recession-face interpretation, the condition is
+\[
+ -e_i\in\operatorname{rec}(F)\quad\Longrightarrow\quad c(F)\ne i,
+ \qquad F\in\mathcal F(P).
+\]
+Here $\operatorname{rec}(F)$ is the set of directions $d$ such that $x+td\in F$ for every $x\in F$ and $t\geq0$. The source does not explicitly define extreme direction, so this interpretation must be confirmed.
+
+A vertex $v$ is panchromatic if
+\[
+ \{c(F):F\in\mathcal F(P),\ v\in F\}=\{1,\ldots,n\}.
+\]
+The algorithmic question is whether, for every admissible $A$ and coloring, such a vertex can be found in time polynomial in the finite input encoding. Degenerate vertices may meet more than $n$ facets; no simplicity assumption is added. Since there are at most $2n$ defining inequalities, the exact-two-per-color hypothesis also requires $2n$ actual facets; redundant/duplicate inequalities cannot be counted as separate colored facets without changing the problem.
+
+The record does not give a separate existence theorem or specify the coloring representation and output conventions. A total search algorithm must in particular guarantee existence on every admitted input; that guarantee is not silently imported from a named Sperner analogy.
+\subsection{Short English statement}
+Find a polynomial-time procedure that locates a vertex incident to every color in the given downward-unbounded matrix polyhedron. The exact direction condition and actual-facet convention matter. The supplied assessment describes a Sperner-style fixed-point/parity search question and reports no verified published polynomial-time resolution or refutation. The archived Egres open label is source evidence rather than a current resolution authority.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath permanent ID 3000035, source code catalogue entry, ``Extreme direction Sperner for square 0-1 matrix.'' Registry curation and metadata: Ulam AI and UnsolvedMath Contributors, CC BY 4.0; updated 2026-08-06.
+\item Egres Open, \emph{List of open problems}, indexed page ``Extreme direction Sperner for square 0-1 matrix'': \url{https://oldlemon.cs.elte.hu/egres/open/List_of_open_problems}. Supplied HTML extraction accessed 2026-07-29. The archived index classifies it open, but current status requires review. Redistribution rights are NEEDS\_REVIEW because no license was displayed in the archived footer.
+\item No author, primary paper, existence theorem or complete resolving reference is supplied beyond the Egres index. No missing citation is invented.
+\end{itemize}
+\end{document}

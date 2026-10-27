@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001394}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for rates of convergence to a Poisson law in slowly mixing systems. Its example ``from a decay rate of 1/n 4 to 1/n'' does not unambiguously specify an exponent, the mixing estimate, or the probability metric. The aid instead states a rare-target total-variation criterion.
+
+Let \((\Omega,\mu,T)\) be a probability-preserving system, let \(A\) be measurable with \(p=\mu(A)>0\), fix \(t>0\), and set
+\[
+ N=\lfloor t/p\rfloor,\qquad X_i=\mathbf1_A\circ T^i,
+ \qquad W_A=\sum_{i=1}^NX_i.
+\]
+For integer gap \(g\ge1\), define the positive short-return excess
+\[
+ Q_A(g)=\sum_{j=1}^g\max\{\mu(A\cap T^{-j}A)-p^2,0\}.
+\]
+For the entire far-field sigma algebra
+\(\mathcal B_{i,N,g}=\sigma(X_j:1\le j\le N,\ |j-i|>g)\),
+use the normalized event-mixing coefficient
+\[
+ M_A(g)=\sup_{N\ge1}\sup_{1\le i\le N}
+ \frac1p\sup_{B\in\mathcal B_{i,N,g}}
+ |\E[(X_i-p)\mathbf1_B]|.
+\]
+The supremum over all horizons makes this a whole-far-field condition, not just pairwise correlation decay. Assume \(M_A(g)\le C_Mg^{-\beta}\) with \(\beta>0\). With total variation defined by supremum over events, the aid reports
+\[
+ d_{\mathrm{TV}}(\mathcal L(W_A),\operatorname{Pois}(t))
+ \le t(4g+1)p+\frac{2tQ_A(g)}p+2C_Mt g^{-\beta}+p.
+\]
+The last term accounts for \(|Np-t|\le p\). The first term retains the independent \(p^2\) neighborhood contribution rather than assigning all short returns to clustering. The factor \(p\) in normalized far-field dependence is essential before summing \(N\) trials. Exact dependency-neighborhood and total-variation constants require verification from the missing proof artifact.
+
+For a family of shrinking targets with \(p\to0\), constants uniform in the family, and fixed \(t,\beta\), choose
+\[
+ g_p=\lceil p^{-1/(\beta+1)}\rceil.
+\]
+If additionally \(Q_A(g_p)\le C_Rp^{1+\gamma}\) with \(\gamma>0\), the aid obtains
+\[
+ d_{\mathrm{TV}}(\mathcal L(W_A),\operatorname{Pois}(t))
+ =O\bigl(p^{\beta/(\beta+1)}+p^\gamma\bigr).
+\]
+This is conditional gap optimization, not a consequence of an unspecified polynomial mixing rate alone. In particular decay for a restricted class of observables need not give the displayed target-uniform far-field bound.
+
+The aid gives a fair Bernoulli-shift obstruction using periodic cylinders, for example \(A_\ell\) requiring \(\ell\) consecutive zero coordinates. Then \(p=2^{-\ell}\) and \(\mu(A_\ell\cap T^{-1}A_\ell)=p/2\), so overlapping visits cluster despite independent underlying coordinates and perfect separation beyond the cylinder length. It reports that this family fails the ordinary Poisson limit. Thus strong long-range mixing does not replace short-return control. The record does not identify a concrete slowly mixing system satisfying all estimates, determine a sharp universal rate, or recover the source's ambiguous numerical example.
+\subsection{Short English statement}
+The source asks for Poisson approximation rates in slowly mixing systems. The supplied aid gives a conditional total-variation bound separating neighborhood size, short-return clustering, and far-field dependence, with an optimized exponent and a Bernoulli-cylinder example showing why mixing alone is insufficient.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001394\), source code \texttt{catalogue entry}; \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[51]}, tag \texttt{problem}.
+\item AIM workshop ``Stochastic methods for non-equilibrium dynamical systems,'' Problem 9: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. Statement status \texttt{exact}; the ambiguous ``1/n 4 to 1/n'' example is retained as unresolved source notation. No PDF was accessed for this draft.
+\item Arratia--Goldstein--Gordon dependency-neighborhood method, named in the aid without a complete title, date, theorem number, or URL. No original remarks, literature field, or authoritative proof artifact for the candidate bound is supplied.
+\item Research attempt 1: \texttt{partial\_result}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, rigor label \texttt{proved}, novelty confidence low. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

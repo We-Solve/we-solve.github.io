@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000400}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Original question (Katz).} The extracted Heilbronn sums appear, as the parameter $t$ varies, to approximate a pushforward of Haar measure better than expected. Why? The displayed identity is damaged and, according to the aid, literally loses the summation-variable dependence in its final exponential. The source does not specify $t$'s range, normalization, compact group, pushforward map or meaning of ``better than expected''.
+
+\textbf{Explicit aid reconstruction, not certified as Katz's intended Haar target.} Write $e_M(u)=\exp(2\pi i u/M)$. For an odd prime $p$, the algebraically corrected family is
+\[S_p(t)=\sum_{x\bmod p}e_{p^2}\bigl(x^p(1+pt)\bigr)=\sum_{x\bmod p}e_{p^2}(x^p)e_p(tx),\qquad t\in\F_p.\]
+The second factor depends on $x$. The expression $x^p\bmod p^2$ is independent of its lift from $\F_p$, and the family is periodic modulo $p$ in $t$. This reconstruction makes the lost dependence explicit rather than accepting the false printed product.
+
+Put $h=(p-1)/2$, $I_p=\{-h,\ldots,-1,1,\ldots,h\}$ and
+\[F_p(z)=\sum_{x\in I_p}e_{p^2}(x^p)z^x,\qquad Y_p(z)=\frac{F_p(z)}{\sqrt{p-1}}.\]
+For $|z|=1$ these are real, and $S_p(t)=1+F_p(e_p(t))$. The chosen centered normalization has Haar second moment one. Let $\mu_p$ be the empirical measure of $Y_p(e_p(t))$ for uniform $t\in\F_p$, and $\nu_p=(Y_p)_*m_{S^1}$, where $m_{S^1}$ is normalized circle Haar measure. This is a comparison to a polynomial-dependent circle pushforward, not an identified random-matrix target or a measure fixed independently of $p$.
+
+For every integer $m\ge1$, the aid's wraparound reduction is
+\[\int y^m\,\dd\mu_p-\int y^m\,\dd\nu_p=(p-1)^{-m/2}\sum_{\substack{x_1,\ldots,x_m\in I_p\\x_1+\cdots+x_m=kp,\ k\ne0}}e_{p^2}(x_1^p+\cdots+x_m^p).\]
+For nonzero $x\in I_p$ define the Fermat quotient $q_p(x)=(x^{p-1}-1)/p\pmod p$. On the slice with sum $kp$, its phase equals
+\[e_p\Bigl(k+\sum_jx_jq_p(x_j)\Bigr).\]
+The aid reports exact agreement of the first two centered moments. For the cubic moment the entire difference becomes
+\[\frac{2}{(p-1)^{3/2}}\operatorname{Re}\sum_{\substack{1\le x,y,z\le h\\x+y+z=p}}e_p\bigl(1+xq_p(x)+yq_p(y)+zq_p(z)\bigr).\]
+The triangle is empty when the displayed constraints have no solutions. The aid leaves the cancellation required in this positive triangular Fermat-quotient sum open. It supplies no quantitative target strong enough to formalize ``better than expected'' as a proved rate. The odd-prime restriction and centered normalization are explicit choices of this reconstruction; the original gives neither and does not discuss $p=2$.
+\subsection{Short English statement}
+The printed identity and Haar comparison are underspecified. The aid corrects the missing variable factor and models the sums as circle sampling of a real Laurent polynomial. Moment error then comes exactly from Fourier frequencies wrapping by a nonzero multiple of $p$; the first two centered moments agree, while the cubic error remains a cancellation problem.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20000400, source code catalogue entry; \texttt{aim-algebraic-number-theory-notes.json}, notes[51], tag \texttt{question}.
+\item AIM workshop \emph{Arithmetic statistics over finite fields and function fields}, Question 22 (Katz): \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. The record is \texttt{reconstructed\_unverified}, with no clean statement. No PDF was consulted.
+\item The supplied verification explicitly says the missing compact group and map were not verified as Katz's intended wording and that a different random-matrix target cannot be recovered from the PDF alone.
+\item Attached machine-generated research attempt 1: result \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low. It is not peer reviewed and requires independent verification before citation. No authoritative bibliography is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002823}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Interpret the source's \(U_n\) as the unitriangular group \(U_n(q)=1+J\) over \(\F_q\), where \(J\) is the algebra of strictly upper triangular \(n\times n\) matrices, \(n\ge1\), and \(N=\binom n2\). The question asks in what sense conjugacy classification and class-number computation are difficult, but gives no input encoding, complexity model, or proposed hardness theorem. The aid supplies exact structural reductions rather than such a computational classification.
+
+Conjugation by \(U_n(q)\) fixes the first-superdiagonal coordinates \(X_{i,i+1}\). For \(S\subseteq\{1,\ldots,n-1\}\), choose the normalized fiber
+\[
+ \mathcal F_S=\{X\in J:X_{i,i+1}=1\ (i\in S),\ X_{i,i+1}=0\ (i\notin S)\},
+\]
+and let \(c_{n,S}(q)\) be its number of \(U_n(q)\)-orbits. Diagonal conjugation transports fibers with the same zero/nonzero pattern, so the aid's exact identity is
+\[
+ k(U_n(q))=\sum_{S\subseteq[n-1]}(q-1)^{|S|}c_{n,S}(q).
+\]
+This asserts equal orbit counts under automorphisms, not that distinct first-superdiagonal values are conjugate within \(U_n(q)\).
+
+When \(S=[n-1]\), every matrix in the fiber is regular nilpotent. Its centralizer in \(J\) has dimension \(n-1\), and its group orbit has \(q^{N-(n-1)}\) elements, exactly the fiber's size. Hence \(c_{n,[n-1]}(q)=1\), and all matrices with nonzero first superdiagonal contribute precisely \((q-1)^{n-1}\) conjugacy classes. Therefore
+\[
+ k(U_n(q))-(q-1)^{n-1}
+\]
+is the entire singular-locus contribution, from matrices with at least one zero first-superdiagonal coordinate. For fixed \(n\), any possible failure of the associated Higman polynomiality statement is confined to this aggregate singular contribution. No individual singular stratum is thereby proved polynomial or nonpolynomial.
+
+The second exact reduction is
+\[
+ k(U_n(q))=q^{-N}|\{(X,Y)\in J^2:XY=YX\}|.
+\]
+If \(C_J(X)=\{Y\in J:XY=YX\}\) and \(Z_d(q)=\{X\in J:\dim_{\F_q}C_J(X)=d\}\), this becomes
+\[
+ k(U_n(q))=\sum_d q^{d-N}|Z_d(q)|.
+\]
+The centralizer strata are determined by ranks of the linear commutator map \(Y\mapsto XY-YX\). Their finite-field point counts are the remaining arithmetic/geometric task. These identities separate a simple regular locus from the rest; they do not settle general conjugacy representatives, Higman's question, or a formal complexity lower bound.
+\subsection{Short English statement}
+The aid removes a tractable regular locus: it contributes exactly \((q-1)^{n-1}\) classes. All remaining class counting lies on matrices with a zero first-superdiagonal entry, and can also be expressed through commuting pairs and centralizer strata. This is a reduction, not a hardness theorem or full class-number formula.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002823\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-representation-theory-notes.json}, \texttt{notes[94]}. The AIM domain is Representation theory; the registry category is Algebra.
+\item AIM, \emph{Supercharacters and combinatorial Hopf algebras}, Problem 1.11; supplied reference \url{https://aimath.org/WWN/supercharacters/supercharacters.pdf}. No PDF was accessed here. No proposer, year, original remarks, or literature entry is supplied.
+\item The aid relates its reduction to Higman's unitriangular class-number polynomiality problem, without a full citation. Its normalized-fiber and centralizer calculations likewise have no primary bibliographic reference in the record.
+\item Supplied research attempt 1: \texttt{partial\_result}, run status \texttt{open}, rigor label \texttt{proved}, low novelty confidence; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

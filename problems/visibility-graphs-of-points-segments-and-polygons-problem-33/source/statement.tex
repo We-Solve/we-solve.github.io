@@ -1,0 +1,50 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800559}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied source asks: ``Draw a simple polygon whose visibility graph is the given graph $G$.''
+
+A precise candidate interpretation is the following vertex-visibility realization problem. Let $G=(V,E)$ be a finite simple undirected graph with $|V|=n\geq 3$. A simple polygon $P$ is a closed polygonal chain with distinct vertices $p_1,\ldots,p_n$, whose nonadjacent edges are disjoint and whose adjacent edges meet only at their common endpoint. Write $\overline{\Omega}_P$ for the closed region bounded by this chain, including its boundary. Under the convention that boundary visibility counts, its vertex visibility graph has vertex set $\{p_1,\ldots,p_n\}$, with distinct vertices $p_i,p_j$ adjacent exactly when
+\[
+[p_i,p_j]\subseteq\overline{\Omega}_P,
+\]
+where $[p_i,p_j]$ denotes the closed straight line segment joining them.
+
+Under this interpretation, the task is to construct such a polygon $P$ and a bijection $f:V\to\{p_1,\ldots,p_n\}$ satisfying
+\[
+\forall u,v\in V,\quad u\ne v\implies
+\bigl(\{u,v\}\in E\iff[f(u),f(v)]\subseteq\overline{\Omega}_P\bigr).
+\]
+The cyclic order of the polygon vertices is part of the desired output unless separately supplied.
+
+This formulation is conditional on conventions absent from the supplied record: the record does not explicitly define visibility, identify the graph vertices with polygon vertices, specify degeneracy restrictions, or state whether a polygon boundary order is supplied. It also does not say whether $G$ is promised to admit a realization. Consequently, no requirement to recognize nonrealizable inputs, report nonexistence, or achieve a particular computational complexity is asserted here. These qualifications require human review against the source before this candidate formulation can be treated as definitive.
+\subsection{Short English statement}
+Given a graph $G$, construct a simple polygon whose vertex visibility graph is isomorphic to $G$, under the explicitly stated convention that a segment contained in the closed polygonal region gives visibility. The supplied record leaves visibility conventions, input promises, and algorithmic requirements unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $800559$, exact source problem code \texttt{catalogue entry}, supplied complete source record. The registry attributes the problem to Ghosh and Goswami, with proposed year 2010, and labels it open; that label is supplied metadata, not an independently verified assessment.
+\item Ghosh and Goswami, \emph{Unsolved Problems in Visibility Graphs of Points, Segments and Polygons} (2010), Problem 33. Supplied source URL: \url{https://arxiv.org/abs/1012.5187}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. This access date and provenance are supplied information; no independent source visit or verification is claimed.
+\end{itemize}
+\end{document}

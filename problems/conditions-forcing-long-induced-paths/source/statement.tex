@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006145}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a graph class $\mathcal G$ and positive integers $n,k$, let $R_{\mathcal G}(n,k)$ denote the assertion that every graph $H\in\mathcal G$ containing a path on $n$ vertices also contains an induced path on $k$ vertices. Under the conventional interpretation for simple undirected graphs, a path on $n$ vertices consists of distinct vertices $v_1,\ldots,v_n$ with $v_iv_{i+1}\in E(H)$ for $1\le i<n$; it is induced if the edges of $H$ between these vertices are exactly those consecutive pairs. Thus an ordinary path may have additional edges between its vertices in the ambient graph. The source does not explicitly specify whether graphs are finite, simple, and undirected; this conventional interpretation requires confirmation.
+
+The supplied definition is
+\[
+ f_{\mathcal G}(n)=\max\{k\in\Z_{\ge1}:R_{\mathcal G}(n,k)\},
+\]
+whenever this maximum exists. If no member of $\mathcal G$ contains an $n$-vertex path, then $R_{\mathcal G}(n,k)$ holds vacuously for every positive integer $k$, so the displayed maximum does not exist as an integer. No convention for this case is supplied. If all graphs are finite and some member contains an $n$-vertex path, the maximum exists: $k=1$ satisfies the property, and any such member bounds the possible values of $k$ by its number of vertices.
+
+\textbf{Problem.} Identify natural conditions on $\mathcal G$ ensuring that
+\[
+ f_{\mathcal G}(n)\longrightarrow\infty\qquad(n\to\infty).
+\]
+Where the defining maxima exist, this asks for conditions implying
+\[
+ \forall m\in\Z_{\ge1}\ \exists N\in\Z_{\ge1}\ 
+ \forall n\in\Z_{\ge1},\ n\ge N\ 
+ \forall H\in\mathcal G,\qquad
+ \bigl(H\text{ contains an }n\text{-vertex path}\bigr)
+ \Longrightarrow
+ \bigl(H\text{ contains an induced }m\text{-vertex path}\bigr).
+\]
+The quantified assertion remains meaningful in vacuous cases, but interpreting it as the supplied limit then requires an additional convention for $f_{\mathcal G}$. The source does not give a formal meaning to ``natural conditions'' or specify a restricted family of graph classes.
+\subsection{Short English statement}
+Find natural hypotheses on a graph class that force arbitrarily long induced paths whenever a graph in the class contains a sufficiently long ordinary path. The graph conventions and the definition of $f_{\mathcal G}(n)$ when no class member contains an $n$-vertex path require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID $30006145$, title ``Conditions Forcing Long Induced Paths'', source problem code \texttt{catalogue entry}; supplied complete source record.
+\item Supplied report citation: \emph{Graph Theory} (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/1, pp.~5--74. \url{https://doi.org/10.4171/owr/2025/1}. The supplied original statement identifies ``Long induced paths'', Louis Esperet, joint work with Julien Duron and Jean-Florent Raymond. The proposer field is empty.
+\item Supplied literature reference: Duron--Esperet--Raymond, \emph{SIAM J. Discrete Math.} \url{https://doi.org/10.1137/24M1720366}.
+\item Supplied literature reference: Hilaire--Raymond, 2023. \url{https://doi.org/10.37236/11029}.
+\item Literature assessment date: \texttt{2026-08-22}. This is supplied dated curation, not independently verified. The record labels the problem partially solved and reports results giving long induced paths under several natural graph conditions, including polylogarithmic bounds, while stating that a broad characterization of conditions forcing divergence remains open. The supplied background describes this assessment as literature triage derived from OWR curation and requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

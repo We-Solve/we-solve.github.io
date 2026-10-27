@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002348}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+In a fixed computable presentation of a countable set $A$, a set $S\subset A$ is simple if it is computably enumerable, $A\setminus S$ is infinite, and every computably enumerable subset of $A\setminus S$ is finite. The source first uses $A=\N$ and then rings such as $\Z$ or $\mathcal O_K$; these require a specified effective coding. Simplicity implies noncomputability.
+
+\textbf{Question 11, Davis: effective witness extension.} Let $A=\mathcal O_K$ be a ring of integers with computable presentation, let $f:A\hookrightarrow R$ be a computable unital embedding into a computably presented ring, and let $P\in A[X,\vec Y]$ with its coefficients effectively mapped to $R$. Define
+\[
+ S=\{x\in A:\exists\vec y\in A^n\ P(x,\vec y)=0\},
+\]
+\[
+ S_R^{\mathrm{pull}}=\{x\in A:\exists\vec y\in R^n\
+                        f(P)(f(x),\vec y)=0\}.
+\]
+Assume $S$ is simple. Then $S\subseteq S_R^{\mathrm{pull}}$, and the aid asserts that the latter is c.e. by effective witness search. Consequently it is either simple, if its complement is infinite, or cofinite. The source's $f(S)\subseteq S'$ mixes ambient types because it defines $S'$ inside $A$; the pullback above repairs that explicitly. One could instead define a target subset of $f(A)$, but must then transport the effective coding too.
+
+\textbf{Supplied conditional consequence for $\Q$.} If $P\in\Z[X,\vec Y]$ has a simple integer-witness set
+\[
+ S_\Z=\{x\in\Z:\exists\vec y\in\Z^n\ P(x,\vec y)=0\}
+\]
+and the complement in $\Z$ of
+\[
+ S_\Q=\{x\in\Z:\exists\vec y\in\Q^n\ P(x,\vec y)=0\}
+\]
+is infinite, then $S_\Q$ is simple and not recursive. An algorithm for Hilbert's Tenth Problem over $\Q$ would decide membership in $S_\Q$ by substituting an integer for $X$, a contradiction. Thus such a polynomial would prove undecidability over $\Q$. No polynomial meeting both hypotheses is constructed in the supplied record, so no unconditional negative solution to Hilbert's Tenth Problem for $\Q$ is claimed.
+
+\textbf{Supplied noneffective-localization obstruction.} Let $C$ be a non-c.e. set of rational primes and put $R_C=\Z[C^{-1}]$. The existential pullback for $XY=1$ is
+\[
+ U_C=\{x\in\Z:\exists y\in R_C\ xy=1\}
+     =\{\pm\textstyle\prod_{p\in C}p^{e_p}:e_p\ge0,
+                                      \text{ finite support}\}.
+\]
+For a prime $p$, $p\in U_C$ exactly when $p\in C$; hence $U_C$ is not c.e. If infinitely many primes lie outside $C$, its complement is infinite. This example refutes automatic effective enumerability of witness pullbacks into an arbitrary ring. Its integer-source unit set is not asserted to be simple, so it is not presented as a direct counterexample to the full simple-source dichotomy with all its hypotheses. It shows why the effective preservation step cannot be omitted merely because the target is an abstract ring.
+\subsection{Short English statement}
+Davis's proposed method is valid for effective ring embeddings: extending witnesses gives a c.e. superset of a simple set, which stays simple unless it becomes cofinite. A polynomial whose rational-witness enlargement still has infinite complement would therefore prove HTP over $\Q$ undecidable. The supplied localization example shows that arbitrary noneffective target rings do not automatically preserve c.e. pullbacks.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002348, source code catalogue entry; canonical \texttt{aim-logic-notes.json}, notes[123], statement status reconstructed unverified.
+\item AIM \emph{Extensions of Hilbert's tenth problem}, Question 11 (Davis): \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}.
+\item Supplied reference: Davis and Putnam, ``Diophantine sets over polynomial rings''. No year, publication entry or theorem label is supplied.
+\item Registry research attempt 1, dated 2026-08-14: partial result, status at run open, rigor ``proved'', novelty confidence low. The explicitly machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

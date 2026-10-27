@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004962}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Use the conventional domain of finite, simple, undirected graphs. The supplied record does not explicitly specify this domain, so this convention requires confirmation against the report. For a graph \(G\), let \(V(G)\) be its vertex set, let \(\chi(G)\) be its chromatic number, and let \(\omega(G)\) be its maximum clique size; set \(\chi(\varnothing)=\omega(\varnothing)=0\).
+
+For \(v\in V(G)\), the local complementation \(G*v\) toggles adjacency between every pair of distinct neighbors of \(v\), leaving all other adjacencies unchanged. For an edge \(uv\in E(G)\), define the edge pivot by
+\[
+G\wedge uv=((G*u)*v)*u.
+\]
+A graph \(H\) is a \emph{pivot-minor} of \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by a finite sequence of edge pivots and vertex deletions. Set
+\[
+\mathcal C_H=\{G:H\text{ is not isomorphic to a pivot-minor of }G\}.
+\]
+A graph class \(\mathcal C\) is \emph{polynomially \(\chi\)-bounded} if there exist a real constant \(C>0\) and an integer \(d\geq 0\) such that, for every \(G\in\mathcal C\) and every induced subgraph \(J\) of \(G\),
+\[
+\chi(J)\leq C\bigl(\omega(J)+1\bigr)^d.
+\]
+The use of \(\omega+1\) accommodates the empty graph and is equivalent to the usual existence of a polynomial \(\chi\)-bounding function.
+
+\textbf{Conjecture (supplied report, Conjecture 2).} For every finite simple undirected graph \(H\), the class \(\mathcal C_H\) is polynomially \(\chi\)-bounded. Equivalently,
+\[
+\forall H\ \exists C_H>0\ \exists d_H\in\mathbb Z_{\geq 0}\ \forall G\in\mathcal C_H,
+\qquad
+\chi(G)\leq C_H\bigl(\omega(G)+1\bigr)^{d_H}.
+\]
+Here the constants may depend on \(H\), but not on \(G\). Every induced subgraph of a member of \(\mathcal C_H\) also belongs to \(\mathcal C_H\), so this inequality includes the induced-subgraph requirement.
+
+The report's quoted formulation is: every proper pivot-minor-closed class of graphs is polynomially \(\chi\)-bounded. Here a class is understood to be closed under isomorphism, \emph{proper} means that it is not the class of all finite simple undirected graphs, and pivot-minor closure means closure under taking pivot-minors. Under these conventions this is equivalent to the fixed-\(H\) formulation: every proper such class excludes some graph \(H\) and is contained in \(\mathcal C_H\). These domain and class conventions are explicit interpretations of terminology that the supplied excerpt does not separately define.
+\subsection{Short English statement}
+For each fixed forbidden pivot-minor \(H\), the conjecture asks for a polynomial bound on the chromatic number of every graph excluding \(H\), in terms of its clique number. The polynomial may depend on \(H\). The supplied record labels this conjecture open; its status and source-verification claims have not been independently checked here.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30004962\), source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year \(2022\) and names no individual proposer.
+\item Supplied report citation: \emph{Graph Theory (2023)}, Oberwolfach Reports, pp.~5--78, DOI \texttt{10.4171/owr/2022/1}; \url{https://doi.org/10.4171/owr/2022/1}. The supplied excerpt identifies the target as Conjecture~2. The citation's year \(2023\), the DOI's \(2022\) component, and the proposed year \(2022\) are retained without reconciliation.
+\item Supplied literature source, labeled ``original OWR report'': \url{https://doi.org/10.4171/OWR/2022/1}.
+\item Supplied literature source, labeled ``Kim--Oum vertex-minor survey'': \url{https://doi.org/10.1016/j.dam.2024.03.011}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open, reports ordinary \(\chi\)-boundedness for proper pivot-minor-closed classes as proved, and identifies the polynomial strengthening as conjectural. This is supplied dated curation, not an independently verified literature assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The quoted report context attributes polynomial \(\chi\)-boundedness of circle graphs to Davies and McCarty, reference~[5], and states that circle graphs have a \(\chi\)-bounding function of order \(\Theta(\omega\log\omega)\), citing references~[3, 11]. It attributes polynomial \(\chi\)-boundedness of graphs of bounded rank-width to Bonamy and Pilipczuk, reference~[1]. It further reports that pivot-minors of line graphs with clique number \(\omega\) are \(\omega+1\) colorable, describing this as an extension of Vizing's theorem and describing that class as distinct from both line graphs and all graphs. These are supplied contextual claims, not independently verified here; the bibliographic entries for [1], [3], [5], and [11] are absent from the supplied record.
+\item The registry assigns statement status \texttt{corrected\_verified} and states that the clean formulation was checked against the official report. This records the supplied verification claim only; no source visit or independent verification is asserted here.
+\end{itemize}
+\end{document}

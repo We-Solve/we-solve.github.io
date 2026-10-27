@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004366}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks for efficient detection and extraction of interval direct summands of a pointwise finite-dimensional representation of $\R^d$. It does not specify the coefficient field, the intended interval convention, or an effective presentation of the input.
+
+Under the usual persistence interpretation, fix a field $k$ and a positive integer $d$, and equip $\R^d$ with the coordinatewise order: $x\leq y$ means $x_i\leq y_i$ for every $1\leq i\leq d$. A representation is a functor $M:(\R^d,\leq)\to\operatorname{Vect}_k$, given by vector spaces $M_x$ and linear maps $M_{x,y}:M_x\to M_y$ for $x\leq y$, satisfying
+\[
+M_{x,x}=\operatorname{id}_{M_x},\qquad M_{y,z}\circ M_{x,y}=M_{x,z}\quad(x\leq y\leq z).
+\]
+It is pointwise finite-dimensional if $\dim_k M_x<\infty$ for every $x\in\R^d$.
+
+One standard convention calls a nonempty subset $I\subseteq\R^d$ an interval if it is order-convex and connected by finite chains of comparable points. Order-convexity means that $x,z\in I$ and $x\leq y\leq z$ imply $y\in I$; the stated connectedness means that any two points of $I$ can be joined by a finite sequence in $I$ whose consecutive points are comparable. Under this convention the interval module $k_I$ is defined by
+\[
+(k_I)_x=\begin{cases}k,&x\in I,\\0,&x\notin I,\end{cases}
+\qquad
+(k_I)_{x,y}=\begin{cases}\operatorname{id}_k,&x,y\in I,\\0,&\text{otherwise},\end{cases}\quad(x\leq y).
+\]
+This convention, including the connectedness requirement, is an explicit provisional interpretation; the supplied source record does not define intervals or restrict them to products of one-dimensional intervals. No openness, closedness, boundedness, or endpoint convention is supplied.
+
+With these conventions, the direct-summand detection question is whether
+\[
+\exists\, I\subseteq\R^d\ \exists\, N:(\R^d,\leq)\to\operatorname{Vect}_k
+\quad\text{such that}\quad M\cong k_I\oplus N,
+\]
+where $I$ is an interval and the isomorphism is an isomorphism of representations. The requested task is to develop efficient procedures that decide this question and, when interval summands exist, extract them, preferably using local, readily checkable conditions without first computing a complete decomposition of $M$. Extraction may be witnessed by natural transformations $\iota:k_I\to M$ and $\pi:M\to k_I$ satisfying $\pi\circ\iota=\operatorname{id}_{k_I}$.
+
+The source leaves unresolved whether extraction should return one interval summand or all interval summands with multiplicities. It also leaves the dimension range, coefficient field, input encoding, meaning of locality, and complexity criterion unspecified. Pointwise finite dimensionality alone supplies neither a finite input description nor a complexity measure, so the algorithmic request is not yet a fully specified decision problem. Detecting an interval direct summand must also be distinguished from deciding whether the whole module is a direct sum of interval modules; the supplied literature discussion concerns the latter as well.
+\subsection{Short English statement}
+Given a pointwise finite-dimensional multiparameter persistence representation, detect and extract interval direct summands efficiently, preferably through local tests without a complete decomposition. The coefficient field, interval convention, input presentation, complexity standard, and required extent of extraction remain unspecified. The displayed formulation uses explicitly provisional persistence conventions and requires human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID $30004366$, title \emph{Efficient Extraction of Interval Summands}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year $2020$ and names no individual proposer.
+\item Supplied report citation: \emph{Representation Theory of Quivers and Finite Dimensional Algebras} (2021), Oberwolfach Reports, pp.~143--230, DOI \texttt{10.4171/owr/2020/3}. \url{https://doi.org/10.4171/owr/2020/3}. The supplied background describes these reports as records of mathematical workshops and their open-problem discussions. The citation is reproduced as supplied; its bibliographic details and exact problem location have not been independently verified.
+\item Supplied literature reference: Asashiba et al., \emph{Interval decomposability of 2D persistence modules}. \url{https://doi.org/10.1016/j.comgeo.2022.101879}.
+\item Supplied literature reference: Graphcodes, \emph{Interval decomposability in multiparameter persistence}. \url{https://arxiv.org/abs/2503.07368}. The label and attribution are reproduced as supplied.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem partially solved and states that interval decomposability can be decided algorithmically in important two-parameter settings, while the general multidimensional representation problem remains wild and unresolved. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; the time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review. These are supplied editorial assertions, not independent verification of the formulation or mathematical status.
+\end{itemize}
+\end{document}

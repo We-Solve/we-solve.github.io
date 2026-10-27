@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002820}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for natural supercharacter theories for Sylow $p$-subgroups of symmetric groups, whether they are nested, and whether restriction splits into supercharacters. Its flattened notation ``S pn''/``S pn-1'' does not reliably display exponents or the subgroup maps. The aid reads it as the tower on $p^n$ letters with a specified first-block inclusion, distinct from rooted-tree truncation.
+
+Fix a prime $p$ and let $W_0=1$, $W_n=W_{n-1}^{\,p}\rtimes C_p$, with $C_p$ cyclically permuting the factors. This is the standard iterated-wreath Sylow subgroup of $S_{p^n}$. Let $W_{n-1}\hookrightarrow W_n$ be one base-factor inclusion. Its index is $c_n=p^{p^{n-1}}$, and $W_n^{\mathrm{ab}}\cong C_p^n$.
+
+The aid uses the characteristic supercharacter theory whose character blocks are singleton linear characters and one block of all nonlinear irreducibles, omitting the latter if empty. For any finite group $G$ this theory has superclasses $\{1\}$, $G'\setminus\{1\}$ when nonempty, and the nonidentity cosets of $G'$. Define
+\[
+ \Lambda_n=\sum_{\lambda\in\operatorname{Irr}(W_n),\,\lambda(1)=1}\lambda,
+ \qquad
+ \Theta_n=\sum_{\chi(1)>1}\chi(1)\chi
+ =\rho_{\mathrm{reg},n}-\Lambda_n.
+\]
+Thus $\Theta_1=0$ is a notation convention, not an empty character block counted as a supercharacter.
+
+The reported first-block restriction identity, for $n\ge2$, is
+\[
+ \operatorname{Res}_{W_{n-1}}^{W_n}\Theta_n
+ =p^{p^{n-1}}\Theta_{n-1}
+ +\bigl(p^{p^{n-1}}-p\bigr)\Lambda_{n-1}.
+\]
+Individual linear characters restrict to linear characters, and the sum satisfies $\operatorname{Res}\Lambda_n=p\Lambda_{n-1}$. Hence every supercharacter restricts to a nonnegative integral combination of the lower theory's supercharacters. The degree weights in $\Theta_n$ matter; an unweighted sum of nonlinear characters is a different function.
+
+For the other map, let $W_n\twoheadrightarrow W_{n-1}$ be rooted-tree truncation, deleting the last level. The aid reports that its kernel is not a union of these superclasses for every $n\ge3$. Thus this theory does not descend projectively through those truncations from that level onward. This failure is compatible with the inclusion restriction formula: the two maps and compatibility requirements differ. The construction answers one explicit tower version of the problem; it does not define the intended general notion of natural or nested or classify all possible supercharacter towers.
+\subsection{Short English statement}
+The aid gives a characteristic theory retaining every linear character and aggregating nonlinear ones. It has an explicit positive restriction rule along first-block inclusions, but fails quotient compatibility under rooted-tree truncation from level three. Those are distinct senses of a compatible tower.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002820, source code catalogue entry; created and updated 14 August 2026. Canonical \texttt{aim-representation-theory-notes.json}, zero-based \texttt{notes[91]}, tag \texttt{problem}, item 1.8.
+\item AIM ``Supercharacters and combinatorial Hopf algebras'': \url{https://aimath.org/WWN/supercharacters/supercharacters.pdf}. The metadata marks wording exact, although the symmetric-group subscripts/exponents are flattened. Original remarks and literature field are empty.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run open, rigor label \texttt{proved}, novelty confidence low. No complete authoritative references, formal definition of nested, or full general classification is supplied.
+\item Ulam AI / UnsolvedMath Contributors, CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000567}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The original question, attributed to Leonid Gurvits, asks for an analogue of Kadison--Singer for \(\mathrm{Zon}=\sum_{i=1}^k\alpha_i[0,z_i]\), with \(z_i\in\R^n\), \(k>n\), but states neither coefficient conditions nor a desired conclusion. The aid adopts a centered, consistently weighted repair: fix vectors \(v_1,\ldots,v_k\in\R^n\), not all zero, put \(E=\operatorname{span}\{v_i\}\), \(d=\dim E\), and
+\[
+ Z=\sum_{i=1}^k[-v_i,v_i],\qquad Z_J=\sum_{i\in J}[-v_i,v_i],\qquad
+ h_Z(x)=\sum_{i=1}^k|\langle v_i,x\rangle|\quad(x\in E).
+\]
+All weights are absorbed into the \(v_i\), and the same weighted generators are used in both subzonotopes. The relation of these repaired generators to the unspecified original coefficients is not uniquely determined.
+
+For \(0\leq\eta\leq1/2\), simultaneous approximate-half inclusions mean
+\[
+ (1/2-\eta)Z\subset Z_J\subset(1/2+\eta)Z,\qquad
+ (1/2-\eta)Z\subset Z_{J^c}\subset(1/2+\eta)Z.
+\]
+Writing \(\varepsilon_i=1\) on \(J\) and \(-1\) on \(J^c\), these are equivalent to
+\[
+ \left|\sum_{i=1}^k\varepsilon_i|\langle v_i,x\rangle|\right|
+ \leq2\eta\sum_{i=1}^k|\langle v_i,x\rangle|\qquad(x\in E).
+\]
+Define the actual small-segment parameter, rather than an arbitrary upper bound for it, by
+\[
+ \delta=\max_i\sup_{x\in E\setminus\{0\}}
+ \frac{|\langle v_i,x\rangle|}{h_Z(x)}
+ =\min\{a\geq0:[-v_i,v_i]\subset aZ\text{ for every }i\}.
+\]
+Then \(0<\delta\leq1\). The reported partial theorem provides a partition with relative support discrepancy
+\[
+ \sup_{x\in E\setminus\{0\}}
+ \frac{|\sum_i\varepsilon_i|\langle v_i,x\rangle||}{h_Z(x)}
+ \leq\min\{1,12\sqrt{3\delta d}\},
+\]
+hence with \(\eta\leq\min\{1/2,6\sqrt{3\delta d}\}\). The bound is also valid with any larger prescribed small-segment upper bound in place of \(\delta\).
+
+In the opposite direction, every partition has relative discrepancy at least \(\max\{0,2\delta-1\}\), where \(\delta\) must be the actual parameter just defined. This lower bound does not follow from an arbitrarily loose inclusion parameter. The aid reports a full-dimensional volume-one box with \(\delta=1\), showing that volume normalization alone cannot force a nontrivial approximate-half partition; zero generators may be appended if necessary to meet the original \(k>n\) convention.
+
+For the parallel-class refinement, a precise within-class ratio can be defined as follows: divide the nonzero generators into parallel classes \(C_\ell\), write \(v_i=c_iw_\ell\) in each class, and put
+\[
+ \rho=\max_\ell\frac{\max_{i\in C_\ell}|c_i|}{\sum_{i\in C_\ell}|c_i|}.
+\]
+With this explicitly stated convention, balancing each class yields the reported error form \(\eta\leq\rho/2\). The summary does not itself define its symbol \(\rho\), so this normalization is identified as part of the precise repaired formulation. None of these dimension-dependent partial bounds recovers a uniquely specified original zonotope analogue of Kadison--Singer.
+\subsection{Short English statement}
+The source asks an incomplete question about a zonotope analogue of Kadison--Singer. The supplied repair asks to split the same centered generators into two approximate halves, exactly equivalent to a uniform support-function discrepancy bound. It gives a dimension-dependent small-segment estimate and shows that volume normalization alone cannot replace directional smallness.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000567\), exact public code \texttt{catalogue entry}; \texttt{aim-analysis-notes.json}, \texttt{notes[98]}.
+\item AIM workshop \emph{Beyond Kadison--Singer: paving and consequences}, item b26, attributed in the supplied verification narrative to Leonid Gurvits: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}.
+\item Supplied research summary, ``A support-discrepancy formulation for zonotope generator partitions,'' attempt 1, reports a multiscale Rademacher-net proof, lower obstruction, volume-one example, and parallel-class refinement. No supporting external theorem citation is supplied; original remarks and literature fields are empty.
+\end{itemize}
+\end{document}

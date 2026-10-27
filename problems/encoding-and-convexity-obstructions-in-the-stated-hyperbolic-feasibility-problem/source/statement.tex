@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002387}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a homogeneous polynomial \(p:\R^d\to\R\), hyperbolicity with respect to \(e\) means \(p(e)>0\) and that \(t\mapsto p(x-te)\) has only real roots for every \(x\). Its closed hyperbolicity cone \(\Lambda_+(p,e)\) is the closure of the connected component of \(\{p>0\}\) containing \(e\). A linear matrix inequality (LMI) has the form \(A_0+\sum_j y_jA_j\succeq0\), with specified real symmetric matrices.
+
+The literal source defines a hyperbolic feasibility problem by polynomials \(p_1,\ldots,p_m\) and raw inequalities \(p_i(x)\ge0\), without choosing hyperbolicity components. Given an ellipsoid \(E_0\subseteq\R^d\) of volume \(R>1\) and \(\varepsilon\in(0,1)\), its proposed task is to output either
+\[
+ x\in E_0\cap\bigcap_{i=1}^m\{p_i\ge0\},
+\]
+or the correct assertion that this intersection contains no Euclidean ball of volume at least \(\varepsilon\). The second output is a weak infeasibility certificate and does not say the feasible set is empty. The proposed size is
+\[
+ s=\max\{m,\log(1/\varepsilon),\log R\}.
+\]
+Open Problem 1.10.3 asks whether every such problem can be explicitly converted to an LMI, solvable to the stated accuracy in \(\operatorname{poly}(s)\) Blum--Shub--Smale real operations, whose solution supplies the required original output. This is the source's stated reduction requirement, despite its use of the word ``equivalent.'' The OCR control character is interpreted as \(\varepsilon\); a displayed \(\operatorname{size}(\mathrm{HLP})\) appears to be a typographical variant of the HFP size.
+
+The aid identifies two separate defects. First, \(s\) omits \(d\), the polynomial representation, and the ellipsoid data. Under a convention charging explicit coordinate output, a fixed-\((m,R,\varepsilon)\) family with unbounded \(d\) requires \(\Omega(d)\) output while \(s\) is constant. One can take the linear hyperbolic constraint \(p(x)=x_1\) and a ball \(E_0\) of fixed volume \(R\), translated wholly into \(\{x_1>0\}\). Its feasible set contains that ball, so the no-ball output is false for fixed \(\varepsilon<R\). This obstruction depends on the stated explicit-output cost convention and refutes that size bound, not every repaired reduction question.
+
+Second, raw hyperbolic inequalities need not define a convex set. For \(p(x,y)=xy\), hyperbolic with respect to \((1,1)\), the set \(\{xy\ge0\}\) is nonconvex. Every projection of a spectrahedron is convex. Hence this literal set cannot be exactly such a projection. This does not rule out an arbitrary computational reduction that does not preserve the entire feasible set.
+
+The supplied conditional repair includes complete input encoding, chosen cone directions, appropriate conditioning and accuracy data, and explicit spectrahedral lifts
+\[
+ \Lambda_+(p_i,e_i)=\{x:\exists z_i\ L_i(x,z_i)\succeq0\}
+\]
+whose total encoded size is polynomial in the repaired input size. If the encoded ellipsoid is \(E_0=\{x:\|B(x-c)\|_2\le1\}\), its LMI is
+\[
+ L_E(x)=\begin{pmatrix}1&(B(x-c))^{\mathsf T}\\ B(x-c)&I_d\end{pmatrix}\succeq0.
+\]
+Then
+\[
+ \operatorname{diag}(L_1(x,z_1),\ldots,L_m(x,z_m),L_E(x))\succeq0
+\]
+projects exactly onto \(E_0\cap\bigcap_i\Lambda_+(p_i,e_i)\), with polynomial total size under the supplied-lift assumption. This is an exact representation conditional on having those lifts. It neither establishes their existence for every hyperbolicity cone nor, by itself, proves the source's volume-sensitive accuracy and running-time guarantee: conditioning and recovery of a suitable approximate solution require separate quantitative control. The final extracted phrase ``A problem analogous to'' is truncated and is not completed here.
+\subsection{Short English statement}
+The printed feasibility problem omits essential input size and cone choices. The aid separates an explicit-output size obstruction from a nonconvexity obstruction to exact LMI projections. A block LMI represents the repaired cone intersection only when polynomial-size lifts and the needed numerical data are supplied.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002387\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-optimization-notes.json}, \texttt{notes[2]}. The AIM domain is Optimization; the registry category is Analysis.
+\item AIM, \emph{Theory and Algorithms of Linear Matrix Inequalities}, Open Problem 1.10.3 and Definition 1.10.2, printed pages 10--11, PDF pages 11--12, version 12 March 2006; supplied reference \url{https://aimath.org/WWN/matrixineq/matrixineq.pdf}. No proposer, original remarks, or literature entry is supplied. The statement is marked \texttt{reconstructed\_unverified}.
+\item Supplied research attempt 1: \texttt{invalid\_statement}, run status \texttt{unknown}, rigor label \texttt{proved}, low novelty confidence; registry status \texttt{open}, classification \texttt{OPEN-TRIAGE}, created and updated 14 August 2026. The two obstructions and conditional lift construction have no additional primary citations in the record.
+\item The research aid is machine generated, not peer reviewed, and explicitly requires independent verification before citation.
+\end{itemize}
+\end{document}

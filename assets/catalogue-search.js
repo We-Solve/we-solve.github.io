@@ -1,4 +1,9 @@
-/* Each catalogue index is local and loaded only when a reader searches or filters. */
+/* Each catalogue index is local and loaded only when a reader searches or filters.
+   Discovery data supports the original {problems: [...]} payload and an exact
+   duplicate descriptor {schema_version: 1, catalogue_ref: "/api/v1/catalogues/...json"}.
+   References are site-root paths (without a deployment base path), resolve once
+   to a full payload, and never change record order or metadata. This discovery
+   format does not alter the permanent /api/v1/problems/<handle>.json API. */
 (function () {
   'use strict';
   var root = document.getElementById('catalogue-search');
@@ -64,19 +69,49 @@
     return basePath + value;
   }
 
-  function loadIndex() {
-    if (request) return request;
-    request = Promise.resolve().then(function () {
-      var indexURL = new URL(root.dataset.indexUrl, window.location.href);
-      if (indexURL.origin !== window.location.origin || !indexURL.pathname.startsWith(basePath + '/')) {
-        throw new Error('Invalid catalogue index path');
-      }
-      return fetch(indexURL.href, { credentials: 'same-origin' });
-    }).then(function (response) {
+  function catalogueURL(value, reference) {
+    if (typeof value !== 'string') throw new Error('Invalid catalogue index path');
+    var prefix = '/api/v1/catalogues/';
+    var path = reference ? value : value.slice(basePath.length);
+    if ((!reference && !value.startsWith(basePath + prefix)) || !path.startsWith(prefix) ||
+        !path.endsWith('.json') || !/^\/[A-Za-z0-9_./-]+$/.test(path) ||
+        path.slice(1).split('/').some(function (part) { return !part || part === '.' || part === '..'; })) {
+      throw new Error('Invalid catalogue index path');
+    }
+    var indexURL = new URL(reference ? basePath + value : value, window.location.href);
+    if (indexURL.origin !== window.location.origin || indexURL.search || indexURL.hash ||
+        indexURL.pathname !== (reference ? basePath + value : value)) {
+      throw new Error('Invalid catalogue index path');
+    }
+    return indexURL;
+  }
+
+  function catalogueData(indexURL, allowReference) {
+    // Fetch redirects are disabled before they can contact another destination.
+    return fetch(indexURL.href, { credentials: 'same-origin', redirect: 'error' }).then(function (response) {
       if (!response.ok) throw new Error('Catalogue unavailable');
       return response.json();
     }).then(function (data) {
-      if (!data || !Array.isArray(data.problems)) throw new Error('Invalid catalogue index');
+      if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid catalogue index');
+      if (Object.prototype.hasOwnProperty.call(data, 'catalogue_ref')) {
+        if (!allowReference || data.schema_version !== 1 ||
+            Object.keys(data).sort().join(',') !== 'catalogue_ref,schema_version') {
+          throw new Error('Invalid catalogue reference');
+        }
+        var target = catalogueURL(data.catalogue_ref, true);
+        if (target.href === indexURL.href) throw new Error('Cyclic catalogue reference');
+        return catalogueData(target, false);
+      }
+      if (!Array.isArray(data.problems)) throw new Error('Invalid catalogue index');
+      return data;
+    });
+  }
+
+  function loadIndex() {
+    if (request) return request;
+    request = Promise.resolve().then(function () {
+      return catalogueData(catalogueURL(root.dataset.indexUrl, false), true);
+    }).then(function (data) {
       classificationCodes = new Set();
       return data.problems.filter(function (record) {
         return record && typeof record.alias === 'string' && typeof record.title === 'string' && problemHref(record.url);

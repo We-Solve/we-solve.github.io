@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800502}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The model problem in the supplied record is
+\[
+-\nabla\!\cdot\!\bigl(k(x)\nabla u\bigr)=f,
+\qquad k:\R^d\longrightarrow\R,
+\]
+where \(k\) is measurable, bounded, and uniformly positive. In the customary almost-everywhere interpretation of these coefficient hypotheses, there are constants \(0<k_{\min}\le k_{\max}<\infty\) such that
+\[
+k_{\min}\le k(x)\le k_{\max}
+\quad\text{for almost every }x\in\R^d.
+\]
+The record does not specify the spatial domain on which the equation is solved, boundary conditions, the spaces containing \(u\) and \(f\), or a discretization; these remain necessary parts of any concrete formulation.
+
+For a specified finite-dimensional discretization, let \(A\in\R^{n\times n}\) denote its matrix. If \(P\in\R^{n\times n}\) is a specified invertible preconditioning matrix, the left-preconditioned matrix is \(P^{-1}A\). For a square matrix \(B\), write
+\[
+\sigma(B)=\{\lambda\in\C:\det(B-\lambda I_n)=0\}.
+\]
+These definitions introduce notation only; the supplied record does not specify a matrix class or guarantee that every proposed discretization or preconditioner has the properties required for conjugate gradients.
+
+\textbf{Research problem.} Extend the approach attributed to [GerMadNieStr19], [GerNieStr20], [GerNieStr22], and [NieStr24] for exact localization of eigenvalues of discretized elliptic operators and their left-preconditioned matrices under Laplacian preconditioning to other types of partial differential equations or other preconditioners. A concrete extension must specify its PDE, domain, boundary conditions, coefficient hypotheses, discretization, preconditioner, and the precise localization conclusion for \(\sigma(A)\) or \(\sigma(P^{-1}A)\), as appropriate.
+
+The source reports that the cited approach applies to certain elliptic model problems, including the displayed equation, and gives insights into convergence of conjugate gradients for the preconditioned systems. It motivates the question by observing that eigenvalue distributions are usually unknown in practical applications and by contrasting condition-number reduction with attempts to improve the entire eigenvalue distribution. It also refers to specific open problems in [NieStr24, Section 9], whose statements are not supplied here.
+
+\textbf{Unresolved qualification.} This is an open-ended request for extensions, rather than a single fully specified conjecture. The supplied record does not define the meaning or strength of ``exact localization,'' state the cited localization results, or identify a particular new PDE or preconditioner as the intended target. Consequently, no unique quantified localization theorem can be extracted from this record alone.
+\subsection{Short English statement}
+Extend the cited eigenvalue-localization methods for discretized elliptic PDEs and Laplacian preconditioning to other PDEs or preconditioners. The source connects these methods with conjugate-gradient convergence, but leaves the new target class and the meaning of exact localization unspecified. The supplied registry labels the problem open; this statement-only draft requires human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800502\), exact source problem code \texttt{catalogue entry}, title \emph{Linear Systems and Eigenvalue Problems --- Problem 11}. The supplied record attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels its status \texttt{open}. These are supplied registry metadata, not independently verified findings.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 11. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not a claim of independent access or verification.
+\item References cited in the supplied problem statement: [GerMadNieStr19], [GerNieStr20], [GerNieStr22], and [NieStr24]. The record attributes the localization approach to these references and points specifically to [NieStr24, Section 9] for further open problems. Full bibliographic details, individual reference URLs, and the contents of that section are not supplied.
+\end{itemize}
+\end{document}

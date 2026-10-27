@@ -1,0 +1,52 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001098}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A. Granville asks how to decide, in reasonable time, whether a given finite-field set is a sumset of another set. The aid interprets this as self-sumset recognition: given $S\subseteq F$, decide whether $S=A+A=\{a+b:a,b\in A\}$ for some $A\subseteq F$. Repeated summands are allowed. A two-independent-set problem $A+B$, or a restricted sumset forbidding $a=b$, would be different.
+
+Use an explicit list of target elements with polynomial-time field addition/comparison. For complexity claims in fixed characteristic $p$, let the additive dimension $d$ of $F\cong\F_p^d$ grow. The aid reports primary-literature NP-completeness over the integers and, for every fixed prime $p$, over these growing vector spaces. This is a worst-case input-complexity statement, not a proof that no efficient algorithm exists on every structured input. It also does not by itself state the complexity of prime fields with $d=1$ and varying $p$. No full reference for the NP-completeness theorem is supplied.
+
+The support-sensitive exact algorithm follows two reported normalizations. In odd characteristic, $2a\in S$ for every root element, so
+\[
+ A\subseteq\tfrac12S=\{s/2:s\in S\}.
+\]
+Enumerating these candidate subsets and checking their self-sums is exact. In characteristic two, a nonempty root can be translated so $0\in A$ without changing $A+A$; then $A\subseteq S$. Thus reject a nonempty target not containing zero, and otherwise enumerate subsets of $S$ containing zero. For $s=|S|$, this gives at most $2^s$ candidates in odd characteristic and $2^{s-1}$ normalized candidates in characteristic two, each checked using polynomially many support operations. This is exponential in target support size, not a polynomial worst-case algorithm. The empty target is realized by the empty root.
+
+The aid completely classifies nonempty targets of size at most four:
+\begin{itemize}
+\item In characteristic two, exactly $\{0\}$, sets $\{0,u\}$ with $u\neq0$, and two-dimensional $\F_2$-linear subspaces occur. Their sizes are respectively one, two and four; size three is impossible.
+\item In odd characteristic, exactly singletons and nondegenerate three-term arithmetic progressions $\{b-d,b,b+d\}$ with $d\neq0$ occur. Their sizes are one and three; sizes two and four are impossible.
+\end{itemize}
+For odd-characteristic progressions a two-point root is $\{(b-d)/2,(b+d)/2\}$. In characteristic two the displayed subspaces are self-sumsets themselves. These small-support classifications and the enumeration procedure coexist with the reported hardness when support and dimension are unbounded.
+\subsection{Short English statement}
+The aid reads the question as deciding whether a set is $A+A$. It reports worst-case NP-completeness for growing additive dimension, but gives exact enumeration depending only exponentially on target size. It also lists every possible self-sumset of size at most four, with different answers in characteristic two and odd characteristic.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001098$, source code \texttt{catalogue entry}, supplied complete source record and research summary.
+\item American Institute of Mathematics, \emph{Recent trends in additive combinatorics}, Problem 1.17, A. Granville, supplied URL \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}; canonical local record \texttt{aim-combinatorics-notes.json}, \texttt{notes[222]}. No PDF was retrieved.
+\item The aid refers to primary literature resolving $A+A$ recognition by NP-completeness but supplies no author, title, year or identifier. The original literature field is empty; no full authoritative citation for the hardness or small-support theorem is supplied.
+\item Research attempt 1: partial result; intended problem solved at the recorded run, registry status solved and classification \texttt{SOLVED-IN-LITERATURE}; supplied rigor label ``proved'', novelty confidence ``low''. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

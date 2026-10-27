@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001997}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Nicholas Proudfoot's Section A.15 asks about a \(d\)-dimensional ``linear'' space \(V\subset\C^n\), its hyperplane-arrangement complement \(M=V\cap(\C^*)^n\), and
+\[
+ \operatorname{Log}:M\to\mathcal A(V),\qquad
+ (z_1,\ldots,z_n)\mapsto(\log|z_1|,\ldots,\log|z_n|).
+\]
+The four questions are: describe fibers; give conditions making this a homeomorphism onto its image; understand amoeba topology; and relate these to Federico Ardila's matroidal description of tropicalization. A convention defect matters: if \(V\) is literally a central complex linear space, multiplication by \(e^{i\theta}\) preserves every Log fiber, so injectivity is impossible for nonempty positive-dimensional \(M\). The source's distinct points on a complex line require an affine interpretation.
+
+For that explicit interpretation, take an affine embedding
+\[
+ \iota:\C^d\hookrightarrow\C^n,\qquad
+ z\mapsto(\ell_1(z),\ldots,\ell_n(z)),\qquad
+ \ell_j(z)=a_jz+b_j,
+\]
+with no identically zero coordinate, let \(H_j=\{\ell_j=0\}\), and \(M=\C^d\setminus\bigcup_jH_j\). Fibers are precisely the collisions of the affine intensity map \(z\mapsto(|\ell_j(z)|^2)_j\) on \(M\), since componentwise logarithm is injective on positive magnitudes. For \(\widetilde z=(z,1)\), set \(Q_j=(a_j,b_j)^*(a_j,b_j)\). Every collision \(z,w\in M\) satisfies, and is characterized by,
+\[
+ H=\widetilde z\widetilde z^*-\widetilde w\widetilde w^*,\qquad
+ \operatorname{tr}(Q_jH)=0\quad(1\leq j\leq n).
+\]
+Thus injectivity means that this measurement kernel contains no nonzero Hermitian rank-one secant difference with both points in \(M\). Arbitrary rank-two Hermitian matrices are not substituted for the specified affine secants.
+
+For an affine embedding, Log is proper onto its amoeba: a compact target set bounds every \(|\ell_j|\) above and away from zero, and the embedded source then has compact preimage. Hence injectivity does imply homeomorphism onto \(\mathcal A(V)\). This implication uses the embedding and finite-dimensional closed affine image, not merely arbitrary continuous injectivity.
+
+In dimension one, write \(\ell_j(z)=c_j(z-a_j)\), \(c_j\ne0\). The aid's precise fiber classification is:
+\begin{itemize}
+\item Three noncollinear centers among the \(a_j\) give singleton fibers.
+\item At least two distinct centers, all collinear, give the orbits of reflection in that real line, including fixed singleton fibers on the line.
+\item A single distinct center, possibly repeated, gives circles of positive radius as fibers.
+\end{itemize}
+This corrects the source's unqualified collinear reflection statement in the repeated-one-center case. The source's higher-dimensional construction takes products of \(d\) noncollinear three-center arrangements, using \(3d\) hyperplanes, and permits additional hyperplanes without losing injectivity on the remaining complement. It asks for simpler examples rather than claiming this is optimal.
+
+The aid's same-matroid example compares centers \(\{0,1,2\}\) and \(\{0,1,i\}\). Their homogenized affine forms both represent the uniform matroid \(U_{2,3}\), but the first has conjugation-pair fibers and the second is injective, hence a homeomorphism onto its amoeba. Consequently ordinary matroid/Bergman data alone cannot determine the Log fibers or injectivity. This does not contradict a matroidal tropicalization description in its correct linear or homogenized setting, and it is not a classification of all amoeba homotopy types.
+\subsection{Short English statement}
+The source's examples require affine, rather than central linear, spaces. In that convention Log fibers are affine magnitude-measurement collisions, and properness makes injectivity sufficient for a homeomorphism onto the amoeba. Two three-point arrangements with the same matroid have different fibers, so matroid data alone does not decide injectivity.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001997\), source code \texttt{catalogue entry}; canonical collection \texttt{aim-geometry-notes.json}, notes[334].
+\item AIM workshop ``Amoebas and tropical geometry,'' Section A.15, ``Topology of amoebas of linear spaces,'' contributed by Nicholas Proudfoot: \url{https://aimath.org/WWN/amoebas/amoebas.pdf}. The four questions and product-of-three-center examples are retained; no PDF was opened in this session.
+\item Federico Ardila is named for the matroidal characterization of tropicalization, without a full authoritative bibliographic entry. Original remarks and literature fields are empty; proposer/year registry fields are null despite Proudfoot's contribution attribution.
+\item Supplied research attempt \(1\), \texttt{partial\_result}, run status \texttt{partially\_solved}, rigor label ``proved,'' novelty confidence ``low.'' Registry classification \texttt{PARTIAL-PROGRESS}, updated 14 August 2026.
+\end{itemize}
+\end{document}

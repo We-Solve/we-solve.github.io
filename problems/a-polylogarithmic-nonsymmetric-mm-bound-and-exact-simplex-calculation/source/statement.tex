@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001303}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(K\subseteq\R^n\) be a convex body. For a body \(L\) with \(0\in\operatorname{int}L\), define
+\[
+ h_L(u)=\sup_{x\in L}\langle x,u\rangle,\qquad
+ L^\circ=\{y:\langle x,y\rangle\leq1\ \forall x\in L\},\qquad
+ M(L)=\int_{S^{n-1}}h_L(u)\,\dd\sigma(u),
+\]
+where \(\sigma\) is rotationally invariant \emph{probability} measure. Put \(\Psi(L)=M(L)M(L^\circ)\), and make the affine optimization explicit as
+\[
+ \Phi(K)=\inf_{\substack{A\in\operatorname{GL}(n,\R)\\x\in\operatorname{int}K}}
+ \Psi(A(K-x)).
+\]
+This normalization and interior-origin condition are essential. The source recalls that for origin-symmetric \(K\), some invertible linear image has \(\Psi(TK)\leq C\log n\), and asks for the nonsymmetric analogue with affine maps. The displayed \(\log n\) baseline is meaningful for \(n\geq2\); an all-dimension version uses \(\log(n+1)\).
+
+The aid reports a July 2026 preprint of Bizeul and Klartag proving that every convex body has an affine isotropic position \(L\) in which
+\[
+ \Psi(L)\leq C\log^3(n+1),
+\]
+with an absolute constant. Isotropic position here means that the uniform random vector in \(L\) has mean zero and covariance the identity, after a harmless scalar normalization. This is reported to supersede Rudelson's earlier \(n^{1/3}\)-times-polylogarithmic nonsymmetric bound; the exact logarithmic exponent remains open according to the aid. No exact earlier logarithmic factor is supplied.
+
+The aid independently reports \(\Psi(L)\geq1\), hence \(\Phi(K)\geq1\), and an asymmetry-sensitive reduction. Define the Minkowski asymmetry by
+\[
+ s(K)=\inf_{x\in\operatorname{int}K}\inf\{s\geq1:-(K-x)\subseteq s(K-x)\},\qquad
+ D=\tfrac12(K-K).
+\]
+With the standard affine/linear-position interpretation of \(\Phi\), its reported inequality is
+\[
+ \Phi(K)\leq\frac{1+s(K)}2\,\Phi(D).
+\]
+For the symmetric body \(D\), the comparison uses its centered linear optimization. The record does not explicitly define its symbols \(\Phi,s\); these standard interpretations must be checked against the underlying attempt before using the formula as quoted notation.
+
+For an explicit family, let \(\Delta_n=\operatorname{conv}\{v_1,\ldots,v_{n+1}\}\), where \(|v_i|=1\) and \(\langle v_i,v_j\rangle=-1/n\) for \(i\ne j\). Its centroid is zero. Let \(G_n\) be a standard Gaussian in \(\R^n\) and let \(g_1,\ldots,g_{n+1}\) be independent standard real Gaussians. The aid reports
+\[
+ \Delta_n^\circ=-n\Delta_n,\qquad
+ \Psi(\Delta_n)=
+ \frac{n+1}{(\E|G_n|)^2}
+ \left(\E\max_{1\leq i\leq n+1}g_i\right)^2
+ \sim2\log n\quad(n\to\infty).
+\]
+This is the product in the displayed centered regular position. The supplied summary does not assert that this calculation alone proves affine optimality, so it is not silently identified with \(\Phi(\Delta_n)\).
+\subsection{Short English statement}
+The question asks for the best affine-position bound on a nonsymmetric body's mean support function times that of its polar. The aid reports a July 2026 cubic-logarithmic bound, an asymmetry reduction and an exact Gaussian calculation for the regular simplex, while leaving the optimal exponent open.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001303\), exact public code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[34]}.
+\item AIM workshop ``Fourier analytic methods in convex geometry'', problem 6, attributed to M. Rudelson: \url{https://aimath.org/WWN/fourierconvex/fourierconvex.pdf}. The supplied verification reports OCR repair of the support-function formula. The literature field is empty.
+\item Supplied research attempt 1: \texttt{partial\_result}, status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It attributes the \(C\log^3(n+1)\) bound to a Bizeul--Klartag preprint of July 2026, compares an earlier Rudelson bound, and reports the lower bound, asymmetry reduction and simplex calculation. No full publication entries or preprint URLs are supplied. The current registry status is partially_solved.
+\end{itemize}
+\end{document}

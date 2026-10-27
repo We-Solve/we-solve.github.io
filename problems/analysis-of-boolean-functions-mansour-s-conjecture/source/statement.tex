@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800437}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer \(n\), write \([n]=\{1,\ldots,n\}\) and equip \(\{-1,1\}^n\) with the uniform probability measure. For \(S\subseteq[n]\), define
+\[
+\chi_S(x)=\prod_{i\in S}x_i,\qquad
+\widehat f(S)=2^{-n}\sum_{x\in\{-1,1\}^n}f(x)\chi_S(x),
+\]
+where \(\chi_\varnothing=1\). Thus
+\[
+f(x)=\sum_{S\subseteq[n]}\widehat f(S)\chi_S(x),
+\qquad \sum_{S\subseteq[n]}\widehat f(S)^2=1
+\]
+for a Boolean function \(f\colon\{-1,1\}^n\to\{-1,1\}\).
+
+A disjunctive normal form (DNF) is a disjunction of terms, each term being a conjunction of literals. Under the truth convention \(+1=\mathrm{true}\), a positive literal on coordinate \(i\) tests \(x_i=1\), and a negative literal tests \(x_i=-1\). Here the size of a DNF means its number of terms. This is the standard interpretation used in this draft; the supplied excerpt does not explicitly define DNF size. The Fourier spectrum of \(f\) is \(\varepsilon\)-concentrated on \(\mathcal F\subseteq 2^{[n]}\) if
+\[
+\sum_{S\subseteq[n],\ S\notin\mathcal F}\widehat f(S)^2\leq\varepsilon.
+\]
+This uses squared Fourier mass under the uniform measure, another convention left implicit in the supplied excerpt.
+
+\textbf{Mansour's Conjecture (supplied formulation).}
+There exists an absolute constant \(C>0\) such that, for every positive integer \(n\), every integer \(s\geq2\), every function \(f\colon\{-1,1\}^n\to\{-1,1\}\) computable by a DNF with at most \(s\) terms, and every \(\varepsilon\in(0,1/2]\), there exists \(\mathcal F\subseteq 2^{[n]}\) satisfying
+\[
+|\mathcal F|\leq s^{C\log(1/\varepsilon)}
+\qquad\text{and}\qquad
+\sum_{S\notin\mathcal F}\widehat f(S)^2\leq\varepsilon.
+\]
+Here \(\log\) denotes the natural logarithm; changing its base only changes the absolute constant. The constant \(C\) is independent of \(n,s,f,\varepsilon\). Using ``at most \(s\) terms'' expresses the usual size-bound formulation of the supplied statement.
+
+\textbf{Supplied qualifications and background.}
+The source also records a weaker version with \(|\mathcal F|\leq s^{O_\varepsilon(1)}\): for each fixed \(\varepsilon\), the exponent may depend on \(\varepsilon\), but not on \(n,s,f\). It reports that the weak bound \(s^{O(1/\varepsilon)}\) follows from the Fourier Entropy--Influence Conjecture. It further reports that Klivans, Lee, and Wan, reference label [KLW10], proved the conjecture for ``almost all'' polynomial-size DNF formulas, ``appropriately defined.'' No distribution, asymptotic regime, or precise meaning of ``almost all'' is supplied, so this qualification is retained without a formal exceptional-set claim. Finally, the source attributes to Mansour, reference label [Man95], the upper bound
+\[
+(s/\varepsilon)^{O(\log\log(s/\varepsilon)\,\log(1/\varepsilon))}.
+\]
+These are supplied background reports, not independently verified results or a new assessment of the conjecture's status.
+\subsection{Short English statement}
+Mansour's Conjecture asks whether every Boolean function computed by a DNF with at most \(s>1\) terms has all but \(\varepsilon\) of its squared Fourier mass on at most \(s^{C\log(1/\varepsilon)}\) subsets of coordinates, for one universal constant \(C\). The registry labels the problem open. The conventions and background claims recorded here require human mathematical and source review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete source record: permanent ID \(800437\), exact source problem code \texttt{catalogue entry}, title ``Analysis of Boolean Functions --- Mansour's Conjecture,'' in AMR Open Problem Lists. The supplied status is \texttt{open}; this label is not independently verified. The registry records O'Donnell in its proposer field and 2012 in its proposed-year field, while the background attributes the conjecture itself to Mansour through [Man94].
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 7, ``Mansour's Conjecture.'' Supplied source URL: \url{https://arxiv.org/abs/1204.6447}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. This access date and the accompanying literature assessment are supplied dated curation, not independent verification or a claim of source access for this draft.
+\item [Man94]: supplied label for the proposed/source attribution to Mansour. No full bibliographic entry or separate URL is supplied.
+\item [KLW10]: Klivans, Lee, and Wan, cited in the supplied background for a result concerning ``almost all'' polynomial-size DNF formulas, with the population only described as ``appropriately defined.'' No full bibliographic entry or separate URL is supplied.
+\item [Man95]: Mansour, cited in the supplied background for the bound \((s/\varepsilon)^{O(\log\log(s/\varepsilon)\log(1/\varepsilon))}\). No full bibliographic entry or separate URL is supplied.
+\item The supplied background states that the Fourier Entropy--Influence Conjecture implies a weak concentration bound \(s^{O(1/\varepsilon)}\); no separate reference for that implication is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800449}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n,q\in\N\) satisfy \(3\leq q\leq n+1\), and let \(\gamma_n\) denote the standard Gaussian probability measure on \(\R^n\). A measurable partition \(\mathcal A=(A_1,\ldots,A_q)\) consists of pairwise disjoint measurable sets whose union is \(\R^n\). It has equal Gaussian measures if \(\gamma_n(A_i)=1/q\) for every \(i\).
+
+We use the usual Gaussian same-part definition of noise stability, which the supplied statement does not explicitly define. For \(\rho\in[-1,1]\), let \(X,Z\) be independent standard Gaussian vectors in \(\R^n\), set \(Y_\rho=\rho X+\sqrt{1-\rho^2}\,Z\), and define
+\[
+\operatorname{Stab}_\rho(\mathcal A)=\sum_{i=1}^q\mathbb P(X\in A_i,\ Y_\rho\in A_i).
+\]
+This definition includes the possibly degenerate joint distributions at \(\rho=\pm1\).
+
+Choose unit vectors \(a_1,\ldots,a_q\in\R^n\) satisfying
+\[
+\langle a_i,a_j\rangle=-\frac{1}{q-1}\qquad(i\ne j).
+\]
+A standard simplex partition \(\mathcal S=(S_1,\ldots,S_q)\) is a measurable partition satisfying
+\[
+S_i\supseteq\{x\in\R^n:\langle a_i,x\rangle>\langle a_j,x\rangle\text{ for every }j\ne i\}.
+\]
+The remaining points lie in the finite union of comparison hyperplanes \(\langle a_i-a_j,x\rangle=0\); assign them measurably among the parts. These hyperplanes have Gaussian measure zero. Thus the assignment does not affect noise stability, including at \(\rho=\pm1\), and each \(S_i\) has Gaussian measure \(1/q\).
+
+\textbf{Standard Simplex Conjecture, as supplied.} For every pair of integers \(n,q\) satisfying \(3\leq q\leq n+1\), every measurable equal-Gaussian-measure partition \(\mathcal A\) of \(\R^n\) into \(q\) parts, and every standard simplex partition \(\mathcal S\),
+\[
+\begin{aligned}
+\operatorname{Stab}_\rho(\mathcal A)&\leq\operatorname{Stab}_\rho(\mathcal S)&&\text{for every }\rho\in[0,1],\\
+\operatorname{Stab}_\rho(\mathcal A)&\geq\operatorname{Stab}_\rho(\mathcal S)&&\text{for every }\rho\in[-1,0].
+\end{aligned}
+\]
+No uniqueness assertion is included.
+
+The supplied background additionally states that this conjecture implies the Plurality Is Stablest Conjecture attributed to Khot, Kindler, Mossel, and O'Donnell [KKMO04], and that the latter implies this conjecture for \(\rho\geq-1/(q-1)\). These implications are retained as source-reported qualifications; the record does not supply a formulation of the Plurality Is Stablest Conjecture or detailed hypotheses for these implications.
+\subsection{Short English statement}
+For every \(3\leq q\leq n+1\), partition standard Gaussian space \(\R^n\) into \(q\) sets of equal measure. The supplied conjecture says that a regular-simplex partition maximizes the probability that two \(\rho\)-correlated Gaussian points fall in the same part when \(0\leq\rho\leq1\), and minimizes that probability when \(-1\leq\rho\leq0\). The registry labels the problem open; this is a supplied status, not an independently verified literature assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800449\), exact source problem code \texttt{catalogue entry}, title ``Analysis of Boolean Functions --- Standard Simplex Conjecture.'' Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}. The record labels the problem open and records an update timestamp of \texttt{2026-10-16T14:00:00Z}; these are supplied registry metadata, not independently verified mathematical or literature conclusions.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 19, ``Standard Simplex Conjecture,'' \url{https://arxiv.org/abs/1204.6447}. The supplied provenance records access on \texttt{2026-10-16} and extraction by \texttt{arxiv\_latex}; no independent source visit is asserted here. The registry lists O'Donnell and 2012 in its proposer fields, while the background identifies [IM09] as ``Proposed/Source.''
+\item [IM09], supplied as the conjecture's ``Proposed/Source'' reference. No expanded bibliographic entry or URL is provided in the record.
+\item [KKMO04], attributed in the supplied background to Khot, Kindler, Mossel, and O'Donnell, in connection with the Plurality Is Stablest Conjecture. No expanded bibliographic entry or URL is provided. The background reports implication in both directions, with the reverse implication restricted to \(\rho\geq-1/(q-1)\); these claims have not been independently checked.
+\end{itemize}
+\end{document}

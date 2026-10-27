@@ -1,0 +1,83 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001414}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for Wasserstein convergence rates for local jump generators
+\[
+ (LA)(x)=\sum_i\int\omega_i(x,\dd y)[A(y)-A(x)],
+\]
+whose dependence and updates use finitely many coordinates near site \(i\). It does not specify a state space, metric, rates or irreducibility. The aid adopts a finite-state single-site interpretation, which is a special case rather than every generator in that display.
+
+Let \(E=\prod_{i=1}^nE_i\), with each \(E_i\) a finite metric space of metric \(d_i\). For fixed rates \(r_i>0\) and probability kernels \(K_i(x,\dd z)\) on \(E_i\), set
+\[
+ (LA)(x)=\sum_i r_i\int[A(x^{i\leftarrow z})-A(x)]K_i(x,\dd z).
+\]
+Suppose a nonnegative influence matrix \(C\) satisfies
+\[
+ W_{d_i}(K_i(x,\cdot),K_i(y,\cdot))\leq\sum_jC_{ij}d_j(x_j,y_j)
+ \quad\text{for all }x,y,i.
+\]
+Here \(W_d\) is the minimum expected metric distance over couplings. A common-clock optimal update coupling gives, for \(u_i(t)=\E d_i(X_i(t),Y_i(t))\) and \(R=\operatorname{diag}(r_i)\), the reported coordinatewise bound
+\[
+ u(t)\leq e^{tR(C-I)}u(0).
+\]
+If \(w_i>0\) and \(w^{\mathsf T}R(C-I)\leq-\lambda w^{\mathsf T}\) entrywise for \(\lambda>0\), then the weighted metric \(D_w(x,y)=\sum_iw_id_i(x_i,y_i)\) satisfies
+\[
+ W_{D_w}(\mu P_t,\eta P_t)\leq e^{-\lambda t}W_{D_w}(\mu,\eta).
+\]
+Thus there is a unique stationary law and exponential convergence in this metric. For common rate \(r\) and spectral radius \(\rho(C)<1\), positive left subeigenvectors give every rate \(r(1-q)\) with \(\rho(C)<q<1\), approaching \(r(1-\rho(C))\). Attainment by a strictly positive Perron vector requires an appropriate extra condition, such as irreducibility of \(C\).
+
+For a second collection of update kernels \(\widetilde K_i\) with the same site rates, define
+\[
+ \varepsilon_i=\sup_xW_{d_i}(K_i(x,\cdot),\widetilde K_i(x,\cdot)).
+\]
+When \(\rho(C)<1\), the aid reports a stationary coupling, for any stationary laws \(\pi,\widetilde\pi\) of the two systems, with coordinate discrepancies bounded by
+\[
+ u\leq(I-C)^{-1}\varepsilon,
+ \qquad W_{D_w}(\pi,\widetilde\pi)\leq w^{\mathsf T}(I-C)^{-1}\varepsilon.
+\]
+This is a local-kernel perturbation bound; the nonnegative resolvent is \(\sum_{k\geq0}C^k\).
+
+For explicit spatial consequences, assume common rate \(r\), row sums at most \(0<q<1\), and finite interaction range. Let \(B\) be the set supporting initial discrepancies or kernel perturbations, and let \(h_i\) be the minimum number of directed influence steps from \(B\) to \(i\), with edge \(j\to i\) when \(C_{ij}>0\). For initial coordinate discrepancies at most \(D_*\), zero outside \(B\), a precise Poisson-tail version is
+\[
+ u_i(t)\leq D_*e^{-rt}\sum_{k\geq h_i}\frac{(rqt)^k}{k!}
+ =D_*e^{-r(1-q)t}\Pr\{\operatorname{Poisson}(rqt)\geq h_i\}.
+\]
+For perturbations \(\varepsilon_i\leq\varepsilon_*\) supported on \(B\), the corresponding stationary bound is
+\[
+ u_i\leq\frac{\varepsilon_*q^{h_i}}{1-q}.
+\]
+Unreachable sites have zero bounds. The case \(q=0\) is the immediate no-propagation limit. Finite interaction range translates influence-step distance into spatial separation; the Poisson bound is a small-tail estimate, not a strict deterministic light cone. The summary does not specify all constants or distance conventions, so these formulas state an explicit version of its reported consequences.
+
+Finally, on a cyclic set of sites with states \(\{0,1\}\), take \(K_i(x,\cdot)=\delta_{x_{i-1}}\), indices modulo \(n\geq2\). Its influence matrix is the cyclic shift, with \(\rho(C)=1\), and both constant configurations are absorbing. This reported nearest-neighbor copying obstruction shows locality alone cannot guarantee a common limiting law or strict Wasserstein mixing.
+\subsection{Short English statement}
+For finite-state single-site updates, the aid turns a directed influence matrix into Wasserstein contraction, stationary sensitivity and spatial decay bounds. A local copying cycle with spectral radius one shows why locality needs an additional contraction hypothesis.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001414\), exact public code \texttt{catalogue entry}; \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[71]}.
+\item AIM workshop ``Stochastic methods for non-equilibrium dynamical systems'', Problem 29: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. The canonical local-jump generator and its finite-neighborhood qualification are preserved above. No proposer, metric specification or authoritative reference is supplied; the literature field is empty.
+\item Research attempt 1: \texttt{partial\_result}, status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It reports common-clock coupling, the influence propagator, Perron-weighted rates, stationary resolvent sensitivity, Poisson/geometric spatial bounds and the copying-cycle obstruction. The current registry status is partially_solved. No separate full bibliography is supplied.
+\end{itemize}
+\end{document}

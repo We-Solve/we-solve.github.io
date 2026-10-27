@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001855}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The question is attributed to Farber: find the asymptotic behavior of \(C_n\), the number of chamber orbits for polygonal linkages. The source does not define the arrangement or acting group. The aid uses positive length vectors \(\ell\in\R_{>0}^n\), \(n\geq3\), with walls
+\[
+ \sum_{i\in I}\ell_i=\sum_{i\notin I}\ell_i
+ \quad(\varnothing\ne I\subsetneq\{1,\ldots,n\}),
+\]
+and chamber orbits under the permutation action of \(S_n\). A chamber is a connected component of the complement of all these walls. Positive scaling does not change chamber membership, so one may instead normalize \(\sum_i\ell_i=1\).
+
+Let \(L(m)\) count strict-sign Boolean linear threshold functions on \(\{\pm1\}^m\): each is \(x\mapsto\operatorname{sign}(a_0+\sum_{i=1}^m a_ix_i)\), with the affine form nonzero at every cube vertex, and constants included. The aid reports the orbit squeeze
+\[
+ \frac{L(n-1)}{2^n n!}\leq C_n\leq L(n-1).
+\]
+The finite factors account for coordinate-sign and permutation choices in relating the full threshold arrangement to positive-length chamber orbits; they are not an equality of orbit counts with threshold functions.
+
+Combining this with the supplied Zuev asymptotic yields
+\[
+ \lim_{n\to\infty}\frac{\log_2C_n}{n^2}=1,
+ \qquad C_n=2^{n^2+o(n^2)}.
+\]
+The aid also quotes an error bound transferring to
+\[
+ \log_2C_n=n^2+O\left(\frac{n^2}{\ln n}\right).
+\]
+This is a leading logarithmic asymptotic, not a multiplicative estimate \(C_n\sim2^{n^2}\).
+
+If one excludes infeasible generic polygon length vectors, feasibility means \(\max_i\ell_i<\sum_{j\ne i}\ell_j\). There are \(n\) chambers in which one length strictly exceeds all others combined; they form one permutation orbit. The aid therefore gives the exact convention correction
+\[
+ C_n^{\mathrm{feas}}=C_n-1.
+\]
+It does not affect the displayed leading logarithmic bounds. The relevant object is the full threshold arrangement restricted to positive lengths, not its trace-zero resonance-arrangement slice. A sharper asymptotic or a different orbit convention would require additional data beyond this reduction.
+\subsection{Short English statement}
+Under the aid's permutation-orbit convention, polygon-linkage chambers have \(C_n=2^{n^2+o(n^2)}\), with a quoted logarithmic error bound from Zuev's threshold-function theorem. Excluding infeasible lengths removes exactly one orbit. This gives leading-logarithmic growth, not a full multiplicative asymptotic.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001855\), code catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[192]}.
+\item AIM, ``Configuration spaces of linkages,'' Problem 6, attributed in the source to Farber, \url{https://aimath.org/pastworkshops/linkagesproblems.pdf}. The extracted ``cham-bers'' is a line-break artifact. No PDF inspection is claimed here.
+\item Zuev's threshold-function theorem is named by the aid, without title, date, theorem number or complete authoritative reference for the asymptotic and quoted error bound.
+\item Research attempt 1: ``partial\_result,'' ``partially\_solved,'' rigor label ``proved,'' novelty confidence ``low.'' The machine-generated aid is not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

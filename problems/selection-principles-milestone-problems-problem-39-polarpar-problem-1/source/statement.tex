@@ -1,0 +1,91 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800666}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks about a polarized partition relation for open \(\omega\)-covers. Its excerpt does not specify the ambient class of spaces, the convention on countability of covers, or the quantification of \(k\). The following gives a precise parameterized formulation under the Cartesian-product interpretation of the displayed relation; these missing conventions require confirmation from the source.
+
+Let \(\mathscr X\) be a specified class of topological spaces. For each \(X\in\mathscr X\), let \(\mathscr U_X\) specify the admissible open covers of \(X\). Define
+\[
+\Omega(X)=\left\{\mathcal U\in\mathscr U_X:X\notin\mathcal U\ \text{and}\ (\forall F\subseteq X\text{ finite})(\exists U\in\mathcal U)\ F\subseteq U\right\}.
+\]
+Thus every finite subset of \(X\) is contained in one member of an \(\omega\)-cover, and no member is the entire space. Whether \(\mathscr U_X\) consists of all open covers or only countable open covers is left unresolved by the supplied excerpt.
+
+The property \(\mathsf S_1(\Omega,\Omega)\) means
+\[
+(\forall (\mathcal U_n)_{n\geq1}\in\Omega(X)^{\{1,2,\ldots\}})
+(\exists (U_n)_{n\geq1})\quad
+(\forall n\geq1)\ U_n\in\mathcal U_n
+\quad\text{and}\quad
+\{U_n:n\geq1\}\in\Omega(X).
+\]
+For a positive integer \(k\), write \(P_k(X)\) for the following Cartesian-product reading of
+\[
+\binom{\Omega}{\Omega}\longrightarrow
+\left[\begin{matrix}\Omega\\\Omega\end{matrix}\right]_{k/<3}:
+\]
+for every \(\mathcal U,\mathcal V\in\Omega(X)\) and every coloring
+\(c:\mathcal U\times\mathcal V\to\{1,\ldots,k\}\), there are subfamilies
+\(\mathcal U'\subseteq\mathcal U\) and \(\mathcal V'\subseteq\mathcal V\) such that
+\[
+\mathcal U',\mathcal V'\in\Omega(X)
+\quad\text{and}\quad
+\bigl|c[\mathcal U'\times\mathcal V']\bigr|<3.
+\]
+In particular, the retained rectangle uses at most two colors. This definition treats the coloring as defined on the entire ordered Cartesian product; the excerpt supplies no definition confirming this convention or specifying additional restrictions.
+
+Let \(P\) denote the property intended by the source notation, once its conventions have been fixed. The first question is whether
+\[
+(\forall X\in\mathscr X)\qquad
+P(X)\ \Longleftrightarrow\ X\models\mathsf S_1(\Omega,\Omega).
+\]
+The excerpt does not determine whether \(P=P_k\) for a fixed \(k\), or whether \(P(X)\) means \((\forall k\geq1)P_k(X)\). For \(k=1,2\), the displayed Cartesian-product condition is automatic, so this distinction is material.
+
+For a property \(Q\), define its critical cardinality relative to \(\mathscr X\), when the minimum exists, by
+\[
+\operatorname{non}_{\mathscr X}(Q)
+=\min\{|X|:X\in\mathscr X\text{ and }X\text{ fails }Q\}.
+\]
+Let \(\mathcal M\) be the ideal of meager subsets of \(\R\), and define
+\[
+\mathsf{cov}(\mathcal M)
+=\min\left\{|\mathcal A|:\mathcal A\subseteq\mathcal M,
+\ \bigcup\mathcal A=\R\right\}.
+\]
+If the proposed equivalence fails, the second question is whether
+\[
+\operatorname{non}_{\mathscr X}(P)
+=\operatorname{non}_{\mathscr X}\bigl(\mathsf S_1(\Omega,\Omega)\bigr)
+=\mathsf{cov}(\mathcal M).
+\]
+The identification of the critical cardinality of \(\mathsf S_1(\Omega,\Omega)\) with \(\mathsf{cov}(\mathcal M)\) is supplied parenthetically by the source. It is recorded as source context, subject to the source's missing ambient conventions, rather than asserted here for an arbitrary \(\mathscr X\).
+\subsection{Short English statement}
+The source asks whether a polarized coloring property for open \(\omega\)-covers is equivalent to selecting one member from each of a sequence of \(\omega\)-covers so that the selected family is again an \(\omega\)-cover. If equivalence fails, it asks whether the least size of a counterexample is nevertheless \(\mathsf{cov}(\mathcal M)\). The ambient spaces, cover convention, and quantification of \(k\) require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800666\), exact source problem code \texttt{catalogue entry}; collection: AMR Open Problem Lists. The supplied record labels the problem \texttt{open}; this is a supplied status, not an independently verified current assessment.
+\item Tsaban, \emph{Selection Principles in Mathematics: A Milestone of Open Problems} (2003), Problem 39. Supplied source URL: \url{https://arxiv.org/abs/math/0312182}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of access or verification for this draft.
+\item The source gives the attribution/context label \texttt{[PolarPar, Problem 1]}. No full bibliographic entry for \texttt{PolarPar} is included in the supplied record. The registry attributes the problem to Tsaban and records the year 2003; the underlying attribution cannot be resolved from the excerpt alone.
+\end{itemize}
+\end{document}

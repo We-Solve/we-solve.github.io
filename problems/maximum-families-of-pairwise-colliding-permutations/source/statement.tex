@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000390}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For \(n\in\Z_{>0}\), write \([n]=\{1,\ldots,n\}\) and let \(S_n\) be the set of bijections \([n]\to[n]\). Distinct permutations \(\sigma,\tau\in S_n\) collide when
+\[
+ \exists i\in[n],\qquad |\sigma(i)-\tau(i)|=1.
+\]
+Thus the two permutations take the same input to consecutive integer values; no adjacency of input positions or cyclic adjacency of the values \(1,n\) is intended by this definition. Define
+\[
+ \rho(n)=\max\{\,|\mathcal F|:\mathcal F\subseteq S_n,
+ \ \forall\sigma\ne\tau\in\mathcal F\ \exists i\in[n]
+ \text{ with }|\sigma(i)-\tau(i)|=1\,\}.
+\]
+The witness \(i\) may depend on the pair. Since \(S_n\) is finite and singleton families are allowed, \(1\leq\rho(n)\leq n!\), so the maximum and its base-two logarithm are defined.
+
+The question is whether the exponential upper growth rate is exactly one:
+\[
+ \limsup_{n\to\infty}\frac{\log_2\rho(n)}{n}=1.
+\]
+Equivalently, the claimed value requires both an eventual upper estimate \(\rho(n)\leq2^{(1+\varepsilon)n}\) for every fixed \(\varepsilon>0\), and arbitrarily large \(n\) with \(\rho(n)\geq2^{(1-\varepsilon)n}\) for every \(\varepsilon>0\). The lower estimate is only required along arbitrarily large indices for this limsup statement. The question does not request an exact formula for \(\rho(n)\), equality with a finite-\(n\) upper bound, or existence of the ordinary limit. In particular, it does not assert \(\rho(n)=2^n\).
+
+The literature triage checked 2026-08-21 reports a known upper bound and equality verified only for small \(n\), with general equality conjectural. It does not print that finite-\(n\) bound, the tested values of \(n\), or its exact relation to the weaker exponential-rate question. These omissions are recorded rather than replacing the displayed limsup by a guessed exact extremal conjecture. The supplied open label and reported official-source normalization remain dated metadata, not independently verified status.
+\subsection{Short English statement}
+A family is pairwise colliding if every two different permutations differ by exactly one at some common input. Does its maximum size have base-two exponential limsup growth rate one? The asymptotic question is kept distinct from any stronger exact formula suggested by the literature summary.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000390, source code catalogue entry, ``Maximum Families of Pairwise Colliding Permutations,'' including the original and cleaned definition and limsup question.
+\item \emph{Combinatorics (2006)}, Oberwolfach Reports, pp.\ 5--72, DOI 10.4171/owr/2006/01: \url{https://doi.org/10.4171/owr/2006/01}.
+\item Supplied reference ``Pairwise colliding permutations'': \url{https://doi.org/10.1137/050632877}.
+\item Supplied reference ``On the size of pairwise-colliding permutations'': \url{https://doi.org/10.1109/ISIT.2019.8849602}.
+\item Literature triage checked 2026-08-21; registry record updated 2026-09-16. No external source has been visited or independently checked here.
+\end{itemize}
+\end{document}

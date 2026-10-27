@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002371}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a variety \(X/\Q\), use the source's entire-curve definition of hyperbolicity:
+\[
+ X\text{ is Brody hyperbolic}\quad\Longleftrightarrow\quad
+ \forall f:\C\longrightarrow X(\C)\text{ holomorphic},\ f\text{ is constant}.
+\]
+This definition, rather than an unqualified identification with other notions of hyperbolicity for nonproper spaces, is the decision target.
+
+\textbf{Question 35 (Pheidas).} Is there an algorithm which, given a finite exact algebraic presentation of \(X/\Q\), always terminates and decides this property? The workshop text does not fix an input representation, dimension bound, smoothness or properness hypothesis. The following is the restricted algorithmic result reported by the supplied aid, not a solution in arbitrary dimension.
+
+\textbf{Dimension-at-most-one promise class.} Present
+\[
+ X=V(I)\setminus V(J)\subseteq\PP^N_{\Q}
+\]
+by finitely generated homogeneous ideals with rational coefficients, interpreting the displayed difference inside projective space. Assume every geometric irreducible component has dimension at most one. Pass to the reduction and geometric irreducible components over \(\overline{\Q}\). For each one-dimensional component \(C\), take its projective closure \(\overline C\) and the normalization
+\[
+ \nu_C:\widetilde C\longrightarrow\overline C.
+\]
+Then \(\widetilde C\) is a smooth projective geometric curve. Set
+\[
+ g_C=\operatorname{genus}(\widetilde C),\qquad
+ B_C=\nu_C^{-1}(\overline C\setminus C),\qquad
+ r_C=|B_C(\overline{\Q})|.
+\]
+The boundary is counted as distinct geometric points, without multiplicity; branches above singular points still belonging to \(C\) are not removed merely because they are singular. The aid reports the exact criterion
+\[
+ X\text{ is Brody hyperbolic}\quad\Longleftrightarrow\quad
+ 2g_C-2+r_C>0\ \text{for every one-dimensional geometric component }C.
+\]
+Zero-dimensional components impose no further condition; in particular the empty and purely zero-dimensional cases satisfy the criterion vacuously. Reduction does not change the entire-curve target. The normalized open curve relevant to a component is \(\widetilde C\setminus B_C\), so reducibility, singularities and nonproperness are included in this promised class.
+
+According to the aid, exact geometric decomposition, normalization, genus computation and zero-dimensional radical computations terminate and compute this finite list of pairs. A negative answer is certified by a component with one of
+\[
+ (g_C,r_C)=(0,0),(0,1),(0,2),(1,0),
+\]
+and a positive answer by positivity for every component. Finite exact algebraic data for these computations are reported as certificates; the supplied record does not give a complete certificate-verification format or a complexity bound. For a smooth projective geometrically connected curve the criterion specializes to \(g\geq2\). No conclusion about a terminating algorithm for unrestricted higher-dimensional varieties is drawn.
+\subsection{Short English statement}
+Decide whether every holomorphic map from \(\C\) to the complex points of a rational variety is constant. The aid reports a complete decision procedure for represented schemes of geometric dimension at most one: normalize each curve component and test positivity of \(2g-2+r\), counting its missing geometric points. The original question in arbitrary dimension remains separate.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002371\), catalogue entry, \texttt{aim-logic-notes.json}, \texttt{notes[146]}, Question 35 (Pheidas), \emph{Problems related to ``Extensions of Hilbert's Tenth Problem''}, moderated by B. Poonen and T. Scanlon, notes by J. Demeyer: \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}.
+\item Supplied research summary on the normalization--log-Euler criterion and exact curve algorithms. No separate authoritative theorem or algorithm reference is supplied. Attempt 1: partial\_result, partially\_solved, rigor ``proved'', low novelty confidence. The machine-generated aid is not peer reviewed and must be independently verified before citation.
+\item The statement is labelled reconstructed\_unverified; its supplied verification field identifies the workshop source. This draft has not independently visited that PDF.
+\end{itemize}
+\end{document}

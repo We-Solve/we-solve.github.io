@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2307036}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\mathbb D=\{z\in\C:|z|<1\}$, let $m$ be plane Lebesgue measure, and let $E\subseteq\mathbb D$ be measurable. The source defines the two-dimensional Hilbert transform of $\mathbf1_E$ by
+\[
+ f_E(z)=-\frac1\pi\iint_E\frac{\dd m(w)}{(w-z)^2},\qquad z\in\C\setminus E.
+\]
+For arbitrary measurable $E$, points outside $E$ can still be arbitrarily close to its mass, so the literal integral needs an interpretation. The standard singular-integral reading is the almost-everywhere principal value
+\[
+ f_E(z)=\lim_{\epsilon\downarrow0}-\frac1\pi
+ \iint_{E\setminus B(z,\epsilon)}\frac{\dd m(w)}{(w-z)^2}.
+\]
+Away from the closure of $E$ the ordinary integral suffices. Source review should confirm the intended almost-everywhere version; the estimate concerns its integral over $\mathbb D\setminus E$.
+
+The source reports constants $a,b$ such that
+\[
+ \iint_{\mathbb D\setminus E}|f_E|\,\dd m
+ \leq a\,m(E)\log\frac\pi{m(E)}+b\,m(E)
+\]
+for every measurable $E\subseteq\mathbb D$, by Calderón--Zygmund theory. Determine the smallest admissible leading coefficient $a$, where the additive constant $b$ may depend on $a$ but must be independent of $E$. The conjectured sharp endpoint is
+\[
+ \exists b\in\R\ \forall E\subseteq\mathbb D\text{ measurable},\quad
+ \iint_{\mathbb D\setminus E}|f_E|\,\dd m
+ \leq m(E)\log\frac\pi{m(E)}+b\,m(E).
+\]
+At $m(E)=0$, use the continuous convention $m(E)\log(\pi/m(E))=0$. The source says small centered disks show that a coefficient below one is impossible. Proving only inequalities with every $a>1$ would not by itself establish the displayed endpoint with $a=1$.
+
+The source calls this equivalent to Gehring--Reich's area-distribution Problem 7.9, whose statement is not supplied. It also reports a sharp one-dimensional analogue for $E\subset[-1,1]$ and the transform $-\pi^{-1}\int_E\dd t/(x-t)$, by subordination or a Stein--Weiss theorem; no exact analogue inequality is included.
+\subsection{Short English statement}
+Find the sharp leading logarithmic constant in the integral estimate for the planar Hilbert transform of an indicator set. The conjectured coefficient is one with a single additive constant working for every measurable subset of the disk. The registry labels this solved, while its research summary says OPEN-TRIAGE and no definitive resolution located after Hayman's 2018 update. No resolving citation is supplied, so that status conflict is retained rather than silently resolved.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath permanent ID 2307036, source code catalogue entry, ``Research Problems in Function Theory --- Problem 7.36.'' Registry curation and metadata: Ulam AI and UnsolvedMath Contributors, CC BY 4.0; updated 2026-08-06.
+\item Hayman, \emph{Research Problems in Function Theory} (2018 source update), Problem 7.36, attributed to A. Baernstein, comparing Gehring--Reich's Problem 7.9: \url{https://arxiv.org/abs/1809.07200}. Supplied source-TeX extraction accessed 2026-07-29. The metadata retains the update for status triage and marks status/release and rights review NEEDS\_REVIEW.
+\item Calderón--Zygmund theory, Gehring--Reich, and Stein--Weiss are named in the source without full bibliographic entries. No missing theorem, one-dimensional formula beyond the supplied transform, or resolving reference is inferred.
+\end{itemize}
+\end{document}

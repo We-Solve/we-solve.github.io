@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006616}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(X\) be a graph, let \(x,y\in V(X)\), and let \(F\subseteq V(X)\) be finite. The supplied excerpt imposes no explicit connectedness, finiteness, or median-graph hypothesis on \(X\).
+
+The travelling-salesman quantity is
+\[
+\operatorname{TS}(x,F,y)
+:=\min\{\ell(\gamma):\gamma\text{ is a path from }x\text{ to }y,\ F\subseteq V(\gamma)\}.
+\]
+Here \(\ell(\gamma)\) denotes path length. The source does not explicitly specify whether paths may repeat vertices, although this matters for a travelling-salesman problem, or how to treat an empty collection of admissible paths.
+
+A \emph{polytope}, in the terminology of the source, is the convex hull \(\operatorname{conv}_X(A)\) of a finite set \(A\subseteq V(X)\). This does not itself assert that its entire vertex set is finite. The excerpt does not define its convexity convention. One possible interpretation is graph geodesic convexity, under which a convex vertex set contains every shortest path between any two of its vertices; this interpretation requires confirmation.
+
+A \emph{path of polytopes} is a finite sequence
+\[
+P_0=\{x\},\ P_1,\ldots,P_k=\{y\}
+\]
+such that for each consecutive pair, its two members can be designated \(P,Q\) in an order for which
+\[
+P=\operatorname{conv}_X\bigl(V(Q)\cup\{u\}\bigr)
+\qquad\text{for some }u\in\partial Q.
+\]
+The symbol \(\partial Q\) is retained exactly from the source: its meaning is not supplied. In particular, an inner vertex boundary and an exterior vertex boundary would give materially different moves. Interpreting the length of this sequence as its number \(k\) of transitions, the travelling-polytope quantity is
+\[
+\operatorname{TP}(x,F,y)
+:=\min\left\{k:\begin{array}{l}
+P_0=\{x\},\ P_k=\{y\},\ (P_0,\ldots,P_k)\text{ is a path of polytopes},\\
+F\subseteq\displaystyle\bigcup_{i=0}^{k}V(P_i)
+\end{array}\right\}.
+\]
+The transition-count interpretation of length and the convention when no such sequence exists require confirmation.
+
+\textbf{Problem 7 (Genevois), as supplied.} Compare these two quantities. The source records the bound
+\[
+\operatorname{TP}(x,F,y)\leq 2\operatorname{TS}(x,F,y).
+\]
+Seek sharp bounds in the reverse direction and determine the exponent introduced in the source:
+\[
+\operatorname{TP}(X):=
+\sup\left\{\alpha\ \middle|\
+\begin{array}{l}
+\exists C>0\ \forall x,y\in V(X)\ \
+\forall F\subseteq V(X)\text{ finite},\\[2pt]
+\operatorname{TP}(x,F,y)+|F|
+\geq C\bigl(\operatorname{TS}(x,F,y)+|F|\bigr)^{\alpha}
+\end{array}\right\}.
+\]
+Thus \(C\) is uniform over \(x,y,F\), although it may depend on \(X\) and \(\alpha\). The excerpt does not explicitly specify the range of \(\alpha\), conventions for zero bases or infinite distances, or the intended class of graphs for which this invariant is to be computed. In particular, \(x=y\) and \(F=\varnothing\) give a zero base under the usual length-zero convention. These issues, together with the undefined boundary operation, prevent an unqualified precise formulation of the invariant from the supplied excerpt alone.
+\subsection{Short English statement}
+For a graph, compare the shortest route visiting a prescribed finite set of vertices with the shortest sequence of convex polytopes whose union covers that set. The source attributes the problem to Genevois, states \(\operatorname{TP}\leq2\operatorname{TS}\), and asks for reverse comparisons encoded by \(\operatorname{TP}(X)\). The boundary operation, path conventions, and intended graph class need clarification. The supplied open status is dated curation, not an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record, permanent ID \(30006616\), title \emph{Comparing Travelling-Salesman and Travelling-Polytope Metrics}, exact source code \texttt{catalogue entry}. The extracted heading is ``Problem 7. Travelling polytopes, Genevois''; the structured proposer field is empty, so attribution here follows that heading.
+\item \emph{Median Geometry and Applications} (2026), Oberwolfach Reports, pp.\ 487--540, DOI \texttt{10.4171/owr/2026/8}: \url{https://doi.org/10.4171/owr/2026/8}. The supplied extraction contains the running page marker 531. The background identifies Oberwolfach Reports as records of mathematical workshops and their open-problem discussions.
+\item Supplied literature source, labelled ``OWR report'': \url{https://ems.press/content/serial-article-files/53603}. Literature assessment date: \texttt{2026-08-22}. This is supplied dated curation, not independently verified: it labels the problem open and reports partial bounds without a complete resolution. The supplied background expressly calls for independent verification of time-sensitive status and cited claims. No source was visited in preparing this draft.
+\end{itemize}
+\end{document}

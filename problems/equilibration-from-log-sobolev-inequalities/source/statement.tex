@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005722}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record does not determine a standalone open problem. Its heading asks, ``How fast does it equilibrate?'', but no dynamics or particular equilibrium measure is specified. The record's verification note states that this question introduces log-Sobolev inequalities and quantitative equilibration bounds in the report.
+
+The state space in the excerpt is \(X=\R^\Lambda\), with the index set \(\Lambda\) unspecified. For a probability measure \(\nu\) on \(X\) and a positive measurable function \(G\) with finite positive integral, define
+\[
+\operatorname{Ent}_\nu(G)=\int_X G\log\!\left(\frac{G}{\int_XG\,\mathrm d\nu}\right)\,\mathrm d\nu.
+\]
+For probability measures \(\mu\ll\nu\), with density \(f=\mathrm d\mu/\mathrm d\nu\), define relative entropy by
+\[
+H(\mu\mid\nu)=\int_X f\log f\,\mathrm d\nu
+=\operatorname{Ent}_\nu(f),
+\]
+with \(0\log0=0\) and the value \(+\infty\) permitted. Define the total variation norm of the difference of two probability measures by
+\[
+\|\mu-\nu\|_{\mathrm{TV}}=2\sup_{A\text{ measurable}}|\mu(A)-\nu(A)|.
+\]
+This convention makes the displayed Pinsker bound below consistent; the excerpt does not specify its convention.
+
+The first displayed formula in the supplied extraction suggests the log-Sobolev normalization
+\[
+\operatorname{Ent}_\nu(G)\leq\frac{1}{2\gamma}I_\nu(G),\qquad \gamma>0,
+\]
+for every bounded smooth strictly positive function \(G:\R^\Lambda\to(0,\infty)\). The excerpt calls the largest admissible \(\gamma\) the log-Sobolev constant. However, its extracted definition has displaced factors and does not unambiguously preserve the coefficient. Moreover, neither \(I_\nu\) nor the meaning of smoothness on \(\R^\Lambda\) is specified. For finite \(\Lambda\), a conventional Euclidean interpretation would be
+\[
+I_\nu(G)=\int_{\R^\Lambda}\frac{|\nabla G|^2}{G}\,\mathrm d\nu,
+\]
+but this interpretation is conditional and is not recoverable as an explicit definition from the supplied text.
+
+Writing \(\nu_t\) for the unspecified time-dependent law and \(\nu_\infty\) for its intended equilibrium, the excerpt asserts
+\[
+H(\nu_t\mid\nu_\infty)
+\leq\frac{1}{2\gamma}I(\nu_t\mid\nu_\infty)
+=\frac{1}{2\gamma}I_{\nu_\infty}\!\left(\frac{\mathrm d\nu_t}{\mathrm d\nu_\infty}\right)
+\]
+and
+\[
+\|\nu_t-\nu_\infty\|_{\mathrm{TV}}^2
+\leq2H(\nu_t\mid\nu_\infty)
+\leq2e^{-2\gamma t}H(\nu_0\mid\nu_\infty),
+\qquad t\geq0.
+\]
+The first inequality in the second display is attributed to Pinsker. The excerpt describes equilibration as having rate \(\gamma\); its display has exponent \(2\gamma\) for entropy and squared total variation. Absolute continuity is needed for the displayed densities, and finite initial entropy is needed for a finite bound. Deriving time decay also requires a specified evolution and an appropriate entropy-dissipation relation with compatible normalization; these hypotheses are absent. Consequently, these displays preserve the asserted quantitative content but do not constitute a fully specified theorem or a recoverable research question. No model-specific rate or sharp-constant problem can be stated without additional source information.
+\subsection{Short English statement}
+The excerpt presents log-Sobolev inequalities as a route to exponential equilibration, with an asserted entropy bound proportional to \(e^{-2\gamma t}\). It does not identify the dynamics, equilibrium measure, or a precise unresolved target. The supplied verification note identifies the passage as introductory exposition, although the registry labels it open. The extracted normalization and missing analytic hypotheses require human review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30005722\), title: ``Equilibration from Log-Sobolev Inequalities''; exact source problem code: \texttt{catalogue entry}. The supplied record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2023.
+\item Supplied report citation: \emph{Arbeitsgemeinschaft: QFT and Stochastic PDEs} (2024), Oberwolfach Reports, pp.\ 3319--3370, DOI \texttt{10.4171/owr/2023/59}. Supplied source and literature link, labeled ``Oberwolfach Report 59/2023'': \url{https://doi.org/10.4171/owr/2023/59}. The citation's 2024 designation and the report's 2023 designation are retained as supplied.
+\item The extracted passage names Henri Elad Altman and Chunqiu Song. Their precise role is not specified, and the registry supplies no proposer attribution.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the item open and says that log-Sobolev theory gives exponential equilibration under a stated inequality, while the extracted question specifies neither a model nor a sharp rate. This is supplied dated curation, not independently verified literature assessment. The background expressly requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{unrecoverable}. Its verification note says that the official report uses the question to introduce log-Sobolev inequalities and then supplies quantitative exponential equilibration bounds, rather than posing a standalone unresolved problem. This note is supplied evidence; the report has not been independently consulted for this draft.
+\end{itemize}
+\end{document}

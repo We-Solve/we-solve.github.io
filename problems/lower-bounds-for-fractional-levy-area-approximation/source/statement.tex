@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002170}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks for a lower bound for fractional Brownian L\'evy-area approximation, but does not specify the component covariance, area normalization, or exact sampling convention. The following is a precise candidate formulation under explicitly stated conventional assumptions; these assumptions require confirmation against the source.
+
+Fix \(H\in(1/4,1)\). Let \(B=(B^1,B^2)\) be a centered Gaussian process with independent standard fractional Brownian components, so that
+\[
+\E[B^i_sB^j_t]=\frac{\delta_{ij}}2\bigl(s^{2H}+t^{2H}-|t-s|^{2H}\bigr),\qquad s,t\geq0,\quad i,j\in\{1,2\}.
+\]
+For \(T>0\), let \(B^{(m)}\) be the piecewise linear interpolation of \(B\) on the dyadic partition of \([0,T]\) into \(2^m\) intervals. Use the signed-area convention
+\[
+A_T=\lim_{m\to\infty}^{L^2}\frac12\left(\int_0^T B^{1,(m)}_t\,\dd B^{2,(m)}_t-\int_0^T B^{2,(m)}_t\,\dd B^{1,(m)}_t\right),
+\]
+where the integrals before taking the limit are ordinary integrals along piecewise linear paths. For a positive integer \(n\), define
+\[
+t_k=\frac{kT}{n}\quad(0\leq k\leq n),\qquad
+\mathcal G_{n,T}=\sigma\bigl(B^i_{t_k}:i\in\{1,2\},\ 0\leq k\leq n\bigr),\qquad
+\widehat A_{n,T}=\E[A_T\mid\mathcal G_{n,T}].
+\]
+Thus this convention uses \(n\) subintervals and \(n\) nonzero observation times, together with the deterministic starting value.
+
+Under these conventions, the candidate lower-bound question is whether
+\[
+\forall H\in(1/4,1)\ \exists c_H>0\ \forall T>0\ \forall n\in\{1,2,\ldots\}:\qquad
+\left(\E\left[|A_T-\widehat A_{n,T}|^2\right]\right)^{1/2}
+\geq c_H T^{2H}n^{-2H+1/2}.
+\]
+Here \(c_H\) may depend on \(H\), but is independent of \(T\) and \(n\). The supplied record does not resolve whether the intended bound holds for every positive integer \(n\), as displayed, or only for all sufficiently large \(n\). It also does not establish that the independent planar model and signed-area convention above are exactly those of the report. These qualifications remain unresolved; the displayed formulation is conditional on them.
+\subsection{Short English statement}
+Can the root mean square error in estimating fractional Brownian L\'evy area from equally spaced observations be bounded below by \(c_HT^{2H}n^{-2H+1/2}\), for each \(H\in(1/4,1)\)? The supplied curation labels this question open and describes a matching upper rate. The precise process, area convention, sampling count, and range of \(n\) need source confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record, permanent ID \(30002170\), title \emph{Lower Bounds for Fractional L\'evy-Area Approximation}, exact source problem code \texttt{catalogue entry}. The record gives proposed year 2012 and no named proposer. Its status \texttt{open}, statement label \texttt{corrected\_verified}, and assertion that the official report confirms the interval and approximation error are supplied registry annotations, not independently verified findings.
+\item Supplied report citation: \emph{Rough Paths and PDEs (2013)}, Oberwolfach Reports, pp.\ 2493--2540, DOI \texttt{10.4171/owr/2012/41}. Source URL and literature-source link labelled ``OWR report 41'': \url{https://doi.org/10.4171/owr/2012/41}. The background describes Oberwolfach Reports as records of mathematical workshops and their open-problem discussions.
+\item Supplied literature-source attribution: Neuenkirch--Tindel--Unterberger, \url{https://doi.org/10.1016/j.spa.2010.06.002}. No article title or more detailed bibliographic information is supplied.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation states that the cited work proves a matching upper approximation rate, while the conjectured lower bound remains unproved in general outside special cases such as Brownian motion. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; time-sensitive status and cited claims require independent checking.
+\end{itemize}
+\end{document}

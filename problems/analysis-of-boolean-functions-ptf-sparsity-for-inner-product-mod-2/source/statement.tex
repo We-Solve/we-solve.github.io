@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800452}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) be an integer and let \(\F_2=\{0,1\}\) be the field with two elements. For \(x,y\in\F_2^n\), define the inner product modulo \(2\) function by
+\[
+\operatorname{IP}_{2n}(x,y)=(-1)^{\sum_{i=1}^{n}x_i y_i},
+\]
+where the exponent is interpreted modulo \(2\).
+
+The supplied extract does not explicitly specify the monomial basis used to measure PTF sparsity. The following formulation uses signed coordinates: encode a bit \(u_j\in\F_2\) by \(z_j=(-1)^{u_j}\in\{-1,1\}\). For a Boolean function \(F\colon\{-1,1\}^m\to\{-1,1\}\), a polynomial threshold function (PTF) representation means a real multilinear polynomial
+\[
+p(z)=\sum_{S\subseteq\{1,\ldots,m\}}a_S\prod_{j\in S}z_j
+\quad\text{such that}\quad
+F(z)p(z)>0\quad\text{for every }z\in\{-1,1\}^m.
+\]
+The empty product is \(1\), so a nonzero constant coefficient counts as one monomial. There is no degree restriction. Define
+\[
+\operatorname{sp}_{\mathrm{PTF}}(F)
+=\min_p\bigl|\{S:a_S\ne0\}\bigr|,
+\]
+where the minimum is over these representations. This convention requires nonzero polynomial values at every input.
+
+Define the signed-coordinate version of the inner product function by
+\[
+\widetilde{\operatorname{IP}}_{2n}
+\bigl((-1)^{x_1},\ldots,(-1)^{x_n},
+      (-1)^{y_1},\ldots,(-1)^{y_n}\bigr)
+=\operatorname{IP}_{2n}(x,y).
+\]
+Under the stated convention, the source question is whether
+\[
+\operatorname{sp}_{\mathrm{PTF}}
+\bigl(\widetilde{\operatorname{IP}}_{2n}\bigr)\geq 3^n
+\qquad\text{for every integer }n\geq1.
+\]
+Equivalently, must every such PTF representation have at least \(3^n\) nonzero monomials? Ordinary monomials in the original \(0,1\) coordinates give a different sparsity notion; the intended basis must therefore be confirmed against the source before this conditional formulation is accepted.
+
+The source additionally records a much stronger question independently asked by Rocco Servedio. With the same PTF convention, for every integer \(n\geq1\), every pair of functions \(f,g\colon\{-1,1\}^n\to\{-1,1\}\), and all positive integers \(s,t\), does
+\[
+\operatorname{sp}_{\mathrm{PTF}}(f)\geq s,
+\qquad
+\operatorname{sp}_{\mathrm{PTF}}(g)\geq t
+\quad\Longrightarrow\quad
+\operatorname{sp}_{\mathrm{PTF}}(f\oplus g)\geq st
+\]
+hold, where \(f\oplus g\colon\{-1,1\}^{2n}\to\{-1,1\}\) is defined on disjoint inputs by \((f\oplus g)(z,w)=f(z)g(w)\)?
+\subsection{Short English statement}
+The question asks whether every polynomial threshold representation of inner product modulo \(2\) on \(2n\) bits needs at least \(3^n\) monomials. The formulation above measures monomials in signed coordinates; the supplied extract leaves this basis convention unresolved. A stronger question attributed to Rocco Servedio asks whether PTF sparsity lower bounds multiply when two Boolean functions on disjoint inputs are multiplied.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800452\), exact source problem code \texttt{catalogue entry}, title: \emph{Analysis of Boolean Functions --- PTF Sparsity for Inner Product Mod 2}. The supplied registry labels the problem open; this is a supplied status, not an independently verified mathematical or literature assessment.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 23, ``PTF Sparsity for Inner Product Mod 2.'' Supplied source URL: \url{https://arxiv.org/abs/1204.6447}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of independent source access.
+\item The supplied background attributes the proposal to Srikanth Srinivasan, 2010. The registry's proposer and year fields instead list O'Donnell and 2012, corresponding to the cited source list; both attributions are retained.
+\item The supplied remarks attribute the stronger multiplicative PTF sparsity question to Rocco Servedio, who independently asked it. No separate reference for this question is supplied.
+\end{itemize}
+\end{document}

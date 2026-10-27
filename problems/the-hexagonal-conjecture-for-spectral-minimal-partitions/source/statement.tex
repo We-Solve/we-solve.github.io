@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001153}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(S^2=\{x\in\R^3:\lVert x\rVert=1\}\) carry its standard induced Riemannian metric, with area \(4\pi\). For a nonempty open set \(D\subseteq S^2\), define its first Dirichlet eigenvalue variationally by
+\[
+\lambda_1(D)=\inf_{0\ne u\in C_c^\infty(D)}\frac{\int_D |\nabla_{S^2}u|^2\,\dd A}{\int_D |u|^2\,\dd A}.
+\]
+Here the gradient and area measure are those of the standard sphere; the variational formulation imposes Dirichlet boundary conditions without requiring a smooth boundary.
+
+For each integer \(k\ge1\), let \(\mathfrak P_k(S^2)\) denote the intended class of admissible \(k\)-partitions. Writing a partition as \(\mathcal D=(D_1,\ldots,D_k)\), with nonempty pairwise disjoint open cells, set
+\[
+\mathcal L_k(S^2)=\inf_{\mathcal D\in\mathfrak P_k(S^2)}\max_{1\le i\le k}\lambda_1(D_i),\qquad
+\mathcal L_{k,1}(S^2)=\inf_{\mathcal D\in\mathfrak P_k(S^2)}\frac1k\sum_{i=1}^k\lambda_1(D_i).
+\]
+\textbf{Unresolved admissibility qualification.} The supplied record does not define the partition class, including its coverage condition, whether cells must be connected, or any boundary regularity or capacity conditions. The open-cell description above gives the setting for these formulas, but its agreement with the intended source convention requires review. The statement below is consequently conditional on identifying that convention; no equivalence between alternative partition classes is asserted.
+
+Let \(\operatorname{Hexa}_1\subset\R^2\) be the interior of a regular Euclidean hexagon of area \(1\), and let \(\lambda_1(\operatorname{Hexa}_1)\) be its first Dirichlet eigenvalue for the Euclidean Laplacian, defined by the analogous Rayleigh quotient.
+
+\textbf{Hexagonal asymptotic conjecture, supplied corrected formulation.} For the intended admissible partition classes, do both limits exist and satisfy
+\[
+\lim_{k\to\infty}\frac{\mathcal L_k(S^2)}{k}
+=\lim_{k\to\infty}\frac{\mathcal L_{k,1}(S^2)}{k}
+=\frac{\lambda_1(\operatorname{Hexa}_1)}{4\pi}?
+\]
+The limits are taken over positive integers. Equivalently, multiplying each normalized energy by \(\operatorname{Area}(S^2)=4\pi\) gives the proposed limit \(\lambda_1(\operatorname{Hexa}_1)\).
+
+\textbf{Normalization qualification.} The supplied original statement instead gives \(\lambda_1(\operatorname{Hexa}_1)\) as the limit without the factor \(1/(4\pi)\). The current statement explicitly adopts the corrected version supplied in the record. Its verification note attributes the discrepancy to an omitted area factor in the report's displayed conjecture and cites the preceding scale-invariant expression and a later general-domain formulation. That explanation is supplied source verification, not independent verification performed for this draft.
+\subsection{Short English statement}
+For partitions of the standard unit sphere into \(k\) admissible cells, minimize either the largest first Dirichlet eigenvalue or their arithmetic mean. The supplied corrected conjecture says that each minimum, divided by \(k\), tends to the first Dirichlet eigenvalue of a unit-area planar regular hexagon divided by \(4\pi\). The precise admissible partition class remains unspecified, and the correction to the original normalization requires source review.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: supplied UnsolvedMath source record, permanent ID \(30001153\), source problem code \texttt{catalogue entry}, entitled \emph{The Hexagonal Conjecture for Spectral Minimal Partitions}; collection: Oberwolfach Reports Open Problems. The project registries are \texttt{data/unsolvedmath/problems.json} and \texttt{catalog/problems.json}; this draft uses the supplied record without checking its file placement.
+\item Supplied report citation: \emph{Low Eigenvalues of Laplace and Schrödinger Operators} (2009), Oberwolfach Reports, pp.\ 355--428, DOI \texttt{10.4171/owr/2009/06}. \url{https://doi.org/10.4171/owr/2009/06}. The record describes these reports as documenting workshops and their open-problem discussions. It supplies proposed year 2009 but no individual proposer.
+\item Additional supplied literature source, labeled ``spectral minimal partitions'': \url{https://doi.org/10.1007/s00020-021-02635-7}. No authors or fuller bibliographic details are supplied.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and states that available work gives bounds and partial asymptotics without the conjectured limit. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; time-sensitive status and cited claims require independent checking.
+\item The registry labels the statement \texttt{corrected\_verified}. Its supplied verification note says that the report uses the sphere of area \(4\pi\), precedes its conjecture with \(\operatorname{Area}(S^2)\mathcal L_{k,1}(S^2)/k\), and omits that area factor in the displayed conjecture. It attributes the corrected constant to consistency with a later general-domain formulation, without supplying a precise locator or separate reference for that formulation. These are supplied claims, not verification performed here.
+\end{itemize}
+\end{document}

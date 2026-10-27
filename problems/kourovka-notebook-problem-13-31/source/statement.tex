@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 700949}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Omega\) be a finite nonempty set and let \(G\leq\operatorname{Sym}(\Omega)\). The action is primitive if it is transitive and the only \(G\)-invariant equivalence relations on \(\Omega\) are equality and the universal relation. For a finite sequence \((\alpha_1,\ldots,\alpha_k)\) of points of \(\Omega\), define its pointwise stabilizer by
+\[
+G_{\alpha_1,\ldots,\alpha_k}=\{g\in G:g(\alpha_j)=\alpha_j\text{ for every }1\leq j\leq k\}.
+\]
+The stabilizer of the empty sequence is \(G\). A sequence is a base if its pointwise stabilizer is \(\{1\}\), and the minimum base size is
+\[
+b(G,\Omega)=\min\{k\in\Z_{\geq0}:\text{there exists a base of length }k\}.
+\]
+For \(H\leq G\) and \(\alpha\in\Omega\), write \(H\alpha=\{h(\alpha):h\in H\}\).
+
+The greedy procedure starts with \(G_0=G\). Whenever \(G_i\neq\{1\}\), it chooses \(\alpha_{i+1}\in\Omega\) satisfying
+\[
+|G_i\alpha_{i+1}|=\max_{\beta\in\Omega}|G_i\beta|,
+\qquad
+G_{i+1}=G_{\alpha_1,\ldots,\alpha_{i+1}}.
+\]
+It stops at the first index \(k\) with \(G_k=\{1\}\), producing a greedy base of length \(k\). If \(G=\{1\}\), it stops immediately and returns the empty base.
+
+The question asks whether greedy base size is bounded by a universal constant multiple of minimum base size for finite primitive permutation groups. Under the interpretation that the bound must hold for every permitted choice among maximum-size orbits and their points, the precise question is whether
+\[
+\exists c\in\R_{>0}\ \ \forall\text{ finite primitive }G\leq\operatorname{Sym}(\Omega)\ \ \forall\text{ greedy outputs }(\alpha_1,\ldots,\alpha_k),
+\qquad k\leq c\,b(G,\Omega).
+\]
+The constant must be independent of the group, the permutation degree, and the permitted greedy choices.
+
+\emph{Unresolved qualification.} The supplied wording gives no tie-breaking rule and does not explicitly quantify over permitted greedy choices. A weaker possible formulation replaces the final universal quantifier by the assertion that, for each finite primitive action, there exists a permitted greedy output satisfying the same bound. The source record does not determine which of these formulations is intended; no equivalence between them is asserted.
+\subsection{Short English statement}
+For a finite primitive permutation group, a base is a sequence of points whose common stabilizer is trivial. The greedy procedure repeatedly chooses a point in a largest orbit of the current stabilizer. Cameron asks whether its output always has length at most a universal constant times the minimum base size. The supplied wording leaves unresolved whether the bound must hold for every permitted greedy choice or for some permitted choice.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(700949\), exact source problem code \texttt{catalogue entry}, title \emph{Kourovka Notebook Problem 13.31}. The supplied upstream revision is \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Attributed in the supplied record to P. J. Cameron, proposed in 1995: \emph{The Kourovka Notebook (Unsolved Problems in Group Theory)}, 13th issue (1995), Problem 13.31; cited through the 21st issue edition (2026), \texttt{arXiv:1401.0300v48}. The supplied collection description names E. I. Khukhro and V. D. Mazurov as editors.
+\item The registry labels the problem \emph{open}. This is a supplied status label, not an independently verified assessment of the mathematical literature. The cited edition and attribution have not been independently checked for this draft.
+\end{itemize}
+\end{document}

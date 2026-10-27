@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004986}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a graph \(G\), let \(V(G)\) and \(E(G)\) denote its vertex and edge sets, and let \(\chi(G)\) denote its chromatic number, namely the least number of colors needed to color its vertices so that adjacent vertices receive different colors. The union \(H=\bigcup_{i=1}^{n}G_i\) has
+\[
+V(H)=\bigcup_{i=1}^{n}V(G_i),\qquad E(H)=\bigcup_{i=1}^{n}E(G_i).
+\]
+The graphs may share vertices; their union is not stipulated to be disjoint.
+
+The supplied question asks: given a positive integer \(n\) and graphs \(G_1,\ldots,G_n\) satisfying
+\[
+\chi(G_i)\le n-1\quad(1\le i\le n),\qquad
+|V(G_i)\cap V(G_j)|\le1\quad(1\le i<j\le n),
+\]
+what is the largest possible value of
+\[
+\chi\!\left(\bigcup_{i=1}^{n}G_i\right)
+\]
+as a function of \(n\)?
+
+To expose the unspecified graph domain, for a chosen graph class \(\mathcal G\) write
+\[
+\mathcal A_n(\mathcal G)=\left\{(G_1,\ldots,G_n)\in\mathcal G^n:
+\begin{array}{l}
+\chi(G_i)\le n-1\text{ for every }i,\\
+|V(G_i)\cap V(G_j)|\le1\text{ for every }i<j
+\end{array}\right\}.
+\]
+Whenever this class is nonempty, its extremal quantity is
+\[
+M_{\mathcal G}(n)=\sup\left\{\chi\!\left(\bigcup_{i=1}^{n}G_i\right):(G_1,\ldots,G_n)\in\mathcal A_n(\mathcal G)\right\}.
+\]
+The requested target is the exact largest attainable value in the intended graph class. The supplied record does not explicitly specify whether graphs must be finite and simple, nor the intended lower endpoint for \(n\). Consequently, \(\mathcal G\) is left unresolved here. In particular, interpreting \(n=1\) requires conventions concerning empty graphs and their chromatic number, since the individual bound becomes \(\chi(G_1)\le0\).
+
+The original extract attributes this variant to Tom Kelly. Its contextual Erd\H{o}s--Faber--Lov\'asz formulation concerns \(n\) complete graphs, each on at most \(n\) vertices, with pairwise intersections of size at most one, and the bound \(\chi(\bigcup_iG_i)\le n\). Those completeness and vertex-count hypotheses belong to that contextual formulation; the supplied corrected variant instead uses \(\chi(G_i)\le n-1\). The original extract omits part of the variant and then runs into a separate problem attributed to Xingxing Yu. The statement above therefore follows the supplied clean statement, whose verification is asserted by the registry but has not been independently checked here.
+\subsection{Short English statement}
+Determine, for each intended value of \(n\), the largest chromatic number obtainable by taking the union of \(n\) graphs, each colorable with at most \(n-1\) colors, when any two graphs share at most one vertex. The intended graph class and the boundary case \(n=1\) need clarification. The supplied record attributes the variant to Tom Kelly and labels it partially solved; these are supplied source claims requiring review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30004986\), title ``Chromatic Number of Almost-Linear Graph Unions,'' source problem code \texttt{catalogue entry}, Oberwolfach Reports Open Problems collection. The supplied proposed year is 2022. The original extract names Tom Kelly, although the registry's proposer field is empty. The registry labels the statement \texttt{corrected\_verified} and says it was checked against the official report; this is supplied verification metadata, not an independent verification in this draft.
+\item Supplied report citation: \emph{Graph Theory (2023)}, Oberwolfach Reports, DOI 10.4171/owr/2022/1, pp.~5--78. \url{https://doi.org/10.4171/owr/2022/1}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The citation's year designation and its relationship to the proposed year require checking.
+\item Supplied literature reference: Kang et al., proof of the Erd\H{o}s--Faber--Lov\'asz conjecture. \url{https://doi.org/10.4007/annals.2023.198.2.2}.
+\item Supplied literature reference: Kang et al., bounded-codegree extension. \url{https://arxiv.org/abs/2110.06181}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied status is ``partially solved.'' The supplied assessment states that the Erd\H{o}s--Faber--Lov\'asz bound is proved for all sufficiently large \(n\), while this question asks for the exact maximum for every \(n\), with the finite exceptional range not completely resolved. This is supplied dated curation derived from the supplied Oberwolfach curation, not independently verified. Its time-sensitive status, cited claims, and applicability to this variant require independent verification.
+\end{itemize}
+\end{document}

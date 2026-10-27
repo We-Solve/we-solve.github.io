@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001077}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G$ be a finite simple oriented graph on $n$ vertices. Let $\tau$ count three-vertex sets inducing exactly a directed two-edge path, $\eta$ count three-sets inducing one arc and one isolated vertex, and $\theta$ count cyclic triangles. In particular $\eta$ is not merely the number of arcs; the source's phrase ``induced edges'' needs this three-vertex interpretation.
+
+\textbf{Thomass\'e conjecture.} The maximum possible $\tau$ is
+\[
+ \frac{n^3}{15}+O(n^2).
+\]
+The extracted conjecture number is damaged. The source notes iterated substitution of directed $C_4$ as the lower construction, and records historical bounds attributed to F\"uredi, $\tau\leq n^3/12+O(n^2)$, and Bondy, $\tau\leq2n^3/25$. These are source-era literature statements, not independently updated assessments.
+
+\textbf{Reported exact degree identity.} With out- and indegrees $d^+(v),d^-(v)$, the aid proves the source's expression is exactly
+\[
+ \tau+\frac\eta3+2\theta=\frac{n^3}{12}
+ -\frac16\sum_v\left[(d^+(v)-d^-(v))^2+
+ (n/2-d^+(v))^2+(n/2-d^-(v))^2\right].
+\]
+Under the stated counting convention there is no asymptotic error in this identity. It does not itself yield the conjectured $1/15$ general upper bound.
+
+\textbf{Reported balanced recursive construction.} Define $B_0,B_1$ trivially. For $n\geq2$, partition into four classes of sizes $n_0,\ldots,n_3$ differing by at most one; put all arcs from class $i$ to $i+1$ modulo four, no arcs between opposite classes, and recursively place $B_{n_i}$ inside each class. If $P(n)$ is its induced directed-path count, the exact recurrence is
+\[
+ P(n)=\sum_{i=0}^3P(n_i)+\sum_{i=0}^3n_i n_{i+1}n_{i+2},\qquad P(0)=P(1)=0,
+\]
+with indices modulo four. Writing $\Delta(n)=(n^3-n)/15-P(n)$ gives the equivalent exact defect recurrence
+\[
+ \Delta(n)=\sum_i\Delta(n_i)+\frac{n^3-\sum_i n_i^3}{15}
+ -\sum_i n_i n_{i+1}n_{i+2}.
+\]
+The aid proves, for $n\geq1$,
+\[
+ 0\leq\Delta(n)\leq\frac n5\lceil\log_4n\rceil.
+\]
+Hence this construction has $n^3/15-O(n\log n)$ copies for every $n$, and exactly $(n^3-n)/15$ when $n$ is a power of four. This is a quantitative lower construction; it does not prove optimality for all oriented graphs.
+
+\textbf{Appended majority-digraph context.} The record then defines a graph using $\beta$ linear orders, with arc $u\to v$ if $u$ precedes $v$ in at least $\alpha$ orders. Its terminal majority condition is corrupted as ``$\alpha>\beta>2/3$''; the natural ratio reading is $\alpha/\beta>2/3$ with $1\leq\alpha\leq\beta$, but the missing fraction must be source-checked. This belongs to following context and is not a hypothesis of the induced-path theorem or an additional resolved conjecture.
+\subsection{Short English statement}
+The aid makes the source's three-vertex degree identity exact and sharpens the rounding analysis of the iterated directed-$C_4$ lower construction. It gives a recurrence and $O(n\log n)$ defect, with exact values at powers of four. The general upper conjecture and the corrupted appended majority-digraph definition remain separate.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001077$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[201]}, extracted source item 6.
+\item AIM workshop ``The Caccetta--Haggkvist conjecture,'' PDF Thomass\'e conjecture and notes: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. The source attributes prior bounds to F\"uredi and Bondy and appends majority-digraph context; no complete bibliographic entries are supplied.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{partially\_solved}, internal rigor \texttt{proved}, low novelty confidence. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. Original literature field empty.
+\end{itemize}
+\end{document}

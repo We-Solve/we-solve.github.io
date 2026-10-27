@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000628}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Ashkan Nikeghbali's source question asks about the distribution of zeros of the derivative of a random unitary characteristic polynomial, especially near the unit circle, and about $\E[|f'|^s]$ as $s\to0$. The source does not specify the unitary ensemble, evaluation point, matrix-size limit, or normalization of $f$. Its extraction is marked reconstructed and unverified. The following precise formulation is the accompanying aid's CUE interpretation, not an implicit completion of all missing source data.
+
+Let $N\geq2$, let $U_N$ be Haar distributed on the unitary group $U(N)$, and define
+\[
+ \Lambda_N(z)=\det(I-zU_N^*).
+\]
+Let $c_{1,N},\ldots,c_{N-1,N}$ be zeros of $\Lambda_N'$, counted with multiplicity. The aid reports the exact identity
+\[
+ \prod_{j=1}^{N-1}|c_{j,N}|=\frac{|\operatorname{Tr}U_N|}{N}.
+\]
+Almost surely these critical points lie in the open unit disk and none equals zero. Their total logarithmic radial depth is therefore
+\[
+ D_N=\sum_{j=1}^{N-1}\log\frac1{|c_{j,N}|}
+     =\log N-\log|\operatorname{Tr}U_N|.
+\]
+The reported limiting law is
+\[
+ D_N-\log N\ \Longrightarrow\ W,\qquad
+ \Pr(W\leq x)=\exp(-e^{-2x})\quad(x\in\R),\quad N\to\infty.
+\]
+Writing $K_N(r)=\#\{j:|c_{j,N}|\leq r\}$, the deterministic bound supplied by the aid is
+\[
+ K_N(r)\leq\frac{D_N}{\log(1/r)},\qquad 0<r<1.
+\]
+This controls critical points deep inside the disk but is not a complete near-boundary point-process law.
+
+For the small-exponent bridge, fix $N$ and $0\leq r<1$, put $X_{N,r}=\log|\Lambda_N'(r)|$, and impose two-sided exponential integrability, for example $\E\exp(\delta|X_{N,r}|)<\infty$ and $\E\exp(\delta|X_{N,0}|)<\infty$ for some $\delta>0$. Under these explicit hypotheses the aid's Jensen interpretation takes the form
+\[
+ \left.\frac{d}{dq}\right|_{q=0}
+ \left(\log\E|\Lambda_N'(r)|^q-\log\E|\Lambda_N'(0)|^q\right)
+ =\E X_{N,r}-\E X_{N,0}
+ =\int_0^r\frac{\E K_N(t)}{t}\,dt.
+\]
+The integral is zero at $r=0$. Rotational invariance supplies the connection between a fixed radial point and the angular Jensen mean. This formulation makes integrability an assumption; the supplied record does not establish it uniformly in $N$ or as $r\uparrow1$. The summary also reports an expansion of a Simm--Wei fixed-interior limiting formula giving two log-cumulants, but includes neither that formula, its normalization and limiting hypotheses, nor the cumulant values. These cannot be reconstructed as a precise additional theorem from this record.
+\subsection{Short English statement}
+For Haar unitary matrices, the supplied aid relates the product of critical-point radii exactly to the trace, yielding a limiting law for total radial depth and a bound on deep critical points. A conditional Jensen formula links the derivative of small-exponent moments at zero to the expected radial count. These statements do not specify the full boundary distribution requested in the original question.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000628$, source code \texttt{catalogue entry}, supplied reconstructed source text and research summary; canonical local record \texttt{aim-analysis-notes.json}, \texttt{notes[159]}.
+\item Ashkan Nikeghbali, Question 3, AIM workshop \emph{Random analytic functions}, in \emph{Open Problems at the Random Analytic functions Workshop at AIM}, Swaminathan Sethuraman, April 17, 2006, as identified by the supplied verification note: \url{https://aimath.org/WWN/randomzeros/arcc1.pdf}. This is a supplied citation only; no PDF was retrieved or compiled.
+\item The research summary names a Simm--Wei fixed-interior limit without a full bibliographic reference or its formula. The original literature field is empty.
+\item Research attempt 1: partial result; problem partially solved at the recorded run; supplied rigor label ``proved'', novelty confidence ``low''. The aid is machine generated, not peer reviewed, and must be independently verified before citation. Its novelty suggestion is not a verified priority claim.
+\end{itemize}
+\end{document}

@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005266}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\N=\{1,2,\ldots\}\). For a positive integer \(m\), define the von Mangoldt function by
+\[
+\Lambda(m)=\begin{cases}\log p,&m=p^k\text{ for a prime }p\text{ and }k\geq1,\\0,&\text{otherwise}.\end{cases}
+\]
+The supplied target is incomplete as written. An explicitly qualified candidate formulation is the following: for every fixed polynomial \(f\in\Z[t]\), irreducible over \(\Q\), of degree \(d\geq2\), with positive leading coefficient and with no fixed prime divisor, establish the weighted Bateman--Horn asymptotic below. Here, having no fixed prime divisor means
+\[
+\text{for every prime }p\text{ there exists }a\in\Z\text{ such that }p\nmid f(a).
+\]
+For each prime \(p\), put
+\[
+\rho_f(p)=\#\{a\in\Z/p\Z:f(a)\equiv0\pmod p\},\qquad
+\mathfrak S_f=\lim_{y\to\infty}\prod_{p\leq y}\frac{1-\rho_f(p)/p}{1-1/p},
+\]
+with the product taken over primes in increasing order. Choose \(N_f\in\N\) such that \(f(n)\geq2\) for every integer \(n\geq N_f\). The intended conjectural assertion is
+\[
+\sum_{\substack{n\in\N\\N_f\leq n\leq x}}\Lambda(f(n))\sim\mathfrak S_f x
+\qquad(x\to\infty),\qquad 0<\mathfrak S_f<\infty.
+\]
+The polynomial \(f(t)=t^2+1\) is an explicitly requested fixed-polynomial instance.
+
+The positive-leading-coefficient restriction occurs in the original excerpt but is omitted from the cleaned statement. The absence of a fixed prime divisor is an explicit repair needed for this positive-constant formulation; it is not stated in the supplied target. The choice of positive integer inputs and the cutoff \(N_f\) make the argument of \(\Lambda\) well defined and require confirmation against the intended source formulation.
+
+There is also an unresolved difference in scope: the original excerpt concerns a family
+\[
+f_{\mathbf c}(t)=c_0t^d+c_1t^{d-1}+\cdots+c_d,
+\qquad \mathbf c\in\Z^{d+1},\quad c_0>0,
+\]
+and reports that one typically obtains a polynomial lower bound on the number of prime values. It supplies neither the coefficient ranges nor a meaning of ``typically'' nor the precise lower bound. That reported family result must be distinguished from the conjectural asymptotic for every fixed admissible polynomial displayed above.
+\subsection{Short English statement}
+For each fixed admissible irreducible integer polynomial of degree at least two with positive leading coefficient, the intended conjecture predicts that its von Mangoldt weighted values have average equal to an explicit Euler product. This includes \(t^2+1\). The missing local hypothesis and the difference between the fixed-polynomial target and the excerpt's typical-family result require human review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied record for permanent ID \(30005266\), title ``Bateman--Horn Asymptotics for Prime Polynomial Values,'' exact source code \texttt{catalogue entry}.
+\item Supplied report citation: \emph{Analytic Number Theory} (2023), Oberwolfach Reports, pp.\ 2895--2960, DOI \texttt{10.4171/owr/2022/50}. \url{https://doi.org/10.4171/owr/2022/50}. The registry separately records the proposed year as 2022.
+\item The original excerpt identifies the contribution ``Bateman--Horn, Chowla and the integral Hasse principle for random polynomials'' by Tim Browning, joint work with Efthymios Sofos and Joni Ter\"av\"ainen. This is contribution attribution; the record does not identify a proposer of the reconstructed fixed-polynomial problem.
+\item Supplied literature source: ``Oberwolfach Report 50,'' \url{https://ems.press/content/serial-article-files/46986}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and states that prime values even for the fixed polynomial \(t^2+1\) remain out of reach, hence the broader polynomial-prime question remains open. This is supplied dated curation, not independently verified here. The background expressly calls for independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official Oberwolfach report. These are supplied verification claims, not independent verification of this draft.
+\end{itemize}
+\end{document}

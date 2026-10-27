@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000996}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Dustin Cartwright asks for the tropical Picard group, in the sense of the source's reference [13], of a product of graphs, and mentions a guess when one factor is a tree. The intended Picard model matters: the aid uses ridge-supported Cartier classes on a triangulated product surface, not the real-torus Jacobian of a metric graph.
+
+Let $G,H$ be finite connected loopless multigraphs, each with at least one edge so their cubical product is two-dimensional, and let $\Gamma$ be a triangulation choosing one diagonal in each square of $G\times H$, with the intended Cartwright tropical structure. For a graph $G$, put
+\[
+ \operatorname{Pic}(G)=\Z^{V(G)}/L_G\Z^{V(G)},\qquad
+ K(G)=\operatorname{Div}^0(G)/L_G\Z^{V(G)},
+\]
+where $L_G$ is its graph Laplacian and $\operatorname{Div}^0(G)$ consists of coefficient vectors with sum zero. Thus $\operatorname{Pic}(G)\cong\Z\oplus K(G)$, with the splitting requiring a degree-one choice.
+
+Write $\mathcal C_\Gamma\subseteq\Z^{E(\Gamma)}$ for the integral ridge-supported Cartier-divisor lattice, $\mathcal P_\Gamma\subseteq\mathcal C_\Gamma$ for its principal-divisor lattice, and
+$\operatorname{Pic}_{\mathrm{ridge}}(\Gamma)=\mathcal C_\Gamma/\mathcal P_\Gamma$.
+The factor map $\gamma:\operatorname{Pic}(G)\oplus\operatorname{Pic}(H)\to\operatorname{Pic}_{\mathrm{ridge}}(\Gamma)$ is induced by the two factor pullbacks. The aid attributes to Lazar (2017) its injectivity and its being an isomorphism if either factor is a tree $T$. In that case it reports
+\[
+ \operatorname{Pic}_{\mathrm{ridge}}(G\times T)
+ \cong\operatorname{Pic}(G)\oplus\Z
+ \cong\Z^2\oplus K(G).
+\]
+These are supplied literature claims, with product triangulation/structure conventions implicit.
+
+For the aid's further reduction, let $D$ be the chosen diagonal edges, indexed by $E(G)\times E(H)$, and let $\pi_D$ restrict ridge coefficients to $D$. Define
+$\Lambda_\Gamma=\pi_D(\mathcal C_\Gamma)$ and $Q_\Gamma=\pi_D(\mathcal P_\Gamma)$. With incidence matrices $B_G\in\Z^{E(G)\times V(G)}$ and $B_H\in\Z^{E(H)\times V(H)}$, the aid identifies $Q_\Gamma$ with the image of $B_G\otimes B_H$ after a row sign change determined by diagonal choices, and claims that this image is primitive in $\Z^D$. It records the exact sequence
+\[
+ 0\longrightarrow\operatorname{Pic}(G)\oplus\operatorname{Pic}(H)
+ \xrightarrow{\gamma}\operatorname{Pic}_{\mathrm{ridge}}(\Gamma)
+ \longrightarrow\Lambda_\Gamma/Q_\Gamma\longrightarrow0.
+\]
+Accordingly its quotient is free abelian and the factor map identifies
+\[
+ \operatorname{Tor}\operatorname{Pic}_{\mathrm{ridge}}(\Gamma)
+ \cong K(G)\oplus K(H).
+\]
+The remaining general computation is the free rank of $\Lambda_\Gamma/Q_\Gamma$. The local Cartier conditions and tropical structure constants needed to compute $\mathcal C_\Gamma$ are not supplied, so this is a reduction, not an explicit Picard-group formula for every product.
+\subsection{Short English statement}
+Compute the tropical Picard group of a graph product. In the ridge-supported surface model, the supplied aid reports a tree-factor formula and reduces the general case to a free diagonal-lattice quotient, with torsion given by the two graph critical groups.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Generalizations of chip-firing and the critical group}, problem 31, Dustin Cartwright: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. The intended tropical Picard group is referred to reference [13], whose full bibliographic entry is absent.
+\item The attached aid attributes the injective factor map and tree-factor theorem to Lazar (2017), and mentions Lazar's stronger conjecture, without a title, complete citation, or its full statement.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20000996, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[120]}. Attached attempt 1, partial result, problem status at run partially solved, rigor proved, low novelty confidence; machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

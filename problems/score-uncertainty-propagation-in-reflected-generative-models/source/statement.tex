@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006263}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks how uncertainty in an estimated score propagates through a reflected score-based generative diffusion. It does not specify enough hypotheses to determine a unique stochastic model or a quantitative conjecture.
+
+For notation only, if a time marginal has a positive differentiable density \(p_t\) on the interior of its state domain, its score is
+\[
+s_t(x)=\nabla_x\log p_t(x).
+\]
+Write \(\widehat s_t\) for an estimated score. Once the reflected dynamics and their initial conditions have been specified, write \(X_t\) and \(\widehat X_t\) for the processes using the exact and estimated scores, respectively, and set
+\[
+\mu_t=\mathcal L(X_t),\qquad
+\widehat\mu_t=\mathcal L(\widehat X_t).
+\]
+These are conditional definitions; the existence and regularity of these densities and processes are not supplied assumptions or established conclusions.
+
+The requested research task is to formulate and prove finite-time bounds describing how a specified measure of score-estimation uncertainty controls errors in the reflected generative process and its distributions. Such bounds must account explicitly for reflection at the boundary. Their precise formulation requires a state domain, time interval, reflected stochastic dynamics, boundary regularity, reflection direction, initial laws, a measure of score uncertainty, and a distributional error metric. None is fixed by the supplied record. It is also unspecified whether uncertainty means deterministic estimation error, statistical variability, or a random uncertainty model, and whether the finite-time target concerns individual marginals or the process over a time interval.
+
+The original extraction includes the following ambiguous formula, reproduced here with typographical subscripts only:
+\[
+\text{p}\,\dd X_t
+ =\nabla f(X_t)\,\dd t
+  +2f(X_t)\,\dd W_t
+  +\nu(X_t)\,\dd\ell_t^D.
+\]
+The initial isolated \(\text{p}\), the intended diffusion coefficient, and the meanings and hypotheses for \(f,W,\nu,\ell^D\) are unresolved. In particular, the record does not identify how \(f\) relates to the score or how a score estimate enters this equation. This transcription therefore does not define the model to which the requested bounds should apply.
+
+The source explicitly abstracts from numerical and implementation issues. This draft consequently retains the theoretical uncertainty-propagation target without adding a discretization problem. A precise theorem or conjecture requires resolution of the missing model and error specifications; no particular choices are asserted here.
+\subsection{Short English statement}
+Determine how uncertainty in a learned score affects a reflected generative diffusion, including finite-time and distributional errors caused by its interaction with the boundary. The supplied formulation leaves the dynamics, uncertainty model, error metrics, and boundary hypotheses unspecified, and its extracted equation is ambiguous. It is therefore a research objective requiring further specification and human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local registry record: permanent UnsolvedMath ID \(30006263\), title \emph{Score-Uncertainty Propagation in Reflected Generative Models}, exact source problem code \texttt{catalogue entry}. The collection is \emph{Oberwolfach Reports Open Problems}; the supplied proposed year is 2025. No individual proposer is identified.
+\item Supplied report citation: \emph{Uncertainty Quantification} (2025), Oberwolfach Reports, pp.\ 1011--1078, DOI 10.4171/owr/2025/21. \url{https://doi.org/10.4171/owr/2025/21}. The record describes these reports as documenting mathematical workshops and their open-problem discussions; it supplies no more specific location within this page range.
+\item Supplied literature source, labelled ``OWR 2025 report'': \url{https://ems.press/content/serial-article-files/51850}.
+\item Supplied literature source, labelled ``Score-model uncertainty quantification'': \url{https://arxiv.org/abs/2405.15754}.
+\item Supplied literature source, labelled ``Reflected diffusion models'': \url{https://openreview.net/forum?id=QcKoLuEO3r}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and reports that general score-based diffusion uncertainty bounds exist and reflected diffusion models have been constructed, while propagation of score-estimation uncertainty through the reflected process remains unresolved. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The source expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says that only formula delimiters, notation, grammar, and typography were repaired, with mathematical content and scope preserved. These are supplied registry qualifications, not verification performed for this draft.
+\end{itemize}
+\end{document}

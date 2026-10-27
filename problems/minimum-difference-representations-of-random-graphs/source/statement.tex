@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003331}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G=([n],E)\) be a finite simple undirected graph, where \([n]=\{1,\ldots,n\}\). The supplied record defines \(f_{\min}(G)\) as the least threshold \(k\) for which sets \(A_1,\ldots,A_n\) satisfy
+\[
+\{i,j\}\in E
+\quad\Longleftrightarrow\quad
+\min\bigl\{|A_i\setminus A_j|,|A_j\setminus A_i|\bigr\}\ge k
+\qquad(1\le i<j\le n).
+\]
+The record does not explicitly specify the domain of \(k\), the finiteness of the sets, or a ground-set restriction. For a precise conditional formulation, adopt positive integer thresholds and subsets of an arbitrary finite common ground set. Under these explicitly provisional conventions,
+\[
+f_{\min}(G)=\min\Bigl\{k\in\Z_{\ge1}:\ \exists\text{ a finite set }U\ \exists A_1,\ldots,A_n\subseteq U\ \forall\,1\le i<j\le n,\quad
+\bigl(\{i,j\}\in E\iff\min\{|A_i\setminus A_j|,|A_j\setminus A_i|\}\ge k\bigr)\Bigr\}.
+\]
+These conventions require confirmation against the original source; they are not additional hypotheses explicitly supplied by the record.
+
+The questions are as follows.
+\begin{enumerate}
+\item For every fixed \(p\in(0,1)\), is there a constant \(c_p>0\) such that
+\[
+\lim_{n\to\infty}\Pr\!\left(f_{\min}(G_n)\ge c_p\frac{n}{\log n}\right)=1,
+\qquad G_n\sim G(n,p)?
+\]
+Here \(G(n,p)\) is the random simple graph on \([n]\) in which each unordered pair of distinct vertices is independently an edge with probability \(p\). The parameter \(p\) is fixed as \(n\to\infty\).
+\item Determine the extremal function
+\[
+M(n)=\max\{f_{\min}(G):G\text{ is a simple graph on }[n]\}.
+\]
+The record does not specify whether an exact formula or an asymptotic order is sought.
+\item The source also asks whether \(f_{\min}(G)=o(n)\) for every \(G\in\mathcal G(n)\cup\mathcal G(n,n)\). Neither class is defined in the supplied record, and the role of \(n\) in \(\mathcal G(n,n)\) is unspecified. Consequently this part cannot yet be given an unconditional precise formulation. If the intended meaning is a statement about every sequence \((G_n)\) with \(G_n\in\mathcal G(n)\cup\mathcal G(n,n)\), its proposed conclusion is
+\[
+\lim_{n\to\infty}\frac{f_{\min}(G_n)}{n}=0.
+\]
+This sequence formulation remains conditional on identifying the graph classes and their size parameter.
+\end{enumerate}
+\subsection{Short English statement}
+The problem asks how large the least threshold in a minimum-difference set representation must be for a random graph and how large it can be among all graphs of a given order. A further sublinear-growth question uses undefined graph classes. The threshold and set conventions above are provisional. The supplied record labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(30003331\), title ``Minimum-Difference Representations of Random Graphs,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied. The recorded proposed year is 2017.
+\item Supplied source citation: \emph{Combinatorics (2018)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2017/1}, pp.\ 5--81. Supplied source URL and literature-source link labelled ``original OWR report'': \url{https://doi.org/10.4171/owr/2017/1}. The background describes these reports as documenting workshop discussions and open problems.
+\item Supplied literature-source link: F\"uredi--Kantor, ``minimum difference representations,'' \url{https://arxiv.org/abs/1701.08292}. No fuller bibliographic citation is supplied.
+\item Supplied literature assessment, checked on \texttt{2026-08-21}: the record labels the problem open and states that the random-bipartite case has matching bounds of order \(n/\log n\), while the stated \(G(n,p)\) lower bound and extremal maximum questions remain unsettled. It also identifies an incomplete final graph-class specification. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; the record expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review asserting that the clean statement is self-contained and preserves its target. That supplied review label does not resolve the formulation gaps identified here or constitute mathematical verification of this draft.
+\end{itemize}
+\end{document}

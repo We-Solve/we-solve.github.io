@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002898}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether the historical tableau $k$-atoms from the first definition in Morse's lecture notes form a basis of $\operatorname{span}\{J_\lambda:\lambda_1\le k\}$ and whether their expansion coefficients refine the $q,t$-Kostka polynomials. The atom construction and the normalization of $J$ are not included. The aid explicitly warns against replacing these original atoms by a later definition of $k$-Schur functions.
+
+Work over $\Q(q,t)$ with independent parameters. The ordinary Macdonald integral form is $J_\lambda=c_\lambda(q,t)P_\lambda$. The aid's intended transformed normalization is instead
+\[
+ H_\lambda[X;q,t]=J_\lambda[X/(1-t);q,t],
+ \qquad
+ V_{k,n}=\operatorname{span}\{H_\lambda:|\lambda|=n,\lambda_1\le k\}.
+\]
+This plethystic transform is not silently identified with another modified-Macdonald convention. The unmodified interpretation already fails at $(k,n)=(1,2)$:
+\[
+ J_{(1,1)}=(1-t)(1-t^2)s_{(1,1)},\qquad
+ H_{(1,1)}=s_{(1,1)}+t s_{(2)}.
+\]
+Thus its unmodified line is different from the historical transformed line underlying the atom claim. A normalization must be chosen before the original basis assertion can be evaluated.
+
+Let $A_\mu^{(k)}(X;t)$ denote the original atoms for $\mu_1\le k$. The aid uses their Schur-unitriangularity, with leading term $s_\mu$, to prove independence. Since $\dim V_{k,n}$ equals the number of $k$-bounded partitions of $n$, the corrected degree-$n$ basis problem is exactly
+\[
+ A_\mu^{(k)}\in V_{k,n}\quad\text{for every }|\mu|=n,\ \mu_1\le k,
+\]
+or equivalently the vanishing of these finitely many classes in the quotient of degree-$n$ symmetric functions by $V_{k,n}$. Independence does not itself prove that membership.
+
+When this basis exists, write for $\lambda_1\le k$
+\[
+ H_\lambda=\sum_{\mu_1\le k}K^{(k)}_{\mu\lambda}(q,t)A_\mu^{(k)},
+ \qquad A_\mu^{(k)}=\sum_\nu a_{\nu\mu}^{(k)}(t)s_\nu.
+\]
+A precise natural refinement target is polynomial nonnegativity of $K^{(k)}$ together with
+\[
+ K_{\nu\lambda}(q,t)=\sum_\mu
+ a_{\nu\mu}^{(k)}(t)K^{(k)}_{\mu\lambda}(q,t),
+\]
+where $K_{\nu\lambda}$ are the Schur coefficients in the stated $H$ convention. The source does not spell out what refinement means, and cannot mean expansion of every unbounded-index $H_\lambda$ in this smaller space without additional hypotheses.
+
+For $n\le k$ the aid reports stabilization $A_\mu^{(k)}=s_\mu$. Then $V_{k,n}$ is the full degree-$n$ space, the atoms form a basis, and the refined coefficients equal ordinary $q,t$-Kostka polynomials. It leaves the general $n>k$ membership and positivity statements open for the original tableau atoms in its checked literature. The stable-range result does not settle those assertions.
+\subsection{Short English statement}
+The basis claim depends on Macdonald normalization. The aid rejects the literal unmodified integral-form reading, reduces the transformed problem to atom membership, and reports a complete stable sector when the degree is at most $k$. It does not replace the historical atoms or solve the general membership and refinement problem.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002898, source code catalogue entry; created and updated 14 August 2026. Canonical \texttt{aim-special-functions-notes.json}, zero-based \texttt{notes[2]}, tag \texttt{problem}, item 3.
+\item AIM ``Generalized Kostka polynomials'': \url{https://aimath.org/WWN/kostka/prob2.pdf}. Wording is marked exact; original remarks and literature field are empty. The source refers to the first definition of $k$-Schur functions in Morse's lecture notes without full title, date, definition, or link to those notes.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run open, rigor label \texttt{proved}, novelty confidence low. No complete authoritative bibliographic references or tableau-atom construction are supplied for the triangularity, stabilization, and general-status claims.
+\item Ulam AI / UnsolvedMath Contributors, CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

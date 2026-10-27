@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003273}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(q\) be a fixed prime power with \(q\equiv1\pmod4\), and let \(\F_q[T]\) be the polynomial ring over the field with \(q\) elements. The prime-power condition is required for the notation \(\F_q\). For \(g\in\Z_{\ge0}\), put
+\[
+\mathcal H_{2g+1}=\{D\in\F_q[T]:D\text{ is monic and square-free},\ \deg D=2g+1\}.
+\]
+For \(D\in\mathcal H_{2g+1}\), define the quadratic character on monic polynomials by \(\chi_D(1)=1\) and
+\[
+\chi_D(f)=\prod_{P^e\parallel f}\left(\frac{D}{P}\right)^e,
+\]
+where the product runs over monic irreducible factors of \(f\), and \(\left(\frac{D}{P}\right)\) is zero if \(P\mid D\), and otherwise is \(1\) or \(-1\) according as the residue of \(D\) is a square or a nonsquare in \((\F_q[T]/(P))^\times\). Write
+\[
+\mathcal L_D(u)=\sum_{n=0}^{2g}\left(\sum_{\substack{f\in\F_q[T]\text{ monic}\\\deg f=n}}\chi_D(f)\right)u^n,
+\qquad L(s,\chi_D)=\mathcal L_D(q^{-s}).
+\]
+Thus \(L(1/2,\chi_D)=\mathcal L_D(q^{-1/2})\) uses the usual function-field Dirichlet \(L\)-function normalization.
+
+The supplied text does not specify the domain of the fixed moment index \(k\). Under the conventional interpretation \(k\in\Z_{\ge1}\), the cleaned formulation asks whether, for every fixed \(q\) as above and every fixed positive integer \(k\), there exists a polynomial \(P_{q,k}\in\R[X]\), independent of \(g\), with
+\[
+\deg P_{q,k}=\frac{k(k+1)}2
+\]
+such that, as \(g\to\infty\) through integers,
+\[
+\sum_{D\in\mathcal H_{2g+1}}L(1/2,\chi_D)^k
+=q^{2g+1}P_{q,k}(2g+1)+o(q^{2g+1}).
+\]
+Here \(P_{q,k}\) denotes the source's \(P_k\), with its possible dependence on the fixed field size displayed. Equivalently, the difference between the sum divided by \(q^{2g+1}\) and \(P_{q,k}(2g+1)\) tends to zero. No uniformity in \(q\) or \(k\) is asserted.
+
+There is an unresolved discrepancy: the original statement instead requires
+\[
+\sum_{D\in\mathcal H_{2g+1}}L(1/2,\chi_D)^k
+=q^{2g+1}P_{q,k}(2g+1)+o(1),
+\]
+which is a strictly stronger error requirement. Both versions are retained here; the supplied evidence does not resolve which is intended. Moreover, the record specifies only the degree of \(P_k\), not its coefficients. If a particular Andrade--Keating conjectural polynomial is intended, its coefficient prescription is missing.
+\subsection{Short English statement}
+For a fixed finite field and a fixed positive integer moment order, ask whether the sum of central quadratic Dirichlet \(L\)-values over monic square-free polynomials of degree \(2g+1\) has a polynomial asymptotic of degree \(k(k+1)/2\), multiplied by \(q^{2g+1}\). The positive-integer interpretation of \(k\) requires confirmation. The cleaned and original records give different error terms, respectively \(o(q^{2g+1})\) and \(o(1)\), and do not specify the conjectural polynomial's coefficients.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record: permanent ID \(30003273\), exact source problem code \texttt{catalogue entry}, title \emph{Moments of Quadratic Dirichlet L-Functions over Function Fields}; collection: Oberwolfach Reports Open Problems. The record gives proposed year 2016 and no named proposer.
+\item Supplied report citation: \emph{Analytic Number Theory (2017)}, Oberwolfach Reports, pp.\ 2975--3030, DOI \texttt{10.4171/owr/2016/53}. \url{https://doi.org/10.4171/owr/2016/53}. The supplied background attributes the problem to workshop open-problem discussions documented in Oberwolfach Reports.
+\item Supplied literature reference: Andrade and Keating. \url{https://doi.org/10.1016/j.jnt.2014.02.019}.
+\item Supplied literature reference: Florea 2017. \url{https://doi.org/10.1007/s00039-017-0409-8}.
+\item Supplied literature reference: Function-field moments 2022. \url{https://doi.org/10.1016/j.ffa.2022.102113}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem partially solved and reports proved leading terms and expected-order results for several moments, including the fourth, while describing the full polynomial asymptotic for every fixed \(k\) as open. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; the status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and says its mathematical content was preserved while notation, typography, or omitted definitions were repaired. This supplied label does not resolve the conflicting error terms or establish mathematical correctness.
+\end{itemize}
+\end{document}

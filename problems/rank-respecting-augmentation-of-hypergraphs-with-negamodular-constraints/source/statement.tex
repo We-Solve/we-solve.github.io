@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3000069}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $V$ be a finite vertex set and $G_0=(V,\mathcal E_0)$ a hypergraph. For a hypergraph $H=(V,\mathcal E_H)$, define its cut degree and rank by
+\[
+ d_H(X)=\#\{e\in\mathcal E_H:e\cap X\ne\varnothing,
+                              \ e\cap(V\setminus X)\ne\varnothing\},
+ \qquad \operatorname{rank}(H)=\max_{e\in\mathcal E_H}|e|,
+\]
+counting multiplicities if parallel hyperedges are permitted. The source does not specify that convention or the rank of an edgeless hypergraph.
+
+The input is a crossing negamodular integer-valued function $R:2^V\to\Z$ satisfying
+\[
+ R(X)\ne1\qquad\text{for every }X\subseteq V.
+\]
+With a commonly used supermodular-sign convention, crossing negamodularity means
+\[
+ R(A)+R(B)\leq R(A\setminus B)+R(B\setminus A)
+\]
+for crossing pairs $A,B$, customarily requiring all four regions $A\cap B$, $A\setminus B$, $B\setminus A$, and $V\setminus(A\cup B)$ nonempty. The precise sign and crossing-pair convention are not defined in the supplied excerpt and must be checked against the source.
+
+\textbf{Optimization problem.} Find an added hypergraph $G=(V,\mathcal E)$ of minimum total size such that
+\[
+ d_G(X)\geq R(X)-d_{G_0}(X)\quad\text{for every }X\subseteq V,
+ \qquad \operatorname{rank}(G)\leq\operatorname{rank}(G_0).
+\]
+Thus it is the added hypergraph whose size is minimized, and the augmented cut requirements are $d_G(X)+d_{G_0}(X)\geq R(X)$. The source says ``total size'' without defining whether this means $\sum_{e\in\mathcal E}|e|$, number of hyperedges, or another cost. No one objective is silently selected.
+
+Feasibility is not guaranteed by the displayed hypotheses: in particular the constraints at $\varnothing$ and $V$ require $R(\varnothing),R(V)\leq0$, but no such normalization is supplied. The intended infeasibility convention, representation/oracle for $R$, and algorithmic efficiency target are likewise absent.
+
+The supplied summary says related supermodular/negamodular augmentation problems have polyhedral and matroid-intersection algorithms, mentions A. Frank, T. Kir\'aly, and others, and reports no published algorithm located for this exact rank-respecting variant. The archived Egres index is explicitly not a current resolution authority.
+\subsection{Short English statement}
+Add a minimum-size hypergraph meeting the residual cut requirements of a crossing negamodular function, while keeping every added edge within the original rank bound. The special condition $R(X)\ne1$ is retained. The objective, feasibility assumptions, graph conventions, and algorithmic model require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 3000069, source code catalogue entry, ``Rank-respecting augmentation of hypergraphs with negamodular constraints''; supplied status open, classification OPEN-TRIAGE, updated 2026-08-06. No proposer is supplied.
+\item Egres Open, \emph{List of open problems}, indexed page with that title, \url{https://oldlemon.cs.elte.hu/egres/open/List_of_open_problems}. Reported HTML extraction and access: 2026-07-29. The record says the index labels the page open but the archived wiki is not a current resolution authority.
+\item The summary names A. Frank, T. Kir\'aly, and others for related work without specific publications. Rights note: NEEDS\_REVIEW; public wiki access was verified but no redistribution license was displayed in the archived footer.
+\end{itemize}
+\end{document}

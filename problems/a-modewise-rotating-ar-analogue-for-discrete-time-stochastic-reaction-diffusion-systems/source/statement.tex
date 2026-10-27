@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001386}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Suppose the deterministic system $\dot x=f(x,y)$, $\dot y=g(x,y)$ has a stable fixed point, translated to $0$, and its real Jacobian $A\in\R^{2\times2}$ has eigenvalues $-\lambda\pm i\omega$ with $\lambda>0$ and $\omega\ne0$. The source's noisy linearization is
+\[
+ dU_t=AU_t\,dt+\begin{pmatrix}\sigma_1&0\\0&\sigma_2\end{pmatrix}dW_t,
+ \qquad U_t=\begin{pmatrix}x_t\\y_t\end{pmatrix},
+\]
+with the usual interpretation of $W$ as a pair of independent standard Brownian motions. It states that this process can be approximated by a constant times a rotation times a pair of independent standard Ornstein--Uhlenbeck processes, and asks for an analogue for a discrete-time reaction--diffusion equation. The original gives no approximation parameter, error notion, spatial domain, coupling, discretization rule, boundary conditions, or noise covariance. Accordingly its continuous approximation is retained as a motivating assertion, not promoted to an exact theorem from complex eigenvalues alone.
+
+The supplied machine aid addresses a specified periodic two-species coupled-map lattice with spatially white Gaussian innovations. It reports reduction, using nonredundant spatial Fourier modes (or a real mode basis), to independent two-coordinate autoregressions. A mode can be written
+\[
+ U_{j+1}=MU_j+Q^{1/2}\xi_{j+1},\qquad
+ \xi_j\text{ independent }N(0,I_2),\quad Q>0.
+\]
+For a stable focus, $M$ has nonreal conjugate eigenvalues of modulus $\rho\in(0,1)$ and $\rho^2=\det M$. The aid's exact noise-adapted criterion is
+\[
+ MQM^T=\rho^2Q.
+\]
+Equivalently $C=Q^{-1/2}MQ^{1/2}=\rho R$ with $R\in\operatorname{SO}(2)$. Under stationary initialization, the co-rotating, rescaled coordinates
+\[
+ V_j=\sqrt{1-\rho^2}\,R^{-j}Q^{-1/2}U_j
+\]
+then form a pair of independent standard stationary scalar AR(1) processes, namely coordinates with variance one and autoregressive multiplier $\rho$. Here independence concerns their full Gaussian processes. Without stationary initialization the corresponding recursion still needs an initial-law qualification before being called standard stationary. Complex eigenvalues alone do not imply the criterion.
+
+For the approximate version, the aid defines the operator-norm defect
+\[
+ \delta=\|\rho^{-2}CC^T-I_2\|_2<1
+\]
+and reports a proper orthogonal polar factor $R$ for which
+\[
+ \|C-\rho R\|_2\leq
+ \frac{\rho\delta}{1+\sqrt{1-\delta}}.
+\]
+This is a one-step matrix approximation bound, not by itself a uniform-in-time pathwise or distributional error estimate. The summary also reports a discrete Lyapunov stationary covariance and temporal spectrum for every stable mode; their detailed formulas and the spatial lattice parameters are not supplied. These are a qualified modewise model of a discrete analogue, not a uniquely recovered discrete reaction--diffusion equation.
+\subsection{Short English statement}
+The problem asks for a discrete reaction--diffusion counterpart of a rotating Ornstein--Uhlenbeck approximation near a stable focus. The supplied partial model yields autoregressive spatial modes. Exact independent rotating AR coordinates require a compatibility condition between the mode matrix and noise covariance; complex eigenvalues alone are insufficient. The general spatial model and approximation regime remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001386, exact source code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[43]}, source item 1, tag ``problem'', workshop \emph{Stochastic methods for non-equilibrium dynamical systems}; \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item Supplied verification says the original PDF was inspected and its damaged displays recover, but truncates before displaying the announced repairs. This draft reconstructs the displayed SDE from the supplied components and does not claim to have inspected the PDF. No proposer or independent theorem citation is supplied; original remarks and literature field are empty.
+\item Supplied metadata: PARTIAL-PROGRESS, registry status ``partially\_solved'', statement status ``exact''; attempt 1, result ``partial\_result'', problem status at run ``unknown'', recorded rigor ``proved'', novelty confidence ``low'', candidate description ``modewise normal-form criterion and quantitative bound''. The machine-generated aid is not peer reviewed and explicitly requires independent verification before citation. No outside source was visited.
+\end{itemize}
+\end{document}

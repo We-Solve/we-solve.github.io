@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000992}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Problem 27 (Adrien Kassel).} How does chip-firing on planar metric graphs relate to analysis? The source is broad and gives no analytic target. The aid chooses real Poisson theory, planar duality and integrality of metric-divisor slopes.
+
+Fix a finite connected plane model of a compact metric graph, refining at all source atoms, with oriented edges of positive lengths $\ell_e$. Let $B$ be its vertex-edge incidence matrix (head $+1$, tail $-1$) and $L=\operatorname{diag}(\ell_e)$. For a degree-zero atomic source $D$, the weak Poisson potential $u$, unique modulo constants, satisfies
+\[
+ \int_\Gamma u'\varphi'=\langle D,\varphi\rangle,
+ \qquad BL^{-1}B^{\mathsf T}u=D.
+\]
+The edge current $j=L^{-1}B^{\mathsf T}u$ minimizes $E(q)=q^{\mathsf T}Lq$ among all real routings $Bq=D$. This is the report's minimum-energy real relaxation; the Laplacian sign convention is negative outgoing slope sum.
+
+\textbf{Reported reciprocal-length dual certificate.} Let $C$ be the oriented face-boundary matrix with one face grounded, so $\ker B=\operatorname{im}C$. For any routing $q$, the difference from the Green current is
+\[
+ q-j=Cv,
+\]
+where the face potential solves
+\[
+ C^{\mathsf T}LCv=C^{\mathsf T}Lq.
+\]
+This is a scalar Poisson equation on the planar dual with edge lengths $\ell_e^*=1/\ell_e$, hence conductances $\ell_e$. The aid gives the exact orthogonal energy identity
+\[
+ E(q)=E(j)+(Cv)^{\mathsf T}L(Cv).
+\]
+The last term is the dual Dirichlet energy. Bridges have zero face-gradient contribution; the grounded formulation also covers the trivial face space of a tree.
+
+For an integral degree-zero divisor $D$, choose an integral routing $q$. A principal metric divisor is the Laplacian of a continuous piecewise-linear function with integer slopes, using the declared sign convention (the opposite conventional sign gives the same principal subgroup). The aid's exact criterion is
+\[
+ D\text{ is principal}\quad\Longleftrightarrow\quad j\in\Z^{E}
+ \quad\Longleftrightarrow\quad Cv\in\Z^{E}.
+\]
+It is the dual gradient, not the face potential itself, that must be integral. The fixed plane model and all lengths are part of the certificate.
+
+\textbf{Reported atom-displacement control.} On zero-mass measures use the energy-dual norm
+\[
+ \|\mu\|_{H^{-1}}=\sup_{\int|\varphi'|^2\leq1}|\langle\mu,\varphi\rangle|,
+\]
+with functions modulo constants. The aid reports an estimate controlling movement of atoms to nearby model vertices. A standard compatible form for paired moves $D=\sum_i a_i\delta_{p_i}$, $D'=\sum_i a_i\delta_{p_i'}$ along paths of lengths at most $\delta_i$ is
+\[
+ \|D-D'\|_{H^{-1}}\leq\sum_i|a_i|\sqrt{\delta_i}.
+\]
+It controls the energy error of the corresponding real Poisson solutions. The summary does not print its exact chosen norm/constant convention, and this continuity estimate does not preserve integer slopes or divisor principality. The package supplies one rigorous analytic connection rather than resolving every meaning of the source question.
+\subsection{Short English statement}
+The aid relates metric chip-firing to minimum-energy Poisson currents. A planar dual with reciprocal edge lengths measures the excess energy of any routing, and integrality of its correction gradient exactly tests principality of an integral divisor. An atom-movement estimate controls the real analytic approximation, with no claim that principality survives approximation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000992$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[116]}.
+\item AIM workshop ``Generalizations of chip-firing and the critical group,'' PDF Problem 27, Adrien Kassel: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{partially\_solved}, internal rigor \texttt{proved}, low novelty confidence. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. No complete external theorem references or original literature entry supplied.
+\end{itemize}
+\end{document}

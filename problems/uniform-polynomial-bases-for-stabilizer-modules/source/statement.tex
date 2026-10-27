@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002857}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\lambda=(\lambda_1,\ldots,\lambda_r)\vdash n\) be a partition, so that \(\lambda_1\geq\cdots\geq\lambda_r>0\) and \(\sum_i\lambda_i=n\). Its Young diagram consists of the boxes \((i,j)\) with \(1\leq i\leq r\) and \(1\leq j\leq\lambda_i\). A \(\lambda\)-tableau fills these boxes bijectively with \(1,\ldots,n\). It is row-standard if its entries increase along each row, and standard if they also increase down each column. Write \(\operatorname{RSt}(\lambda)\) and \(\operatorname{St}(\lambda)\) for these two sets.
+
+For a prime power \(q\), let \(\mathbb F_q\) be the field with \(q\) elements, put \(G=\operatorname{GL}_n(\mathbb F_q)\), and let
+\[
+U=\{(u_{ij})\in G:u_{ii}=1\text{ for every }i,\quad u_{ij}=0\text{ whenever }i<j\}
+\]
+be the lower unitriangular subgroup. The source refers to a permutation module \(M(\lambda)\) over a coefficient field \(K\), a Specht module \(S(\lambda)\), and a decomposition
+\[
+\operatorname{Res}^{G}_{U}M(\lambda)
+=\bigoplus_{t\in\operatorname{RSt}(\lambda)}V_t.
+\]
+Here restriction means retaining the underlying vector space and restricting the group action to \(U\). The supplied record does not specify the construction of these modules, the realization of \(S(\lambda)\) inside \(M(\lambda)\), the summands \(V_t\), or the admissible coefficient fields. These are required source data, not additional hypotheses that this draft supplies.
+
+Conditional on such a realization and decomposition, and on a specified total order \(\prec\) on \(\operatorname{RSt}(\lambda)\), write a nonzero vector \(b\in S(\lambda)\) as \(b=\sum_t b_t\), where \(b_t\in V_t\). Its last nonzero component has index
+\[
+\ell(b)=\max_{\prec}\{t:b_t\neq0\}.
+\]
+For a basis \(B\) and \(s\in\operatorname{St}(\lambda)\), put
+\[
+B_s=\{b\in B:\ell(b)=s\}.
+\]
+The order and the meaning of a basis being adapted to the decomposition are not supplied; this notation therefore describes the intended construction only after those choices have been specified.
+
+\textbf{Question recorded in the source.} For general partitions \(\lambda\vdash n\), can one choose an adapted basis \(B\) of \(S(\lambda)\), independently of the coefficient field \(K\), such that for every \(s\in\operatorname{St}(\lambda)\) there is a polynomial \(p_s\in\mathbb Z[x]\) satisfying
+\[
+|B_s|=p_s(q),\qquad p_s(1)=1?
+\]
+Can this moreover be achieved with
+\[
+p_s(x)\in\mathbb Z_{\geq0}[x-1]
+=\left\{\sum_{j=0}^{d}a_j(x-1)^j:d\geq0,\ a_j\in\mathbb Z_{\geq0}\right\}?
+\]
+The intended uniform reading is that, for fixed \(\lambda\) and \(s\), the same polynomial works as \(q\) and the admissible coefficient field vary. The record does not explicitly specify this quantifier scope, the admissible fields, or the mathematical meaning of choosing a basis independently of \(K\); these qualifications remain unresolved. The equality \(p_s(1)=1\) is a polynomial evaluation, not a definition of a group over a field with one element.
+
+The supplied dated assessment calls this the James--D conjecture and its nonnegative-coefficient refinement, states that both are established for partitions with at most two parts, and labels the general partition case open because no complete proof was found in that curation. These are supplied literature claims, not independently verified mathematical conclusions.
+\subsection{Short English statement}
+For a partition \(\lambda\), the question asks for bases of the associated Specht modules whose vectors, grouped by their last nonzero tableau component, have cardinalities given by polynomials in \(q\), with value \(1\) at \(q=1\). A stronger version requires nonnegative coefficients in powers of \(q-1\). The bases should be independent of the coefficient field. The module constructions, admissible fields, tableau order, and precise independence requirement need clarification before the question is fully specified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30002857\), title ``Uniform Polynomial Bases for Stabilizer Modules,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The supplied record gives proposed year \(2015\) and supplies no proposer attribution.
+\item Supplied source citation: \emph{Representations of Finite Groups (2016)}, Oberwolfach Reports, pp.~971--1027, DOI \texttt{10.4171/owr/2015/18}. Source URL: \url{https://doi.org/10.4171/owr/2015/18}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The citation's year \(2016\) differs from the proposed year and the year appearing in the DOI; the supplied record does not explain this.
+\item Supplied literature source: ``Oberwolfach Report 18,'' \url{https://doi.org/10.4171/owr/2015/18}. Literature checked at: \texttt{2026-08-21}. This is supplied dated curation, not independently verified. Its assessment states that the James--D conjecture and its nonnegative-coefficient refinement are established for partitions with at most two parts, while the general partition case is labelled open and no complete proof was found. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified}, explaining that mathematical content was preserved while notation, typography, or omitted definitions were repaired for publication. This is a supplied editorial designation; it does not resolve the missing formulation data or constitute mathematical review of this draft.
+\end{itemize}
+\end{document}

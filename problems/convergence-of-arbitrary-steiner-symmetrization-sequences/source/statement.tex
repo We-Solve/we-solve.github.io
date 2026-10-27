@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002248}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) be an integer, let \(\langle\cdot,\cdot\rangle\) be the Euclidean inner product on \(\R^n\), and put \(S^{n-1}=\{u\in\R^n:\langle u,u\rangle=1\}\). For \(u\in S^{n-1}\), Steiner symmetrization in direction \(u\) replaces each section parallel to \(u\) by a centered interval of the same one-dimensional Lebesgue measure, centered on \(u^\perp\).
+
+For general compact sets, a convention for empty and zero-length sections is needed. One possible convention is the following. Write
+\[
+K_{u,x}=\{t\in\R:x+tu\in K\},\qquad x\in u^\perp,
+\]
+and, with \(\lambda_1\) denoting one-dimensional Lebesgue measure, set
+\[
+S_uK=\bigcup_{\substack{x\in u^\perp\\K_{u,x}\ne\varnothing}}
+\left\{x+tu:|t|\leq \frac{\lambda_1(K_{u,x})}{2}\right\}.
+\]
+Under this convention a nonempty section of measure zero becomes a singleton, whereas an empty section contributes nothing. The supplied record does not specify this convention, so this definition is an explicit possible interpretation rather than a verified definition from the cited report.
+
+For a compact set \(K\subset\R^n\) and an arbitrary sequence \((u_m)_{m\geq1}\) in \(S^{n-1}\), define
+\[
+K_0=K,\qquad K_m=S_{u_m}K_{m-1}=S_{u_m}\cdots S_{u_1}K\quad(m\geq1).
+\]
+\textbf{Recorded question.} Must \((K_m)\) converge in shape for every such \(K\) and every such direction sequence, without any restriction on the directions?
+
+\textbf{Unresolved meaning of convergence in shape.} The record supplies neither a topology nor the transformations allowed when comparing shapes. For example, for nonempty compact sets \(A,B\), the Hausdorff distance is
+\[
+d_H(A,B)=\max\left\{\sup_{a\in A}\inf_{b\in B}\|a-b\|,\ \sup_{b\in B}\inf_{a\in A}\|b-a\|\right\}.
+\]
+If convergence in shape is intended to mean Hausdorff convergence modulo a specified group \(G\) of Euclidean isometries, the corresponding precise question would be whether
+\[
+\forall n\geq1\ \forall K\subset\R^n\text{ nonempty compact}\ 
+\forall (u_m)_{m\geq1}\in(S^{n-1})^{\N}\ 
+\exists L\subset\R^n\text{ nonempty compact}:
+\quad\lim_{m\to\infty}\inf_{g\in G}d_H(gK_m,L)=0.
+\]
+This is a conditional formalization only: the record does not identify \(G\), for example orthogonal transformations fixing the origin or all Euclidean isometries, or confirm Hausdorff convergence as the intended topology. The source quantifier includes all compact sets, hence also the empty set; its treatment requires an additional convention because the displayed Hausdorff formula applies to nonempty sets. No convexity, positive-volume, or nonempty-interior assumption is supplied.
+\subsection{Short English statement}
+The recorded problem asks whether repeated Steiner symmetrization of every compact subset of Euclidean space converges in shape for every sequence of directions. A complete formal statement requires the intended meaning of shape convergence and conventions for empty and zero-measure sections. The supplied open-status assessment discusses a different, truncated summation problem and therefore does not establish the status of this question.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002248\), title: \emph{Convergence of Arbitrary Steiner-Symmetrization Sequences}; exact source problem code: \texttt{catalogue entry}. Collection: \emph{Oberwolfach Reports Open Problems}. No individual proposer is identified; the supplied proposed year is 2012.
+\item Supplied source citation: \emph{Convex Geometry and its Applications} (2013), Oberwolfach Reports, pp.\ 3473--3548, DOI \texttt{10.4171/owr/2012/59}. Supplied link: \url{https://doi.org/10.4171/owr/2012/59}. The background describes these reports as records of workshops and their open-problem discussions.
+\item Supplied literature source, labeled ``Oberwolfach report'': \url{https://ems.press/content/serial-article-files/46430}.
+\item Literature checked at: \texttt{2026-08-21}. This is supplied dated curation, not an independently verified assessment. Its status label is ``open,'' but its explanation concerns the first of two open problems, allegedly truncated before a summation claim. That explanation does not match the recorded Steiner-symmetrization question. The background expressly requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement-status label is \texttt{corrected\_verified}; its accompanying verification note says that the official report gives this question as its fourth explicit problem. This is a supplied provenance claim, not verification performed for this draft.
+\end{itemize}
+\end{document}

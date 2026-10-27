@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003173}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(X\) be a set and let \(H\) be a reproducing-kernel Hilbert space of scalar-valued functions on \(X\): for each \(x\in X\), evaluation \(f\mapsto f(x)\) is a bounded linear functional on \(H\). The source does not specify \(X\), whether the scalar field is \(\R\) or \(\C\), or any metric or measure on \(X\).
+
+For \(\Lambda\subseteq X\), the point samples of \(f\in H\) are \((f(\lambda))_{\lambda\in\Lambda}\). These samples determine every function in \(H\) uniquely precisely when
+\[
+\forall f,g\in H,\qquad
+\bigl[\forall\lambda\in\Lambda,\ f(\lambda)=g(\lambda)\bigr]
+\Longrightarrow f=g.
+\]
+Such a set is called a uniqueness set. This expresses exact recovery without specifying stability or a reconstruction procedure.
+
+To distinguish other possible meanings of the question, one conventional framework uses a countable set \(\Lambda\) and specified weights \(w_\lambda>0\). Stable sampling then means that there exist constants \(0<A\leq B<\infty\) such that
+\[
+A\lVert f\rVert_H^2
+\leq \sum_{\lambda\in\Lambda}w_\lambda|f(\lambda)|^2
+\leq B\lVert f\rVert_H^2
+\qquad\text{for every }f\in H.
+\]
+If the weighted restriction operator
+\[
+R_{\Lambda,w}:H\longrightarrow\ell^2(\Lambda),\qquad
+R_{\Lambda,w}f=(\sqrt{w_\lambda}f(\lambda))_{\lambda\in\Lambda},
+\]
+is bounded, interpolation in this framework means that it is surjective: for every \(a\in\ell^2(\Lambda)\), there exists \(f\in H\) with \(\sqrt{w_\lambda}f(\lambda)=a_\lambda\) for all \(\lambda\in\Lambda\). Countability, weights, boundedness, and the choice of sequence space are additional specifications of this framework, not hypotheses supplied by the record.
+
+\textbf{Source question.} For a reproducing-kernel Hilbert space \(H\), how many point samples are needed to recover every \(f\in H\) completely? Is there a universal density theorem, or a critical density separating sampling sets from interpolation sets?
+
+The source leaves this as a general research question. A precise density assertion requires a specified class of spaces, a definition of density, a normalization, and a meaning of sampling and interpolation. None is supplied. In particular, the record does not determine whether recovery means uniqueness or stable recovery, whether the number of samples means cardinality or spatial density, or whether a proposed critical-density condition is necessary, sufficient, or both. Behavior at the critical density is also unspecified. Consequently, no single quantified density theorem can be extracted without additional hypotheses.
+\subsection{Short English statement}
+The problem asks how many point values determine every function in a reproducing-kernel Hilbert space, and whether density distinguishes sampling sets from interpolation sets. The source does not specify the underlying geometry, density, stability requirements, or interpolation data space, so it gives a research question rather than a fully specified conjecture. Its supplied status is \emph{partially solved}; this draft does not independently verify that assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30003173\), source problem code \texttt{catalogue entry}, title: \emph{Universal Sampling and Interpolation Density in Kernel Spaces}. The supplied record belongs to the Oberwolfach Reports Open Problems collection. No individual proposer is identified; the proposed year is recorded as 2016.
+\item Supplied report citation: \emph{Learning Theory and Approximation (2017)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2016/33}, pp.\ 1875--1941. \url{https://doi.org/10.4171/owr/2016/33}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The citation's title year 2017 differs from the recorded proposed year and the year component of the DOI; this draft preserves those supplied details without resolving them.
+\item Supplied literature reference, labeled ``Fuhr--Grochenig--Haimi--Klotz--Romero, Density of sampling'': \url{https://arxiv.org/abs/1607.07803}.
+\item Supplied literature reference, labeled ``Published density theorem'': \url{https://doi.org/10.1112/jlms.12083}.
+\item Literature assessment checked on \texttt{2026-08-21}: the supplied curation labels the problem \emph{partially solved} and reports critical-density and sampling/interpolation conclusions under weak annular-decay and localization hypotheses, while reporting that no universal theorem for arbitrary reproducing-kernel Hilbert spaces is known. This is supplied dated curation derived from the OWR material, not an independently verified assessment. The precise hypotheses and conclusions of those references are not supplied here.
+\item The registry labels the statement \texttt{corrected\_verified}, explaining that notation, typography, and sentence structure were repaired without changing mathematical content. That supplied editorial label does not establish mathematical correctness or independent source verification of this draft.
+\end{itemize}
+\end{document}

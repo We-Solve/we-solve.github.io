@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001985}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(d\geq1\), \(R_d=\Z[x_1^{\pm1},\ldots,x_d^{\pm1}]\), and let an ideal \(\mathfrak a=(f_1,\ldots,f_m)\) be given by finitely many exact Laurent-polynomial generators. Define
+\[
+ V(\mathfrak a)=\{z\in(\C^*)^d:f_i(z)=0\ (1\leq i\leq m)\},\qquad
+ \mathcal A(\mathfrak a)=\{(\log|z_1|,\ldots,\log|z_d|):z\in V(\mathfrak a)\}.
+\]
+The question contributed by Manfred Einsiedler and Doug Lind is whether an algorithm decides \(0\in\mathcal A(\mathfrak a)\). The aid's affirmative decision statement requires a finite exact input, not numerical approximations or an unspecified oracle for an ideal.
+
+Multiply each generator by a Laurent monomial to clear negative powers, obtaining \(\widetilde f_i\). Put \(z_j=u_j+iv_j\), and let \(P_i,Q_i\in\Z[u_1,v_1,\ldots,u_d,v_d]\) be the real and imaginary parts of \(\widetilde f_i(z)\). Then
+\[
+ 0\in\mathcal A(\mathfrak a)
+ \quad\Longleftrightarrow\quad
+ \exists(u,v)\in\R^{2d}:\quad
+ P_i=Q_i=0\ (1\leq i\leq m),\qquad
+ u_j^2+v_j^2=1\ (1\leq j\leq d).
+\]
+Real quantifier elimination therefore decides membership. The unit-circle conditions ensure that monomial clearing changes no relevant zero. Nonmembership has a real-Nullstellensatz certificate of the form
+\[
+ -1=\sum_\ell s_\ell^2+\sum_i(a_iP_i+b_iQ_i)
+       +\sum_j c_j(u_j^2+v_j^2-1),
+\]
+with polynomial coefficients in an exact coefficient setting. No degree or short-certificate bound is asserted.
+
+For sparse input with integer coefficients and exponents encoded in binary, the aid gives a polynomial-size reduction to a conjunction of quadratic integer equations. Complex repeated-squaring multiplication gates encode the large powers without dense expansion; on the unit circle, negative powers use conjugates. This places the decision problem in the existential theory of the reals and supplies a PSPACE upper bound, without claiming a matching lower bound or a practical polynomial-time algorithm.
+
+The source's dynamical motivation uses the compact abelian group \(X_{\mathfrak a}=\widehat{R_d/\mathfrak a}\), Pontryagin dual to the discrete module, with the commuting automorphisms dual to multiplication by the \(x_j\). Expansiveness means that some identity neighborhood \(U\) has \(\bigcap_{n\in\Z^d}\alpha^n(U)=\{0\}\). It attributes to Klaus Schmidt the equivalence between expansiveness and \(0\notin\mathcal A(\mathfrak a)\) when \(\mathfrak a\cap\Z=\{0\}\). That qualification is preserved for the dynamical statement; the polynomial membership decision itself applies to every finitely generated input ideal.
+\subsection{Short English statement}
+Origin membership is exactly common-zero feasibility on the unit complex torus, so real quantifier elimination decides it. The aid also provides a sum-of-squares nonmembership certificate and a sparse binary reduction through quadratic repeated-squaring gates, yielding a PSPACE upper bound. Schmidt's dynamical interpretation keeps its no-nonzero-integers hypothesis.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001985\), source code \texttt{catalogue entry}; canonical collection \texttt{aim-geometry-notes.json}, notes[322]. Statement status \texttt{reconstructed\_unverified}.
+\item AIM workshop ``Amoebas and tropical geometry,'' Section A.3, ``Membership problems,'' question contributed by Manfred Einsiedler and Doug Lind: \url{https://aimath.org/WWN/amoebas/amoebas.pdf}. The supplied verification reports comparison with the original PDF; no PDF was opened in this session.
+\item Klaus Schmidt is credited for the expansiveness criterion. No full authoritative bibliographic references for that theorem, real quantifier elimination, the real Nullstellensatz or the complexity bound are supplied. Original remarks and literature are empty; proposer/year registry fields are null despite the contributors named in the text.
+\item Supplied research attempt \(1\), result \texttt{full\_solution}, run status ``solved,'' rigor label ``proved,'' novelty confidence ``low.'' Registry status ``solved,'' classification \texttt{SOLVED-IN-LITERATURE}, updated 14 August 2026.
+\end{itemize}
+\end{document}

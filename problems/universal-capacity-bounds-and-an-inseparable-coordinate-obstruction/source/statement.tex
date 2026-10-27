@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000392}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Pollack's question asks how many coefficients, and which positions, can be prescribed while retaining an irreducible polynomial in a function-field setting. The original does not fix the field, degree, monicity, prescription values or universal versus existential quantifiers. In particular polynomials in \(\F_q[T]\) and polynomials over the field \(\F_q(t)\) are distinct interpretations.
+
+The attached aid uses finite-field coefficients. For \(n\geq2\), consider monic polynomials
+\[
+f(T)=T^n+\sum_{j=0}^{n-1}a_jT^j\in\F_q[T].
+\]
+A worst-case capacity \(R_q(n)\) can be defined as the largest \(r\) such that every assignment at every set of at most \(r\) positions has an irreducible completion, with nonzero constant prescribed when position zero is included. This is the minimal-admissibility convention; excluding additional forced-reducibility patterns would change the invariant. The aid does not define its word ``admissible'' further, so the convention must be checked. The leading monic coefficient is not counted among these positions.
+
+Let \(\pi_q(n)\) be the number of monic irreducible degree-\(n\) polynomials over \(\F_q\). The aid reports the counting upper bound
+\[
+R_q(n)\leq\lfloor\log_q\pi_q(n)\rfloor.
+\]
+For characteristic \(p\mid n\), prescribing
+\[
+a_j=0\quad(1\leq j<n,\ p\nmid j)
+\]
+fixes exactly \(n-n/p\) coefficients and forces \(f'=0\). Over the perfect field \(\F_q\), every completion is then a \(p\)-th power of a nonconstant polynomial. The aid reports this coordinate face as exactly the \(p\)-th-power locus and the unique inclusion-minimal zero-coordinate face forcing zero derivative. It consequently reports
+\[
+R_q(n)\leq n-n/p-1\quad(p\mid n).
+\]
+This obstruction still permits the constant coefficient to be nonzero; it is not the trivial zero-constant obstruction.
+
+Combining these bounds with Hansen--Mullen single-coefficient results, the aid reports
+\[
+R_q(3)=1\text{ in characteristic }3,\qquad
+R_q(4)=1\text{ in characteristic }2.
+\]
+The full Hansen--Mullen hypotheses and exception conventions are not included. These are worst-case capacities under the intended admissibility convention, not a classification of every favorable set of positions or a result for arbitrary function-field coefficients.
+\subsection{Short English statement}
+Determine which coefficient prescriptions allow irreducible polynomials. In its finite-field monic interpretation, the attached aid reports counting bounds and a zero-derivative coordinate obstruction, with exact small-degree capacities. The original function-field wording and admissibility quantifiers still need specification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000392\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-algebraic-number-theory-notes.json}, notes[43].
+\item AIM workshop ``Arithmetic statistics over finite fields and function fields,'' Question 14, attributed to Pollack; supplied URL \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. Its verification reports verbatim agreement without OCR corruption but missing quantifiers, degree and monicity. No year is supplied; the literature field is empty. The PDF was not consulted here.
+\item Attached research attempt 1, ``Universal capacity bounds and an inseparable coordinate obstruction,'' invoking Hansen--Mullen without full bibliographic details.
+\end{itemize}
+\end{document}

@@ -1,0 +1,85 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002448}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The record crosses a presenter boundary. Its opening asks for the spectrum of an operator ``(A),'' its relation to the known spectrum of $cv+Kv-\varphi v=\lambda v$, and a possible two-dimensional formulation. The aid identifies this opening as J. Albert's differentiated Benjamin--Ono spectral question, using the preceding source item to recover the missing operator. The subsequent K. Zumbrun viscous-shock setup is separate context.
+
+For the aid's explicitly chosen realization, let $c>0$, let $|D|$ be the Fourier multiplier $|\xi|$ on $L^2(\R)$, and put
+\[
+\varphi_c(x)=\frac{4c}{1+c^2x^2},\qquad
+L_c=|D|+c-\varphi_c,\quad\mathcal D(L_c)=H^1(\R),\qquad
+A_c=\partial_xL_c,\quad\mathcal D(A_c)=H^2(\R).
+\]
+The space is unweighted, and the domain is the stated maximal realization. The supplied partial result is
+\[
+\sigma_{\mathrm{ess,Fredholm}}(A_c)=\sigma(A_c)=i\R.
+\]
+Thus there are no eigenvalues off the imaginary axis; this spectral-set assertion does not classify every possible embedded nonzero imaginary eigenvalue. At zero, the aid asserts
+\[
+\ker A_c=\operatorname{span}\{\varphi_c'\},\qquad
+\bigcup_{j\geq1}\ker A_c^j
+=\operatorname{span}\{\varphi_c',\partial_c\varphi_c\},\qquad
+A_c(\partial_c\varphi_c)=-\varphi_c'.
+\]
+Zero is embedded in essential spectrum, so the two-dimensional generalized root space is not described as a Riesz algebraic multiplicity.
+
+The aid's cancellation-aware correspondence says that an off-axis eigenfunction $v$ automatically has an $L^2$ antiderivative $w$. With the Fourier convention $\widehat{\partial_xv}=i\xi\widehat v$, it is represented by
+\[
+\widehat w(\xi)=\frac{\widehat{\varphi_cv}(\xi)}{i\xi(|\xi|+c)-\lambda},\qquad
+\partial_xw=v.
+\]
+This avoids an unjustified division by $\xi$ at zero. The aid combines it with the known one-negative-direction and constrained-positivity properties of the selfadjoint $L_c$ to exclude off-axis eigenvalues. The obstruction to extending the translation/speed chain is reported with magnitude $4\pi$; in the present normalization,
+\[
+\left|\left\langle\varphi_c',\partial_x^{-1}\partial_c\varphi_c\right\rangle_{L^2}\right|=4\pi.
+\]
+The antiderivative here is the $L^2$ one. These inputs require verification, and the source supplies no full reference for the known Hessian spectrum.
+
+For harmonic extension $V(x,y)=e^{-y|D|}v(x)$ to $y>0$, $\Delta V=0$ and $-\partial_yV|_0=|D|v$. The selfadjoint problem is the Robin condition
+\[
+-\partial_yV+(c-\varphi_c)V=\lambda V\quad(y=0),
+\]
+whereas the differentiated problem is
+\[
+\partial_x\bigl[-\partial_yV+(c-\varphi_c)V\bigr]=\lambda V\quad(y=0).
+\]
+These boundary problems are related but are not interchangeable.
+
+The adjacent contribution, K. Zumbrun's ``Strong Shocks in one or multiD of viscous conservation laws,'' considers
+\[
+u_t+\sum_{j=1}^d\partial_{x_j}f^j(u)
+=\sum_{j,k=1}^d\partial_{x_j}\bigl(B^{jk}(u)u_{x_k}\bigr),\qquad u\in\R^n,
+\]
+with smooth fluxes $f^j:\R^n\to\R^n$ and smooth matrices $B^{jk}:\R^n\to\R^{n\times n}$. It cites small-amplitude one-dimensional shock stability work and notes that shock strength supplies a fast--slow parameter for weak shocks, while an analogous structure for strong shocks is not apparent. No parabolicity, end states, profile, or strong-shock stability criterion is given. This separate setup and its references are retained without turning it into the Benjamin--Ono operator.
+\subsection{Short English statement}
+The opening question concerns a differentiated Benjamin--Ono operator, while the trailing material concerns viscous conservation laws. In the aid's unweighted realization, the differentiated operator has spectral set $i\R$ and an embedded translation/speed chain of length two. Harmonic extension distinguishes the Robin problem from its tangentially differentiated version; neither solves the separate strong-shock program.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002448$, \texttt{catalogue entry}; \texttt{aim-pdes-notes.json}, \texttt{notes[59]}, source item 12.
+\item American Institute of Mathematics, \emph{Stability criteria for multi-dimensional waves and patterns}, \url{https://aimath.org/WWN/multidimwaves/multidimwaves.pdf}. Supplied verification identifies a presenter splice and reports recovery of J. Albert's entry from the original PDF and preceding \texttt{AIM-PDES-0059}; no full recovered entry follows.
+\item Adjacent source attribution: K. Zumbrun. H. Freisthler and P. Szmolyan, \emph{Spectral stability of small shock waves, I}, \emph{Arch. Rat. Mech. Analysis} 164 (2002), 287--309; spelling reproduced from the supplied record.
+\item R. Plaza and K. Zumbrun, \emph{An Evans function approach to spectral stability of small-amplitude shock profiles}, \emph{J. Discrete and Continuous Dynamical Systems} 10 (2004), no. 4, 885--924, as cited in the source.
+\item Research attempt 1: partial result, problem partially solved at run, rigor label ``proved,'' novelty confidence low. Registry classification partial progress, status partially solved, statement status exact. No authoritative separate citation for the Benjamin--Ono spectral claims is supplied.
+\end{itemize}
+\end{document}

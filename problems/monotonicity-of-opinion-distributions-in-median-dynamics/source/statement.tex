@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004591}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G=(V,E)\) be the graph in the supplied record, and write \(N(x)\) for the neighbors of \(x\) and \(d(x)=|N(x)|\). Let \(\eta_t(x)\in[0,1]\) denote the opinion at vertex \(x\) at time \(t\geq0\). Initially, the variables \((\eta_0(x))_{x\in V}\) are independent, each with the uniform distribution on \([0,1]\).
+
+At a vertex of finite degree, the supplied update rule is as follows. At rate one, replace its opinion by
+\[
+\eta_t(x)=
+\begin{cases}
+\operatorname{med}\bigl(\eta_{t-}(y):y\in N(x)\bigr),&d(x)\text{ odd},\\
+\operatorname{med}\bigl(\eta_{t-}(y):y\in N(x)\text{, together with }\eta_{t-}(x)\bigr),&d(x)\text{ even}.
+\end{cases}
+\]
+Here \(\operatorname{med}\) of a list of \(2k+1\) real numbers is its \((k+1)\)-st order statistic, counting multiplicities. Thus each displayed list has odd length; at an isolated vertex the second case leaves the opinion unchanged. Opinions at other vertices remain unchanged at this update. The record does not specify the admissible graph class or the joint law of update clocks; consequently, a complete construction of the process on the intended graphs is not supplied.
+
+For any such process that is well defined, let its marginal opinion law be the Borel probability measure
+\[
+\mu_t(x)(B)=\mathbb{P}\bigl(\eta_t(x)\in B\bigr),\qquad B\subseteq[0,1]\text{ Borel}.
+\]
+The supplied conjecture asserts that, for every \(x\in V\) and every real \(\alpha>\tfrac12\), the map \(t\mapsto\mu_t(x)\) is monotone non-decreasing. This is an unresolved formulation: no order on probability measures is specified, and \(\alpha\) does not occur in the quantity whose monotonicity is asserted.
+
+For example, \emph{if} the intended quantity were the cumulative probability \(\mu_t(x)([0,1]\cap(-\infty,\alpha])\), the precise scalar assertion would be
+\[
+\forall x\in V\;\forall\alpha>\tfrac12\;\forall\,0\leq s\leq t,
+\qquad
+\mathbb{P}\bigl(\eta_s(x)\leq\alpha\bigr)
+\leq
+\mathbb{P}\bigl(\eta_t(x)\leq\alpha\bigr).
+\]
+This is only a conditional interpretation, not an identified formulation of the source conjecture. The intended marginal functional or measure order, graph hypotheses, and process construction require clarification before a definitive mathematical statement can be given.
+\subsection{Short English statement}
+Vertices begin with independent uniform opinions in \([0,1]\) and update at rate one to the median of their neighbors' opinions, adding their own opinion when their degree is even. The record conjectures monotonicity of the marginal opinion distribution for every threshold \(\alpha>1/2\), but omits the threshold-dependent quantity and the meaning of monotonicity. The displayed cumulative-probability inequality is therefore only a possible interpretation. The supplied open status requires independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30004591\), source problem code \texttt{catalogue entry}; supplied complete source record from the Oberwolfach Reports Open Problems collection.
+\item Supplied report citation: \emph{Spatial Networks and Percolation (2022)}, Oberwolfach Reports, pp.~149--224, DOI \texttt{10.4171/owr/2021/4}. \url{https://doi.org/10.4171/owr/2021/4}. The background describes these reports as documenting mathematical workshops and their open-problem discussions. The record also gives proposed year 2021; the relationship between that year and the citation's 2022 label has not been verified.
+\item Supplied literature reference: Amir, Baldasso and Beilin, DOI \texttt{10.1016/j.spa.2022.10.015}. \url{https://doi.org/10.1016/j.spa.2022.10.015}. No title or more detailed bibliographic information is supplied.
+\item Supplied literature reference: Oberwolfach report. \url{https://doi.org/10.4171/owr/2021/4}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and reports that marginal monotonicity was proved only on special graphs in the primary work, with no general proof or counterexample found. This is supplied dated curation derived from the OWR material, not an independently verified assessment. The record explicitly requests independent verification of time-sensitive status and cited claims.
+\item No individual proposer is supplied. The registry's label \texttt{corrected\_verified} is accompanied only by a statement that formulas were dollar-delimited and supplied mathematical content preserved; it does not establish mathematical verification of this formulation.
+\end{itemize}
+\end{document}

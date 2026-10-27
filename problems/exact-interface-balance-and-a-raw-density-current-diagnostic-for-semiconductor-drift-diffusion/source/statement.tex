@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002462}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Cory Hauck's participant note describes three research directions for hydrodynamic electron-transport balance laws, with conservative terms, collisional relaxation, and electric drift coupled to Poisson's equation: distinguish discretization-induced interface-current oscillations and negative density or temperature from model defects in high-field transition regimes; devise efficient implicit methods for the stiff flux and relaxation terms in the low-field, high-density drift-diffusion limit despite CFL restrictions; and determine appropriate relaxation times and their effect on current and temperature. The note contrasts the gas-dynamic conductivity/viscosity ratio with the single mobility coefficient in electron drift-diffusion. It does not specify a single quantified conjecture.
+
+The supplied diagnostic is explicitly restricted to one-dimensional, nondegenerate, isothermal drift-diffusion with prescribed potential and ideal interface transmission. For temperature $T>0$, Boltzmann constant $k_B$, effective density of states $N_C>0$, and energy potential $U$, define electrochemical activity
+\[
+ a=\frac{n}{N_C}\exp\!\left(\frac{U}{k_BT}\right).
+\]
+In this model zero flux is equivalent to constant activity. Across an ideal interface the reported equilibrium jump is
+\[
+ \frac{n_R}{n_L}=\frac{N_{C,R}}{N_{C,L}}
+ \exp\!\left(-\frac{U_R-U_L}{k_BT}\right).
+\]
+After fixed reference units, absorb $N_C$ into a dimensionless effective potential $V$ so $a_i=n_i e^{V_i}$ and equilibria are $n_i=C e^{-V_i}$, $C>0$.
+
+For grid spacing $h>0$, diffusivity $D>0$, and any finite jump $\Delta V=V_{i+1}-V_i$, define $B(z)=z/(e^z-1)$ with $B(0)=1$. The exponentially fitted Scharfetter--Gummel flux in this convention is
+\[
+ J_{i+1/2}=\frac D h\bigl[B(\Delta V)n_i-B(-\Delta V)n_{i+1}\bigr].
+\]
+Let $\mathcal L(x,y)=(y-x)/(\log y-\log x)$ for positive unequal $x,y$, and $\mathcal L(x,x)=x$. The logarithmic-mean shared-potential traces may be written
+\[
+ n_i^*=\frac{a_i}{\mathcal L(e^{V_i},e^{V_{i+1}})},\qquad
+ n_{i+1}^*=\frac{a_{i+1}}{\mathcal L(e^{V_i},e^{V_{i+1}})},\qquad
+ J_{i+1/2}=\frac D h(n_i^*-n_{i+1}^*).
+\]
+Thus for positive cell densities, zero fitted flux, equal activity, and equal positive reconstructed traces are equivalent. The traces are nonnegative for nonnegative data. At the same Boltzmann state a strict raw-density difference detector instead gives the reported residual
+\[
+ \frac{DC}{h}(e^{-V_i}-e^{-V_{i+1}}),
+\]
+which is nonzero whenever the effective potential jump is nonzero.
+
+The aid reports that the conservative semidiscretization built from the fitted flux preserves positivity and dissipates relative entropy for the fixed-potential equilibrium, with compatible closed or periodic boundary conditions. Relative entropy here has the form $\sum_i h[n_i\log(n_i/n_i^{\mathrm{eq}})-n_i+n_i^{\mathrm{eq}}]$, with the usual continuous convention at $n_i=0$. The full boundary and coefficient hypotheses are absent from the summary and require review. This diagnostic exhibits a discretization-induced equilibrium-current mechanism; it does not classify driven high-field oscillations or solve the original stiff hydrodynamic, Poisson-coupled, or relaxation-time problems.
+\subsection{Short English statement}
+The source is a research agenda about semiconductor transport. Its narrow supplied result shows how an interface flux can preserve the correct equilibrium jump, while a raw-density detector produces a spurious residual. This does not decide the origin of general high-field oscillations or provide the requested hydrodynamic solver.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002462, source code catalogue entry; created and updated 14 August 2026. Canonical \texttt{aim-pdes-notes.json}, zero-based \texttt{notes[73]}, tag \texttt{section}, item A.9, ``Hauck, Cory.''
+\item AIM ``Stiff Sources and Numerical Methods for Conservation Laws,'' version dated 1 April 2005 according to the supplied verification: \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}. Original remarks and literature field are empty; wording is marked exact.
+\item Research attempt 1: \texttt{context\_only}, problem status at run \texttt{not\_a\_problem}, rigor label \texttt{proved}, novelty confidence low. It names Scharfetter--Gummel fitting but supplies no complete authoritative bibliographic reference or complete semiconductor model specification.
+\item Ulam AI / UnsolvedMath Contributors, CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

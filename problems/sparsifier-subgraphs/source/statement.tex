@@ -1,0 +1,52 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3000081}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite undirected graph $G=(V,E)$ let $n=|V|$, $m=|E|$, and let $d_G(X)$ count edges with one end in $X$ and the other in $V\setminus X$. A subgraph is viewed as $H=(V,E_H)$ with $E_H\subseteq E$, retaining isolated vertices. The source does not allow reweighting, so these are ordinary edge counts, not weighted cut values. Graph simplicity and parallel-edge conventions are not stated.
+
+\textbf{First algorithmic problem.} Devise a combinatorial polynomial-time algorithm and universal constants $c_1,C_1>0$ which, for every graph in the intended input class with $m>0$, find $H\subseteq G$ satisfying
+\[
+ |E_H|\leq C_1n,\qquad
+ d_H(X)\geq c_1\frac nm\,d_G(X)\quad\text{for every }X\subseteq V.
+\]
+\textbf{Second algorithmic problem.} Devise a combinatorial polynomial-time algorithm and universal constants $c_2,C_2>0$ which find $H\subseteq G$ satisfying
+\[
+ |E_H|\geq c_2n,\qquad
+ d_H(X)\leq C_2\frac nm\,d_G(X)\quad\text{for every }X\subseteq V.
+\]
+These are the explicit uniform-constant readings of the source's $O(n)$, $\Omega(n)$, $\Omega(n/m)$, and $O(n/m)$ notation. The two algorithms may return different subgraphs.
+
+The literal input class ``given a graph'' needs qualification: $n/m$ is undefined at $m=0$, and if graphs with $m/n\to0$ are allowed, no subgraph can have $\Omega(n)$ edges in the second problem. Such sparsity also conflicts with the first scaled lower bound on nonzero cuts for universal constants. Connectedness or an appropriate density restriction might be intended, but neither is supplied and none is imposed silently.
+
+The registry status and classification are partial progress, whereas the research summary says both problems are solved by polynomial-time constant-factor cut sparsification and names Fung--Hariharan--Harvey--Panigrahi and Nagamochi--Ibaraki. The record gives no exact result matching all of the unweighted-subgraph, global $n/m$ scaling, linear-edge, and combinatorial-algorithm requirements. Weighted or differently normalized sparsification is not identified with the stated tasks without review. The archived Egres index is explicitly not a current resolution authority.
+\subsection{Short English statement}
+Construct, by combinatorial polynomial-time algorithms, unweighted subgraphs with linear edge counts and cut values bounded below or above by a constant times $n/m$ of every original cut. Sparse or edgeless inputs require missing qualifications. The summary's solved claim must be checked against the exact unweighted requirements.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 3000081, source code catalogue entry, ``Sparsifier subgraphs''; status partially solved, classification PARTIAL-PROGRESS, updated 2026-08-06. The summary separately labels both problems SOLVED-IN-LITERATURE.
+\item Egres Open, \emph{List of open problems}, indexed page ``Sparsifier subgraphs,'' \url{https://oldlemon.cs.elte.hu/egres/open/List_of_open_problems}. The record reports HTML extraction and access on 2026-07-29; the index labels the page open, but the archived wiki is not a current resolution authority.
+\item The summary names Fung--Hariharan--Harvey--Panigrahi and Nagamochi--Ibaraki without paper titles, theorem numbers, or a precise matching construction. Rights: NEEDS\_REVIEW; public wiki access verified but no redistribution license displayed in the archived footer.
+\end{itemize}
+\end{document}

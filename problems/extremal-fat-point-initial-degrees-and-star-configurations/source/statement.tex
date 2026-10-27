@@ -1,0 +1,86 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002798}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source poses two questions about initial degrees of fat points. It does not specify the ground field, its characteristic, or the precise meaning of initial degree in the multiprojective question. The formulations below explain standard interpretations and identify the choices still requiring review.
+
+For a field \(k\), a positive integer \(n\), and a finite set of distinct \(k\)-rational points \(Z\subseteq\PP^n_k\), let \(S=k[x_0,\ldots,x_n]\) and let \(I(P)\subseteq S\) be the homogeneous ideal of a point \(P\). For an integer \(m\geq1\), define the fat point scheme \(mZ\) by
+\[
+ I(mZ)=\bigcap_{P\in Z}I(P)^m,
+ \qquad
+ \alpha(mZ)=\min\{t\in\Z_{\geq0}:I(mZ)_t\neq0\}.
+\]
+Thus \(\alpha(Z)=\alpha(1Z)\), and membership in \(I(mZ)\) means vanishing to order at least \(m\) at every point of \(Z\). These definitions use rational points over a chosen field; the source does not settle the intended field or whether points should instead be taken over its algebraic closure.
+
+For hyperplanes \(H_1,\ldots,H_d\subseteq\PP^n_k\) in general position, their point star configuration is
+\[
+ \operatorname{Star}_n(H_1,\ldots,H_d)
+ =\bigcup_{\substack{J\subseteq\{1,\ldots,d\}\\|J|=n}}
+ \bigcap_{j\in J}H_j.
+\]
+Here the usual general-position interpretation requires every collection of at most \(n\) hyperplanes to meet in the expected codimension and no \(n+1\) hyperplanes to have a common point. Whether the source's word ``general'' requires a stronger genericity condition is unresolved.
+
+\textbf{Projective question.} Suppose
+\[
+ d=\alpha(nZ)=\alpha(Z)+n-1.
+\]
+Must either \(Z\) be contained in a hyperplane, or there exist \(d\) general hyperplanes \(H_i=V(\ell_i)\) such that
+\[
+ Z=\operatorname{Star}_n(H_1,\ldots,H_d)?
+\]
+The source additionally asks for splitting of every degree-\(d\) hypersurface vanishing to order at least \(n\) on \(Z\). If ``those hyperplanes'' means the same fixed arrangement, the assertion in the star-configuration alternative is
+\[
+ \forall\,0\neq F\in I(nZ)_d,\qquad
+ F=c\prod_{i=1}^{d}\ell_i
+ \quad\text{for some }c\in k^\times.
+\]
+The record does not unambiguously determine whether splitting is required only in this alternative, whether the factors must be this fixed arrangement, or whether a separate splitting assertion is also intended for the hyperplane alternative.
+
+\textbf{Multiprojective question.} Let \(X=(\PP^1_k)^n\), and let \(Z\subseteq X\) be a finite set of points. Define \(mZ\) locally by \(\mathcal I_{mZ}=\bigcap_{P\in Z}\mathcal I_P^m\). The source asks whether
+\[
+ d=\alpha(nZ)=\alpha(Z)
+ \quad\Longrightarrow\quad
+ Z=A_1\times\cdots\times A_n,
+ \qquad A_i\subseteq\PP^1(k),\quad |A_i|=d.
+\]
+Such a Cartesian product is a \(d\) by \(\cdots\) by \(d\) grid. The symbol \(\alpha\) on \(X\) is not defined in the supplied record. One possible interpretation is the diagonal initial degree
+\[
+ \alpha_{\mathrm{diag}}(mZ)
+ =\min\left\{t\in\Z_{\geq0}:
+ H^0\!\left(X,\mathcal I_{mZ}\otimes\mathcal O_X(t,\ldots,t)\right)\neq0\right\}.
+\]
+Replacing both occurrences of \(\alpha\) by \(\alpha_{\mathrm{diag}}\) gives a precise candidate question after the ground-field and boundary conventions are fixed. This interpretation is not established by the supplied source record; total degree or other multigraded conventions must not be substituted silently. The record also does not explicitly exclude the empty set or specify the intended lower bound on \(n\).
+\subsection{Short English statement}
+The first question asks whether an extremal equality between initial degrees of simple and fat points forces containment in a hyperplane or a star configuration, together with a splitting property for minimal-degree hypersurfaces. The second asks whether a corresponding equality on \((\PP^1)^n\) forces a Cartesian grid. The ground field, the multiprojective degree convention, boundary cases, and the scope of the splitting assertion require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, supplied complete record for permanent UnsolvedMath ID \(30002798\), titled ``Extremal Fat-Point Initial Degrees and Star Configurations''; exact source code \texttt{catalogue entry}. The collection is Oberwolfach Reports Open Problems, and the supplied proposed year is 2015. No individual proposer is identified.
+\item Supplied primary provenance: \emph{Mini-Workshop: Ideals of Linear Subspaces, Their Symbolic Powers and Waring Problems} (2015), Oberwolfach Reports, pp. 489--532, DOI \url{https://doi.org/10.4171/owr/2015/9}. The background describes these reports as records of mathematical workshops and their open-problem discussions. No more specific problem location is supplied.
+\item Supplied literature reference, labeled ``Bauer and Szemberg, fattening points'': \url{https://arxiv.org/abs/1308.4983}. The record supplies no fuller bibliographic details.
+\item Supplied literature reference, labeled ``Cambridge survey chapter'': \url{https://doi.org/10.1017/CBO9781107416000.002}. The record supplies no chapter author or title.
+\item Supplied literature assessment dated exactly \texttt{2026-08-21}: the record labels the problem open and states that the star-configuration assertion is proved in dimension three, while the higher-dimensional statement and the multiprojective grid conjecture remain unresolved. This is supplied dated curation derived from the OWR curation, not an independently verified literature assessment. The background expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says its mathematical content was preserved while notation, typography, or omitted definitions were repaired for publication. This is a supplied editorial assertion, not independent verification of the formulation or mathematical status.
+\end{itemize}
+\end{document}

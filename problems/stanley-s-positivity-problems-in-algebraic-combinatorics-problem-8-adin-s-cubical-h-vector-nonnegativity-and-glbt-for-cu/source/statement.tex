@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 801181}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(L\) be a finite pure cubical complex of rank \(d\), so every maximal cell has dimension \(d-1\), with \(d\geq 1\). Finiteness and positive rank are explicit working qualifications for this draft; the supplied statement does not state them separately. Write \(V(L)\) for its vertices and \(f_j(L)\) for its number of \(j\)-dimensional cells. Define
+\[
+\widetilde\chi(L)=-1+\sum_{j=0}^{d-1}(-1)^j f_j(L).
+\]
+For each \(s\in V(L)\), let \(\Delta_s=\operatorname{link}_L(s)\) be its simplicial vertex link, of dimension \(d-2\). Use the increasing-power convention for its simplicial \(h\)-polynomial:
+\[
+h(\Delta_s,x)=\sum_{j=0}^{d-1} f_{j-1}(\Delta_s)x^j(1-x)^{d-1-j},\qquad f_{-1}(\Delta_s)=1.
+\]
+For \(d=1\), the vertex link is the complex consisting only of the empty face and its \(h\)-polynomial is \(1\). The source record does not explicitly expand its simplicial \(h\)-polynomial notation; this convention requires confirmation against the cited source.
+
+Define Adin's cubical \(h\)-vector \(h(L)=(h_0(L),\ldots,h_d(L))\) by the supplied identity
+\[
+\sum_{i=0}^{d}h_i(L)x^i
+=\frac{1}{1+x}\left(
+2^{d-1}+x\sum_{s\in V(L)}h(\Delta_s,x)
++(-2)^{d-1}\widetilde\chi(L)x^{d+1}
+\right).
+\]
+
+To make the homological terminology explicit, fix a coefficient field \(k\). Let \(P(L)\) be the poset of nonempty faces of \(L\), ordered by inclusion, and let \(K\) be its order complex, whose simplices are chains in \(P(L)\). Any artificially adjoined minimum or maximum is omitted. Interpret the Cohen--Macaulay condition over \(k\) as
+\[
+\widetilde H_j(\operatorname{link}_K\sigma;k)=0
+\quad\text{for every face }\sigma\in K\text{, including }\varnothing,
+\text{ and every }j<\dim\operatorname{link}_K\sigma.
+\]
+Interpret the Gorenstein* condition over \(k\) as requiring, for every such \(\sigma\),
+\[
+\widetilde H_j(\operatorname{link}_K\sigma;k)\cong
+\begin{cases}
+k,&j=\dim\operatorname{link}_K\sigma,\\
+0,&j\neq\dim\operatorname{link}_K\sigma.
+\end{cases}
+\]
+Here reduced homology uses the usual augmented convention in degree \(-1\). The supplied record does not identify a coefficient field or specify the intended quantification over fields; the following questions are therefore stated with \(k\) as an unresolved parameter.
+
+\begin{enumerate}
+\item[(a)] For every such \(L\) whose face poset is Cohen--Macaulay over \(k\), is
+\[
+h_i(L)\geq 0\qquad\text{for every }i\in\{0,\ldots,d\}?
+\]
+\item[(b)] For every such \(L\) whose face poset is additionally Gorenstein* over \(k\), is
+\[
+h_0(L)\leq h_1(L)\leq\cdots\leq h_{\lfloor d/2\rfloor}(L)?
+\]
+\end{enumerate}
+The supplied background attributes these questions to Ron M. Adin and reports that he proved part (a) when \(L\) is shellable. The registry labels the record open; neither that status nor the reported partial result is independently verified here.
+\subsection{Short English statement}
+The questions ask whether Adin's cubical \(h\)-vector is entrywise nonnegative for every Cohen--Macaulay cubical complex and whether its entries increase through the middle under the additional Gorenstein* hypothesis. The supplied background reports a proof of nonnegativity for shellable complexes. The coefficient field, precise face-poset conventions, and simplicial \(h\)-polynomial convention require source review.
+\subsection{Sources}
+\begin{itemize}
+\item Local supplied UnsolvedMath registry record: permanent ID \(801181\), source code \texttt{catalogue entry}, collection \emph{AMR Open Problem Lists}. The registry lists Stanley as proposer, gives the year \(1999\), and labels the record \emph{open}. Its creation and update timestamps are both \texttt{2026-10-16T14:00:00Z}; its supplied upstream revision is \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Richard Stanley, \emph{Positivity Problems and Conjectures in Algebraic Combinatorics} (1999), Problem 8. Supplied source URL: \url{https://math.mit.edu/~rstan/papers/problems.pdf}. The record reports access on \texttt{2026-10-16} and extraction marked \texttt{pdf+html\_verified}; these are supplied provenance claims, not independent verification performed for this draft.
+\item Ron M. Adin, \emph{Discrete Mathematics} \textbf{157} (1996), 3--14. The supplied background attributes the questions to Adin and reports his proof of part (a) for shellable \(L\). No article title or separate URL is supplied.
+\end{itemize}
+\end{document}

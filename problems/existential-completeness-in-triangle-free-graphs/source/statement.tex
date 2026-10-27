@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002472}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a simple undirected graph \(G=(V,E)\), write \(x\sim_G y\) when \(\{x,y\}\in E\). The graph is triangle-free if there are no three distinct pairwise adjacent vertices. A set \(A\subseteq V\) is independent if no two distinct vertices of \(A\) are adjacent. The simple undirected graph convention is used here to express the statement; the supplied record does not explicitly specify graph conventions or whether graphs must be finite.
+
+For an integer \(k\geq 0\), define the extension property stated literally in the supplied record by
+\[
+P_k(G)\;\Longleftrightarrow\;
+\forall A,B\subseteq V,\quad
+\left[
+\begin{gathered}
+A\text{ is independent},\qquad A\cap B=\varnothing,\\
+|A|+|B|\leq k
+\end{gathered}
+\right]
+\Longrightarrow
+\left[
+\exists x\in V\quad
+(\forall a\in A,\ x\sim_G a)
+\ \land\ 
+(\forall b\in B,\ x\not\sim_G b)
+\right].
+\]
+Here \(B\) is arbitrary subject to the displayed conditions; it need not be independent. Empty sets \(A\) and \(B\) are allowed, so \(P_k(G)\) requires a vertex even when both sets are empty. The record calls a triangle-free graph with this property \(k\)-existentially complete.
+
+\textbf{Question, with unresolved scope.} Let \(\mathcal C\) denote the intended class of triangle-free graphs. Does there exist a positive integer \(r\), independent of \(G\), such that
+\[
+\forall G\in\mathcal C,\qquad \neg P_r(G)?
+\]
+The supplied record leaves the class \(\mathcal C\) unspecified with respect to finiteness. It also does not explicitly require the witnessing vertex \(x\) to lie outside \(A\cup B\). If a fresh vertex is intended, the existential quantifier in the definition must instead read \(\exists x\in V\setminus(A\cup B)\). These qualifications must be resolved before this draft can be treated as a precise statement of the intended conjecture.
+\subsection{Short English statement}
+The question asks whether a fixed positive integer \(r\) prevents every triangle-free graph in the intended class from realizing all adjacency patterns prescribed by an independent set \(A\) and a disjoint set \(B\), with \(|A|+|B|\leq r\). The source leaves graph finiteness and the requirement that the realizing vertex be outside \(A\cup B\) unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30002472\), title \emph{Existential Completeness in Triangle-Free Graphs}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The supplied record assigns proposed year \(2014\); no individual proposer is identified.
+\item Supplied report citation: \emph{Combinatorics (2014)}, Oberwolfach Reports, pp.\ 5--90, DOI \texttt{10.4171/owr/2014/01}. \url{https://doi.org/10.4171/owr/2014/01}. The record describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source, ``Oberwolfach combinatorics report'': \url{https://ems.press/content/serial-article-files/46491}.
+\item Supplied literature source, ``Letzter--Sahasrabudhe, triangle-free graphs'': \url{https://arxiv.org/abs/1708.08817}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and reports that the conjecture remains unresolved, including the case \(r=4\), despite upper-bound progress. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. The record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review of the cleanup. This is supplied editorial metadata, not independent verification of the intended mathematical formulation or current problem status.
+\end{itemize}
+\end{document}

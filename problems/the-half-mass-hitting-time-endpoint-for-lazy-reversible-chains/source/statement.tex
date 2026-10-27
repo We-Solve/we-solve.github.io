@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001296}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The precise finite-chain formulation supplied by the research summary is as follows. Let $P$ be the transition matrix of a finite irreducible discrete-time Markov chain on $\Omega$, with stationary probability $\mu$, reversible in the sense that $\mu(x)P(x,y)=\mu(y)P(y,x)$, and lazy in the sense that $P(x,x)\geq1/2$ for every $x$. Define
+\[
+ \|\nu-\mu\|_{\mathrm{TV}}=\tfrac12\sum_{y\in\Omega}|\nu(y)-\mu(y)|,
+ \qquad
+ \tau_{\mathrm{TV}}(\delta)=\min\{t\in\Z_{\geq0}:\max_x\|P^t(x,\cdot)-\mu\|_{\mathrm{TV}}\leq\delta\}.
+\]
+For $A\subseteq\Omega$ put $T_A=\inf\{t\geq0:X_t\in A\}$, and, for $0<\beta\leq1$, put
+\[
+ T(\beta)=\max_{x\in\Omega,\ A\subseteq\Omega:\mu(A)\geq\beta}\E_xT_A.
+\]
+Yuval Peres' question asks for a universal constant $c>0$, independent of the chain and state-space size, such that
+\[
+ \tau_{\mathrm{TV}}(1/2)\leq c\,T(1/2).
+\]
+Lazy random walks on finite connected undirected graphs are included. The original excerpt does not explicitly specify finiteness or irreducibility, and its mixing definition leaves the worst-case starting-state quantifier implicit; these are made explicit here according to the supplied research formulation, rather than asserting an extension to arbitrary chains.
+
+The supplied research summary labels the finite lazy reversible question solved in the literature: Griffiths, Kang, Oliveira and Patel are credited with universal comparability of $T(1/2)$ and $\tau_{\mathrm{TV}}(1/4)$, which implies the requested inequality. With
+\[
+ t_{\mathrm{prod}}=\max_{x\in\Omega,\ A\subseteq\Omega:\mu(A)>0}\mu(A)\E_xT_A,
+\]
+it reports their sharp endpoint comparison
+\[
+ \tfrac12 T(1/2)\leq t_{\mathrm{prod}}\leq T(1/2),
+\]
+and attributes the mixing-time comparison with $t_{\mathrm{prod}}$ to Aldous. The original Aldous remark has damaged placement of $\mu(A)$ relative to the maximum; the coherent product parameter above is supported by the supplied summary, not by an independently checked source.
+
+The aid further reports the sharp special-case inequality $\tau_{\mathrm{TV}}(1/2)\leq T(1/2)$ for irreducible lazy two-state chains
+\[
+ P=\begin{pmatrix}1-a&a\\b&1-b\end{pmatrix},\qquad 0<a,b\leq\tfrac12,
+\]
+with optimal universal constant $1$, approached by $b=1/2-\varepsilon$, $a=\varepsilon^2$ as $\varepsilon\downarrow0$. It also reports failure of a corresponding universal bound using target-set mass threshold $\beta>1/2$ in place of $1/2$. These special-case and threshold claims are retained as attributed research-aid statements, without adding an unprovided counterexample or proof.
+\subsection{Short English statement}
+The question compares worst-case mixing with the longest expected time to hit a set carrying at least half the stationary mass. The supplied research describes an affirmative published result for finite irreducible lazy reversible chains, including the half-mass endpoint, and a sharp two-state special case. The original broad wording and damaged Aldous remark are qualified explicitly.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001296, exact source code catalogue entry; canonical \texttt{aim-convex-geometry-notes.json}, \texttt{notes[27]}, source item 9, tag ``problem'', workshop \emph{Algorithmic convex geometry}. Source attribution: Yuval Peres; supplied verification identifies \emph{Problems from the AIM Workshop on Algorithmic Convex Geometry} (2007). Supplied URL: \url{https://aimath.org/WWN/convexgeometry/convexgeometry.pdf}.
+\item Original remark credits Aldous with a mixing/hitting-time comparison, but its displayed $c\mu(A)\max_{x,A}\E T_{A,x}$ is typographically ambiguous. The supplied summary clarifies the product parameter and credits Griffiths, Kang, Oliveira and Patel with the half-mass endpoint result. No paper titles, publication dates, or full bibliographic entries for either attribution are supplied; none is invented.
+\item Registry status ``solved'', research classification SOLVED-IN-LITERATURE, statement status ``exact''; attempt 1, result ``full\_solution'', problem status at run ``solved'', recorded rigor ``proved'', novelty confidence ``low'', candidate type ``sharp\_special\_case''. The source calls this a machine-generated, non-peer-reviewed research aid requiring independent verification before citation. The literature field is empty. The verification truncates after announcing its intended worst-case mixing definition; no outside source was visited.
+\end{itemize}
+\end{document}

@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002078}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $x\in\R$, $t\in\R$, and $j\in\Z^2$. Write $|j|$ for the Euclidean norm and $\langle j\rangle=(1+|j|^2)^{1/2}$. For each $j\in\Z^2$, define the resonance set
+\[
+\mathcal R(j)=\left\{(j_1,\ldots,j_5)\in(\Z^2)^5:\begin{array}{l}
+j_1-j_2+j_3-j_4+j_5=j,\\
+|j_1|^2-|j_2|^2+|j_3|^2-|j_4|^2+|j_5|^2=|j|^2
+\end{array}\right\}.
+\]
+The quintic resonant system for complex-valued functions $\vec u=(u_j)_{j\in\Z^2}$ is
+\[
+i\partial_tu_j+\partial_{xx}u_j
+=\sum_{(j_1,\ldots,j_5)\in\mathcal R(j)}
+u_{j_1}\overline{u_{j_2}}u_{j_3}\overline{u_{j_4}}u_{j_5},
+\qquad j\in\Z^2.
+\]
+Define the weighted space
+\[
+\mathcal H=\left\{\vec f=(f_j)_{j\in\Z^2}: f_j\in L^2(\R;\C),\quad
+\sum_{j\in\Z^2}\langle j\rangle^2\|f_j\|_{L^2(\R)}^2<\infty\right\},
+\qquad
+\|\vec f\|_{\mathcal H}^2=\sum_{j\in\Z^2}\langle j\rangle^2\|f_j\|_{L^2(\R)}^2,
+\]
+and
+\[
+E_{\mathrm{ls}}(\vec f)=\frac12\|\vec f\|_{\mathcal H}^2.
+\]
+\textbf{Source question (Conjecture 2, as identified by the supplied registry).} For every $E>0$ and every smooth initial datum $\vec u_0\in\mathcal H$ satisfying $E_{\mathrm{ls}}(\vec u_0)\le E$, does there exist a solution of the displayed system, defined for every $t\in\R$, such that
+\[
+\vec u(0)=\vec u_0,\qquad
+E_{\mathrm{ls}}(\vec u(t))=E_{\mathrm{ls}}(\vec u_0)\quad\text{for every }t\in\R,
+\]
+and such that $\vec u$ scatters as $t\to+\infty$ and as $t\to-\infty$?
+
+\textbf{Unresolved formulation details.} The supplied record does not specify the precise class of smooth sequence-valued initial data, the solution concept, the convergence interpretation of the resonant sums, or the topology of scattering. The energy defines $\mathcal H$, but does not by itself specify these choices. If scattering is intended in $\mathcal H$, its explicit meaning would be the existence of $\vec u_+,\vec u_-\in\mathcal H$ such that
+\[
+\lim_{t\to\pm\infty}\sum_{j\in\Z^2}\langle j\rangle^2
+\bigl\|u_j(t)-e^{it\partial_{xx}}(u_\pm)_j\bigr\|_{L^2(\R)}^2=0,
+\]
+where $e^{it\partial_{xx}}$ is the free Schr\"odinger evolution on $\R$. This is an explicitly identified possible interpretation, not a scattering topology verified from the supplied source. These choices require mathematical review before the question is fully specified.
+\subsection{Short English statement}
+For the quintic resonant Schr\"odinger system indexed by $\Z^2$, the question asks whether every smooth initial datum with bounded weighted $L^2$ energy admits a global solution conserving that energy and scattering in both time directions. The precise smoothness class, solution concept, and scattering topology are unspecified. Supplied dated curation labels the problem partially solved and reports a later result for a special case described as having two discrete components; that description and the literature claims require independent verification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record, permanent ID $30002078$, title \emph{Scattering for the Quintic Resonant System}, exact source code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied. The proposed year and year tag are $2012$.
+\item Supplied report citation: \emph{Nonlinear Evolution Problems (2013)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2012/26}, pp.~1563--1637. \url{https://doi.org/10.4171/owr/2012/26}. The background describes these reports as records of mathematical workshops and their open-problem discussions. The citation's $2013$ date and the record's $2012$ year information are retained without reconciliation.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the numbered system and conserved energy were restored from the official report while preserving Conjecture~2. This is supplied verification metadata, not independent verification performed for this draft.
+\item Hani--Pausader, \emph{On scattering for the quintic defocusing NLS on R times T2}. \url{https://arxiv.org/abs/1205.6136}.
+\item Cheng--Guo--Zhao, \emph{On scattering for the quintic defocusing NLS on the two-dimensional cylinder}. \url{https://arxiv.org/abs/1809.01527}.
+\item Literature assessment checked at \texttt{2026-08-21}: the supplied curation labels the problem partially solved, states that the full conjecture remains unresolved, and reports that Cheng, Guo, and Zhao proved the case described as the two-discrete-component case singled out in the Hani--Pausader program. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; its time-sensitive status and cited claims require independent checking.
+\end{itemize}
+\end{document}

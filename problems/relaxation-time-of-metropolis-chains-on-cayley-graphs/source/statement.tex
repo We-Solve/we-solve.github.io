@@ -1,0 +1,52 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 9700008}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\Gamma$ be a finite connected Cayley graph of a finite group with a symmetric generating set, and let $P$ be the simple random-walk transition matrix. To illustrate one geometric-stopping convention, start at the identity $e$ and use an independent time $T$ with $\Pr(T=t)=p(1-p)^t$, $t\geq0$, $0<p<1$. Then
+\[
+\mu_p(x)=p\sum_{t\geq0}(1-p)^tP^t(e,x).
+\]
+The record does not reproduce the source's starting law or geometric parameterization; this formula is an explicit candidate only. Using $p$ as the continuation probability reverses the parameter direction.
+
+With symmetric proposal $P$, the usual Metropolis kernel targeting positive $\mu_p$ is
+\[
+M_p(x,y)=P(x,y)\min\{1,\mu_p(y)/\mu_p(x)\}\quad(x\ne y),
+\qquad M_p(x,x)=1-\sum_{y\ne x}M_p(x,y).
+\]
+It is reversible with stationary law $\mu_p$. One common relaxation-time convention is $\tau(p)=(1-\lambda_2(M_p))^{-1}$, using the second-largest eigenvalue; an absolute-gap or lazy-chain convention is different and must be fixed.
+
+The source asks three related questions: is $\tau(p)$ decreasing in $p$; is there a numerical constant $C$, independent of the finite Cayley graph and $p$, such that $\tau(p)\leq C\tau_{\mathrm{end}}$ for the intended endpoint value; and can one obtain decreasing bounds in terms of $p$, graph size and specified standard graph parameters? Monotone means $\tau(p_2)\leq\tau(p_1)$ whenever $p_1<p_2$ in the chosen convention.
+
+Neither endpoint nor graph-parameter list is supplied. Under the illustrated stopping convention the two limits involve a uniform stationary law and concentration at the start, so endpoint kernels/supports need careful definition; a limiting endpoint value cannot be assumed identical to substituting a singular stationary law. Thus the formulas clarify a possible setup without selecting the missing source conventions or asserting any of the three bounds.
+\subsection{Short English statement}
+Study monotonicity and graph-uniform bounds for the relaxation time of a geometric-stopping-target Metropolis chain on a Cayley graph. The stopping parameter, spectral convention and endpoint must be fixed.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 9700008, exact source code catalogue entry, ``Relaxation time of Metropolis chains on Cayley graphs''; attributed to David Aldous, no proposed year supplied. Registry status open, classification OPEN-TRIAGE.
+\item David Aldous, \emph{Open problems}, item \texttt{cayley.html}, \url{https://www.stat.berkeley.edu/~aldous/Research/OP/index.html}. Supplied HTML-text with linked-primary-PDF-text extraction accessed July 29, 2026. Provenance records 23 active pages, delegated-document subproblems separated and compound bullets retained. No linked PDF was accessed here.
+\item The summary reports no located resolution of the specific monotonicity/universal-bound questions and mentions general comparison tools of Diaconis, Saloff-Coste and Levin--Peres--Wilmer, without precise citations or matching theorems.
+\item Provenance flags current primary-literature status and redistribution terms NEEDS\_REVIEW.
+\end{itemize}
+\end{document}

@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001068}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G=(V,E)\) be a finite simple loopless digraph and \(p:E\to[0,1]\). Define weighted degrees
+\[
+ d_p^+(u)=\sum_{uv\in E}p(uv),\qquad
+ d_p^-(u)=\sum_{vu\in E}p(vu).
+\]
+The source, Conjecture 6.23 attributed to Bollob\'as and Scott, asserts
+\[
+ d_p^+(u)\ge1,\quad d_p^-(u)\ge1\quad(\forall u\in V)
+ \quad\Longrightarrow\quad
+ \exists\text{ directed cycle }C:\sum_{e\in C}p(e)\ge1.
+\]
+Here cycle is interpreted as vertex-simple, with only its start/end repeated. Allowing arbitrary repeated closed walks would change the question by permitting repeated traversal of a positive cycle. The report as extracted imposes no strong-connectivity condition. Its note separately states there is a nice proof of a directed path of weight at least one; that path statement is not the cycle conclusion.
+
+The supplied aid reports a counterexample to the unqualified statement: a finite simple loopless digraph on \(26\) vertices and \(77\) arcs, with weights in \([0,1]\), satisfies
+\[
+ \min_u d_p^+(u)=\min_u d_p^-(u)=39/38,
+ \qquad
+ \sum_{e\in C}p(e)=39/40\quad\text{for every simple directed cycle }C.
+\]
+In particular the reported cycle maximum is below one even with strict local degree margins. The supplied record does not include its arc list or weight assignment, so this is a reported counterexample specification requiring the missing artifact, not a fully recoverable explicit graph here.
+
+The aid explains the obstruction by one-way reverse gluing. If a weighted digraph \(H\) has weighted outdegree at least one everywhere but all simple directed cycles of weight below one, take a copy of \(H\), a disjoint copy with all arcs reversed and weights preserved, and add one-way weight-one arcs from each reverse-copy vertex to its corresponding original-copy vertex. Original vertices retain sufficient outweight and gain inweight; reverse-copy vertices retain sufficient inweight and gain outweight. Every directed cycle remains entirely in one copy. Thus an outweight-only counterexample yields a two-sided counterexample without strong connectivity. This lemma does not construct the missing base \(H\) or verify the reported \(26\)-vertex data.
+
+The aid says the original Bollob\'as--Scott proposal used these weak inequalities only for strongly connected digraphs, whereas the AIM report dropped that qualification. The reported glued counterexample therefore refutes the unqualified AIM wording and does not settle the strongly connected version. No independent current literature status for that version is supplied.
+\subsection{Short English statement}
+The source asserts that weighted in- and outdegrees at least one force a cycle of weight at least one. The supplied aid reports a counterexample when strong connectivity is omitted and explains how one-way gluing supplies the missing local degrees without creating new cycles; the strongly connected version remains separate.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001068\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[192]}, tag \texttt{conjecture}.
+\item Blair D. Sullivan's 2006 AIM report, ``The Caccetta--H\"aggkvist conjecture,'' section 6.6, ``Weighted Versions,'' Conjecture 6.23: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. Statement status \texttt{exact}; the supplied verification identifies the broken numbering as 6.23. No PDF was accessed for this draft.
+\item Bollob\'as and Scott, attributed original weighted-cycle proposal with a strong-connectivity qualification according to the aid. No full external paper citation is supplied. The original note mentions a directed-path proof without a reference.
+\item Research attempt 1: \texttt{counterexample}, problem status at run \texttt{refuted}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{solved}, classification \texttt{SOLVED-IN-LITERATURE}. Created and updated 14 August 2026. No original remarks or literature field are supplied. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

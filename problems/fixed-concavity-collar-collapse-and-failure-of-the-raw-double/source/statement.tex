@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20003145}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks to study collapse of Riemannian manifolds with boundary, with $\sec\geq K$ in the interior and controlled boundary concavity. It does not specify dimension, compactness, diameter, concavity convention or a desired structural theorem.
+
+The aid gives an explicit compact model. Let $(N^m,h)$ be a closed connected Riemannian manifold with $m\geq1$ and $\sec_h\geq0$, and fix $\lambda\geq0$. For $\eps>0$ put
+\[
+M_\eps=N\times[0,\eps],\qquad
+g_\eps=\dd t^2+a_\eps(t)^2h,\qquad
+a_\eps(t)=1+\frac\lambda\eps t(\eps-t).
+\]
+Use the inward unit normal and the convention $\mathrm{II}(X,Y)=-g(\nabla_X\nu,Y)$, so convex Euclidean boundaries have positive form. Since $a(0)=a(\eps)=1$, $a'(0)=\lambda$ and $a'(\eps)=-\lambda$, both boundary faces satisfy
+\[
+\mathrm{II}=-\lambda\,g_{\partial M_\eps}.
+\]
+Thus concavity is fixed rather than deteriorating with collapse.
+
+The warped-product sectional curvatures are
+\[
+\sec(\partial_t,X)=-\frac{a''}{a}=\frac{2\lambda}{\eps a}\geq0,
+\qquad
+\sec(X,Y)=\frac{\sec_h(X,Y)-(a')^2}{a^2}\geq-\lambda^2
+\]
+for the corresponding mixed and tangential planes; the second formula is used when such tangential planes exist. The aid reports the exact inradius and quantitative collapse
+\[
+\operatorname{inrad}(M_\eps)=\eps/2,\qquad
+d_{\mathrm{GH}}(M_\eps,N)\leq\eps/2,
+\]
+and volume
+\[
+\operatorname{Vol}(M_\eps)=\operatorname{Vol}(N)\int_0^\eps a_\eps(t)^m\,\dd t
+\sim\eps\operatorname{Vol}(N).
+\]
+These are the intrinsic length metrics; projection to $N$ supplies the stated correspondence.
+
+Let $D M_\eps$ be the raw metric double, gluing two copies by the identity on both boundary faces, without smoothing. The aid asserts
+\[
+d_{\mathrm{GH}}(D M_\eps,N)\leq\eps/2,
+\]
+but for $\lambda>0$ each individual double has no finite Alexandrov lower curvature bound. It attributes this to Kosovskii's necessary gluing condition: the sum of the two face forms is $-2\lambda g$, which is negative in every nonzero tangent direction. Positive base dimension is therefore retained in this obstruction. At $\lambda=0$ the product double has no such negative-form obstruction.
+
+The model shows that controlled concavity and an interior lower curvature bound do not justify applying ordinary lower-curvature gluing directly to raw doubles, even when both original spaces and doubles collapse to a smooth nonnegatively curved base. It does not classify all boundary collapse or exclude other smoothing, extension or structural approaches to the original question.
+\subsection{Short English statement}
+The supplied collar family collapses with fixed boundary concavity and a uniform interior curvature lower bound. Its raw doubles still have no finite Alexandrov lower bound when the concavity is negative, so direct doubling is not automatically a valid reduction.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20003145$, source code \texttt{catalogue entry}; canonical \texttt{aim-topology-notes.json}, \texttt{notes[232]}.
+\item AIM workshop \emph{Manifolds with nonnegative sectional curvature}, Problem 20: \url{https://aimath.org/WWN/nnsectcurvature/nnsectcurvature.pdf}. Original remarks and literature field are empty.
+\item The aid invokes Kosovskii's necessary gluing condition without an authoritative full citation or full theorem hypotheses.
+\item Research attempt 1: \texttt{partial\_result}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, rigor \texttt{proved}, novelty confidence low. Its explicit collar and raw-double obstruction are machine-generated aid, not peer reviewed, and require independent verification before citation.
+\end{itemize}
+\end{document}

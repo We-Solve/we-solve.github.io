@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002306}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a countable structure \(N\), an \(A\)-computable presentation means a copy on an effectively indexed domain whose atomic diagram is computable relative to an oracle \(A\). A theory is strongly minimal if in every model every definable subset of its universe, with parameters allowed, is finite or cofinite. The supplied question asks for the computational difficulty of obtaining a presentation of a strongly minimal structure \(M\) from a presentation of its associated group \(G\). The displayed example is a three-to-one map
+\[
+ \pi:(M,\oplus)\longrightarrow(\Q,+).
+\]
+Three-to-one means that every rational has exactly three preimages. The excerpt does not specify the language, the interpretation of \(G\), whether \(\pi\) is definable or a homomorphism, which cover data are input, or the desired uniformity or degree bound. The aid places the general question in the strongly minimal locally modular setting, but does not supply its full hypotheses. These missing specifications are part of the unresolved statement, not supplied by the displayed arrow alone.
+
+The precise partial result in the aid is for the following additional, restricted setup. Fix an \(A\)-computable group \(G\), a fixed finite abelian group \(F\) with effective labels and additive operation, and a central extension
+\[
+ 1\longrightarrow F\xrightarrow{\iota}E\xrightarrow{\pi}G\longrightarrow1.
+\]
+The kernel labels \(\iota\) and the projection \(\pi\) are included in the over-base presentation data; isomorphisms must induce the identity on both \(F\) and \(G\). For a normalized section \(s:G\to E\), with \(s(1)=1\), define \(c:G\times G\to F\) by
+\[
+ s(g)s(h)=\iota(c(g,h))s(gh).
+\]
+A normalized central two-cocycle satisfies
+\[
+ c(1,g)=c(g,1)=0,\qquad
+ c(g,h)+c(gh,k)=c(h,k)+c(g,hk).
+\]
+It defines the coordinatized extension \(E_c=F\times G\) with multiplication
+\[
+ (a,g)(b,h)=(a+b+c(g,h),gh),\quad
+ \iota(a)=(a,1),\quad\pi(a,g)=g.
+\]
+The reported criterion is that this extension class has an \(A\)-computable presentation over the specified base and kernel if and only if it has an \(A\)-computable normalized cocycle representative.
+
+For two \(A\)-computable normalized cocycles \(c,c'\), their presentations are \(A\)-computably isomorphic over \(F\) and \(G\) if and only if there is an \(A\)-computable function \(b:G\to F\), \(b(1)=0\), with
+\[
+ c(g,h)-c'(g,h)=(\delta b)(g,h):=b(g)+b(h)-b(gh).
+\]
+With this sign convention the isomorphism is \((a,g)\mapsto(a+b(g),g)\). The three-sheeted instance would have \(|F|=3\), but the supplied arrow alone does not establish that it is such a central group extension, or that this construction meets the strong-minimality assumptions.
+
+The aid additionally reports a prescribed-degree split-extension example distinguishing abstract presentability from effective recovery of specified coordinates. The elementary coordinate issue can be expressed in a split \(F\times G\): a specified section \(g\mapsto(b(g),g)\) can encode a noncomputable function \(b\), although the underlying split group has a computable copy. No particular function or exact degree assertion is supplied in the record. The cocycle criterion therefore concerns existence of a suitable effective representative, not uniform recovery of every externally specified section. It does not settle the general strongly minimal reconstruction problem.
+\subsection{Short English statement}
+Ask how hard it is to present a strongly minimal structure from its associated group. For central finite group covers with the base and kernel maps specified, the supplied aid gives an effective cocycle criterion and a computable-coboundary criterion for equivalence. These extra assumptions are not determined by the original three-to-one arrow.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002306\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-logic-notes.json}, \texttt{notes[81]}.
+\item AIM workshop \emph{Computable Stability Theory}, problem session dated 12 August 2013, Question 4. Supplied reference: \url{https://aimath.org/pastworkshops/computestabproblems.pdf}. The reference has not been accessed here. No proposer, original remarks, or literature citation is supplied.
+\item Supplied research attempt 1: \texttt{partial\_result}, run status \texttt{open}, rigor label \texttt{proved}, low novelty confidence. Registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The general locally modular reconstruction problem is reported open or unknown; the effective central-extension criterion and prescribed-degree example have no additional primary citation in this record.
+\item The supplied research aid is explicitly machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

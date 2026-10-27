@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000743}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A prime chain is a finite sequence $p_1,\ldots,p_k$ of primes with
+\[
+ p_j=m_jp_{j-1}+1,\qquad m_j\in\N=\{1,2,\ldots\},\quad2\leq j\leq k.
+\]
+It is increasing. Let $K(x)$ be the maximum chain length with $p_k\leq x$.
+
+\textbf{Problem 6 (K.B. Ford).} The elementary bound is $K(x)=O(\log x)$. Prove or disprove
+\[
+ K(x)=o(\log x)\qquad(x\to\infty).
+\]
+This is a uniform assertion over all chains, not just a selected chain family.
+
+\textbf{Related problem in the source.} H.L. Montgomery recalls an Erd\H{o}s question asking whether only finitely many integers $n$ have $n-2^j$ prime for every positive integer $j$ with $2^j<n$. R.C. Vaughan recalls Erd\H{o}s's belief that $n=105$ is largest. The extracted record prints flattened ``$2j$'' rather than an explicit exponent and says ``all integers'' without a lower bound. The displayed power-of-two/positive-index reading is an explicit reconstruction consistent with the stated example; if $j=0$ were included, $105-1=104$ would already contradict that example. The source's recollection is not a proof of finiteness or maximality.
+
+\textbf{Reported multiplier-repetition bound.} For a chain with $k\geq3$, put $n=k-2$ and
+\[
+ R=\max_{m\in\N}\#\{j\in\{3,\ldots,k\}:m_j=m\}.
+\]
+All these tail multipliers are positive even integers, since $p_2,\ldots,p_k$ are odd. The aid asserts the exact inequality
+\[
+ p_k>\left(\frac{2n}{eR}\right)^n.
+\]
+Consequently, along any family with $k\to\infty$ and $R=o(k)$ one has $k=o(\log p_k)$. In particular, if $R$ is bounded independently of the chain,
+\[
+ k\leq(1+o(1))\frac{\log p_k}{\log\log p_k}.
+\]
+These are conditional restrictions on repetition in the tail; they do not bound $R$ for all prime chains.
+
+Conversely, fix $\eta>0$ and suppose an unbounded family of chains satisfies $n\geq\eta\log p_k$. The report says there are constants $c_\eta>0$ and $B_\eta<\infty$ such that each such chain has a positive even multiplier $m\leq B_\eta$ occurring at least $c_\eta n$ times among $m_3,\ldots,m_k$. Passing to a subsequence makes that multiplier fixed. For every fixed word length, the aid also reports an infinitely recurring fixed word of bounded even multipliers after passage to a subsequence. The word and bound may depend on its length and $\eta$; this does not assert arbitrarily long consecutive runs of one multiplier.
+
+Thus a linear-logarithmic counterexample to Ford's target would require structured multiplier reuse. The report does not rule out that reuse, settle $K(x)=o(\log x)$, or resolve the related Erd\H{o}s problem.
+\subsection{Short English statement}
+Ford asks whether every prime chain formed by repeatedly taking a prime one above a multiple of the previous prime has sublogarithmic length. The aid proves a sharp restriction in terms of multiplier repetition: low repetition forces short chains, while a hypothetical long family must repeatedly use bounded even multipliers. The separate powers-of-two question is retained with its extraction ambiguity.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000743$, \texttt{catalogue entry}; canonical \texttt{aim-analytic-number-theory-notes.json}, \texttt{notes[106]}.
+\item Angel Kumchev's notes, December 2005 ARCC workshop ``Gaps Between Primes,'' Problem 6, p. 2: \url{https://aimath.org/WWN/primegaps/WorkshopProblems.pdf}. Supplied verification says the PDF was directly inspected; registry status is \texttt{reconstructed\_unverified}. No independent PDF access is claimed here.
+\item Source attributions: K.B. Ford for the prime-chain question, H.L. Montgomery for the related Erd\H{o}s question, and R.C. Vaughan for the recollection that $105$ was believed largest.
+\item Research attempt 1: \texttt{partial\_result}, run status \texttt{open}, internal rigor \texttt{proved}, low novelty confidence; current registry partially solved. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. No full external theorem references are supplied; original literature field empty.
+\end{itemize}
+\end{document}

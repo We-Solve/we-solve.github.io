@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2800404}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $d,m$ be positive integers and $0<s\leq d\leq m$. Let $z_1,\ldots,z_m\in\R^d$ have mutually independent entries, with
+\[
+ \mathbb P((z_k)_j=-s^{-1/2})=\mathbb P((z_k)_j=s^{-1/2})=\frac{s}{2m},
+ \qquad\mathbb P((z_k)_j=0)=1-\frac sm.
+\]
+Thus $\E(z_kz_k^T)=m^{-1}I_d$. If $A\in\R^{m\times d}$ has rows $z_k^T$, then $\sum_kz_kz_k^T=A^TA$ and $\sum_k\E(z_kz_k^T)=I_d$. The entries are independently sparse; each column has expected, rather than fixed, support size $s$.
+
+Part (3) of the source problem conjectures positive universal constants $c_1,c_2$ such that, for all admissible parameters,
+\[
+ m\geq c_1\frac{d+\log(1/\delta)}{\epsilon^2},\qquad
+ s\geq c_2\frac{\log(d/\delta)}{\epsilon^2}
+\]
+imply
+\[
+ \mathbb P\!\left(\left\|\sum_{k=1}^{m}
+     (z_kz_k^T-\E(z_kz_k^T))\right\|_{\mathrm{op}}\geq\epsilon\right)
+ =\mathbb P(\|A^TA-I_d\|_{\mathrm{op}}\geq\epsilon)<\delta.
+\]
+The norm is the Euclidean operator norm, and the constants must be independent of $d,m,s,\epsilon,\delta$. The conventional concentration range is $0<\epsilon<1$, $0<\delta<1$; the source does not explicitly state these ranges or whether $s$ is restricted to integers. They require confirmation, and no claim about a larger parameter range is inferred. The probability event retains $\geq\epsilon$ and the bound retains the strict $<\delta$.
+
+The supplied assessment reports OSNAP-type bounds, up to logarithmic factors, of the forms $m=\widetilde O(d/\epsilon^2)$ and $s=\widetilde O(\log(d/\delta)/\epsilon)$, attributed to Nelson--Nguyên. These are not the exact displayed $s$-hypothesis and do not by themselves establish this independent-entry model or its universal-constant statement; full theorem/model details are absent.
+\subsection{Short English statement}
+Show that the covariance of independent sparse-sign rows concentrates near the identity using the stated sample and sparsity scales. The source model permits random column support sizes, so a result for a different sparse embedding model cannot be silently substituted. The supplied assessment records OSNAP-related partial progress but says the exact constants/formulation are not pinned down as a theorem. No independent resolution is asserted.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath permanent ID 2800404, source code catalogue entry, ``10 Lectures and 42 Open Problems --- OSNAP.'' Registry curation and metadata: Ulam AI and UnsolvedMath Contributors, CC BY 4.0; proposer Afonso S. Bandeira, 2015; updated 2026-08-06.
+\item Bandeira, source list \emph{42 Open Problems in Data Science} (2016), Open Problem 4.4, part (3), author blog \url{https://afonsobandeira.wordpress.com/2015/10/25/10l42concentration/}. Supplied HTML extraction accessed 2026-07-29. The metadata says the source presents an open item and marks status/release and rights review NEEDS\_REVIEW.
+\item Nelson--Nguyên, OSNAP, as named in the supplied partial-progress summary. No complete title, year, theorem number or locator is supplied; none is inferred.
+\end{itemize}
+\end{document}

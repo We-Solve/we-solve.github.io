@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002449}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for stability properties of strong shocks in viscous conservation laws in one or several spatial dimensions. ``Strong'' is interpreted by the aid as allowing arbitrary amplitude, not only small perturbations of a constant state. No flux, viscosity, admissibility condition, perturbation space, or stability norm is specified, so this is a model-dependent programme rather than one universal stability assertion. The aid reports arbitrary-amplitude results for some one-dimensional physical gas models and transverse instability regimes in multidimensional magnetohydrodynamics, without precise references or hypotheses.
+
+The explicit proved subclass claimed in the aid is scalar. On \(\R_x\times\R^{d-1}_y\), consider
+\[
+ u_t+\partial_x f(u)+c\cdot\nabla_yu
+ =\beta u_{xx}+\nabla_y\cdot(C\nabla_yu),
+\]
+where \(\beta>0\), \(C\) is a constant real symmetric positive-definite matrix, \(c\in\R^{d-1}\), and \(f\in C^2\) is strictly convex on the state interval. Let \(U(\xi)\), \(\xi=x-st\), be a decreasing scalar viscous shock with \(U(-\infty)=u_->u_+=U(+\infty)\), Rankine--Hugoniot speed \(s\), and strict Lax inequalities \(f'(u_+)<s<f'(u_-)\). No amplitude smallness is assumed. Set \(a(\xi)=f'(U(\xi))-s\), so \(a'=f''(U)U'<0\) under strict positive curvature of the flux along the profile.
+
+On unweighted \(L^2(\R_\xi)\), with domain \(H^2\), Fourier transformation in \(y\) gives
+\[
+ L_\eta=L_0-q_\eta-i\ell_\eta,\qquad
+ L_0v=\beta v''-(av)',\quad
+ q_\eta=\eta^{\mathsf T}C\eta,\quad\ell_\eta=c\cdot\eta.
+\]
+Thus the spectral parameter reduces exactly to \(\mu=\lambda+q_\eta+i\ell_\eta\). On common regions of exponential dichotomy, corresponding Evans functions have this same shift, up to a nonvanishing normalization factor.
+
+For a nonzero eigenvalue \(\mu\) of \(L_0\) with \(\operatorname{Re}\mu\ge0\), the decaying eigenfunction has zero integral and its antiderivative \(w\) obeys \(\mu w=\beta w''-aw'\). The aid's integrated energy certificate is
+\[
+ \operatorname{Re}\mu\,\|w\|_2^2
+ =-\beta\|w'\|_2^2+\frac12\int_\R a'|w|^2\,\dd\xi,
+\]
+excluding such a nonzero eigenvalue. The kernel of \(L_0\) is spanned by \(U'\). There is no \(H^2\), hence no operator-domain \(L^2\), Jordan vector satisfying \(L_0v=U'\), since the nonzero jump \(\int U'=u_+-u_-\) obstructs it. Therefore the only point eigenvalue of \(L_\eta\) in
+\[
+ \operatorname{Re}\lambda\ge-q_\eta
+\]
+is the phase branch \(\lambda=-q_\eta-i\ell_\eta\), with eigenfunction \(U'\) and no \(L^2\) Jordan vector.
+
+The far-field dispersion curves are
+\[
+ \lambda=-\beta k^2-i a_\pm k-q_\eta-i\ell_\eta,
+ \qquad k\in\R,\quad a_\pm=f'(u_\pm)-s.
+\]
+The standard unweighted Fredholm essential spectrum has right boundary at \(\operatorname{Re}\lambda=-q_\eta\), and contains the phase-branch value at \(k=0\). In particular, at \(\eta=0\) it touches the origin. The phase root is not asserted to be an isolated unweighted eigenvalue with a Riesz algebraic multiplicity; the no-Jordan-vector statement does not remove this essential-spectrum contact. The certificate is for the stated scalar subclass, not arbitrary systems or a nonlinear stability theorem.
+
+The appended M. Wechselberger section on loss of hyperbolicity, algebraic decay, the Evans function, and generalized KdV eigenfunctions, with \(p=5\) mentioned, is a different speaker's setup. Its damaged equation and decay assertions are not additional hypotheses of the strong-shock item.
+\subsection{Short English statement}
+The broad strong-shock question depends on the model. The aid gives an amplitude-independent scalar certificate: each transverse fiber is an exact spectral shift, and only its phase eigenfunction can lie on or right of the shifted boundary. Essential spectrum still touches that branch, so the result is not an isolated-gap or general nonlinear stability theorem.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002449\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[60]}.
+\item AIM workshop \emph{Stability criteria for multi-dimensional waves and patterns}, strong-shock open problem; supplied reference \url{https://aimath.org/WWN/multidimwaves/multidimwaves.pdf}. The verification field reports direct checking of the original seven-page document, locating the item on PDF and printed page 5, and identifying the following Wechselberger material as separate. No PDF was accessed here.
+\item The aid mentions one-dimensional gas-model arbitrary-amplitude results and multidimensional MHD transverse instabilities without authors or complete citations. No proposer, year, original remarks, or literature entry is supplied for this record.
+\item Supplied research attempt 1: \texttt{partial\_result}, run and registry status \texttt{partially\_solved}, rigor label \texttt{proved}, low novelty confidence; classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

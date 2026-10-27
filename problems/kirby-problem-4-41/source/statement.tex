@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2917}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\Sigma$ be a compact surface, $X$ a connected four-manifold, and $I=[0,1]$. For an embedding $f:\Sigma\to X$, the source defines $\pi_1$-negligibility by requiring the complement inclusion to induce an isomorphism
+\[
+ \pi_1(X\setminus f(\Sigma),*)\longrightarrow\pi_1(X,*),
+\]
+with a compatible basepoint outside the image. No orientability assumption on $\Sigma$ or $X$ is stated in the general problem.
+
+Suppose $f_0,f_1:\Sigma\to X$ are $\pi_1$-negligible embeddings with $f_0|_{\partial\Sigma}=f_1|_{\partial\Sigma}$, and there is a homotopy $h:\Sigma\times I\to X$ satisfying
+\[
+ h(x,0)=f_0(x),\quad h(x,1)=f_1(x),\quad
+ h(b,t)=f_0(b)\quad(b\in\partial\Sigma).
+\]
+A boundary-fixed concordance in the natural product convention is an embedding
+\[
+ F:\Sigma\times I\longrightarrow X\times I
+\]
+with $F(x,i)=(f_i(x),i)$ for $i=0,1$ and $F(b,t)=(f_0(b),t)$ on $\partial\Sigma\times I$. It is $\pi_1$-negligible if
+\[
+ \pi_1\bigl((X\times I)\setminus F(\Sigma\times I),*\bigr)
+       \longrightarrow\pi_1(X\times I,*)
+\]
+is an isomorphism. The concordance is not required to preserve every interior level; that stronger condition would impose an isotopy-type requirement absent from the source.
+
+The task is to construct computable invariants deciding whether such an $F$ exists. An obstruction-package formulation would specify a target and a distinguished vanishing value for $\mathcal O(X;f_0,f_1)$ and prove
+\[
+ \mathcal O(X;f_0,f_1)=0
+ \quad\Longleftrightarrow\quad
+ \text{a boundary-fixed $\pi_1$-negligible concordance exists}.
+\]
+This is a schema for the requested complete obstruction theory, not a proposed new invariant. The source does not specify a uniform algorithmic model, a finite encoding of the ambient manifold/embeddings, or what access to fundamental-group data ``computable'' permits. It also does not explicitly choose smooth versus locally flat topological embeddings, or proper/neat boundary conventions. These choices must be fixed rather than replaced by an unqualified all-input algorithm claim.
+
+The background says $\pi_1$-negligibility is equivalent to having an immersed dual sphere. A dual sphere is an immersed $S^2\to X$ meeting the embedded surface transversely in one point and otherwise disjoint; ``framed'' requires a trivialized normal bundle. The stated equivalence is retained as a source assertion with its usual connected-surface scope: if disconnected surfaces are allowed, the appropriate componentwise dual conditions need clarification. A dual need not be framed merely because it exists.
+
+The supplied literature triage reports a complete Freedman--Quinn concordance obstruction for compact orientable surfaces under the immersed framed-dual hypotheses in Klug--Miller [KM21]. It reports that for embedded two-spheres with an immersed dual, Freedman--Quinn and Stong invariants give a complete package under mild additional hypotheses, as developed by Freedman--Quinn, Stong and Klug--Miller [KM22]. The record does not reproduce every auxiliary hypothesis or target group in those theorems, so no unrestricted version or explicit formula for them is invented. Stong's paper is specifically a correction to the relevant Freedman--Quinn theorem.
+
+The source's remaining general case concerns arbitrary compact surfaces and unframed duals beyond those established regimes. It suggests extending the Freedman--Quinn/Stong invariants to that setting. The literature triage checked 17 August 2026 classifies partial progress but reports no full computable obstruction theory in this generality; the main registry label is open. OCR forms such as ``4manifold'' and the malformed indefinite article do not change the mathematical question.
+\subsection{Short English statement}
+Find complete computable obstructions to concordance of homotopic, boundary-agreeing surface embeddings whose complements preserve the ambient fundamental group. Known sphere and framed-dual results do not cover every compact surface with an unframed dual, and category/computability conventions still need specification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $2917$, exact source code \texttt{catalogue entry}, ``Kirby Problem 4.41,'' including its literature triage checked 17 August 2026.
+\item R. I. Baykur, R. C. Kirby and D. Ruberman, editors, \emph{K3}, AMS Mathematical Surveys and Monographs \textbf{295} (2026), Problem 4.41, \url{https://math.berkeley.edu/sites/default/files/surv-295-ruberman-watermarked-author-pdf.pdf}.
+\item [FQ90] Michael H. Freedman and Frank Quinn, \emph{Topology of 4-manifolds}, Princeton Mathematical Series \textbf{39}, Princeton University Press, Princeton, NJ, 1990.
+\item [Sto93] Richard Stong, \emph{Uniqueness of $\pi_1$-negligible embeddings in 4-manifolds: a correction to Theorem 10.5 of Topology of 4-manifolds by M. H. Freedman and F. Quinn}, Topology \textbf{32}(4) (1993), 677--699, DOI 10.1016/0040-9383(93)90046-X.
+\item [KM21] Michael R. Klug and Maggie Miller, \emph{Concordance of surfaces in 4-manifolds and the Freedman--Quinn invariant}, Journal of Topology \textbf{14}(2) (2021), 560--586, \url{https://doi.org/10.1112/topo.12191}.
+\item [KM22] Michael Klug and Maggie Miller, \emph{Concordance of spheres in 4-manifolds with an immersed dual sphere}, arXiv:2211.07177 (2022), \url{https://arxiv.org/abs/2211.07177}.
+\end{itemize}
+\end{document}

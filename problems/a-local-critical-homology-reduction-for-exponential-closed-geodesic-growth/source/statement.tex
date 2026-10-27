@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001877}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \((M,g)\) be a closed Riemannian manifold, \(\Lambda M=H^1(S^1,M)\), and \(\Lambda^T M=\{\gamma\in\Lambda M:L_g(\gamma)\leq T\}\). For a field \(K\), put
+\[
+B_K(T)=\sum_{j\geq0}\dim_KH_j(\Lambda^T M;K),\qquad
+b_K(M)=\sum_{j\geq0}\dim_KH_j(M;K).
+\]
+These are homology ranks of the literal length sublevel, not merely ranks of its image in full loop-space homology. Let \(N_g(T)\) count geometrically distinct prime closed geodesics of length at most \(T\), with iterates and orientation reversal not counted separately. A precise filtered version of Gromov's question is whether
+\[
+\liminf_{T\to\infty}\frac{\log B_K(T)}T>0
+\quad\Longrightarrow\quad
+\liminf_{T\to\infty}\frac{\log N_g(T)}T>0
+\]
+for every metric in the intended class. The source's wording ``Betti numbers of the loop space'' does not by itself fix coefficients, the growth parameter, or lower-limit versus upper-limit growth; its supplied verification identifies length-filtered total Betti numbers. Growth by homological degree is a different formulation and requires a comparison with the length filtration.
+
+The supplied aid reports a reduction for metrics whose nonconstant critical \(S^1\)-orbits of the energy \(E(\gamma)=\tfrac12\int_0^1|\dot\gamma|^2\,\dd t\) are isolated. Let \(C_*(E,\mathcal O;K)\) denote ordinary local critical homology at such an orbit, and let
+\[
+A_K(T)=\max_{L(\mathcal O)\leq T}\sum_j\dim_K C_j(E,\mathcal O;K).
+\]
+This is not \(S^1\)-equivariant homology. Where the maximum is finite and positive, and \(\ell_0>0\) is a common lower bound on lengths of nonconstant closed geodesics, the reported inequality is
+\[
+N_g(T)\geq\frac{\ell_0\,[B_K(T)-b_K(M)]}{2T A_K(T)}.
+\]
+The factor two allows opposite orientations and the factor \(T/\ell_0\) bounds the number of iterates. Under eventual positivity of the logarithm arguments this gives
+\[
+\liminf_{T\to\infty}\frac{\log N_g(T)}T
+\geq
+\liminf_{T\to\infty}\frac{\log(B_K(T)-b_K(M))}T
+-\limsup_{T\to\infty}\frac{\log A_K(T)}T.
+\]
+Thus the aid reports exponential growth if filtered Betti growth is exponential and \(A_K(T)\) is subexponential. For bumpy metrics it reports \(A_K(T)\leq2\). Applying energy Morse theory to the literal length sublevels, isolation and local finiteness are part of the conditional reduction, not hypotheses to omit in the general degenerate case. The aid says no suitable general subexponential local-complexity bound is known; this is a supplied status report.
+
+The original passage cites [Gromov1978] for a positive answer for generic metrics. It proposes a mapping torus of \(f:S^3\times S^3\to S^3\times S^3\) whose action on \(H_3\) is hyperbolic. Interpreting \(f\) as a diffeomorphism makes the quotient a closed manifold, with \(\pi_1(M)=\Z\) and universal cover homotopy equivalent to \(S^3\times S^3\). The passage contrasts polynomial unfiltered loop-homology growth with hoped-for exponential total Betti growth of bounded-length path spaces \(\Omega^T(p,q)\). The polynomial statement needs a component convention: the full free loop space has infinitely many components indexed by conjugacy classes in \(\Z\), hence already infinite \(H_0\). The hoped-for filtered growth is not stated as proved.
+
+The extraction also includes adjacent section 3.2, communicated by Nancy Hingston: for a finitely generated abelian coefficient group \(G\) and \(0\ne X\in H_*(\Lambda M;G)\),
+\[
+\operatorname{cr}X=\inf\{a:X\in\operatorname{im}(H_*(\Lambda^aM;G)\to H_*(\Lambda M;G))\}
+=\inf_{[x]=X}\sup_{\gamma\in\operatorname{supp}x}L_g(\gamma).
+\]
+Here \(x\) runs over singular cycles representing \(X\). This minimax definition is retained as adjacent background, not an additional solved growth assertion; that paragraph permits Riemannian or Finsler metrics.
+\subsection{Short English statement}
+Does exponential growth of length-filtered loop-space homology force exponentially many prime closed geodesics? The supplied aid gives a conditional bound in terms of the maximal local critical-homology rank and recovers the bumpy case. The mapping-torus example is speculative, and the extracted minimax definition belongs to an adjacent section.
+\subsection{Sources}
+\begin{itemize}
+\item Gromov, Question 3.1.2, in Keith Burns and Vladimir S. Matveev, \emph{Open problems and questions about geodesics}, section 3.1, \emph{Sums of the Betti numbers}: \url{https://aimath.org/pastworkshops/geodesicsproblems.pdf}. The source cites [Gromov1978] without supplying a full bibliographic entry. Adjacent section 3.2 is communicated by Nancy Hingston.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001877, code \texttt{catalogue entry}; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[214]}, source item 3.1; updated 14 August 2026.
+\item Supplied research attempt 1: conditional result, problem status at run open, rigor label proved, novelty confidence low; current registry status partially solved. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,51 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001059}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source's Conjecture 6.16, attributed to Thomass\'e and Kral, asserts that an Eulerian digraph $G$ on $n$ vertices with $|E(G)|\geq n^2/3$ has a directed cycle of length at most three. Here arc count includes multiplicity if parallel arcs are allowed. The aid reports that the source PDF explicitly permits parallel arcs, making the literal assertion false: for every $n\geq4$, replace every arc of a directed $n$-cycle by $\lceil n/3\rceil$ parallel copies. The resulting strongly connected multidigraph has equal indegree and outdegree $\lceil n/3\rceil$ at every vertex, at least $n^2/3$ arcs, and directed girth $n$.
+
+The intended simple-digraph repair is different: for every finite simple digraph with $d^+(v)=d^-(v)$ at every vertex and at least $n^2/3$ arcs, must there be a directed cycle of length at most three? The parallel-arc example does not refute this version.
+
+The supplied aid gives a conditional obstruction in the simple setting. Let $G$ be balanced as above and have no directed cycle of length at most three. It is then loopless and has no digons. Write $d(v)=d^+(v)=d^-(v)$ and let $N_2^+(v)$ be the vertices at exact directed distance two from $v$. Define $T$ as the number of transitive triangles, and $W$ as the number of unordered open in-wedges $x\to v\leftarrow y$, where $x,y$ are distinct and nonadjacent. For ordered nonadjacent vertices $u,w$, let $p_{uw}$ count directed two-edge paths from $u$ to $w$, and put
+\[
+ C=\sum_{u,w\text{ nonadjacent}}\max(p_{uw}-1,0).
+\]
+The aid's exact defect identity and density consequence are
+\[
+ \sum_v\bigl(|N_2^+(v)|-d(v)\bigr)=T+2W-C,
+ \qquad |E(G)|\geq n^2/3\ \Longrightarrow\ C\geq T+2W+n.
+\]
+The second statement is a necessary condition for a simple counterexample, not a construction or proof that no counterexample exists.
+
+The source aid also reports equality $C=T$ and $W=0$ for the standard circular family with $n=3r+1$ and arcs from each vertex to the next $r$ vertices in cyclic order. Its $nr=n(n-1)/3$ arcs lie below the conjectured $n^2/3$ threshold, so this family is not a counterexample at the stated density.
+\subsection{Short English statement}
+The literal Eulerian density conjecture fails when parallel arcs count, by multiplying the arcs of a long directed cycle. The simple version is separate. The supplied aid gives an exact two-path collision identity and a necessary collision surplus for any simple counterexample.
+\subsection{Sources}
+\begin{itemize}
+\item AIM summary \emph{The Caccetta--H\"aggkvist conjecture}, Conjecture 6.16, attributed to Thomass\'e and Kral, page 7: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. The source convention allowing parallel arcs is reported by the attached verification/aid; no PDF was consulted here.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001059, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[183]}.
+\item Attached attempt 1, counterexample, problem status at run refuted, rigor proved, low novelty confidence. Its defect identity and simple-repair obstruction have no separate complete citation. The aid is machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

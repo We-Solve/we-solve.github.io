@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005760}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer \(n\geq 1\), let \(S_n\) be the set of permutations of \(\{1,\ldots,n\}\). A permutation \(\pi\in S_n\) contains a pattern \(\tau\in S_m\) if there exist indices \(1\leq i_1<\cdots<i_m\leq n\) such that \(\pi(i_a)<\pi(i_b)\) if and only if \(\tau(a)<\tau(b)\) for all \(a,b\). Otherwise, \(\pi\) avoids \(\tau\). For a set \(B\) of patterns, let \(\operatorname{Av}(B)\) denote the family of permutations avoiding every member of \(B\). Define
+\[
+\operatorname{inv}(\pi)=\bigl|\{(i,j):1\leq i<j\leq n,\ \pi(i)>\pi(j)\}\bigr|.
+\]
+For a specified family \(\mathcal D\) of permutations, put
+\[
+d_{n,k}(\mathcal D)=\bigl|\{\pi\in\mathcal D\cap S_n:\operatorname{inv}(\pi)=k\}\bigr|.
+\]
+The supplied record asks for inversion monotonicity on the domino subclass, denoted there by
+\[
+\mathcal D=[\operatorname{Av}(132)\mid\operatorname{Av}(231)]
+\]
+and described as a subclass of \(\operatorname{Av}(1324)\). Interpreting inversion monotonicity as monotonicity in length at each fixed inversion number, the intended assertion is
+\[
+\forall n\geq 1\ \forall k\geq 0,\qquad d_{n,k}(\mathcal D)\leq d_{n+1,k}(\mathcal D),
+\]
+where \(n,k\) are integers. This is a conditional reconstruction: the supplied record does not define the domino family, its counting convention, or the exact parameter range.
+
+In particular, the displayed bracket notation cannot be identified without qualification with ordinary horizontal juxtaposition. Such juxtaposition would allow a permutation to be split into a left block avoiding \(132\) and a right block avoiding \(231\); it contains \(1324\), as witnessed by the split \(13\mid24\). Consequently, that interpretation does not produce a subclass of \(\operatorname{Av}(1324)\). Additional global avoidance conditions or a different interpretation of the notation are required. The record does not determine whether to count underlying permutations or permutations equipped with a specified division into cells.
+
+The adjacent source excerpt attributes to Claesson--Ulfarsson an inequality written using \(\operatorname{Av}_n^k(1324,231,4321)\) and \(\operatorname{Av}_{n+1}^k(1324,231,4321)\). Under the fixed-inversion interpretation above, this is a related reported result for avoidance of three patterns; it does not itself specify the intended domino family or settle the requested assertion.
+\subsection{Short English statement}
+The intended question asks whether, for each fixed inversion number, the number of domino permutations is nondecreasing as their length increases. The supplied description leaves the domino family and counting convention unresolved, so the displayed inequality requires clarification before it becomes a fully specified conjecture.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005760\), title: Inversion Monotonicity in the Domino Subclass; exact source problem code: \texttt{catalogue entry}. The record gives the proposed year as 2024 and does not identify a proposer.
+\item Source report: \emph{Mini-Workshop: Permutation Patterns} (2024), Oberwolfach Reports, pp. 273--308, DOI \(10.4171/owr/2024/6\). Supplied source URL and literature reference labelled ``original OWR report'': \url{https://doi.org/10.4171/owr/2024/6}.
+\item Supplied literature reference labelled ``2026 inversion-monotonicity paper'': \url{https://arxiv.org/abs/2604.01143}. No authors or complete bibliographic citation are supplied for this reference.
+\item Supplied literature reference labelled ``1324 structural paper'': \url{https://arxiv.org/abs/1711.10325}. No authors or complete bibliographic citation are supplied for this reference.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem partially solved, reports structural and enumerative treatment of the domino class and related inversion-monotonicity progress, and states that no proof of the requested domino conjecture was located. This is supplied dated curation, not an independently verified literature assessment.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official report was checked directly. These are supplied verification claims; this draft does not independently verify them. The adjacent excerpt attributes a related avoidance-class inequality to Claesson--Ulfarsson.
+\end{itemize}
+\end{document}

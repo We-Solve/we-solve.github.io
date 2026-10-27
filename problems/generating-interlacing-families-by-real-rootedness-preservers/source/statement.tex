@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000564}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a real polynomial of degree $n\geq 1$ with positive leading coefficient, list its zeros with multiplicity in increasing order $\alpha_1\leq\cdots\leq\alpha_n$. A polynomial of degree $n-1$ is an interlacer if its zeros satisfy $\alpha_j\leq\beta_j\leq\alpha_{j+1}$ for $1\leq j<n$. A collection has a common interlacer when one polynomial interlaces every member.
+
+For finite nonempty decision sets $S_1,\ldots,S_k$, let $f_{s_1,\ldots,s_k}$ be real-rooted polynomials of the same degree $n$ with positive leading coefficients. For each prefix $a=(s_1,\ldots,s_j)$, define the conditional sum
+\[
+ f_a=\sum_{s_{j+1}\in S_{j+1},\ldots,s_k\in S_k}f_{s_1,\ldots,s_k}.
+\]
+The family is an interlacing family if, at every nonterminal prefix $a$, its children $\{f_{a,s}:s\in S_{j+1}\}$ have a common interlacer. Equivalently, every nonzero nonnegative linear combination of the children is real-rooted. These are the classical, fixed-degree conventions used to formulate the report; the workshop extract itself gives no definitions.
+
+\textbf{Workshop question.} Can one generate new interlacing families? The supplied wording does not specify a class of constructions, a notion of novelty, or a desired application.
+
+\textbf{Reported partial results.} The attached research aid asserts the following closure principles.
+\begin{enumerate}
+\item Suppose $T:\R[x]_{\leq n}\to\R[x]_{\leq d}$ is linear and sends every degree-$n$, positive-leading, real-rooted polynomial to a degree-$d$, positive-leading, real-rooted polynomial, with $d\geq1$ fixed. Then $\{T(f_s)\}$ is an interlacing family with the same decision tree. The uniform output-degree and positive-leading hypotheses are material.
+\item Let $B:\R[x]_{\leq n}\times\R[x]_{\leq m}\to\R[x]_{\leq d}$ be bilinear. Assume that, for every pair of real-rooted inputs of degrees $n,m$ with positive leading coefficients, the output is real-rooted of a fixed degree $d\geq1$ and has positive leading coefficient. Given two interlacing families $\{f_{s_1,\ldots,s_k}\}$ and $\{g_{t_1,\ldots,t_\ell}\}$ of the respective degrees, the Cartesian-product family
+\[
+ h_{s_1,\ldots,s_k,t_1,\ldots,t_\ell}=B(f_{s_1,\ldots,s_k},g_{t_1,\ldots,t_\ell})
+\]
+is an interlacing family for every ordering of the $k+\ell$ decision coordinates that preserves the internal order of the $s$ coordinates and the internal order of the $t$ coordinates. At a pair of prefixes $a,b$, its conditional sum is $B(f_a,g_b)$.
+\end{enumerate}
+The aid names symmetric additive finite free convolution as a concrete instance; it does not supply a normalization or formula. It also reports an exact quadratic example in which every required conditional interlacer exists but all leaves, flattened into one collection, have no common interlacer. Thus a common interlacer for all leaves is a stronger property than the tree condition above. Finally it reports a degree-one counterexample to ``diagonal pointwise-product closure.'' Neither example nor a precise definition of that diagonal operation is included in the supplied record, so their formulas and full hypotheses cannot be reconstructed here.
+
+The local registry labels this record partially solved and the aid describes its shuffle-product theorem as a candidate contribution with low novelty confidence. These labels and claims are supplied assessments, not independently verified literature conclusions.
+\subsection{Short English statement}
+The workshop asks for ways to construct new interlacing families. Its attached aid reports closure under fixed-degree real-rootedness-preserving linear maps and under bilinear combinations of two independent decision trees, for every shuffle preserving each tree's coordinate order. The broad construction question and the missing counterexamples remain qualified by the sparse source.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000564$, source code \texttt{catalogue entry}; canonical \texttt{aim-analysis-notes.json}, \texttt{notes[95]}, question item b23.
+\item American Institute of Mathematics, workshop ``Beyond Kadison--Singer: paving and consequences,'' AIM Problem Lists GoogleDoc: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. The extract reads ``can we generate new interlacing families?'' followed by ``Mihai Putinar''; the appended name's role is unspecified.
+\item Attached research attempt 1, result \texttt{partial\_result}, run status \texttt{partially\_solved}, internal rigor label \texttt{proved}, novelty confidence low. It is explicitly a machine-generated research aid, not peer reviewed, and requires independent verification before citation. The original literature field is empty; no full external theorem or example citation is supplied.
+\end{itemize}
+\end{document}

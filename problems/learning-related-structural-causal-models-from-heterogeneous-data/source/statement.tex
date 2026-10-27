@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003170}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(x_1,\ldots,x_n\) denote the supplied observations, and write
+\[
+K=(k_{ij})_{i,j=1}^{n},\qquad k_{ij}=k(x_i,x_j).
+\]
+The source describes \(k\) as a similarity measure indicating whether observations come from the same distribution. Its range, mathematical properties, and statistical interpretation are unspecified; in particular, neither positive semidefiniteness nor an exact binary same-distribution interpretation is assumed.
+
+A structural causal model specifies structural assignments for its endogenous variables together with a joint law for its exogenous variables. The variable domains, permitted causal structures, and restrictions on exogenous dependence must be specified to obtain a particular model class; the supplied record does not specify them.
+
+\textbf{Source problem.} Given \(x_1,\ldots,x_n\) and the similarities \(K\), develop a method that exploits this information to learn an overall collection of structural causal models for related tasks whose observations are non-identically distributed. Schematically, the requested output has the form
+\[
+\mathcal A\bigl((x_i)_{i=1}^{n},K\bigr)
+ =\widehat{\mathcal M}
+ =\{\widehat M_t:t\in\widehat T\},
+\]
+where \(\mathcal A\) denotes the sought learning procedure and \(\widehat T\) indexes its output models. This notation specifies only the intended input and output, not a guarantee that such a procedure can recover the underlying causal models.
+
+The supplied background proposes sharing conditional structure between models as a compression idea. It does not specify which conditional distributions or mechanisms are shared, or how sharing is measured. The source also leaves unspecified the observation space, task membership, number of tasks, sampling dependence, available interventions, causal identifiability assumptions, and meaning of successful learning. Thus the record poses a methodological research question; it does not determine a fully quantified existence, identification, consistency, or sample-complexity statement. These qualifications remain unresolved.
+\subsection{Short English statement}
+Use pairwise information about whether observations come from the same distribution to learn structural causal models for several related tasks with heterogeneous data. The supplied motivation is to compress the collection by sharing conditional structure. A precise learning guarantee requires additional assumptions about the data, similarity information, causal models, and success criterion.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30003170\), title ``Learning Related Structural Causal Models from Heterogeneous Data,'' source problem code \texttt{catalogue entry}. The supplied record belongs to the Oberwolfach Reports Open Problems collection and records proposed year \(2016\); no individual proposer is supplied.
+\item Supplied report citation: \emph{Learning Theory and Approximation} (2017), Oberwolfach Reports, DOI \texttt{10.4171/owr/2016/33}, pp.\ 1875--1941. Supplied source link: \url{https://doi.org/10.4171/owr/2016/33}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The citation's 2017 label is retained alongside the record's 2016 proposed year and DOI year component, without resolving their relationship.
+\item Supplied literature source: ``Oberwolfach Report on learning theory,'' \url{https://doi.org/10.4171/owr/2016/33}.
+\item Supplied literature assessment, checked \texttt{2026-08-21}: status ``open.'' The supplied assessment says that the report proposes shared conditional structure as a compression idea for learning several structural causal models, and that no theorem or general method establishing the requested overall learner was located. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The source explicitly calls for independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}. Its accompanying verification describes only safe notation, typography, and TeX-delimiter cleanup, with hypotheses, quantifiers, and subquestions preserved; it does not establish mathematical correctness or causal identifiability.
+\end{itemize}
+\end{document}

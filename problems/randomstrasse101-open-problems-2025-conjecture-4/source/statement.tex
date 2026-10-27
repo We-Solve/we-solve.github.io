@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800856}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an odd prime power \(p\equiv 1\pmod 4\), the Paley graph \(G_p\) has vertex set \(\F_p\); distinct vertices \(u,v\) are adjacent when \(u-v\) is a nonzero square in \(\F_p\). Its clique number \(\omega(G_p)\) is the maximum cardinality of a set of pairwise adjacent vertices. The supplied record does not specify whether its parameter \(p\) ranges over primes or over prime powers, or whether further restrictions apply.
+
+One standard interpretation of the degree-\(4\) Sum-of-Squares upper bound for the clique number of a finite graph \(G=(V,E)\) is the following. Introduce real variables \((x_v)_{v\in V}\), and let \(\R[x]_{\leq d}\) denote the real polynomials of total degree at most \(d\). Define
+\[
+S_4(G)=\sup_L\sum_{v\in V}L(x_v),
+\]
+where \(L:\R[x]_{\leq4}\to\R\) is linear and satisfies
+\[
+\begin{aligned}
+L(1)&=1,\\
+L(f^2)&\geq0 &&\text{for every }f\in\R[x]_{\leq2},\\
+L\bigl((x_v^2-x_v)r\bigr)&=0
+&&\text{for every }v\in V,\ r\in\R[x]_{\leq2},\\
+L(x_ux_vr)&=0
+&&\text{for every distinct }u,v\text{ with }\{u,v\}\notin E,
+\ r\in\R[x]_{\leq2}.
+\end{aligned}
+\]
+This is an explicit candidate convention for the relaxation. The supplied record refers instead to the precise construction in reference \texttt{KY-2022-PaleyDegree4SOS}; its identification with the convention above has not been established from the supplied evidence.
+
+Let \(\mathcal P\) denote the intended unbounded set of admissible Paley orders. Subject to resolving both the domain \(\mathcal P\) and the intended relaxation, the conjecture attributed to Bandeira et al., Conjecture 4, is
+\[
+\exists\varepsilon>0\ \exists C>0\ \exists p_0>0\ 
+\forall p\in\mathcal P:\qquad
+p\geq p_0\ \Longrightarrow\ S_4(G_p)\leq C p^{1/2-\varepsilon}.
+\]
+Here \(\varepsilon,C,p_0\) are independent of \(p\). Thus the requested improvement concerns the value of the degree-\(4\) relaxation itself.
+
+The supplied background describes numerical evidence suggesting a polynomial improvement over the \(\sqrt p\) scale and reports that the authors of \texttt{KY-2022-PaleyDegree4SOS} prove that the relaxation cannot improve beyond an \(\Omega(p^{1/3})\) scale. That reported lower bound, its parameter domain, and its precise hypotheses have not been independently verified. The registry labels the conjecture open; this is a supplied status label.
+\subsection{Short English statement}
+The conjecture asks whether the degree-\(4\) Sum-of-Squares upper bound for the clique number of the Paley graph is at most \(C p^{1/2-\varepsilon}\), for some fixed \(\varepsilon>0\) and all sufficiently large admissible \(p\). The intended range of \(p\) and the precise relaxation require confirmation. The supplied record reports numerical support and a lower-bound obstruction at the \(p^{1/3}\) scale.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800856\), source problem code \texttt{catalogue entry}, title ``Randomstrasse101 Open Problems (2025) --- Conjecture 4.'' Supplied attribution: Bandeira et al.; proposed year: 2026. Supplied status: open. Upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Supplied source list: Bandeira et al., \emph{Randomstrasse101: Open Problems of 2025} (2026), Conjecture 4, \url{https://arxiv.org/abs/2603.29571}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. These are supplied provenance claims; the source has not been independently visited or verified for this draft.
+\item Reference label \texttt{KY-2022-PaleyDegree4SOS}, cited in the supplied statement for the precise relaxation, numerical experiments, and a reported \(\Omega(p^{1/3})\) obstruction. Full bibliographic information and a reference-specific URL were not supplied.
+\item Reference labels \texttt{kobzar2023revisiting} and \texttt{wang2024lower}, cited in the supplied background for numerical experiments involving this and other semidefinite programs. Full bibliographic information and reference-specific URLs were not supplied.
+\end{itemize}
+\end{document}

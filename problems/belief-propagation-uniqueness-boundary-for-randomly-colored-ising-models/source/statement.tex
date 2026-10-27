@@ -1,0 +1,48 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005064}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record concerns a finite vertex set \(V\), with \(|V|=n\), randomly colored by a map \(\sigma:V\to\{1,\ldots,q\}\), where \(q\) is a positive integer counting colors. It names a stochastic block model with parameters \((q,a,b)\), but does not specify the distribution of \(\sigma\), the conditional distribution of edges, the meanings or admissible ranges of \(a,b\), or any limiting regime for \(n\). In particular, uniform independent coloring and edge probabilities such as \(a/n\) and \(b/n\) cannot be assumed from the supplied text.
+
+\emph{Requested mathematical target.} Determine exactly which admissible parameter triples \((q,a,b)\) yield a unique belief-propagation fixed point, and which do not. The original excerpt asks for the precise boundary between ``good'' and ``bad'' values without defining those terms; the supplied clean statement interprets them in terms of belief-propagation fixed-point uniqueness.
+
+A conditional formalization of that interpretation is as follows. Once an admissible parameter set \(\mathcal P\), a message space \(\mathcal M_\theta\), and a belief-propagation update map \(T_\theta:\mathcal M_\theta\to\mathcal M_\theta\) have been specified for each \(\theta=(q,a,b)\in\mathcal P\), define
+\[
+\operatorname{Fix}(T_\theta)=\{m\in\mathcal M_\theta:T_\theta(m)=m\},\qquad
+\mathcal U=\{\theta\in\mathcal P:\operatorname{Fix}(T_\theta)\text{ contains exactly one element}\}.
+\]
+The target is an exact characterization of \(\mathcal U\) and \(\mathcal P\setminus\mathcal U\), including parameters at the transition. This is only a formulation template: the source record does not define \(\mathcal P\), \(\mathcal M_\theta\), or \(T_\theta\). It also does not specify whether the fixed points are messages on a finite graph or probability laws solving a limiting tree recursion, whether uniqueness is taken modulo color permutations, what boundary conditions or initialization constraints apply, or how randomness is quantified. If ``boundary'' means a topological boundary, its ambient parameter space and topology must also be specified. These unresolved qualifications prevent a fully determined mathematical statement.
+\subsection{Short English statement}
+For the randomly colored stochastic block model described by the source, classify all triples \((q,a,b)\) according to whether belief propagation has exactly one fixed point, including transition parameters. The supplied excerpt omits the model law and the belief-propagation equation, so the displayed formulation remains conditional on recovering those definitions. The supplied label \texttt{partially\_solved} is a curation claim, not an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005064\), title ``Belief-Propagation Uniqueness Boundary for Randomly Colored Ising Models,'' source problem code \texttt{catalogue entry}. The record gives proposed year 2022 and no separately identified proposer. Its original excerpt attributes ``Uniqueness of BP fixed point for Ising models'' to Yury Polyanskiy, joint work with Qian Yu; the exact scope of this attribution is not clarified.
+\item Supplied report citation: \emph{New Mathematical Techniques in Information Theory} (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/14, pp.~683--707. Also listed as ``Oberwolfach Report 14/2022.'' \url{https://doi.org/10.4171/owr/2022/14}. The background describes Oberwolfach Reports as reports of mathematical workshops and their open-problem discussions. The supplied citation is authoritative provenance, but the report text beyond the supplied excerpt has not been independently consulted here.
+\item Supplied literature reference: ``Yu--Polyanskiy, Ising cavity-equation uniqueness.'' \url{https://arxiv.org/abs/2211.15242}.
+\item Supplied literature reference: ``Gu--Polyanskiy, Potts BP uniqueness.'' \url{https://proceedings.mlr.press/v195/gu23a.html}.
+\item Supplied literature assessment, checked on \texttt{2026-08-22}: status ``partially solved.'' The assessment states that the two-community Ising case is settled by a uniqueness theorem, that Potts-model work gives broad parameter regimes, and that the precise good--bad boundary for all \(q,a,b\) remains open. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; the scope and hypotheses of the cited results require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that it was checked against the official Oberwolfach report and preserves its hypotheses, notation, and target. These are supplied verification claims; they do not supply the missing model definitions or constitute verification by this draft.
+\end{itemize}
+\end{document}

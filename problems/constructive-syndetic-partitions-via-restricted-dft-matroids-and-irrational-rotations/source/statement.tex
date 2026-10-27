@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000556}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The workshop note asks how to construct a partition of exponential frames into ``synthetic sets,'' referring to Bourgain--Tzafriri and the MSS existence result. Its report interprets the relevant target as \emph{syndetic Riesz} classes; that terminology repair is not verified by a definition in the original. The appended ``Bill Johnson'' is retained as source text without assuming it supplies an unambiguous attribution.
+
+In the report's model let \(S\subset\mathbb T=\R/\Z\) have normalized measure \(m>0\). An exponential set indexed by \(\Lambda\subset\Z\) is a Riesz sequence in \(L^2(S)\) if some \(0<A\leq B<\infty\) satisfy
+\[
+A\sum|c_k|^2\leq\int_S\left|\sum_{k\in\Lambda}c_ke^{2\pi ikt}\right|^2dt
+\leq B\sum|c_k|^2
+\]
+for every finitely supported coefficient family. Syndetic means bounded gaps in \(\Z\). The question is to construct a full finite partition of the integer frequency set into such classes, with a specified effective input model for \(S\).
+
+The candidate rational-grid synthesis takes
+\[
+S_A=\bigcup_{a\in A}[a/N,(a+1)/N),\quad
+\varnothing\ne A\subseteq\{0,\ldots,N-1\},\quad s=|A|.
+\]
+Using the \(s\)-by-\(N\) restricted unnormalized DFT matrix \(V=(e^{2\pi iab/N})_{a\in A,\,0\leq b<N}\), the report asserts that its vector matroid has arboricity \(\lceil N/s\rceil\). Edmonds matroid partition then divides the columns into that many linearly independent sets \(B_j\), and
+\[
+\Lambda_j=B_j+N\Z
+\]
+gives periodic syndetic Riesz classes. The exact Riesz bounds are the least and greatest squared singular values of \(V_{A,B_j}\), divided by \(N\). The report claims the number \(\lceil N/s\rceil\) is globally optimal, not merely optimal among the displayed periodic constructions.
+
+For every open \(S\) of measure \(m\), the report further claims an equal-window irrational-rotation coloring with
+\[
+r=\lfloor1/m\rfloor+1
+\]
+Riesz classes, each with gaps at most \(2r\). In such a coloring the classes are rotation itineraries of equal windows; the summary does not specify the required irrational rotation or the quantitative Riesz bounds, and does not claim every irrational rotation works.
+
+Finally, a consequence attributed to Londner--Olevskii says some measurable spectra admit no nonempty periodic Riesz set. Thus periodic grid constructions do not solve the arbitrary-measurable constructive problem, which the report leaves unresolved. The input/representation meaning of constructive for a general measurable spectrum is not supplied.
+\subsection{Short English statement}
+The report interprets the note as constructive syndetic Riesz partitions. It gives an optimal restricted-DFT matroid construction for rational-grid spectra and an open-spectrum rotation construction, while retaining a periodicity obstruction for general measurable spectra.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop ``Beyond Kadison--Singer: paving and consequences,'' item b15: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. The source document was not accessed here.
+\item Local canonical registry \texttt{aim-analysis-notes.json}, \texttt{notes[87]}, tag \texttt{question}; permanent UnsolvedMath ID \(20000556\), source code \texttt{catalogue entry}. Original says ``synthetic sets,'' names Bourgain--Tzafriri and MSS, asks for a constructive method, and appends Bill Johnson. Original remarks and literature field are empty.
+\item Supplied research attempt 1 invokes Edmonds matroid partition and a Londner--Olevskii consequence and proposes the combined constructions. No full authoritative references, rotation parameters, or arbitrary-measurable algorithm are supplied. The report is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

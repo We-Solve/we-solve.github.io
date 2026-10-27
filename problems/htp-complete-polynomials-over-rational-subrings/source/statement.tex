@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003248}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a subring \(R_W\subseteq\Q\), let
+\[
+\mathcal P_{\Q}=\coprod_{n\geq 0}\Q[X_1,\ldots,X_n]
+\]
+denote rational polynomials with their numbers of variables recorded. Define
+\[
+\operatorname{Sol}_{R_W}(f)\iff
+\exists(x_1,\ldots,x_n)\in R_W^n\quad f(x_1,\ldots,x_n)=0
+\qquad\bigl(f\in\Q[X_1,\ldots,X_n]\bigr).
+\]
+For \(n=0\), use the usual single empty tuple, so a constant polynomial is solvable exactly when it is zero.
+
+The supplied problem asks for a characterization of the subrings \(R_W\subseteq\Q\) admitting an \emph{HTP-complete polynomial}, and a characterization of those admitting an \emph{effectively HTP-complete polynomial}. The source describes the first as a fixed polynomial that uniformly encodes \(\operatorname{Sol}_{R_W}(f)\) for every \(f\in\mathcal P_{\Q}\), and the second as having a computable encoding map.
+
+The intended encoding has the following schematic quantifier structure. For a fixed candidate polynomial \(U(\mathbf T,\mathbf X)\), a fixed number \(m\) of witness variables, an admissible parameter set \(A\), and one encoding map \(e:\mathcal P_{\Q}\to A\), require
+\[
+\forall f\in\mathcal P_{\Q},\qquad
+\operatorname{Sol}_{R_W}(f)
+\iff
+\exists\mathbf x\in R_W^m\quad U(e(f),\mathbf x)=0.
+\]
+Here \(U\), \(m\), and \(e\) are fixed for the ring under consideration, independently of \(f\). In the effective version, the source additionally requires \(e\) to be computable.
+
+\textbf{Unresolved qualifications.} This display is an encoding schema, not an asserted complete definition of the source's technical term. The supplied record does not specify the coefficient ring of \(U\), the admissible parameter set \(A\), its effective representation, or any additional requirements implicit in ``uniformly encodes.'' Thus the precise existential conditions on \(U\), \(A\), and \(e\) must be recovered from the cited source before a unique formal characterization problem can be stated. The record also does not define the index \(W\), specify whether all subrings must contain \(1\), or specify any effectiveness restriction on the subrings. These conventions remain unresolved.
+\subsection{Short English statement}
+Characterize the subrings of \(\Q\) for which one fixed polynomial encodes solvability over that ring of every rational polynomial equation, and characterize those for which the encoding map can be computable. The supplied record leaves essential conventions for ``HTP-complete polynomial'' unspecified, so the displayed encoding condition is schematic and requires mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003248\), title: \emph{HTP-Complete Polynomials over Rational Subrings}; exact source problem code: \texttt{catalogue entry}. Collection: Oberwolfach Reports Open Problems. The record assigns proposed year \(2016\) and identifies no individual proposer.
+\item Supplied source citation: \emph{Definability and Decidability Problems in Number Theory} (2017), Oberwolfach Reports, pp.\ 2793--2866, DOI \texttt{10.4171/owr/2016/49}. \url{https://doi.org/10.4171/owr/2016/49}. The supplied background describes these reports as records of mathematical workshops and their open-problem discussions.
+\item Supplied literature source, labeled ``Oberwolfach Reports 2017'': \url{https://ems.press/content/serial-article-files/46652}.
+\item Literature assessment dated \texttt{2026-08-21}: the supplied curation labels the problem open and states that the characterization of subrings of \(\Q\) admitting effectively HTP-complete polynomials remains unresolved. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. The record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review. This supplied review label does not resolve the missing technical conventions or constitute independent mathematical verification here.
+\end{itemize}
+\end{document}

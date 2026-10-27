@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004590}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied question is: ``For majority dynamics on a given graph, if fixation occurs, how quickly is the final configuration reached, and is unanimity reached or do both opinions survive?''
+
+A precise framework for interpreting this question is as follows, conditional on specifying the missing model data. Let \(G=(V,E)\) be the given graph, and let \(\sigma_t\in\{0,1\}^{V}\) be its binary opinion configuration at time \(t\in\mathcal T\), where \(\mathcal T\) is the chosen discrete or continuous nonnegative time axis. The source does not specify the graph class, the initial configuration or its law, the update schedule, the treatment of ties, or the source of any randomness. These choices must be supplied before ``majority dynamics'' determines an evolution; in particular, no neighborhood-majority rule for infinite neighborhoods is specified.
+
+Define vertexwise fixation by
+\[
+\forall v\in V\;\exists t_v\in\mathcal T\;\exists a_v\in\{0,1\}\;\forall s\in\mathcal T,\quad s\ge t_v\Longrightarrow\sigma_s(v)=a_v.
+\]
+On this event, define the limiting configuration by \(\sigma_\infty(v)=a_v\), and put
+\[
+S=\{t\in\mathcal T:\ \sigma_s=\sigma_\infty\text{ for every }s\in\mathcal T\text{ with }s\ge t\},
+\qquad T_{\mathrm{stab}}=\inf S,
+\]
+with \(\inf\varnothing=+\infty\). A final configuration is reached and retained at a finite time precisely when \(S\ne\varnothing\). In continuous time, the infimum need not itself belong to \(S\) without additional assumptions. On an infinite graph, vertexwise fixation does not by its definition imply a common finite stabilization time.
+
+For a vertexwise fixed trajectory, unanimity means
+\[
+\exists a\in\{0,1\}\;\forall v\in V,\quad\sigma_\infty(v)=a,
+\]
+whereas coexistence in the limiting configuration means
+\[
+\{v\in V:\sigma_\infty(v)=0\}\ne\varnothing
+\quad\text{and}\quad
+\{v\in V:\sigma_\infty(v)=1\}\ne\varnothing.
+\]
+These definitions make one possible meaning of ``both opinions survive'' explicit; the source does not specify whether survival instead requires infinitely many vertices, positive density, or persistence during the evolution.
+
+\textbf{Statement to be made precise.} For majority dynamics on the given graph, conditional on fixation, determine the speed at which the final configuration is reached and characterize whether the eventual outcome is unanimity or survival of both opinions. Under the definitions above, this asks for quantitative information about \(T_{\mathrm{stab}}\) and criteria for the two displayed limiting outcomes. The source does not determine whether the requested time information is a deterministic bound, an expectation, a tail estimate, an asymptotic order, or a collection of vertexwise stabilization times. Nor does it specify quantification over initial configurations or a probabilistic mode of assertion. Consequently, this is a conditional formulation of the research question, not a uniquely specified conjecture. The background also mentions median dynamics, but supplies no median-dynamics statement to formalize.
+\subsection{Short English statement}
+For a specified graph and majority-update model, ask how long stabilization takes when fixation occurs, and whether the limiting opinions are unanimous or coexist. The supplied record leaves the update rule, initial data, graph class, meaning of fixation and survival, and requested type of time estimate unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004590\), title ``Fixation Times and Consensus in Majority Dynamics,'' exact source problem code \texttt{catalogue entry}. The record labels the statement ``exact'' and its status ``open''; these are supplied registry classifications, not independent verification. No individual proposer is identified; the recorded proposed year is 2021.
+\item Supplied source citation: \emph{Spatial Networks and Percolation (2022)}, Oberwolfach Reports, pp.~149--224, DOI \texttt{10.4171/owr/2021/4}. \url{https://doi.org/10.4171/owr/2021/4}. The background describes Oberwolfach Reports as workshop reports containing open-problem discussions. The supplied 2022 citation label and 2021 provenance are retained without resolving their bibliographic relationship.
+\item Supplied literature source: Amir, Baldasso and Beilin. \url{https://doi.org/10.1016/j.spa.2022.10.015}. No article title, theorem number, or problem-specific passage is supplied.
+\item Supplied literature source: Oberwolfach report. \url{https://doi.org/10.4171/owr/2021/4}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and states that general convergence speed and consensus-versus-coexistence behavior for majority and median dynamics are not characterized, that primary work establishes results only for selected graph classes, and that general conjectures remain explicitly open. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. The record expressly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

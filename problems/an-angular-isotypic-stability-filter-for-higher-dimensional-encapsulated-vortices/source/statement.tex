@@ -1,0 +1,90 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002453}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $N\ge3$ and consider $u:\R^N\times\R\to\R^M$ solving either
+\[
+ J u_t=\Delta u+g(u)\quad\text{(NLS)},\qquad
+ u_{tt}=\Delta u+g(u)\quad\text{(NLKG)},
+\]
+where $J$ is invertible and skew-symmetric and the source assumes continuous radial $g(y)=h(|y|^2)y/|y|$ for $y\ne0$, continuously extended at $0$. Warchall's standing waves are
+\[
+ u(x,t)=e^{\mu Kt}\Phi(x),\qquad
+ \Phi(x)=\widehat\psi(x/|x|)w(|x|),
+\]
+where $K$ is real skew-symmetric, $K=J^{-1}$ for NLS, $K^2=-I$ for NLKG, and
+\[
+ \widehat\psi:S^{N-1}\to S^{M-1},\qquad
+ \Delta_S\widehat\psi=-l(l+N-2)\widehat\psi.
+\]
+The possible angular degrees are restricted by the target dimension $M$. The question asks under what conditions these encapsulated vortices are stable or unstable. The source cites localized profiles under suitable hypotheses including $f'(0)<0$ and $\int_0^a f(s)\,\dd s>0$ for some $a>0$, and notes Galilean or Lorentz boosts as routes to traveling waves; it does not provide a complete existence or stability hypothesis list.
+
+There is a sign conflict in the supplied setup. For the literal NLS equation, $K=J^{-1}$ and $e^{+\mu Kt}$ imply
+\[
+ \Delta\Phi+g(\Phi)+\omega\Phi=0,
+ \qquad\omega=-\mu,
+\]
+whereas the source prints $\omega=+\mu$. For NLKG the same substitution consistently gives $\omega=\mu^2$. Thus the radial profile equation is
+\[
+ w''+\frac{N-1}{r}w'-\frac{l(l+N-2)}{r^2}w+f(w)=0,
+\]
+with $f(w)=\operatorname{sgn}(w)h(w^2)+\omega w$ for $w\ne0$, interpreted through its continuous extension. The source's NLS phase signs cannot all be imposed simultaneously.
+
+The aid proves only a conditional linear high-angular-sector filter. Assume now $g$ is $C^1$ and a radial gradient, the chosen profile is smooth and localized, and
+\[
+ L=-\Delta-Dg(\Phi)-\omega I,
+ \quad -Dg(0)-\omega I\ge\gamma I\ (\gamma>0),\quad
+ C=\operatorname*{ess\,sup}_{x\ne0}
+ |x|^2\max\{\lambda_{\max}(Dg(\Phi(x))-Dg(0)),0\}<\infty.
+\]
+Assume also a compact group of combined spatial and orthogonal target symmetries fixes $\Phi$, commutes with the evolution matrices, and preserves the operators. In one invariant isotypic sector $\sigma$, let $\Lambda_\sigma$ be an angular lower bound, meaning every angular section in that sector satisfies
+\[
+ \int_{S^{N-1}}|\nabla_Sv|^2
+ \ge\Lambda_\sigma\int_{S^{N-1}}|v|^2.
+\]
+Then $\Lambda_\sigma>C$ yields the reported positive quadratic-form bound
+\[
+ \langle Lv,v\rangle\ge
+ \|\partial_rv\|_2^2
+ +(\Lambda_\sigma-C)\|r^{-1}v\|_2^2
+ +\gamma\|v\|_2^2.
+\]
+For the co-rotating linearizations
+\[
+ Jv_t=-Lv\quad\text{(NLS)},\qquad
+ v_{tt}+2\mu Kv_t=-Lv\quad\text{(NLKG)},
+\]
+this gives conserved positive quadratic energies, respectively $\tfrac12\langle Lv,v\rangle$ and $\tfrac12(\|v_t\|_2^2+\langle Lv,v\rangle)$, excluding finite-energy exponential growth within that sector. If only finitely many sectors have $\Lambda_\sigma\le C$, all possible exponential instabilities are confined to them. This finiteness condition is an additional hypothesis. Scalar spherical-harmonic degrees need not separately be invariant, since the angular dependence of $Dg(\Phi)$ can couple them; combined isotypic sectors retain their multiplicities. The aid does not prove stability of the remaining low sectors or nonlinear orbital stability of the full vortex.
+\subsection{Short English statement}
+Determine stability of higher-dimensional encapsulated vortices in vector NLS or NLKG. The supplied aid identifies a source sign conflict and, under additional smoothness, gap and symmetry hypotheses, excludes linear exponential growth in sufficiently high combined angular sectors; low sectors and nonlinear stability remain to be analyzed.
+\subsection{Sources}
+\begin{itemize}
+\item H. Warchall, ``Stability of Encapsulated-Vortex Solutions,'' American Institute of Mathematics workshop \emph{Stability criteria for multi-dimensional waves and patterns}, page 7 as identified by supplied verification, \url{https://aimath.org/WWN/multidimwaves/multidimwaves.pdf}.
+\item Local UnsolvedMath registry, permanent ID 20002453, source code \texttt{catalogue entry}, canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[64]}, record dated 14 August 2026. Companion permanent ID 20002452, \texttt{AIM-PDES-0064}, \texttt{notes[63]}, contains the setup lost across the record boundary and the following supplied references.
+\item J. Iaia and H. A. Warchall, ``Encapsulated-vortex solutions to equivariant wave equations: existence,'' \emph{SIAM J. Math. Anal.} 30 (1999), 118--139.
+\item R. L. Pego and H. A. Warchall, ``Spectrally stable encapsulated vortices for nonlinear Schr\"odinger equations,'' \emph{J. Nonlinear Sci.} 12 (2002), 347--394.
+\item Supplied research attempt 1: partial result, problem status at run partially solved, rigor labelled proved, novelty confidence low. Its sectorwise coercivity filter is machine-generated research aid, not peer reviewed, requiring independent verification before citation; the original literature field is empty despite the references embedded in the companion statement.
+\end{itemize}
+\end{document}

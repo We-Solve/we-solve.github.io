@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001000}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Leonardo Rolla's exact source question asks whether an i.i.d. chip configuration of sufficiently small density \(\mu\) on \(\Z^d\) is stabilizable with high probability. The aid reconstructs this as the ordinary fixed-energy abelian sandpile, rather than a stochastic-toppling or activated-walk model; the statement status is \texttt{reconstructed\_unverified}.
+
+Fix \(d\ge1\), and let \(\eta(x)\), \(x\in\Z^d\), be i.i.d. nonnegative integer heights with finite mean \(\mu=\E\eta(0)\). A site with at least \(2d\) chips may topple, losing \(2d\) and sending one to each nearest neighbor. Stable heights lie in \(\{0,\ldots,2d-1\}\). For finite boxes with wired sink, let \(u_R(x)\) be the legal stabilization odometer. Infinite-volume stabilizability means that their increasing exhaustion limit \(u(x)\) is finite at every site, equivalently a complete legal stabilization topples each site only finitely often. It need not use only finitely many topplings globally. Randomness lies in initial heights.
+
+The aid attributes to Fey--Meester--Redig the qualitative affirmative result
+\[
+ \mu<d\quad\Longrightarrow\quad
+ \Pr(\eta\text{ is stabilizable})=1.
+\]
+No assertion at \(\mu=d\) is supplied. Product ergodicity makes this translation-invariant event have probability zero or one, so ``high probability'' in the intended infinite-volume question is interpreted as almost surely. Every finite wired box stabilizes regardless of density, so its stabilization probability alone does not express the question.
+
+The aid's additional localization certificate assumes an exponential moment and some \(t>0\) satisfying
+\[
+ q(t)=4d^2e^{-t}\E e^{t\eta(0)}<1.
+\]
+It reports stabilization and the bound
+\[
+ \Pr(|\mathcal C_0|\ge n)\le
+ \frac1{4d^2}\frac{q(t)^n}{1-q(t)}\qquad(n\ge1),
+\]
+where \(\mathcal C_0\) is the nearest-neighbor connected component of sites with positive odometer containing the origin, or the empty set if the origin never topples. The exact finite-volume-to-infinite-volume and cluster conventions require verification from the missing proof artifact.
+
+For Poisson heights of mean \(0<\mu<1\), the admissible optimum is \(t=\log(1/\mu)>0\), giving
+\[
+ q_d(\mu)=4d^2\mu e^{1-\mu}.
+\]
+Thus \(q_d(\mu)<1\) in this small-mean range is the reported quantitative certificate, and \(\mu<1/(4ed^2)\) is a simpler sufficient condition. At \(\mu=0\) the configuration is identically zero. The restriction \(\mu<1\) is necessary for that optimizer to satisfy \(t>0\): for \(\mu\ge1\), the expression \(4d^2\mu e^{1-\mu}\) is not the infimum over positive \(t\), and cannot be used as a large-density certificate. This admissibility qualification is absent from the supplied summary and is explicit here. The localization criterion is sufficient and substantially narrower than the reported mean-only qualitative result; neither is asserted to characterize the sharp stabilization threshold.
+\subsection{Short English statement}
+Under the explicitly reconstructed ordinary sandpile model, the supplied aid reports almost-sure stabilization for i.i.d. mean below \(d\). It separately gives an exponential cluster-tail certificate under an exponential-moment condition, with the Poisson optimization restricted to its valid small-mean range.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001000\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[124]}, tag \texttt{problem}.
+\item AIM workshop ``Generalizations of chip-firing and the critical group,'' Problem 35, Leonardo Rolla: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. Statement status \texttt{reconstructed\_unverified}. No PDF was accessed for this draft.
+\item Fey--Meester--Redig, named as the source of the infinite-volume ordinary-sandpile result; no full title, date, theorem number, or URL is supplied. The exponential-tail certificate is a separate candidate result without an authoritative external citation.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run \texttt{solved}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{solved}, classification \texttt{SOLVED-IN-LITERATURE}. Created and updated 14 August 2026. No original remarks or literature field are supplied. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

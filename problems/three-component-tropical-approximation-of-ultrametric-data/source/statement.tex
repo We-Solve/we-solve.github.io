@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003483}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record leaves the coordinate model of \(U_m\), its normalization, and the tropical arithmetic convention unspecified. The following is a conditional formulation using real ultrametric equidistance vectors and max-plus tropical arithmetic; these conventions require confirmation against the source.
+
+Let \(m\geq 3\) and \(n\geq 1\) be integers. Set \(E=\{\{a,b\}:1\leq a<b\leq m\}\) and \(q=\binom{m}{2}\), and fix an enumeration of \(E\). Under the stated convention, define
+\[
+U_m=\left\{x\in\R^E:x_{ab}\leq\max\{x_{ac},x_{bc}\}\text{ for all distinct }a,b,c\right\}.
+\]
+Thus the maximum of the three coordinates associated with any three distinct labels is attained at least twice. This real-vector model imposes no nonnegativity or strict positivity condition; whether the source instead intends ordinary metric ultrametrics, pseudoultrametrics, or classes modulo addition of a constant remains unresolved.
+
+For \(v,w\in\R^E\), write their coordinates in the chosen enumeration and define
+\[
+d_{\mathrm{tr}}(v,w)=\max_{1\leq k<\ell\leq q}\left|v_k-w_k-v_\ell+w_\ell\right|.
+\]
+Here \(k,\ell\) index pair-distance coordinates, rather than the original labels. This expression is unchanged when a constant is added to every coordinate of either vector. Consequently, on vectors it is a pseudometric, and on \(\R^E/\R\mathbf{1}\) it is a metric, where \(\mathbf{1}\) has every coordinate equal to \(1\). The record does not specify which of these spaces is intended.
+
+Given a finite family \(d_1,\ldots,d_n\in U_m\), choose three vectors \(D^{(1)},D^{(2)},D^{(3)}\in U_m\). Define, for \(1\leq i\leq n\), \(1\leq j\leq 3\), and \(e\in E\),
+\[
+\lambda_{ij}=\min_{f\in E}\bigl((d_i)_f-D^{(j)}_f\bigr),\qquad
+(d_i')_e=\max_{1\leq j\leq 3}\bigl(\lambda_{ij}+D^{(j)}_e\bigr).
+\]
+The second formula explicitly interprets the supplied phrase ``tropical convex combination'' in the max-plus convention. No requirement that the three chosen vectors be distinct is supplied.
+
+\textbf{Problem.} For arbitrary such data, determine the minimum value of
+\[
+\min_{(D^{(1)},D^{(2)},D^{(3)})\in U_m^3}
+\sum_{i=1}^{n}d_{\mathrm{tr}}(d_i,d_i')
+\]
+and characterize all minimizing triples, with \(d_i'\) defined by the displayed coefficient rule. No attainment or uniqueness assertion is supplied here. The finite indexing of the data and the restrictions \(m\geq3\), \(n\geq1\) make this conditional formulation explicit; the source record does not state its intended boundary cases or its exact domain conventions.
+\subsection{Short English statement}
+Given ultrametric data, select three ultrametrics whose prescribed tropical combinations minimize the total tropical distance from the data, and characterize the optimal triples and optimal value. The displayed formulation uses explicitly conditional max-plus and real-vector conventions because the supplied record does not fully define its domain.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30003483\), title ``Three-Component Tropical Approximation of Ultrametric Data,'' exact source problem code \texttt{catalogue entry}. No individual proposer is identified; the supplied proposed year is 2017.
+\item Supplied report citation: \emph{Algebraic Statistics (2018)}, Oberwolfach Reports, DOI 10.4171/owr/2017/20, pp.\ 1207--1279. Supplied source URL and literature reference labeled ``original OWR report'': \url{https://doi.org/10.4171/owr/2017/20}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The report citation is supplied provenance and has not been independently consulted here.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem \texttt{partially\_solved} and reports that the extracted optimization problem is reduced to a linear program in the report, while a general closed-form solution or complete structural analysis of its optimizers is not established. This is supplied dated curation, not an independently verified literature assessment; the record itself requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}. Its accompanying verification note says that mathematical content was preserved while notation, typography, and sentence structure were repaired for publication. This is a supplied editorial designation, not independent mathematical verification of this draft.
+\end{itemize}
+\end{document}

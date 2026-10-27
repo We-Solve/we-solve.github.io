@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000742}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a fixed integer $a>1$, the damaged source equation is reconstructed as
+\[
+a^k=\frac{p+1}{q+1},\qquad p,q\text{ prime},\quad k\in\Z,\ k\ge2.
+\]
+The historical text attributes to P. D. T. A. Elliott (2003) infinitely many such solutions with $k\le\log q$. K. B. Ford suggests adapting the GPY method to reduce this range. J. Pintz's suggested target is reconstructed from corrupted characters as $k\ll (\log q)^{1/2+\epsilon}$, with $\epsilon>0$; its exact quantifiers and implied-constant dependence are not recoverable here. Participants identify the need for an analogue of Gallagher's average singular-series result, and A. Granville notes independent interest in the singular series itself.
+
+For $A=a^k$, set $q=n$ and $p=An+A-1$. Let $\nu_\ell$ count the residues $n\pmod\ell$ for which $n(An+A-1)=0$. The aid states
+\[
+\nu_\ell=\begin{cases}1,&\ell\mid A(A-1),\\2,&\ell\nmid A(A-1),\end{cases}
+\]
+so the pair is admissible. Its singular series is
+\[
+\mathfrak S_a(k)=\prod_\ell\frac{1-\nu_\ell/\ell}{(1-1/\ell)^2}
+=2C_2\prod_{\substack{\ell>2\\\ell\mid a(a^k-1)}}\frac{\ell-1}{\ell-2},\qquad
+C_2=\prod_{\ell>2}\left(1-\frac1{(\ell-1)^2}\right).
+\]
+Geometric tuples of forms $a^{k_j}(n+1)-1$ are likewise admissible, since $n=-1$ avoids every zero modulo every prime.
+
+For a fixed prime cutoff $z\ge2$, write $\mathfrak S_{a,z}(k)$ for the truncated product and put
+\[
+B_a(z)=2\prod_{\substack{2<\ell\le z\\\ell\mid a}}\frac\ell{\ell-1}
+\prod_{\substack{2<\ell\le z\\\ell\nmid a}}\frac{\ell(\ell-2)}{(\ell-1)^2},\qquad
+\mathcal P_z=\{\ell:2<\ell\le z,\ \ell\nmid a\}.
+\]
+For $\ell\in\mathcal P_z$ let $r_\ell=\operatorname{ord}_\ell(a)$. For $D\subseteq\mathcal P_z$ let $c_D=\prod_{\ell\in D}(\ell-2)^{-1}$ and $r_D=\operatorname{lcm}_{\ell\in D}r_\ell$, with $c_\varnothing=r_\varnothing=1$. The aid's exact finite-cutoff identity is
+\[
+\frac1K\sum_{k=1}^K\frac{\mathfrak S_{a,z}(k)}{B_a(z)}
+=\sum_{D\subseteq\mathcal P_z}c_D\frac{\lfloor K/r_D\rfloor}{K}.
+\]
+For fixed $z$, its limit is $\sum_Dc_D/r_D$, which is at least the independent-event benchmark $\prod_{\ell\in\mathcal P_z}(1+1/((\ell-2)r_\ell))$. In the limiting uniform exponent average the divisibility indicators have covariance
+\[
+\frac1{\operatorname{lcm}(r_\ell,r_m)}-\frac1{r_\ell r_m}
+=\frac{\gcd(r_\ell,r_m)-1}{r_\ell r_m}\ge0.
+\]
+These statements average over exponents starting at $1$ for convenience, whereas the prime-ratio problem requires $k\ge2$. They do not give uniform control as $z\to\infty$, a full Gallagher analogue, or the requested improvement of Elliott's exponent range.
+\subsection{Short English statement}
+Improve the exponent range in Elliott's multiplicative shifted-prime problem. The supplied aid computes its local singular series and exact finite-cutoff exponent averages, showing correlations between multiplicative orders while leaving the required prime-producing argument open.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000742$, source code catalogue entry; canonical \texttt{aim-analytic-number-theory-notes.json}, \texttt{notes[105]}.
+\item AIM workshop ``Gaps between primes,'' problem 5: \url{https://aimath.org/WWN/primegaps/WorkshopProblems.pdf}. The record is marked reconstructed and unverified because of vertical-layout extraction and control characters. It attributes the 2003 result to P. D. T. A. Elliott and the suggestions to K. B. Ford, J. Pintz, workshop participants and A. Granville; Gallagher and GPY are named without bibliographic details. No PDF inspection is claimed here.
+\item Attached research attempt 1: partial result, recorded run status unknown, rigor proved, novelty confidence low; registry status partially solved, classification PARTIAL-PROGRESS. It is a machine-generated, non-peer-reviewed aid requiring independent verification before citation.
+\end{itemize}
+\end{document}

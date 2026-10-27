@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000975}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite connected graph \(G\), let \(K(G)\) be its critical group, the finite cokernel of a reduced graph Laplacian; \(|K(G)|=\tau(G)\), the spanning-tree number. Work with a nonloop nonbridge edge \(e\), allowing parallel edges after contraction and ignoring loops in the critical-group Laplacian. Then
+\[
+ \tau(G)=\tau(G\setminus e)+\tau(G/e).
+\]
+The source asks for a meaningful deletion--contraction recurrence, preferably an algebra-level exact sequence, reflecting more than these orders. It invokes Merino's relation between the Tutte polynomial and chip-firing, suggests beginning with cycles, and asks for an analogue of an unspecified hyperplane-arrangement algebra sequence.
+
+The supplied report says Manjunath's 2022 critical-module sequences give a substantial positive answer in a module setting, without identifying a complete theorem or asserting that they are literal critical-group-algebra sequences. For the latter formulation it proves the following semisimple statement. Let \(k\) be algebraically closed of characteristic zero and \(\widehat K=\operatorname{Hom}(K,k^*)\). Fourier evaluation gives \(k[K]\simeq k^{\widehat K}\). Consequently a sequence
+\[
+ 0\longrightarrow k[K(G/e)]\xrightarrow{\iota}k[K(G)]
+ \xrightarrow{\pi}k[K(G\setminus e)]\longrightarrow0
+\]
+exists with \(\iota\) identifying the left algebra with an ideal, and is split. The ideal inclusion is not required to preserve the ambient identity; requiring every displayed map to be unital would be incompatible with a proper nonzero ideal.
+
+Such sequences are exactly partitions
+\(\widehat{K(G)}=X_C\sqcup X_D\), together with bijections \(X_C\simeq\widehat{K(G/e)}\) and \(X_D\simeq\widehat{K(G\setminus e)}\). Inclusion is extension by zero on the ideal coordinates and quotient is restriction to the complementary coordinates. Thus existence follows from the additive spanning-tree count and by itself carries no prescribed group structure or naturality. For a specified symmetry group acting on the three character sets, equivariance requires and is equivalent to an invariant partition and equivariant bijections; this is not automatically a functorial construction for all graph morphisms.
+
+For a cycle \(C_m\), \(m\geq3\), deletion gives a tree and contraction gives \(C_{m-1}\), with the length-two cycle interpreted as parallel edges. Hence \(K(C_m)\simeq\Z/m\Z\) and the sequence has endpoint dimensions \(m-1,1\). If \(g\) generates \(\Z/m\Z\) and \(\zeta_m\) is a primitive root, set
+\[
+ e_j=\frac1m\sum_{r=0}^{m-1}\zeta_m^{-jr}g^r\qquad(0\leq j<m).
+\]
+The augmentation quotient has kernel \(\bigoplus_{j=1}^{m-1}ke_j\); any labeling of these primitive idempotents by the characters of \(\Z/(m-1)\Z\) gives the reported explicit ideal injection. The same applies to a unicyclic graph with trees attached when \(e\) is on its cycle. These sequences are not induced by an injection of the endpoint critical groups and are not Hopf-exact: in the cycle example the relevant group orders do not satisfy the required subgroup/divisibility structure.
+
+The coefficient field matters. For the triangle,
+\[
+ \Q[K(C_3)]\simeq\Q\times\Q(\zeta_3),\qquad
+ \Q[K(C_2)]\simeq\Q\times\Q,\qquad \Q[K(\mathrm{tree})]=\Q.
+\]
+The rank-two ideal is a quadratic field rather than \(\Q^2\), and the rank-one quotient in the opposite endpoint order is again that quadratic field. Thus neither endpoint order gives an analogous ideal/quotient exact sequence over \(\Q\). Any such sequence over \(\Z\) would yield one over \(\Q\) by tensoring, so is also excluded. This is an obstruction to the specified literal formulation, not to every module-level or differently normalized deletion--contraction theory.
+\subsection{Short English statement}
+Over an algebraically closed characteristic-zero field, the reported group-algebra sequences exist because they amount to arbitrary partitions of character coordinates. Their existence alone does not encode a natural critical-group recurrence. Cycles give explicit examples, while the triangle rules out the same ideal/quotient formulation over \(\Q\) and \(\Z\); separate critical-module results address a broader version.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000975\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[99]}.
+\item AIM workshop \emph{Generalizations of chip-firing and the critical group}, Problem 10: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. The supplied verification reports printed page 5/PDF page 4, as given; no independent PDF access is claimed.
+\item Lionel Levine poses the recurrence and arrangement-sequence questions; Jeremy Martin suggests cycles. The source cites Criel Merino [25] without the bibliography entry and does not identify the hyperplane-arrangement algebra.
+\item Supplied research summary, ``Semisimple character partitions and a rational cycle obstruction,'' attempt 1, refers to Manjunath's 2022 critical-module sequences without full publication details or theorem statement. Original remarks and literature fields are empty.
+\end{itemize}
+\end{document}

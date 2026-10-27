@@ -1,0 +1,83 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001309}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied verification identifies two fused independent problems: official Problem 13, attributed to S. Robins, and Problem 14, including Schneider's part (a). The leading ``3.'' has lost a digit; the page-number fragments are not mathematical data.
+
+Problem 13 asks for constraints ensuring that prescribed integer vectors \(n_i\in\Z^d\) are facet normals of a polytope and that the \(i\)th facet contains exactly \(\alpha_i\in\Z\) lattice points. Whether the polytope must have integer vertices is not stated in the extracted question. The aid's results assume a full-dimensional \emph{lattice polytope}, with primitive outward integer normals, and count all lattice points on each closed facet, including its boundary. They do not settle the different arbitrary-real-polytope interpretation.
+
+In dimension two, let \(u_1,\ldots,u_m\in\Z^2\setminus\{0\}\) be primitive distinct outward normal directions in cyclic order. The aid reports the exact lattice-polygon criterion
+\[
+ \exists P\text{ with precisely these edge normals and }|F_i\cap\Z^2|=\alpha_i
+ \quad\Longleftrightarrow\quad
+ \alpha_i\geq2\ (\forall i),\quad
+ \operatorname{span}_{\R}\{u_i\}=\R^2,\quad
+ \sum_i(\alpha_i-1)u_i=0.
+\]
+Here primitiveness means relatively prime coordinates; positive rescalings and repeated normal directions in the original input need normalization and compatibility conventions. Lattice points shared by facets count on each such facet.
+
+In dimension three, for primitive outward normals \(u_i\), the aid gives only a necessary condition: \(\alpha_i\geq3\) and there must be integers \(q_i\) satisfying
+\[
+ \alpha_i-2\leq q_i\leq2\alpha_i-5,\qquad \sum_iq_iu_i=0.
+\]
+The \(q_i\) are twice the facet areas measured in the induced plane lattice. This rules out, for example, the positively spanning tetrahedral normals
+\(e_1,e_2,e_3,-e_1-e_2-e_3\) with counts \((3,3,3,4)\). No sufficiency claim in dimension three or general dimension is supplied.
+
+Problem 14 asks which projection or section data determine convex bodies without a symmetry assumption. For a body \(K\subseteq\R^n\) and unit \(u\), let \(P_u\) denote orthogonal projection onto \(u^\perp\), and define its brightness and projection centroid by
+\[
+ b_K(u)=\mathcal L^{n-1}(P_uK),\qquad
+ g_K(u)=\frac{1}{b_K(u)}\int_{P_uK}x\,\dd\mathcal L^{n-1}(x)\in u^\perp.
+\]
+Part (a), attributed to Schneider, asks whether the full indexed data \(u\mapsto(b_K(u),g_K(u))\) determine \(K\). Equality means actual location is retained in the common Euclidean coordinates, not just comparison up to translation. The aid reports affirmative reconstruction for every planar convex body. For each \(n\geq3\), it reports only injectivity of the full linearization at the unit ball: for a smooth perturbation with support function \(h_{K_t}=1+tf+o(t)\), if
+\[
+ \left.\frac{\dd}{\dd t}b_{K_t}(u)\right|_{t=0}=0,
+ \qquad
+ \left.\frac{\dd}{\dd t}g_{K_t}(u)\right|_{t=0}=0\quad\text{for every }u,
+\]
+then \(f=0\). This infinitesimal statement is not global nonlinear uniqueness in those dimensions; the summary supplies no complete perturbation-space hypotheses.
+
+The original text lists as known determining data: volumes and centroids of sections through a fixed interior point; ``the mean width and the Steiner points''; and brightness together with an illumination function. The scope of the second list item, and the exact illumination convention, are not defined in the excerpt. In particular the global scalar mean width and one Steiner-point vector alone must not be substituted for unspecified indexed data. Part (b) asks for a dual version of the brightness-plus-illumination result, without defining the intended duality.
+
+For one explicit interpretation of part (b), the aid reports a separate star-body theorem. Let \(n\geq2\), let \(\rho_L:S^{n-1}\to(0,\infty)\) be continuous, and let
+\(L=\{rv:v\in S^{n-1},\ 0\leq r\leq\rho_L(v)\}\).
+For every oriented unit \(u\), prescribe
+\[
+ s_L(u)=\mathcal L^{n-1}(L\cap u^\perp)
+ =\frac1{n-1}\int_{S^{n-1}\cap u^\perp}\rho_L(v)^{n-1}\,\dd S_{n-2}(v),
+\]
+\[
+ j_L(u)=\int_{\langle u,v\rangle>0}\rho_L(v)^{n-1}\,\dd S_{n-1}(v).
+\]
+The aid reports that \((s_L,j_L)\) determines every such star body uniquely: the Funk data recover the even part of \(\rho_L^{n-1}\), and the difference \(j_L(u)-j_L(-u)\) recovers its odd part. Surface measures here are unnormalized. This precisely defined directed hemispherical datum is a proposed interpretation, not a source-established identification with the undefined dual illumination functional.
+\subsection{Short English statement}
+The record fuses lattice facet-count realizability with nonsymmetric reconstruction. The aid gives a complete planar lattice criterion, a necessary three-dimensional constraint, planar projection reconstruction, an infinitesimal higher-dimensional result, and a separate star-body section-and-hemisphere theorem under an explicit interpretation.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001309\), exact public code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[40]}.
+\item AIM workshop ``Fourier analytic methods in convex geometry'': \url{https://aimath.org/WWN/fourierconvex/fourierconvex.pdf}. The supplied verification identifies official Problems 13 and 14 as fused in one OCR extraction. Problem 13 is attributed to S. Robins; part 14(a) is attributed to Schneider. The canonical source-item field records only 3. The literature field is empty.
+\item The source lists the three determining-data cases recorded above but gives no authoritative external references or complete definitions for the mean-width/Steiner-point and illumination statements.
+\item Research attempt 1: \texttt{partial\_result}, status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It reports the lattice-polytope results, planar and linearized projection reconstruction, and the directed radial hemispherical theorem as a candidate reconstruction contribution. The current registry status is partially_solved. No separate full bibliography is supplied for these results or their transform inversions.
+\end{itemize}
+\end{document}

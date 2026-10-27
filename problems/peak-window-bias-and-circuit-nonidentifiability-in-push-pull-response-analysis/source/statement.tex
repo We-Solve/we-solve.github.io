@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000866}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This record is discussion after Judith Hirsch's presentation, not a standalone mathematical open problem. The supplied aid extracts two conditional methodological audits: selection of a response window around a noisy peak, and identification of excitatory/inhibitory inputs. Neither determines the actual visual-circuit mechanism.
+
+For the window audit, fix a finite grid \(j=1,\ldots,m\) of candidate windows and integrable estimates \(X_j\) with \(\E X_j=\mu_j\). With a declared tie rule, choose \(\widehat j\in\operatorname{argmax}_jX_j\), and let \(\mu_*=\max_j\mu_j\). No independence between the candidate estimates is needed for
+\[
+ \E\max_jX_j\geq\mu_*.
+\]
+If \((Y_j)\) is an independent held-out vector with \(\E Y_j=\mu_j\), then
+\[
+ \E[Y_{\widehat j}\mid X_1,\ldots,X_m]=\mu_{\widehat j},\qquad
+ \E Y_{\widehat j}\leq\mu_*,\qquad
+ \E(X_{\widehat j}-Y_{\widehat j})\geq0.
+\]
+For two independent folds \(A,B\), selecting on each and evaluating on the other gives
+\[
+ \widehat M_{\mathrm{cf}}=\tfrac12(X^{B}_{\widehat j_A}+X^{A}_{\widehat j_B}),\qquad
+ \E\widehat M_{\mathrm{cf}}=\tfrac12\E(\mu_{\widehat j_A}+\mu_{\widehat j_B}).
+\]
+Thus cross-fitting targets the selection algorithm's chosen true response, not automatically the oracle peak \(\mu_*\).
+
+For the separate iid flat-Poisson illustration, take \(m\geq2\), exposure \(w>0\), \(C_j\) independent \(\operatorname{Poisson}(\lambda w)\), and \(X_j=C_j/w\). If \(F_\nu(k)=\Pr\{\operatorname{Poisson}(\nu)\leq k\}\), then
+\[
+ \E\max_jX_j-\lambda
+ =\frac1w\sum_{k\geq0}\bigl(1-F_{\lambda w}(k)^m\bigr)-\lambda>0
+ \qquad(\lambda>0).
+\]
+Overlapping real response windows need not have independent counts, so this exact formula is not asserted for arbitrary window grids.
+
+For the circuit audit, a declared spike-output model \(r=\Phi(e-i)\), with nonnegative drives \(e,i\), identifies at most their net difference: replacing \((e,i)\) by \((e+c,i+c)\) leaves the prediction unchanged. If \(\Phi\) is not injective, even net drive need not be identified. Separately, after known background currents are removed, an ideal voltage-clamp model is
+\[
+ I(V)=g_E(V-E_E)+g_I(V-E_I),\qquad g_E,g_I\geq0,
+\]
+with known distinct reversal potentials \(E_E\neq E_I\). At every interior pair \(g_E,g_I>0\), one holding potential is locally noninjective along
+\[
+ (\delta g_E,\delta g_I)=t(V-E_I,-(V-E_E)).
+\]
+Small positive and negative \(t\) remain feasible. This assertion does not include all boundary pairs: for example if \(V\) is above both reversal potentials and \(I(V)=0\), nonnegativity forces both conductances to zero. Two distinct holding potentials \(V_1\neq V_2\), with the same stationary conductances, give determinant
+\[
+ (V_1-V_2)(E_E-E_I)\neq0,
+\]
+so recover the two conductances uniquely in the ideal known-reversal model. Changing conductances across measurements, unknown reversals, or unmodeled currents invalidate that two-equation conclusion.
+
+The historical discussion motivating these audits must retain its uncertainty. The speaker tentatively accepted retinal push-pull but said it must be recreated in thalamus because retino-LGN connections are excitatory; the cell proportion was unknown. Response windows were centered on the response peak. The monkey laminar distribution was expected to differ from cats, and morphology was described as spiny excitatory versus smooth inhibitory. Pull was said to contribute to orientation selectivity; complex-cell responses to the described sparse dynamic stimuli were uncertain. The LGN-knockout/V1-recording question was left unanswered. Inhibitory-to-inhibitory contacts and similar inhibition patterns were reported tentatively. ``Lots of blips'' was not a quantitative synchrony result, and relative receptive-field sizes were only roughly comparable with no accurate measure. These discussion statements are not turned into universal biological theorems or resolved by the mathematical audits.
+\subsection{Short English statement}
+This is a discussion record rather than a formal open problem. The supplied audits show why selecting and reporting the same noisy peak window is optimistic, and why independent evaluation targets the chosen window rather than an oracle peak. They also distinguish single-voltage conductance ambiguity from ideal two-voltage recovery, retaining the important boundary exceptions and biological uncertainty.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000866\), exact public code \texttt{catalogue entry}; \texttt{aim-biology-notes.json}, \texttt{notes[30]}. AIM domain Biology; registry category Miscellaneous; source tag section.
+\item AIM 2003 workshop notes \emph{Inference and Prediction in Neocortical Circuits}, Chapter I, ``Synaptic Integration in the Early Visual Pathway,'' discussion after Judith Hirsch's presentation: \url{https://aimath.org/WWN/brain/brain.pdf}. This supplied URL is provenance; no PDF access is claimed.
+\item Supplied research summary, ``Peak-window bias and circuit nonidentifiability in push-pull response analysis,'' attempt 1. No underlying dataset, exact recording protocol, or full external mathematical/experimental citation is supplied; original remarks and literature fields are empty.
+\end{itemize}
+\end{document}

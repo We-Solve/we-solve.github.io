@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000927}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For $k\geq2$, let $K_n^{(k)}$ be the complete $k$-uniform hypergraph and let $r_k(n,n)$ be the least $N$ such that every red/blue coloring of $K_N^{(k)}$ contains a monochromatic $K_n^{(k)}$. Write $H\to(K_n^{(k)})_2$ for this arrowing property. Its size Ramsey number is
+\[
+ \widehat r_k(n,n)=\min\{|E(H)|:H\text{ is }k\text{-uniform and }H\to(K_n^{(k)})_2\}.
+\]
+The host may have any finite vertex set.
+
+\textbf{Dudek--R\"odl question.} The source notes the graph identity $\widehat r_2(n,n)=\binom{r_2(n,n)}2$ and asks whether
+\[
+ \widehat r_3(n,n)=\binom{r_3(n,n)}3.
+\]
+The record ends with ``In particular,'' without its continuation; no missing subquestion is reconstructed.
+
+\textbf{Supplied counterexample.} The aid uses $r_3(4,4)=13$ and attributes to McKay a verified arrowing result
+\[
+ K_{13}^{(3)}-e\longrightarrow(K_4^{(3)})_2.
+\]
+It therefore reports
+\[
+ \widehat r_3(4,4)\leq285<286=\binom{13}3,
+\]
+refuting the proposed general equality. The exact value of $\widehat r_3(4,4)$ is not determined by this upper bound, and the verification certificate/reference is not supplied.
+
+\textbf{Reported critical-edge structure.} Let $n\geq3$ and let $H$ be edge-minimal with $H\to(K_n^{(3)})_2$, meaning deletion of any edge destroys arrowing. For each $e\in E(H)$, fix one avoiding coloring of $H-e$. Coloring $e$ red and then blue gives witness vertex sets $R_e,B_e$, respectively, with
+\[
+ |R_e|=|B_e|=n,\qquad R_e\cap B_e=e.
+\]
+All triples on $R_e$ other than $e$ are red in the same fixed avoiding coloring, and all triples on $B_e$ other than $e$ are blue. This same-coloring requirement is part of the assertion.
+
+The aid derives, for every supported vertex and every pair of positive codegree,
+\[
+ \deg_H(v)\geq2\binom{n-1}2-1,\qquad
+ \deg_H(\{u,v\})\geq2n-5.
+\]
+Isolated vertices are excluded from the first quantifier and zero-codegree pairs from the second. In particular $H$ has at least $2n-3$ supported vertices. Handshaking consequently yields the elementary bound
+\[
+ |E(H)|\geq\left\lceil\frac{(2n-3)(2\binom{n-1}2-1)}3\right\rceil.
+\]
+A size-optimal host is edge-minimal after ignoring isolated vertices, so these restrictions apply to it. These local structural bounds do not determine the optimal size Ramsey number. The solved/refuted status and computational arrowing claim are supplied assessments requiring independent review.
+\subsection{Short English statement}
+The proposed complete-host formula for $3$-uniform size Ramsey numbers is reported false already at $n=4$: deleting one triple from the $13$-vertex complete host still arrows. The aid also gives red/blue critical-edge witnesses from one avoiding coloring, yielding supported-degree and positive-codegree lower bounds for minimal hosts.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000927$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[51]}.
+\item AIM workshop ``Graph Ramsey theory,'' ``Hypergraph size Ramsey numbers,'' source item 5, Overleaf notes: \url{https://www.overleaf.com/read/mnvcscjjysvg}. The heading names Andrzej Dudek and the question is attributed to Dudek--R\"odl.
+\item McKay's verified $K_{13}^{(3)}-e$ arrowing result and $r_3(4,4)=13$, as reported in the attached summary; no full reference or verification artifact is supplied.
+\item Research attempt 1, \texttt{counterexample}, run status \texttt{refuted}, internal rigor \texttt{proved}, low novelty confidence; registry \texttt{SOLVED-IN-LITERATURE}. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. Original literature field empty.
+\end{itemize}
+\end{document}

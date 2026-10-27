@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005012}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The following gives the standard interpretation of the Bernstein notation in the supplied record. Let \(d\geq 1\) be an integer, and let \(T=\operatorname{conv}\{v_1,v_2,v_3\}\) be a nondegenerate triangle in a real affine plane. Write \(\lambda_1,\lambda_2,\lambda_3\) for its barycentric coordinate functions, so that \(x=\sum_{r=1}^3\lambda_r(x)v_r\) and \(\sum_{r=1}^3\lambda_r(x)=1\). Set
+\[
+I_d=\{(i,j,k)\in\Z_{\geq0}^3:i+j+k=d\},\qquad
+\xi_{ijk}=\frac{i v_1+j v_2+k v_3}{d},\qquad
+D_{d,T}=\{\xi_{ijk}:(i,j,k)\in I_d\}.
+\]
+For \(\eta=\xi_{ijk}\), define the degree-\(d\) Bernstein basis polynomial
+\[
+B_\eta^d(x)=\frac{d!}{i!j!k!}\lambda_1(x)^i\lambda_2(x)^j\lambda_3(x)^k,
+\]
+where a factor with exponent zero equals \(1\), including at boundary points. Thus \(D_{d,T}\) includes points on the edges and at the vertices.
+
+\textbf{Conjecture attributed to Larry L. Schumaker.} For every such \(d\) and \(T\), and every subset \(\Gamma\subseteq D_{d,T}\), the square matrix
+\[
+M_\Gamma=\bigl(B_\eta^d(\xi)\bigr)_{\xi,\eta\in\Gamma}
+\]
+is nonsingular. Equivalently, for every assignment \((z_\xi)_{\xi\in\Gamma}\in\R^\Gamma\), there is a unique polynomial
+\[
+p=\sum_{\eta\in\Gamma}c_\eta B_\eta^d,\qquad c_\eta\in\R,
+\]
+satisfying \(p(\xi)=z_\xi\) for every \(\xi\in\Gamma\). Uniqueness is within the displayed span of Bernstein basis polynomials. For \(\Gamma=\varnothing\), this draft uses the usual convention that the empty matrix is nonsingular and the corresponding polynomial space is \(\{0\}\).
+
+\textbf{Scope qualifications.} Nondegeneracy and positive integral degree are implicit in this standard construction but are not explicitly stated in the supplied excerpt. The excerpt does not specify a degree-zero domain-point convention or an interpretation for degenerate triangles; these cases remain unresolved source qualifications.
+
+\textbf{Supplied historical qualifications.} Schumaker's report contribution says that he made the conjecture in 2003 and that it had not yet been completely proved. It reports a proof, attributed to its reference [2], for
+\[
+\Gamma=D_{d,T}\setminus\{\xi_{d00},\xi_{0d0},\xi_{00d}\}.
+\]
+It also reports a second family involving removal of domain points satisfying \(i\geq m_1\), \(j\geq m_2\), \(k\geq m_3\), with \(m_1,m_2,m_3\geq0\) and \(m=m_1+m_2+m_3<d\). A possible reading is
+\[
+\Gamma=D_{d,T}\setminus
+\{\xi_{ijk}:(i,j,k)\in I_d,\ i\geq m_1,\ j\geq m_2,\ k\geq m_3\},
+\]
+but the extracted typography leaves the scope of this set subtraction unclear, so this reading requires source review. The excerpt further reports numerical verification for all \(d\leq16\), attributed to its reference [1]. The supplied dated curation separately reports proofs through degree \(17\), several infinite families, and later \(3\times3\) cases, while labeling the all-degree conjecture open and the record partially solved. These are supplied historical and literature-status assertions, not independently verified conclusions of this draft.
+\subsection{Short English statement}
+Schumaker's conjecture asks whether every subset of the degree-\(d\) triangular domain points gives an invertible matrix when evaluated against the Bernstein basis polynomials indexed by the same subset. Equivalently, arbitrary real data on that subset should have a unique interpolant in the corresponding Bernstein span. The standard interpretation uses a nondegenerate triangle and positive integral degree; omitted conventions and the reported partial results require human source review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005012\), entitled \emph{Nonsingularity of Bernstein-Basis Collocation Matrices}; exact source problem code \texttt{catalogue entry}. The record belongs to the Oberwolfach Reports Open Problems collection.
+\item Supplied primary-source citation: \emph{Mini-Workshop: Interpolation, Approximation, and Algebra (2023)}, Oberwolfach Reports, pp.\ 383--428, DOI \texttt{10.4171/owr/2022/7}, \url{https://doi.org/10.4171/owr/2022/7}. The supplied excerpt identifies the contribution \emph{A Conjecture on Bernstein Basis Polynomials} by Larry L. Schumaker and contains the page marker 413. It attributes the conjecture to Schumaker in 2003. The registry gives proposed year 2022, while the supplied citation labels the report 2023; these date roles have not been independently reconciled.
+\item Supplied literature source labeled ``Jakli\v{c}--Kandu\v{c}, degrees through 17'': \url{https://doi.org/10.1016/j.amc.2013.11.034}.
+\item Supplied literature source labeled ``2023 principal-minor result'': \url{https://www.sciencedirect.com/science/article/pii/S0021904523000588}.
+\item Literature assessment date: \texttt{2026-08-22}. This is supplied dated curation, not independently verified. Its assessment reports proofs through degree 17, several infinite families, and later \(3\times3\) cases, while describing the all-degree conjecture as open. The record's status is \texttt{partially\_solved}.
+\item The record labels its statement \texttt{corrected\_verified} and says it was checked against the official Oberwolfach report. This is supplied verification metadata; this draft does not claim to have visited or independently checked that report. The excerpt's references [1] and [2] lack bibliographic entries in the supplied record, and their identification with the supplied literature links is not established.
+\end{itemize}
+\end{document}

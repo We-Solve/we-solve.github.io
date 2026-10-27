@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 801031}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\omega=\{0,1,2,\ldots\}\). A computably enumerable equivalence relation (ceer) is an equivalence relation \(E\subseteq\omega^2\) whose graph is computably enumerable. Write \(x\,E\,y\) for \((x,y)\in E\). A diagonal function for \(E\), also called a fixed-point-free function for \(E\), is a total function \(g:\omega\to\omega\) satisfying
+\[
+\forall x\in\omega\;\neg\bigl(g(x)\,E\,x\bigr).
+\]
+The notation \(\mathrm{Id}_1\) is understood here in its standard ceer sense as the equivalence relation with one equivalence class, namely \(\omega^2\); the supplied record does not explicitly define it.
+
+A function is \(\mathbf d\)-computable if it is computable from an oracle of Turing degree \(\mathbf d\). Define
+\[
+\mathrm{Diag}=\left\{\mathbf d:\ \forall E\left[\bigl(E\text{ is a ceer}\ \land\ E\ne\mathrm{Id}_1\bigr)\Longrightarrow\exists g:\omega\to\omega\;\bigl(g\text{ is total and }\mathbf d\text{-computable}\ \land\ \forall x\in\omega\;\neg(g(x)\,E\,x)\bigr)\right]\right\}.
+\]
+Here the choice of \(g\) may depend on \(E\); this definition does not require a uniform procedure taking an index for \(E\) to a diagonal function.
+
+The supplied problem asks for three related determinations:
+\begin{enumerate}
+\item Characterize the class \(\mathrm{Diag}\) of Turing degrees.
+\item Determine the reverse-mathematical strength of the assertion that every \(\Sigma^0_1\)-definable equivalence relation \(E\) on \(\omega\) with \(E\ne\mathrm{Id}_1\) has a diagonal function. The record specifies neither a base theory nor the permitted parameters in \(\Sigma^0_1\) definitions, so these choices remain unresolved.
+\item Determine the Weihrauch degree of the corresponding diagonal-function problem. Its intended input-output relation is
+\[
+E\ \longmapsto\ \left\{g\in\omega^\omega:\forall x\in\omega\;\neg(g(x)\,E\,x)\right\},
+\]
+with inputs ceers \(E\ne\mathrm{Id}_1\). The record does not specify representations of the inputs or which version of Weihrauch reducibility is intended; consequently this description does not yet fix a unique Weihrauch-degree question.
+\end{enumerate}
+
+For context, use the standard meanings of \(\mathrm{PA}\) and \(\mathrm{DNR}\): \(\mathrm{PA}\) consists of Turing degrees computing a complete consistent extension of first-order Peano arithmetic, and \(\mathrm{DNR}\) consists of Turing degrees computing a total function \(f:\omega\to\omega\) such that
+\[
+\forall n\in\omega\;\bigl(\varphi_n(n)\mathord\downarrow\ \Longrightarrow\ f(n)\ne\varphi_n(n)\bigr),
+\]
+where \((\varphi_n)_{n\in\omega}\) is a fixed standard effective enumeration of the partial computable functions. These expansions of the terminology are conventional; the supplied record does not provide them.
+
+The record reports the partial results
+\[
+\mathrm{PA}\subseteq\mathrm{Diag}\subseteq\mathrm{DNR}
+\qquad\text{[Badaev, Bazhenov, Kalmurzayev, Mustafa, 2024]}
+\]
+and the existence of a Martin--L\"of random real \(X\in2^\omega\) with \(\deg_T(X)\notin\mathrm{Diag}\), attributed to Ng. Here randomness is understood with respect to the usual fair-coin measure. The degree notation makes explicit the natural reading of the source's expression \(x\notin\mathrm{Diag}\). These are supplied background claims, not independently verified results in this draft. The registry labels the problem open.
+\subsection{Short English statement}
+Characterize the Turing degrees that compute a diagonal function for every computably enumerable equivalence relation on \(\omega\) having at least two classes. Also determine the reverse-mathematical strength and the Weihrauch degree of the corresponding existence problem. The latter two formulations require additional choices of logical framework and representations. The supplied open status and partial results are recorded without independent verification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(801031\), source problem code \texttt{catalogue entry}, title \emph{Open Problems in Mathematical Logic --- Problem 43}. The record lists Barmpalias, Gao et al. as proposers, gives proposed year 2026, and labels the problem open. Its creation and update timestamps are both \texttt{2026-10-16T14:00:00Z}; upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Barmpalias, Gao et al., \emph{Open Problems in Mathematical Logic} (2026), Problem 43, \url{https://arxiv.org/abs/2608.26628}. The supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are source-record provenance claims, not a claim of access or verification for this draft.
+\item Badaev, Bazhenov, Kalmurzayev, Mustafa (2024), cited in the supplied statement for \(\mathrm{PA}\subseteq\mathrm{Diag}\subseteq\mathrm{DNR}\). No title, publication details, or link for this result is supplied.
+\item Ng, credited in the supplied statement with the existence of a Martin--L\"of random real whose Turing degree is outside \(\mathrm{Diag}\). No year, title, publication details, or link for this result is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20003324}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For $\|x\|=\operatorname{dist}(x,\Z)$ and $0<s<1$, Question 37, communicated by Yann Bugeaud, asks for the Hausdorff dimension of
+\[
+ B_s=\left\{(\alpha,\beta)\in\R^2:
+ \inf_{n\geq1}n\min(\|n\alpha\|,\|n\beta\|)^s
+                  \max(\|n\alpha\|,\|n\beta\|)^{2-s}>0\right\}.
+\]
+The infimum is over all positive integers, not just a subsequence or an asymptotic rate. The source identifies $B_0$ with the simultaneously badly approximable vectors, of dimension $2$, and $B_1$ with the possible Littlewood-exception set, of dimension $0$; the latter does not assert nonemptiness.
+
+The aid gives a pointwise reduction, not the requested intermediate dimensions. For a fixed pair put $m_n=\min(\|n\alpha\|,\|n\beta\|)$, $M_n=\max(\|n\alpha\|,\|n\beta\|)$, and
+\[
+ A_n=nM_n^2,\qquad P_n=n\|n\alpha\|\|n\beta\|,\qquad
+ F_s(n)=A_n^{1-s}P_n^s.
+\]
+This is exactly the defining expression. For $s<t$ it decreases, so $B_t\subset B_s$. Its infima $C_s=\inf_nF_s(n)$ obey
+\[
+ C_{\theta s+(1-\theta)t}\geq C_s^\theta C_t^{1-\theta}
+       \quad(0<\theta<1),
+\]
+with the usual zero-value convention. Thus the pointwise infimum is log-concave in the parameter, while $\dim_HB_s$ is nonincreasing; neither statement evaluates that dimension.
+
+For a pair in $B_0$, both coordinates are irrational: a rational coordinate combined with one-dimensional approximation of the other would force $\inf_n nM_n^2=0$. Hence $m_n>0$. Define
+\[
+ r_n=\log(M_n/m_n)\geq0,\qquad a_n=\log A_n,
+\]
+so $\log F_s(n)=a_n-sr_n$ and $a_n$ is bounded below. The aid's critical imbalance parameter is
+\[
+ \tau=\lim_{K\to\infty}\inf\{a_n/r_n:r_n\geq K\},
+\]
+using $\inf\varnothing=+\infty$. For the tested parameters, $s<\tau$ implies membership in $B_s$, while $s>\tau$ implies nonmembership. At a finite critical value the exact extra condition is
+\[
+ (\alpha,\beta)\in B_\tau
+       \quad\Longleftrightarrow\quad
+ \inf_n(a_n-\tau r_n)>-\infty.
+\]
+A ratio threshold alone does not decide this additive endpoint. Bounded-imbalance terms are controlled by the $B_0$ lower bound; the tail detects failure along arbitrarily imbalanced terms.
+
+If $(\alpha,\beta)\in B_s$ with $0<s<1$ and $F_s(n)\geq c_s>0$, then
+\[
+ P_n\geq c_s^{1/s}A_n^{-(1-s)/s}.
+\]
+Therefore any subsequence with $P_n\to0$ must have $A_n\to\infty$ and imbalance tending to infinity. This is a restriction on possible Littlewood-small subsequences, not exclusion of them. The supplied assessment leaves the intermediate dimension question open; no dimension distribution of $\tau$ is provided.
+
+The extensive following text is separate spillover into quantum chaos, not part of Question 37. It introduces Laplace eigenfunctions, their probability densities $|\varphi_i|^2dV$, density-one quantum ergodicity for ergodic geodesic flow, and historical numerical scarring/bouncing-ball observations before a missing Rudnick--Sarnak conjecture. Its simultaneous zero-eigenvalue and Dirichlet-boundary conventions need separation, and finite-volume noncompact manifolds require continuous-spectrum/tightness qualifications. Its historical statement about the absence of rigorous scarring examples is not asserted as a current literature conclusion. None of these spectral matters changes the definition of $B_s$.
+\subsection{Short English statement}
+Compute the Hausdorff dimensions of the multiplicative approximation sets $B_s$ between badly approximable vectors and Littlewood exceptions. The supplied aid proves nesting, pointwise log-concavity and a critical imbalance test, including a separate additive endpoint condition. It does not compute the intermediate dimensions; the appended quantum-chaos material is unrelated context.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20003324$, source code catalogue entry; canonical location \texttt{aim-other-notes.json}, \texttt{notes[130]}.
+\item AIM \emph{Emerging applications of measure rigidity}, Question 37 (Y. Bugeaud), \url{https://aimath.org/WWN/measrigid/measrigid.pdf}. The supplied verification gives the full name Yann Bugeaud. The following section 5.8 cites [110], section 13, for other Diophantine problems.
+\item The appended quantum-chaos context cites [182,204,36,207] for quantum ergodicity; [82,91,119,8,187] for stadium numerics/heuristics; [12] for dispersive billiards; [81,80,4] for arithmetic-surface numerics; and Z. Rudnick and P. Sarnak [163] for the following conjecture. No full bibliography entries or the next conjecture are supplied.
+\item Research attempt 1 is marked partial result, proved, and low novelty confidence, with an explicit machine-generated, non-peer-reviewed research-aid caveat requiring independent verification before citation. The unresolved dimension status is its supplied assessment.
+\end{itemize}
+\end{document}

@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005078}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(r\geq 1\), let \(k\) be a field, and let
+\[
+X=\prod_{j=1}^{r}\PP_k^{n_j},\qquad S=k[x_{j\ell}:1\leq j\leq r,\ 0\leq\ell\leq n_j],\qquad \deg(x_{j\ell})=e_j\in\Z^r,
+\]
+where the \(n_j\) are nonnegative integers and \(e_j\) is the \(j\)-th standard basis vector. Write \(\N=\{0,1,2,\ldots\}\), \(|u|=\sum_j u_j\), and \(\mathcal F(a)=\mathcal F\otimes\bigotimes_j\pi_j^*\mathcal O_{\PP^{n_j}}(a_j)\). These supply a conventional setting for the cleaned statement; the source does not specify the field, dimensional restrictions, or computational representation.
+
+One standard sheaf convention is
+\[
+\operatorname{reg}_X(\mathcal F)=\left\{m\in\Z^r:\ H^i\bigl(X,\mathcal F(m-u)\bigr)=0\text{ for every }i>0\text{ and every }u\in\N^r\text{ with }|u|=i\right\}.
+\]
+For a finitely generated \(\Z^r\)-graded \(S\)-module \(M\), a standard local-cohomology convention uses the irrelevant ideal
+\[
+B=\bigcap_{j=1}^{r}(x_{j0},\ldots,x_{jn_j}).
+\]
+Define
+\[
+D_0(m)=\bigcup_{j=1}^{r}(m+e_j+\N^r),\qquad
+D_i(m)=\bigcup_{\substack{u\in\N^r\\|u|=i-1}}(m-u+\N^r)\quad(i\geq1),
+\]
+and
+\[
+\operatorname{reg}_B(M)=\left\{m\in\Z^r:\ H_B^i(M)_a=0\text{ for every }i\geq0\text{ and every }a\in D_i(m)\right\}.
+\]
+These conventions are explicit candidate interpretations, not conventions verified from the supplied report excerpt. In particular, module regularity is not being identified with regularity of the associated sheaf.
+
+For \(a,b\in\Z^r\), write \(a\preceq b\) if \(a_j\leq b_j\) for every \(j\). For \(R\subseteq\Z^r\), define
+\[
+\operatorname{Min}(R)=\{m\in R:\text{ there is no }a\in R\setminus\{m\}\text{ with }a\preceq m\}.
+\]
+\textbf{Algorithmic problem, conditional on the conventions and input specifications.} Develop an effective algorithm that, for every admissible coherent sheaf \(\mathcal F\) on \(X\), or finitely generated multigraded module \(M\) over \(S\), computes all elements of \(\operatorname{Min}(\operatorname{reg}_X(\mathcal F))\) or \(\operatorname{Min}(\operatorname{reg}_B(M))\), respectively. A precise computational formulation must fix effective field operations, finite input encodings, the regularity convention, the admitted dimensions and inputs, and the output representation. If a terminating finite-list algorithm is intended, the applicable finiteness hypotheses must also be specified. The supplied record does not settle these choices. Minimal elements need not, for an arbitrary subset of \(\Z^r\), describe the entire subset; any intended recovery of the full regularity region requires additional justification.
+
+\textbf{Unresolved source context.} The original excerpt writes ``Pn'', whereas the cleaned statement specifies a product of projective spaces. It also contains material about an unspecified complex \(G_\bullet\) and truncation \(M_{\geq d}\): a claimed spectral-sequence argument yielding \(\beta_{i,a}(M_{\geq d})=\beta_{i,a}(G_\bullet)\), a characterization of \(d\)-regularity through cohomology vanishing in an unavailable part (1), and a statement that \(G_\bullet\) is a virtual resolution of \(M\), citing [1]. The excerpt reports that this complex is a resolution in the examples considered and gives Conjecture 2.5, attributed to [2, Conjecture 6.7], that \(G_\bullet\) is the minimal free resolution of \(M_{\geq d}\). The construction, hypotheses, and identities of [1] and [2] are not supplied, so this adjacent conjecture cannot be formulated precisely here or silently incorporated into the algorithmic target.
+\subsection{Short English statement}
+Find an effective procedure that computes every coordinatewise minimal multigraded Castelnuovo--Mumford regularity degree of a coherent sheaf or multigraded module on a product of projective spaces. The displayed definitions give conditional standard interpretations; the source leaves the computational inputs and exact convention unresolved. The record labels the problem open, but that status is supplied curation rather than an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30005078\), source problem code \texttt{catalogue entry}, title ``Algorithms for Multigraded Castelnuovo--Mumford Regularity''. The supplied registry record labels the statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official report; this is a supplied verification claim, not verification performed for this draft. No individual proposer is supplied; the proposed year is 2022.
+\item Supplied report citation: \emph{Toric Geometry (2023)}, Oberwolfach Reports, DOI 10.4171/owr/2022/17, pp.\ 861--927. \url{https://doi.org/10.4171/owr/2022/17}. The literature-source list also labels this reference ``Oberwolfach Report 2022/17''. The relationship between the supplied 2023 title date and the 2022 report designation has not been independently checked.
+\item Supplied literature reference: Bruce--Cranton Heller--Sayrafi, \url{https://doi.org/10.1016/j.aim.2026.111049}. No article title, theorem identifier, or fuller bibliographic details are supplied.
+\item Literature assessment checked at \textbf{2026-08-22}: the supplied dated curation labels the problem open and states that recent work provides effective characterizations and bounds on products of projective spaces, but that no general finite algorithm computing every minimal regularity element has been established. This is supplied dated literature triage, not an independently verified assessment; its time-sensitive status and cited claims require independent checking.
+\item The original excerpt cites [1] and [2, Conjecture 6.7] without identifying their bibliographic entries. No identification with either linked literature reference is assumed.
+\end{itemize}
+\end{document}

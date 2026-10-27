@@ -1,0 +1,52 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000877}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\widetilde c$ denote the finite-precision coefficient data of a rational parametrization $\phi_c$, where $c$ denotes a possible exact coefficient vector with the prescribed structure. The source asks for numerical implicitization methods, with analysis, which determine the best possible implicit equation permitted by the input precision, by finding a structurally compatible exact solution with minimal backward error. The degree of the implicit equation is not assumed known in advance.
+
+A conditional mathematical schema makes the missing choices explicit. After specifying a coefficient field $k$, a structured admissible set $\mathcal S$ of exact parameters, a coefficient-error measure $d$, and an implicit-equation convention, define
+\[
+\beta(F;\widetilde c)
+=\inf\{d(c,\widetilde c):c\in\mathcal S,\ F\text{ is an exact implicit equation for }\phi_c\}.
+\]
+An exact implicit relation must satisfy $F\circ\phi_c=0$ on the domain of the rational map. If the image closure is a hypersurface and a defining equation of that closure is intended, this relation alone is insufficient: one instead requires, for example,
+\[
+I\bigl(\overline{\operatorname{im}\phi_c}^{\,\mathrm{Zar}}\bigr)=(F),
+\]
+with the appropriate reduced equation and scalar normalization. This hypersurface convention is conditional; the record does not specify dimensions or guarantee a principal implicit ideal.
+
+The requested analysis should determine the achievable error, construct an exact compatible perturbed parametrization and its implicit equation at minimal backward error when such a minimum exists, and handle the unknown-degree case under the precision constraints. The source supplies neither $\mathcal S$, $d$, an uncertainty set, nor a degree/complexity or fidelity criterion defining ``best possible.'' The infimum need not be attained without additional conditions. Moreover, if every equation of arbitrary degree is admissible and the stored floating-point coefficients themselves are treated as exact, exact implicitization can already have zero backward error; a useful precision-sensitive optimality question therefore needs its admissibility and degree-selection criteria specified. No particular optimization problem or degree bound is silently imposed here.
+
+The supplied assessment checked 2026-08-21 labels the problem partially solved: it reports practical homotopy, interpolation and syzygy-based algorithms, while saying that the broad backward-error and optimal numerical-implicitization request remains incomplete.
+\subsection{Short English statement}
+Develop numerical implicitization for rational maps with limited-precision coefficients, seeking an exact structurally compatible solution of minimal backward error even when the implicit degree is unknown. The error model, admissible structure, equation normalization and optimality criterion remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000877, source code catalogue entry; supplied complete source record. It labels the statement exact and reports normalization after checking the official report.
+\item Mini-Workshop: Surface Modeling and Syzygies (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/54, pp. 3181--3208: \url{https://doi.org/10.4171/owr/2007/54}. Proposed-year metadata gives 2007.
+\item Numerical implicitization: \url{https://arxiv.org/abs/1610.03034}.
+\item Syzygy-based implicitization: \url{https://arxiv.org/abs/1502.00890}.
+\end{itemize}
+\end{document}

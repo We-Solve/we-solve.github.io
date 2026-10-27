@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004049}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record does not define \(\varepsilon\)-sparse or \(H\)-free, or explicitly specify the graph and disjointness conventions. Consequently, the following is a conditional formalization of its quantifier structure, requiring those conventions to be checked against the cited source.
+
+Under the convention that graphs are finite, simple and undirected, write \(V(G)\) and \(E(G)\) for the vertex and edge sets. For disjoint sets \(A,B\subseteq V(G)\), call \((A,B)\) a pure pair if either
+\[
+\{a,b\}\in E(G)\quad\text{for every }a\in A,\ b\in B,
+\]
+or
+\[
+\{a,b\}\notin E(G)\quad\text{for every }a\in A,\ b\in B.
+\]
+These alternatives mean that \(A\) is complete or anticomplete to \(B\), respectively. Disjointness is an explicit provisional convention here, not an explicit hypothesis in the supplied statement.
+
+Let \(\mathsf{Sparse}_{\varepsilon}(G)\) denote the source's unresolved sparsity predicate, and let \(\mathsf{Free}_{H}(G)\) denote its unresolved forbidden-graph predicate. In particular, the record does not determine whether sparsity bounds maximum degree or edge density, whether the bound is strict, or whether the forbidden copy of \(H\) must be induced.
+
+For each graph \(H\), consider the property \(\mathcal P(H)\) given by the following assertion: there exists a real number \(\varepsilon>0\) such that, for every integer \(n>1\) and every graph \(G\) satisfying
+\[
+|V(G)|=n,\qquad \mathsf{Sparse}_{\varepsilon}(G),\qquad \mathsf{Free}_{H}(G),
+\]
+there exist disjoint sets \(A,B\subseteq V(G)\) forming a pure pair and satisfying at least one of
+\begin{align*}
+\text{(a)}\quad &|A|\geq\varepsilon n\quad\text{and}\quad |B|\geq\varepsilon n;\\
+\text{(b)}\quad &|A|\geq\varepsilon n\quad\text{and}\quad |B|\geq n^{\varepsilon};\\
+\text{(c)}\quad &|A|\geq n^{\varepsilon}\quad\text{and}\quad |B|\geq n^{\varepsilon}.
+\end{align*}
+The same \(\varepsilon\) occurs in the sparsity hypothesis and in the size bounds; it may depend on \(H\), but precedes the universal quantifiers over \(n\) and \(G\). The sets and the successful alternative may depend on \(G\).
+
+The literal classification question is: for which graphs \(H\) does \(\mathcal P(H)\) hold? The additional supplied sentence, ``Must at least one of these three size conditions always hold?'', does not specify an additional quantifier over \(H\). It also leaves unresolved whether the intended task instead classifies \(H\) separately for each of (a), (b), and (c). No such alternative interpretation is adopted here.
+\subsection{Short English statement}
+Classify the graphs \(H\) for which one positive constant \(\varepsilon\) guarantees a complete or anticomplete pair in every \(\varepsilon\)-sparse, \(H\)-free graph on \(n>1\) vertices, with one of the three stated size bounds. The meanings of sparsity, forbidden copies, graph conventions, and the relationship between the three classification questions require source verification.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30004049\), source problem code \texttt{catalogue entry}, title: Strong Erdős--Hajnal Phenomena in Sparse \(H\)-Free Graphs. The supplied record lists proposed year 2019 and identifies no proposer.
+\item Supplied report citation: Graph Theory (2020), Oberwolfach Reports, pp.~5--63, DOI \texttt{10.4171/owr/2019/1}. \url{https://doi.org/10.4171/owr/2019/1}. The literature list also labels this source Oberwolfach Report 1/2019; the apparent year discrepancy is unresolved.
+\item Supplied literature reference: Pure pairs III. \url{https://doi.org/10.1002/jgt.22556}.
+\item Supplied literature reference: Pure pairs VIII, Excluding a sparse graph. \url{https://arxiv.org/abs/2201.04062}.
+\item Literature assessment date, copied exactly: \texttt{2026-08-22}. The supplied dated curation labels the problem open and reports that important classes and variants are solved but no general classification of \(H\) is known. This is supplied dated curation, not an independently verified assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and describes repairs to notation, typography, duplicate clauses, or omitted definitions. These are supplied editorial assertions; they do not establish mathematical correctness or resolve the missing conventions above. No external source was visited for this draft.
+\end{itemize}
+\end{document}

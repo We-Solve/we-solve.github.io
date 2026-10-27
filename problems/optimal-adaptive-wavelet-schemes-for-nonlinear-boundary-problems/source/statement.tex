@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000805}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Omega\subseteq\R^d\) be a domain, let \(H_0^1(\Omega)\) be the closure of \(C_c^\infty(\Omega)\) in the Sobolev \(H^1\) norm, and let \(H^{-1}(\Omega)=(H_0^1(\Omega))'\). Given a nonlinear map
+\[
+F:H_0^1(\Omega)\longrightarrow H^{-1}(\Omega),
+\]
+the source asks about the homogeneous Dirichlet problem
+\[
+-\Delta u=F(u)\quad\text{in }\Omega,\qquad u=0\quad\text{on }\partial\Omega.
+\]
+Its weak formulation is to find \(u\in H_0^1(\Omega)\) such that
+\[
+\int_{\Omega}\nabla u\cdot\nabla v\,\dd x
+=\langle F(u),v\rangle_{H^{-1},H_0^1}
+\quad\text{for every }v\in H_0^1(\Omega).
+\]
+Can semiorthogonal spline wavelets be used to construct an adaptive scheme that both evaluates the nonlinear terms and solves this problem with asymptotically optimal complexity? Semiorthogonality conventionally means orthogonality between distinct wavelet levels, without requiring orthogonality of all wavelets within a level; the intended inner product and boundary-adapted spline construction are not specified here.
+
+A possible benchmark for approximation efficiency, once a suitable wavelet family \((\psi_\lambda)\) and error norm are fixed, is the best \(N\)-term error
+\[
+\sigma_N(u)=\inf_{\substack{\Lambda\text{ finite},\ |\Lambda|\leq N\\(c_\lambda)_{\lambda\in\Lambda}}}
+\left\|u-\sum_{\lambda\in\Lambda}c_\lambda\psi_\lambda\right\|_{H_0^1(\Omega)}.
+\]
+The source does not specify this benchmark, an operation-count model, admissible overheads, or an error norm, so no particular numerical complexity rate is asserted. It also supplies no hypotheses guaranteeing existence, uniqueness, stability, or computable nonlinear evaluation. The question is therefore a request for an adaptive construction under suitable explicitly identified assumptions, not a theorem claiming solvability for every map \(F\) of the displayed type.
+\subsection{Short English statement}
+Can semiorthogonal spline wavelets give an adaptive solver, including efficient evaluation of \(F(u)\), for the nonlinear homogeneous Dirichlet problem with optimal asymptotic computational cost? The required analytic hypotheses and meaning of optimal cost are not specified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30000805\), source code catalogue entry, ``Optimal Adaptive Wavelet Schemes for Nonlinear Boundary Problems.'' No individual proposer is supplied.
+\item \emph{Wavelet and Multiscale Methods} (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/36, pp. 2079--2172: \url{https://doi.org/10.4171/owr/2007/36}. This is the sole supplied external reference.
+\item The literature triage checked 2026-08-21 calls this application-driven and reports no identified general theorem answering the stated question. The open label and that literature assessment have not been independently verified.
+\end{itemize}
+\end{document}

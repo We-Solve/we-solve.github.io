@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2307038}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $f$ have a Taylor expansion $f(z)=\sum_{k\ge0}a_kz^k$ at zero. The source prints the matrix definition
+\[
+H_p^{(n)}=(a_{ij})_{1\le i,j\le p+1},\qquad
+a_{ij}=a_{n+1+j-2}=a_{n+j-1}.
+\]
+Literally, the entries do not depend on $i$, so all rows coincide and the matrices have rank at most one. This cannot be silently identified with the usual Hankel construction. A natural possible correction is $a_{ij}=a_{n+i+j-2}$, whose entries are constant along anti-diagonals, but the intended formula must be checked in the source.
+
+The source calls the condition $\det H_p^{(n)}\ge0$ for all $n,p$ the Pick--Nevanlinna-class hypothesis, reports that poles are simple and positive real, and orders them by increasing modulus as $\lambda_1,\lambda_2,\ldots$. It then displays nonnegative eigenvalues
+\[
+\varepsilon_1^{(n)}\ge\varepsilon_2^{(n)}\ge\cdots\ge\varepsilon_p^{(n)}\ge0
+\]
+and the asserted relation
+\[
+\limsup_{n\to\infty}(\varepsilon_j^{(n)})^{1/n}=\frac1{\lambda_j}.
+\]
+There is an additional size mismatch: the printed matrix is $(p+1)$ by $(p+1)$ but only $p$ eigenvalues are listed. The dependence on $p$, the fixed versus varying matrix-size convention in this limit, and the range of $j$ are not stated.
+
+Real symmetric or Hermitian hypotheses are also missing, although the displayed eigenvalue ordering and determinant inequalities require real quantities and the nonnegative spectrum requires suitable positivity assumptions. The source's class label and positive-real-pole claim should be checked against the exact intended subclass and analytic-continuation assumptions; a Taylor germ alone does not specify global poles or a pole enumeration. The displayed reciprocal is retained as $1/\lambda_j$, not silently changed to a reciprocal modulus outside that claimed positive-real setting.
+
+Bouteiller's research request is: what analogous information about eigenvalues can be obtained under less restrictive conditions? This asks for a generalization of the stated eigenvalue--pole relation. It supplies neither a particular weakened class nor a candidate conclusion, and the defective baseline must first be restored. No theorem for arbitrary analytic functions, complex coefficients, or nonreal poles is inferred. The supplied triage labels the item open as of the 2018 edition and reports no definitive later resolution, without independent verification here.
+\subsection{Short English statement}
+How do asymptotic eigenvalues of coefficient Hankel matrices reflect poles when the source's positivity conditions are weakened? The printed matrix formula is independent of its row index and the eigenvalue count does not match its size. Those errors, along with missing positivity and continuation hypotheses, must be resolved before the proposed generalization has a precise baseline theorem.
+\subsection{Sources}
+\begin{itemize}
+\item Local source registry: \url{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID $2307038$, source code catalogue entry, including the supplied OPEN-TRIAGE assessment. Dataset attribution: Ulam AI and UnsolvedMath Contributors; original-source attribution and rights are retained.
+\item Hayman, \emph{Research Problems in Function Theory}, source-list date 2018, Problem 7.38, attributed to R. Bouteiller: \url{https://arxiv.org/abs/1809.07200}. The metadata reports source-TeX extraction and July 29, 2026 access, with current-status and rights review flags.
+\item The statement supplies no separate authoritative citation or proof for the claimed Pick--Nevanlinna pole and eigenvalue relation. Its printed formulas are retained with explicit transcription and hypothesis issues. No linked source was inspected for this draft.
+\end{itemize}
+\end{document}

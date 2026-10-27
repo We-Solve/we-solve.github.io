@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003131}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer \(k\), let \(S_k\) denote the permutations of \(\{1,\ldots,k\}\). A sequence \(x=(x_1,\ldots,x_n)\) of real numbers contains \(\pi\in S_k\) as a subsequence pattern if there exist indices \(1\le i_1<\cdots<i_k\le n\) such that, for all \(a,b\in\{1,\ldots,k\}\),
+\[
+ x_{i_a}<x_{i_b}\quad\Longleftrightarrow\quad \pi(a)<\pi(b).
+\]
+The sequence is \(k\)-universal if it contains every \(\pi\in S_k\) as a subsequence pattern.
+
+The supplied question describes \(f(k)\) as the minimum length for which a uniformly random sequence of reals is \(k\)-universal with high probability, and asks whether
+\[
+ f(k)\le 1000k^2.
+\]
+This description does not specify a probability distribution on the real sequences, the limiting parameter for high probability, or a failure-probability threshold defining the minimum. Consequently, it does not determine a precise function \(f\).
+
+A precise candidate interpretation, conditional on using uniform relative order and taking high probability to mean probability tending to one as \(k\to\infty\), is the following question. For each positive integer \(k\), let \(\sigma_k\) be uniformly distributed in \(S_{1000k^2}\). Is it true that
+\[
+ \lim_{k\to\infty}\Pr\bigl(\sigma_k\text{ is }k\text{-universal}\bigr)=1?
+\]
+Uniform relative order also arises from independent, identically distributed samples from an atomless probability distribution on \(\R\). These sampling and asymptotic conventions are an explicit candidate interpretation, not hypotheses specified in the source. The displayed limit does not itself define the source's minimum \(f(k)\); confirmation of the intended formulation is required.
+\subsection{Short English statement}
+A sequence is \(k\)-universal when its subsequences realize every relative ordering of \(k\) distinct entries. The supplied question asks whether length \(1000k^2\) suffices with high probability. A precise candidate uses a uniform random permutation and lets \(k\to\infty\), but the source leaves the probability model and the definition of the minimum \(f(k)\) unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(30003131\), title \emph{Quadratic-Length Universal Random Permutations}, source problem code \texttt{catalogue entry}, collection \emph{Oberwolfach Reports Open Problems}. The record supplies proposed year 2016 and names no proposer.
+\item Supplied report citation: \emph{Combinatorics and Probability (2017)}, Oberwolfach Reports, pp.~1189--1257, DOI \texttt{10.4171/owr/2016/22}. \url{https://doi.org/10.4171/owr/2016/22}. The supplied background describes these reports as records of mathematical workshops and their open-problem discussions. The relationship between the citation's year 2017 and the record's proposed year 2016 requires checking.
+\item He and Kwan, \emph{Universality of Random Permutations}: \url{https://arxiv.org/abs/1911.12878}.
+\item He and Kwan, supplied label \emph{Published Version}: \url{https://doi.org/10.1112/blms.12345}.
+\item Supplied literature assessment, checked \texttt{2026-08-21}: the record labels the conjecture open and describes the best theorem as giving \(k\)-universality at random length \(O(k^2\log\log k)\), leaving the quadratic threshold unresolved. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; the status, cited claims, and supporting references require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and reports manual semantic, typographic, and LaTeX review asserting that the clean statement is self-contained and preserves the mathematical target. These are supplied review claims; they do not resolve the probability-model and minimum-definition issues identified here.
+\end{itemize}
+\end{document}

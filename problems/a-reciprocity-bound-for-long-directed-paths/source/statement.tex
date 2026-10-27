@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000952}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(D=(V,A)\) be a finite simple loopless digraph, allowing two opposite arcs between a pair of vertices but no repeated arc. Call it Eulerian here when \(d_D^+(v)=d_D^-(v)\) for every vertex; the source does not specify an additional connectivity convention. Set
+\[
+ d=|A|/|V|,
+ \qquad \ell(D)=\max\{\text{number of arcs in a vertex-simple directed path in }D\}.
+\]
+Thus \(d\) is average outdegree; if ``average degree'' instead means average total degree, it is \(2d\), which changes only the absolute constant in the source's asymptotic question. Nonempty vertex sets are understood. The question, attributed to Jacques Verstraete, is whether there is an absolute \(c>0\) such that every Eulerian digraph in the intended class satisfies
+\[
+ \ell(D)\ge cd.
+\]
+The source describes this as a special case of a Bollob\'as--Scott conjecture on weighted directed paths and says an \(\Omega(\sqrt d)\) bound is not difficult. No weighted formulation is supplied. The simple-loopless convention matters: unrestricted parallel arcs can raise average degree without increasing vertex-simple path length.
+
+The supplied aid's structural bound does not require the Eulerian condition. Let \(b(D)\) be the number of unordered pairs supporting both opposite arcs. If \(|A|>0\), put
+\[
+ \rho(D)=2b(D)/|A|\in[0,1].
+\]
+It reports
+\[
+ \ell(D)\ge\frac{2b(D)}{|V|}=\rho(D)d.
+\]
+The stated input is the Erd\H{o}s--Gallai undirected path theorem applied to the reciprocal graph, whose edges are those unordered pairs; any undirected path in that graph can be directed in either direction in \(D\). For \(|A|=0\), \(\ell(D)=d=0\), and no division defining \(\rho\) is needed.
+
+Consequently an Eulerian family with \(\rho(D)\ge\rho_0>0\) satisfies the desired bound with \(c=\rho_0\), and every bidirected case satisfies \(\ell(D)\ge d\). Any asymptotic counterexample sequence with \(d\to\infty\) and \(\ell(D)/d\to0\) must have \(\rho(D)\to0\), so only \(o(|A|)\) arcs lie in directed two-cycles. This is an asymptotic reciprocal-density restriction; deleting those arcs need not preserve the Eulerian condition and does not itself construct an oriented Eulerian counterexample.
+
+The aid reports that the general linear question remains open and that the best general bound it located is of order \(d/(\log d+1)\), in the relevant large-degree regime. It provides no full citation or logarithm convention for that assessment. These are dated research-aid claims, not an independently checked current literature conclusion.
+\subsection{Short English statement}
+The source asks for a directed simple path whose length is a fixed fraction of average degree in every Eulerian digraph. The supplied aid proves a reported bound in terms of reciprocal arcs, showing that a possible asymptotic obstruction must have a vanishing fraction of arcs in directed two-cycles.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000952\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[76]}, tag \texttt{question}.
+\item AIM workshop ``Graph Ramsey theory,'' ``Directed paths in Eulerian digraphs,'' source item 30, Jacques Verstraete: \url{https://www.overleaf.com/read/mnvcscjjysvg}. Statement status \texttt{exact}.
+\item Source reference for the Bollob\'as--Scott weighted-path context: \emph{A proof of a conjecture of Bondy concerning paths in weighted digraphs}, J. Combin. Theory Ser. B 66 (1996), no. 2, pp. 283--292. The full weighted conjecture is not supplied.
+\item Erd\H{o}s--Gallai undirected path theorem, named by the aid without a full citation. The reported \(d/(\log d+1)\) general bound has no authoritative bibliographic citation in the record. No original remarks or literature field are supplied.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

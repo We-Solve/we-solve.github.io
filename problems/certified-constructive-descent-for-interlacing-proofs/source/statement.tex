@@ -1,0 +1,46 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000545}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Original request.} Make existence proofs for Kadison--Singer (KS) constructive, particularly proofs using stable polynomials and interlacers. The workshop note supplies no specific witness problem, quantitative constants, input encoding, randomness requirement or runtime target. A real polynomial is stable when it has no zero with all variables in the open upper half-plane; interlacing methods compare roots of associated real-rooted polynomials. These terms identify a proof framework, not a complete algorithmic specification.
+
+\textbf{Attached unreviewed interval-descent claim.} Consider a finite rooted interlacing tree: node polynomials are real rooted of a common degree with positive leading coefficients, each internal polynomial is an appropriate positive convex combination of its children, and the children have a common interlacer. Write $r_v$ for the largest root at node $v$. The needed descent property is that some child $c$ has $r_c\le r_v$.
+
+Suppose every child has a certified root interval $[L_c,U_c]$ containing $r_c$. At each visited node choose a child minimizing $U_c$. With $\eta_v=\max_c(U_c-L_c)$ at that node, the aid's additive-width bound is represented by
+\[r_{\mathrm{leaf}}\le r_{\mathrm{root}}+\sum_{v\text{ on the chosen descent}}\eta_v.\]
+Thus depth at most $h$ and child widths at most $\eta$ give additive loss at most $h\eta$. The width control concerns children and requires the actual interlacing/parent-compatibility property; arbitrary parent labels are insufficient.
+
+The aid additionally claims that, for every deterministic local selector receiving only fixed width-$\eta$ child intervals, there is a binary degree-one interlacing tree of depth $h$ on which its additive loss is at least $h\eta/2$. This lower bound is expressly in that restricted local interval-information model. It does not rule out inspecting exact polynomial coefficients, refining intervals, using additional global information, or obtaining a polynomial-time algorithm for KS by another method. It shows the upper bound's linear dependence on depth is necessary up to a factor of two within the stated model.
+
+The aid mentions a ``parent-label obstruction'' without its precise statement. It also reports a greedy discrepancy bound $\alpha$ for pairwise commuting rank-one tight frames. In the standard sign-discrepancy convention this would concern commuting $A_i=v_iv_i^*$ with $\sum_iA_i=I$, $\|v_i\|^2\le\alpha$, and a signed operator sum bounded in norm by $\alpha$; the summary does not specify its normalization or algorithm, so this is an explicit interpretation requiring review, not a silently fixed theorem. The interval certification cost and a complete constructive KS procedure are not supplied. All claims require independent review.
+\subsection{Short English statement}
+The source asks for constructive Kadison--Singer proofs without defining a computational target. The aid gives certified approximate interlacing descent and a matching linear-depth obstruction for a restricted interval-only selector. It does not provide a complete efficient KS algorithm or a general computational lower bound.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20000545, source code catalogue entry; \texttt{aim-analysis-notes.json}, notes[76], tag \texttt{question}.
+\item AIM workshop \emph{Beyond Kadison-Singer: paving and consequences}, source item b4, supplied Google document: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. No individual attribution or original bibliography is supplied; no document was visited.
+\item Attached machine-generated research attempt 1: result \texttt{partial\_result}, status \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low. It is not peer reviewed and requires independent verification before citation. No external references accompany the interval theorem, information-model bound or commuting-frame claim.
+\end{itemize}
+\end{document}

@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006575}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record poses a foundational construction problem, motivated particularly by infinite-dimensional quantum information theory. Its requirements can be expressed as follows, but the admissible objects and morphisms remain part of the problem.
+
+A measurable space is a pair \((X,\Sigma_X)\), where \(\Sigma_X\) is a sigma-algebra of subsets of \(X\). A Markov kernel \(K:(X,\Sigma_X)\to(Y,\Sigma_Y)\) assigns to each \(x\in X\) a probability measure \(K(x,\cdot)\) on \(\Sigma_Y\), and for every \(B\in\Sigma_Y\), the function \(x\mapsto K(x,B)\) is measurable. Kernel composition and identities are
+\[
+ (L\circ K)(x,C)=\int_Y L(y,C)\,K(x,\dd y),
+ \qquad \operatorname{id}_X(x,B)=\mathbf{1}_B(x).
+\]
+Let \(\mathsf{Mark}_{\mathcal S}\) denote the category of such kernels between a suitable class \(\mathcal S\) of measurable spaces. The source calls these spaces ``nice'' but does not specify \(\mathcal S\).
+
+\textbf{Construction problem.} Define a category \(\mathsf Q\) whose objects are quantum measurable spaces and whose morphisms are quantum channels, together with an appropriate notion of observable algebra \(A(Q)\) for each object \(Q\). Classical systems should be identifiable as those quantum systems whose observable algebras are commutative. If \(\mathsf Q_{\mathrm{comm}}\) denotes the resulting subcategory of commutative systems and their channels, require an equivalence of categories
+\[
+ \mathsf{Mark}_{\mathcal S}\simeq\mathsf Q_{\mathrm{comm}}.
+\]
+Writing \(J(Y,\Sigma_Y)\) for the classical quantum object corresponding to a measurable space under this equivalence, require also that positive operator-valued measurements with outcomes in \((Y,\Sigma_Y)\) correspond to quantum-to-classical channels
+\[
+ Q\longrightarrow J(Y,\Sigma_Y).
+\]
+The definition of measurements for general objects \(Q\), and the precise meaning and compatibility properties of this correspondence, must be specified by the sought framework.
+
+For clarity, in a Hilbert-space realization a normalized positive operator-valued measure with outcome space \((Y,\Sigma_Y)\) is a map \(E:\Sigma_Y\to\mathcal B(H)\) satisfying
+\[
+ E(B)\geq 0,\qquad E(\varnothing)=0,\qquad E(Y)=I_H,
+\]
+and, for every pairwise disjoint sequence \((B_n)_{n\geq1}\subseteq\Sigma_Y\) and every \(u,v\in H\),
+\[
+ \left\langle u,E\!\left(\bigcup_{n\geq1}B_n\right)v\right\rangle
+ =\sum_{n\geq1}\langle u,E(B_n)v\rangle.
+\]
+This gives the conventional meaning of a POVM in such a realization; it does not select the quantum objects or channel class for the proposed category.
+
+\textbf{Unresolved source qualifications.} The supplied excerpt says that arbitrary \(C^*\)-algebra models do not give the desired measurement correspondence without restrictions, but it does not identify those restrictions. It also discusses von Neumann algebras as a familiar setting for noncommutative measure theory while questioning whether they provide a satisfactory notion of noncommutative measurable space. These are supplied motivations, not a proved impossibility assertion here. The excerpt ends during a further bullet beginning ``A categorical approach to qu'', so additional intended requirements cannot be recovered from it. Consequently, the displayed requirements are a formulation of the supplied construction objective, not a fully specified existence theorem.
+\subsection{Short English statement}
+Construct a notion of quantum measurable space and quantum channel that recovers suitable measurable spaces and Markov kernels for commutative systems, and identifies POVMs with channels from quantum systems to classical outcome systems. The intended setting includes infinite-dimensional quantum information. The source leaves the meaning of ``suitable'', the admissible quantum objects and channels, and the precise measurement correspondence unresolved; its original excerpt is also truncated.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30006575\), title \emph{Foundations for Quantum Measurable Spaces}, source problem code \texttt{catalogue entry}, in the collection \emph{Oberwolfach Reports Open Problems}. The record gives proposed year 2026; no individual proposer is supplied.
+\item Supplied source citation: \emph{Noncommutative Harmonic Analysis and Quantum Information} (2026), Oberwolfach Reports, pp.\ 217--275, DOI \texttt{10.4171/owr/2026/4}. Supplied source URL: \url{https://doi.org/10.4171/owr/2026/4}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature-source entry: ``Oberwolfach Report 4/2026'', \url{https://doi.org/10.4171/owr/2026/4}. Literature checked at: \texttt{2026-08-22}. This date and the accompanying assessment are supplied dated curation, not independently verified. The supplied assessment labels the problem open and says that existing von Neumann-algebraic formalisms do not resolve the stated categorical and measurement requirements. The background explicitly calls for independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and states that it was reconstructed and checked against the official Oberwolfach report. These are supplied verification claims; this draft does not independently verify them or the supplied open status.
+\end{itemize}
+\end{document}

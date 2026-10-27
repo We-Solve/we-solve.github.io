@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004382}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks for approximation and integration from \(n\) measurements: determine the decay rate of the minimal error \(e_n\), characterize optimal information, and quantify the error incurred by random information relative to optimal information. It does not specify the input class, target operator, admissible measurements, error criterion, or probability law. Consequently, it does not determine a unique mathematical problem.
+
+A conditional formulation under a worst-case norm-error interpretation is as follows. Let \(F\) be a nonempty input class, let \(G\) be a normed space, and let \(S:F\to G\) be the approximation or integration operator. For each integer \(n\geq 1\), fix a nonempty class \(\mathcal I_n\) of admissible information maps \(N:F\to Y^n\), where \(Y\) is the measurement-value set. For every \(N\in\mathcal I_n\), fix a nonempty class \(\mathcal A(N)\) of admissible reconstruction maps \(\varphi:N(F)\to G\). Define
+\[
+ e(S,N;F)=\inf_{\varphi\in\mathcal A(N)}\sup_{f\in F}\|S(f)-\varphi(N(f))\|_G,
+ \qquad
+ e_n=\inf_{N\in\mathcal I_n}e(S,N;F).
+\]
+These quantities may take the value \(+\infty\). An information map \(N\in\mathcal I_n\) is optimal in this formulation if \(e(S,N;F)=e_n\); existence of such a map is not assumed.
+
+With these data fixed, the requested tasks are to determine the asymptotic behavior of \(e_n\) as \(n\to\infty\), characterize information attaining or asymptotically approaching the optimal error, and compare the error of random information with \(e_n\). To formulate the last task, one must additionally specify a probability space, a measurable structure on \(\mathcal I_n\), and a random information map \(\mathbf N_n\) taking values in \(\mathcal I_n\), with a measurable induced error. Possible comparison quantities include
+\[
+ \mathbb E\bigl[e(S,\mathbf N_n;F)\bigr]
+ \quad\text{or}\quad
+ \mathbb P\bigl(e(S,\mathbf N_n;F)>t\bigr),\qquad t\geq 0,
+\]
+when these expressions are defined. The source does not select either criterion, specify a comparison factor, or assert that random information must strictly increase error.
+
+This worst-case formulation is an explanatory template, not a recovered hypothesis of the source. In particular, taking a worst-case error after fixing random information differs from evaluating a randomized algorithm by first taking its expected error for each input. The intended choice is unresolved. The input spaces and norms, integration domain and measure, approximation target, measurement restrictions, adaptivity, admissible reconstruction rules, and dependence on dimension or regularity must be supplied before a specific rate or optimality statement can be posed.
+\subsection{Short English statement}
+The problem asks how accurately approximation and integration can be performed using \(n\) measurements, which measurements are optimal, and how random measurements compare. The supplied record leaves the mathematical setting and error criterion unspecified, so the displayed definitions give only a conditional worst-case formulation requiring human review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004382\), title ``Random Versus Optimal Information for Approximation and Integration,'' source problem code \texttt{catalogue entry}, in the collection ``Oberwolfach Reports Open Problems.'' No individual proposer is supplied; the proposed year is recorded as 2020.
+\item Supplied report citation: \emph{New Perspectives and Computational Challenges in High Dimensions} (2021), Oberwolfach Reports, pp.~377--416, DOI \texttt{10.4171/owr/2020/6}. Supplied source and literature link: \url{https://doi.org/10.4171/owr/2020/6}. The background attributes the record to workshop open-problem discussions documented in Oberwolfach Reports. No exact problem page or speaker attribution is supplied.
+\item The supplied literature assessment was checked on \texttt{2026-08-22} and labels the problem ``open.'' It describes broad questions about optimal information rates, forms of optimal information, and random information quality, without a theorem resolving the general problem. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and says mathematical content was preserved while notation, typography, omitted definitions, or duplicate clauses were repaired for self-contained publication. These are supplied editorial labels and claims, not independent mathematical verification of this draft.
+\end{itemize}
+\end{document}

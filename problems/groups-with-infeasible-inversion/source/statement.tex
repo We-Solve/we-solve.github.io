@@ -1,0 +1,48 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800083}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a group $G$, element inversion is the map $g\mapsto g^{-1}$ characterized by $gg^{-1}=g^{-1}g=1$. The source asks for groups in which computing this inverse is infeasible under reasonable cryptographic assumptions. An abstract group alone has no computational complexity; element encodings and allowed operations must be part of the construction.
+
+A possible cryptographic framework would use a security-parameterized family of encoded groups, efficient multiplication and identity representation, and a specified sampler for challenge elements. The goal would then be hardness of producing an encoding of $g^{-1}$ from an encoding of a sampled $g$, under an explicit assumption. The source does not prescribe this exact framework, sampling distribution, success criterion, or classical/quantum adversary model; nor does it state whether the groups are finite or whether trapdoors are allowed.
+
+A relevant model constraint is that, if a suitable positive multiple $M$ of an element's order is efficiently known, then
+\[
+ g^{-1}=g^{M-1},
+\]
+which can be computed by repeated squaring in a number of multiplications polynomial in $\log M$. Thus an order/representation convention is essential to any proposed hard-inversion construction; no universal impossibility conclusion is asserted. Hardness of discrete logarithms, undoing a group action, or inverting a different one-way function is not silently substituted for element inversion.
+\subsection{Short English statement}
+Construct an effectively usable encoded group whose element-inversion problem is provably hard from a stated cryptographic assumption. The encoding, operations, input distribution, and hardness notion are missing from the source.
+
+The supplied summary reports no verified construction and says common group representations have easy inversion. It mentions infeasible-inversion and one-way-action themes without an exact theorem; those notions are not equated here. The OPEN-TRIAGE label and 2006 workshop question are retained with current primary-literature audit required.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 8800083, source code catalogue entry, ``Groups with infeasible inversion,'' proposed by Ronald Rivest. Dataset curation and metadata: Ulam AI and UnsolvedMath Contributors, CC BY 4.0.
+\item IPAM, \emph{Workshop on Number Theory and Cryptography --- Open Problems} (2006), Attachment 6243, legacy PPT logical slide 17, schedule locator \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}; pdf-and-legacy-ppt visual-audit extraction, accessed 2026-07-29.
+\item The supplied summary mentions Rivest and collaborators, ``signed/unsigned'' ideas, and one-way group actions without a complete primary citation or exact infeasible-inversion result.
+\item Source provenance reports inspection of 17 PDFs and two legacy PPT decks among 19 surviving attachments, excluding repetitions and solved definitions; this is supplied provenance, not a new inspection claimed here.
+\item Current primary-literature status audit and redistribution terms NEEDS\_REVIEW for the publicly accessible author/publisher copy, separately from the dataset licence.
+\end{itemize}
+\end{document}

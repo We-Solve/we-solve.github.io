@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001901}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Knieper's Question \(6.5.1\) asks whether
+\[
+ \lim_{T\to\infty}\frac{\log N(T)}T=0
+ \quad\Longrightarrow\quad
+ \exists C>0\quad N(T)\leq CT^2\quad\text{for all sufficiently large }T.
+\]
+The source says the torus case is positive and suggests a Finsler analogue. The aid reconstructs \(N(T)\) as a count of closed flat geodesic classes of length at most \(T\): the PDF omits the length bound, and indispensable preceding sentences were assigned to another record. The exact equivalence relation on classes, metric hypotheses and prime-versus-iterate convention are not available here. Counting individual translated geodesics on a flat torus would not be a finite class count, so those choices cannot be suppressed.
+
+The aid's conditional counting statements can be made independently precise. Suppose a collection of oriented length-realizing closed classes admits unique primitive roots, contains every positive iterate, has shortest positive length \(\ell_0>0\), and iteration multiplies the counted length by its integer order. If \(P(T)\) counts primitive classes and \(A(T)\) counts all iterates, then
+\[
+ A(T)=\sum_{n\geq1}P(T/n).
+\]
+The sum is finite. Under these assumptions \(P(T)=O(T^2)\) if and only if \(A(T)=O(T^2)\), with the upper transfer involving \(\sum n^{-2}=\zeta(2)\); their subexponential growth properties are also equivalent. This identity is not asserted without the unique-root and length-scaling conventions.
+
+For the two-period criterion, let \(\omega_1,\omega_2\) be closed one-forms with integral periods on a compact Finsler manifold, and let
+\[
+ B_j=\sup_{F(v)=1}|\omega_j(v)|<\infty.
+\]
+For a chosen collection \(\mathcal C\) of oriented free-homotopy classes with length-realizing representatives, assume the map
+\[
+ [\gamma]\longmapsto\left(\int_\gamma\omega_1,\int_\gamma\omega_2\right)\in\Z^2
+\]
+has fibers of cardinality at most \(q\). Then its length-bounded count satisfies
+\[
+ \#\{c\in\mathcal C:\ell(c)\leq T\}
+ \leq q(2\lfloor B_1T\rfloor+1)(2\lfloor B_2T\rfloor+1).
+\]
+For every compact Finsler two-torus, two integral cohomology generators identify oriented free-homotopy classes with \(\Z^2\), so \(q=1\); the estimate applies in particular to any specified subcollection of flat classes. This is a statement about classes, not a bound on the number of all parametrized geodesics.
+
+For a translation-invariant Finsler metric on \(\R^2/\Lambda\), let \(B_F=\{v:F(v)\leq1\}\), using the forward norm if it is asymmetric. Nonzero oriented classes correspond to \(v\in\Lambda\setminus\{0\}\), with length \(F(v)\). The aid gives the benchmarks
+\[
+ A(T)\sim\frac{\operatorname{Area}(B_F)}{\operatorname{covol}(\Lambda)}T^2,
+ \qquad
+ P(T)\sim\frac{\operatorname{Area}(B_F)}{\zeta(2)\operatorname{covol}(\Lambda)}T^2.
+\]
+No unoriented or symmetry factor is inserted. These special and conditional results do not resolve Knieper's general implication.
+
+The extraction then spills into Section \(7\), concerning manifolds without conjugate points. Its separate background theorems are: a Riemannian torus without conjugate points is flat; and a complete Riemannian plane without conjugate points satisfies, for every \(p\),
+\[
+ \liminf_{r\to\infty}\frac{\operatorname{Area}B(p,r)}{\pi r^2}\geq1,
+ \qquad\text{with equality if and only if the metric is flat.}
+\]
+The text contrasts the universal-cover/unique-geodesic setting with the loss of Jacobi-length convexity, notes a false Lorentzian torus analogue, and ends before stating another conjecture motivated by the plane result. These are neighboring exposition, not extra hypotheses or a missing solution to the counting question.
+\subsection{Short English statement}
+The intended question asks whether subexponential length-bounded growth of closed flat-geodesic classes must be quadratic. The aid gives a bounded-period-fiber criterion, proves the torus class-count case, and supplies exact oriented flat-Finsler-torus asymptotics. Missing class conventions and the neighboring rigidity exposition are kept explicit.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001901\), source code \texttt{catalogue entry}; canonical collection \texttt{aim-geometry-notes.json}, notes[238]. Source item \(6.5\), actual question \(6.5.1\), attributed to Knieper. The aid says indispensable preceding sentences were assigned to \texttt{AIM-GEOMETRY-0238}.
+\item AIM workshop ``Geodesics,'' Burns--Matveev report ``Open Problems and Questions about Geodesics,'' Section \(6.5\), ``Closed geodesics'': \url{https://aimath.org/pastworkshops/geodesicsproblems.pdf}. The source itself is reported to omit ``of length at most \(T\).'' Section \(7\) and the page header are spillover. No PDF was opened in this session.
+\item Spillover Theorem \(7.0.2\): E. Hopf [Hopf1948] in dimension two, Burago--Ivanov [Bur-Iva1994] in general; Lorentzian counterexamples [Bav-Mou2013]. Theorem \(7.0.3\): Bangert--Emmerich [Ban-Emm2013], improving [Bur-Kni1991] and [Ban-Emm2011]. Full entries are not supplied; ``recent'' is the source's historical wording.
+\item Supplied research attempt \(1\), \texttt{partial\_result}, run status ``open,'' rigor label ``proved,'' novelty confidence ``low.'' Registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, updated 14 August 2026. Original remarks and literature fields are empty; no proposer-field value or proposed year is supplied.
+\end{itemize}
+\end{document}

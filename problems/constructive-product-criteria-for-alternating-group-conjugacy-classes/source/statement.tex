@@ -1,0 +1,82 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006347}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) be a positive integer and let \(G=A_n=\operatorname{Alt}(n)\) be the group of even permutations of \(\{1,\ldots,n\}\). A conjugacy class means a conjugacy class in \(G\), rather than in the full symmetric group. For subsets \(X,Y\subseteq G\), define
+\[
+XY=\{xy:x\in X,\ y\in Y\}.
+\]
+A subset \(S\subseteq G\) is normal if \(gSg^{-1}=S\) for every \(g\in G\); equivalently, it is a union of conjugacy classes. For a normal subset \(T\), let
+\[
+k_G(T)=\bigl|\{D:D\text{ is a conjugacy class of }G,\ D\subseteq T\}\bigr|.
+\]
+In particular, \(k_G(\varnothing)=0\).
+
+\textbf{Constructive class-product problem.} Given three conjugacy classes \(C_1,C_2,C_3\subseteq G\), determine constructively whether
+\[
+C_3\subseteq C_1C_2.
+\]
+Since \(C_1C_2\) is invariant under conjugation, this is equivalent to the existence of elements
+\[
+\alpha_i\in C_i\quad(i=1,2,3),\qquad \alpha_1\alpha_2=\alpha_3.
+\]
+The requested constructive approach should decide this containment and produce such elements when it holds. The supplied passage does not specify a running-time requirement, an input representation, or a precise improvement over unrestricted finite search. If cycle structures are used to describe the input, any additional information needed to distinguish conjugacy classes that split in \(A_n\) must also be retained.
+
+\textbf{Proposed quantitative criteria.} Determine whether effective sufficient conditions can be established of the following forms, or whether explicit families of counterexamples exist:
+\[
+|C_1|,|C_2|\geq |G|^{1-\delta},\qquad
+|C_3|\geq |G|^{10\delta}
+\quad\Longrightarrow\quad C_3\subseteq C_1C_2,
+\]
+and, more generally, writing
+\[
+\eta_i=\frac{\log |C_i|}{\log |G|},\qquad |C_i|=|G|^{\eta_i}\quad(i=1,2,3),
+\]
+\[
+|\eta_1-\eta_2|+\delta\leq\eta_3
+\leq\eta_1+\eta_2-\delta
+\quad\Longrightarrow\quad C_3\subseteq C_1C_2.
+\]
+Here the logarithmic parametrization applies only when \(|G|>1\). The source proposes a positive parameter \(\delta\), but does not specify its admissible values, its dependence on other parameters, or the degree range for these proposed implications. Thus these displayed implications are targets for effective criteria, not assertions for every \(\delta>0\) and every \(n\). A precise uniform theorem would need to state these quantifiers and any lower bound on \(n\) explicitly.
+
+\textbf{Normal-subset problem.} Determine whether, for every positive integer \(n\), every normal subset \(S\subseteq A_n\), and every conjugacy class \(C\subseteq A_n\),
+\[
+k_{A_n}(SC)\geq k_{A_n}(S).
+\]
+The product \(SC\) is again normal, so both sides count whole conjugacy classes. The empty subset is permitted and gives equality. The passage identifies this question as the alternating-group case of Problem 19.12 of the Kourovka Notebook. It also asks whether any of the proposed assertions can instead be disproved by explicit counterexample families.
+
+\textbf{Source qualifications.} The passage describes constructive proofs of its Theorems 2 and 3, including an algorithm for suitable prescribed cycle structures and, using results attributed to Dvir [3], a factorization \(\alpha_1\alpha_2\alpha_3=g\) for a given \(g\). The hypotheses and full statements of those theorems are not supplied. It says that their constant \(\delta\) and lower bound on \(n\) are unstated but recoverable, likely impractical, and potentially improvable. These contextual claims do not supply missing hypotheses for the proposed stronger criteria. The unrestricted class-product problem and the normal-subset question remain distinct from that reported three-factor result.
+\subsection{Short English statement}
+For three conjugacy classes of an alternating group, seek a constructive test for whether every element of the third class is a product of elements from the first two, together with explicit witnesses when possible. Investigate the two proposed class-size criteria, whose parameter and degree ranges require clarification. Also ask whether multiplying any conjugation-invariant subset by a conjugacy class can ever decrease its number of conjugacy classes. The supplied record labels the stronger questions open; this draft does not independently verify that assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30006347\), title \emph{Constructive Product Criteria for Alternating-Group Conjugacy Classes}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2025 and does not name a proposer.
+\item Supplied report citation: \emph{Computational Group Theory} (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/27, pp. 1389--1450. \url{https://doi.org/10.4171/owr/2025/27}. The supplied background describes these reports as records of mathematical workshops and their open-problem discussions.
+\item Supplied literature source: Dona, \emph{Products of three conjugacy classes in the alternating group}. \url{https://arxiv.org/abs/2505.06012}.
+\item Supplied literature source: \emph{Oberwolfach Report 27/2025}. \url{https://ems.press/content/serial-article-files/51860}.
+\item The extracted passage attributes the normal-subset question to Problem 19.12 of the Kourovka Notebook and invokes Dvir [3] for contextual results. Neither a Notebook edition nor the bibliographic entry for Dvir [3] is supplied.
+\item Literature assessment dated exactly \texttt{2026-08-22}: supplied dated curation, not independently verified. It labels the problem open and reports that the large-class three-factor theorem and its constructive proof are available, while arbitrary-class product criteria and the broader Kourovka normal-subset question remain open. The background expressly calls this dated literature triage and requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

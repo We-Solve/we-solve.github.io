@@ -1,0 +1,85 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800149}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a reduced residue class \(a\) modulo \(11\) and a real number \(x\geq 2\), define
+\[
+\pi(x;11,a)=\#\{p\leq x:p\text{ is prime and }p\equiv a\pmod{11}\}.
+\]
+For an ordered tuple \(\boldsymbol a=(a_1,a_2,a_3,a_4,a_5)\) of distinct reduced residue classes modulo \(11\), define its race set by
+\[
+\mathcal R_{\boldsymbol a}=\{x\geq2:\pi(x;11,a_1)>\pi(x;11,a_2)>\pi(x;11,a_3)>\pi(x;11,a_4)>\pi(x;11,a_5)\}.
+\]
+Its logarithmic density, when the limit exists, is
+\[
+\delta_{11;a_1,a_2,a_3,a_4,a_5}
+=\lim_{X\to\infty}\frac{1}{\log X}
+\int_2^X\mathbf 1_{\mathcal R_{\boldsymbol a}}(t)\,\frac{\mathrm dt}{t}.
+\]
+Thus the ordering is strict, and ties are excluded from this race set. Let
+\[
+R=\{1,3,4,5,9\},\qquad N=\{2,6,7,8,10\},
+\]
+respectively the quadratic residues and quadratic nonresidues among the nonzero classes modulo \(11\).
+
+Assuming GRH and LI as in the supplied source, compute
+\[
+\delta_{11;a_1,a_2,a_3,a_4,a_5}
+\quad\text{for every ordered tuple with }\{a_1,a_2,a_3,a_4,a_5\}=R,
+\]
+and compute the corresponding densities for every ordered tuple whose underlying set is \(N\). Here GRH denotes the generalized Riemann hypothesis for the relevant Dirichlet \(L\)-functions, and LI denotes the linear independence hypothesis over \(\Q\) for the relevant zero ordinates. The supplied record does not state the precise zero family or conventions used in these hypotheses; these must be checked against the cited source before the hypothesis formulation is finalized. The record also does not specify a numerical accuracy or an error-certification requirement.
+
+There are \(5!=120\) orderings for each of \(R\) and \(N\). The source reports that the symmetries of [FeM, Theorem 2] reduce the residue race to the following eight representative densities:
+\[
+\begin{gathered}
+\delta_{11;1,3,4,5,9},\quad
+\delta_{11;1,3,4,9,5},\quad
+\delta_{11;1,3,5,4,9},\quad
+\delta_{11;1,3,5,9,4},\\
+\delta_{11;1,3,9,5,4},\quad
+\delta_{11;1,5,3,4,9},\quad
+\delta_{11;1,5,3,9,4},\quad
+\delta_{11;1,5,9,3,4}.
+\end{gathered}
+\]
+The source further reports that these same values represent all possible densities for the nonresidue race, by the same theorem. Its wording that there are eight distinct values is explicitly qualified by ``presumably'': pairwise distinctness of these representatives is not an established premise of this draft. The record does not supply the symmetry correspondence assigning each ordering to a representative.
+
+The source describes [FeM, Theorem 4] as giving a formula that can in principle be computed to any desired accuracy, involving a four-dimensional integral that exceeded the authors' computational ability at the time. It also cites a cyclic phenomenon observed by Bays and Hudson [BH] as motivation for the calculation, without defining that phenomenon precisely.
+
+The supplied text additionally includes contextual remarks about three-way densities converging to \(1/6\) at rate \(O(1/\log q)\), attributed to Lamzouri [Lam], compared with a stated \(q^{-1/2+o(1)}\) rate of convergence to \(1/2\) in the two-way case. The hypotheses, uniformity, and the antecedent of the accompanying reference to an exhaustive list are absent from the record; these contextual remarks are not additional assertions to be proved here. A further supplied remark mentions numerical Chebotarev prime races in Nathan Ng's thesis, an LMFDB database of Artin \(L\)-function zeros, and Rubinstein's lcalc program integrated into SageMath. It specifies no additional computational target.
+\subsection{Short English statement}
+Assuming the source's GRH and LI hypotheses, compute the logarithmic densities of all strict five-way prime races among the quadratic residues modulo \(11\), and among the quadratic nonresidues. The source supplies eight symmetry representatives covering both races, but only presumes that their values are distinct. The precise hypothesis conventions, numerical accuracy, and symmetry assignments require review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete source record, permanent ID \(800149\), exact source problem code \texttt{catalogue entry}, title ``Comparative Prime Number Theory --- Problem 18.'' The registry labels the problem \texttt{open}; this is a supplied status, not an independently verified literature assessment.
+\item Hamieh, Kadiri, Martin, Ng, \emph{Comparative Prime Number Theory Problem List} (2024), Problem (\#18), \url{https://arxiv.org/abs/2407.03530}. The record attributes the proposal to Hamieh, Kadiri, Martin, Ng and gives the proposed year as 2024. Supplied provenance: accessed 2026-10-16; extraction method \texttt{arxiv\_latex}. This access date is supplied provenance, not a claim of access or independent verification in preparing this draft.
+\item The supplied statement contains attribution lines naming Greg Martin, University of British Columbia, and Nathan Ng, University of Lethbridge. Their placement in the extracted text is preserved as source attribution without inferring an exclusive proposer for the computational problem.
+\item [FeM, Theorem 2]: cited for the symmetries relating the race densities. [FeM, Theorem 4]: cited for a density formula involving a four-dimensional integral, described as computable in principle to arbitrary accuracy. The record does not supply the full bibliographic entry for [FeM].
+\item [BH]: Bays and Hudson, cited for an observed cyclic phenomenon in this race; no full bibliographic entry is supplied.
+\item [Lam]: Lamzouri, cited for the contextual comparison of convergence rates for three-way and two-way race densities; no full bibliographic entry or precise theorem hypotheses are supplied.
+\item [NgPhd]: Nathan Ng's Ph.D. thesis, mentioned for numerical examples of prime number races in Chebotarev's density theorem; no title, date, or full bibliographic entry is supplied.
+\item [LMFDB]: mentioned as a database of zeros of Artin \(L\)-functions. Rubinstein's lcalc program and its integration into SageMath are also mentioned. No URLs or full bibliographic entries for these resources are supplied, and the resource descriptions have not been independently verified.
+\end{itemize}
+\end{document}

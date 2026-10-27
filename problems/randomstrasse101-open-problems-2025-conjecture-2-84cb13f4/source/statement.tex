@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800859}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(M\geq 2\) be an integer and set \(N=2M-1\). Write \([N]=\{1,\ldots,N\}\). For \(A\in\R^{N\times M}\), let \(A_k\) denote its \(k\)-th row, and let \(A_S\) be the submatrix consisting of the rows indexed by \(S\subseteq[N]\). Complements are taken in \([N]\). Assume that every set of \(M\) rows of \(A\) spans \(\R^M\).
+
+The supplied source defines
+\[
+\omega(A)=\min_{\substack{S\subseteq[N]\\ \operatorname{rank}(A_{S^c})<n}}\sigma_M(A_S),
+\]
+but does not define \(n\). Thus its literal definition does not determine a quantity from \(A\) alone. The following formulation is conditional on interpreting \(n=M\), and on interpreting the row norm as the Euclidean norm.
+
+Under these interpretations, define
+\[
+\omega(A):=\min_{\substack{S\subseteq[N]\\ \operatorname{rank}(A_{S^c})<M}}\sigma_M(A_S),
+\qquad
+\|A_k\|_2:=\left(\sum_{j=1}^{M}A_{kj}^{\,2}\right)^{1/2}.
+\]
+Here \(\sigma_M(A_S)\) is the \(M\)-th singular value in nonincreasing order. The spanning assumption implies that the admissible sets are exactly those with \(|S|\geq M\). Consequently, every matrix occurring in this minimum has at least \(M\) rows and has full column rank, so its \(M\)-th singular value is well defined and positive.
+
+\textbf{Conjecture 2, conditional formulation.} There exist constants \(C>0\) and \(\beta\in(0,1)\), independent of \(M\) and \(A\), such that for every integer \(M\geq2\) and every \(A\in\R^{(2M-1)\times M}\) for which every set of \(M\) rows spans \(\R^M\),
+\[
+\omega(A)\leq C\,\beta^M\max_{k\in[2M-1]}\|A_k\|_2.
+\]
+
+The source also states a complement-property characterization of injectivity of a map \(\mathcal A\) by \(\omega(A)>0\), and describes stability as closely connected to the inverse of \(\omega(A)\). The supplied record does not define \(\mathcal A\), its domain, or the stability notion, so these contextual assertions cannot be formulated precisely from this record.
+\subsection{Short English statement}
+Conditionally interpreting the undefined source symbol \(n\) as \(M\) and the row norm as Euclidean, the conjecture asks for universal constants giving an exponentially small upper bound on \(\omega(A)\), relative to the largest row norm, for every real \((2M-1)\times M\) matrix whose every \(M\) rows span \(\R^M\). The registry labels the problem open; that label is supplied curation and has not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(800859\), exact source code \texttt{catalogue entry}, title ``Randomstrasse101 Open Problems (2025) --- Conjecture 2.'' The registry attributes the problem to Bandeira et al., gives proposed year 2026, and labels its status open. Upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Supplied source attribution: Bandeira et al., \emph{Randomstrasse101: Open Problems of 2025} (2026), Conjecture 2, \url{https://arxiv.org/abs/2603.29571}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of independent source access or verification.
+\item The supplied narrative cites the reference label \texttt{[balan2013invertibility]} for the stability connection and attributes the conjecture to that cited work. No complete bibliographic entry or URL for this reference is supplied, so its identity and the attribution require verification.
+\end{itemize}
+\end{document}

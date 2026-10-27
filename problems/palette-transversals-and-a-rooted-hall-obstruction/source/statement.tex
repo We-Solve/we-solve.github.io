@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001051}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The OCR fragment asks whether $\sum_{i=1}^t\delta^+_{G_i}(v)\geq|V|$ for every vertex forces a rainbow directed cycle, but does not supply the full preceding graph conventions. Under the aid's finite list interpretation, take $n\geq2$ vertices and loopless simple directed layers $G_i$ on the same set. An ordered pair may occur in several layers, giving a list of available labels. The load condition is
+\[
+ \sum_i d^+_{G_i}(v)\geq n\qquad(v\in V).
+\]
+A directed cycle is rainbow if its arcs can be assigned distinct available labels. Simplicity within a layer matters: repeated parallel copies of one label must not inflate the load.
+
+For each tail define its active outgoing palette
+\[
+ P(v)=\{i:d^+_{G_i}(v)>0\},\qquad P(X)=\bigcup_{v\in X}P(v).
+\]
+The aid first gives a sufficient condition independent of the numerical load: if the palettes satisfy Hall's condition $|P(X)|\geq|X|$ for every $X\subseteq V$, then a rainbow directed cycle exists. A system of distinct label representatives for all tails allows one corresponding outgoing arc at every vertex; the resulting functional digraph has a cycle with distinct labels.
+
+Consequently a counterexample to the load conjecture must have a deficient palette set. For every inclusion-minimal such $X$, the report gives
+\[
+ |X|\geq3,\qquad |P(X)|=|X|-1.
+\]
+The size assertion uses $d_i^+(v)\leq n-1$, so the load forces at least two active labels at each vertex. For every chosen root $x\in X$, the full palettes on $X\setminus\{x\}$ admit distinct representatives onto all of $P(X)$. But define the internally realizable palettes on $Y=X\setminus\{x\}$ by
+\[
+ P_Y(v)=\{i:\exists w\in Y\text{ with }(v,w)\in E(G_i)\}.
+\]
+These internal palettes must fail Hall's condition; otherwise the same functional selection inside $Y$ would give a forbidden rainbow cycle. Full outgoing labels and labels realizable inside the remaining vertex set cannot be conflated.
+
+The aid further reports the local concentration consequence: every $v\in X$ has some layer $i$ with
+\[
+ d_i^+(v)\geq\left\lceil\frac n{|X|-1}\right\rceil.
+\]
+This is a necessary property of a hypothetical counterexample, not a construction of one.
+
+A separate sufficient balanced-support criterion is obtained by writing
+\[
+ b=\min_v|P(v)|>0,\qquad
+ D=\max_i\#\{v:i\in P(v)\}.
+\]
+If $b\geq D$, incidence counting implies Hall's condition and therefore a rainbow directed cycle. The positive-palette assumption holds under the stated load condition. These palette certificates and obstructions do not resolve all remaining cases of the original conjecture.
+\subsection{Short English statement}
+Distinct outgoing labels for all vertices immediately force a rainbow cycle. The aid uses this to constrain every possible counterexample: a minimal deficient palette set has deficiency exactly one, and its internal palettes fail even though its full palettes can be matched after deleting a root. A balanced label-support condition gives a separate sufficient case.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001051$, source code \texttt{catalogue entry}, supplied OCR fragment and research summary.
+\item American Institute of Mathematics, \emph{The Caccetta--Haggkvist conjecture}, source-item label 6.1, supplied URL \url{https://aimath.org/WWN/caccetta/caccetta.pdf}; canonical local record \texttt{aim-combinatorics-notes.json}, \texttt{notes[175]}. No PDF was retrieved.
+\item The original literature field is empty. No full authoritative bibliographic reference for the reconstructed list conventions, palette-transversal lemma or counterexample constraints is supplied.
+\item Research attempt 1: partial result; problem open at the recorded run, registry status partially solved; supplied rigor label ``proved'', novelty confidence ``low''. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

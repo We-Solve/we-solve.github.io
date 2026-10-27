@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002465}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(M\) be a compact connected Riemannian manifold without boundary and \(f\) a smooth vector field with flow \(\phi^t\). Connectedness and absence of boundary state the standard framework of the aid; the original says only compact manifold. Set
+\[
+ L_f(x,v)=\tfrac12\|v-f(x)\|_x^2.
+\]
+\textbf{Source questions (Albert Fathi and the appended Hamilton--Jacobi item).} Characterize the zero-cohomology Aubry set dynamically, and in particular determine whether it contains the flow's chain recurrent set. Also determine when zero is the unique viscosity solution of the displayed stationary Hamilton--Jacobi equation.
+
+Two source defects require explicit separation. The invariant zero-action graph in \(TM\) is \(\{(x,f(x)):x\in M\}\), not generally the tangent zero section. The Legendre dual of \(L_f\) is
+\[
+ H_f^+(x,p)=\tfrac12\|p\|_x^2+p(f(x)),
+\]
+whereas the source prints \(H_f^-(x,p)=\tfrac12\|p\|_x^2-p(f(x))\). The latter is dual to \(L_{-f}\). The cotangent zero section is invariant for these Hamiltonians. Furthermore every constant solves either equation at level zero, so uniqueness must mean modulo constants, or after normalization such as \(u(x_*)=0\).
+
+To distinguish projected and lifted sets, define the time-\(t\) action
+\[
+ A_t(x,y)=\inf_{\gamma(0)=x,\,\gamma(t)=y}
+ \int_0^t L_f(\gamma(s),\dot\gamma(s))\,\mathrm ds,
+\]
+with absolutely continuous curves. At the zero critical value, let
+\[
+ h_f(x,y)=\liminf_{t\to\infty}A_t(x,y),\qquad
+ \mathcal A_f=\{x\in M:h_f(x,x)=0\}.
+\]
+The lifted Aubry set is on the zero-action graph; the dynamical comparison is between its projection \(\mathcal A_f\subseteq M\) and recurrent subsets of \(M\).
+
+For \(T>0\), a returning chain at \(x\) consists of \(x_0=x,x_1,\ldots,x_m=x\), \(m\geq1\), and times \(t_i\geq T\), \(0\leq i<m\). Its jumps are
+\[
+ e_i=d(\phi^{t_i}(x_i),x_{i+1}).
+\]
+Define \(\mathcal R_2(f)\) by requiring, for every \(T>0\) and \(\varepsilon>0\), such a chain with \(\sum_i e_i^2<\varepsilon\). Define strong chain recurrence \(\operatorname{SCR}(f)\) using \(\sum_i e_i<\varepsilon\), and ordinary chain recurrence \(\operatorname{CR}(f)\) using \(\max_i e_i<\varepsilon\), with the same quantifiers and the fixed Riemannian distance.
+
+\textbf{Reported characterization and scope.} The aid reports
+\[
+ \operatorname{SCR}(f)\subseteq\mathcal R_2(f)
+ =\mathcal A_f\subseteq\operatorname{CR}(f).
+\]
+It also reports that all viscosity solutions of \(H_f^+(x,Du)=0\) are constant, equivalently normalized uniqueness, exactly when \(\mathcal R_2(f)=M\). For the literally printed minus Hamiltonian, the corresponding statement must be applied to \(-f\); its sign is not silently identified with the dual of \(L_f\).
+
+Under the published Fathi--Figalli--Rifford Mather-disconnectedness hypotheses, including every smooth \(f\) in dimension at most three according to the aid, it reports the stronger equality
+\[
+ \mathcal R_2(f)=\operatorname{CR}(f).
+\]
+Thus the requested reverse containment is reported in that stated scope. The exact general Mather-disconnectedness hypotheses and full primary references are absent; no unrestricted higher-dimensional reverse inclusion is claimed. Disconnected manifolds require componentwise constants/normalizations, and boundary manifolds require additional flow and variational boundary assumptions.
+\subsection{Short English statement}
+The aid characterizes the projected Aubry set by returning flow chains with arbitrarily small total squared jumps. It preserves the source's tangent/cotangent and Legendre-sign defects, normalizes the uniqueness question, and restricts equality with ordinary chain recurrence to the reported Mather-disconnectedness scope, including smooth dimensions at most three.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002465\), catalogue entry, \texttt{aim-pdes-notes.json}, \texttt{notes[76]}, workshop \emph{New connections between dynamical systems and PDE's}, Problem 1 (Albert Fathi) and appended Problem 2: \url{https://aimath.org/WWN/dynpde/dynpde.pdf}.
+\item Supplied research summary attributes the Mather-disconnectedness results to Fathi, Figalli and Rifford, with no paper title, year or full hypothesis statement supplied. Its squared-chain characterization and normalized uniqueness criterion are machine-generated research claims.
+\item Attempt 1: partial\_result, partially\_solved, rigor ``proved'', low novelty confidence. The aid is not peer reviewed and requires independent verification before citation. The supplied verification says the PDF literally prints the zero-section and minus-sign statements; this draft has not visited it.
+\end{itemize}
+\end{document}

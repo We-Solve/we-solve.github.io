@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002010}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each positive integer \(p\), let \(\lambda=(\lambda_1,\ldots,\lambda_p)\in[0,\infty)^p\). The supplied observation model consists of independent random variables satisfying
+\[
+Y_i\sim\operatorname{Poisson}(\lambda_i),\qquad i=1,\ldots,p.
+\]
+The recorded construction goal is to find an empirical-Bayes estimator that approximates an unknown-prior Bayes estimator with uniformly small excess quadratic risk as \(p\to\infty\). The prior model, uniformity class, risk normalization, and quantitative meaning of ``small'' are not specified.
+
+To explain the missing specifications, consider the following possible hierarchical interpretation, which is not asserted to be the uniquely intended formulation. Let \(G\) be a probability measure on \([0,\infty)\), let \(\Lambda_1,\ldots,\Lambda_p\) be independent with common distribution \(G\), and, conditionally on these variables, let the observations be independent with \(Y_i\mid\Lambda_i\sim\operatorname{Poisson}(\Lambda_i)\). Write \(\N_0=\{0,1,2,\ldots\}\) and define the marginal mass function
+\[
+f_G(y)=\int_{[0,\infty)}e^{-\lambda}\frac{\lambda^y}{y!}\,G(\dd\lambda),\qquad y\in\N_0,
+\]
+where \(\lambda^0=1\), including at \(\lambda=0\). Wherever \(f_G(y)>0\), the posterior mean is
+\[
+\delta_G(y)=\frac{\int_{[0,\infty)}\lambda e^{-\lambda}\lambda^y/y!\,G(\dd\lambda)}{f_G(y)}
+=(y+1)\frac{f_G(y+1)}{f_G(y)}.
+\]
+Its value at observations with zero marginal probability may be assigned arbitrarily. When the relevant quadratic risks are finite, the oracle Bayes estimator under this hierarchical interpretation is \(\delta_G^{(p)}(Y)=(\delta_G(Y_1),\ldots,\delta_G(Y_p))\).
+
+For illustration, choose average quadratic risk and define, for an estimator \(\widehat\lambda^{(p)}:\N_0^p\to[0,\infty)^p\),
+\[
+R_p(\widehat\lambda^{(p)},G)=\frac1p\mathbb E_G\!\left[\sum_{i=1}^p\bigl(\widehat\lambda_i^{(p)}(Y)-\Lambda_i\bigr)^2\right].
+\]
+Here the expectation includes both the latent intensities and the observations. A possible precise target would require specified classes \(\mathcal G_p\) of priors and specified numbers \(\varepsilon_p\downarrow0\), and would ask for estimators that do not depend on the unknown \(G\) such that
+\[
+\sup_{G\in\mathcal G_p}\left\{R_p(\widehat\lambda^{(p)},G)-R_p(\delta_G^{(p)},G)\right\}\leq\varepsilon_p,
+\]
+with assumptions ensuring that the displayed differences are well defined. This is only a formulation template: neither these classes nor this rate or normalization is supplied. The record also does not resolve whether the intended risk instead conditions on a deterministic intensity vector or uses total quadratic loss.
+
+The supplied statement-verification note says that the official contribution immediately develops an estimator and its asymptotic risk theorem, answering the extracted construction aim within the source. It marks the statement as \texttt{unrecoverable} and promotes no separate clean statement. Consequently, the evidence does not determine a distinct unresolved theorem with complete hypotheses and quantifiers.
+\subsection{Short English statement}
+Construct an estimator of independent Poisson intensities that approaches the quadratic risk of an oracle knowing the prior as the number of observations grows. The supplied record leaves the prior model, uniformity class, loss normalization, and error rate unspecified. Its verification note says the source itself answers the extracted construction goal, so a separate precise open problem cannot be recovered from this record.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30002010\), title ``Poisson Empirical-Bayes Estimator Report,'' source code \texttt{catalogue entry}, collection ``Oberwolfach Reports Open Problems.'' The supplied record gives proposed year 2012 and identifies no individual proposer.
+\item Supplied report citation: \emph{Frontiers in Nonparametric Statistics} (2012), Oberwolfach Reports, pp.\ 811--883, DOI \texttt{10.4171/owr/2012/14}. \url{https://doi.org/10.4171/owr/2012/14}. The record describes these reports as documenting mathematical workshops and their open-problem discussions; it supplies no narrower location for this formulation.
+\item Supplied literature reference: \emph{The Poisson Compound Decision Problem Revisited}. \url{https://arxiv.org/abs/1006.4582}.
+\item Supplied literature reference, labelled ``Published Poisson Compound Decision Paper.'' \url{https://doi.org/10.1080/01621459.2013.771582}.
+\item Supplied literature reference: \emph{Optimal Empirical Bayes Estimation for the Poisson Model}. \url{https://arxiv.org/abs/2209.01328}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: this is supplied dated curation, not independently verified. It attributes smoothed and monotone improvements with asymptotic risk bounds to Brown, Greenshtein, and Ritov, and attributes minimax-regret guarantees to later minimum-distance work. It qualifies these results as covering standard bounded or nonparametric classes rather than an unrestricted uniform theorem over every prior. The supplied status is ``partially solved.'' The background expressly calls this a dated literature triage derived from supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item Supplied statement-verification assessment: the official contribution states the construction goal and immediately develops its estimator and asymptotic risk theorem. The extracted aim is therefore described as answered within the source; the original record is retained publicly for provenance, the statement status is \texttt{unrecoverable}, and no separate clean statement is promoted. These are supplied assessments, not independent source verification performed for this draft.
+\end{itemize}
+\end{document}

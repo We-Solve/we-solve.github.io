@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002026}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $(M^4,g)$ be a smooth closed connected Riemannian four-manifold. Use the nonnegative Laplacian $\Delta=d^*d=-\operatorname{div}\operatorname{grad}$, put $E=\operatorname{Ric}-(R/4)g$, and write $\delta=d^*$ on one-forms. With these conventions the Paneitz operator is
+\[
+ P_4u=\Delta^2u+\delta\bigl((\tfrac23Rg-2\operatorname{Ric})\,\dd u\bigr).
+\]
+Here a symmetric tensor acts on $\dd u$ using the metric. ``Positive with kernel consisting of constants'' means nonnegative quadratic form and strict positivity on nonconstant functions modulo constants, rather than positivity on every nonzero function.
+
+\textbf{Problem 7.} The source reports Gursky's theorem: if the scalar curvature is positive and $\int_MQ_4\,\dd V_g>0$, then $P_4$ is nonnegative and $\ker P_4=\R$. Can this known conclusion also be derived directly from the construction of the general GJMS operators, without the nonlinear-PDE estimates used in the cited proof? The request concerns a proof method, not whether the positivity conclusion itself is conjectural. Closedness and connectedness are made explicit; otherwise boundary conditions or componentwise constants are needed.
+
+\textbf{Supplied direct special cases.} If $g$ is Einstein with constant $R>0$, the aid gives the GJMS factorization
+\[
+ P_4=\Delta(\Delta+R/6),\qquad
+ \lambda_1(P_4)=\lambda_1(\Delta)\bigl(\lambda_1(\Delta)+R/6\bigr),
+ \qquad\ker P_4=\R,
+\]
+where $\lambda_1$ denotes the first positive eigenvalue in this representative. Critical conformal covariance transfers nonnegativity and the kernel to other metrics in a conformal class containing a positive Einstein metric; the numerical eigenvalue formula is not asserted to be conformally invariant.
+
+For any constant-scalar-curvature representative, the exact defect identity supplied by the aid is
+\[
+ P_4=\Delta(\Delta+R/6)-2\delta(E\,\dd),
+\]
+\[
+ \int_MuP_4u\,\dd V_g
+ =\int_M\bigl((\Delta u)^2+\tfrac R6|\dd u|^2
+                         -2E(\nabla u,\nabla u)\bigr)\,\dd V_g.
+\]
+Let $\Lambda=\max_{x\in M}\lambda_{\max}(E_x)$, with $E_x$ viewed as a self-adjoint endomorphism. The aid's sufficient condition is
+\[
+ 2\Lambda<\lambda_1(\Delta)+R/6.
+\]
+Under this strict condition it asserts $P_4\ge0$ and $\ker P_4=\R$. The pinching statement itself does not require an additional positive-$R$ premise beyond the displayed inequality.
+
+With the compatible standard $Q_4$ normalization, a constant-scalar-curvature metric satisfies
+\[
+ \int_MQ_4\,\dd V_g
+ =\frac{R^2}{24}\operatorname{Vol}_g(M)-\frac12\int_M|E|^2\,\dd V_g.
+\]
+Thus positive total $Q$ gives an integral bound on $|E|^2$, whereas the sufficient condition uses the largest pointwise directional eigenvalue. The supplied algebraic factorization does not establish that pointwise condition from the original hypotheses, and this gap is not a counterexample to Gursky's theorem. Obtaining the full construction-based proof remains separate from these Einstein and pinched special cases. The trailing name ``Claude LeBrun'' is preserved as a source line whose attachment to the problem or next contribution is not specified here.
+\subsection{Short English statement}
+The problem asks for a construction-based proof of Gursky's known Paneitz-positivity theorem. The supplied aid gives an Einstein factorization and a constant-scalar-curvature pinching criterion. Positive total $Q$ supplies an integral curvature bound but does not by itself provide the pointwise estimate used in that criterion, so the requested full proof method remains unestablished.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002026, source code catalogue entry; canonical \texttt{aim-geometry-notes.json}, notes[363].
+\item AIM \emph{Conformal structure in geometry, analysis, and physics}, Problem 7: \url{https://aimath.org/WWN/confstruct/confstruct.pdf}. The extract ends with the line ``Claude LeBrun''.
+\item Gursky, ``The principal eigenvalue of a conformally invariant differential operator, with an application to semilinear elliptic PDE'', \emph{Comm. Math. Phys.} 207(1) (1999), pp.~131--143, as supplied.
+\item Registry research attempt 1, dated 2026-08-14: partial result, status at run open, rigor ``proved'', novelty confidence low. The explicitly machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

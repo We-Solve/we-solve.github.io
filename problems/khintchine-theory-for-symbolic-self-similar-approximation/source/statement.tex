@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003237}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\phi_1,\ldots,\phi_N\) be a finite nonempty family of contractions of \(\R^n\), with attractor \(F\), so that
+\[
+F=\bigcup_{i=1}^{N}\phi_i(F).
+\]
+Here the usual interpretation of contraction is a map with Lipschitz constant strictly less than one, and the attractor is the nonempty compact invariant set. Put \(\mathcal A=\{1,\ldots,N\}\) and \(\mathcal A^+=\bigcup_{k\geq1}\mathcal A^k\). For a word \(w=(s_1,\ldots,s_k)\), write \(|w|=k\) and
+\[
+\phi_w=\phi_{s_1}\circ\cdots\circ\phi_{s_k}.
+\]
+Fix \(x\in F\). Interpret the approximating function as a radius function \(\psi:\mathcal A^+\to[0,\infty)\); this codomain is a convention needed to make the ball radii explicit, since the source does not specify it. With the explicit convention that \(B(z,r)=\{y\in\R^n:\|y-z\|<r\}\), define
+\[
+\begin{aligned}
+W(x,\psi)
+&=\{y\in F:\|y-\phi_w(x)\|<\psi(w)
+\text{ for infinitely many distinct }w\in\mathcal A^+\}\\
+&=F\cap\bigcap_{m=1}^{\infty}\bigcup_{k\geq m}\bigcup_{w\in\mathcal A^k}B(\phi_w(x),\psi(w)).
+\end{aligned}
+\]
+Words are counted as symbolic words, even if different words give the same map or approximation centre. The source does not specify open versus closed balls, positivity or decay of \(\psi\), or any monotonicity condition; the conventions above require review.
+
+\textbf{Requested classification.} For the given system and chosen \(x\in F\), classify the functions \(\psi\) for which \(W(x,\psi)\) is large, and establish a Khintchine theory under the additional condition that \(\dim_{\mathrm H}F\) equals the similarity dimension.
+
+\textbf{Unresolved qualifications.} The source does not define ``large'': it specifies neither a reference measure and a full-measure conclusion nor a Hausdorff-dimension or Hausdorff-measure criterion. It also gives no convergence/divergence criterion defining the requested Khintchine theory. Moreover, arbitrary contractions need not be similarities, so their similarity dimension is not defined by the supplied statement. If the intended maps are contracting similarities with ratios \(r_i\in(0,1)\), the usual similarity dimension is the unique \(s\geq0\) satisfying
+\[
+\sum_{i=1}^{N}r_i^s=1,
+\]
+and the stated additional condition would be \(\dim_{\mathrm H}F=s\). This is a conditional explanation of the terminology, not an additional hypothesis supplied by the record. No separation hypothesis, measure, restriction on \(\psi\), or uniformity requirement in \(x\) is specified. Consequently, the source determines the approximation set but does not determine a single precise largeness theorem to formulate.
+\subsection{Short English statement}
+Starting from a chosen point of a contraction attractor, apply every finite symbolic composition and place a ball of word-dependent radius around the resulting point. The problem asks which radius functions make infinitely many such approximations occur on a large subset of the attractor, especially when Hausdorff and similarity dimensions agree. The intended meaning of largeness, the measure and divergence criterion, and the similarity hypotheses remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: \texttt{data/unsolvedmath/problems.json}, supplied record with permanent ID \(30003237\), source problem code \texttt{catalogue entry}, title ``Khintchine Theory for Symbolic Self-Similar Approximation,'' in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is recorded as 2016.
+\item Supplied report citation: \emph{Arbeitsgemeinschaft: Diophantine Approximation, Fractal Geometry and Dynamics} (2017), Oberwolfach Reports, pp.\ 2749--2792, DOI \texttt{10.4171/owr/2016/48}. \url{https://doi.org/10.4171/owr/2016/48}. The background describes this collection as drawn from workshop reports and their open-problem discussions. No problem-specific page or named speaker is supplied. The citation year 2017 and recorded proposed year 2016 are retained without reconciliation.
+\item Supplied literature source: Benard--He--Zhang, \emph{Khintchine dichotomy for self-similar measures}. \url{https://arxiv.org/abs/2409.08061}.
+\item Supplied literature source: \emph{Intrinsic Diophantine approximation for overlapping IFS}. \url{https://doi.org/10.1007/s00208-023-02608-8}.
+\item Supplied literature source: \emph{Oberwolfach Report 48}. \url{https://doi.org/10.4171/owr/2016/48}.
+\item Literature checked at: \texttt{2026-08-21}. This is supplied dated curation, not independently verified. The supplied assessment labels the problem open and states that recent work establishes Khintchine-type dichotomies for important self-similar and Cantor systems, while the arbitrary symbolic contraction system with an arbitrary word-dependent approximation function is not completely classified. The background explicitly calls this dated literature triage derived from the supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review. These are supplied editorial assertions; neither the cited sources nor the mathematical completeness of the formulation have been independently verified here.
+\end{itemize}
+\end{document}

@@ -1,0 +1,43 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1144}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G=(V,E)$ be a finite simple graph with $n=|V|$, and let $[k]=\{1,\ldots,k\}$. A proper labeled $k$-coloring is a map $c:V\to[k]$ such that $c(v)\ne c(w)$ whenever $\{v,w\}\in E$. The chromatic number $\chi(G)$ is the least $k$ admitting such a coloring. The recoloring graph $\mathcal R_k(G)$ has the proper labeled $k$-colorings as vertices, with an edge between $c$ and $c'$ exactly when they differ at one vertex. A recoloring sequence is a path in this graph; every intermediate coloring is required to be proper and use only the same palette $[k]$. Disconnected colorings have infinite recoloring distance.
+
+The supplied statement asks whether, for every $k$-chromatic graph $G$ and every pair $c,c'$ of proper $k$-colorings, a sequence from $c$ to $c'$ can be found in time polynomial in $n$. In particular it requires that $\mathcal R_{\chi(G)}(G)$ be connected and have polynomially bounded diameter. The background gives the stronger asserted bound $O(n^2)$ and attributes the conjecture to 2007; it also mentions computational complexity and Markov-chain mixing times as motivation. The record does not specify whether polynomial bounds or their constants must be uniform in $k$, or whether ``polynomial time'' means an algorithmic running time or just a bound on sequence length.
+
+The supplied literature triage, checked 2026-08-17, classifies the literal statement as refuted and labels it solved in the literature. It gives $G=K_2$ with $k=2$ as a counterexample: its two proper labeled colorings are disconnected because changing either endpoint first violates properness. This is a supplied refutation, not a newly claimed result. The primary registry status remains ``open''.
+
+The triage distinguishes the standard Cereceda conjecture from the recorded statement. A graph is $d$-degenerate if every nonempty subgraph has a vertex of degree at most $d$. The standard question concerns such graphs with a palette of $k\geq d+2$ colors and asks for a quadratic $O(n^2)$ diameter of $\mathcal R_k(G)$. The supplied assessment reports that a weaker polynomial bound has been proved, while the quadratic form remained open at its check date. This is a distinct target and is not substituted for the literal $\chi(G)=k$ question. The supplied summary does not specify the dependence of constants in the standard quadratic bound on $d$ or $k$.
+\subsection{Short English statement}
+The recorded question asks whether any two proper colorings using exactly the chromatic-number palette can be connected efficiently by changing one vertex at a time. The supplied assessment says this fails already for $K_2$. It distinguishes the standard Cereceda conjecture, which allows at least $d+2$ colors on a $d$-degenerate graph and asks for quadratic recoloring diameter.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath local registry, permanent ID 1144, source code catalogue entry, ``Cereceda's Conjecture''. Dataset attribution: Ulam AI and the UnsolvedMath Contributors; curation and metadata under CC BY 4.0.
+\item L. Cereceda, J. van den Heuvel and M. Johnson, \emph{Connectedness of the graph of vertex-colourings}, Discrete Mathematics 308 (2008), 913--919, doi:10.1016/j.disc.2007.07.028, \url{https://doi.org/10.1016/j.disc.2007.07.028}. The supplied triage cites nonconnectivity at chromatic number $k$ for $k=2,3$ and the distinct recoloring setting.
+\item N. Bousquet and M. Heinrich, \emph{A polynomial version of Cereceda's conjecture}, Journal of Combinatorial Theory, Series B 155 (2022), doi:10.1016/j.jctb.2022.01.006; \url{https://arxiv.org/abs/1903.05619}. The supplied triage cites the $d$-degenerate, $d+2$-color formulation and its weaker polynomial version.
+\item The supplied literature review records a check on 2026-08-17 and explicitly states that the dataset materially misformulates the named conjecture.
+\end{itemize}
+\end{document}

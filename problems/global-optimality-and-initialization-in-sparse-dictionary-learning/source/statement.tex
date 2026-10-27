@@ -1,0 +1,52 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002945}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For notation, a finite dictionary may be written as \(D_\star=(d_1,\ldots,d_K)\in\mathbb{K}^{d\times K}\), with unit-norm atoms \(\|d_j\|_2=1\). Here \(d\) and \(K\) are positive integers, and the source does not specify whether the scalar field \(\mathbb{K}\) is \(\R\) or \(\C\). For \(K\geq2\), its mutual coherence is
+\[
+\mu(D_\star)=\max_{i\ne j}|\langle d_i,d_j\rangle|.
+\]
+A coefficient vector \(c\in\mathbb{K}^K\) is \(S\)-sparse if \(\|c\|_0:=|\{j:c_j\ne0\}|\leq S\), where \(1\leq S\leq K\). The expression \(x=D_\star c\) describes an exact sparse representation; it is notation for the setting, not an assertion that the intended problem excludes noise or approximately sparse coefficients. The source leaves the actual data-generating model unspecified.
+
+The supplied problem asks the following three questions about sparse dictionary learning:
+\begin{enumerate}
+\item Under the intended data-generating assumptions, is the generating dictionary \(D_\star\) a global optimum of the criteria referred to as K-SVD and ITKsM?
+\item Are there efficient initialization strategies in the sparsity regime \(S=O(\mu(D_\star)^{-2})\)?
+\item Can the convergence radii of the algorithms referred to as ITKsM and ITKrM be extended to \(O(1)\)?
+\end{enumerate}
+These questions retain unresolved qualifications from the source. The objective functions, their optimization directions, their admissible dictionary classes, and whether they are population or finite-sample criteria are not supplied. Neither the algorithm variants nor the initialization success criterion, computational model, sample requirements, or probability guarantees are specified. The regime \(S=O(\mu^{-2})\) requires a positive coherence and an asymptotic family with specified uniform constants; neither is stated, and the zero-coherence case is unaddressed. The convergence metric, target accuracy, treatment of column permutations and signs or phases, and parameters governing the radius are also unspecified. In particular, an upper bound \(O(1)\) alone does not express a radius bounded below by a positive constant independent of problem parameters. The intended meaning of this requested extension must therefore be clarified. The record supports these three qualified questions, but does not determine a unique fully quantified conjecture.
+\subsection{Short English statement}
+The problem asks whether a generating sparse dictionary is globally optimal for the K-SVD and ITKsM criteria, whether efficient initialization is possible at sparsity \(S=O(\mu^{-2})\), and whether ITKsM and ITKrM can converge from initializations at a constant-scale distance. The source leaves essential models, criteria, guarantees, and the meaning of constant-scale convergence unspecified; this is a statement-only draft requiring mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30002945\), title ``Global Optimality and Initialization in Sparse Dictionary Learning,'' collection ``Oberwolfach Reports Open Problems,'' exact source code \texttt{catalogue entry}. No individual proposer is supplied; the proposed year is recorded as 2015.
+\item Supplied report citation: \emph{Applied Harmonic Analysis and Sparse Approximation} (2016), Oberwolfach Reports, pp.\ 2189--2263, DOI 10.4171/owr/2015/38. \url{https://doi.org/10.4171/owr/2015/38}. The background describes Oberwolfach Reports as documenting workshops and their open-problem discussions.
+\item Supplied literature reference, labeled ``Schnass 2015'': \url{https://jmlr.org/papers/volume16/schnass15a/schnass15a.pdf}.
+\item Supplied literature reference, labeled ``Pali and Schnass 2018'': \url{https://arxiv.org/abs/1804.07101}.
+\item Supplied literature reference, labeled ``original OWR report'': \url{https://doi.org/10.4171/owr/2015/38}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and reports known local convergence and improved empirical global recovery, while describing general global optimality, efficient inverse square coherence initialization, and broad convergence-radius extensions as unresolved. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The source explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry assigns the statement status \texttt{corrected\_verified} and says that its mathematical content was preserved while notation, typography, or omitted definitions were repaired. These are supplied registry assertions, not mathematical verification performed for this draft.
+\end{itemize}
+\end{document}

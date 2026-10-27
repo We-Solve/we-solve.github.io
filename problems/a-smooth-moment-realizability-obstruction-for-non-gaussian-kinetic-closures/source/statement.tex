@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002459}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This is Irene Gamba's 2005 participant research agenda, not a single posed conjecture. It concerns reactive kinetic--Poisson systems for electron and biological transport, granular flows and other dissipative phenomena. Its motivation is that stationary or self-similar nonequilibrium distributions may be far from Gaussian, so closures based on Maxwellian statistics need correction in those regimes. The stated interests include existence, uniqueness, self-similarity, stability, higher-moment hydrodynamic corrections, boundary problems and numerical methods for kinetic, quantum and macroscopic models.
+
+Retain the three explicit directions:
+\begin{enumerate}
+\item Self-consistent charged kinetic transport and perturbations of stationary nonequilibrium states: deterministic WENO and discontinuous Galerkin solvers compared with DSMC; strong-force boundary problems and hydrodynamic limits; coupling hyperbolic SNS and diffusive SES regimes through kinetic layers; and charged-molecule transport and chemotaxis.
+\item Quantum trajectory and quantum hydrodynamic models from a semiclassical picture, thermalization and Bose--Einstein condensates: existence and nonexistence for dispersion/diffusion models, strong-field Chapman--Enskog expansion of Wigner transport, high-velocity finite-time behavior of QHD, and numerical quantum-state calculations. The text says ``finite time flow up,'' whose intended terminology is not verified here.
+\item Boltzmann models for inelastic granular flows or elastic mixtures: dissipative Maxwell and pseudo-Maxwell models, power-law/L\'evy tails and trends to equilibrium; pointwise upper bounds for variable hard spheres in elastic and inelastic cases, boundary problems and spatial inhomogeneity; and spectral numerical methods.
+\end{enumerate}
+The source also describes its then-current deterministic transient Boltzmann--Poisson work: one or two spatial dimensions and three velocity dimensions, a linear nonlocal kinetic equation solved by WENO coupled to a self-consistent Poisson field, diode and MESFET calculations, comparison with classical models, evolution of the probability density and its first three moments, and two-space-dimensional boundary singularities. It credits J. A. Carrillo, A. Majorana and C.-W. Shu, and mentions DG work with Jennifer Proft and Ross Heath. These are historical research descriptions, not assertions of present-day computational limitations or a supplied error theorem.
+
+The aid adds a moment-closure obstruction in three-velocity space. For a smooth strictly positive probability density $f$ on $\R^3$, define mass, momentum, full second-moment tensor and energy-flux convention by
+\[
+ \int f=1,\quad m_i(f)=\int v_i f(v)\,\dd v,\quad
+ P_{ij}(f)=\int v_iv_j f(v)\,\dd v,\quad
+ Q_i(f)=\int v_i|v|^2f(v)\,\dd v.
+\]
+At zero momentum, $P$ is also the central pressure tensor. A convention with a factor $1/2$ in $Q$ has the same nonuniqueness. The reported first family has one fixed positive-definite tensor $P_*$ and, for every $q\in\R$, a smooth positive Gaussian-mixture density $f_q$ with finite moments such that
+\[
+ m(f_q)=0,\qquad P(f_q)=P_*,\qquad Q_1(f_q)=q.
+\]
+Thus even the entire pressure tensor, in addition to mass and momentum, neither determines nor bounds the next flux component. The reported second smooth family preserves these lower data, fixed longitudinal moments $\int v_1^j f$ for $0\le j\le3$, and zero energy-flux vector, while
+\[
+ \int v_1^4 f(v)\,\dd v\longrightarrow\infty.
+\]
+A power-law variant has the same lower-moment finiteness but infinite longitudinal fourth moment. The summary does not supply the exact mixture weights or tail formula. These are supplied realizability claims, not a proof that every closure is impossible: an additional constitutive assumption, equilibrium principle or tail condition may select a closure. No collision kernel, Poisson boundary problem, scaling limit or numerical convergence target is fixed for the whole agenda.
+\subsection{Short English statement}
+Preserve Gamba's agenda on nonequilibrium kinetic, quantum and dissipative transport models. The aid supplies smooth density families showing that fixed low moments need not determine or bound the next flux or fourth moment; it does not resolve the agenda's many PDE and numerical questions.
+\subsection{Sources}
+\begin{itemize}
+\item Irene Gamba, contribution A.6, American Institute of Mathematics workshop document \emph{Stiff Sources and Numerical Methods for Conservation Laws}, 1 April 2005, PDF pages 5--6, printed pages 6--7, as identified in supplied verification. \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}.
+\item Source reference page: \url{www.ma.utexas.edu/users/gamba/research.html}. The contribution names the collaboration ``Deterministic solvers to transient Boltzmann--Poisson equations'' with J. A. Carrillo, A. Majorana and C.-W. Shu, and DG work with Jennifer Proft and Ross Heath, but gives no individual publication citations.
+\item Local UnsolvedMath registry, permanent ID 20002459, source code \texttt{catalogue entry}, canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[70]}, record dated 14 August 2026. Statement status is reconstructed unverified, clean statement null, and original literature field empty.
+\item Supplied research attempt 1: context only, problem status at run not a problem, rigor labelled proved, novelty confidence low. Its moment-realizability families are machine-generated research aid, not peer reviewed; independently verify before citation. No separate authoritative reference for those families is supplied.
+\end{itemize}
+\end{document}

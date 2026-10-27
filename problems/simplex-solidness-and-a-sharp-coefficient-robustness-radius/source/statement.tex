@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001996}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\ge1\) and let \(f(z)=\sum_{\alpha\in A}a_\alpha z^\alpha\) be a nonzero complex Laurent polynomial, with finite actual support \(A\subset\Z^n\) and every \(a_\alpha\ne0\). Its Newton polytope and amoeba are
+\[
+ P=\operatorname{conv}(A),\qquad
+ \mathcal A_f=\{(\log|z_1|,\ldots,\log|z_n|):z\in(\C^*)^n,\ f(z)=0\}.
+\]
+Call \(f\) maximally sparse when \(A=\operatorname{Vert}(P)\), and call its amoeba solid when
+\[
+ \#\pi_0(\R^n\setminus\mathcal A_f)=\#\operatorname{Vert}(P).
+\]
+Mikael Passare's question asks whether every maximally sparse complex Laurent polynomial has a solid amoeba. The source says the conjecture was based mainly on computer pictures and attributes to Passare and Hans Rullgård the assertion that, for at most \(n+2\) vertices, the tropical spine lies in the amoeba. It presents minimal complement count in that range as plausible, not as a consequence already proved in the excerpt.
+
+The aid reports a simplex-supported special case without requiring full dimension or unimodularity. Suppose
+\[
+ A=\{\alpha_0,\ldots,\alpha_r\},\qquad 1\le r\le n,
+\]
+is affinely independent. Put \(m_i(x)=|a_i|e^{\langle\alpha_i,x\rangle}\). Its reported exact fiber criterion is
+\[
+ x\in\mathcal A_f\quad\Longleftrightarrow\quad
+ m_i(x)\le\sum_{j\ne i}m_j(x)\quad\text{for every }i.
+\]
+Consequently the complement consists of the \(r+1\) nonempty convex connected regions
+\[
+ U_i=\left\{x:m_i(x)>\sum_{j\ne i}m_j(x)\right\},
+\]
+one per vertex, and the amoeba is solid. A zero-dimensional support is a monomial: its amoeba is empty and the complement has one component, so that case is separate. Thus the excerpt's statement that a univariate maximally sparse polynomial is a binomial implicitly excludes monomials.
+
+For the quantitative claim, fix \(x\in U_i\) and define
+\[
+ \rho_i(x)=\frac{m_i(x)}{\sum_{j\ne i}m_j(x)}>1.
+\]
+For nonzero coefficients \(a'_j\) on the same support use the logarithmic magnitude distance
+\[
+ d_\infty(a,a')=\max_j\left|\log\frac{|a'_j|}{|a_j|}\right|.
+\]
+The aid reports
+\[
+ \inf\{d_\infty(a,a'):x\notin U_i(f')\}
+ =\tfrac12\log\rho_i(x),\qquad f'=\sum_j a'_jz^{\alpha_j}.
+\]
+In particular every perturbation of distance less than this value preserves strict \(i\)-lopsidedness. At equality, take \(\eta=\tfrac12\log\rho_i(x)\), multiply \(|a_i|\) by \(e^{-\eta}\), and the other magnitudes by \(e^\eta\), keeping coefficient phases fixed. The reported simplex criterion then places \(x\) on the perturbed amoeba. The metric measures coefficient magnitudes, not phase distance. The finite ratio and radius formula concern at least two support points, not the monomial case.
+
+The supplied aid describes the general conjecture as open/contested after an audit of a March 2026 claimed solution. No identification, text, or bibliography for that claim or audit is supplied. This draft records that dated assessment without declaring the purported proof valid or invalid and without asserting a fresh status determination.
+\subsection{Short English statement}
+The question asks whether vertex-only support always gives the smallest possible number of amoeba-complement components. The aid proves a simplex-supported case through exact polygon inequalities and reports a sharp logarithmic coefficient radius for preserving lopsidedness. Its assessment of a claimed general solution remains an unverified dated source qualification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001996, exact source code catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[333]}, tag \texttt{section}; AIM Workshop Problem Lists, Geometry, \emph{Amoebas and tropical geometry}, A.14, contributed by Mikael Passare. Created and updated 14 August 2026; statement status \texttt{reconstructed\_unverified}.
+\item Source URL \url{https://aimath.org/WWN/amoebas/amoebas.pdf}. The excerpt attributes a tropical-spine result for at most \(n+2\) vertices to Passare with Hans Rullgård, without a separate publication entry. The PDF was not accessed.
+\item Attempt 1: \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence \texttt{low}; classification \texttt{PARTIAL-PROGRESS}, registry status \texttt{partially\_solved}. Candidate: exact coefficient-robustness radius for simplex supports. The March 2026 claimed general solution and its audit are mentioned without authors, title, identifier, or authoritative citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002342}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a prime $p$ and write $R=\F_p[Z]$. An additive polynomial is an element
+\[
+ F(Z)=\sum_{i=0}^n\alpha_i Z^{p^i},\qquad \alpha_i\in\F_p,
+\]
+including the zero polynomial. Equivalently $F(A+B)=F(A)+F(B)$ for all $A,B\in R$. Question 5 asks whether the subset $\operatorname{Add}_p\subseteq R$ of these polynomials is Diophantine. In the language with named coordinate $Z$, this means a fixed finite existential system of polynomial equations over $R$ in $F$ and finitely many auxiliary variables, defining precisely $\operatorname{Add}_p$. The aid reports a positive answer from Demeyer's 2007 theorem that recursively enumerable subsets of this polynomial ring are Diophantine with the coordinate named: membership in $\operatorname{Add}_p$ is recursive by inspecting the finitely many nonzero exponents. In the pure ring language without parameters the subset is not even first-order definable: the automorphism $Z\mapsto Z+1$ sends the additive polynomial $Z$ to the nonadditive polynomial $Z+1$. These language conventions cannot be interchanged.
+
+Preserve also Demeyer's objection to the proposed finite tests. For $m\ge1$ put
+\[
+ V_m=\sum_{j=0}^{m-1} Z^j\{A^p-A:A\in R\}
+       +\operatorname{span}_{\F_p}\{Z,Z^2,\ldots,Z^m\}.
+\]
+The proposal tests $F^m\in V_m$ for successive $m$. For example the first three tests have respectively one, two and three Artin--Schreier terms, multiplied by $1$, then $1,Z$, then $1,Z,Z^2$, together with the indicated scalar multiples of $Z,\ldots,Z^m$. The source reports that every additive polynomial passes, but so does the single nonadditive polynomial
+\[
+ H(Z)=\sum_{i=0}^{p-1}\bigl(Z^{2p}-Z^{p+1}\bigr)^{p^i}
+\]
+at every level $m\ge1$. Thus increasing the finite number of these tests does not give the desired definition.
+
+The aid further reports an exact normal form. For $1\le m<p$, reduce an exponent $e=j+pn$ to $j+n$ whenever $0\le j<m$ and $n\ge1$, repeating until a terminal exponent is reached. The allowable $j$ is unique in this range, and each step strictly decreases the exponent. For $G=\sum_e c_eZ^e$, membership $G\in V_m$ is equivalent to vanishing, in $\F_p$, of the coefficient sum over every terminal class whose terminal exponent is outside $\{1,\ldots,m\}$; terminal classes ending in those $m$ free monomials are unrestricted. For $m\ge p$, $V_m$ is the entire subspace of polynomials with zero constant coefficient. These are supplied research refinements, not independently reviewed assertions.
+
+The extract also contains the subsequent Fact 6, attributed to Cornelissen. For a field $L$ of characteristic $p$, let
+\[
+ A_L=\bigl\{\textstyle\sum_i a_i Z^{p^i}:a_i\in L\bigr\}
+\]
+with ordinary addition and multiplication given by composition. Put $\tau(Z)=Z^p$; the multiplicative identity is the polynomial $Z$. The equation
+\[
+ f\circ\tau=\tau\circ f
+\]
+defines the centralizer $A_{\F_p}\cong\F_p[T]$ inside this noncommutative ring, where $T$ corresponds to $\tau$. The source states an analogous fact in its quotient skew field $Q_L$, and concludes undecidability of the indicated Diophantine theories from results attributed to Denef and Pheidas for $\F_q[Z]$ and $\F_q(Z)$. It proposes transferring undecidability if $A_L$ or $Q_L$ can be Diophantinely defined in $L[Z]$ or $L(Z)$. For this transfer the interpretation must include the noncommutative composition operation; an ordinary subring with inherited commutative multiplication cannot supply it. The element named in the ring language must likewise be specified: the source's notation ``a symbol for $Z$'' does not distinguish the identity polynomial from the Frobenius generator $\tau$. The quotient construction, parameter convention and interpretation details are not supplied. Fact 6 is separate from Question 5, as the source-verification field expressly notes.
+\subsection{Short English statement}
+Ask whether additive polynomials over $\F_p$ form a Diophantine subset of $\F_p[Z]$. The supplied assessment answers yes with the coordinate named and explains why the proposed Artin--Schreier tests fail, while the pure ring language gives a different answer. The appended composition-ring observation needs its own interpretation and parameter conventions.
+\subsection{Sources}
+\begin{itemize}
+\item Thanases Pheidas, Question 5, with an objection attributed to Jeroen Demeyer, American Institute of Mathematics, \emph{Extensions of Hilbert's Tenth Problem}, 21--25 March 2005, page 2 as identified by supplied verification, \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}. The appended Fact 6 is attributed to Cornelissen and cites Denef and Pheidas without full bibliographic details.
+\item Local UnsolvedMath registry, permanent ID 20002342, source code \texttt{catalogue entry}, canonical location \texttt{aim-logic-notes.json}, \texttt{notes[117]}, record dated 14 August 2026. Its verification identifies the merged Fact 6 and damaged superscripts; the original literature field is empty.
+\item Supplied research assessment cites Demeyer's 2007 theorem, without title, theorem number or publication details. Research attempt 1 is labelled full solution, problem status at run solved, rigor proved, novelty confidence low; its terminal-class refinement is machine-generated research aid, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

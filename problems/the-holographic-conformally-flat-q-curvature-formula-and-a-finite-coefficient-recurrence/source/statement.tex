@@ -1,0 +1,92 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002039}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Problem 19 asks for a formula for Q-curvature in the conformally flat case and for a proof that the procedure of Eastwood--Slovák produces it. The supplied background attributes the structural Pfaffian-plus-divergence statement to Branson, Gilkey and Pohjanpelto. The aid supplies the Graham--Juhl formula and a finite harmonic-extension recurrence; the original Eastwood--Slovák procedure itself is not quoted, so exact identification of that procedure needs source review.
+
+Fix \(n=2N\geq4\). To match the recurrence signs, use the nonnegative Laplacian \(\Delta_g=-\operatorname{div}_g\nabla\). Write
+\[
+ J=R/[2(n-1)],\qquad
+ P=(\operatorname{Ric}-Jg)/(n-2),\qquad
+ c_N=\frac{(-1)^N}{2^{2N}N!(N-1)!}.
+\]
+For a locally conformally flat metric use the formal normal-form Poincaré family
+\[
+ g_+=x^{-2}(\dd x^2+g_x),\qquad
+ g_x=g((I-x^2P/2)\cdot,(I-x^2P/2)\cdot),
+\]
+with volume ratio
+\[
+ v(x)=\sqrt{\det g_x/\det g}=\sum_{j=0}^Nv^{(2j)}x^{2j},
+ \qquad v^{(2j)}=(-2)^{-j}\sigma_j(P),\quad v^{(0)}=1.
+\]
+Expand the operator with the stated order of multiplication as
+\[
+ v(x)\Delta_{g_x}=\sum_{a\geq0}x^{2a}L_{2a}.
+\]
+Let \(p_0=I\) and let \(p_{2r}\), \(1\leq r<N\), be the coefficients of the formal harmonic extension
+\(u=f+\sum_{r=1}^{N-1}x^{2r}p_{2r}f+\text{higher terms}\).
+The aid's explicit triangular recurrence is
+\[
+ p_{2r}=-\frac{
+ \displaystyle\sum_{j=0}^{r-1}L_{2(r-1-j)}p_{2j}
+ +2(n-2r)\displaystyle\sum_{j=1}^{r-1}
+       j\,v^{(2r-2j)}p_{2j}}
+ {2r(n-2r)}.
+\]
+Here \(L_{2a}p_{2j}\) is operator composition and \(v^{(2r-2j)}\) multiplies on the left; empty sums are zero. In particular
+\[
+ p_2=-\frac{\Delta_g}{2(n-2)}.
+\]
+This computes the required subcritical coefficients from lower orders, and gives \(p_{2r}1=0\) inductively. At \(r=N\) the factor \(n-2r\) vanishes: the critical obstruction, rather than this division formula, governs harmonic extension. The Q formula needs only \(r<N\) and avoids that undefined step.
+
+With \(p_{2j}^*\) the adjoint for \(\dd\mathrm{vol}_g\), the reported holographic identity is
+\[
+ 2n c_NQ_n=n v^{(n)}+
+ \sum_{j=1}^{N-1}(n-2j)p_{2j}^*v^{(n-2j)}.
+\]
+Normalize the conformally flat scalar Pfaffian as \(\operatorname{Pf}=N!\sigma_N(P)\). Then
+\[
+ Q_n=2^{N-1}(N-1)!\operatorname{Pf}
+ +\frac1{2n c_N}\sum_{j=1}^{N-1}
+       (n-2j)p_{2j}^*v^{(n-2j)}.
+\]
+The second term is the divergence of a natural one-form, because each positive-order \(p_{2j}\) annihilates constants. It integrates to zero on a closed manifold, with boundary terms retained in a boundary setting. This gives a finite local algorithm rather than only the existence of an unspecified divergence.
+
+In dimension two the Schouten formula above is not used: \(Q_2=\operatorname{Pf}=K\), \(v^{(2)}=-K/2\), and the sum is empty. In dimension four the sign convention gives
+\[
+ Q_4=4\sigma_2(P)+\Delta_gJ,
+\]
+which equals \(4\sigma_2(P)-\operatorname{div}\nabla J\). On a unit round \(S^{2N}\), the normalization gives \(Q_{2N}=(2N-1)!\), including \(Q_2=1\), \(Q_4=6\), \(Q_6=120\). The aid reports additional dimension-six coefficient checks but does not supply their expanded expression. No silent replacement of the full original procedure by a merely similar operator construction is intended.
+\subsection{Short English statement}
+The aid supplies a holographic Q-curvature formula and a triangular recurrence for every subcritical harmonic-extension coefficient. In the conformally flat case it gives the Pfaffian term plus an explicit divergence, with the critical denominator excluded. Matching this construction to the unquoted Eastwood--Slovák procedure still requires source verification.
+\subsection{Sources}
+\begin{itemize}
+\item Permanent UnsolvedMath ID \(20002039\), exact public code catalogue entry; local registry \texttt{aim-geometry-notes.json}, \texttt{notes[376]}, canonical tag problem.
+\item AIM workshop ``Conformal structure in geometry, analysis, and physics,'' Problem 19: \url{https://aimath.org/WWN/confstruct/confstruct.pdf}. No PDF was accessed. The source names Eastwood--Slovák and the theorem of Branson, Gilkey and Pohjanpelto, with line-wrap and accent damage normalized in prose.
+\item The aid attributes the solved holographic formula to Graham and Juhl. No full bibliographic references, original literature entry, proposer/year metadata or quoted original procedure are supplied.
+\item Research attempt 1, ``The holographic conformally flat Q-curvature formula and a finite coefficient recurrence,'' labelled partial\_result, solved at the run, proved and low novelty confidence; registry solved and SOLVED-IN-LITERATURE. It reports checks in dimensions two, four, six and on round spheres; the verification field only introduces the canonical text.
+\end{itemize}
+\end{document}

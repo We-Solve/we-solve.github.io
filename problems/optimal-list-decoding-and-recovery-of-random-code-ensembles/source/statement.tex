@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006386}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+To make the terminology precise, use the following standard finite-alphabet framework; the source does not specify its parameter regimes. Let \(n\geq 1\), let \(\Sigma\) be a finite alphabet of size \(q\geq 2\), and let a code be a nonempty subset \(C\subseteq\Sigma^n\). Its rate is \(R(C)=n^{-1}\log_q|C|\). For \(x,y\in\Sigma^n\), define the Hamming distance by
+\[
+ d_H(x,y)=|\{i\in\{1,\ldots,n\}:x_i\ne y_i\}|.
+\]
+For a relative error radius \(\rho\in[0,1]\) and an integer \(L\geq 1\), the code is \((\rho,L)\)-list-decodable if
+\[
+ \forall y\in\Sigma^n,\qquad
+ |\{c\in C:d_H(c,y)\leq\rho n\}|\leq L.
+\]
+The integer-valued distance makes the radius condition equivalent to \(d_H(c,y)\leq\lfloor\rho n\rfloor\).
+
+For an integer \(1\leq\ell\leq q\), the code is \((\rho,\ell,L)\)-list-recoverable if, for every tuple of subsets \(S_1,\ldots,S_n\subseteq\Sigma\) satisfying \(|S_i|\leq\ell\),
+\[
+ \left|\left\{c\in C:
+ |\{i\in\{1,\ldots,n\}:c_i\notin S_i\}|\leq\rho n
+ \right\}\right|\leq L.
+\]
+Here \(\ell\) bounds the input list size at each coordinate, while \(L\) bounds the output list size. Taking singleton input lists recovers the list-decoding condition. These definitions concern combinatorial list sizes; the source supplies no required decoding or recovery algorithm or running-time bound.
+
+A random code ensemble is a probability distribution \(\mathcal D_n\) on nonempty codes in \(\Sigma_n^n\). For specified parameter sequences \(\rho_n\), \(\ell_n\), and \(L_n\), its list-decoding and list-recovery success probabilities are, respectively,
+\[
+ \Pr_{C\sim\mathcal D_n}\bigl[C\text{ is }(\rho_n,L_n)\text{-list-decodable}\bigr]
+ \quad\text{and}\quad
+ \Pr_{C\sim\mathcal D_n}\bigl[C\text{ is }(\rho_n,\ell_n,L_n)\text{-list-recoverable}\bigr].
+\]
+An asymptotic requirement that either probability tend to \(1\) as \(n\to\infty\) is one possible interpretation, but it is not specified in the source.
+
+\textbf{Source question.} Which random code ensembles have optimal list-decoding and list-recovery behavior, and what error radii and output list sizes do they achieve, as functions of the relevant rate, alphabet size, block length, and, for list recovery, input list size?
+
+\textbf{Unresolved qualifications.} The supplied record does not specify the class of ensembles, parameter scaling, probability threshold, or benchmark defining ``optimal.'' In particular, it does not identify a capacity boundary, an allowed gap from such a boundary, or an optimal dependence of \(L\) on the other parameters. Thus this is a precise terminology framework for a research question, not a uniquely determined conjecture with fixed quantifiers. The original attributed wording asks about kinds of codes generally; the curated statement and talk title focus on random code ensembles.
+\subsection{Short English statement}
+Determine which random code ensembles achieve optimal tradeoffs among code rate, error radius, and output list size for list decoding and list recovery, with input list size also specified for recovery. The supplied source leaves the ensemble class, probability requirement, asymptotic regime, and meaning of optimality unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30006386\), title \emph{Optimal List Decoding and Recovery of Random Code Ensembles}, source problem code \texttt{catalogue entry}, collection \emph{Oberwolfach Reports Open Problems}; proposed year recorded as 2025. The record supplies no separate proposer.
+\item Supplied report citation: \emph{New Mathematical Directions in Coding Theory (2026)}, Oberwolfach Reports, DOI 10.4171/owr/2025/41, pp. 2187--2242. \url{https://doi.org/10.4171/owr/2025/41}. The supplied citation uses 2026, whereas the DOI and report label use 2025; this discrepancy is unresolved.
+\item Supplied attribution: Ray Li, \emph{List-Decoding and List-Recovery of Random Codes Ensembles}, joint work with Omar Alrabiah, Venkatesan Guruswami, and Nikhil Shagrithaya.
+\item Supplied literature source: \emph{Oberwolfach Report 41 2025}. \url{https://ems.press/content/serial-article-files/52245}.
+\item Supplied literature source: \emph{Near-Optimal List-Recovery of Linear Code Families}. \url{https://arxiv.org/abs/2502.13877}.
+\item Supplied literature source: \emph{Random Reed--Solomon and Random Linear Codes}. \url{https://arxiv.org/abs/2406.02238}.
+\item Supplied dated literature curation, checked \texttt{2026-08-22}: the record labels the question open and reports capacity or near-optimal results for random linear codes and punctured Reed--Solomon codes in important regimes, while reporting no general characterization of optimally list-decodable and list-recoverable codes. This is the supplied dated assessment, not an independently verified literature conclusion; the relevant regimes and precise theorem statements are not supplied.
+\item The registry labels its statement \texttt{corrected\_verified} and reports that the official report was checked, the question isolated, and its notation repaired. These are supplied provenance claims, not verification performed for this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800505}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A conventional framework for expressing the question is the following. Let \(\mathbb K\in\{\R,\C\}\), let \(A\in\mathbb K^{n\times n}\), and consider \(Ax=b\) with initial approximation \(x_0\) and initial residual \(r_0=b-Ax_0\). Define
+\[
+\mathcal K_0(A,r_0)=\{0\},\qquad
+\mathcal K_k(A,r_0)=\operatorname{span}\{r_0,Ar_0,\ldots,A^{k-1}r_0\}\quad(k\geq1).
+\]
+For standard unrestarted GMRES in the Euclidean norm, the residual \(r_k=b-Ax_k\) satisfies
+\[
+x_k\in x_0+\mathcal K_k(A,r_0),\qquad
+\|r_k\|_2=\min_{x\in x_0+\mathcal K_k(A,r_0)}\|b-Ax\|_2.
+\]
+These conventions provide notation; the supplied record does not specify the GMRES variant, residual norm, or precise discretized system in the examples it refers to.
+
+Eigenvalue information means the locations of the elements of \(\sigma(A)\), the spectrum of \(A\). If \(A\) admits a diagonalization \(A=V\Lambda V^{-1}\), eigenvector conditioning can be expressed, for a specified eigenvector matrix \(V\), by
+\[
+\kappa_2(V)=\|V\|_2\,\|V^{-1}\|_2.
+\]
+This conditional definition does not assume that the convection--diffusion matrices in the source are diagonalizable. A choice of eigenvector normalization and, for repeated eigenvalues, a choice of eigenbasis would be needed to make such a measure unambiguous.
+
+\textbf{Problem (supplied source formulation).} Explain the acceleration of GMRES convergence after an initial transient phase observed in some convection--diffusion model problems, including the example cited in the source as [LieStr05]. In particular, determine whether, and in what precise sense, the convergence speed can be related to the eigenvalue locations and eigenvector conditioning of the discretized convection--diffusion operators.
+
+The supplied formulation is an explanatory research question, rather than a quantified assertion of a particular convergence estimate. It does not define the transient phase or acceleration, identify the differential operators, domains, coefficients, boundary conditions, discretizations, right-hand sides, initial guesses, or preconditioners, or specify which spectral data should predict which measure of convergence. The bibliographic identity and model problem of [LieStr05] are also absent. Consequently, no universal quantifier over convection--diffusion systems, particular onset criterion, or specific convergence bound is asserted here; those unresolved qualifications require examination of the cited source.
+\subsection{Short English statement}
+Explain why GMRES sometimes converges faster after an initial transient when applied to discretized convection--diffusion problems, especially the example referenced as [LieStr05]. Determine whether eigenvalue locations and eigenvector conditioning explain that behavior. The supplied record leaves the model, algorithmic details, and meaning of acceleration unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800505\), source problem code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 14.'' The supplied record attributes the problem to Amsel, Baumann et al. (2026) and labels its status as open. This is a supplied registry label, not an independently verified mathematical or literature assessment. The supplied upstream revision is \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 14. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of independent access or verification.
+\item [LieStr05], cited in the supplied statement for a convection--diffusion model problem exhibiting the reported behavior. No authors, title, publication details, or URL for this reference are supplied, so its identity and the precise example remain unresolved.
+\end{itemize}
+\end{document}

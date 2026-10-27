@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800508}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Under the usual real interpretation, a symmetric positive definite (SPD) system consists of \(A\in\R^{n\times n}\) with \(A^{\mathsf T}=A\) and \(v^{\mathsf T}Av>0\) for every nonzero \(v\in\R^n\), together with \(b\in\R^n\). Here \(n\geq1\), and CG denotes the conjugate-gradient method for solving \(Ax=b\). The source does not explicitly specify the scalar field; this real interpretation does not assert an extension to complex Hermitian systems.
+
+The phrase ``normwise backward error'' requires a norm and a perturbation convention. For example, given a vector norm and its induced matrix norm, one possible definition for an approximate solution \(\widehat x\) is
+\[
+\eta_{A,b}(\widehat x)=\inf\left\{\delta\geq0:\begin{array}{l}
+\exists\,\Delta A\in\R^{n\times n},\ \Delta b\in\R^n,\\
+(A+\Delta A)\widehat x=b+\Delta b,\\
+\|\Delta A\|\leq\delta\|A\|,\quad
+\|\Delta b\|\leq\delta\|b\|
+\end{array}\right\}.
+\]
+This example allows perturbations to both data and imposes no symmetry or positive-definiteness requirement on the perturbed matrix. The supplied source does not select this definition, a particular norm, or these perturbation rules; they must not be treated as source hypotheses.
+
+\textbf{Problem (source formulation).} Determine how many bits of precision are necessary to guarantee that CG applied to an \(n\times n\) SPD system \(Ax=b\) produces, in at most \(n\) steps, an approximate solution whose normwise backward error is at most the prescribed tolerance \(\epsilon\).
+
+More formally, once an arithmetic model, a CG implementation, initialization, an admissible input class, and a backward-error functional \(\eta\) have been fixed, the requested guarantee has the form
+\[
+\text{for every admissible }(A,b),\qquad
+\exists\,k\in\{0,\ldots,n\}:\quad
+\eta(\widehat x_k)\leq\epsilon,
+\]
+where \(\widehat x_k\) is an iterate computed at the proposed precision. The source does not specify these conventions, the admissible range of \(\epsilon\), or whether the precision must depend only on \(n\) and \(\epsilon\) or may also depend on conditioning and other input parameters. Thus it supplies a precision-complexity question, but not a uniquely specified quantitative bound to be established.
+\subsection{Short English statement}
+Determine the precision needed for conjugate gradients to achieve normwise backward error at most \(\epsilon\) within \(n\) steps on an \(n\times n\) SPD system. The arithmetic model, backward-error convention, initialization, and permitted dependence on the input remain unspecified. The registry labels the problem open; this is a supplied status, not an independently verified assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800508\), source problem code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 17.'' The supplied record attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels it open.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 17. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; this is supplied provenance, not an independent source visit or verification.
+\end{itemize}
+\end{document}

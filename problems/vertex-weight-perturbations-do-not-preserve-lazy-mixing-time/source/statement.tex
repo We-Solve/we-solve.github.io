@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001297}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+On a finite connected undirected graph $G$ with at least one edge, assign $W_v>0$ and define
+\[
+P_W(u,v)=\frac{W_v}{\sum_{w\in N(u)}W_w}\quad(v\in N(u)).
+\]
+The source, attributed to Yuval Peres, asks whether changing weights by uniformly bounded factors changes mixing time only by a bounded factor. A precise convention uses $\overline P_W=(I+P_W)/2$ and worst-start total-variation mixing time $t_{\mathrm{mix}}(1/4)$. Laziness avoids periodicity of the raw walk. Bounded perturbation means $C^{-1}\le W'_v/W_v\le C$ for a fixed $C$ independent of graph size. The original remark states the analogous stability for spectral gap. The walk is reversible with stationary measure proportional to $W_u\sum_{v\in N(u)}W_v$, equivalently edge conductances $W_uW_v$.
+
+The attached aid gives a negative mixing-time answer through a subdivision transfer. Start with any finite connected positive-conductance network $(G,c)$, put $c_u=\sum_{v\sim u}c_{uv}$ and let $Q_c=(I+P_c)/2$, $P_c(u,v)=c_{uv}/c_u$. Subdivide each edge $e=uv$ by one new vertex $m_e$ and set
+\[
+W_u=1\quad(u\text{ original}),\qquad W_{m_e}=c_e.
+\]
+For the nonlazy lifted walk, its two-step skeleton on original vertices satisfies exactly
+\[
+P_W^2(u,v)=Q_c(u,v).
+\]
+This identity concerns the nonlazy skeleton; the full lifted chain used for mixing is $\overline P_W$. The aid reports universal constants $c_0,C_0>0$ with
+\[
+c_0\,t_{\mathrm{mix}}(Q_c;1/4)\le t_{\mathrm{mix}}(\overline P_W;1/4)
+\le C_0\,t_{\mathrm{mix}}(Q_c;1/4),
+\]
+using a large-set hitting-time comparison. The constants are independent of network size and conductance ratios in its stated theorem.
+
+The aid then invokes Ding--Peres bounded-degree networks with edge perturbation ratios in $[1,2]$ and mixing-time ratio $\Omega(\log n/\log\log n)$. The fixed subdivided graph transfers those ratios to midpoint vertex weights in $[1,2]$, with original vertex weights unchanged, and retains an unbounded ratio of the same order. Its size is comparable to the original size for bounded degree. This refutes a universal bounded-factor conclusion even in the lazy total-variation setting, while not contradicting spectral-gap comparison. Full references and the hitting-time proof are absent from this summary.
+\subsection{Short English statement}
+Bounded vertex-weight changes need not preserve lazy mixing time up to a universal factor. The supplied aid transfers known edge-conductance sensitivity through subdivision, carefully distinguishing an exact nonlazy two-step identity from mixing of the lazy lifted chain.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001297$, source code catalogue entry; canonical \texttt{aim-convex-geometry-notes.json}, \texttt{notes[28]}.
+\item American Institute of Mathematics, \emph{Problems from the AIM Workshop on Algorithmic Convex Geometry}, problem 10 attributed to Yuval Peres: \url{https://aimath.org/WWN/convexgeometry/convexgeometry.pdf}. The supplied verification restores the transition fraction; its remark records spectral-gap stability. No PDF inspection is claimed here.
+\item Attached research attempt 1: counterexample, recorded run status refuted, rigor proved, novelty confidence low; registry status solved, classification SOLVED-IN-LITERATURE. It cites Ding--Peres networks without an exact bibliographic identifier and describes the universal subdivision comparison. The machine-generated aid is not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

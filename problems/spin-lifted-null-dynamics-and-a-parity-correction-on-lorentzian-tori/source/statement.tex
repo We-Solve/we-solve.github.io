@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002036}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Problem 16 asks to relate \(h(g)\) to null-geodesic dynamics, without defining \(h\). The paired aid interprets it as the complex dimension of the full smooth Dirac kernel on a Lorentzian spin manifold. Write \(h(g,s)=\dim_{\mathbb C}\ker D_{g,s}\) to retain the spin structure explicitly; chirality, completions or boundary conditions would define different quantities.
+
+Its exact test case is the unit-period torus \((\mathbb R/\mathbb Z)^2\) with
+\[
+ g=-\lambda_t^2dt^2+\lambda_x^2dx^2,\qquad
+ \lambda_t,\lambda_x>0.
+\]
+Let \(e_t,e_x\in\{0,1\}\) prescribe spin periodicities \((-1)^{e_t}\), \((-1)^{e_x}\). The two null directions have slopes \(dx/dt=\pm\lambda_t/\lambda_x\). If
+\(\lambda_t/\lambda_x=m/n\) with coprime positive integers \(m,n\), the aid reports
+\[
+ h(g,s)=\begin{cases}
+ \infty,&ne_t+me_x\equiv0\pmod2,\\
+ 0,&ne_t+me_x\equiv1\pmod2.
+ \end{cases}
+\]
+Here infinity means infinite-dimensional, not a specified cardinality. A primitive closed null geodesic has winding \((n,\pm m)\); its spin holonomy is
+\( (-1)^{ne_t\pm me_x}\), with the same parity for both signs. Thus the condition is precisely trivial spin holonomy along the primitive null orbits.
+
+For irrational \(\lambda_t/\lambda_x\), the reported full-kernel answer is
+\[
+ h(g,s)=2\quad\text{if }(e_t,e_x)=(0,0),\qquad
+ h(g,s)=0\quad\text{otherwise}.
+\]
+The two-dimensional value counts the constant full complex spinors. In the Fourier convention of these periodicities, null frequencies obey
+\[
+ n(p+e_t/2)=\pm m(q+e_x/2),\qquad p,q\in\mathbb Z,
+\]
+in the rational case. The aid uses the parity condition to correct or qualify rational-slope entries in a table following Witt's Fourier equation, not reproduced in the supplied record.
+
+The same metric and ordinary null dynamics therefore can have different Dirac-kernel dimensions for different spin structures, including zero versus infinity. Any proposed determination from dynamics must retain spin-lifted transport, rather than only null orbit geometry.
+
+The aid adds two broader qualifications. Microlocally, Dirac polarizations propagate along null geodesics by spin parallel transport; this concerns characteristic singularity/polarization transport and is not itself a count of the global smooth kernel. On a globally hyperbolic spin spacetime of dimension at least two, unrestricted smooth Dirac solutions already form an infinite-dimensional space through free Cauchy data. Thus the meaning of \(h\), global causal assumptions and the solution space must be fixed before a finite-dimensional dynamical relation is sought. The torus result is a special-case obstruction and correction, not a general formula for every Lorentzian metric.
+\subsection{Short English statement}
+Under the supplied full-Dirac-kernel interpretation, ordinary null dynamics does not determine \(h\): changing spin structure on a fixed flat Lorentzian torus can change the kernel from zero to infinite-dimensional. The rational case needs an exact winding-parity condition. Microlocal transport and globally hyperbolic solution spaces supply further context, not a general counting formula.
+\subsection{Sources}
+\begin{itemize}
+\item Local source record: catalogue entry, catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[373]}, Problem 16. Title: ``Spin-lifted null dynamics and a parity correction on Lorentzian tori.''
+\item AIM workshop \emph{Conformal structure in geometry, analysis, and physics}, supplied reference \url{https://aimath.org/WWN/confstruct/confstruct.pdf}. Original remarks and literature fields are empty; the extracted question leaves \(h(g)\) undefined. This draft does not access a PDF.
+\item Supplied research attempt 1: flat-torus Fourier/parity criterion, a qualification of Witt's rational-slope table, spin transport context and free-Cauchy-data observation. No full Witt citation or authoritative references for the general propagation/Cauchy statements are supplied.
+\item Registry dated 14 August 2026: ``partially\_solved,'' ``PARTIAL-PROGRESS,'' statement status ``exact''; attempt partial, rigor ``proved,'' novelty confidence low. The machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

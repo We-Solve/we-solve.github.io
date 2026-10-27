@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002329}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Problem 14 asks to ``understand the encoding of graphs in metric structures.'' This is a research program, without a specified class of graphs, signature, notion of encoding, or target theorem. The supplied aid addresses the following particular encoding, rather than resolving every interpretation of that program.
+
+For a nonempty simple undirected graph $G=(V,E)$, put
+\[
+d_G(x,y)=\begin{cases}0&x=y,\\ \tfrac12&\{x,y\}\in E,\\1&x\ne y\text{ and }\{x,y\}\notin E.\end{cases}
+\]
+Then $(V,d_G)$ is a complete metric structure of diameter at most $1$ in the pure metric language. The predicate
+\[
+A(x,y)=2\left|d_G(x,y)-\tfrac12\right|
+\]
+is $0$ precisely on adjacent pairs and $1$ on other pairs, including the diagonal; this uses the continuous-logic convention that truth has value $0$. Equality is represented by $\min(1,2d_G(x,y))$. With these atomic predicates, Boolean connectives and quantifiers translate by $\neg\mapsto1-\varphi$, $\wedge\mapsto\max$, $\vee\mapsto\min$, $\forall\mapsto\sup$, and $\exists\mapsto\inf$. Thus first-order graph formulas have exact $\{0,1\}$-valued continuous-metric translations on these codes. The displayed scalar function of distance is $2$-Lipschitz; coordinatewise uniform continuity follows from the metric triangle inequality. Induced graph embeddings are exactly isometric embeddings between codes, and graph isomorphisms are exactly their surjective isometries.
+
+For a metric $\widetilde d$ on the same carrier $V$, if
+\[
+\sup_{x,y\in V}|\widetilde d(x,y)-d_G(x,y)|<\tfrac14,
+\]
+then, for distinct $x,y$,
+\[
+\{x,y\}\in E\quad\Longleftrightarrow\quad\widetilde d(x,y)<\tfrac34.
+\]
+For bounded nonempty metric spaces $X,Y$, define the correspondence pseudodistance by
+\[
+\delta(X,Y)=\tfrac12\inf_R\operatorname{dis}(R),\qquad
+\operatorname{dis}(R)=\sup_{(x,y),(x',y')\in R}|d_X(x,x')-d_Y(y,y')|,
+\]
+where $R\subseteq X\times Y$ projects onto each factor. The aid asserts that nonisomorphic graph codes satisfy $\delta\geq\tfrac14$. The strict noise bound and the separation constant are sharp: the edge and nonedge graphs on two vertices have code distances $\tfrac12$ and $1$ respectively, share the midpoint metric with off-diagonal distance $\tfrac34$ at uniform error $\tfrac14$, and have correspondence pseudodistance $\tfrac14$. For infinite spaces, this definition is used as stated, without silently restricting to compact spaces or asserting that pseudodistance zero classifies arbitrary metric spaces.
+\subsection{Short English statement}
+The source asks broadly how graphs can be encoded in metric structures. The supplied partial result uses distances $\tfrac12$ and $1$ to encode edges and nonedges, preserving induced embeddings and first-order formulas, with sharp noise and correspondence-distance bounds. This explicit construction does not fix the scope of the original research program.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002329$, \texttt{catalogue entry}; canonical \texttt{aim-logic-notes.json}, \texttt{notes[104]}.
+\item American Institute of Mathematics, \emph{Model theory of metric structures}, Problem 14, \url{https://aimath.org/WWN/continuouslogic/continuouslogic.pdf}. The supplied verification reports page 4 and says the source itself prints ``enconding''; ``encoding'' is the evident editorial correction. The extracted trailing ``Background:'' has no accompanying content.
+\item Research attempt 1: partial result; problem status partially solved at run; rigor label ``proved''; novelty confidence low. The registry labels the statement corrected/verified and the problem partially solved. No proposer or authoritative bibliographic citation for the coding and sharp constants is supplied.
+\end{itemize}
+\end{document}

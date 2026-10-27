@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003171}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record concerns an unknown matrix \(\theta=(\theta_{ij})\in\Theta\) and observations
+\[
+Y_{ij}=\eta_{ij}(\theta_{ij}+W_{ij}),
+\]
+where \(\eta_{ij}\) are indicators of independently sampled entries and the noise variables \(W_{ij}\) are independent and sub-Gaussian. The matrix dimensions, the structured parameter class \(\Theta\), and its outer factor classes are not defined in the supplied record. Independence between the sampling indicators and the noise, noise centering, and a uniform sub-Gaussian scale are also not explicitly specified.
+
+For a matrix \(A\), write \(\|A\|_F^2=\sum_{i,j}|A_{ij}|^2\). Once the dimensions, parameter class, and observation experiment \(\mathcal E\) have been specified, the unnormalized squared Frobenius minimax risk is
+\[
+\mathcal R(\Theta;\mathcal E)
+=\inf_{\widehat\theta}\sup_{\theta\in\Theta}
+\mathbb E_{\theta,\mathcal E}
+\bigl[\|\widehat\theta-\theta\|_F^2\bigr],
+\]
+where the infimum ranges over measurable estimators based on the available observations. The record does not specify whether the sampling indicators are themselves observed or whether the intended loss is normalized by the number of matrix entries; the displayed functional therefore gives a conditional formulation using unnormalized squared loss.
+
+\textbf{Requested determination.} Determine the minimax Frobenius-risk rate over the full structured factor class, beyond the finite-alphabet cases. In the notation attributed by the record to Theorem 1 of the cited report, the proposed comparison is formally
+\[
+\mathcal R(\Theta;\mathcal E)
+\asymp \frac{R_X+R_B+R_Z}{p}.
+\]
+Here \(\asymp\) denotes comparison up to positive multiplicative constants over the intended parameter regime. The quantities \(R_X,R_B,R_Z\), the permitted dependence of those constants, and that regime are not supplied. If \(p\) is a common sampling probability, this expression requires \(0<p\leq1\); the record does not explicitly give the sampling law or address the boundary \(p=0\).
+
+The question also asks whether the contribution \(R_X\), respectively \(R_Z\), disappears when the corresponding outer factor class consists only of the identity matrix. Formally, these proposed simplifications are \((R_B+R_Z)/p\), respectively \((R_X+R_B)/p\), subject to the still unspecified factor dimensions and definitions. These expressions record the intended question, not established conclusions. Without the definition of \(\Theta\) and the statement of the cited Theorem 1, the supplied evidence does not determine a complete mathematical conjecture.
+\subsection{Short English statement}
+Determine the optimal worst-case squared Frobenius error for estimating a structured matrix from independently sampled entries with independent sub-Gaussian noise. The supplied question asks whether the lower-bound expression \((R_X+R_B+R_Z)/p\) is the correct rate for the full factor class and whether identity outer factors remove their corresponding terms. Essential definitions and hypotheses are missing, so this remains a conditional statement requiring mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30003171\), title \emph{Minimax Risk of Structured Matrix Estimation}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2016 and names no proposer.
+\item Supplied report citation: \emph{Learning Theory and Approximation (2017)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2016/33}, pp.\ 1875--1941. Supplied source URL and literature-sources link, labelled ``Oberwolfach Report on learning theory'': \url{https://doi.org/10.4171/owr/2016/33}. The original statement refers to Theorem 1, whose text is not supplied.
+\item Literature assessment checked at \texttt{2026-08-21}: the supplied curation labels the problem \texttt{partially\_solved} and reports that the cited report proves the minimax lower bound, with matching upper bounds only for finite alphabets and selected cases, while the conjectured rate over the full considered class remains unresolved. This is supplied dated curation, not an independently verified literature assessment; the record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official passage was checked and rewritten while preserving its mathematical content. This is supplied verification metadata, not verification performed for this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005769}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer \(n\geq 0\), let \([n]=\{1,\ldots,n\}\), with \([0]=\varnothing\). A matching on \([n]\) means a partition of \([n]\) into two-element blocks. Thus every vertex is matched, there are no such matchings when \(n\) is odd, and there is one empty matching on \([0]\). This interpretation is required by the supplied source's assertion that the odd-indexed counts vanish.
+
+Let \(\tau\) be a finite matching on \([2k]\). A matching \(\pi\) on \([n]\) contains \(\tau\) as a pattern if there exists a strictly increasing injection \(f:[2k]\to[n]\) such that \(\{f(a),f(b)\}\) is a block of \(\pi\) for every block \(\{a,b\}\) of \(\tau\). Equivalently, some collection of blocks of \(\pi\), after relabeling its endpoints in increasing order, equals \(\tau\). The matching \(\pi\) avoids \(\tau\) if no such injection exists. Define
+\[
+M_n(\tau)=\#\{\pi:\pi\text{ is a matching on }[n]\text{ avoiding }\tau\},\qquad n\geq0.
+\]
+In particular, \(M_n(\tau)=0\) for odd \(n\); for a nonempty pattern \(\tau\), \(M_0(\tau)=1\). The source does not specify whether the empty pattern is admitted. Its inclusion and the corresponding normalization at index zero require clarification; no exclusion is silently imposed here.
+
+A real sequence \((a_n)_{n\geq0}\) is a Hamburger moment sequence if there is a nonnegative Borel measure \(\mu\) on \(\R\), with \(\int_{\R}|x|^n\,\mathrm d\mu(x)<\infty\) for every integer \(n\geq0\), such that
+\[
+a_n=\int_{\R}x^n\,\mathrm d\mu(x)\qquad(n\geq0).
+\]
+A real sequence \((b_n)_{n\geq0}\) is a Stieltjes moment sequence if there is a nonnegative Borel measure \(\nu\) on \([0,\infty)\), with all nonnegative integer moments finite, such that
+\[
+b_n=\int_{[0,\infty)}t^n\,\mathrm d\nu(t)\qquad(n\geq0).
+\]
+These definitions allow the zero measure; for nonempty \(\tau\), any representing measure for the sequences above has total mass one.
+
+\textbf{Problem.} Characterize the finite matching patterns \(\tau\) for which there exists such a measure \(\mu\) satisfying
+\[
+M_n(\tau)=\int_{\R}x^n\,\mathrm d\mu(x)\qquad\text{for every integer }n\geq0.
+\]
+Equivalently, characterize those \(\tau\) for which there exists such a measure \(\nu\) satisfying
+\[
+M_{2n}(\tau)=\int_{[0,\infty)}t^n\,\mathrm d\nu(t)\qquad\text{for every integer }n\geq0.
+\]
+The supplied report suggests that the property may hold for every matching pattern \(\tau\). This is a source-reported conjectural possibility, not an established conclusion here. The supplied excerpt reports integral representations in several exactly enumerated cases, but its displayed enumeration formulas are damaged and its ending is truncated; those formulas are not reconstructed in this statement.
+\subsection{Short English statement}
+Count perfect matchings on an ordered set that avoid a fixed matching pattern \(\tau\). Determine exactly which patterns make these counts the moments of a nonnegative measure on \(\R\), or, equivalently, make the even-indexed counts moments of a nonnegative measure on \([0,\infty)\). The source suggests that every matching pattern has this property. The empty-pattern convention remains unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30005769\), title ``Moment Sequences from Matching Pattern Avoidance,'' source problem code \texttt{catalogue entry}. The supplied record gives proposed year 2024 and does not identify an individual proposer.
+\item Supplied source citation: \emph{Mini-Workshop: Permutation Patterns} (2024), \emph{Oberwolfach Reports}, pp.\ 273--308, DOI 10.4171/owr/2024/6. Original OWR report: \url{https://doi.org/10.4171/owr/2024/6}. The supplied excerpt labels the target ``Question 1.''
+\item Supplied literature source labeled ``matching-enumeration paper'': \url{https://link.springer.com/article/10.1007/s00026-022-00596-1}. No authors, title, or fuller bibliographic details for this paper are supplied.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem ``partially solved'' and states that several exactly enumerated matching-avoidance sequences have integral moment representations supporting the conjecture, while no proof for every matching was located. This is supplied dated curation, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official Oberwolfach report was checked directly when preparing the clean statement. This is a supplied verification claim; no independent source visit or verification is asserted here. The excerpt's references [5], [7], and [10] lack their corresponding bibliography in the supplied record.
+\end{itemize}
+\end{document}

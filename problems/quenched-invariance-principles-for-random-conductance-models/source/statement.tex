@@ -1,0 +1,82 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002441}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(d\geq 1\) be an integer. Under the usual undirected nearest-neighbour interpretation of the random conductance model, let
+\[
+E_d=\bigl\{\{x,y\}:x,y\in\Z^d,\ \|x-y\|_1=1\bigr\}.
+\]
+An environment is a collection \(\omega=(\omega(e))_{e\in E_d}\) with law \(\mathbb P\). Assume that \(\mathbb P\) is stationary and ergodic under lattice translations and that, for every \(e\in E_d\),
+\[
+\mathbb P(0<\omega(e)<\infty)=1,
+\qquad \mathbb E_{\mathbb P}[\omega(e)]<\infty.
+\]
+No independence assumption is supplied. Write \(\omega_{xy}=\omega(\{x,y\})\) for neighbouring vertices and \(\mu^\omega(x)=\sum_{y:\|y-x\|_1=1}\omega_{xy}\).
+
+\textbf{Unresolved process convention.} The supplied record does not specify the walk or its clock. Two standard continuous-time conventions have generators
+\[
+(\mathcal L_{\mathrm V}^{\omega}f)(x)
+ =\sum_{y:\|y-x\|_1=1}\omega_{xy}\bigl(f(y)-f(x)\bigr)
+\]
+and
+\[
+(\mathcal L_{\mathrm C}^{\omega}f)(x)
+ =\frac{1}{\mu^\omega(x)}\sum_{y:\|y-x\|_1=1}\omega_{xy}\bigl(f(y)-f(x)\bigr),
+\]
+corresponding respectively to variable-speed and constant-speed walks. A discrete-time walk with transition probabilities \(\omega_{xy}/\mu^\omega(x)\) is another possible intended convention. These alternatives explain the missing specification; the record does not select one of them or explicitly require a conclusion for all of them. The edge set above likewise makes explicit the usual nearest-neighbour interpretation.
+
+\textbf{Question, conditional on specifying the intended walk.} Does the additional assumption
+\[
+\mathbb E_{\mathbb P}[\omega(e)^{-1}]<\infty
+\qquad\text{for every }e\in E_d
+\]
+suffice for a quenched functional central limit theorem with deterministic nondegenerate covariance? More explicitly, using the usual initial condition \(X_0=0\), let \(P_0^\omega\) be the law of the intended walk in the fixed environment \(\omega\). Is there a deterministic symmetric matrix \(\Sigma^2\), satisfying
+\[
+v^{\mathsf T}\Sigma^2v>0\qquad(v\in\R^d\setminus\{0\}),
+\]
+such that, for \(\mathbb P\)-almost every \(\omega\),
+\[
+\left(n^{-1}X_{n^2t}\right)_{t\geq0}
+\ \Longrightarrow\ (B_t)_{t\geq0}
+\quad\text{under }P_0^\omega,
+\]
+where \(B\) is a centred Brownian motion with \(B_0=0\) and
+\[
+\mathbb E[B_sB_t^{\mathsf T}]=\min\{s,t\}\Sigma^2?
+\]
+Here convergence is formulated in \(D([0,\infty),\R^d)\) with the Skorokhod \(J_1\) topology; for a discrete-time interpretation, replace \(X_{n^2t}\) by \(X_{\lfloor n^2t\rfloor}\). The starting point and path-space convention are standard explicit formulations, not details confirmed by the supplied report excerpt.
+
+The supplied question does not restrict the dimension. Its dated curation identifies dimensions \(d\geq3\) as the remaining general conjectural range and reports results in dimension two and under stronger moment hypotheses. Those literature assertions are supplied qualifications, not independently verified conclusions of this draft.
+\subsection{Short English statement}
+For a stationary ergodic random conductance environment on \(\Z^d\), assume each conductance is positive and finite and has finite expectation. Does finite expectation of every reciprocal conductance guarantee that, in almost every fixed environment, the diffusively rescaled walk converges to Brownian motion with deterministic positive-definite covariance? The intended walk and clock require clarification. Supplied dated curation labels the problem partially solved and identifies \(d\geq3\) as the remaining general range.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30002441\), source problem code \texttt{catalogue entry}, title \emph{Quenched Invariance Principles for Random Conductance Models}; supplied complete source record from the Oberwolfach Reports Open Problems collection. Repository registry locations are \texttt{data/unsolvedmath/problems.json} and \texttt{catalog/problems.json}; this draft uses the supplied record and does not claim to have inspected those files.
+\item Supplied report citation: \emph{Large Scale Stochastic Dynamics} (2014), Oberwolfach Reports, pp.\ 3039--3113, DOI \texttt{10.4171/owr/2013/52}. Source URL and literature-source label ``original OWR report'': \url{https://doi.org/10.4171/owr/2013/52}. The record gives proposed year 2013 and names no individual proposer. The citation year 2014 and the 2013 provenance fields are retained as supplied.
+\item Supplied literature-source label ``Bella and Schaeffer invariance principle'': \url{https://doi.org/10.1214/19-AOP1361}. No fuller bibliographic details or precise theorem hypotheses are supplied.
+\item Literature assessment dated exactly \texttt{2026-08-21}: supplied dated curation, not independently verified. It labels the problem \texttt{partially\_solved}, reports that the first-moment quenched invariance principle is proved in dimension two and in stronger-moment settings, and describes the general conjecture in dimensions at least three as open. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement-status label is \texttt{corrected\_verified}; its accompanying source-verification note says that the mathematical content was checked against the official Oberwolfach report and that notation, context, and question form were normalized without changing the source-level claim. This is a supplied verification claim, not a verification performed for this draft.
+\end{itemize}
+\end{document}

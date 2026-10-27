@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004386}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record does not define the random variables \(U_i\), their joint distribution, the projection-law map \(\theta\mapsto\mu_\theta\), or the family \(\alpha\mapsto\kappa_\alpha\). Consequently, the conjecture below remains conditional on recovering these definitions from the cited report. In particular, no distribution or independence assumption for the \(U_i\), and no formula for \(\kappa_\alpha\), is inferred here.
+
+Write \(\ell_2\) for the source's space of square-summable coefficient sequences, with \(\|\alpha\|_2^2=\sum_{i\geq1}|\alpha_i|^2\), and write \(S^{N-1}\) for its indicated finite-dimensional unit sphere. The scalar field is not explicitly specified in the supplied record. Let \(\Theta^{(N)}\) have the uniform probability distribution on that sphere, and set
+\[
+\nu_N=\mu_{\Theta^{(N)}}.
+\]
+Here \(\nu_N\) is intended to be a random probability measure; the required measurability and the common underlying space of these measures must be specified.
+
+\textbf{Conditional large-deviation formulation.} Suppose that the missing definitions place these laws in \(\mathcal P(X)\), the Borel probability measures on a common Polish space \(X\). If the intended topology is the Prohorov topology, let \(d_{\mathrm{Pr}}\) denote a Prohorov metric on \(\mathcal P(X)\). This topology is explicitly mentioned for the intermediate claim, but is not explicitly specified for the large-deviation claim in the supplied record. The proposed function is
+\[
+I(\nu)=
+\begin{cases}
+-\dfrac12\log\bigl(1-\|\alpha\|_2^2\bigr),
+&\text{if }\nu=\kappa_\alpha\text{ for some }\alpha\in\ell_2\text{ with }\|\alpha\|_2<1,\\
++\infty,
+&\text{if no such representation exists.}
+\end{cases}
+\]
+This prescription requires proof or a source definition ensuring that any two representations \(\nu=\kappa_\alpha=\kappa_\beta\) with \(\|\alpha\|_2,\|\beta\|_2<1\) give \(\|\alpha\|_2=\|\beta\|_2\). Otherwise it does not define a function. In particular, a measure represented by a parameter of norm one is assigned infinite value only if it has no representation with norm strictly less than one.
+
+Subject to these unresolved definitions and qualifications, the question asks whether \((\nu_N)\) satisfies a large-deviation principle with speed \(N\) and rate function \(I\). Explicitly, for every Borel set \(B\subseteq\mathcal P(X)\), the proposed bounds are
+\[
+-\inf_{\nu\in B^\circ}I(\nu)
+\leq\liminf_{N\to\infty}\frac1N\log\Pr(\nu_N\in B)
+\leq\limsup_{N\to\infty}\frac1N\log\Pr(\nu_N\in B)
+\leq-\inf_{\nu\in\overline B}I(\nu),
+\]
+where interior and closure use the intended topology, \(\inf\varnothing=+\infty\), and \(\log0=-\infty\). Calling \(I\) a rate function also requires lower semicontinuity.
+
+\textbf{Intermediate limit-set claim.} Using the source's undefined variables \(U_i\), put
+\[
+E_N=\left\{\operatorname{law}\!\left(\sum_{i=1}^{N}a_iU_i\right):a\in S^{N-1}\right\}.
+\]
+Under the interpretation that ``possible Prohorov limits'' means limits along dimensions tending to infinity, the proposed equality is
+\[
+\left\{\nu\in\mathcal P(X):\begin{array}{l}
+\exists\,N_1<N_2<\cdots,\quad N_j\to\infty,\\
+\exists\,\eta_j\in E_{N_j}\text{ for every }j,\quad
+ d_{\mathrm{Pr}}(\eta_j,\nu)\to0
+\end{array}\right\}
+=
+\{\kappa_\alpha:\alpha\in\ell_2,\ \|\alpha\|_2\leq1\}.
+\]
+Thus every such convergent sequence must have a limit of the indicated form, and every indicated measure must be attainable as such a limit. The supplied wording does not distinguish this subsequential interpretation from requiring an approximating choice in \(E_N\) for every dimension \(N\). The record describes this claim as a necessary intermediate step and calls it a compactness lemma, but supplies no separate precise sequential-compactness assertion.
+\subsection{Short English statement}
+The conjecture concerns large deviations, at speed \(N\), of probability laws obtained from uniformly random directions. Its proposed finite rate depends on the squared \(\ell_2\)-norm of a parameter describing the law. An intermediate claim identifies all possible Prohorov limits, including parameters of norm one. The supplied record omits the definitions of the projection laws, the variables \(U_i\), and the family \(\kappa_\alpha\), so a fully specified mathematical statement requires source review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, supplied record with permanent ID \(30004386\), title ``Large Deviations for Random High-Dimensional Projections,'' exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is recorded as 2020.
+\item Supplied source citation: \emph{New Perspectives and Computational Challenges in High Dimensions} (2021), \emph{Oberwolfach Reports}, pp.\ 377--416, DOI \texttt{10.4171/owr/2020/6}. Source URL and supplied literature-source link, labelled ``Oberwolfach report on the conjecture'': \url{https://doi.org/10.4171/owr/2020/6}. The record describes these reports as documenting workshops and their open-problem discussions. The citation year 2021 and the proposed year 2020 are retained as supplied.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem open and states that the report presents both the large-deviation principle and its compactness lemma as conjectural, with no proof of the full claim found in the literature checked by that date. This is supplied dated curation, not independently verified here; the record itself requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement-status label is \texttt{corrected\_verified}. Its verification note says that the official report was checked and that the projection laws, limit set, and rate function were reconstructed from displayed source formulas. This is a supplied provenance assertion, not a source visit or mathematical verification performed for this draft.
+\end{itemize}
+\end{document}

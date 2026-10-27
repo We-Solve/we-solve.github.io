@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000173}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For the usual finite-matroid interpretation, let \(M=(E,\mathcal I)\), where \(E\) is a finite set and \(\mathcal I\) is a family of independent subsets: it contains \(\varnothing\), is closed under taking subsets, and satisfies the augmentation axiom. Define
+\[
+ r_M(X)=\max\{|I|:I\subseteq X,\ I\in\mathcal I\}\quad(X\subseteq E).
+\]
+The matroid is binary if there exist an integer \(k\geq0\) and a matrix \(A\) over \(\F_2\), with columns indexed by \(E\), such that
+\[
+ \forall X\subseteq E,\qquad r_M(X)=\operatorname{rank}_{\F_2}(A_X),
+\]
+where \(A_X\) consists of the columns indexed by \(X\). It is nonbinary if no such representation exists.
+
+The supplied question is: what certificates prove that a matroid is nonbinary? One formal certificate framework, once an input description \(\operatorname{enc}(M)\) has been fixed, asks for witnesses \(w\) and a verification procedure \(V\) with
+\[
+ M\text{ is nonbinary}\quad\Longleftrightarrow\quad
+ \exists w\;V(\operatorname{enc}(M),w)=1.
+\]
+The forward direction expresses completeness of the witness scheme, and the reverse direction expresses soundness. This is a scheme for the question, not a stated result or an assertion that every accepted witness can be efficiently verified. If short certificates or efficient verification are intended, bounds on witness length, running time and permitted queries must also be specified.
+
+The source does not specify whether the matroid is presented by its independent sets, bases, a rank or independence oracle, a representation over another field, or a specialized combinatorial construction. These presentations support different notions of certificate size and verification cost. It does not say whether witnesses should be structural obstructions, algorithmic transcripts or something else, and it gives no restricted matroid class. The finite interpretation above is standard for an algorithmic question but is not an explicit hypothesis in the extracted sentence; an infinite-matroid interpretation would need separate definitions.
+
+The literature assessment checked on 2026-08-21 explicitly says the wording is too broad to decide whether recognition, certification or a particular class is intended, so no unique theorem could be matched to it. The registry's open label does not establish that elementary structural characterization questions or all certificate variants are unresolved. The verification field calls the sentence exact and coherent without providing those missing computational requirements.
+\subsection{Short English statement}
+A binary matroid is representable by a matrix over \(\F_2\). The source asks for witnesses of failure of binary representability, but leaves the matroid's presentation, permitted witness format and any efficiency requirement unspecified. These choices are needed before one can state a definite certificate problem.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000173, source code catalogue entry, ``Nonbinary Matroid Certificates,'' retaining the identical original and cleaned question and the supplied exact-statement verification.
+\item \emph{Graph Theory (2005)}, Oberwolfach Reports, pp.\ 135--183, DOI 10.4171/owr/2005/03: \url{https://doi.org/10.4171/owr/2005/03}. This is the sole supplied literature source, labelled ``original OWR report.''
+\item Literature triage checked 2026-08-21; record updated 2026-09-16. No external source has been visited or independently reviewed here.
+\end{itemize}
+\end{document}

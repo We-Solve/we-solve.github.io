@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 5300024}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source specifies a holomorphic germ by
+\[
+ P_\rho'(z)=\lambda(1-z)^\rho,\qquad P_\rho(0)=0,
+\]
+and a Siegel linearizing map \(h\). In the usual conjugacy convention,
+\[
+ h(0)=0,\qquad h'(0)\ne0,\qquad P_\rho(h(\zeta))=h(\lambda\zeta).
+\]
+For noninteger \(\rho\), the branch of \((1-z)^\rho\) must be specified; the germ with \(\log(1)=0\) defines it near zero, but the intended global domain is not supplied. Near zero define the coefficients by
+\[
+ \frac{h'(\zeta)}{1-h(\zeta)}=\sum_{\nu=0}^{\infty}a_\nu\zeta^\nu.
+\]
+The problem asks for a rigorous approximation of these coefficients by those of a ``simplified equation'', at least for small \(\rho\). Neither that equation nor the parameter range or error criterion is included in the excerpt.
+
+Its specific numerical benchmark is, for \(\theta=(\sqrt5-1)/2\) and \(\rho=1\), a uniform estimate such as
+\[
+ \left|a_\nu-\frac23\right|<0.1\qquad\text{for every integer }\nu\ge0.
+\]
+The usual rotation convention would set \(\lambda=e^{2\pi i\theta}\), but the source excerpt does not explicitly give this relation. With that convention \(P_1(z)=\lambda(z-z^2/2)\).
+
+The normalization of \(h\) is indispensable and is absent. For example replacing \(h(\zeta)\) by \(h(c\zeta)\), where defined and \(c\ne0\), changes the coefficient \(a_\nu\) to \(c^{\nu+1}a_\nu\). Thus the proposed numerical estimate has no invariant meaning without the disk coordinate, radius, scaling, and phase convention. Imposing \(h'(0)=1\) would itself force \(a_0=1\), incompatible with the stated benchmark if it includes \(\nu=0\); no such normalization is silently inserted.
+
+The research summary discusses related boundary-critical-point linearization work but supplies no exact proof or citation for this estimate. Its description of an ``indifferent critical point'' should not replace the actual derivative formula: in the usual Siegel setting zero is the indifferent fixed point, while for positive integer \(\rho\) the displayed derivative vanishes at \(z=1\). The record labels the exact statement open/unverified and reports no comprehensive modern resolution check.
+\subsection{Short English statement}
+Make the observed coefficient approximation for a Siegel linearization rigorous, including the proposed uniform closeness to \(2/3\) in the golden-mean, \(\rho=1\) case. The omitted simplified equation and especially the normalization of the linearizer must be recovered before the numerical bound is a well-defined claim.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(5300024\), source code catalogue entry; supplied statement, background, and research summary, updated 2026-08-06.
+\item Lennart Carleson (1992), problem 3, in Stony Brook, \emph{Open Problems in Dynamical Systems}: \url{https://www.math.stonybrook.edu/open-problems-dynamical-systems}. Supplied source-TeX and PDF-text extraction accessed 2026-07-29; no comprehensive modern resolution check was available.
+\item The summary mentions related Siegel-linearization and ``Herman-like'' expansion work without an identifiable publication or the simplified equation.
+\end{itemize}
+\end{document}

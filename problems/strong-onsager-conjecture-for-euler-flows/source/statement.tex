@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005206}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied passage concerns incompressible three-dimensional Euler flows and mentions spatially periodic smooth solutions as background. The following gives a precise periodic interpretation; the source does not explicitly fix the spatial domain, the Hölder exponent, or whether Hölder regularity is spatial or joint in space and time.
+
+Let \(\mathbb T^3=\mathbb R^3/\mathbb Z^3\), equipped with its flat distance \(d\) and volume measure \(\dd x\). For \(T>0\), let \(u\colon[0,T]\times\mathbb T^3\to\mathbb R^3\) be continuous and let \(p\in L^1_{\mathrm{loc}}((0,T)\times\mathbb T^3)\) be a pressure. They form a weak incompressible Euler flow if
+\[
+\partial_t u+\operatorname{div}_x(u\otimes u)+\nabla_x p=0,
+\qquad \operatorname{div}_x u=0
+\]
+in distributions on \((0,T)\times\mathbb T^3\), where \((u\otimes u)_{ij}=u_i u_j\). Define the kinetic-energy density and total kinetic energy by
+\[
+e(t,x)=\frac12|u(t,x)|^2,
+\qquad E(t)=\int_{\mathbb T^3}e(t,x)\,\dd x.
+\]
+The local energy inequality means
+\[
+\partial_t e+\operatorname{div}_x\bigl((e+p)u\bigr)\leq0
+\]
+in distributions. Equivalently, for every nonnegative \(\varphi\in C_c^\infty((0,T)\times\mathbb T^3)\),
+\[
+\int_0^T\!\int_{\mathbb T^3}
+\left(e\,\partial_t\varphi+(e+p)u\cdot\nabla_x\varphi\right)\,\dd x\,\dd t\geq0.
+\]
+Interpret nontrivial total kinetic-energy dissipation as
+\[
+E(t)\leq E(s)\quad(0\leq s<t\leq T),
+\qquad E(t_1)<E(t_0)\quad\text{for some }0\leq t_0<t_1\leq T.
+\]
+This interpretation requires a genuine energy loss, but does not prescribe an energy profile or require strict decrease on every time interval.
+
+For \(0<\alpha<1\), one explicit spatial Hölder convention is
+\[
+\sup_{t\in[0,T]}\sup_{x\ne y}
+\frac{|u(t,x)-u(t,y)|}{d(x,y)^\alpha}<\infty.
+\]
+Under this convention, a precise periodic reading of the extracted question is: do there exist \(T>0\), \(\alpha\in(0,1)\), and \((u,p)\) satisfying the weak Euler equations, this Hölder condition, the local energy inequality, and nontrivial total kinetic-energy dissipation?
+
+If joint space-time Hölder regularity is intended, the displayed spatial condition must instead be replaced by
+\[
+\sup_{(t,x)\ne(s,y)}
+\frac{|u(t,x)-u(s,y)|}{\bigl(|t-s|+d(x,y)\bigr)^\alpha}<\infty.
+\]
+The supplied passage does not select between these conventions. Its existential question also does not specify whether constructions are sought for some positive exponent or for every exponent below \(1/3\). The supplied dated literature assessment additionally identifies a critical one-third formulation as unresolved. A critical formulation would require \(\alpha=1/3\), with the intended Hölder convention specified; it is a different quantifier requirement from existence for an unspecified positive exponent. These qualifications remain unresolved and the critical formulation is not attributed to the quoted passage as an explicit statement.
+\subsection{Short English statement}
+The question attributed to Hyunju Kwon's discussion asks for a Hölder-continuous three-dimensional incompressible Euler flow that loses total kinetic energy while satisfying the local energy inequality. A periodic weak formulation is given above, with genuine energy loss on at least one time interval. The exponent, time regularity, precise domain, and intended critical \(1/3\) target require clarification. The supplied label is partially solved; its literature assessment is dated curation, not independent verification.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005206\), title \emph{Strong Onsager Conjecture for Euler Flows}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection.
+\item Supplied primary report citation: \emph{Calculus of Variations (2023)}, Oberwolfach Reports, pp.\ 2129--2193, DOI \texttt{10.4171/owr/2022/37}. \url{https://doi.org/10.4171/owr/2022/37}. The excerpt is headed ``Euler flows and strong Onsager conjecture'' and names Hyunju Kwon. The registry gives proposed year 2022 but no separate proposer attribution.
+\item Supplied literature reference: De Lellis--Kwon, dissipative Euler flows. \url{https://doi.org/10.2140/apde.2022.15.2003}.
+\item Supplied literature reference: Giri--Kwon--Novack, \(L^3\)-based strong Onsager theorem. \url{https://arxiv.org/abs/2305.18509}.
+\item The original Oberwolfach report is also listed among the supplied literature sources: \url{https://doi.org/10.4171/owr/2022/37}.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem partially solved and reports known subcritical Hölder and near-critical Besov constructions satisfying the local energy inequality, while describing a critical one-third Hölder formulation as unresolved. This is supplied dated curation, not an independently verified assessment of the literature or its current status.
+\item The supplied excerpt attributes the resolution of the Onsager conjecture to Isett and refers to reference [1], but supplies no bibliographic entry for [1]. No missing citation is reconstructed here.
+\end{itemize}
+\end{document}

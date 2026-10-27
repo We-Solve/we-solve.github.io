@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006216}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a standard formulation of the target condition, let \(1\leq k<n\) be integers, put \([n]=\{1,\ldots,n\}\), and define the hypersimplex
+\[
+\Delta_{k,n}=\left\{x\in[0,1]^n:\sum_{i=1}^n x_i=k\right\}
+=\operatorname{conv}\left\{\mathbf 1_I:I\in\binom{[n]}k\right\}.
+\]
+Here \(\mathbf 1_I\) is the indicator vector of \(I\). For a finite height vector \(w=(w_I)_{I\in\binom{[n]}k}\), let \(\Sigma(w)\) denote the regular subdivision obtained by projecting the lower faces of
+\[
+\operatorname{conv}\{(\mathbf 1_I,w_I):I\in\tbinom{[n]}k\}.
+\]
+A matroid subdivision is a subdivision whose cells are matroid base polytopes, where the base polytope of a rank-\(k\) matroid \(M\) on \([n]\) is \(\operatorname{conv}\{\mathbf 1_I:I\text{ is a basis of }M\}\).
+
+Using the minimum convention, a finite tropical Pl\"ucker vector satisfies the tropical Pl\"ucker relations: for every \(S\subseteq[n]\) with \(|S|=k-2\) and every four distinct \(a,b,c,d\in[n]\setminus S\), the minimum of
+\[
+w_{Sab}+w_{Scd},\qquad
+w_{Sac}+w_{Sbd},\qquad
+w_{Sad}+w_{Sbc}
+\]
+is attained at least twice. Here \(Sab=S\cup\{a,b\}\), and similarly for the other indices. When no such indices exist, these relations impose no conditions. This convention is introduced to explain the target; the supplied excerpt does not specify its sign convention.
+
+Realizability requires additional field data. Relative to a specified nonarchimedean valued field \((K,\nu)\), with \(\nu:K^\times\to\R\), call a finite tropical Pl\"ucker vector \(w\) realizable over \((K,\nu)\) if there is a rank-\(k\) matrix \(A\in K^{k\times n}\), with every maximal minor nonzero, such that
+\[
+w_I=\nu(\det A_I)\qquad\text{for every }I\in\binom{[n]}k,
+\]
+where \(A_I\) is the submatrix in columns \(I\), in increasing order. This describes exact realization over the specified field; allowing valued extensions or taking a tropicalization closure requires a separate convention.
+
+\textbf{Problem, with unresolved scope made explicit.} Let \(\mathcal B\) be an arrangement of blades of the kind intended in the cited report, and let \(\Sigma_{\mathcal B}\) be its induced subdivision of \(\Delta_{k,n}\). Characterize, in terms of \(\mathcal B\), when
+\[
+\exists\,w\in\R^{\binom nk}\quad
+\bigl(w\text{ is a realizable tropical Pl\"ucker vector and }
+\Sigma(w)=\Sigma_{\mathcal B}\bigr).
+\]
+For the exact valued-field interpretation above, this is the condition that a matrix \(A\) as above exists with
+\[
+\Sigma\bigl((\nu(\det A_I))_{I\in\binom{[n]}k}\bigr)
+=\Sigma_{\mathcal B}.
+\]
+The source does not supply the definition of a blade, the admissible class of arrangements, their compatibility conditions, or the precise construction of \(\Sigma_{\mathcal B}\). It also does not specify the field, its characteristic, its valuation, or whether extensions or closure are allowed. Thus these displayed conditions express the requested target relative to those choices; they do not resolve the missing hypotheses. The parameter range above supplies notation rather than an independently established scope for the source question.
+
+\textbf{Supplied qualifications and example.} The excerpt states that any single blade induces a regular matroid subdivision. It further describes seven affine hyperplanes inducing seven compatible two-splits of \(\Delta_{3,7}\), associated with the sum
+\[
+w=e_{123}+e_{145}+e_{167}+e_{246}+e_{257}+e_{347}+e_{356}.
+\]
+The natural reading of the corrupted coordinate-space notation is \(w\in\R^{\binom73}\), with \(e_I\) the coordinate unit vector indexed by \(I\). According to the excerpt, this gives a non-realizable tropical Pl\"ucker vector in the Dressian \(\operatorname{Dr}(3,7)\), and the Fano matroid polytope is a maximal cell of its matroid subdivision. These are preserved as supplied source claims: their realizability meaning requires the missing field and characteristic conventions. Moreover, non-realizability of a particular inducing vector must be distinguished from the nonexistence of any realizable vector inducing the same subdivision. The source's phrase ``not the case in general'' does not unambiguously identify which preceding property fails.
+\subsection{Short English statement}
+Characterize the blade arrangements whose induced subdivisions can also be induced by valuations of maximal minors of a matrix. The supplied record leaves the blade conventions and the field-dependent meaning of realizability unspecified, so the formulation remains conditional on those choices. Its Fano example and open-status assessment are supplied claims requiring human review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30006216\), title \emph{Realizability of Blade-Induced Matroid Subdivisions}, exact source problem code \texttt{catalogue entry}. The record attributes the question to the 2025 Oberwolfach workshop report; no individual proposer is supplied.
+\item \emph{Mini-Workshop: Alcoved Polytopes in Physics and Optimization} (2025), Oberwolfach Reports, pp.\ 531--558, DOI \texttt{10.4171/owr/2025/12}: \url{https://doi.org/10.4171/owr/2025/12}. The supplied excerpt identifies Question 1 and contains the page marker 537. This report is the supplied source for the blade question and the Fano example.
+\item Supplied literature source: \emph{When alcoved polytopes add}, \url{https://arxiv.org/abs/2501.17249}. The record supplies this title and link without authors or a precise supporting passage.
+\item Literature assessment dated \texttt{2026-08-22}: the supplied curation labels the problem open and states that compatible blade arrangements and explicit non-realizable examples are known, while no general characterization of realizability is established. This is supplied dated curation, not an independently verified literature assessment. Both links above are listed among its sources checked.
+\item The registry labels the statement \texttt{corrected\_verified} and explains that only formula delimiters, notation, grammar, and typography were repaired, with mathematical content and scope preserved. This supplied editorial label does not establish mathematical correctness or independent source verification.
+\end{itemize}
+\end{document}

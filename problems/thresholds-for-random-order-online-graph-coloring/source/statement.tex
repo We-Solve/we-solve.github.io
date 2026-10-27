@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000744}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a graph \(F\) and a number of colors \(r\geq1\), and let \(n\to\infty\). Expose a uniformly random ordering of the edges of \(K_n\). Upon each exposure, one player must immediately assign one of the \(r\) colors using only the observed history, seeking to avoid a monochromatic copy of \(F\) among exposed edges. This is a one-player random-order avoidance game, not adversarial edge selection or an offline coloring of the final graph.
+
+A standard probabilistic threshold interpretation can be expressed by
+\[
+p_n(N)=\sup_{\mathcal A}\Pr(\mathcal A\text{ avoids a monochromatic }F\text{ through }N\text{ exposures}),
+\]
+where strategies are online and the probability is over edge order and any strategy randomness. The first question asks for a scale \(N_0(F,r,n)\) such that, for legal move counts,
+\[
+N/N_0\to0\ \Longrightarrow\ p_n(N)\to1,
+\qquad
+N/N_0\to\infty\ \Longrightarrow\ p_n(N)\to0.
+\]
+The source does not explicitly specify these probability quantifiers, so this high-probability reading requires confirmation. It is a coarse threshold in the \(\ll,\gg\) sense, not automatically a sharp transition in a constant-factor window.
+
+For a tree \(F\), let \(e_F=|E(F)|\), and let \(k\) be its minimum vertex-cover size, the least number of vertices meeting every edge. The record gives the following greedy threshold exponent. For a star it prints
+\[
+e_r(F)=r(e_F-1)+1;
+\]
+for a nonstar it prints
+\[
+e_r(F)=\frac{kr-1}{k-1}(e_F-1)+1.
+\]
+It asks whether the lower scale \(n^{1-1/e_r(F)}\) is tight, equivalently whether it itself is a threshold in the intended sense. The usual tree range must exclude degenerate edgeless cases; for nonstar trees in that range the denominator is nonzero.
+
+The expression \(kr\) is literal multiplication in both the supplied original transcription and cleaned formula. There is a possible missing-superscript issue: a geometric-series numerator \(k^r-1\) would give a different exponent and is not what the record prints. The separately listed star case makes the exact numerator particularly important to verify, but this draft does not silently correct it. Thus the literal formula is preserved with a source-reconciliation requirement before a numerical threshold is asserted.
+
+The supplied assessment checked 2026-08-21 reports the threshold-existence and tree-tightness questions open beyond a known \(r=1\) case. It supplies no exact baseline theorem, probability convention, or clarification of the numerator.
+\subsection{Short English statement}
+Ask for a threshold number of random edge exposures that an online player can survive without a monochromatic target, and for tightness of the stated greedy tree scale. The probability quantifiers and the printed \(kr-1\) numerator, which may hide lost exponent notation, require verification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000744, catalogue entry, \emph{Thresholds for Random-Order Online Graph Coloring}.
+\item \emph{Mini-Workshop: Positional Games} (2008), Oberwolfach Reports, pp. 1073--1114, DOI \url{https://doi.org/10.4171/owr/2007/20}.
+\item Supplied source-verification claim and literature triage checked 2026-08-21 cite only the report; no separate threshold theorem or exponent correction is supplied.
+\end{itemize}
+\end{document}

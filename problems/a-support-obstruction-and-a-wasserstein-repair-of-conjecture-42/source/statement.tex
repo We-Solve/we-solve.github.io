@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20003335}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+In the surrounding eigenfunction setting, let $-\Delta\varphi_i=\lambda_i\varphi_i$, with $\|\varphi_i\|_2=1$, and let $g^t$ be geodesic flow on $S^*X$ with normalized Liouville measure $\lambda_{\mathrm L}$. For real $a\in C_c^\infty(S^*X)$ with $\int a\,\dd\lambda_{\mathrm L}=0$, the printed Conjecture 42 of J. Marklof, after Feingold--Peres, defines
+\[
+ \xi_i(a)=\lambda_i^{1/4}|\langle\operatorname{Op}(a)\varphi_i,\varphi_i\rangle|,
+ \qquad
+ V(a)=\int_{-\infty}^{\infty}\int_{S^*X}a(xg^t)a(x)\,\dd\lambda_{\mathrm L}(x)\,\dd t.
+\]
+It supposes that $X$ is ``generic'', without defining that class, and asserts
+\[
+ \frac1E\sum_{\lambda_i\le E}\xi_i(a)^2\longrightarrow V(a),
+\]
+\[
+ \frac1E\#\{i:\lambda_i\le E,\ V(a)^{-1/2}\xi_i(a)\in I\}
+ \longrightarrow\frac1{\sqrt{2\pi}}\int_Ie^{-t^2/2}\,\dd t
+ \quad\text{for every interval }I\subset\R.
+\]
+The absolute value is in the source itself, according to the supplied verification. If $V(a)>0$, all normalized statistics are nonnegative, so the left side for $I=[-2,-1]$ is identically zero while the claimed Gaussian mass is positive. If $V(a)=0$, the displayed normalization is undefined; $V(a)<0$ is incompatible with the nonnegative second-moment limit. Thus the literal assertion is obstructed independently of any choice of ``generic'' surface. Convergence and positivity of the autocorrelation integral also require hypotheses absent from the extract.
+
+The aid discusses two explicit repairs, neither silently substituted for the printed conjecture. For a self-adjoint quantization and $0<V(a)<\infty$, retain the sign and put
+\[
+ Z_i=\frac{\lambda_i^{1/4}\langle\operatorname{Op}(a)\varphi_i,\varphi_i\rangle}{\sqrt{V(a)}},\qquad
+ N(E)=\#\{i:\lambda_i\le E\},\qquad
+ \rho_E=\frac1{N(E)}\sum_{\lambda_i\le E}\delta_{Z_i}.
+\]
+For these probability empirical measures, a weak standard-Gaussian limit together with second moment tending to one is equivalent to quadratic-Wasserstein convergence
+\[
+ W_2(\rho_E,\mathcal N(0,1))\longrightarrow0,
+ \qquad W_2(\rho,\sigma)^2=
+ \inf_{\pi\in\Pi(\rho,\sigma)}\int|x-y|^2\,\dd\pi(x,y).
+\]
+Equivalently, weak Gaussian convergence must be supplemented by uniform integrability of $Z_i^2$ in the empirical measures. The aid reports an equal-weight Gaussian-quantile construction with a zero-density outlier tail showing that a weak Gaussian law alone does not force the second-moment limit. If the absolute value is retained instead, its natural Gaussian-derived target is half-normal, with density $\sqrt{2/\pi}e^{-t^2/2}$ for $t\ge0$ and zero for $t<0$.
+
+The source normalizes its sums by $E$, not by $N(E)$. Equating its formulas with probability statements needs the appropriate Weyl counting constant or a convention ensuring $N(E)/E\to1$; this cannot be assumed from normalized Liouville volume. The Wasserstein formulation above explicitly uses $N(E)$ and is a proposed normalized repair.
+
+The source further reports Luo--Sarnak's modular-surface asymptotic
+\[
+ \sum_{\lambda_i\le E}|\langle\operatorname{Op}(a)\varphi_i,\varphi_i\rangle|^2
+ \sim\sqrt E\,B(a),
+\]
+where $B$ on $C_c^\infty(X)$ is related to but distinct from $V$ [169]. It therefore excludes the modular and other arithmetic surfaces from its intended ``generic'' examples. The following polygonal-billiard suggestion of A. Katok begins section 6.3 and is separate context.
+\subsection{Short English statement}
+The printed absolute-value statistic cannot have a centered Gaussian law because it never takes negative values. A signed, correctly counted version has a meaningful Gaussian-plus-second-moment formulation equivalent to Wasserstein convergence; keeping absolute values instead gives a half-normal target.
+\subsection{Sources}
+\begin{itemize}
+\item J. Marklof, after Feingold--Peres [55], Conjecture 42 in American Institute of Mathematics, \emph{Emerging applications of measure rigidity}, section 6.2, \url{https://aimath.org/WWN/measrigid/measrigid.pdf}. The source attributes the arithmetic variance comparison to W. Luo and P. Sarnak and cites [169]. Full bibliography entries are not supplied.
+\item Local UnsolvedMath registry, permanent ID $20003335$, source code \texttt{catalogue entry}, canonical \texttt{aim-other-notes.json}, \texttt{notes[141]}, dated 14 August 2026. Supplied verification says the absolute value is present in the official source. Research attempt 1: counterexample, refuted at run, proved rigor, low novelty confidence; machine-generated and not peer reviewed. The literal support obstruction is distinct from any unresolved repaired conjecture.
+\end{itemize}
+\end{document}

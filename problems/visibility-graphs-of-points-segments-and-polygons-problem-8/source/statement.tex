@@ -1,0 +1,52 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800538}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite simple undirected graph \(G=(V,E)\), an obstacle representation places the vertices at distinct points \(p_v\in\R^2\) and uses a finite collection of obstacles avoiding those points, with \(uv\in E\) exactly when the segment joining \(p_u\) and \(p_v\) is not blocked by the obstacles. The supplied excerpt does not define admissible obstacles or the precise blocking convention. Accordingly, let \(\mathcal M\) denote a fixed choice of these conventions, and let \(\operatorname{obs}_{\mathcal M}(G)\) be the minimum number of obstacles in such a representation, with value \(+\infty\) if none exists. This parameterized definition records the missing conventions rather than selecting them implicitly. Set
+\[
+F_{\mathcal M}(n)=\max\{\operatorname{obs}_{\mathcal M}(G):G\text{ is a finite simple undirected graph with }|V(G)|=n\}.
+\]
+The source asks for an improvement of the lower bound for the obstacle number of an \(n\)-vertex graph. However, it writes the purported lower bounds using \(O\): first \(O(\sqrt{\log n})\), attributed to Alpet et al. [akl-ong-2010], then \(O(n/(\log n)^2)\), attributed to Mukkamala et al. [mps-glon-2010]. It also gives \(O(n/\log n)\) when obstacles are restricted to convex polygons. These are transcriptions of the supplied claims, not verified bounds. Big-\(O\) does not express the stated lower-bound direction, and the intended notation requires confirmation.
+
+If the intended benchmark is \(F_{\mathcal M}(n)=\Omega(n/(\log n)^2)\), a precise formulation of an asymptotic improvement would be: find a function \(f:\N\to(0,\infty)\), a constant \(c>0\), and an integer \(n_0\geq 3\) such that
+\[
+\lim_{n\to\infty}\frac{f(n)(\log n)^2}{n}=+\infty
+\]
+and
+\[
+\forall n\geq n_0\ \exists G\quad
+\bigl(|V(G)|=n\ \text{ and }\ \operatorname{obs}_{\mathcal M}(G)\geq c f(n)\bigr).
+\]
+Here \(\log\) may be taken as the natural logarithm; any fixed base greater than one gives the same asymptotic comparison. This is a conditional reconstruction of the requested improvement. The obstacle model, the intended replacement of \(O\) by lower-bound notation, and the intended strength and quantifier range of the improvement remain unresolved. The convex-polygon bound is supplied background; the final request does not explicitly restrict obstacles to convex polygons.
+\subsection{Short English statement}
+The apparent request is to improve the worst-case lower bound for the number of obstacles needed to represent an \(n\)-vertex graph by visibility in the plane. The excerpt calls its bounds lower bounds but writes them using \(O\), and it omits the obstacle conventions. The displayed target therefore gives a conditional interpretation requiring human review. The registry labels this problem open; that label has not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(800538\), exact source problem code \texttt{catalogue entry}, title ``Visibility Graphs of Points, Segments and Polygons --- Problem 8.'' The supplied record attributes the problem to Ghosh and Goswami, with proposed year 2010, and labels its status \texttt{open}.
+\item Ghosh and Goswami, \emph{Unsolved Problems in Visibility Graphs of Points, Segments and Polygons} (2010), Problem 8. Supplied source URL: \url{https://arxiv.org/abs/1012.5187}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not a claim of independent access or verification.
+\item Alpet et al., source reference label \texttt{[akl-ong-2010]}, cited in the supplied excerpt for its first obstacle-number bound. The spelling ``Alpet'' is retained from the record. No complete bibliographic entry or separate link is supplied.
+\item Mukkamala et al., source reference label \texttt{[mps-glon-2010]}, cited in the supplied excerpt for the subsequent bound. No complete bibliographic entry or separate link is supplied. The convex-polygon bound appears in the same background passage without a separate explicit attribution.
+\end{itemize}
+\end{document}

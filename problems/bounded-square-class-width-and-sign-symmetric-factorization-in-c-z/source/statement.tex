@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002361}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Put $K=\C(Z)$, and let $v_0,v_\infty$ denote the orders of a nonzero rational function at $Z=0$ and $Z=\infty$, with zeros positive and poles negative. For $x\in K$ set
+\[
+h(x)=\frac{1+Zx^2}{1-Zx^2}.
+\]
+Both numerator and denominator are nonzero, and the source records $v_0(h(x))=v_\infty(h(x))=0$. Question 24 (Pheidas), with the corrupted product layout restored as reported in the supplied verification, asks whether every eligible $f\in K^\times$ has witnesses $u\in K^\times$, $x_1,\ldots,x_{1000}\in K$ such that
+\[
+f=u^2\prod_{i=1}^{1000}h(x_i).
+\]
+The extracted eligibility phrase is ``$v_0(f)=v_\infty(f)$ even.'' Read literally this requires equal even integers. The aid instead discusses the potentially larger set with each valuation even, without equality. This difference is preserved explicitly; neither is silently substituted for the other. The weaker source question restricts $f$ to $\Q(Z)^\times$ while still allowing \emph{all witnesses in $\C(Z)$}. The source says that $1000$ may be replaced by another integer; the exact fixed bound and the broader question of existence of some uniform finite bound should be distinguished. Padding a representation with $x_i=0$ changes no factor.
+
+For the square-class reduction let
+\[
+H=\{[f]\in K^\times/K^{\times2}:v_0(f),v_\infty(f)\in2\Z\},\qquad
+\mathcal S=\{[h(x)]:x\in K\}.
+\]
+Parity of valuations is well defined on square classes, and
+\[
+[h(x)]=[1-Z^2x^4].
+\]
+The aid reformulates the requested uniform factorization as width at most $1000$: every element of $H$ is a product of at most $1000$ elements of $\mathcal S$. Even under the literal equal-valuation reading, the universal assertion has the same square-class formulation: a square multiple can independently adjust the two even orders to zero. For example $Z^a(Z-1)^{-a-b}$ has orders $a,b$ at zero and infinity, so it supplies the needed order adjustment after squaring. This does not erase the difference between the two original eligibility wordings.
+
+The aid proves the requested factorization for a restricted family. If the odd divisor support of $f$ is contained in $m\leq1000$ sign-pairs $\{a_j,-a_j\}$ with $a_j\in\C^\times$, and is exactly a union of those pairs, choose constants $x_j$ with $x_j^4=a_j^{-2}$. Then $[1-Z^2x_j^4]=[(Z-a_j)(Z+a_j)]$, giving the desired square class and hence the factorization, padded if necessary. The odd divisor support means the points of $\PP^1(\C)$ where the order is odd; eligibility already excludes zero and infinity from it.
+
+Every generator is a norm from $\C(s)$ with $s^2=Z$, but the aid notes that this norm map is surjective and hence yields no obstruction. Requiring witnesses in $\Q(Z)$ would be a different, stronger question: the leading residue at zero would then have to be a rational square up to sign, excluding $f=2$. This is not a counterexample to the source question, since its witnesses may be complex. Finally, the source asserts that a positive answer would imply undecidability of the existential theory of $\C(Z)$; the intended coefficient language and named parameters for that consequence are not specified.
+\subsection{Short English statement}
+Pheidas asks for a uniformly bounded product of special rational functions, up to a square, and also asks the rational-input version with complex witnesses. The aid gives a square-class width reformulation and a sign-symmetric special case. The equality-versus-parity wording, exact bound, and language of the claimed undecidability consequence remain qualifications.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002361$, \texttt{catalogue entry}; \texttt{aim-logic-notes.json}, \texttt{notes[136]}.
+\item American Institute of Mathematics, March 2005 workshop \emph{Extensions of Hilbert's Tenth Problem}, Question 24 (Pheidas), \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}. The supplied verification says that ``u21000'' is a layout error for $u^2$ followed by a product with upper limit $1000$.
+\item Research attempt 1: partial result, problem open at run, rigor label ``proved,'' novelty confidence low. Registry classification partial progress, status partially solved, and statement status exact. No authoritative separate citation for the reduction, norm assertion, or undecidability implication is supplied.
+\end{itemize}
+\end{document}

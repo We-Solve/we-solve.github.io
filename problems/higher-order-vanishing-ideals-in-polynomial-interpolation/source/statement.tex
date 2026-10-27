@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005010}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record concerns a finite point set \(X\), its vanishing ideal \(I_X\), and higher-order vanishing. It does not specify the field, ambient space, or whether the points are affine or projective. Consequently, the following definitions give conditional formulations; they do not resolve those missing hypotheses.
+
+Fix a field \(k\). In an affine interpretation, let \(X\subseteq k^n\) be finite, put \(R=k[x_1,\ldots,x_n]\), and define
+\[
+I_X=\{f\in R:f(P)=0\text{ for every }P\in X\}.
+\]
+For \(P=(a_1,\ldots,a_n)\), write \(\mathfrak m_P=(x_1-a_1,\ldots,x_n-a_n)\). Under this interpretation, for a positive integer \(m\), the symbolic power is
+\[
+I_X^{(m)}=\bigcap_{P\in X}\mathfrak m_P^m.
+\]
+Thus vanishing to order at least \(m\) at every point means membership in this intersection. This description assumes \(k\)-rational points; the record does not specify whether more general closed points are intended.
+
+In a projective interpretation, let \(X\subseteq\PP^n(k)\) be finite and let \(R=k[x_0,\ldots,x_n]\), with its standard grading \(R=\bigoplus_{\delta\geq0}R_\delta\). Define the homogeneous vanishing ideal by
+\[
+I_X=\bigoplus_{\delta\geq0}\{f\in R_\delta:f(P)=0\text{ for every }P\in X\}.
+\]
+Writing \(\mathfrak p_P\) for the homogeneous prime ideal of a point, define
+\[
+I_X^{(m)}=\bigcap_{P\in X}\bigl(\mathfrak p_P^mR_{\mathfrak p_P}\cap R\bigr).
+\]
+This expresses order at least \(m\) at each point through local ideal membership.
+
+\textbf{Conditional mathematical targets.} Once the intended setting and its hypotheses are fixed, for each permitted finite set \(X\) and positive integer \(m\), determine
+\[
+\alpha_m(X)=\min\{\deg f:0\ne f\in I_X^{(m)}\},
+\]
+whenever this set of degrees is nonempty. In the projective graded interpretation, also determine, for every integer \(\delta\geq0\),
+\[
+H_{X,m}(\delta)=\dim_k\bigl(I_X^{(m)}\cap R_\delta\bigr)
+=\dim_k\bigl(I_X^{(m)}\bigr)_\delta.
+\]
+In the affine interpretation, a generally nonhomogeneous vanishing ideal has no inherited grading. The corresponding possible target is instead the filtered dimension
+\[
+\dim_k\bigl(I_X^{(m)}\cap R_{\leq\delta}\bigr),
+\]
+where \(R_{\leq\delta}\) consists of polynomials of total degree at most \(\delta\). The source does not resolve whether this filtered quantity, the homogeneous quantity, or another degree convention is intended.
+
+The remaining target is to characterize expressions of polynomials in \(I_X^{(m)}\) using products of polynomials in \(I_X\). The extracted original asks for expressions in terms of products, whereas the cleaned statement asks when individual polynomials factor into such products. These are distinct requests. For example, membership in the ordinary power
+\[
+I_X^m=\left\{\sum_{j=1}^{r}\prod_{i=1}^{m}g_{j,i}:r\geq1,\ g_{j,i}\in I_X\right\}
+\]
+permits sums of products, while an individual factorization \(f=g_1\cdots g_m\), with every \(g_i\in I_X\), does not. The number of factors and any degree restrictions are also unspecified. Neither interpretation is selected here, and no equality of ordinary and symbolic powers is asserted.
+
+The supplied record labels these questions open. Its missing ambient hypotheses, degree convention, and product-expression target require human mathematical review before a unique formulation can be accepted.
+\subsection{Short English statement}
+For a finite set of points, determine the smallest degree and the dimensions of spaces of polynomials vanishing to order at least \(m\) at every point, and describe their expressions using products of polynomials vanishing on the set. The supplied record leaves the field, affine or projective setting, degree convention, and meaning of product expression unresolved. Its open-status label is supplied curation, not an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005010\), title \emph{Higher-Order Vanishing Ideals in Polynomial Interpolation}; exact source problem code \texttt{catalogue entry}. Collection: Oberwolfach Reports Open Problems. No individual proposer is supplied; the proposed year is recorded as 2022.
+\item Supplied source citation: \emph{Mini-Workshop: Interpolation, Approximation, and Algebra} (2023), Oberwolfach Reports, pp.\ 383--428, DOI \texttt{10.4171/owr/2022/7}. \url{https://doi.org/10.4171/owr/2022/7}. The extracted original includes the page marker 409. The background describes Oberwolfach Reports as documenting workshops and their open-problem discussions.
+\item Supplied literature source: ``OWR higher-order interpolation report,'' \url{https://doi.org/10.4171/owr/2022/7}. The literature assessment was checked on \texttt{2026-08-22}, according to the record. This is supplied dated curation, not independently verified: it labels the problem open and reports substantial special cases and bounds but no general solution to the extracted questions. The supplied background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry assigns the statement status \texttt{corrected\_verified} and reports that it was checked against the official report and preserves its hypotheses, notation, and target. This is a supplied verification claim; no source visit or independent verification is asserted in this draft.
+\end{itemize}
+\end{document}

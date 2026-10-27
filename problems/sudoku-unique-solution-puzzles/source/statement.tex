@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1358}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For standard \(9\times9\) Sudoku let the cell set be \(C=\{1,\ldots,9\}^2\) and the digit set be \(D=\{1,\ldots,9\}\). A completed grid is a map \(F:C\to D\) whose restriction to each row, each column, and each block
+\[
+\{3a+1,3a+2,3a+3\}\times\{3b+1,3b+2,3b+3\},
+\qquad a,b\in\{0,1,2\},
+\]
+is a bijection onto \(D\). Write \(\mathcal G\) for the set of all such grids.
+
+A labelled clue assignment is a pair \((S,p)\), where \(S\subseteq C\) is the clue-cell set and \(p:S\to D\) gives the displayed digit in each clue cell. Its completions are
+\[
+\operatorname{Comp}(S,p)=\{F\in\mathcal G:F|_S=p\}.
+\]
+The class of uniquely completable labelled clue assignments is
+\[
+\mathcal U=\{(S,p):S\subseteq C,\ p:S\to D,\ |\operatorname{Comp}(S,p)|=1\}.
+\]
+With every clue assignment counted separately and full grids admitted, one precise candidate target is the exact integer \(|\mathcal U|\). If ``partial filling'' is required to leave a blank, replace this by the subclass with \(S\ne C\). If puzzles are counted up to a chosen group \(H\) of Sudoku-preserving cell transformations and digit relabellings, the target is instead the number of orbits \(|\mathcal U/H|\), with the relevant subclass used if necessary. The source does not specify \(H\), nor whether any quotient is intended.
+
+A uniquely completable assignment is minimal if deleting any one clue destroys uniqueness. Counting only minimal puzzles is another possible problem, but minimality is not an assumption in the supplied sentence and is not imposed here. A clue-cell pattern \(S\) alone is also different from a clue assignment \((S,p)\); the wording does not settle that counting distinction.
+
+The source asks for the number of puzzles with exactly one solution, without fixing these conventions. The background gives approximately \(6.67\times10^{21}\) completed grids. Its triage dated 2026-08-17 reports that the completed-grid count is known exactly and that 17 is the minimum clue count for a unique solution, while reporting no verified exact count for the intended uniquely solvable puzzle class. It labels the row partially solved; the registry status is open. The completed-grid count and minimum clue count are not the requested enumeration.
+\subsection{Short English statement}
+Count standard \(9\times9\) Sudoku clue assignments with exactly one valid completion. The source leaves open whether to count labelled assignments or symmetry classes, whether fully filled grids are included, and whether minimal puzzles or merely clue-cell patterns are intended; these choices lead to different enumerations.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 1358, source code catalogue entry, ``Sudoku: Unique Solution Puzzles,'' including supplied literature triage dated 2026-08-17.
+\item ``Sudoku,'' supplied secondary overview, access date 2026-08-17: \url{https://en.wikipedia.org/wiki/Sudoku}. The supplied triage cites distinctions between completed-grid counts and estimates for minimal-puzzle counts. No primary enumeration reference is supplied.
+\end{itemize}
+\end{document}

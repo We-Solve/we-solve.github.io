@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20003289}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For irrational $\alpha\in\R$, $0\le a\le b\le1$, and $N\ge1$, use the source's ordered-pair statistic
+\[
+ R_2([a,b],N,\alpha)=\frac1N\#\left\{(i,j):1\le i,j\le N,\ i\ne j,
+ \ \alpha(i^2-j^2)\in[a/N,b/N]+\Z\right\}.
+\]
+Conjecture 20, attributed to Z. Rudnick and P. Sarnak, asks whether suitable bad rational approximation of $\alpha$ implies
+\[
+ \lim_{N\to\infty}R_2([a,b],N,\alpha)=b-a
+ \quad\text{for each fixed }[a,b]\subset[0,1].
+\]
+The usual meaning of badly approximable is the existence of $c>0$ such that $|\alpha-p/q|\ge c/q^2$ for every $p\in\Z$, $q\ge1$. The source instead refers to [165] for ``exact conditions'', which are not included; the intended Diophantine class therefore requires source review rather than silently identifying all possible meanings.
+
+The source reports the limit for a full-measure set of parameters [164] and for a residual set [165], says that no explicit parameter was then known, expects it for algebraic integers, and notes failures for some well-approximable irrationals. These are historical source statements, not a current literature assessment; within the initial irrational setup, the algebraic-integer expectation concerns irrational algebraic integers. The final ``It was discovered in [136] that'' is incomplete.
+
+The supplied aid reports a parity-sensitive exact reduction. Write $\ell=b-a$, $I_N=[a/N,b/N]\pmod1$, and $-I_N$ for its reflected circle arc. For $1\le h<N$, define
+\[
+ C_{N,h}(J)=\#\{s\in\Z:h+2\le s\le2N-h,\ s\equiv h\pmod2,
+                    \ \alpha h s\pmod1\in J\}.
+\]
+Then
+\[
+ R_2=\frac1N\sum_{h=1}^{N-1}\bigl(C_{N,h}(I_N)+C_{N,h}(-I_N)\bigr).
+\]
+With
+\[
+ E_{N,h}=C_{N,h}(I_N)+C_{N,h}(-I_N)-\frac{2(N-h)\ell}{N},
+\]
+the exact discrepancy is
+\[
+ R_2-\ell=\frac1N\sum_{h=1}^{N-1}E_{N,h}-\frac{\ell}{N}.
+\]
+Thus the finite-$N$ diagonal correction is $-\ell/N$, and the reflected arc cannot be omitted for ordered pairs. For the nonempty canonical blocks
+\[
+ B_{N,j}=\{h\in\Z:2^j\le h<2^{j+1},\ h<N\},\qquad j\ge0,
+\]
+the reported sufficient cancellation target is
+\[
+ \max_{j:B_{N,j}\ne\varnothing}
+ \frac{\left|\sum_{h\in B_{N,j}}E_{N,h}\right|}{|B_{N,j}|}
+ \longrightarrow0.
+\]
+This is a sufficient condition, not a proof that the conjectured Diophantine parameters satisfy it.
+
+The aid also reports that an approximation $|\alpha-p/q|\le1/(10q^3)$, $q\ge2$, forces $R_2([1/5,4/5],q,\alpha)=0$. Hence infinitely many such approximations obstruct the asserted limit for that interval, despite ordinary Weyl equidistribution of $\alpha n^2\pmod1$ for irrational $\alpha$. These are unreviewed reported reduction and obstruction results, not a resolution of Conjecture 20.
+\subsection{Short English statement}
+Does sufficiently poor rational approximation force Poisson pair correlation of $\alpha n^2\pmod1$? The draft retains ordered pairs, the reflected arc, the parity condition, and the exact diagonal correction in the supplied discrepancy reduction, while leaving the required Diophantine cancellation open.
+\subsection{Sources}
+\begin{itemize}
+\item Z. Rudnick and P. Sarnak, Conjecture 20, American Institute of Mathematics, \emph{Emerging applications of measure rigidity}, section 4.4, \url{https://aimath.org/WWN/measrigid/measrigid.pdf}. The source cites [165] for exact Diophantine conditions and a residual-set result, [164] for a full-measure result, and begins an incomplete reference to [136]. Full bibliography entries are not supplied.
+\item Local UnsolvedMath registry, permanent ID $20003289$, source code \texttt{catalogue entry}, canonical location \texttt{aim-other-notes.json}, \texttt{notes[95]}, dated 14 August 2026. The supplied verification fixes the ordered-pair convention. Research attempt 1: reduction, proved rigor, low novelty confidence; machine-generated and not peer reviewed.
+\end{itemize}
+\end{document}

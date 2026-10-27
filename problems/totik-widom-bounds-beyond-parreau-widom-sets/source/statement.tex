@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003623}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(E\subset\R\) be compact. For a Borel probability measure \(\mu\) supported on \(E\), define its logarithmic energy by
+\[
+I(\mu)=\iint_{E\times E}\log\frac{1}{|x-y|}\,\dd\mu(x)\,\dd\mu(y),
+\qquad
+\operatorname{cap}(E)=\exp\!\left(-\inf_{\mu}I(\mu)\right).
+\]
+The usual Green-function formulation below requires \(\operatorname{cap}(E)>0\). For each integer \(n\geq1\), define the monic Chebyshev norm and its capacity-normalized factor by
+\[
+t_n(E)=\inf\left\{\max_{x\in E}|P(x)|:P\in\C[x],\ P\text{ monic},\ \deg P=n\right\},
+\qquad
+W_n(E)=\frac{t_n(E)}{\operatorname{cap}(E)^n}.
+\]
+A Totik--Widom bound means that there exists a finite constant \(C_E>0\), independent of \(n\), such that
+\[
+t_n(E)\leq C_E\operatorname{cap}(E)^n\quad\text{for every integer }n\geq1,
+\]
+or equivalently \(\sup_{n\geq1}W_n(E)<\infty\).
+
+Let \(g_E\) be the Green function of \(\widehat{\C}\setminus E\) with pole at infinity, normalized by
+\[
+g_E(z)=\log|z|-\log\operatorname{cap}(E)+o(1)\qquad (z\to\infty).
+\]
+Call \(E\) regular if \(g_E\) extends continuously to zero at every point of \(E\). For regular \(E\), write the bounded components of \([\min E,\max E]\setminus E\) as \((a_j,b_j)\), with index set \(J\), and let \(c_j\in(a_j,b_j)\) be the unique point at which \(g_E\) attains its maximum on that gap. The Parreau--Widom critical-value condition is
+\[
+\operatorname{PW}(E):=\sum_{j\in J}g_E(c_j)<\infty,
+\]
+where an empty sum is zero and the sum is allowed to diverge to \(+\infty\).
+
+The supplied question asks whether there exists a compact real set that is not Parreau--Widom and nevertheless satisfies a Totik--Widom bound. Under the interpretation in which admissible sets are regular and have positive logarithmic capacity, its precise formulation is:
+\[
+\begin{gathered}
+\text{Does there exist a regular compact }E\subset\R\text{ with }\operatorname{cap}(E)>0\text{ such that}\\
+\sum_{j\in J}g_E(c_j)=+\infty
+\quad\text{and}\quad
+\exists C_E\in(0,\infty)\ \forall n\geq1:\
+ t_n(E)\leq C_E\operatorname{cap}(E)^n\ ?
+\end{gathered}
+\]
+\textit{Unresolved qualification.} The supplied statement does not explicitly impose positive capacity or regularity, and it does not define its convention for Parreau--Widom sets. Positive capacity is needed for the displayed normalization and Green function. Regularity is an additional substantive qualification: if regularity is included in the definition of a Parreau--Widom set but is not imposed on admissible \(E\), failure to be Parreau--Widom need not mean divergence of the critical-value sum. Thus the regular-set formulation above is conditional on the intended convention and must not be treated as an unqualified replacement of the supplied question.
+\subsection{Short English statement}
+The question asks whether a compact subset of the real line can fail the Parreau--Widom condition while its monic Chebyshev norms remain bounded by a fixed multiple of the corresponding powers of logarithmic capacity. The source leaves the capacity and regularity hypotheses implicit; the displayed formulation makes the usual regular, positive-capacity interpretation explicit, subject to review.
+\subsection{Sources}
+\begin{itemize}
+\item Local supplied problem registry: permanent UnsolvedMath ID \(30003623\), source code \texttt{catalogue entry}, title ``Totik--Widom Bounds Beyond Parreau--Widom Sets.'' The supplied registry locations are \texttt{data/unsolvedmath/problems.json} and \texttt{catalog/problems.json}; their contents were not independently inspected for this draft. No individual proposer is identified; the supplied proposed year is 2017.
+\item Supplied report citation: \emph{Mini-Workshop: Reflectionless Operators: The Deift and Simon Conjectures} (2018), Oberwolfach Reports, pp. 2943--2985, DOI \texttt{10.4171/owr/2017/49}. \url{https://doi.org/10.4171/owr/2017/49}. The literature-source list labels this same reference ``Oberwolfach Report 49/2017.'' Both supplied year designations are retained without reconciliation.
+\item Supplied literature reference attributed to Christiansen--Simon--Yuditskii--Zinchenko: \url{https://arxiv.org/abs/1709.06707}. No title or theorem number is supplied.
+\item Literature assessment dated exactly \texttt{2026-08-21}: supplied dated curation, not independently verified. It labels the problem open and states that a conditional converse yields the Parreau--Widom property from a Totik--Widom bound when a canonical generator exists, while the unrestricted requested example remains unresolved. The supplied assessment does not define a canonical generator or give the full hypotheses of that converse. This is a record of the supplied assessment, not a new literature conclusion.
+\item The registry labels the statement \texttt{corrected\_verified}, explaining that notation, typography, or omitted definitions were repaired while preserving mathematical content. That supplied label does not constitute independent mathematical review of this draft or verification of the cited sources.
+\end{itemize}
+\end{document}

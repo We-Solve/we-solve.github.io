@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006155}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(q\) be a prime power, and let \(\F_q\) be the field with \(q\) elements. For a positive integer \(m\), let \(P_m=\operatorname{PG}(m-1,q)\) be the set of one-dimensional linear subspaces of \(\F_q^m\). Write \([s]=\{1,\ldots,s\}\). An \(s\)-colouring is taken here to mean a map \(c:P_m\to[s]\), without requiring every colour to occur.
+
+To make the undefined term ``copy'' explicit, provisionally use colour-preserving linear embeddings: a copy of \(c_0:P_k\to[s]\) in \(c:P_n\to[s]\) is an injective \(\F_q\)-linear map \(T:\F_q^k\to\F_q^n\) such that
+\[
+ c(T(L))=c_0(L)\qquad\text{for every }L\in P_k.
+\]
+Call \(c\) \(c_0\)-free when no such map exists. The supplied record does not specify whether this is the intended notion of copy, whether semilinear embeddings are allowed, or whether colour labels may be permuted.
+
+For a nonzero linear subspace \(W\le\F_q^n\), put
+\[
+ \operatorname{PG}(W)=\{L\le W:\dim_{\F_q}L=1\},\qquad
+ d_{\mathrm{rank}}(W)=\dim_{\F_q}W,\qquad
+ d_{\mathrm{proj}}(W)=\dim_{\F_q}W-1.
+\]
+The source does not specify which of these two dimensions it intends. For a fixed intended convention \(D\), the supplied multicoloured geometric Erd\H{o}s--Hajnal conjecture asks whether
+\[
+\begin{gathered}
+ \forall q\text{ a prime power}\quad
+ \forall k,s\in\Z_{\ge1}\quad
+ \forall c_0:P_k\to[s]\quad
+ \exists\delta,C\in\R_{>0}\quad
+ \forall n\in\Z_{\ge1}\quad
+ \forall c:P_n\to[s],\\
+ c\text{ is }c_0\text{-free}
+ \ \Longrightarrow\
+ \exists\,0\ne W\le\F_q^n:
+ \quad D(W)\ge Cn^\delta
+ \quad\text{and}\quad
+ \bigl|\{c(L):L\in\operatorname{PG}(W)\}\bigr|\le s-1.
+\end{gathered}
+\]
+Thus \(C\) and \(\delta\) may depend on \(q,k,s,c_0\), but not on \(n\) or \(c\). This display records a conditional formalization, pending confirmation of the copy and dimension conventions; it does not quantify over both dimension conventions.
+
+\textbf{Unresolved boundary qualifications.} The source states all natural-number parameters and all \(n\), without an eventual-size restriction. Positive integers are used above because the displayed projective spaces require positive ambient vector-space dimensions. No restriction \(s\ge2\) has been supplied: at \(s=1\), the conclusion allows zero colours, although every nonempty projective subspace receives a colour. Also, projective dimension is zero for a point, so the projective-dimension interpretation requires clarification at \(n=1\). These boundary issues must be resolved from the source rather than silently repaired.
+\subsection{Short English statement}
+The conjecture asks whether forbidding any fixed finite colouring of a projective geometry forces a subspace whose dimension is at least a positive power of the ambient parameter and on which some colour is absent. The constants may depend on the forbidden colouring and its parameters. The supplied record labels the problem partially solved; the notions of copy, dimension, and the small-parameter boundary cases still require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30006155\), source code \texttt{catalogue entry}; supplied complete record for \emph{The Multicolored Geometric Erd\H{o}s--Hajnal Conjecture}. Repository registry references: \texttt{data/unsolvedmath/problems.json} and \texttt{catalog/problems.json}. These files were not independently inspected for this draft.
+\item \emph{Graph Theory} (2025), Oberwolfach Reports, report 1/2025, pp.~5--74, DOI \texttt{10.4171/owr/2025/1}. Supplied report and literature-source link: \url{https://doi.org/10.4171/owr/2025/1}. The excerpt identifies Conjecture~1 in Peter Nelson's contribution \emph{Rainbow triangles and the Erd\H{o}s--Hajnal problem in projective geometries}, described as joint work with Carolyn Chun, James Dylan Douthitt, Wayne Ge, Tony Huynh, and Matthew E. Kroeker. No separate proposer is supplied.
+\item Supplied literature reference labelled Chun--Douthitt--Ge--Huynh--Kroeker--Nelson: \url{https://arxiv.org/abs/2505.13781}. No paper title or theorem identifiers are supplied in the literature-source entry.
+\item Literature assessment dated exactly \texttt{2026-08-22}: this is supplied dated curation, not an independently verified assessment. It labels the conjecture partially solved and states that all cases with \((k,q)=(2,2)\), together with several cases for \((k,q)=(2,3)\) and \((3,2)\), are resolved, while the general assertion remains open. The original excerpt specifically mentions certain cases with \((k,q,s)=(3,2,2)\); its other case description writes \((k,q,s)=(2,3)\), which has inconsistent tuple lengths. For \((k,q)=(2,2)\), the excerpt describes three essentially different colourings of a three-point triangle and claims that all three are resolved. Its subsequent explanation of how the two repeated-colour cases are derived is truncated. All these literature claims require independent verification.
+\item The supplied registry labels the statement \texttt{corrected\_verified}, with a qualification that only formula delimiters, notation, grammar, and typography were repaired and that mathematical scope was preserved. This supplied label does not establish mathematical correctness or resolve the formulation issues recorded here.
+\end{itemize}
+\end{document}

@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001876}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Paternain's question asks how the sums of Betti numbers of length-filtered free-loop and fixed-endpoint path spaces grow, and whether this growth depends on the metric. The supplied text has damaged filtration notation. Following the aid, let \(M\) be closed, fix a coefficient field \(\mathbb k\), and use either the Sobolev free-loop space \(X=\Lambda M\) or path space \(X=\Omega(p,q)\). For a smooth Riemannian metric \(g\), set
+\[
+ L_g(\gamma)=\int_0^1|\dot\gamma|_g\,du,\qquad
+ X_g(T)=\{\gamma\in X:L_g(\gamma)\leq T\},\qquad
+ B_g(T)=\sum_{i\geq0}\dim_{\mathbb k}H_i(X_g(T);\mathbb k).
+\]
+Sums may be infinite unless finiteness hypotheses are supplied. This is a length filtration, not a silently substituted energy filtration. The source asks about the raw \(B_g\), which need not be monotone because sublevel classes can disappear under inclusion.
+
+The source also attributes to [Gromov2001] a lower bound, for simply connected \(M\), of the intended form
+\[
+ B_g(CN)\geq\sum_{i=0}^N b_i(\Lambda M),
+\]
+for a suitable constant \(C\). The original superscripts and quantifiers are damaged; a complete citation and the precise constant, coefficient and filtration conventions are not supplied.
+
+The paired aid treats persistent ranks instead. For \(m\geq0\), define
+\[
+ R_g^{\leq m}(s,t)=\sum_{i=0}^m
+ \operatorname{rank}\bigl(H_i(X_g(s))\to H_i(X_g(t))\bigr),
+\]
+\[
+ P_g^{\leq m}(T)=\sum_{i=0}^m
+ \operatorname{rank}\bigl(H_i(X_g(T))\to H_i(X)\bigr).
+\]
+All homology uses \(\mathbb k\). These image ranks differ from raw sublevel Betti sums.
+
+If \(A\geq1\) satisfies \(A^{-2}g\leq h\leq A^2g\) as quadratic forms, then \(A^{-1}L_g\leq L_h\leq AL_g\). Thus the two filtrations are multiplicatively \(A\)-interleaved. The reported two-scale consequence, for \(t\geq A^2s\), is
+\[
+ R_g^{\leq m}(s,t)\leq R_h^{\leq m}(As,t/A),
+\]
+with the same statement after exchanging \(g,h\). The image-to-total ranks obey
+\[
+ P_g^{\leq m}(T/A)\leq P_h^{\leq m}(T)\leq P_g^{\leq m}(AT).
+\]
+The analogous all-degree statements require meaningful finite sums. For a fixed total homology class, its minimax length, defined as the infimum of levels realizing that class in total homology, is also comparable by factors \(A^{-1},A\).
+
+The aid concludes that the polynomial growth exponent and qualitative exponential-growth type of these image-rank functions are independent of the smooth metric, whenever the chosen growth quantities are defined. Numerical exponential rates need only be comparable after rescaling length; equality is not asserted. These comparisons do not determine the growth or metric dependence of the nonmonotone raw Betti sum asked about in the original question.
+\subsection{Short English statement}
+Uniform metric comparison rescales lengths and interleaves the loop and path filtrations. The supplied aid deduces metric-independent growth type for persistent-to-total image ranks, plus a two-scale persistent-rank inequality. It explicitly leaves the original raw sublevel Betti-sum question unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local source record: catalogue entry, catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[213]}, source item 3.1, extracted Question 3.1.1 attributed to Paternain. Title: ``Metric comparison for filtered loop and path homology.''
+\item AIM workshop ``Geodesics,'' supplied reference \url{https://aimath.org/pastworkshops/geodesicsproblems.pdf}. Original remarks and literature fields are empty. This draft uses the supplied record without accessing a PDF.
+\item Original background reference [Gromov2001], concerning simply connected manifolds and a loop-space Betti lower bound; no full bibliographic entry is supplied. The persistence comparison theorem is a candidate contribution of research attempt 1.
+\item Registry dated 14 August 2026: ``partially\_solved,'' ``PARTIAL-PROGRESS,'' statement status ``exact''; attempt partial, research-run status open, rigor label ``proved,'' novelty confidence low. The machine-generated, non-peer-reviewed aid requires independent verification before citation. The verification field introduces the supplied problem text without resolving its damaged notation.
+\end{itemize}
+\end{document}

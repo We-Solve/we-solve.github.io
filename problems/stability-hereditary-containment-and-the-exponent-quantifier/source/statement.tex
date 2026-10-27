@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002337}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Problem 28 asks for a meaningful notion of an ``explicitly defined norm'' guaranteeing hereditary containment of an \(\ell_p\) space. The excerpt does not define explicitness or specify whether \(p\) is fixed for all subspaces. The supplied partial result uses Krivine--Maurey stability as a sufficient mathematical property and isomorphic containment, not an independently specified syntactic or computability definition of explicitness.
+
+Fix a scalar field \(\R\) or \(\C\). A Banach space \(X\) is stable in the stated sense if for all bounded sequences \((x_m)\), \((y_n)\) in \(X\) and free ultrafilters \(\mathcal U,\mathcal V\) on \(\N\),
+\[
+ \lim_{m\to\mathcal U}\lim_{n\to\mathcal V}\|x_m+y_n\|
+ =\lim_{n\to\mathcal V}\lim_{m\to\mathcal U}\|x_m+y_n\|.
+\]
+A copy of \(\ell_p\), \(1\le p<\infty\), in \(Y\) means a bounded linear isomorphism \(J:\ell_p\to J(\ell_p)\subseteq Y\) onto a closed subspace; its distortion is \(\|J\|\|J^{-1}\|\). An almost-isometric copy means that for every \(\varepsilon>0\) such an embedding can be chosen with distortion at most \(1+\varepsilon\).
+
+The aid invokes the stable-space theorem to assert the varying-exponent hereditary conclusion
+\[
+ \forall Y\subseteq X\text{ closed, infinite dimensional}\quad
+ \exists p(Y)\in[1,\infty)\quad
+ \forall\varepsilon>0\ \exists J:\ell_{p(Y)}\to Y,
+ \quad\|J\|\|J^{-1}\|\le1+\varepsilon,
+\]
+whenever \(X\) is stable. The exponent is chosen for \(Y\) and works for every approximation tolerance; it need not be independent of \(Y\).
+
+The stronger quantifier order
+\[
+ \exists p\in[1,\infty)\quad
+ \forall Y\subseteq X\text{ closed, infinite dimensional},\quad
+ Y\text{ contains an isomorphic copy of }\ell_p
+\]
+is not asserted for all stable spaces. The supplied obstruction is
+\[
+ X=\ell_1\oplus_2\ell_2,\qquad
+ \|(u,v)\|=(\|u\|_1^2+\|v\|_2^2)^{1/2}.
+\]
+The aid reports this space stable, but its two coordinate subspaces admit no common \(\ell_p\) exponent: the Schur property of \(\ell_1\) excludes \(\ell_p\) for \(p>1\), whereas reflexivity of \(\ell_2\) excludes \(\ell_1\).
+
+A Banach space \(X\) is minimal if it is isomorphic to a subspace of each of its infinite-dimensional closed subspaces. For \(C\ge1\), call it \(C\)-minimal here if each such \(Y\) admits an embedding \(I_Y:X\to Y\) with distortion at most \(C\). Under this explicit convention the aid asserts
+\[
+ X\text{ stable and }C\text{-minimal}\quad\Longrightarrow\quad
+ \exists p\in[1,\infty)\ \forall Y\subseteq X\text{ closed, infinite dimensional}\
+ \forall\varepsilon>0\ \exists J_Y:\ell_p\to Y,
+ \quad\|J_Y\|\|J_Y^{-1}\|\le C(1+\varepsilon).
+\]
+For minimal stable spaces without a common distortion constant, the same fixed-exponent isomorphic-containment conclusion holds, with no uniform distortion bound asserted. These are additional-hypothesis statements, not a definition-independent answer about all explicitly described norms.
+
+The accompanying Definable Norms and Stable Banach Spaces working-group note belongs to Problem 28. The trailing ``29. Study asymptotic cones'' and its Asymptotic Cones working-group note are a separate problem, according to the supplied source-verification report.
+\subsection{Short English statement}
+Under the aid's stability interpretation, every infinite-dimensional closed subspace contains some almost-isometric \(\ell_p\), with \(p\) allowed to vary. A fixed exponent fails for general stable spaces but works under minimality, with bound \(C(1+\varepsilon)\) under the stated \(C\)-minimality convention.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002337\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-logic-notes.json}, \texttt{notes[112]}.
+\item AIM, \emph{Questions on Model theory for metric structures}, Problem 28 and Definable Norms and Stable Banach Spaces working-group background. Supplied reference: \url{https://aimath.org/WWN/continuouslogic/continuouslogic.pdf}. The verification field reports that the official document separates Problem 29 from the concatenated registry extraction; this is supplied history, not an inspection performed here.
+\item Krivine--Maurey stability and the stable Banach space containment theorem are invoked by the supplied aid without a full bibliographic citation. No proposer, year, original remarks, or literature entry is supplied.
+\item Supplied research attempt 1: \texttt{partial\_result}, run and registry status \texttt{partially\_solved}, rigor label \texttt{proved}, low novelty confidence; classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20003121}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Problem 5.3 asks to define and study a Thurston metric for flat $n$-tori, displaying $SL(n,\R)/SL(n,\Z)$. The supplied aid corrects the parameter space: this raw quotient parametrizes embedded unimodular lattices and retains rotations. Marked unit-volume flat metrics can instead be represented by
+\[
+ \mathcal P_n=\{G=G^T>0:\det G=1\},
+\]
+a symmetric space isomorphic to $SL(n,\R)/SO(n)$. Unmarked oriented isometry classes are obtained by integral congruences $G\mapsto A^TGA$, $A\in SL(n,\Z)$, equivalently the appropriate double quotient. These distinctions are required to obtain a separated metric rather than identifying a rotation-dependent lattice presentation with a marked metric.
+
+Let $n\geq2$, let $T_G=(\R^n/\Z^n,G)$, and let $\ell_G(v)=\sqrt{v^TGv}$ for $0\ne v\in\Z^n$. The supplied Greenfield--Ji solution defines
+\[
+ d(G,H)=\log\inf_{f\simeq\mathrm{id}}\operatorname{Lip}(f:T_G\to T_H)
+       =\sup_{v\in\Z^n\setminus\{0\}}
+                \log\frac{\ell_H(v)}{\ell_G(v)}
+       =\frac12\log\lambda_{\max}(G^{-1/2}HG^{-1/2}).
+\]
+The maps preserve the marking up to homotopy, and the affine marking map attains the optimum. Primitive vectors suffice in the supremum. Determinant normalization makes the distance nonnegative and zero only when $G=H$.
+
+For a tangent symmetric matrix $V$ with $\operatorname{tr}(G^{-1}V)=0$, its forward infinitesimal norm is
+\[
+ \|V\|_G=\frac12\lambda_{\max}(G^{-1/2}VG^{-1/2}).
+\]
+Writing $C=G^{-1/2}HG^{-1/2}$ gives a canonical directed geodesic
+\[
+ G_t=G^{1/2}C^tG^{1/2},\quad0\leq t\leq1,
+ \qquad d(G_s,G_t)=(t-s)d(G,H)\quad(s\leq t).
+\]
+No uniqueness of directed geodesics is asserted.
+
+The aid's sharp marked-space comparison is
+\[
+ \frac1{n-1}d(G,H)\leq d(H,G)\leq(n-1)d(G,H).
+\]
+The relative logarithmic eigenvalues sum to zero. The example $G=I$, $H=\operatorname{diag}(e^{2(n-1)t},e^{-2t},\ldots,e^{-2t})$, $t>0$, gives forward distance $(n-1)t$ and reverse distance $t$, showing optimality of the factor. For $n=2$ the distance is symmetric; $n=1$ is a one-point case handled separately.
+
+On unmarked oriented moduli, the aid gives the attained minimum
+\[
+ \bar d([G],[H])=\min_{A\in SL(n,\Z)}d(G,A^THA).
+\]
+For fixed $G,H$, a bound on this distance bounds all columns of $A$ in the $H$ norm, leaving finitely many integral matrices, so a minimum is attained. The quotient inherits the same quasi-symmetry bound. Optimality was asserted on the marked space, not additionally on every quotient. Allowing orientation-reversing isometries changes the quotient convention to include $GL(n,\Z)$.
+\subsection{Short English statement}
+The flat-torus Thurston distance is the logarithm of the optimal marking-preserving Lipschitz constant, computed by the largest relative eigenvalue. The supplied solution gives its length-ratio formula, infinitesimal norm and directed geodesics. Unit-volume normalization yields a sharp reverse-distance factor $n-1$, and unmarked moduli use a minimum over integral changes of basis.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20003121$, source code catalogue entry; canonical location \texttt{aim-topology-notes.json}, \texttt{notes[208]}.
+\item American Institute of Mathematics, \emph{Lipschitz metric on Teichmueller space}, Problem 5.3, \url{https://aimath.org/pastworkshops/lipschitzteichproblems.pdf}. The supplied verification says the displayed lattice quotient occurs in the official PDF without OCR ambiguity; no PDF was accessed here.
+\item Greenfield and Ji, as credited by the attached research summary for the flat-torus solution; no paper title, year, or full bibliographic reference is supplied.
+\item Research attempt 1 and summary label the question solved in the literature and the attempt a proved full solution with low novelty confidence, while explicitly warning that it is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

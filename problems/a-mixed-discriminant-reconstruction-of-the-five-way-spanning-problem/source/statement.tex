@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000562}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The literal workshop note, associated with Mirko Visontai, asks about partitioning indexed vectors into five spanning sets and an identity-augmented positive-semidefinite matrix construction, but leaves the tested property as ``xxxx.'' It does not define a well-posed algorithm or theorem. The following is the supplied aid's explicit reconstruction, not an assertion that the omitted property has been recovered from the original source.
+
+Take \(\mathbb F=\R\) or \(\C\), integers \(m,n,r\geq1\), and indexed vectors \(v_1,\ldots,v_m\in\mathbb F^n\). For \(J\subset[m]=\{1,\ldots,m\}\), put \(\operatorname{rank}(J)=\dim_{\mathbb F}\operatorname{span}\{v_j:j\in J\}\). The adjoint \(v_i^*\) is transpose or conjugate transpose as appropriate. For \(h\) positive-semidefinite \(h\)-by-\(h\) matrices, fix the mixed-discriminant normalization
+\[
+ D(B_1,\ldots,B_h)=\frac1{h!}
+ [t_1\cdots t_h]\det\!\left(\sum_{i=1}^h t_iB_i\right).
+\]
+The scalar normalization does not affect positivity.
+
+Suppose \(m\geq rn\), put \(q=m-rn\), and define \(m\)-by-\(m\) positive-semidefinite matrices
+\[
+ A_i=(I_r\otimes v_iv_i^*)\oplus I_q\qquad(1\leq i\leq m),
+\]
+where a zero-size identity block is omitted. The reconstructed theorem states the equivalence of:
+\begin{enumerate}
+\item \(D(A_1,\ldots,A_m)>0\);
+\item the indexed vector family contains \(r\) pairwise disjoint bases of \(\mathbb F^n\);
+\item \([m]\) admits a partition into \(r\) classes, each of whose vectors spans \(\mathbb F^n\);
+\item for every \(J\subset[m]\),
+\[
+ |[m]\setminus J|\geq r\bigl(n-\operatorname{rank}(J)\bigr).
+\]
+\end{enumerate}
+Taking \(r=5\) models the five-way spanning question. Positivity here is a joint mixed-discriminant condition on the whole tuple, not an unspecified test on each individual matrix.
+
+For the other side of the identity-padding dictionary, suppose \(m\leq rn\) and set \(B_i=I_r\otimes v_iv_i^*\), now of size \(rn\). The supplied tuple-padding theorem is
+\[
+ D(B_1,\ldots,B_m,\underbrace{I_{rn},\ldots,I_{rn}}_{rn-m\ \mathrm{arguments}})>0
+\]
+if and only if the indexed vectors partition into \(r\) linearly independent classes, equivalently if and only if
+\[
+ |J|\leq r\operatorname{rank}(J)\qquad\text{for every }J\subset[m].
+\]
+Empty classes are allowed in this independent-coloring statement. At \(m=rn\), the two encodings coincide and the independent classes must be bases. For \(m>rn\), the common identity block belongs inside every matrix; for \(m<rn\), the identities are extra tuple arguments. These distinct operations must not be conflated. The aid also reports that literal uncolored repeated-vector constructions collapse to ordinary independence or spanning of the original family and cannot encode the intended multi-class condition; their exact uncolored matrix models are not included in the excerpt.
+\subsection{Short English statement}
+The source note omits the matrix property and construction needed to define its proposed algorithm. The supplied reconstruction replaces this gap with a precise mixed-discriminant criterion for five disjoint spanning classes, and a separate identity-padding criterion for independent classes. These are repaired formulations rather than a verification of the literal note.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000562\), exact public code \texttt{catalogue entry}; \texttt{aim-analysis-notes.json}, \texttt{notes[93]}.
+\item AIM workshop \emph{Beyond Kadison--Singer: paving and consequences}, item b21, note ending ``Mirko Visontai'': \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. The original note refers to Rado--Horn but provides no complete citation.
+\item Supplied research summary, ``A mixed-discriminant reconstruction of the five-way spanning problem,'' attempt 1. No authoritative external citation for the mixed-discriminant equivalences or claimed reconstruction is supplied; the original remarks and literature fields are empty.
+\end{itemize}
+\end{document}

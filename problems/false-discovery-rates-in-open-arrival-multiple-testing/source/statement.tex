@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005867}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record poses a research question rather than a fully specified conjecture. The following notation makes its false-discovery-rate target explicit; the arrival model and admissible procedures remain unspecified.
+
+For an arrival-indexed formulation, let \(\mathcal P\) be a class of probability laws and let \(H_i\subseteq\mathcal P\) denote the null hypothesis with arrival index \(i\). For \(P\in\mathcal P\), write \(I_0(P)=\{i:P\in H_i\}\) for the indices of true null hypotheses. A \(p\)-value for \(H_i\) is a measurable random variable \(p_i\in[0,1]\) satisfying
+\[
+ P(p_i\le u)\le u\qquad(P\in H_i,\ u\in[0,1]).
+\]
+An \(e\)-value for \(H_i\) is a nonnegative measurable random variable \(e_i\) satisfying
+\[
+ \mathbb E_P[e_i]\le 1\qquad(P\in H_i).
+\]
+These are marginal validity definitions. They do not specify conditional validity relative to past observations, dependence between tests, or validity under optional sampling.
+
+Let \(\mathcal R_t\subseteq\{1,\ldots,t\}\) be the random set of rejected hypotheses after \(t\) arrivals. Define
+\[
+ R_t=|\mathcal R_t|,\qquad V_t(P)=|\mathcal R_t\cap I_0(P)|,
+ \qquad \operatorname{FDR}_P(t)=\mathbb E_P\!\left[\frac{V_t(P)}{\max\{R_t,1\}}\right].
+\]
+Thus the false discovery proportion is zero when there are no rejections. Indexing by arrivals here supplies notation only; it does not determine how evidence is observed, when decisions must be made, or whether past decisions can change.
+
+The question in the supplied clean statement is: what false-discovery-rate guarantees can be obtained for multiple-testing procedures when hypotheses arrive over time, using \(p\)-values or \(e\)-values? For a chosen level \(\alpha\in(0,1)\), one possible precise target would be to identify explicit assumptions and procedures for which
+\[
+ \operatorname{FDR}_P(t)\le\alpha
+ \qquad\text{for every admissible }P\text{ and every deterministic arrival index }t.
+\]
+This displayed target is an illustrative specification of the requested guarantees, not a conjecture explicitly stated in the source. The record does not determine whether control is instead intended at a terminal horizon, at stopping times, or in another sense.
+
+The original excerpt asks for interesting theoretical FDR results, referring to reference [1] for \(p\)-values and reference [10] for \(e\)-values. It says that the speaker's paper and talk concentrated on the closed setting, in which the number \(K\) of null hypotheses is given in advance. It then introduces possible research directions, but those directions are absent from the supplied excerpt. Consequently, the open-arrival interpretation comes from the supplied clean statement and cannot be fully reconstructed from that excerpt. No unique theorem or fully quantified conjecture can be extracted without specifying the missing model, validity assumptions, decision rules, and intended form of FDR control.
+\subsection{Short English statement}
+The question asks which false-discovery-rate guarantees are possible when hypotheses arrive over time, using either \(p\)-values or \(e\)-values. FDR is the expected fraction of rejected hypotheses that are true nulls, with fraction zero when there are no rejections. The supplied record leaves the arrival model, dependence assumptions, decision rules, and evaluation times unresolved; the original excerpt discusses a closed setting with a predetermined number \(K\) of null hypotheses.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005867\), source problem code \texttt{catalogue entry}, title ``False Discovery Rates in Open-Arrival Multiple Testing.'' The record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2024; no individual proposer is supplied.
+\item Supplied report citation: \emph{Game-theoretic Statistical Inference: Optional Sampling, Universal Inference, and Multiple Testing Based on E-values} (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/24, pp. 1339--1386. \url{https://doi.org/10.4171/owr/2024/24}. The background describes Oberwolfach Reports as documenting mathematical workshops and open-problem discussions. No exact passage location within the report is supplied.
+\item The original excerpt cites reference [1] for \(p\)-value FDR and reference [10] for \(e\)-value FDR. Their bibliographic entries and their correspondence to the supplied literature links are not provided.
+\item Supplied literature-source label: ``Wang--Ramdas e-value FDR control.'' Supplied URL, reproduced exactly: \url{https://doi.org/10.1111/rssb.124รู้}. The identifier appears malformed and requires verification.
+\item Supplied literature-source label: ``Ignatiadis--Wang--Ramdas e-values as unnormalized weights.'' Supplied URL, reproduced exactly: \url{https://doi.org/10.1093/biomet/ast?}. The identifier appears incomplete and requires verification.
+\item Supplied literature-source label: ``original OWR report.'' \url{https://doi.org/10.4171/owr/2024/24}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem ``partially solved'' and states that FDR control from e-values and related closed-family multiple-testing procedures are established, while the broader theoretical and open-arrival setting is not fully resolved. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. Its status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and says that only formula delimiters, notation, grammar, and typography were repaired while mathematical content and scope were preserved. These are supplied provenance claims, not independent verification of the formulation or its mathematical correctness.
+\end{itemize}
+\end{document}

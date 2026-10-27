@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001137}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(P\subseteq\R^2\) be \(n\) distinct points and let \(\mathcal L\) consist of \(n\) distinct real affine lines. Define
+\[
+ I(P,\mathcal L)=|\{(p,\ell)\in P\times\mathcal L:p\in\ell\}|.
+\]
+The Szemerédi--Trotter upper bound is \(I(P,\mathcal L)=O(n^{4/3})\). Tao's source question asks what structural conclusions follow when this order is attained, interpreted quantitatively as \(I(P,\mathcal L)\geq c n^{4/3}\) for a fixed \(c>0\). It does not specify a particular normal form or a single structural conjecture to prove.
+
+The aid reports the following necessary structure. Choose an absolute Szemerédi--Trotter constant \(K\geq1\), for example in the bound
+\[
+ I(Q,\mathcal M)\leq K\bigl(|Q|^{2/3}|\mathcal M|^{2/3}+|Q|+|\mathcal M|\bigr),
+\]
+and put \(\gamma=\min\{c,K\}\), \(\delta=(\gamma/(2K))^{3/2}\). For all sufficiently large \(n\), depending on \(c,K\), if \(I(P,\mathcal L)\geq c n^{4/3}\), there are \(P'\subseteq P\), \(\mathcal L'\subseteq\mathcal L\) such that
+\[
+ |P'|,|\mathcal L'|\geq\delta n,\qquad
+ I(P',\mathcal L')\geq\tfrac{3\gamma}{4}n^{4/3},
+\]
+and
+\[
+ |\{\ell\in\mathcal L':p\in\ell\}|\geq\tfrac\gamma8 n^{1/3}\quad(p\in P'),\qquad
+ |\{p\in P':p\in\ell\}|\geq\tfrac\gamma8 n^{1/3}\quad(\ell\in\mathcal L').
+\]
+The core is induced in the bipartite incidence graph: all incidences between the selected point and line classes are retained.
+
+To specify the two shadows, let
+\[
+ \mathcal S_{\mathcal L}=\{\{\ell_1,\ell_2\}:\ell_1,\ell_2\in\mathcal L',\ \ell_1\ne\ell_2,
+ \ \exists p\in P':p\in\ell_1\cap\ell_2\},
+\]
+\[
+ \mathcal S_P=\{\{p_1,p_2\}:p_1,p_2\in P',\ p_1\ne p_2,
+ \ \exists\ell\in\mathcal L':p_1,p_2\in\ell\}.
+\]
+The reported simultaneous lower bounds concern distinct unordered pairs, not multiplicity-counted witnesses:
+\[
+ |\mathcal S_{\mathcal L}|,|\mathcal S_P|
+ \geq\frac{\delta\gamma^2}{256}n^{5/3}.
+\]
+The aid also reports an exact balanced example family, with \(n=k^3\), having
+\[
+ I=\frac34k^4-\frac12k^3-\frac14k^2.
+\]
+Its coordinates and precise parameter range are not included in the supplied summary, so the formula is retained as a reported example count rather than an independently reconstructed configuration. These core and shadow conclusions are partial structural information, not a classification of all configurations attaining the incidence order.
+\subsection{Short English statement}
+An arrangement with \(n^{4/3}\)-scale incidences is reported to contain linear-size point and line classes, each rich in incidences with the other, and many distinct represented pairs on both sides. This gives necessary structure without classifying all near-extremal arrangements.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001137\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[261]}.
+\item AIM workshop ``Recent trends in additive combinatorics'', Problem 4.6, attributed to T. Tao: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. The original question asks for structure when the \(O(n^{4/3})\) point--line incidence bound is attained in order. The literature field and original remarks are empty.
+\item Supplied research attempt 1: \texttt{partial\_result}, status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It reports the constant-explicit two-sided rich-core lemma, the pair-shadow bounds and the exact balanced example count. No complete external bibliographic citation for the theorem, example or Szemerédi--Trotter bound is supplied.
+\end{itemize}
+\end{document}

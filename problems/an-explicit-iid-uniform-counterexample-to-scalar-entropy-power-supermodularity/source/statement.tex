@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001293}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a real random variable \(X\) with density \(f_X\), use natural logarithms and differential entropy
+\[
+ h(X)=-\int_{\R}f_X(x)\log f_X(x)\,\dd x,\qquad N(X)=e^{2h(X)}.
+\]
+No factor \((2\pi e)^{-1}\) is included. For independent real \(X_1,X_2,X_3\) with densities, and with the four entropies finite so that every term is unambiguous, Madiman's question is whether
+\[
+ D:=N(X_1+X_2+X_3)+N(X_2)-N(X_1+X_2)-N(X_2+X_3)\geq0.
+\]
+The source calls its entropy \(H\); the notation \(h\) here emphasizes differential entropy. The source notes equality for independent Gaussian variables, including unequal positive variances.
+
+The aid reports an explicit counterexample with independent identically distributed \(U_i\sim\operatorname{Unif}[0,1]\):
+\[
+ h(U_i)=0,\qquad h(U_1+U_2)=\tfrac12,\qquad
+ h(U_1+U_2+U_3)=\tfrac76+\log2-\tfrac{\sqrt3}{2}\log(2+\sqrt3).
+\]
+Its reported deficit is
+\[
+ D=4e^{7/3}(2+\sqrt3)^{-\sqrt3}+1-2e<0.
+\]
+The aid says the strict sign has a rational-series certificate, not reproduced in the supplied summary. It also reports robustness: for independent standard Gaussians \(G_i\), independent of all \(U_i\), there is \(\sigma_0>0\) such that the triple \(X_i=U_i+\sigma G_i\) has \(D<0\) for every \(0<\sigma<\sigma_0\). The resulting densities are smooth, strictly positive and log-concave. This is the reported entropy-continuity extension, not an independently checked numerical certificate.
+
+The original remarks append a distinct general inequality. For independent \(X_1,\ldots,X_n\) and nonempty \(S\subseteq[n]\), put \(X_S=\sum_{i\in S}X_i\). They define a fractional covering by
+\[
+ \beta_S\geq0,\qquad\sum_{S\ni i}\beta_S\geq1\quad(i\in[n]),
+\]
+and claim that the displayed three-variable inequality would imply
+\[
+ N(X_{[n]})\geq\sum_{S\subseteq[n]}\beta_SN(X_S).
+\]
+This claim is not valid with unrestricted covering weights as written: taking \(\beta_{[n]}=2\) and all other weights zero would require \(N(X_{[n]})\geq2N(X_{[n]})\) even for nondegenerate Gaussians. The empty-set term also has no stated entropy convention. The source wording is preserved here rather than silently changed to a fractional partition or packing condition.
+
+The same remarks report known inequalities for all \((n-1)\)-subsets, attributed to Artstein, Ball and Naor, and a regular-hypergraph generalization attributed to Barron and Madiman. A regular hypergraph has the same number of member sets through each index. These historical special-case assertions require the appropriate normalized weights, such as \(1/(n-1)\) on all \((n-1)\)-subsets; they cannot support the unrestricted covering formula above. Complete theorem statements and weight normalizations are absent from the source excerpt.
+\subsection{Short English statement}
+The supplied iid-uniform example makes the proposed entropy-power supermodularity deficit strictly negative, with failure persisting after small Gaussian smoothing. The remarks also contain a covering-weight formula whose literal quantifiers are inconsistent; that issue is kept separate from the reported normalized special cases.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001293\), exact public code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[24]}.
+\item AIM workshop ``Algorithmic convex geometry'', Problem 6, attributed to Mokshay Madiman: \url{https://aimath.org/WWN/convexgeometry/convexgeometry.pdf}. The supplied verification identifies \(H\) as differential entropy and confirms independent real variables with densities.
+\item Original remarks state Gaussian equality and name Artstein, Ball and Naor for the all-\((n-1)\)-subsets inequality, and Barron and Madiman for regular hypergraphs. No full bibliographic entries are supplied; the literature field is empty.
+\item Research attempt 1: \texttt{counterexample}, status at run \texttt{refuted}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{SOLVED-IN-LITERATURE}. It reports exact iid-uniform entropies, a rational strict-sign certificate and Gaussian-smoothing robustness. The current registry status is solved. No separate authoritative citation for this counterexample or certificate is supplied.
+\end{itemize}
+\end{document}

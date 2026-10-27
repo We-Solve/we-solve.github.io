@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002678}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record contains two requests concerning low-rank matrix completion. It does not specify the ground field, the graph model, or the meaning of ``completable.'' The following gives a conditional algebraic formulation and identifies the choices that remain unresolved.
+
+For a chosen algebraically closed field \(k\), let \([m]=\{1,\ldots,m\}\) and let
+\[
+X_{N,n}^{(2)}=\{A\in k^{N\times n}:\operatorname{rank}(A)\leq 2\}.
+\]
+Write \(x_{ij}\) for its coordinate functions and \(k(X_{N,n}^{(2)})\) for its function field. The associated algebraic matroid has ground set \([N]\times[n]\); a subset \(S\) is independent if the functions \(x_{ij}\), \((i,j)\in S\), are algebraically independent over \(k\). A circuit is a dependent subset all of whose proper subsets are independent. For a circuit \(C\), a circuit polynomial is an irreducible generator, unique up to multiplication by a nonzero element of \(k\), of
+\[
+\ker\!\left(k[t_{ij}:(i,j)\in C]\longrightarrow k(X_{N,n}^{(2)}),\quad t_{ij}\longmapsto x_{ij}\right).
+\]
+Under this interpretation, the first request is to characterize all circuits of these rank-two determinantal matroids and their circuit polynomials as the matrix dimensions vary. The choice of \(k\), including its characteristic, is not supplied and requires confirmation. Rank at most two is the algebraic variety used here; the source says rank two without specifying whether only matrices of rank exactly two are intended.
+
+For an observed set \(E\subseteq[N]\times[n]\), put \(k(x_E)=k(x_{ij}:(i,j)\in E)\). An entry \((a,b)\) is generically finitely completable in this algebraic interpretation if \(x_{ab}\) is algebraic over \(k(x_E)\). Thus generic finite completability of every entry means
+\[
+\forall(a,b)\in[N]\times[n],\qquad x_{ab}\text{ is algebraic over }k(x_E).
+\]
+This differs from existence of a completion and from generic unique completion. For observed values \(y\in k^E\), existence means that the fiber of the coordinate projection \(\pi_E:X_{N,n}^{(2)}\to k^E\) over \(y\) is nonempty; uniqueness means that this fiber consists of one matrix. Any generic qualification must specify the relevant dense open subset of the observation image. The source does not choose among these meanings or specify generic observed values.
+
+The second request sets \(N=n\) and takes observed positions from a uniformly random \(2r\)-regular graph. To illustrate one possible precise interpretation, fix a positive integer \(r\), and, for each \(n\geq\max\{2,2r\}\), let \(G_n\) be uniformly distributed among simple bipartite graphs with labeled vertex classes \([n]_{\mathrm{row}}\) and \([n]_{\mathrm{column}}\), every vertex having degree \(2r\). Let \(E(G_n)\subseteq[n]\times[n]\) be its edge set. If ``completable'' means generically finitely completable, the requested asymptotic question becomes whether
+\[
+\lim_{n\to\infty}\Pr\!\left(
+\forall(a,b)\in[n]\times[n],\quad
+x_{ab}\text{ is algebraic over }k(x_{E(G_n)})
+\right)=1.
+\]
+This displayed question is conditional on the stated graph and completion conventions. The supplied record does not establish those conventions, say whether \(r\) is fixed or varies with \(n\), or explain its relationship to the specified rank two. In particular, setting \(r=2\) requires confirmation. An ordinary undirected graph would require a different rule associating edges with matrix entries, including a convention for symmetry and diagonal entries. Consequently, the record does not determine a single unqualified probability statement.
+\subsection{Short English statement}
+Characterize the minimal algebraic dependencies among entries of rank-two matrices and the polynomial relation attached to each such dependency. Also determine whether observations indexed by a uniformly random \(2r\)-regular graph determine all entries, in the intended completion sense, with probability tending to one as the square matrix size tends to infinity. The field, graph model, role of \(r\), genericity assumptions, and distinction between existence, finite completion, and unique completion remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002678\), title ``Circuits and Thresholds in Rank-Two Matrix Completion,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is identified.
+\item Supplied source citation: \emph{Mini-Workshop: Asymptotic Statistics on Stratified Spaces (2015)}, Oberwolfach Reports, pp. 2481--2527, DOI \texttt{10.4171/owr/2014/44}. \url{https://doi.org/10.4171/owr/2014/44}. The record separately gives proposed year 2014; the relationship between that year, the citation's 2015 date, and the DOI's 2014 component is not resolved here.
+\item Supplied literature source: Bernstein, ``completion of rank-two matrices.'' \url{https://doi.org/10.1016/j.laa.2017.07.016}.
+\item Supplied literature source: Kir\'aly--Theran--Tomioka, ``low-rank matrix completion.'' \url{https://jmlr.csail.mit.edu/papers/volume16/kiraly15a/kiraly15a.html}.
+\item Supplied literature source: Oberwolfach report. \url{https://doi.org/10.4171/owr/2014/44}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and reports advances in rank-two algebraic-matroid structure and circuit-based completion while describing the full circuit-polynomial characterization and random-regular-graph completability asymptotic as unresolved. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The registry supplies the editorial label \texttt{corrected\_verified}, with the explanation that mathematical content was preserved while notation, typography, or omitted definitions were repaired for publication. This label is reported as source metadata and does not constitute independent mathematical or source verification of this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000294}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source conjectures a local jump estimate uniform over the adaptive mesh family. Given a finite-element mesh $\mathcal T_h$ of $\Omega$ and the Ritz projection $u_h$ of $u\in C^2(\Omega)$, the proposed quantifiers are
+\[
+ \forall u\ \exists C(u)<\infty\ \forall h\ \forall K\in\mathcal T_h:\quad
+ \sum_{E\subset\partial K}h_E^{-3}
+       \|[\partial_n u_h]\|_{L^2(E)}^2\leq C(u).
+\]
+Here $h_E$ is the diameter/length scale of a mesh face or edge $E$, and the constant is independent of the refinement level and cell, with dependence on fixed problem and mesh-regularity data to be specified. No dependence on uncontrolled mesh grading may be silently hidden in a claimed adaptive-uniform estimate.
+
+For an interior face $E=K^+\cap K^-$, a standard jump convention is
+\[
+ [\partial_nu_h]|_E=
+   \nabla u_h|_{K^+}\cdot n_+
+   +\nabla u_h|_{K^-}\cdot n_-,
+\]
+where the normals point out of their respective cells. The sign convention does not affect the squared norm. The source sums over $E\subset\partial K$ without specifying treatment of domain-boundary faces. Ordinary normal derivatives there are not jumps between two cells, and interpreting them by zero exterior extension can change the claimed bound substantially. Neither exclusion nor a boundary convention is silently supplied.
+
+A Ritz projection requires a chosen energy space $V$, finite-element space $V_h\subset V$ and coercive bilinear form $a$, with
+\[
+ u_h\in V_h,\qquad a(u_h,v_h)=a(u,v_h)\quad\forall v_h\in V_h.
+\]
+The excerpt does not specify $a$, boundary conditions, element degree, spatial dimension, mesh conformity or shape regularity. It also says $C^2(\Omega)$ rather than bounded $C^2(\overline\Omega)$ regularity; membership in the energy space and any global bounds needed for a finite constant must be checked. The displayed projection definition is a framework for the missing data, not an implicit choice of the Laplace or piecewise-linear problem.
+
+The supplied literature assessment checked 21 August 2026 says the report proves the estimate on quasi-uniform meshes but poses the general adaptive estimate as a conjecture, with no general proof or counterexample located. Quasi-uniformity is a special-case qualification, not an added hypothesis resolving the requested adaptive case.
+\subsection{Short English statement}
+Does the Ritz projection of a smooth function have uniformly bounded cellwise, scaled normal-derivative jumps on adaptive meshes? The constant must work for every mesh level and cell. The source omits mesh, boundary-face and projection conventions; the supplied assessment reports only a quasi-uniform-mesh result.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000294, exact source code catalogue entry; \emph{Uniform Difference-Quotient Estimates on Adaptive Meshes}. Proposed year 2005, status open; corrected\_verified statement supplies the $h_E^{-3}$ jump inequality and the Ritz projection.
+\item Supplied report citation: \emph{Mini-Workshop: Convergence of Adaptive Algorithms (2006)}, Oberwolfach Reports, DOI 10.4171/owr/2005/37, pp. 2091--2138, \url{https://doi.org/10.4171/owr/2005/37}. Title year differs from DOI/proposed year.
+\item Supplied literature assessment checked 2026-08-21: ``original OWR conjecture'', \url{https://doi.org/10.4171/owr/2005/37}; ``later OWR reproduction'', \url{https://ems.press/content/serial-article-files/46016}. This dated OWR-derived curation requires independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

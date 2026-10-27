@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002369}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\Q^{\mathrm{tr}}\subseteq\overline{\Q}$ be the field of totally real algebraic numbers, and let $\Q\subseteq K\subseteq\Q^{\mathrm{tr}}$. Write $\mathcal O_K$ for its algebraic integers. For $s>0$ define
+\[
+ B_K(s)=\{\alpha\in\mathcal O_K:
+   0\le\sigma(\alpha)\le s\text{ for every }\Q\text{-embedding }
+      \sigma:\Q(\alpha)\to\R\},
+ \qquad A_K=\{s>0:|B_K(s)|=\infty\}.
+\]
+Put $\lambda_K=\inf A_K$ in the extended real line, with $\inf\varnothing=+\infty$. The nonvacuous attainment question attributed to Julia Robinson asks, when $\lambda_K<\infty$, whether
+\[
+ |B_K(\lambda_K)|=\infty,
+ \quad\text{equivalently }\lambda_K\in A_K.
+\]
+The source reports that such attainment implies undecidability of the first-order theory of $\mathcal O_K$, and gives $\lambda_{\Q^{\mathrm{tr}}}=4\in A_{\Q^{\mathrm{tr}}}$. Its literal formulation does not exclude $A_K=\varnothing$; for a number field $K$, every $B_K(s)$ is finite, so $A_K=\varnothing$ and the extended-real infimum is not an element of $A_K$. Thus a universal attainment assertion needs the finite-threshold qualification. The extracted final inclusion in $\Q$ has lost the algebraic-closure bar in the intended totally real algebraic-field notation; a literal reading as subfields of $\Q$ would not express this question.
+
+The supplied research aid reports the following exact reductions, leaving the general finite-threshold question open. For every finite $s>0$, replacing the closed condition $[0,s]$ by $(0,s)$ changes $B_K(s)$ by only finitely many elements. An endpoint-zero conjugate forces $\alpha=0$, and an endpoint-$s$ conjugate forces $\alpha$ to be one of the finitely many conjugates of $s$ when $s$ is an algebraic integer. Consequently the open- and closed-interval conventions have identical infinitude behavior at each finite threshold, including attainment.
+
+If $K\subseteq L\subseteq\Q^{\mathrm{tr}}$, then
+\[
+ B_K(s)=B_L(s)\cap\mathcal O_K,\qquad
+ A_K\subseteq A_L,\qquad\lambda_L\le\lambda_K.
+\]
+If their thresholds agree and are finite, attainment for $K$ implies attainment for $L$. For any nested number-field exhaustion
+\[
+ K_1\subseteq K_2\subseteq\cdots,\qquad K=\bigcup_{n\ge1}K_n,
+\]
+and any finite $\lambda_K$, the aid gives the equivalent criterion
+\[
+ \lambda_K\in A_K
+ \quad\Longleftrightarrow\quad
+ \bigl\{|B_{K_n}(\lambda_K)|:n\ge1\bigr\}
+       \text{ is unbounded in }\N.
+\]
+The counts are finite; no algorithm to compute them or the threshold is asserted. The aid also reports the universal lower bound $\lambda_K\ge4$ for finite thresholds, by a Kronecker argument. If $K$ contains infinitely many distinct elements of the form
+\[
+ 2+\zeta+\zeta^{-1},\qquad \zeta\text{ a root of unity},
+\]
+then these are algebraic integers with every conjugate in $[0,4]$, forcing $\lambda_K=4$ with attainment. This recovers the printed example $K=\Q^{\mathrm{tr}}$. The exhaustion, monotonicity and endpoint facts are partial criteria, not a proof of attainment for every infinite totally real extension.
+\subsection{Short English statement}
+Ask whether the first finite threshold admitting infinitely many totally real integers in the conjugate box $[0,s]$ is itself attained. The aid gives equivalent open-box and tower-count criteria and verifies threshold $4$ for the maximal totally real field; empty threshold sets must be treated separately.
+\subsection{Sources}
+\begin{itemize}
+\item Videla, Question 33, presenting a question of Julia Robinson, \emph{Problems related to ``Extensions of Hilbert's Tenth Problem''}, American Institute of Mathematics; moderators B. Poonen and T. Scanlon, notes by J. Demeyer, as identified by supplied verification. \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}.
+\item Local UnsolvedMath registry, permanent ID 20002369, source code \texttt{catalogue entry}, canonical location \texttt{aim-logic-notes.json}, \texttt{notes[144]}, record dated 14 August 2026. The extracted page heading and page number at the end are not part of the problem; the original literature field is empty.
+\item Supplied research attempt 1: partial result, problem status at run open, rigor labelled proved, novelty confidence low. Its endpoint, exhaustion and Kronecker refinements are machine-generated research aid, not peer reviewed, requiring independent verification before citation. No separate authoritative bibliographic reference for these refinements or the undecidability criterion is supplied.
+\end{itemize}
+\end{document}

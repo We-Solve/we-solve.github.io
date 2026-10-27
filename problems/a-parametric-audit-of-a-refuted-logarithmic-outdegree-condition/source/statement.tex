@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001070}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source's Conjecture 6.25 asserts that a digraph $D$ on $n$ vertices satisfying
+\[
+ \sum_{v\in V(D)}\log\left(1+\frac1{d_D^+(v)}\right)
+ \geq n\log\left(1+\frac1r\right)
+\]
+has a directed cycle of length at most $\lceil n/r\rceil$. The supplied verification confirms a ceiling on page 10 of Blair D. Sullivan's 2006 survey. The inequality direction is retained literally. The logarithms are undefined at outdegree zero, so a finite-valued formulation must require positive outdegrees; treating a zero-degree term as infinity would give an immediate defect for acyclic graphs. The aid's counterexamples have all outdegrees positive.
+
+The source itself prints a counterexample: start with a transitive tournament on $n-1$ vertices, remove its arc from the maximum-outdegree vertex to the sink, and replace it by an oppositely directed path of length two. The aid verifies, for every $n\geq4$, the exact product
+\[
+ P(D):=\prod_v\left(1+\frac1{d_D^+(v)}\right)
+       =\frac{4(n-2)^2}{n-3},
+\]
+and the complete directed cycle-length spectrum $\{4,5,\ldots,n\}$. It reports that this graph refutes the proposed implication exactly for positive integer parameters $r\geq\lceil n/3\rceil$.
+
+More generally, let $T_{m,q}$ be obtained from a transitive tournament on ordered vertices $1,\ldots,m$, $m\geq3$, by removing $1\to m$ and inserting a reversed $q$-arc path from $m$ to $1$, with new internal vertices, $q\geq2$. Then $N=m+q-1$ and the aid's formulas are
+\[
+ P(T_{m,q})=\frac{2^q(m-1)^2}{m-2},\qquad
+ \{\text{directed cycle lengths}\}=\{q+2,\ldots,N\}.
+\]
+Writing $P=2^q(m-1)^2/(m-2)$, the exact two-threshold counterexample criterion is
+\[
+ r\geq\max\left\{
+ \left\lceil\frac N{q+1}\right\rceil,
+ \left\lceil\frac1{P^{1/N}-1}\right\rceil
+ \right\},\qquad r\in\N.
+\]
+The second threshold is precisely the displayed logarithmic hypothesis; the first makes its ceiling conclusion strictly shorter than the actual girth. Failure of one threshold alone is not a counterexample to the implication.
+
+The summary additionally reports a valid factor-two logarithmic replacement derived from a 2023 nonuniform-degree theorem. Its exact inequality, hypotheses, rounding convention and bibliographic reference are absent. No replacement theorem is guessed from that description, and the source's sign is not silently reversed. The literal conjecture is refuted independently by the explicit positive-outdegree families above.
+\subsection{Short English statement}
+The source already includes a counterexample. The aid computes its full cycle spectrum and exactly when it violates the ceiling bound, then generalizes the construction using a longer reverse path. It also records a zero-outdegree domain problem; an incompletely specified factor-two replacement is not reconstructed as a theorem.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001070$, source code \texttt{catalogue entry}, supplied complete source record and research summary.
+\item Blair D. Sullivan's 2006 AIM survey, \emph{The Caccetta--Haggkvist conjecture}, Conjecture 6.25, page 10 as identified in the supplied verification; URL \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. Canonical local record \texttt{aim-combinatorics-notes.json}, \texttt{notes[194]}. No PDF was retrieved.
+\item The summary mentions a 2023 nonuniform-degree theorem without author, title, identifier or complete statement. The original literature field is empty, and no full authoritative citation for the parametric extension is supplied.
+\item Research attempt 1: counterexample; problem refuted at the recorded run, registry status solved and classification \texttt{SOLVED-IN-LITERATURE}; supplied rigor label ``proved'', novelty confidence ``low''. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

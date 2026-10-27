@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001700}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Delta\) be a finite abstract simplicial complex of dimension \(d-1\), where \(d\geq 1\). Write \(f_{i-1}(\Delta)\) for the number of faces with \(i\) vertices, with \(f_{-1}(\Delta)=1\) counting the empty face. The complex is \emph{flag} if every set of vertices that are pairwise joined by edges is a face. A simplicial sphere means a simplicial complex whose geometric realization is homeomorphic to \(S^{d-1}\).
+
+To specify the homological terminology, fix a field \(k\). A \emph{homology sphere over \(k\)} is a pure \((d-1)\)-dimensional simplicial complex such that, for every face \(\sigma\), including the empty face, its link
+\[
+\operatorname{lk}_{\Delta}(\sigma)=\{\tau\in\Delta:\tau\cap\sigma=\varnothing,\ \tau\cup\sigma\in\Delta\}
+\]
+satisfies
+\[
+\widetilde H_j(\operatorname{lk}_{\Delta}(\sigma);k)\cong
+\begin{cases}
+k,&j=d-|\sigma|-1,\\
+0,&j\ne d-|\sigma|-1.
+\end{cases}
+\]
+Here reduced homology uses the augmented convention, so the complex consisting only of the empty face has the homology of \(S^{-1}\). The source does not specify homology coefficients; the statements below are parameterized by \(k\), and the intended coefficient scope remains unresolved.
+
+Define the \(h\)-polynomial by
+\[
+h_{\Delta}(t)=\sum_{i=0}^{d}f_{i-1}(\Delta)t^i(1-t)^{d-i}.
+\]
+For a homology sphere, the Dehn--Sommerville symmetry gives \(h_{\Delta}(t)=t^d h_{\Delta}(t^{-1})\). Consequently there are unique integers \(\gamma_i(\Delta)\), for \(0\leq i\leq m:=\lfloor d/2\rfloor\), such that
+\[
+h_{\Delta}(t)=\sum_{i=0}^{m}\gamma_i(\Delta)t^i(1+t)^{d-2i}.
+\]
+Their ordered tuple is the \(\gamma\)-vector; in particular, \(\gamma_0(\Delta)=1\).
+
+A finite simplicial complex \(B\) of dimension \(r-1\) is \emph{balanced} if its vertices admit a coloring with \(r\) colors that is injective on each face. Permit \(B=\{\varnothing\}\), with \(r=0\). Face vectors here include the empty-face entry \(f_{-1}(B)=1\), and are padded by zeros beyond the dimension of \(B\).
+
+The broad problem is to characterize the possible face vectors
+\[
+\bigl(f_{-1}(\Delta),f_0(\Delta),\ldots,f_{d-1}(\Delta)\bigr)
+\]
+of flag simplicial spheres, in every dimension. The source additionally asks the following two questions for flag homology spheres: for every flag homology sphere \(\Delta\) over the chosen field \(k\), is
+\[
+\gamma_i(\Delta)\geq 0\qquad(0\leq i\leq m)?
+\]
+More strongly, does there exist a finite balanced simplicial complex \(B\) of dimension at most \(m-1\) such that
+\[
+f_{i-1}(B)=\gamma_i(\Delta)\qquad(0\leq i\leq m)?
+\]
+The latter assertion implies the former. The source attributes the nonnegativity conjecture to Gal, but supplies no individual attribution for the stronger assertion. It does not specify a more particular target for the broad face-vector characterization question. If the formal \((-1)\)-sphere is included, the convention \(\Delta=\{\varnothing\}\), \(h_{\Delta}(t)=1\), and \(\gamma(\Delta)=(1)\) gives the corresponding boundary case, realized by \(B=\{\varnothing\}\).
+\subsection{Short English statement}
+Determine which face vectors occur for flag simplicial spheres. In particular, ask whether every flag homology sphere has a nonnegative \(\gamma\)-vector and whether that vector, including its empty-face entry, is the face vector of a balanced simplicial complex. The coefficient field for homology is unspecified in the source. The supplied open-status assessment is dated curation and has not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30001700\), title \emph{Gamma Vectors of Flag Homology Spheres}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection; proposed year \(2011\). No individual proposer is supplied.
+\item \emph{Topological and Geometric Combinatorics} (2011), Oberwolfach Reports, pp.\ 349--423, DOI \texttt{10.4171/owr/2011/08}. Supplied source report and literature-source link labeled ``original Oberwolfach report'': \url{https://doi.org/10.4171/owr/2011/08}.
+\item Supplied literature-source entry labeled ``Labbe--Nevo, bounds for gamma-vectors'': \url{https://arxiv.org/abs/1612.01169}. The record supplies no more precise bibliographic details or claim locations.
+\item Literature checked at: \texttt{2026-08-21}. The supplied dated curation labels the problem open and assesses Gal's gamma-nonnegativity conjecture and the stronger balanced-complex conjecture as unresolved in general, with only special classes and bounds known. This assessment is supplied dated curation, not independently verified. The background expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review of its cleanup. These are supplied source-record qualifications, not an independent mathematical review of this draft.
+\end{itemize}
+\end{document}

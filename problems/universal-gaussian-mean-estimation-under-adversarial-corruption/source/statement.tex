@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005252}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(N,d\geq 1\) be integers. For observations \(X_1,\ldots,X_N\in\R^d\), the empirical mean is
+\[
+\overline X=\frac1N\sum_{i=1}^N X_i.
+\]
+The supplied record concerns estimating a mean from Gaussian vectors \(G_1,\ldots,G_N\in\R^d\), and extensions to other distributions and adversarial corruption. It does not specify independence, identical distribution, a common mean, covariance assumptions, or the precise Gaussian statistical model. These hypotheses must be recovered before a quantitative estimation statement can be formulated.
+
+Replacement corruption can be represented by an index set \(I\subseteq\{1,\ldots,N\}\), with
+\[
+X_i=G_i\quad(i\notin I),\qquad X_i\in\R^d\quad(i\in I).
+\]
+The source describes a fraction \(\varepsilon\) of the vectors as corrupted by an adversary. Whether this means an exact fraction or an upper bound, how nonintegral budgets are rounded, and what the adversary observes are unspecified.
+
+\textbf{Research questions, with an unresolved central definition.} The supplied record asks:
+\begin{enumerate}
+\item Are there estimators other than the empirical mean that possess the intended universal estimation property?
+\item Is the empirical mean's possession of this property explained by its being a sufficient statistic, including the source's informal suggestion that it is in some sense better than other estimators?
+\item Can the property be extended beyond Gaussian samples, including samples subject to \(\varepsilon\)-adversarial corruption, and what is the largest tolerable corruption proportion \(\varepsilon\)?
+\end{enumerate}
+The supplied excerpt does not define the universal estimation property or state the preceding result to which these questions refer. In particular, it supplies no loss, accuracy requirement, probability guarantee, distribution class, parameter dependence, or quantifier order. Sufficiency also requires a specified statistical family and parameter, which are absent. Consequently these questions cannot yet be converted into a fully quantified mathematical conjecture without adding unsupported assumptions.
+
+\textbf{Incomplete accompanying theorem excerpt.} The source begins a statement labelled Theorem 2 about corrupted Gaussian vectors and a Tukey median. Interpreting the damaged indicator notation literally gives
+\[
+\widehat\mu\in\operatorname*{arg\,min}_{\mu\in\R^d}D(\mu),\qquad
+D(\mu)=\sup_{v\in\R^d}\frac1N\sum_{i=1}^N
+\mathbf{1}_{\{\langle X_i-\mu,v\rangle\geq0\}}.
+\]
+This transcription requires source verification: allowing \(v=0\) makes the displayed function identically one. The direction domain, boundary convention, and optimization convention therefore cannot be accepted as an unambiguous definition of the intended estimator. No repair is imposed here. The excerpt also omits the theorem's conclusion and any estimation bound.
+
+The supplied dated curation labels the problem partially solved, reports a Gaussian adversarial-corruption Tukey-median bound, and mentions proposed median-of-means extensions. It describes broader universality beyond Gaussian data and across corruption levels as remaining open. These are supplied literature qualifications, not independently verified mathematical conclusions.
+\subsection{Short English statement}
+The problem asks which estimators share an unspecified universal property of the Gaussian empirical mean, whether sufficiency explains it, and whether it extends to other distributions and adversarial corruption. The supplied excerpt omits the defining guarantee and essential hypotheses, and its Tukey-median formula needs verification. This is an incomplete statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local registry record: permanent UnsolvedMath ID \(30005252\), title ``Universal Gaussian Mean Estimation under Adversarial Corruption,'' source problem code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. Project registry locations are \texttt{data/unsolvedmath/problems.json} and \texttt{catalog/problems.json}; this draft uses only the supplied record and does not claim to have inspected those files.
+\item Supplied report citation: \emph{Mini-Workshop: Mathematical Foundations of Robust and Generalizable Learning (2023)}, Oberwolfach Reports, pp.\ 2659--2686, DOI \texttt{10.4171/owr/2022/46}. Supplied source URL and literature reference, labelled ``Oberwolfach Report 46/2022'': \url{https://doi.org/10.4171/owr/2022/46}. The record describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. No individual proposer is identified; the supplied proposed year is 2022.
+\item Literature assessment dated \texttt{2026-08-22}: supplied dated curation, not independently verified. Its status is ``partially solved.'' It reports a Gaussian adversarial-corruption Tukey-median bound and proposed median-of-means extensions, while describing broader universality beyond Gaussian data and across corruption levels as open. The curation itself requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says it was checked against the official report. This is a supplied verification claim; no source visit or independent verification was performed for this draft. The supplied citation's 2023 title date differs from the 2022 report designation, DOI, and proposed year; this discrepancy is unresolved.
+\end{itemize}
+\end{document}

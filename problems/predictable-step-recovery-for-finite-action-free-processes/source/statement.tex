@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002662}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether every tracial law $\tau$ of a free stochastic process has approximants $\tau_n\to\tau$ with
+\[
+\chi_p^*(\tau_n)\to\chi_p^*(\tau),
+\]
+where the approximating processes satisfy $\dd A_i(t)=\dd S_i(t)+k_t(A_1(s),\ldots,A_m(s))_{s\leq t}\,\dd t$ and the drift is ``stepwise constant in $s$.'' Here $S_i$ are interpreted as freely independent Brownian motions and the drift as vector-valued. The question refers to the process entropy of Guionnet and Cabanal-Duvillard, but gives neither its formula, normalization, topology nor admissible-control definition. Stepwise constancy in the history variable $s$ must not silently be replaced by constancy in the evolution time $t$.
+
+The aid proves a finite-action subclass result under a strong Brownian realization and an action-attaining square-integrable predictable drift. On a finite horizon $[0,T]$ in a tracial probability space $(\mathcal M,\operatorname{tr})$, write
+\[
+A_i(t)=S_i(t)+\int_0^t k_i(r)\,\dd r,
+\qquad
+\|k\|_2^2=\int_0^T\sum_i\operatorname{tr}(k_i(r)^*k_i(r))\,\dd r.
+\]
+A predictable step control has bounded selfadjoint coefficients measurable at the left endpoint of each time interval. Assuming the required approximation and history refinement, controls $k^{(n)}$ approach $k$ in this norm and the corresponding laws approach $\tau$ in Cayley-word topology. A finite-history cylindrical refinement is reported, but its admissibility as feedback of the approximating process, rather than merely an adapted control on the original probability space, must be matched to the source's definition.
+
+For a concrete normalization let $\mathcal C(X)=(X+4iI)(X-4iI)^{-1}$. Cayley-word topology means convergence of the trace of every fixed finite word in these unitary process variables and their adjoints at fixed times. With this normalization, the aid's stated estimate for a word of length $r$ is
+\[
+|\tau_n(w)-\tau(w)|\leq\frac{r\sqrt T}{2}\,\|k^{(n)}-k\|_2.
+\]
+The numerical constant depends on the Cayley scale, which the source record does not specify.
+
+To state the action squeeze, let $I(\tau)$ be the infimum of $\tfrac12\|k\|_2^2$ over the permitted Brownian drift realizations of that law. Assume this action is lower semicontinuous in the chosen topology, and that the given realization attains $I(\tau)<\infty$. Then
+\[
+I(\tau)\leq\liminf_n I(\tau_n)\leq\limsup_n I(\tau_n)
+\leq\lim_n\tfrac12\|k^{(n)}\|_2^2=I(\tau).
+\]
+This proves action recovery on that subclass. Identification of action recovery with the requested $\chi_p^*$ convergence requires the actual entropy/action relation, including its sign and additive constant, from the cited paper; it is not defined in the supplied record.
+
+The aid also gives a warning on $[0,1]$: let $b_n(t)=(-1)^{\lfloor2nt\rfloor}$ away from its jump points, $q_n(t)=\int_0^t b_n(r)\,\dd r$, and $A_n(t)=S(t)+q_n(t)I$. Then $\sup_t|q_n(t)|\leq1/(2n)$, so every fixed Cayley word converges at order $O(1/n)$ to the Brownian law. Nevertheless the minimum quadratic drift action is $\tfrac12$, rather than the Brownian value $0$, as the deterministic mean derivative already forces that cost. This shows that weak law convergence alone does not recover action. It is not a counterexample to existence of some better recovery sequence. General laws without strong realizations, nonattained action, infinite action and the exact history-step entropy question remain outside the supplied theorem.
+\subsection{Short English statement}
+The original asks for entropy-preserving approximation of free process laws by a specified history-step class. The aid gives action recovery only for strong, action-attaining finite-energy realizations and an explicit word-error bound. An oscillating scalar drift shows that law convergence alone does not preserve action; the precise process-entropy and control conventions still need the cited paper.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002662$, \texttt{catalogue entry}; \texttt{aim-probability-notes.json}, \texttt{notes[103]}.
+\item American Institute of Mathematics, \emph{Free analysis}, \emph{Problems}, 24 August 2006, source question 2, \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}. Supplied verification reports severe entropy-symbol layout damage but supplies no full recovered display beyond its introduction.
+\item Source reference: the paper of Guionnet and Cabanal-Duvillard defining process $\chi^*$. No title, theorem number, entropy formula or full authoritative bibliographic citation is supplied.
+\item Research attempt 1: partial result, problem open at run, rigor label ``proved,'' novelty confidence low. Registry classification partial progress, status partially solved, statement status exact.
+\end{itemize}
+\end{document}

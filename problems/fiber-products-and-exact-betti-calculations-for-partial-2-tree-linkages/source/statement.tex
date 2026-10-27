@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001854}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Sitharam's source asks for a Farber-style Morse-theoretic calculation of chambers and homology, including Betti numbers, for two polygons sharing a chain and more generally graphs of tree-width two. The aid describes the omitted source figure as a theta graph whose cycles share a four-edge path. The original text does not specify ambient dimension, whether crossings are allowed, the symmetry quotient, coefficient ring, or the meaning of chambers.
+
+For the aid's planar special case, let \(G=(V,E)\) be a labelled graph with positive edge lengths \(\ell_e\), and consider placements \(p:V\to\R^2\) satisfying \(|p(v)-p(w)|=\ell_{vw}\), modulo orientation-preserving Euclidean motions \(\operatorname{SE}(2)\). Crossings and coincidences of nonadjacent vertices are allowed; no quotient by reflection is taken. Pin a chosen positive-length edge to \((0,0),(c,0)\) to obtain the normalized realization space \(\mathcal C(G,\ell)\).
+
+If \(G_1,G_2\) share exactly a path \(P\), normalize all three spaces using the same first edge of \(P\). Restriction to the path then gives the exact fiber-product description
+\[
+ \mathcal C(G_1\cup_PG_2,\ell)
+ \cong\mathcal C(G_1,\ell)\times_{\mathcal C(P,\ell)}
+                           \mathcal C(G_2,\ell).
+\]
+When \(P\) is a single edge, its normalized space is a point and this is an ordinary product. For a flexible multi-edge path the fiber product cannot in general be replaced by a product.
+
+In particular, suppose two quadrilateral cycles share one edge of length \(c>0\), and the complementary three-edge arm of cycle \(j\) has lengths \((a_j,b_j,d_j)\), all positive. If, for \(j=1,2\),
+\[
+ |a_j-b_j|<|c-d_j|<a_j+b_j<c+d_j,
+\]
+then the aid reports that each normalized quadrilateral space is a circle, and therefore
+\[
+ \mathcal C(G,\ell)\cong S^1\times S^1=T^2.
+\]
+With integral homology, its Betti numbers are \(b_0=1\), \(b_1=2\), \(b_2=1\), and zero in higher degrees. The strict inequalities specify an open length family; this is a special calculation rather than a theorem for the four-edge shared path in the figure.
+
+For comparison, let \(G\) be a maximal \(2\)-tree with \(n\geq2\) labelled vertices, built from an edge by successively adding a vertex adjacent to both endpoints of an existing edge. If every construction triangle satisfies strict triangle inequalities, each step has two distinct planar choices. In the same crossing-allowed, reflection-distinguishing normalization, the aid gives exactly
+\[
+ |\mathcal C(G,\ell)|=2^{n-2},\qquad
+ H_0(\mathcal C(G,\ell);\Z)\cong\Z^{2^{n-2}},\quad
+ H_q(\mathcal C(G,\ell);\Z)=0\ (q>0).
+\]
+This finite rigid case and the torus family do not supply the requested general chamber decomposition or a general Morse-theoretic homology formula for all partial \(2\)-trees.
+\subsection{Short English statement}
+The aid models planar crossing-allowed linkages as fiber products over their shared chain. A rigid shared edge makes this a product, giving an explicit torus family with Betti numbers \((1,2,1)\). Strictly realizable maximal \(2\)-trees instead have finitely many normalized realizations; the general chamber and homology problem remains.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001854\), source code \texttt{catalogue entry}; canonical collection \texttt{aim-geometry-notes.json}, notes[191].
+\item AIM workshop ``Configuration spaces of linkages,'' problem \(5\), attributed in the source to Sitharam: \url{https://aimath.org/pastworkshops/linkagesproblems.pdf}. The source says ``Apply Morse Theory \`a la Farber'' for chambers and homologies. The aid describes the source figure's four-edge shared chain; the figure is not included in this record and was not opened in this drafting session.
+\item Supplied research attempt \(1\), result \texttt{partial\_result}, run status \texttt{partially\_solved}, rigor label ``proved,'' novelty confidence ``low.'' Registry classification \texttt{PARTIAL-PROGRESS}, updated 14 August 2026. Original remarks and literature fields are empty; no complete authoritative references, proposer-field value or proposed year are supplied despite the Sitharam attribution.
+\end{itemize}
+\end{document}

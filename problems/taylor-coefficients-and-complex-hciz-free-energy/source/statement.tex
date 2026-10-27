@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002680}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Question 20 asks whether convergent Taylor derivatives of an Itzykson--Zuber integral match a previously defined $\psi$, and whether the Guionnet--Zeitouni result extends to complex parameters. The prior integral and $\psi$ definitions are not included. The extraction also uses $n$ both for matrix size and derivative order and omits a normalization. The aid separates matrix dimension $N$ from a fixed derivative order $q$; it does not claim that fixed-order results apply to $q=N$.
+
+For an explicit unitary plus-exponent convention, let $A_N,B_N$ be Hermitian, uniformly bounded in operator norm, with convergent normalized trace moments, and set
+\[
+I_N(z)=\int_{U(N)}e^{Nz\operatorname{Tr}(A_NUB_NU^*)}\,\dd U,
+\qquad F_N(z)=N^{-2}\log I_N(z),\qquad F_N(0)=0.
+\]
+Haar measure is normalized, and the logarithm is initially local at zero. The aid's normalization correction is substantive: an unnormalized derivative of $\log I_N$ generally scales like $N^2$, while $F_N^{(q)}(0)$ is the fixed-order quantity to compare. Non-Hermitian matrix parameters or a derivative order growing with $N$ require separate results.
+
+The supplied analytic-continuation criterion assumes a radius $R>0$ such that $I_N$ has no zeros on $|z|<R$ for every $N$, and assumes the stated real-axis free-energy convergence on an interval through zero. Then the branches $F_N(0)=0$ converge compact-uniformly on that disc to a holomorphic $F$, and
+\[
+\lim_{N\to\infty}F_N^{(q)}(0)=F^{(q)}(0)\qquad\text{for each fixed }q.
+\]
+Uniform matrix bounds give $\operatorname{Re}F_N(z)\leq |z|\sup_N\|A_N\|\sup_N\|B_N\|$; together with zero-free branches this supplies the local normal-family control used in the criterion. The common zero-free disc is a hypothesis, not a conclusion of real convergence alone.
+
+Writing $a_{k,N}=N^{-1}\operatorname{Tr}(A_N^k)$ and $b_{k,N}=N^{-1}\operatorname{Tr}(B_N^k)$, the aid gives the exact coefficients
+\[
+F_N'(0)=a_{1,N}b_{1,N},\qquad
+F_N''(0)=\frac{N^2}{N^2-1}
+(a_{2,N}-a_{1,N}^2)(b_{2,N}-b_{1,N}^2)\quad(N\geq2).
+\]
+Under the criterion, the limiting fixed Collins coefficients are derivatives of $F$. If the missing $\psi$ convention uses the same integral with negative exponent, then $F_N^-(z)=F_N(-z)$ and its order-$q$ coefficient differs by $(-1)^q$. The exact match to the source's $\psi$ cannot be certified without that omitted definition and any other additive/sign normalizations.
+
+Complex zeros obstruct a global logarithm even at finite size. In this convention, for $N=2$ and $A_2=B_2=\operatorname{diag}(1,-1)$,
+\[
+I_2(z)=\frac{\sinh(4z)}{4z},
+\]
+with the removable value $1$ at zero and zeros $z=i\pi k/4$ for nonzero integers $k$. This rules out an unrestricted global holomorphic logarithm, not every local or selected-domain complex extension. The criterion does not establish all complex-parameter versions of the original question.
+\subsection{Short English statement}
+The source's derivative and normalization conventions are incomplete. The aid fixes dimension and derivative order separately, computes the first two normalized HCIZ coefficients, and shows that a common zero-free complex disc upgrades real convergence to holomorphic convergence. A finite-size example explains why a global complex logarithm cannot be assumed.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002680$, \texttt{catalogue entry}; \texttt{aim-probability-notes.json}, \texttt{notes[121]}.
+\item American Institute of Mathematics, 2006 \emph{Free analysis} problem list, Question 20, immediately following an Itzykson--Zuber definition and a Guionnet--Zeitouni summary not reproduced in this record: \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}.
+\item Supplied attributions: Guionnet--Zeitouni for real free-energy convergence and Collins for fixed-order coefficient convergence. No full titles, theorem numbers, dates or authoritative bibliographic citations are supplied.
+\item Research attempt 1: partial result, problem partially solved at run, rigor label ``proved,'' novelty confidence low. Registry classification partial progress, status partially solved, statement status exact.
+\end{itemize}
+\end{document}

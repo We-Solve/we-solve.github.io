@@ -1,0 +1,50 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3000071}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G=(V,A)$ be a finite directed graph whose arcs are partitioned into red arcs $A_R$ and blue arcs $A_B$, and let $r,b\in\Z$ be the two budgets. Under one usual directed-cut convention, for $S\subseteq V$ set
+\[
+\delta^+(S)=\{(u,v)\in A:u\in S,\ v\notin S\}.
+\]
+The nontrivial directed-cut version of the decision question is whether
+\[
+\exists S\quad \varnothing\subsetneq S\subsetneq V,\qquad
+|\delta^+(S)\cap A_R|\le r,\qquad
+|\delta^+(S)\cap A_B|\le b.
+\]
+Both budgets must hold for the same cut. The source asks whether one algorithm decides this for all inputs in polynomial time, rather than separately optimizing the two colors. A natural bit-complexity target is polynomial in the graph encoding and the binary lengths of $r,b$; negative budgets are automatically infeasible since arc counts are nonnegative.
+
+The source does not define cut. It may mean the outgoing cut above, all arcs crossing a bipartition, a directed cut with no entering arcs, or another convention. It also does not explicitly exclude $S=\varnothing,V$; allowing these makes every nonnegative-budget instance satisfy the literal existence assertion. No terminals are supplied, so an $s$--$t$ constraint is not added. The displayed nontrivial outgoing-cut formulation is explicit and conditional, not an unmarked choice among these variants. Parallel arcs, if allowed, contribute their multiplicities as distinct arcs; no weights are stated.
+
+The supplied summary calls the item partial progress but says the general budgeted problem merely ``appears NP-hard (or at least untreated)'' and that the exact red--blue variant's complexity was not verified. This is not a verified hardness theorem or a polynomial algorithm, and no special tractable class is actually specified. The archived Egres open label is also explicitly not a current resolution authority.
+\subsection{Short English statement}
+Can one decide in polynomial time whether a directed cut meets separate upper bounds on its red and blue arcs? The same cut must meet both budgets. The source leaves the cut convention and nontriviality unspecified, and its tentative hardness discussion does not establish the complexity of the exact problem.
+\subsection{Sources}
+\begin{itemize}
+\item Local source registry: \url{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID $3000071$, source code catalogue entry, including the supplied PARTIAL-PROGRESS summary. Dataset attribution: Ulam AI and UnsolvedMath Contributors; original-source attribution and rights are retained.
+\item Egres Open, ``Red-blue cut problem'', listed at \url{https://oldlemon.cs.elte.hu/egres/open/List_of_open_problems}. The supplied metadata reports HTML access on July 29, 2026, warns that the archived index is not a current resolution authority, and says no redistribution license was displayed in the archived footer.
+\item The record supplies no named proposer, separate problem-page URL, authoritative complexity citation, reduction, or specified tractable special case. Its tentative hardness claim was not independently checked here.
+\end{itemize}
+\end{document}

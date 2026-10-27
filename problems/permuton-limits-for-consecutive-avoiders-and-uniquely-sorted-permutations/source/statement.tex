@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005763}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each integer \(n\geq 1\), let \(S_n\) be the set of permutations of \(\{1,\ldots,n\}\). A sequence of distinct numbers has pattern \(\tau\in S_k\) if its entries have the same relative order as those of \(\tau\). A permutation \(\pi\in S_n\) contains \(\tau\) classically if some subsequence \(\pi(i_1),\ldots,\pi(i_k)\), with \(i_1<\cdots<i_k\), has pattern \(\tau\). It contains \(\tau\) consecutively if such an occurrence can be chosen with \(i_j=i_1+j-1\) for every \(j\). Avoidance means the absence of the relevant occurrence; in particular, a pattern of length greater than \(n\) is automatically avoided. Write \(\operatorname{Av}_n(\tau)\) and \(\operatorname{Av}^{\mathrm{con}}_n(\tau)\) for the respective avoidance sets. For a fixed set \(B\) of nonempty patterns, put
+\[
+\operatorname{Av}^{\mathrm{con}}_n(B)=\bigcap_{\tau\in B}\operatorname{Av}^{\mathrm{con}}_n(\tau).
+\]
+The supplied consecutive-avoidance question does not specify \(B\), its cardinality, or any restrictions on its members.
+
+Define the West stack-sorting map on words with distinct entries recursively by
+\[
+s(\varnothing)=\varnothing,\qquad s(LmR)=s(L)s(R)m,
+\]
+where \(m\) is the largest entry of the word and juxtaposition denotes concatenation. Its restriction maps \(S_n\) to \(S_n\). Define
+\[
+U_n=\{\pi\in S_n:|\{\sigma\in S_n:s(\sigma)=\pi\}|=1\},
+\qquad
+T_n=s(S_n).
+\]
+Thus \(U_n\) consists of uniquely sorted permutations, and \(T_n\) consists of sorted permutations. For a fixed pattern \(\tau\in S_k\), where \(k\geq1\), possible pattern-restricted families are
+\[
+U_n\cap\operatorname{Av}_n(\tau),\quad
+T_n\cap\operatorname{Av}_n(\tau),
+\]
+and their consecutive-avoidance counterparts. The source does not explicitly specify the avoidance convention for these sorted families.
+
+A permuton is a Borel probability measure on \([0,1]^2\) whose two coordinate marginals are Lebesgue measure on \([0,1]\). Associate to \(\pi\in S_n\) the permuton \(\mu_\pi\) with density \(n\) on the union of the squares
+\[
+\left(\frac{i-1}{n},\frac{i}{n}\right]\times
+\left(\frac{\pi(i)-1}{n},\frac{\pi(i)}{n}\right],
+\qquad 1\leq i\leq n,
+\]
+and density zero elsewhere; choices on square boundaries do not affect the measure. Permuton convergence means weak convergence of measures.
+
+\textbf{Problem, with the limiting interpretation unresolved.} Determine the permuton limits associated with consecutive-pattern avoiders, uniquely sorted permutations, and uniquely sorted permutations avoiding a fixed pattern. The supplied original excerpt additionally asks for the analogous investigation for sorted permutations, including pattern-restricted sorted permutations.
+
+One precise deterministic interpretation, for any specified sequence of families \(\mathcal C=(\mathcal C_n)_{n\geq1}\), is to characterize
+\[
+\mathcal L(\mathcal C)=\left\{\mu:\begin{array}{l}
+\text{there are strictly increasing }n_j\to\infty\text{ and }\pi_j\in\mathcal C_{n_j}\\
+\text{such that }\mu_{\pi_j}\Rightarrow\mu
+\end{array}\right\}.
+\]
+Here the relevant families are the avoidance and sorting families above, once the forbidden patterns and avoidance convention have been fixed. If the family is nonempty at only finitely many sizes, this set is empty.
+
+A distinct probabilistic interpretation is to choose \(\Pi_n\) uniformly from each nonempty \(\mathcal C_n\) and determine the limiting law, or all subsequential limiting laws, of \(\mu_{\Pi_n}\) as \(n\to\infty\) through those sizes. A deterministic limiting permuton would mean that these laws converge to a point mass. Uniform sampling, convergence to a deterministic measure, and the choice between this probabilistic question and the deterministic limit-set question are not specified by the supplied record. These are explicit alternative formulations requiring review, not additional assumptions attributed to the source.
+\subsection{Short English statement}
+Describe the limiting permutation diagrams of consecutive-pattern avoiders and uniquely sorted permutations, including pattern-restricted versions. The original excerpt also proposes the same investigation for sorted permutations. The record leaves the forbidden consecutive patterns, the avoidance convention for sorted families, and the distinction between possible limits and limits of random permutations unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005763\), title \emph{Permuton Limits for Consecutive Avoiders and Uniquely Sorted Permutations}, exact source problem code \texttt{catalogue entry}. The supplied proposed year is \(2024\).
+\item \emph{Mini-Workshop: Permutation Patterns} (2024), Oberwolfach Reports, pp. 273--308, DOI \(10.4171/owr/2024/6\): \url{https://doi.org/10.4171/owr/2024/6}. This is the supplied source citation and the literature-source link labelled ``original OWR report.'' The extracted original text places the uniquely sorted and sorted permutation questions under ``8. Colin Defant''; the separate proposer field is empty.
+\item Supplied literature source labelled ``2025 primary-work summary'': \url{https://sites.cs.st-andrews.ac.uk/pp25/program/booklet-pp25.pdf}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the record ``partially solved'' and says that current work proves rationality for finitely based classes below \(1\) plus the golden ratio, while the conjectured threshold \(4\) remains open. This is supplied dated curation, not an independently verified assessment. The record does not identify how this enumeration assessment concerns the permuton questions, or specify the quantity to which these thresholds apply.
+\item The extracted original text also contains ``What happens in other contexts, like graphons?'' and a neighbouring assertion that every finitely based subclass of \(\operatorname{Av}(123)\) is rational, attributed there to ``Albert, Brignall, Rusku’vc, Vatter.'' The spelling is retained as supplied. Here \(\operatorname{Av}(123)\) denotes classical avoidance; the fragment concerns classes specified by finitely many forbidden patterns and rationality of their ordinary counting generating functions. Its relationship to the permuton questions is unspecified, and no separate bibliographic citation accompanies the attribution.
+\item The supplied statement-verification field reports that the official report was checked directly and labels the statement \texttt{corrected\_verified}. That is a provenance claim in the supplied record. No source was independently visited or verified in preparing this draft.
+\end{itemize}
+\end{document}

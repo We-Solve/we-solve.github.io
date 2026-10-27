@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005729}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(P\subseteq\R^N\) be a nonempty lattice polytope, meaning the convex hull of finitely many points of \(\Z^N\), and put \(d_P=\dim P\). Let \(w\in\R[x_1,\ldots,x_N]\) be homogeneous of degree \(m\geq0\). For every integer \(n\geq0\), define
+\[
+\operatorname{ehr}(nP,w)=\sum_{x\in nP\cap\Z^N}w(x).
+\]
+Using the degree-based normalization, define the weighted numerator by
+\[
+\sum_{n\geq0}\operatorname{ehr}(nP,w)t^n
+=\frac{h^*_{P,w}(t)}{(1-t)^{d_P+m+1}},
+\qquad
+h^*_{P,w}(t)=\sum_{i\geq0}h^*_{P,w,i}t^i.
+\]
+The supplied excerpt asserts weighted polynomiality of degree at most \(d_P+m\), but ends before displaying its generating-function formula. Consequently, this explicit normalization requires confirmation against the complete report. Coefficients beyond the degree of a numerator are understood to be zero.
+
+The source describes \(R_P\) as sums of products of linear forms whose individual factors are nonnegative on \(P\). It describes \(S_P\) as ``nonnegative sums of products of linear forms,'' without specifying precisely where nonnegativity is required or whether it applies to coefficients, products, or their sum. We therefore retain \(S_P\) as an incompletely specified source notation. The source asserts \(R_P\subseteq S_P\), with strict inclusion in general, and supplies the example
+\[
+P=\operatorname{conv}(0,e_1,e_2)\subseteq\R^2,
+\qquad w(x_1,x_2)=(x_1-x_2)^2\in S_P\setminus R_P,
+\]
+where \(e_1,e_2\) are the standard basis vectors.
+
+\textbf{Characterization problem.} Characterize classes of homogeneous polynomial weights extending beyond \(R_P\), particularly within the intended class \(S_P\), that have both of the following properties:
+\[
+ h^*_{P,w,i}\geq0\qquad\text{for every integer }i\geq0,
+\]
+and coefficientwise monotonicity, namely, for each eligible inclusion of lattice polytopes \(P\subseteq Q\) in a common ambient lattice, using the same weight \(w\),
+\[
+ h^*_{P,w,i}\leq h^*_{Q,w,i}
+ \qquad\text{for every integer }i\geq0.
+\]
+Here ``eligible'' remains unresolved: the record does not state the required membership condition for \(w\) relative to \(P\) and \(Q\), or whether inclusions of different dimensions are intended. Thus these inequalities specify the desired properties for any fixed admissible data, but a fully quantified characterization requires the missing definitions and inclusion hypotheses. No complete definition of \(S_P\) or admissibility condition is inferred from the example alone.
+
+The restriction to homogeneous weights is material: the excerpt reports examples of nonhomogeneous weights that are nonnegative at every point of the polytope but have weighted numerators with negative coefficients.
+\subsection{Short English statement}
+Determine which homogeneous polynomial weights, especially weights in the source's class \(S_P\) beyond \(R_P\), produce weighted \(h^*\)-polynomials with nonnegative coefficients and coefficients that increase under suitable polytope inclusions. The exact definition of \(S_P\), the numerator normalization, and the hypotheses governing inclusions require confirmation. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local registry record: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30005729\), exact source problem code \texttt{catalogue entry}, title ``Positive Weighted \(h^*\)-Polynomials beyond Product Weights.'' The registry labels the problem open and its statement \texttt{corrected\_verified}; these are supplied curation labels, not independent verification by this draft.
+\item Supplied report citation: \emph{Mini-Workshop: Positivity and Inequalities in Convex and Complex Geometry} (2024), Oberwolfach Reports, pp.~2903--2940, DOI \texttt{10.4171/owr/2023/51}: \url{https://doi.org/10.4171/owr/2023/51}. The extracted passage contains the page marker 2931. The record gives proposed year 2023 and literature-source label ``Oberwolfach Report 51/2023''; these year designations are retained without reconciliation.
+\item Supplied literature source: \emph{Weighted Ehrhart theory}, Advances in Mathematics (2024): \url{https://doi.org/10.1016/j.aim.2024.109627}.
+\item Supplied literature assessment dated exactly \texttt{2026-08-22}: the 2024 paper proves nonnegativity and monotonicity for the stated classes of weights, while the extracted record omits a complete characterization; the broader question is therefore assessed as unresolved. This is supplied dated curation, not an independently verified literature assessment. The supplied background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The excerpt attributes the reported weighted extensions to joint collaboration with Esme Bajo, Robert Davis, Jes\'us A. De Loera, Alexey Garber, Sof\'ia Garz\'on Mora, and Josephine Yu, citing its reference [1]. The speaker is not identified in the supplied record. It attributes weighted polynomiality to Khovanski\u\i{} and Puklikov [3], ordinary Ehrhart polynomiality to Ehrhart [2], and the underlying nonnegativity and monotonicity results to Stanley [4, 5]. Complete bibliographic entries for these numbered references are not supplied.
+\end{itemize}
+\end{document}

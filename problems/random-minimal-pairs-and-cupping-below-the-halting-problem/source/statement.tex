@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001982}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Identify sets of natural numbers with their characteristic sequences in Cantor space \(2^{\N}\). For sets \(X,Y\subseteq\N\), write \(X\leq_T Y\) if membership in \(X\) is computable with oracle \(Y\), write \(X\equiv_T Y\) if both reductions hold, and write \(X<_T Y\) if \(X\leq_T Y\) but \(Y\not\leq_T X\). A set is computable if its characteristic function is computable. Let \(\varnothing'\) denote the halting problem, and define the Turing join by
+\[
+X\oplus Y=\{2n:n\in X\}\cup\{2n+1:n\in Y\}.
+\]
+Fix an optimal prefix-free machine, and let \(K(\sigma)\) be the resulting prefix-free Kolmogorov complexity of a finite binary string \(\sigma\). Write \(K(n)\) for the complexity of a fixed standard effective encoding of \(n\). A set \(X\subseteq\N\) is \(K\)-trivial if
+\[
+\exists c\in\N\;\forall n\in\N\qquad K(X\upharpoonright n)\leq K(n)+c,
+\]
+where \(X\upharpoonright n\) is its length-\(n\) characteristic string.
+
+A Martin--L\"of test is a uniformly computably enumerable sequence \((U_n)_{n\in\N}\) of open subsets of Cantor space satisfying \(\mu(U_n)\leq 2^{-n}\), where \(\mu\) is the fair-coin product measure. A set \(R\) is Martin--L\"of random if \(R\notin\bigcap_n U_n\) for every such test. Randomness here is unrelativized.
+
+The supplied question is whether, for every noncomputable set \(A\subseteq\N\) with \(A<_T\varnothing'\) that is not \(K\)-trivial, there exists a set \(R\subseteq\N\) such that
+\[
+\begin{gathered}
+R\text{ is Martin--L\"of random},\qquad R<_T\varnothing',\\
+A\oplus R\equiv_T\varnothing',\\
+\forall B\subseteq\N\quad
+\bigl[(B\leq_T A\ \land\ B\leq_T R)
+\Longrightarrow B\text{ is }K\text{-trivial}\bigr].
+\end{gathered}
+\]
+Here the source notation \(B\leq_T A,R\) is interpreted in its standard simultaneous sense: \(B\leq_T A\) and \(B\leq_T R\). The common lower bounds are required to be \(K\)-trivial; they are not required to be computable. The supplied record labels this question open, subject to its dated and independently unverified literature assessment.
+\subsection{Short English statement}
+Does every noncomputable, non-\(K\)-trivial set strictly below the halting problem have a Martin--L\"of random partner also strictly below the halting problem, such that together they compute the halting problem and every set computable from each partner separately is \(K\)-trivial?
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30001982\), exact source code \texttt{catalogue entry}, title: ``Random Minimal Pairs and Cupping Below the Halting Problem.'' The record belongs to the Oberwolfach Reports Open Problems collection and gives the proposed year as 2012; no named proposer is supplied.
+\item \emph{Computability Theory} (2012), Oberwolfach Reports, pp.\ 397--455, DOI 10.4171/owr/2012/08. Supplied source report and literature-source label ``original Oberwolfach report'': \url{https://doi.org/10.4171/owr/2012/08}. The supplied background describes Oberwolfach Reports as documenting workshops and their open-problem discussions. The registry labels the statement \texttt{corrected\_verified} and reports that its mathematical content was checked against the official report, with notation, context, and question form normalized without changing the source-level claim. These are supplied verification claims, not checks performed for this draft.
+\item Supplied literature-source label ``cupping with random sets'': \url{https://people.math.wisc.edu/~jsmiller8/Papers/MLcuppable.pdf}. No authors or further bibliographic details are supplied in the record.
+\item Literature assessment checked at \texttt{2026-08-21}: the supplied curation labels the problem open, states that the report explicitly calls this strengthened Martin--L\"of random minimal-pair and cupping formulation unknown, and states that the later literature located did not resolve this exact statement. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The source expressly calls for independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

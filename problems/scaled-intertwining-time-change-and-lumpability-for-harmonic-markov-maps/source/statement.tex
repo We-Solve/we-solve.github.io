@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001002}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+James Propp asks what is known about harmonic maps between Markov chains in the senses of Baker--Norine [8], Cory [15] and related work. Matt Baker points to Urakawa [33] for a random-walk connection and also mentions metric-graph harmonic maps. The source supplies no single Markov convention or metric-graph model. The aid treats finite transition kernels.
+
+Let $P,Q$ be row-stochastic kernels on finite sets $X,Y$, and $\phi:X\to Y$. For $y=\phi(x)$ define the pushed transition row
+\[
+ p_x(z)=\sum_{\phi(x')=z}P(x,x').
+\]
+Say pullback preserves local harmonicity at $x$ if every $f:Y\to\R$ with $Qf(y)=f(y)$ satisfies $P(f\circ\phi)(x)=f(y)$. The aid's scaled identity is
+\[
+ p_x=(1-a(x))\delta_y+a(x)Q(y,\cdot).
+\]
+For a nonabsorbing target row this is equivalent to local harmonicity and determines $a(x)$ uniquely. Nonnegativity gives $0\leq a(x)\leq1/(1-Q(y,y))$. If $Q(y,y)=0$, this reduces to $0\leq a(x)\leq1$. An absorbing target row instead requires $p_x=\delta_y$ and does not determine the scale.
+
+For an irreducible zero-holding target with at least two states, the aid's time-change conclusion requires almost-sure exit from each visited fiber, for example $a(x)>0$ at every source state, or suitable finite irreducible source hypotheses. Then the successive distinct image states of a $P$-chain form exactly a $Q$-chain. Target irreducibility alone cannot exclude a permanently trapped source fiber, so this exit qualification is explicit.
+
+The raw image chain has a single transition kernel valid for every initial law exactly when the scales are constant on each fiber, $a(x)=a_y$. This is strong lumpability, and the induced kernel is
+\[
+ R(y,z)=(1-a_y)\mathbf1_{\{z=y\}}+a_yQ(y,z).
+\]
+It equals $Q$ exactly when all scales are one. Statements for all initial laws do not exclude special weak-lumpability behavior for a particular initial distribution.
+
+For finite connected loopless graphs, with random walk selecting an incident edge uniformly and with parallel edges counted, a Baker--Norine harmonic graph morphism has horizontal multiplicity $m_\phi(x)$ equal for every individual target edge incident at $y$. If $v_\phi(x)$ counts incident edges collapsed to $y$, then
+\[
+ \deg_G(x)=m_\phi(x)\deg_H(y)+v_\phi(x),\qquad
+ a(x)=\frac{m_\phi(x)\deg_H(y)}{\deg_G(x)}
+     =1-\frac{v_\phi(x)}{\deg_G(x)}.
+\]
+Thus no vertical loss gives the target walk directly, fiberwise constant loss gives a holding/time-changed Markov image, and nonconstant scales need the jump-time interpretation rather than a universal raw-image kernel. For a nonconstant surjective morphism with fiberwise positive $a_y$, the pushed-forward degree measure is reported proportional to
+\[
+ \frac{\deg_H(y)}{a_y}.
+\]
+The source graph's connected finite walk supplies the relevant fiber exits.
+
+Finally vertex-chain data do not determine edgewise harmonicity for a multigraph target. The aid reports a two-vertex parallel-edge obstruction: assigning all source edges to one of two parallel target edges can preserve the deterministic vertex transitions while failing equal multiplicity on the two target edges. The kernel identity sees aggregate movement to a vertex, not its division among parallel edges. These finite results do not specify or classify harmonic maps for metric graphs or all Markov-process settings.
+\subsection{Short English statement}
+The aid identifies local harmonic pullback with a scaled transition identity. Its image process follows the target at jump times; it is Markov at ordinary times for every initial law only when the scale is constant within fibers. Graph vertical edges supply the holding factor, while parallel target edges show that vertex transitions lose some edgewise harmonic information.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001002$, source code \texttt{catalogue entry}, supplied complete source record and research summary.
+\item AIM workshop \emph{Generalizations of chip-firing and the critical group}, Problem (37), James Propp, with comment (a) by Matt Baker; supplied URL \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. Canonical local record \texttt{aim-combinatorics-notes.json}, \texttt{notes[126]}. No PDF was retrieved.
+\item Original references retained: Baker and Norine [8], Cory [15], Urakawa [33]. No full bibliographic entries are supplied, and the original literature field is empty.
+\item Research attempt 1: partial result; problem partially solved at the recorded run; supplied rigor label ``proved'', novelty confidence ``low''. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

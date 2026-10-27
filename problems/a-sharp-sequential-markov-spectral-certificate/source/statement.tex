@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001416}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The original problem asks what can be said about spectral properties and Lyapunov spectra in sequential or nonstationary settings. It specifies no operator class, ambient space, base dynamics, probability law or definition of spectrum. The aid treats fixed-origin singular-value exponents of finite stochastic-matrix products.
+
+Let \(d\geq2\), let \(P_k\) be \(d\times d\) row-stochastic matrices, and set
+\[
+ B_n=P_{n-1}\cdots P_0,\qquad
+ s_1(B_n)\geq\cdots\geq s_d(B_n)\geq0,
+\]
+where singular values use the Euclidean norm. The fixed-origin lower and upper singular exponents are \(\liminf_{n\to\infty}n^{-1}\log s_j(B_n)\) and \(\limsup_{n\to\infty}n^{-1}\log s_j(B_n)\), with \(\log0=-\infty\).
+
+For a row-stochastic matrix define its Dobrushin coefficient by
+\[
+ \delta(P)=\frac12\max_{i,j}\sum_{\ell=1}^d|P_{i\ell}-P_{j\ell}|.
+\]
+The aid reports dimension-dependent finite-time transverse bounds of the form
+\[
+ s_j(B_n)\leq C_d\prod_{k=0}^{n-1}\delta(P_k)\quad(2\leq j\leq d),
+\]
+and hence the corresponding fixed-origin upper exponent bound
+\[
+ \limsup_{n\to\infty}\frac1n\log s_j(B_n)
+ \leq\limsup_{n\to\infty}\frac1n\sum_{k=0}^{n-1}\log\delta(P_k).
+\]
+No numerical value of the claimed explicit dimension constant is supplied in the excerpt.
+
+The sharper reported result concerns moving resets. Choose arbitrary probability row vectors \(\pi_k\) and retention factors \(0<\rho_k\leq1\), and let \(\mathbf1\) be the all-ones column vector. Put
+\[
+ P_k=\rho_k I+(1-\rho_k)\mathbf1\pi_k,
+ \qquad r_n=\prod_{k=0}^{n-1}\rho_k.
+\]
+The aid asserts that constants \(0<c_d\leq C_d<\infty\), independent of both schedules and of \(n\), satisfy
+\[
+ c_dr_n\leq s_j(B_n)\leq C_dr_n
+ \quad(n\geq1,\ 2\leq j\leq d).
+\]
+Consequently every transverse lower exponent equals
+\(\liminf_n n^{-1}\sum_{k<n}\log\rho_k\), and every transverse upper exponent equals the corresponding limsup. If the Cesaro limit
+\[
+ L=\lim_{n\to\infty}\frac1n\sum_{k<n}\log\rho_k\in[-\infty,0]
+\]
+exists, the complete fixed-origin singular-value exponent list is
+\[
+ 0,\underbrace{L,\ldots,L}_{d-1\text{ entries}}.
+\]
+The top exponent is zero, since a row-stochastic product has \(1\leq s_1(B_n)\leq\sqrt d\). Allowing a zero retention factor makes every subsequent product have rank one, so all transverse exponents are \(-\infty\); this endpoint must be read with the extended logarithm convention.
+
+The reset rows may vary arbitrarily and need not share a stationary probability row vector; the matrices need not commute. These are finite-dimensional fixed-origin assertions. They do not by themselves furnish an Oseledets splitting, a uniform-in-starting-time spectrum, or a theorem for general nonstationary transfer operators.
+\subsection{Short English statement}
+The aid addresses the broad sequential-spectrum question through stochastic matrices. Dobrushin coefficients bound transverse singular exponents, and in the moving-reset family every transverse singular value is uniformly comparable to the product of the retention factors, regardless of the changing reset distributions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001416\), code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[73]}.
+\item AIM, ``Stochastic methods for non-equilibrium dynamical systems,'' Problem 31, \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. The verification field reports the exact official-list question; no PDF inspection is claimed here. No additional authoritative citation or proposer is supplied.
+\item Supplied research attempt 1: result ``partial\_result,'' status ``partially\_solved,'' rigor label ``proved,'' novelty confidence ``low.'' The machine-generated research aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004038}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source does not specify whether graphs are finite, simple, or undirected. The formulation below uses the usual convention of finite simple undirected graphs; this domain convention requires confirmation against the original source.
+
+Let \(K_r\) denote the complete graph on \(r\) vertices. A graph \(G\) contains \(K_r\) as a topological minor if a subgraph of \(G\) is a subdivision of \(K_r\): each edge of \(K_r\) is replaced by a path, with distinct replacement paths internally vertex-disjoint and with no internal vertex equal to a branch vertex. Otherwise, \(G\) is \(K_r\)-topological-minor-free.
+
+An odd \(K_r\)-minor model in \(G\) consists of pairwise vertex-disjoint trees \(T_1,\ldots,T_r\), a map
+\[
+ b:\bigcup_{i=1}^{r}V(T_i)\longrightarrow\{0,1\},
+\]
+and, for each \(1\leq i<j\leq r\), an edge \(x_{ij}y_{ij}\in E(G)\) with \(x_{ij}\in V(T_i)\) and \(y_{ij}\in V(T_j)\), such that \(b\) assigns different values to the endpoints of every tree edge and
+\[
+ b(x_{ij})=b(y_{ij}).
+\]
+A graph is odd-\(K_r\)-minor-free if it has no such model. This supplies the standard odd-minor convention, whose intended use should be checked against the report.
+
+For a positive integer \(t\), a vertex \(t\)-coloring is a map \(c:V(G)\to\{1,\ldots,t\}\); it need not be proper or use every color. Its monochromatic components are the connected components of the induced graphs \(G[c^{-1}(i)]\), for \(1\leq i\leq t\). Their size means their number of vertices.
+
+\textbf{Question.} Is it true that
+\[
+\begin{aligned}
+&\forall t\in\Z_{\geq1}\ \exists C_t\in\Z_{\geq1}\ \forall G,\\
+&\quad\bigl(G\text{ is }K_{t+1}\text{-topological-minor-free}
+\ \lor\ G\text{ is odd-}K_{t+1}\text{-minor-free}\bigr)\\
+&\qquad\Longrightarrow\ \exists c:V(G)\to\{1,\ldots,t\}\ 
+\forall i\in\{1,\ldots,t\}\ 
+\forall H\text{ a connected component of }G[c^{-1}(i)],\quad
+|V(H)|\leq C_t\,?
+\end{aligned}
+\]
+Here \(G\) ranges over the graph domain specified above. The bound \(C_t\) depends only on \(t\), independently of \(G\), its coloring, and its monochromatic components. The question asserts the bound for each of the two excluded-minor classes separately. Allowing separate bounds for the two classes is equivalent to this common-bound formulation, by taking their maximum.
+
+The supplied registry labels the problem open and its statement \texttt{corrected\_verified}; these are supplied curation labels, not independent verification of this draft or of the current mathematical status.
+\subsection{Short English statement}
+For each positive integer \(t\), ask whether every graph excluding a topological \(K_{t+1}\), and every graph excluding an odd \(K_{t+1}\) minor, can be colored with at most \(t\) colors so that every monochromatic connected component has at most \(C_t\) vertices, where \(C_t\) depends only on \(t\). The graph-domain convention and source terminology require review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local registry record: permanent UnsolvedMath ID \(30004038\), source problem code \texttt{catalogue entry}, title ``Clustered Coloring Without Topological or Odd Clique Minors,'' in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2019 and does not identify an individual proposer.
+\item Supplied report citation: \emph{Graph Theory (2020)}, Oberwolfach Reports, DOI 10.4171/owr/2019/1, pp. 5--63. \url{https://doi.org/10.4171/owr/2019/1}. The supplied literature list also labels this reference ``Oberwolfach Report 1/2019.'' The background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature reference: Liu and Wood, \emph{Clustered variants of Hajos conjecture}. \url{https://doi.org/10.1016/j.jctb.2021.09.002}.
+\item Supplied literature reference: \emph{Immersion and clustered coloring}. \url{https://www.sciencedirect.com/science/article/abs/pii/S0095895622000764}.
+\item Supplied literature assessment, checked \texttt{2026-08-22}: status ``open''; clustered-coloring analogues have substantial partial bounds and special cases, while the full conjectured \(t\)-color statement is reported as unproved. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The source explicitly calls for independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

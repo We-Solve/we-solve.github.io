@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002549}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\mathcal G_0\) denote the class of laws \(P\) of real-valued processes \((Y_k)_{k\in\Z}\) that are stationary, ergodic, mean-zero, and Gaussian. Here Gaussian means that every finite vector of coordinates has a multivariate Gaussian distribution, allowing degeneracy; stationarity means invariance of the law under the coordinate shift; and ergodicity means that every shift-invariant event has probability zero or one. Mean-zero means \(\E_P[Y_k]=0\) for every \(k\in\Z\). The real-valued interpretation is conventional but is not explicitly specified in the supplied record.
+
+For \(n\geq2\), a predictor is a Borel measurable function \(g_n:\R^{n-1}\to\R\), using only the observed finite past \((Y_1,\ldots,Y_{n-1})\). Write
+\[
+ m_{n,P}=\E_P\!\left[Y_n\mid\sigma(Y_1,\ldots,Y_{n-1})\right].
+\]
+Gaussian coordinates are integrable, so this conditional expectation exists. Its choice of version does not affect the almost-sure convergence question.
+
+The title and supplied literature assessment suggest the following universal prediction question: does there exist a single sequence \((g_n)_{n\geq2}\), independent of \(P\), such that
+\[
+ \forall P\in\mathcal G_0,\qquad
+ P\!\left(\lim_{n\to\infty}\left[m_{n,P}-g_n(Y_1,\ldots,Y_{n-1})\right]=0\right)=1?
+\]
+The probability-one event may depend on \(P\). The target is convergence of the prediction error relative to the conditional mean at each successive time, without time averaging, and the conditioning is on the finite observed past.
+
+\textbf{Unresolved quantifier qualification.} The original wording instead places the process before the existence of a prediction rule. Taken literally, it asks
+\[
+ \forall P\in\mathcal G_0\ \exists(g_{n,P})_{n\geq2},\qquad
+ P\!\left(\lim_{n\to\infty}\left[m_{n,P}-g_{n,P}(Y_1,\ldots,Y_{n-1})\right]=0\right)=1,
+\]
+which permits dependence on the process law. The displayed source statement also does not explicitly require law independence. These quantifier orders must not be identified; the universal formulation above is an intended-target interpretation supported by the supplied title and assessment, pending source review. The original wording also omits the mean-zero hypothesis present in the clean and displayed statements; the formulations above retain that hypothesis.
+\subsection{Short English statement}
+The apparent intended question asks whether one sequence of measurable predictors, using only the observations so far, can approximate the next conditional mean almost surely for every stationary ergodic mean-zero Gaussian process. The source leaves unresolved whether the same predictors must work for all process laws; its literal wording permits a separate rule for each law.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record for permanent ID \(30002549\), entitled \emph{Universal Almost-Sure Prediction for Stationary Gaussian Processes}, in the Oberwolfach Reports Open Problems collection. Exact source problem code: \texttt{catalogue entry}. The record gives proposed year 2014 and names no individual proposer.
+\item Supplied report citation: \emph{Adaptive Statistical Inference} (2014), Oberwolfach Reports, pp.\ 721--779, DOI \texttt{10.4171/owr/2014/13}. \url{https://doi.org/10.4171/owr/2014/13}. The supplied background describes Oberwolfach Reports as records of mathematical workshops and their open-problem discussions; no problem-specific page or quoted report passage is supplied.
+\item Supplied literature reference: Györfi--Sancetta (2014). \url{https://doi.org/10.1007/978-1-4939-0569-0_12}.
+\item Supplied literature reference: \emph{Stationary ergodic forecasting}. \url{https://arxiv.org/abs/0712.2592}.
+\item Supplied literature assessment, checked \texttt{2026-08-21}: the record labels the problem open and states that known predictors achieve almost-sure Cesàro consistency, with stronger results under additional assumptions, while universal strong pointwise consistency for all stationary ergodic Gaussian processes remains open. This is supplied dated curation derived from the OWR record, not an independently verified assessment; its status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and says that mathematical content was preserved while notation, typography, or omitted definitions were repaired. This supplied editorial label does not resolve the quantifier discrepancy or constitute mathematical review of this draft.
+\end{itemize}
+\end{document}

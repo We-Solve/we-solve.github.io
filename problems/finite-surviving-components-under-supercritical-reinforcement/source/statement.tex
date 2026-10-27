@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005456}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G=(V,E)\) denote the underlying graph of the reinforcement process referred to in the source, let \(p(v)\) denote the firing rate at \(v\), and let \(\alpha\) denote its reinforcement parameter. The stated rate assumption is
+\[
+\exists\,c,C\in\R\quad 0<c\le C<\infty\quad\text{and}\quad c\le p(v)\le C\quad\text{for every }v\in V.
+\]
+Write \(X_e(t)\) for the source's edge quantity at time \(t\ge0\), and write \(\mathbb P\) for the law of the intended process. The supplied record does not define that law, the dynamics or normalization of \(X_e(t)\), the initial conditions, or the admissible class of graphs. Consequently, the following is a conditional transcription of the intended conjecture, requiring those definitions from the source before it becomes a self-contained mathematical statement.
+
+\textbf{Conjecture 3, as supplied.} Under the rate assumption above, if \(\alpha>1\), then for every \(e\in E\),
+\[
+\mathbb P\!\left(\lim_{t\to\infty}X_e(t)\text{ exists}\right)=1,
+\]
+and almost surely the surviving edges form finite connected components. If \(\alpha>2\), almost surely each of these components is a tree, meaning a connected graph without a cycle. Here a finite component has finitely many vertices.
+
+The term ``surviving edge'' is not defined in the supplied record. The accompanying discussion describes edges supporting a limiting vector. If this is the intended definition, and if the edge limits are nonnegative and exist simultaneously, one would set
+\[
+L_e:=\lim_{t\to\infty}X_e(t),\qquad E_+:=\{e\in E:L_e>0\}.
+\]
+Under this interpretation, the component assertions concern \((V,E_+)\). This interpretation, the range of the limits, and the simultaneous existence event require verification against the full process definition; they are not additional established hypotheses or conclusions.
+
+\textbf{Supplied contextual qualifications.} The report states that the Lyapunov-function argument used in the finite setting does not apply directly to infinite graphs because its sum becomes infinite. It also reports that for graphs with bounded vertex degrees and sufficiently large \(\alpha\), comparison with the corrupted compass model yields almost-sure convergence of the vector denoted there by \(x(t)\), with finite connected components in the support of its limit; the excerpt cites this as reference [3]. The supplied record does not state the precise hypotheses or reinforcement threshold of that result, or identify \(x(t)\) with \((X_e(t))_{e\in E}\).
+
+The report further describes examples on regular trees with firing rates tending to zero sufficiently quickly with distance from the root, for which surviving edges almost surely form infinitely many infinite connected components; the excerpt cites reference [5]. These rates do not satisfy the conjecture's positive uniform lower bound. A supplementary question asks whether such a regular-tree example can be modified to the nearest-neighbor lattice \(\Z^d\) for some integer \(d\ge2\). The supplied record does not specify the exact process parameters or rate conditions to retain in this modification.
+\subsection{Short English statement}
+The supplied conjecture asks whether reinforcement with \(\alpha>1\) and uniformly positive, uniformly bounded firing rates gives almost-sure edgewise convergence and only finite surviving components, and whether those components are trees when \(\alpha>2\). The process, graph class, and meaning of survival are missing from the record, so this statement requires mathematical review and completion from the cited source. A related question concerns transferring a regular-tree example with vanishing firing rates to \(\Z^d\), \(d\ge2\).
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete source record for permanent ID \(30005456\), titled ``Finite Surviving Components under Supercritical Reinforcement,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is 2023.
+\item \emph{MATRIX-MFO Tandem Workshop: Stochastic Reinforcement Processes and Graphs} (2023), Oberwolfach Reports, pp.\ 639--679, DOI \texttt{10.4171/owr/2023/12}. The supplied excerpt identifies the main target as Conjecture 3. \url{https://doi.org/10.4171/owr/2023/12}
+\item Hirsch--Holmes--Kleptsyn, \emph{Infinite WARM graphs III}, supplied literature reference. \url{https://doi.org/10.1088/1361-6544/acc9a0}
+\item The supplied literature-source list also identifies the original Oberwolfach report: \url{https://doi.org/10.4171/owr/2023/12}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem ``partially solved'' and states that primary work establishes convergence and finite surviving components in important bounded-degree, sufficiently strong reinforcement regimes, while the full assertion for every \(\alpha>1\) with rates bounded above and below is not established. This is supplied dated curation, not an independently verified assessment. The record expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says it was checked against the official report. That is a supplied source-verification claim, not verification performed for this draft. The excerpt's references [3] and [5] are not accompanied by their bibliography entries in the supplied record.
+\end{itemize}
+\end{document}

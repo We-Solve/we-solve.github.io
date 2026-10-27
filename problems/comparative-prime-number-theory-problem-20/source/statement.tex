@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800151}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer \(n\), let \(\Omega(n)\) be the number of prime factors of \(n\), counted with multiplicity, with \(\Omega(1)=0\). Define the real Dirichlet character modulo \(4\) by
+\[
+\chi_{-4}(n)=\begin{cases}0,&2\mid n,\\1,&n\equiv1\pmod4,\\-1,&n\equiv3\pmod4.\end{cases}
+\]
+For \(\varepsilon\in\{1,-1\}\), put
+\[
+S_\varepsilon=\{n\in\N:n\ge1,\ (-1)^{\Omega(n)}\chi_{-4}(n)=\varepsilon\}.
+\]
+Thus even integers belong to neither set. For a set \(S\) of positive integers, its logarithmic density, when it exists, is
+\[
+\delta_{\log}(S)=\lim_{x\to\infty}\frac{1}{\log x}\sum_{\substack{1\le n\le x\\n\in S}}\frac1n.
+\]
+\textbf{Requested calculation, attributed to Greg Martin.} Assuming GRH and LI, establish the existence and calculate the values of
+\[
+\delta_{\log}(S_1)\qquad\text{and}\qquad\delta_{\log}(S_{-1}).
+\]
+Here GRH refers to the generalized Riemann hypothesis for the relevant Dirichlet \(L\)-functions. LI refers to a linear independence hypothesis on positive imaginary parts of nontrivial zeros over \(\Q\). The supplied record does not specify the family of \(L\)-functions, the treatment of repeated ordinates, or the exact version of LI; these conditional hypotheses therefore require clarification for a fully specified formulation.
+
+The historical motivation is attributed to Shanks (1959): for every integer \(k\ge1\), odd integers \(n\) satisfying \(\Omega(n)=k\) should be biased toward
+\[
+n\equiv(-1)^k\pmod4.
+\]
+The record identifies \(k=1\) with Chebyshev's original observation and describes the motivation as a bias of \((-1)^{\Omega(n)}\chi_{-4}(n)\) toward \(1\). It gives no precise definition of this fixed-\(k\) bias. The displayed density question concerns the pointwise values at integers \(n\); it does not specify a density of real parameters at which one counting function exceeds another.
+
+The source also suggests, conjecturally, a similar phenomenon for \((-1)^{\Omega(n)}\chi(n)\) for any quadratic Dirichlet character \(\chi\), particularly the nonprincipal character modulo \(3\),
+\[
+\chi_{-3}(n)=\begin{cases}0,&3\mid n,\\1,&n\equiv1\pmod3,\\-1,&n\equiv2\pmod3.\end{cases}
+\]
+No precise additional density calculation, definition of the suggested bias, or restriction concerning principal or imprimitive characters is supplied.
+
+\textbf{Additional passage attributed to Daniel R. Johnston.} For real \(t\ge0\), let \(\pi(t)\) count primes at most \(t\). For a positive integer \(q\) and an integer \(a\), let \(\pi(t;q,a)\) count primes \(p\le t\) with \(p\equiv a\pmod q\), and let \(\phi(q)\) be Euler's totient function. The supplied passage reports, citing \texttt{johnston2023average}, Theorem 1.1, the equivalence
+\[
+\mathrm{RH}\quad\Longleftrightarrow\quad
+\mathfrak A_1^\pi(x):=\int_0^x\bigl(\pi(t)-\operatorname{li}(t)\bigr)\,\dd t<0
+\quad\text{for every real }x>2.
+\]
+RH here denotes the Riemann hypothesis for the Riemann zeta function. The symbol \(\operatorname{li}\) denotes the logarithmic integral, but its normalization and the interpretation of the integral across its singularity are not specified in the record; these conventions must be fixed before treating the reported equivalence as an exact statement.
+
+The passage introduces
+\[
+\mathfrak A_1^\pi(x;q,a):=\int_0^x\bigl(\phi(q)\pi(t;q,a)-\operatorname{li}(t)\bigr)\,\dd t.
+\]
+It explains the reported RH inequality heuristically through the size of a zero contribution involving \(\sum_\rho 1/(\rho(\rho+1))\), and attributes to Martin, in private communication, the observation that the analogous contribution from Dirichlet \(L\)-function zeros grows faster than the bias as \(q\) increases. It consequently suggests that \(\mathfrak A_1^\pi(x;q,a)<0\) should fail for large \(q\). This is supplied motivation, not a quantified additional problem: the record does not specify the admissible residue classes, the quantifiers on \(q,a,x\), the applicable hypotheses, or the precise zero sum and comparison. No such specifications are inferred here.
+\subsection{Short English statement}
+Assuming the source's GRH and LI hypotheses, determine the logarithmic densities of positive integers for which \((-1)^{\Omega(n)}\chi_{-4}(n)\) equals \(1\) or \(-1\). The precise LI hypothesis needs clarification. The record also suggests an extension to quadratic characters and appends an incompletely quantified discussion of integrated prime-counting errors in arithmetic progressions.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(800151\), source code \texttt{catalogue entry}, title ``Comparative Prime Number Theory --- Problem 20,'' in the AMR Open Problem Lists collection. The record labels the problem \emph{open}; this is a supplied status, not an independently verified mathematical or literature assessment.
+\item Hamieh, Kadiri, Martin, and Ng, \emph{Comparative Prime Number Theory Problem List} (2024), Problem \(\#20\), \url{https://arxiv.org/abs/2407.03530}. The registry records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. These are supplied provenance details; the source has not been independently visited or verified for this draft.
+\item The density question is attributed in the extracted text to Greg Martin, University of British Columbia. The record's list-level proposer field names Hamieh, Kadiri, Martin, and Ng, with proposed year 2024.
+\item Shanks (1959), cited in the supplied text by the reference label \texttt{[Shanks]}, is credited with the fixed-\(k\) combinatorial observation. No full bibliographic entry for this reference is supplied.
+\item The appended passage is attributed to Daniel R. Johnston, University of New South Wales--Canberra at ADFA. Its claimed RH equivalence cites \texttt{[johnston2023average, Theorem 1.1]}; no full bibliographic entry is supplied. The observation about arithmetic progressions is attributed to Martin by private communication.
+\end{itemize}
+\end{document}

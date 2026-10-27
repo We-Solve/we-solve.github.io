@@ -1,0 +1,85 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005718}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(z\) be a formal indeterminate. Define \(T_n,Q_n,C_n\in\Z_{\geq0}[z]\), for integers \(n\geq4\), by
+\[
+\begin{pmatrix}T_4\\Q_4\\C_4\end{pmatrix}
+=\begin{pmatrix}z^4+2z^3\\z^4\\2z^4+2z^3\end{pmatrix},\qquad
+\begin{pmatrix}T_{n+1}\\Q_{n+1}\\C_{n+1}\end{pmatrix}
+=\begin{pmatrix}
+z&1+z&1+z\\
+0&1+z&z\\
+z+z^2&0&1+z
+\end{pmatrix}
+\begin{pmatrix}T_n\\Q_n\\C_n\end{pmatrix}.
+\]
+Set
+\[
+V_n(z)=T_n(z)+Q_n(z)+C_n(z),\qquad d_n=\deg V_n,\qquad
+v_{n,k}=[z^k]V_n(z)\quad(0\leq k\leq d_n).
+\]
+For a finite nonnegative sequence \((a_k)_{k=0}^{d}\), its support has no internal zeros if \(a_i,a_j>0\) and \(i<j\) imply \(a_k>0\) for every \(i<k<j\). The sequence is log-concave if
+\[
+a_k^2\geq a_{k-1}a_{k+1}\qquad(1\leq k\leq d-1).
+\]
+It is ultra-log-concave of order \(d\) if its support has no internal zeros and the sequence \(\bigl(a_k/\binom{d}{k}\bigr)_{k=0}^{d}\) is log-concave; explicitly,
+\[
+\left(\frac{a_k}{\binom{d}{k}}\right)^2
+\geq
+\frac{a_{k-1}}{\binom{d}{k-1}}
+\frac{a_{k+1}}{\binom{d}{k+1}}
+\qquad(1\leq k\leq d-1).
+\]
+A finite sequence is unimodal if there is an index \(m\) such that \(a_0\leq\cdots\leq a_m\geq\cdots\geq a_d\).
+
+\textbf{Conjecture attributed to Germain Poullot.} For every integer \(n\geq4\), the coefficient sequence \((v_{n,k})_{k=0}^{d_n}\) is log-concave, with the stronger ultra-log-concavity assertion requested by the cleaned registry statement. Under the explicit convention of ultra-log-concavity of order \(d_n\), that stronger assertion is that the support has no internal zeros and
+\[
+\left(\frac{v_{n,k}}{\binom{d_n}{k}}\right)^2
+\geq
+\frac{v_{n,k-1}}{\binom{d_n}{k-1}}
+\frac{v_{n,k+1}}{\binom{d_n}{k+1}}
+\quad\text{for every }1\leq k\leq d_n-1.
+\]
+\textbf{Unresolved normalization.} The supplied excerpt uses ``(ultra-)log-concave'' without defining the ultra-log-concavity order or specifying whether initial zero coefficients are removed and the sequence reindexed. The order-\(d_n\) formulation above is a precise candidate interpretation requiring confirmation, not a uniquely specified source convention. The excerpt writes the sequence index as \(n\), whereas the cleaned statement takes log-concavity in \(k\) for each fixed \(n\); the latter interpretation is used here explicitly.
+
+The source places this recursion in the study of coherent monotone paths of the hypersimplex
+\[
+\Delta(n,2)=\left\{x\in[0,1]^n:\sum_{i=1}^n x_i=2\right\}.
+\]
+It reports a counting interpretation for the coefficients and computational checks of the conjecture through \(n=300\). The supplied excerpt does not specify the path statistic indexed by \(k\), the monotonicity data, or which precise ultra-log-concavity convention was checked; these claims are retained as source context, not additional verified hypotheses or results.
+
+\textbf{Broader research request.} Develop criteria ensuring unimodality and ultra-log-concavity for coefficient sequences arising from polynomial-vector recursions with nonnegative polynomial matrix entries. The record does not specify a class of initial vectors, matrix dimensions, an ultra-log-concavity order, or whether the desired conclusion concerns individual components, their sum, or other combinations. This part therefore remains a request for a theory rather than a fully quantified conjecture.
+\subsection{Short English statement}
+For each integer \(n\geq4\), form the three recursively defined polynomials and add them. The conjecture asks for log-concavity, and more strongly ultra-log-concavity, of the resulting coefficients as \(k\) varies. The normalization for ultra-log-concavity needs confirmation. A broader request seeks criteria for similar polynomial-matrix recursions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied record with permanent ID \(30005718\), title ``Ultra-Log-Concavity from a Matrix Recursion,'' exact source problem code \texttt{catalogue entry}. The supplied original excerpt identifies ``Problem 6 (Germain Poullot),'' although the structured proposer field is empty.
+\item Supplied report citation: \emph{Geometric, Algebraic and Topological Combinatorics (2024)}, Oberwolfach Reports, pp.\ 3249--3318, DOI \texttt{10.4171/owr/2023/58}. Supplied source URL and literature-source link labelled ``original Oberwolfach report'': \url{https://doi.org/10.4171/owr/2023/58}. The registry separately gives proposed year 2023. These year labels are preserved without resolving their relationship.
+\item The registry labels the statement \texttt{corrected\_verified} and says that it was reconstructed and checked against the official Oberwolfach report. This is a supplied verification claim; no independent source inspection is asserted in this draft.
+\item Literature assessment dated \texttt{2026-08-22}: the supplied status is ``open.'' This is supplied dated curation, not independently verified. Its assessment discusses realizability of M-convex functions and Pluecker vectors of subspace arrangements, stating that the primary report leaves both questions open. Those are different questions from the matrix-recursion conjecture, so this assessment does not establish the latter's literature status. The supplied background itself calls for independent verification of time-sensitive status and cited claims.
+\item The supplied original excerpt reports computational checks through \(n=300\), gives a coherent-monotone-path interpretation, and ends mid-sentence. Its initial questions about realizable M-convex functions and subspace-arrangement Pluecker vectors appear before the heading for Poullot's problem; their relationship to this record is unresolved.
+\end{itemize}
+\end{document}

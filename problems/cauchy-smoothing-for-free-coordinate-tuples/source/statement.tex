@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002663}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Source question and reconstruction.} In one variable, perturbing a free stochastic process \(A(t)\) by a free Cauchy variable is said to replace its drift by a conditional expectation and make it smooth. Is there a several-variable analogue? The extraction corrupts the epsilon glyph and omits a clear drift time differential. The aid's conservative notation is
+\[
+ C_\epsilon=\epsilon C,\qquad
+ k_t^\epsilon=E[k_t\mid W^*(A(t)+C_\epsilon)],\qquad\epsilon>0.
+\]
+Here \(E\) is a trace-preserving conditional expectation, not the scalar trace itself. The intended stochastic model is of the usual form \(\mathrm dA=\mathrm dS+k_t\,\mathrm dt\), with drift allowed to depend on the past; its adaptedness, integrability, driving-noise conventions and target multivariable smoothness are not fully specified. The following aid result is at fixed time under a restrictive free-coordinate hypothesis.
+
+\textbf{Reported one-coordinate posterior.} Work in a finite von Neumann algebra with faithful normal tracial state \(\tau\). Let \(A_i\) be bounded self-adjoint and \(C_i\) a standard Cauchy-distributed self-adjoint affiliated variable, free from \(A_i\). Unbounded affiliated variables are needed because the Cauchy law is not a bounded or square-integrable variable. Put \(B_i=A_i+\epsilon C_i\), \(\mu_i=\operatorname{law}(A_i)\), and
+\[
+ P_\epsilon(u)=\frac{\epsilon}{\pi(u^2+\epsilon^2)},\qquad
+ (T_i f)(y)=
+ \frac{\int f(x)P_\epsilon(y-x)\,\mathrm d\mu_i(x)}
+      {\int P_\epsilon(y-x)\,\mathrm d\mu_i(x)}.
+\]
+The denominator is strictly positive. The aid reports
+\[
+ E_{W^*(B_i)}[f(A_i)]=(T_i f)(B_i).
+\]
+For the required square-integrable inputs this is an \(L^2\) contraction, preserving the trace. The real function \(T_if\) is locally real analytic; the aid reports quantitative derivative bounds, but supplies no explicit constants or norm-radius formula. Smoothness of these scalar posterior factors is not an automatically defined global noncommutative smoothness theorem.
+
+\textbf{Reported free-product multivariable special case.} Assume the pair algebras \(\mathcal M_i=W^*(A_i,C_i)\) are mutually free, and let
+\[
+ \mathcal B=W^*(B_1,\ldots,B_m).
+\]
+For a reduced word \(f_1(A_{i_1})\cdots f_\ell(A_{i_\ell})\) with bounded centered factors \(\tau(f_j(A_{i_j}))=0\) and adjacent indices distinct, the aid reports
+\[
+ E_{\mathcal B}\left[\prod_{j=1}^\ell f_j(A_{i_j})\right]
+ =\prod_{j=1}^\ell(T_{i_j}f_j)(B_{i_j}).
+\]
+The output factors remain centered. Freeness gives the exact word norm formula and contraction
+\[
+ \left\|E_{\mathcal B}\left[\prod_j f_j(A_{i_j})\right]\right\|_2
+ =\prod_j\|(T_{i_j}f_j)(B_{i_j})\|_2
+ \leq\prod_j\|f_j(A_{i_j})\|_2
+ =\left\|\prod_jf_j(A_{i_j})\right\|_2.
+\]
+Finite reduced-word sums extend by the stated \(L^2\) continuity. The bounded-input framework makes products well defined; extension to arbitrary unbounded products requires additional domain/integrability hypotheses. This is a reduced-free-product conditional expectation, not a componentwise multiplicative map on all noncommutative polynomials. General dependent coordinate tuples are not covered.
+
+\textbf{Reported multiplicativity obstruction.} For a von Neumann subalgebra \(\mathcal B\) and bounded self-adjoint \(X\), the identity
+\[
+ E_{\mathcal B}(X^2)=E_{\mathcal B}(X)^2
+\]
+forces \(X=E_{\mathcal B}(X)\in\mathcal B\), by faithfulness of the trace and vanishing \(L^2\) conditional variance. Thus a proposed universally multiplicative componentwise smoother is trivial on such hidden coordinates. This does not obstruct the centered alternating-word formula, which does not assert multiplicativity within a single coordinate algebra. The source's general several-variable smoothing question and path-dependent drift regularity remain beyond this supplied special case.
+\subsection{Short English statement}
+The aid gives a multivariable Cauchy posterior only when the coordinate pairs are freely independent. Conditional expectation acts factorwise on centered alternating words and contracts their \(L^2\) norms. It cannot be promoted to a multiplicative map on all polynomials unless the hidden variable is already observed.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002663\), catalogue entry, \texttt{aim-probability-notes.json}, \texttt{notes[104]}, \emph{Free analysis}, source question 3: \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}.
+\item Supplied verification dates the original PDF to August 24, 2006 and reconstructs epsilon using adjacent Poisson-kernel notation. The record is labelled reconstructed\_unverified; this draft has not visited the PDF.
+\item Supplied research summary on Cauchy posterior kernels, reduced free products, derivative control and the conditional-variance obstruction. No independent authoritative theorem citation or explicit derivative constants are supplied. Attempt 1: partial\_result, status at run ``open'', rigor ``proved'', low novelty confidence; registry status partially\_solved. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

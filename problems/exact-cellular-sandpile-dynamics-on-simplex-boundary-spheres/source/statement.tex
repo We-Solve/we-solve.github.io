@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000989}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Art Duval's source question asks to understand abelian sandpile dynamics in higher dimensions. Matt Baker asks for three-dimensional pictures, and Caroline Klivans says she has code. No lattice, cellular firing rule, boundary/sink condition, initial state, or visualization criterion is supplied. In particular, the source does not distinguish spatial sandpiles on higher-dimensional lattices from chip-firing on higher-dimensional cells; the aid treats a specific cellular model.
+
+Let \(X\) be the boundary of a \((d+1)\)-simplex, \(d\ge2\). Its \(d+2\) facets have a complete dual adjacency graph; a ridge is a codimension-one face, corresponding to an edge of that dual graph. In the aid's dual spanning-tree reduction, retain the ridges corresponding to a dual tree \(T\), giving a reduced up--down matrix of size \(m=d+1\). It reports that reorienting retained ridges can turn that matrix into an M-matrix exactly when \(T\) is a path. This is an orientation-only criterion for this reduction, not a claim that nonpath roots admit no alternative positive cone or dynamics.
+
+For every path choice, after ordering the retained ridges and suitable reorientation, the reported matrix is
+\[
+ L=A_m,\qquad L_{ii}=2,\quad L_{i,i+1}=L_{i+1,i}=-1,
+ \quad L_{ij}=0\ (|i-j|>1).
+\]
+The explicit nonnegative model has configurations \(a\in\Z_{\ge0}^m\), legal firing at \(i\) when \(a_i\ge2\), and update \(a\mapsto a-Le_i\). The aid reports terminating, confluent stabilization, hence a unique stable result with coordinates in \(\{0,1\}\). Its recurrent states for the usual addition--stabilization process are
+\[
+ c_0=\mathbf1,\qquad c_v=\mathbf1-e_v\quad(1\le v\le m),
+\]
+and its superstable states are \(0,e_1,\ldots,e_m\). Here superstability means that \(a-Lz\) is not coordinatewise nonnegative for every nonzero \(z\in\Z_{\ge0}^m\). The reported critical group is
+\[
+ \Z^m/L\Z^m\simeq\Z/(d+2)\Z.
+\]
+These are not assertions that every stable state is recurrent.
+
+To express the reported moving-vacancy orbit, put \(N=m+1=d+2\), use vacancy label \(v\in\{0,\ldots,m\}\), with label zero representing \(c_0\), and add repeatedly at ridge \(j\in\{1,\ldots,m\}\). With the displayed path ordering and charge convention, the aid's modular formula is
+\[
+ \operatorname{stab}(c_v+q e_j)=c_{v_q},\qquad
+ v_q\equiv v-qj\pmod N,\quad0\le v_q<N,\quad q\ge0.
+\]
+The orbit period is \(N/\gcd(N,j)\). The cumulative odometer, counting firings, is expressed by
+\[
+ u_i(q)=\sum_{h=1}^mG_{ih}\bigl(q\,\mathbf1_{h=j}+c_v(h)-c_{v_q}(h)\bigr),
+ \qquad
+ G_{ih}=\frac{\min(i,h)(N-\max(i,h))}{N}.
+\]
+Here \(G=L^{-1}\); the reported dynamics make these numbers nonnegative integers. The source summary mentions these formulas but does not include the full proof artifacts, so their reduction and recurrence conventions require independent verification. The family solves this narrowly specified model in every \(d\ge2\), not the original broad question for arbitrary higher-dimensional sandpiles. No actual code or pictures are supplied in the record.
+\subsection{Short English statement}
+The source broadly asks about higher-dimensional sandpile dynamics and pictures. The supplied aid gives a particular simplex-boundary model: path-shaped dual roots support ordinary nonnegative dynamics with explicit states and addition orbits, while other roots fail this orientation-only M-matrix test.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000989\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[113]}, tag \texttt{problem}.
+\item AIM workshop ``Generalizations of chip-firing and the critical group,'' Problem 24, Art Duval, with comments from Matt Baker and Caroline Klivans: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. Statement status \texttt{exact}. No PDF was accessed for this draft.
+\item No original remarks, literature references, external theorem citation, code link, or picture artifact is supplied for the candidate simplex-boundary construction.
+\item Research attempt 1: \texttt{partial\_result}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, rigor label \texttt{proved}, novelty confidence low. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

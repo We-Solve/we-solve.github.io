@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001657}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The following formalization uses the usual finite-tournament conventions described below. The supplied record does not explicitly define tournament chromatic number, \(T_2\), or \(\Delta\), or specify finiteness; these interpretations require confirmation against the source passage.
+
+A tournament \(G\) is a finite directed graph with no loops in which, for any two distinct vertices \(u,v\), exactly one of \(u\to v\) and \(v\to u\) holds. For \(S\subseteq V(G)\), write \(G[S]\) for the induced tournament. A set \(S\) is transitive if its vertices admit an ordering in which every edge points forward. Define \(\chi(G)\) to be the minimum number of transitive sets partitioning \(V(G)\), with \(\chi(\varnothing)=0\). For \(v\in V(G)\), let
+\[
+N_G^+(v)=\{u\in V(G):v\to u\}.
+\]
+Thus the out-neighbourhood chromatic number at \(v\) means \(\chi(G[N_G^+(v)])\).
+
+Let \(T_2\) denote the transitive tournament on two vertices. For tournaments \(A,B,C\), define \(\Delta(A,B,C)\) by taking disjoint copies of these tournaments and orienting all edges between them from \(A\) to \(B\), from \(B\) to \(C\), and from \(C\) to \(A\). Put \(H=\Delta(T_2,T_2,T_2)\). A tournament is \(H\)-free if no induced subtournament is isomorphic to \(H\).
+
+Under these conventions, the source asks whether both of the following assertions hold:
+\begin{enumerate}
+\item For every integer \(k\geq0\), there exists an integer \(c=c(k)\geq0\) such that every finite tournament \(G\) satisfies
+\[
+\bigl(\forall v\in V(G),\ \chi(G[N_G^+(v)])\leq k\bigr)
+\ \Longrightarrow\ \chi(G)\leq c.
+\]
+\item For every real \(\varepsilon>0\), there exists a real \(c=c(\varepsilon)>0\) such that every nonempty finite \(H\)-free tournament \(G\) has a transitive set \(S\subseteq V(G)\) satisfying
+\[
+|S|\geq c\,|V(G)|^{1-\varepsilon}.
+\]
+\end{enumerate}
+The constants are independent of \(G\). The source writes only \(k\geq0\); the integer formulation in (i) also covers nonnegative real thresholds because chromatic numbers are integers. The nonempty restriction in (ii) is an explicit drafting qualification requiring review: the supplied statement does not exclude the empty tournament, but its displayed power is undefined at zero when \(\varepsilon>1\). Neither assertion is established here.
+\subsection{Short English statement}
+The questions ask whether bounding the chromatic number of every out-neighbourhood bounds the chromatic number of the whole tournament, and whether excluding \(\Delta(T_2,T_2,T_2)\) guarantees a transitive set of size at least \(c|V(G)|^{1-\varepsilon}\) for every \(\varepsilon>0\). The draft uses explicitly stated finite-tournament conventions that require source confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local registry record, permanent UnsolvedMath ID \(30001657\), titled ``Local Coloring and Transitive Sets in Tournaments,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2011 and names no proposer.
+\item Supplied report citation: \emph{Combinatorics} (2011), \emph{Oberwolfach Reports}, pp.\ 5--83, DOI 10.4171/owr/2011/01. Source URL and supplied literature reference ``Oberwolfach Report 01/2011'': \url{https://doi.org/10.4171/owr/2011/01}. The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions; it supplies no precise page for this problem.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official report was checked and the statement repaired to match its source passage. This is supplied verification metadata, not an independent verification performed for this draft.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and says that the extracted statement contains no mathematical content beyond an open-question label, so no stronger resolution could be verified. This assessment conflicts with the substantive statements now supplied. It is supplied dated curation, not independently verified; the background requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

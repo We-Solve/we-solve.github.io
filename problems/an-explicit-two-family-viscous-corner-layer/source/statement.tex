@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002444}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Primary question: interacting viscous shocks.} The supplied verification identifies M. Williams, ``Two Interacting Shocks in 1D'', as the source context. Construct explicit solutions of the viscous problem (B), possibly using fast variables \(t/\epsilon,x/\epsilon\), converging in a suitable sense to the inviscid problem (A), and explicitly resolve the corner where the states \(U_l,U_r\) meet in the \((x,t)\)-plane. The workshop says abstract convergence is already available in A. Bressan's C.I.M.E. notes. However, the supplied record does not reproduce (A), (B), their flux, data or full diagram, and its verification field ends at ``The setup is''. The following is the aid's special class, not a recovery of a general coupled system.
+
+\textbf{Reported affine-diagonal Burgers corner.} Let \(P\in\operatorname{GL}_2(\R)\), \(b\in\R^2\) be constant, and put
+\[
+ U=b+Pw,\qquad F(U)=P\begin{pmatrix}w_1^2/2\\w_2^2/2\end{pmatrix}.
+\]
+Then \(U_t+\partial_xF(U)=\epsilon U_{xx}\) is the constant affine conjugate of two scalar viscous Burgers equations. For each \(i=1,2\), choose \(L_i>R_i\), set \(d_i=L_i-R_i\), \(s_i=(L_i+R_i)/2\), and assume \(s_1<s_2\). The reported exact global fast-variable solution, for \(\epsilon>0\), is
+\[
+ w_i^\epsilon(t,x)=s_i-\frac{d_i}{2}
+ \tanh\left(\frac{d_i(x-s_it-\epsilon\theta_i)}{4\epsilon}\right),
+ \qquad (t,x)\in\R^2,
+\]
+where \(\theta_i\in\R\) are fixed phases. For zero phases its inviscid step limits are \(L_i\) for \(x<s_it\), \(R_i\) for \(x>s_it\). For \(t>0\), the sectors are
+\[
+ U_l=b+P(L_1,L_2)^T,\quad
+ U_m=b+P(R_1,L_2)^T,\quad
+ U_r=b+P(R_1,R_2)^T,
+\]
+separated by \(x=s_1t,s_2t\). For \(t<0\), the intermediate state is instead \(b+P(L_1,R_2)^T\). This gives the reported four-sector eternal corner and its forward upper two-shock fan; matching any omitted source diagram remains a supplied aid assertion.
+
+In the adapted norm \(|v|_P=|P^{-1}v|_1\), the aid reports, for centered phases and the corresponding step solution \(U^0\),
+\[
+ \int_\R|U^\epsilon(t,x)-U^0(t,x)|_P\,\mathrm dx
+ =8\epsilon\log2\quad(t\in\R).
+\]
+Each centered component has zero signed mass difference. A shift \(\epsilon\theta_i\) has component mass, relative to the centered inviscid step,
+\[
+ m_i=\int_\R(w_i^{\epsilon,\theta_i}-w_i^0)\,\mathrm dx
+ =\epsilon d_i\theta_i,
+\]
+so its phase is recovered by \(\theta_i=m_i/(\epsilon d_i)\). The same exact norm-error identity applies when each step is aligned with its shifted viscous profile; it is not asserted for unaligned nonzero phases. No analogous formula for a general coupled \(2\times2\) flux is supplied.
+
+\textbf{Appended independent source items.} The extraction continues across a page marker into three other contributions, retained separately:
+\begin{itemize}
+\item J. Humphreys asks whether strong viscous shocks of the \(p\)-system are stable or unstable and what role symmetrizability plays. The extracted equations are \(v_t-u_x=0\), \(u_t+\partial_xp(v)=\partial_x(b(v)u)\), with \(p'<0\), \(p''>0\). The right side is not the usual second-order viscosity as printed; whether an \(x\)-derivative on \(u\) was lost is unresolved. The viscosity assumptions, wave family and stability topology are unspecified.
+\item K. Promislow asks for the Evans function and perturbed-front dynamics in an optical-resonance model. Writing its unresolved dispersion coefficient as \(\beta\), the extraction has the form
+\[
+ \mathrm i\phi_t-\beta\Delta_\ell\phi+|\phi|^2\phi
+ +(\mathrm i-a)\phi-\gamma\phi^*=0,\qquad
+ \Delta_\ell=\partial_x^2+\ell^{-1}\partial_y^2,
+\]
+with real \(a,\gamma\), and reports a planar front. The flattened coefficient ``12'' may represent \(1/2\); its value, the meaning of the star, anisotropy assumptions, front and perturbation class require recovery rather than silent correction.
+\item B. Sandstede asks about the temporal linear/nonlinear role of roots of an Evans function extended to branch points of the dispersion relation, described as embedded in the absolute spectra. The source says Murata showed strong dependence of scalar linear heat-equation decay rates on such roots. The operator, continuation, branch geometry, function spaces and nonlinear target are unspecified.
+\end{itemize}
+The special Burgers construction does not answer these appended problems. All supplied research results remain subject to independent verification.
+\subsection{Short English statement}
+The aid supplies an explicit two-family corner only for affine conjugates of diagonal Burgers equations, with exact adapted \(L^1\) error and phase/mass laws. The omitted general viscous/inviscid setup is not invented. Three subsequently concatenated questions about strong shocks, optical fronts and Evans branch roots are retained separately with their extraction gaps.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002444\), catalogue entry, \texttt{aim-pdes-notes.json}, \texttt{notes[55]}, 2005 \emph{Open Problems in Multidimensional Stability of Waves and Patterns}, source item 8, M. Williams, ``Two Interacting Shocks in 1D'': \url{https://aimath.org/WWN/multidimwaves/multidimwaves.pdf}.
+\item Original note cites A. Bressan's C.I.M.E. notes for abstract convergence; no full reference is supplied. Appended attributions: J. Humphreys, strong viscous shocks of the \(p\)-system; K. Promislow, multidimensional optical-resonance front dynamics; B. Sandstede, Evans roots in the absolute spectra.
+\item Original appended reference: Murata, Tohoku Math. J. \textbf{37} (1985), 151--195; no title is supplied.
+\item Supplied research summary on affine-diagonal Burgers profiles, sector matching, exact \(8\epsilon\log2\) error and phase laws. Attempt 1: partial\_result, status at run ``open'', rigor ``proved'', low novelty confidence. This machine-generated aid is not peer reviewed and requires independent verification before citation; no PDF visit is claimed.
+\end{itemize}
+\end{document}

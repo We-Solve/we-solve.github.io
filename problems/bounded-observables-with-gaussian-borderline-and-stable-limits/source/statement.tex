@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001415}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks broadly which limit theorems or statistical properties can be obtained for slowly mixing systems, without defining a system class, observable regularity, mixing norm, normalization, or target law. The aid supplies one stationary regenerative example showing different limit types for bounded observables on the same system.
+
+Fix \(1<\beta<2\). Take independent renewal blocks with integer length \(L\) satisfying
+\[
+ \Pr(L\ge\ell)=\ell^{-\beta}\quad(\ell\ge1),\qquad
+ \mu=\E L=\sum_{\ell\ge1}\ell^{-\beta}<\infty,
+\]
+and independent fair signs \(Z\in\{-1,1\}\), constant on each block. Use the stationary two-sided renewal construction: the block containing time zero has the size-biased length distribution and the origin is uniformly positioned within it. Shift by one time unit. The aid reports this system to be stationary and mixing.
+
+For \(0<\gamma\le1\), let \(f_\gamma\) at a time in a block be \(ZL^{\gamma-1}\). Then \(|f_\gamma|\le1\) and its stationary mean is zero. Writing \(C_\gamma(n)=\E[f_\gamma\,f_\gamma\circ T^n]\), its same-block covariance is
+\[
+ C_\gamma(n)=\frac1\mu\E[(L-n)_+L^{2\gamma-2}],
+\]
+and the aid reports
+\[
+ C_\gamma(n)\sim
+ \frac{\beta\,n^{2\gamma-\beta-1}}
+ {\mu(\beta-2\gamma+1)(\beta-2\gamma+2)}.
+\]
+In particular the nonnegative covariance series is summable exactly when \(\gamma<\beta/2\).
+
+For \(S_nf_\gamma=\sum_{j=0}^{n-1}f_\gamma\circ T^j\), the reported limit regimes are
+\[
+ \frac{S_nf_\gamma}{\sqrt n}\Longrightarrow
+ \mathcal N\left(0,\frac{\E L^{2\gamma}}\mu\right)
+ \quad(\gamma<\beta/2),
+\]
+\[
+ \frac{S_nf_\gamma}{\sqrt{(n/\mu)\log n}}
+ \Longrightarrow\text{ a nondegenerate centered Gaussian law}
+ \quad(\gamma=\beta/2),
+\]
+and, for \(\gamma>\beta/2\), a nondegenerate symmetric stable law of index
+\[
+ \alpha=\beta/\gamma\in(1,2)
+\]
+under the corresponding \((n/\mu)^{\gamma/\beta}\) stable normalization, with the limiting scale convention to be fixed. The supplied summary does not state all limiting-law constants, so the borderline and stable laws are not assigned invented scales. The block reward is \(ZL^\gamma\); its dependence on the block duration means the renewal stopping index is not independent of rewards. The aid reports explicit control of this dependence and of the size-biased endpoint blocks, but its proof artifact is not included.
+
+Thus the covariance-summability threshold and the Gaussian/borderline/stable transition coincide in this particular duration--amplitude family. Boundedness of an observable alone does not force a standard \(\sqrt n\) Gaussian limit here. This is not a theorem that correlation exponents determine limit laws for every slowly mixing system, nor a complete answer to the source's broad research direction.
+\subsection{Short English statement}
+The source asks about limit laws for slowly mixing dynamics. The supplied aid gives one stationary regenerative system with bounded observables exhibiting Gaussian, logarithmically normalized Gaussian, and stable limits, with an explicit covariance threshold separating the regimes.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001415\), source code \texttt{catalogue entry}; \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[72]}, tag \texttt{problem}.
+\item AIM workshop ``Stochastic methods for non-equilibrium dynamical systems,'' Problem 30: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. Statement status \texttt{exact}. No PDF was accessed for this draft.
+\item No original remarks, literature field, authoritative external citation, or proof artifact for the regenerative construction and three limit regimes is supplied.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

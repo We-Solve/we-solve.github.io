@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002537}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Write \(L\) for the line bundle implicit in the source notation, and interpret \(H^0(X,nL)\) as \(H^0(X,L^{\otimes n})\). A multiplicative linear series is a family of linear subspaces \(V_n\subseteq H^0(X,L^{\otimes n})\) such that multiplication of sections satisfies
+\[
+V_mV_n\subseteq V_{m+n}\qquad(m,n\geq 1).
+\]
+The source does not specify the geometric category of \(X\), the base field, or further hypotheses on \(L\) and the series.
+
+Let \(\varphi\) and \(\psi\) be the metrics on \(L\) mentioned in the source, and write \(\varphi_n\) and \(\psi_n\) for the forms on \(V_n\) used there. Their construction from the metrics is not supplied. To make the displayed spectral construction meaningful, the relevant degrees must have finite positive dimension \(d_n=\dim V_n\), and the forms must admit a basis \((e_{n,i})_{i=1}^{d_n}\) satisfying
+\[
+\varphi_n(e_{n,i},e_{n,j})=\delta_{ij},\qquad
+\psi_n(e_{n,i},e_{n,j})=0\quad(i\ne j),\qquad
+\lambda_{n,i}:=\psi_n(e_{n,i},e_{n,i})>0.
+\]
+These are requirements for interpreting the source construction; the source does not explicitly give the hypotheses ensuring them.
+
+Interpreting uniform selection as selection of a basis index, define the probability measure
+\[
+\mu_n=\frac{1}{d_n}\sum_{i=1}^{d_n}
+\delta_{\frac{1}{n}\log\lambda_{n,i}},
+\]
+where \(\delta_a\) is the unit point mass at \(a\), and let \(Z_n\) be a real random variable with law \(\mu_n\). This interpretation counts repeated spectral values with multiplicity. Uniform selection among distinct values would give a different measure when repetitions occur; the source does not explicitly resolve this wording.
+
+The supplied question asks whether \(Z_n\) converges in probability as \(n\to\infty\). On a specified common probability space \((\Omega,\mathcal F,\mathbb P)\), this would mean that there exists a real random variable \(Z\) on that space such that
+\[
+\forall\varepsilon>0,\qquad
+\lim_{n\to\infty}\mathbb P\bigl(|Z_n-Z|>\varepsilon\bigr)=0.
+\]
+However, the record specifies only the individual laws of the \(Z_n\), not a common probability space, their joint realization, a candidate limit, or a quantifier over possible joint realizations. Consequently, the requested convergence in probability is not a fully specified proposition. No particular coupling, independence assumption, or deterministic limit is imposed in this draft. The intended degrees of the sequence also require clarification if \(V_n=0\) for some \(n\).
+\subsection{Short English statement}
+The question asks whether normalized logarithmic spectral values comparing two metrics on a multiplicative linear series converge in probability. The supplied record leaves the geometric hypotheses, the induced forms, and the joint realization of the random variables unspecified. These omissions prevent a unique precise convergence statement; convergence of their laws is a different assertion.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30002537\), source problem code \texttt{catalogue entry}, title: \emph{Probability Convergence of Metrics on Linear Series}. The supplied record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2014; no individual proposer is identified. Repository registry locations are \texttt{data/unsolvedmath/problems.json} and the supplementary \texttt{catalog/problems.json}; these files were not independently inspected for this draft.
+\item Supplied report citation: \emph{Mini-Workshop: Negative Curves on Algebraic Surfaces} (2014), Oberwolfach Reports, DOI 10.4171/owr/2014/10, pp. 555--593. \url{https://doi.org/10.4171/owr/2014/10}. The record describes Oberwolfach Reports as documenting workshops and their open-problem discussions; no problem-specific page is supplied.
+\item Supplied literature reference: Chen and Maclean, 2013. \url{https://arxiv.org/abs/1304.5842}.
+\item Supplied literature reference: Oberwolfach Report 10, 2014. \url{https://doi.org/10.4171/owr/2014/10}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and states that Chen--Maclean prove convergence in law for logarithmic spectral measures, which is weaker and different from convergence in probability in the extracted formulation, and that no general probability result was found. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The supplied registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review claiming a self-contained, meaning-preserving cleanup without unsupported source-dependent additions. These are supplied editorial labels and claims; they do not resolve the formulation issues identified here or establish mathematical correctness.
+\end{itemize}
+\end{document}

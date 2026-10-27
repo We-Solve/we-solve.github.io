@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000898}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite simple \(k\)-uniform hypergraph \(H=(V,E)\), the standard neighborhood of a \((k-1)\)-set \(S\subseteq V\) is
+\[
+ N_H(S)=\{v\in V\setminus S:S\cup\{v\}\in E\}.
+\]
+A vertex set \(W\subseteq V\) is independent when no edge of \(H\) is contained in \(W\). With this neighborhood convention, put
+\[
+ f(n,k)=\max\{|E(H)|:|V(H)|=n,\ N_H(S)\text{ is independent for every }S\in\tbinom V{k-1}\}.
+\]
+The source does not explicitly define neighborhood, so this convention must be confirmed.
+
+The record calls \(H\) odd if it admits a bipartition \(V=X\mathbin{\dot\cup}Y\) such that \(|e\cap Y|\) is odd for every edge \(e\). It defines \(b(n,k)\) as the maximum edge count of such hypergraphs. For this literal parity definition and allowing empty parts, the maximum can be written
+\[
+ b(n,k)=\max_{0\leq y\leq n}
+ \sum_{\substack{0\leq i\leq k\\i\text{ odd}}}
+ \binom yi\binom{n-y}{k-i},
+\]
+with out-of-range binomial coefficients zero. If both parts must be nonempty, the maximum instead ranges over \(1\leq y\leq n-1\).
+
+The extracted conjecture is the exact eventual equality
+\[
+ \forall k\in\{5,6\}\ \exists n_0(k)\ \forall n\geq n_0(k),\qquad
+ f(n,k)=b(n,k).
+\]
+It is not merely equality of asymptotic densities or an assertion about all uniformities.
+
+There is an essential parity issue in the supplied definitions. For even \(k\), the odd-intersection condition makes both \(X\) and \(Y\) independent, and each \(N_H(S)\) lies in one of them. For odd \(k\), it permits every \(k\)-set lying entirely in \(Y\), so oddness alone does not ensure independent neighborhoods. For example, when \(|Y|\geq2k-1\), the hypergraph consisting of all \(k\)-sets in \(Y\) satisfies the stated odd condition but has non-independent \(N_H(S)=Y\setminus S\) for \(S\in\binom Y{k-1}\). If empty parts are allowed, \(Y=V\) even makes \(b(n,5)=\binom n5\), whereas the complete hypergraph has non-independent neighborhoods for \(n\geq9\). Thus the literal definitions and the \(k=5\) equality cannot all describe the intended conjecture under these standard conventions. A missing condition, different extremal construction, or different neighborhood meaning must be checked rather than silently repaired.
+\subsection{Short English statement}
+The conjecture compares the exact extremal edge count for independent-neighborhood hypergraphs with a parity-defined construction at uniformities five and six. Under the supplied odd-intersection definition, the odd-uniformity case has a substantive inconsistency with the standard neighborhood meaning, requiring source clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30000898\), exact source code \texttt{catalogue entry}, proposed year 2008; no individual proposer is supplied.
+\item \emph{Combinatorics (2008)}, Oberwolfach Reports, DOI 10.4171/owr/2008/01, pp. 5--78. \url{https://doi.org/10.4171/owr/2008/01}.
+\item Supplied reference: Bohman--Frieze--Mubayi--Pikhurko, \url{https://www.math.cmu.edu/~mubayi/papers/indnbds.pdf}.
+\item The supplied \texttt{corrected\_verified} note reports checking mathematical content against the official report. The assessment checked 2026-08-21 says the cited paper leaves \(k=5,6\) open and that its search found no later primary result settling eventual equality. This and the open label are dated supplied triage, not an independent search or verification of the inconsistent extracted definitions.
+\end{itemize}
+\end{document}

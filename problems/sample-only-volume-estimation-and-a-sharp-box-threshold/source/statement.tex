@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001288}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(K\subset\R^n\) be a convex body, compact with nonempty interior, and write \(V(K)=\operatorname{vol}_n(K)\). Santosh Vempala's Problem 1 asks how many uniformly randomly chosen points from \(K\) are needed to estimate \(V(K)\) within a factor of two.
+
+A precise sample-only interpretation is the following. Given independent samples \(X_1,\ldots,X_m\) from normalized Lebesgue measure \(\mathbf1_K/V(K)\), determine the sample complexity of an estimator \(\widehat V\), possibly randomized, satisfying
+\[
+\Pr_K\{V(K)/2\le\widehat V\le2V(K)\}\ge1-\delta
+\quad\text{for every convex body }K\subset\R^n,
+\]
+where \(\delta\in(0,1)\) is a specified failure probability. The estimator sees the sample coordinates; no membership, separation or volume oracle is included in this interpretation. The source does not specify independence, success probability, auxiliary information, computational restrictions or an oracle model, so these quantifiers explicitly formalize one reading rather than resolve every possible model.
+
+The supplied research aid reports that Eldan's 2011 theorem gives an information-theoretic superpolynomial lower bound for the random-point-only interpretation. It supplies no exact quantitative bound, confidence parameters or complete citation, so this is retained as an attributed status result rather than an invented numerical theorem.
+
+The aid gives an exact calibrated special case for an unknown axis-aligned box
+\[
+K=\prod_{j=1}^n[a_j,b_j],\qquad a_j<b_j.
+\]
+For \(m\ge2\), let \(B_m\) be the smallest axis-aligned box containing the samples and use \(\widehat V=\operatorname{vol}_n(B_m)\). Then
+\[
+\frac{\widehat V}{V(K)}=\prod_{j=1}^nR_j,
+\qquad
+R_j=\frac{\max_{1\le i\le m}X_{ij}-\min_{1\le i\le m}X_{ij}}{b_j-a_j}.
+\]
+The \(R_j\) are independent, each with the \(\operatorname{Beta}(m-1,2)\) law, whose density on \((0,1)\) is \(m(m-1)t^{m-2}(1-t)\). The estimator never exceeds the true volume. If \(n\to\infty\) and \(m=m(n)\) satisfies \(m/n\to c\in(0,\infty)\), the reported limit is
+\[
+\frac{\widehat V}{V(K)}\ \longrightarrow\ e^{-2/c}\quad\text{in probability}.
+\]
+Consequently its factor-two success probability tends to 1 for \(c>2/\log2\) and to 0 for \(c<2/\log2\), where \(\log\) is natural. No conclusion at the equality \(c=2/\log2\) is supplied. This is a threshold for this estimator on boxes, not a minimax threshold for all estimators or all convex bodies.
+
+The exact finite-sample transform bound in the aid is, for \(0<s<m-1\),
+\[
+\Pr\{\widehat V<V(K)/2\}\le2^{-s}\left[\frac{m(m-1)}{(m-s)(m-1-s)}\right]^n.
+\]
+The summary also mentions a dimension-free lemma for a known homothetic shape, but gives neither the precise shape/location information nor its statement and constants. That additional lemma cannot be specified from the supplied record.
+
+The registry labels the entry partially solved; attempt 1 is labeled partial result, problem partially solved at the run, internal rigor proved, novelty confidence low. The research aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\subsection{Short English statement}
+Vempala asks for the number of uniform sample points needed to estimate the volume of an unknown convex body within a factor of two. The supplied aid reports a general sample-only lower bound and analyzes one box estimator exactly: its sharp strict asymptotic threshold is \(m/n=2/\log2\), with the boundary case left unspecified. The sampling model and desired confidence must be fixed for the general question.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001288\), source code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[19]}.
+\item AIM, \emph{Algorithmic convex geometry}, Problem 1 (Santosh Vempala): \url{https://aimath.org/WWN/convexgeometry/convexgeometry.pdf}.
+\item Eldan (2011), as cited by name and year in the supplied research summary for a sample-only information-theoretic lower bound. No title, journal, theorem number or exact quantitative formulation is supplied; the original literature field is empty.
+\item Supplied research attempt 1, registry update August 14, 2026. The statement-verification field is incomplete (``The canonical record contains the line break''); it does not provide a complete source verification. The research aid is not peer reviewed.
+\end{itemize}
+\end{document}

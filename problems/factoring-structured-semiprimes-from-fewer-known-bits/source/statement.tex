@@ -1,0 +1,46 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800018}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(N=p^rq^s\), with distinct primes \(p,q\) and positive integers \(r,s\). This is a two-prime multipower integer, not an ordinary semiprime unless \(r=s=1\). The source focuses on \(r\approx s\), but gives no quantitative comparability condition and does not say whether \(r,s\) are input data. No balance assumption on the sizes of \(p,q\) follows merely from exponent comparability.
+
+The task is to improve partial-information factoring methods, recovering \(p,q\) and their multiplicities in polynomial time in the input bit length from fewer known factor bits than the intended baseline method. Bit locations are essential. For example, if \(p\) has \(b\) bits and its \(k\) most significant bits form \(h\), then
+\[
+p=h2^{b-k}+x,\qquad0\le x<2^{b-k}.
+\]
+Knowing \(k\) least significant bits instead means \(p\equiv h\pmod{2^k}\), and arbitrary scattered bits give another model. The source does not choose one, specify which prime/powered factor has known bits, or give the baseline threshold to beat.
+
+A precise result must state the input promise, sizes of the factors, exponent regime, leakage pattern, required number of bits, and deterministic/randomized complexity guarantees. The historical request for an improvement is not identical to the research summary's stronger optimal-threshold problem. An information-theoretic optimum is not defined in the record; unique factorization already makes the prime factors determined by \(N\), so a computational threshold needs an explicit algorithmic model rather than an unsupported information lower bound.
+
+The supplied research summary reports repeated improvements and says the optimal bit requirement is unsettled. It mentions Coppersmith's familiar \(pq\) high-bit result, whose precise factor-size assumptions are not supplied, and later multipower/multiple-prime developments. Those special-case thresholds are not transplanted to all \(r\approx s\) inputs or all bit patterns.
+\subsection{Short English statement}
+Improve polynomial-time factoring of \(p^rq^s\) with comparable exponents using less partial factor information. The leakage positions, factor sizes, exponent promise, and baseline threshold must be specified before an improvement can be measured.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(8800018\), exact source code \texttt{catalogue entry}, ``Factoring structured semiprimes from fewer known bits.'' Proposer Alexander May.
+\item IPAM \emph{Workshop on Number Theory and Cryptography --- Open Problems} (2006), attachment 6222, recorded PDF page 12, printed slide 8; \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}. Recorded access 2026-07-29; pdf-and-legacy-ppt visual-audit extraction.
+\item Supplied summary cites Coppersmith (1996); Lu and collaborators; Coron and collaborators; Zheng (2019), ``Further improvement of factoring \(N=p^rq^s\) with partial known bits''; and May--Ritzenhofen, ePrint 2007/374. Complete citations and exact thresholds are absent. The supplied Zheng venue wording mixes AIMS Mathematics and Advances in Mathematics of Communications and requires verification.
+\end{itemize}
+\end{document}

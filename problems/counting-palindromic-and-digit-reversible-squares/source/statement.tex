@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006467}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The numeral base and conventions for reversing terminal zeros are not specified in the supplied record. The following is a conditional decimal formulation, using ordinary positional digit reversal and discarding any leading zeros in the reversed string. These conventions require confirmation against the source.
+
+For a positive integer \(n\), write its canonical decimal expansion as
+\[
+n=\sum_{j=0}^{k}d_j10^j,\qquad d_j\in\{0,1,\ldots,9\},\quad d_k\ne0,
+\]
+and define
+\[
+\operatorname{rev}_{10}(n)=\sum_{j=0}^{k}d_j10^{k-j}.
+\]
+Call \(n\) palindromic if \(d_j=d_{k-j}\) for every \(0\le j\le k\). Thus palindromicity is equivalent to \(\operatorname{rev}_{10}(n)=n\). A positive square means an integer \(m^2\) with \(m\in\Z_{\ge1}\).
+
+For real \(X\ge1\), define
+\[
+P(X)=\#\{n\in\Z_{\ge1}:n\le X,\ n=m^2\text{ for some }m\in\Z_{\ge1},\ \operatorname{rev}_{10}(n)=n\}
+\]
+and
+\[
+\begin{split}
+R(X)=\#\{n\in\Z_{\ge1}:{}&n\le X,\ n=m^2\text{ for some }m\in\Z_{\ge1},\\
+&\operatorname{rev}_{10}(n)=\ell^2\text{ for some }\ell\in\Z_{\ge1},\ \operatorname{rev}_{10}(n)\ne n\}.
+\end{split}
+\]
+These functions count square values, not ordered pairs of square roots. The bound \(X\) applies only to \(n\); no separate bound on its reversal is imposed. Squares ending in zero are included under the stated conditional convention.
+
+The supplied cleaned statement asks for an asymptotic formula for \(P(X)\) as \(X\to\infty\), and asks whether infinitely many palindromic squares lie outside the four infinite families attributed to Keith in the editorial note. If \(\mathcal F_1,\ldots,\mathcal F_4\) denote those particular families of square values, the latter question is whether
+\[
+\#\bigl\{n\in\Z_{\ge1}:n\text{ is a palindromic square},\ n\notin\textstyle\bigcup_{i=1}^{4}\mathcal F_i\bigr\}=\infty.
+\]
+The record supplies no definitions of \(\mathcal F_1,\ldots,\mathcal F_4\), so this exclusion condition cannot yet be made explicit.
+
+The record also asks to determine the number of nonpalindromic squares whose reversal is a square, and whether there are infinitely many. With the bounded counting interpretation above, these tasks concern \(R(X)\) and whether
+\[
+\lim_{X\to\infty}R(X)=\infty.
+\]
+The source does not specify the desired precision for counting these nonpalindromic squares. Its supplied dated literature assessment labels the overall problem partially solved and reports that infinitude in this second question is already known through an explicit family. That family is not supplied here, and this reported assessment is not an independently verified mathematical conclusion.
+\subsection{Short English statement}
+Conditionally using decimal digits and ordinary reversal, count positive palindromic square values up to \(X\) and seek their asymptotic number. Decide whether infinitely many lie outside Keith's four cited families, whose formulas are missing from the record. Also count nonpalindromic square values whose reversals are squares. The supplied dated assessment reports that infinitely many of the latter are known; it leaves the broader palindromic counting and classification questions open. The digit conventions, missing families, and reported status require review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30006467\), titled ``Counting Palindromic and Digit-Reversible Squares,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record lists proposed year \(2025\) and no proposer.
+\item Supplied report citation: \emph{Analytic Number Theory (2026)}, Oberwolfach Reports, pp.\ 2701--2764, DOI \texttt{10.4171/owr/2025/51}. The literature-source label is ``Oberwolfach report 51/2025'': \url{https://doi.org/10.4171/owr/2025/51}. The differing year designations are retained as supplied.
+\item Supplied literature source: OEIS A035090, \url{https://oeis.org/A035090}.
+\item Supplied literature source: Keith, \emph{Classification and enumeration of palindromic squares}, \url{https://oeis.org/A002778/a002778_1.pdf}. The supplied editorial excerpt attributes four infinite families and the question about squares outside them to Keith, citing reference [9]; the record does not provide that reference's complete bibliographic entry or the family formulas.
+\item Literature assessment checked at \texttt{2026-08-22}: supplied dated curation, not independently verified. It labels the problem ``partially solved,'' reports an explicit infinite family of nonpalindromic reversible squares, and states that broader palindromic counting and classification beyond the four families remains open. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says that only formula delimiters, notation, grammar, and typography were repaired. These are supplied editorial labels and qualifications, not independent verification of the formulation or mathematics.
+\end{itemize}
+\end{document}

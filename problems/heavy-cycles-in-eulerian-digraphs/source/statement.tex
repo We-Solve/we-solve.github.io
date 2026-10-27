@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005351}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(D=(V,A)\) be a weighted digraph with arc-weight function \(w\). Write
+\[
+ d_w^+(v)=\sum_{\substack{a\in A\\\operatorname{tail}(a)=v}}w(a),
+ \qquad
+ w(C)=\sum_{a\in A(C)}w(a)
+\]
+for the total outgoing weight at \(v\) and the weight of a directed cycle \(C\), respectively. Under the usual simple-cycle convention, a directed cycle is a cyclic sequence of distinct vertices joined by arcs in the indicated direction; whether loops and parallel arcs are allowed depends on the unspecified digraph conventions.
+
+Let \(\mathcal E\) denote the intended class of Eulerian weighted digraphs in the source. The central question in the supplied clean statement has the quantifier pattern
+\[
+ \exists c\in\R_{>0}\quad
+ \forall (D,w)\in\mathcal E,\qquad
+ \left[\forall v\in V(D),\ d_w^+(v)\ge 1\right]
+ \Longrightarrow
+ \left[\exists\text{ a directed cycle }C\subseteq D,\ w(C)\ge c\right].
+\]
+Thus the requested constant must be independent of the digraph, its size, and its weight assignment. This expresses the source's intended \(\Omega(1)\) cycle-weight question.
+
+The supplied record does not specify whether the digraphs are finite and nonempty, whether weights are nonnegative, or whether ``Eulerian'' refers to equality of ordinary indegree and outdegree, the existence of an Euler tour with suitable connectivity, or equality of incoming and outgoing total weights. These alternatives do not define the same class \(\mathcal E\); consequently, the displayed formulation records the quantifiers but requires these conventions to be resolved before it becomes a fully specified conjecture. If infinite digraphs are intended, the outgoing sums also require a definition.
+
+The source additionally asks what happens when \(D\) is strongly \(2\)-connected. A usual vertex-connectivity interpretation is that \(D\) is strongly connected and remains strongly connected after deletion of any one vertex, subject to an appropriate minimum-order convention. The supplied record does not fix this interpretation or distinguish it from an arc-connectivity interpretation. Moreover, the original excerpt asks separately about Eulerian digraphs and strongly \(2\)-connected digraphs, whereas the clean statement asks what stronger bound follows if the Eulerian digraph is also strongly \(2\)-connected. It therefore remains unresolved whether this second question concerns a separate class or a subclass of \(\mathcal E\). In either reading, retain the hypothesis \(d_w^+(v)\ge1\) at every vertex. No particular stronger numerical bound is specified in the supplied evidence.
+\subsection{Short English statement}
+The main question asks whether outgoing weight at least \(1\) at every vertex forces a directed cycle whose total weight is bounded below by one universal positive constant in Eulerian weighted digraphs. A further question concerns strong \(2\)-connectivity. The graph and weight conventions, and whether strong \(2\)-connectivity supplements or replaces the Eulerian hypothesis, require clarification. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005351\), title \emph{Heavy Cycles in Eulerian Digraphs}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record assigns the proposed year \(2023\); no individual proposer is supplied.
+\item Supplied report citation: \emph{Combinatorics} (2023), Oberwolfach Reports, pp.~5--89, DOI \texttt{10.4171/owr/2023/1}. \url{https://doi.org/10.4171/owr/2023/1}. The record describes these reports as documenting mathematical workshops and their open-problem discussions. It supplies no narrower page locator for this problem.
+\item Supplied literature source: Knierim--Kupavskii--Mubayi--Verstraete, \emph{Heavy Cycles}. \url{https://arxiv.org/abs/1911.07778}.
+\item Supplied literature source: \emph{Heavy Cycles}, Journal of Combinatorial Theory. \url{https://doi.org/10.1016/j.jctb.2020.12.008}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and states that the general weighted-digraph theorem gives only a vanishing lower bound, while the cited literature does not settle the Eulerian or strongly \(2\)-connected \(\Omega(1)\) cycle question. This is supplied dated curation, described as literature triage derived from the supplied Oberwolfach curation; it has not been independently verified here. Time-sensitive status and cited claims require independent checking.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that it was checked against the official Oberwolfach report and preserves its hypotheses, notation, and open target. This is a supplied verification claim, not an independent verification performed for this draft.
+\end{itemize}
+\end{document}

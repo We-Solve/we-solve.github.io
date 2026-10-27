@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000540}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Use \(\widehat f(\xi)=\int_{\R^n}f(x)e^{-2\pi i x\cdot\xi}\,\dd x\). Carbery's Question 13 juxtaposes two distinct maximal estimates. The Fourier-space spherical partial sums are
+\[
+S_Rf(x)=\int_{|\xi|\leq R}\widehat f(\xi)e^{2\pi i x\cdot\xi}\,\dd\xi,
+\qquad S_*f(x)=\sup_{R>0}|S_Rf(x)|.
+\]
+The first question, equation (0.18), asks whether \(\|S_*f\|_2\leq C_n\|f\|_2\), initially for Schwartz functions, with a constant independent of \(f\).
+
+The second question, equation (0.19), concerns instead the literal physical-space kernels
+\[
+K_R(y)=e^{i|y|}|y|^{-(n+1)/2}\mathbf1_{\{|y|\leq R\}},\qquad
+T_Rf=f*K_R,
+\]
+and asks whether
+\[
+\left\|\sup_{R>0}|T_Rf|\right\|_{L^2(\R^n)}\leq C_n\|f\|_2.
+\]
+For this literal interpretation take \(n\geq2\), when the kernel is locally integrable at the origin and integrable for each finite \(R\). At \(n=1\), the displayed kernel is not locally integrable and requires an additional interpretation or regularization not supplied in the source. No lower cutoff, subtraction, or replacement by a two-branch oscillatory kernel is implicit in (0.19).
+
+The attached aid reports that (0.19), with precisely this kernel, is false. Writing \(m_R=\widehat{K_R}\) and \(e_1=(1,0,\ldots,0)\), it claims
+\[
+m_R((2\pi)^{-1}e_1)
+=(2\pi)^{(n-1)/2}e^{i\pi(n-1)/4}\log R+O_n(1)
+\quad(R\to\infty).
+\]
+Its stated consequence is
+\[
+\|T_R\|_{L^2\to L^2}\geq c_n\log R-C_n\quad(n\geq2),
+\]
+for suitable positive constants, and a stronger lower bound of order
+\(R^{(n-3)/2}\) for \(n\geq4\), using zero frequency. Thus even the individual truncations do not have a uniform \(L^2\) bound, according to the aid.
+
+For a modified leading kernel
+\[
+(ae^{i|y|}+be^{-i|y|})|y|^{-(n+1)/2}\mathbf1_{\{|y|\leq R\}},\qquad a,b\in\C,
+\]
+the aid says that cancellation of this resonant logarithm requires
+\[
+ae^{i\pi(n-1)/4}+be^{-i\pi(n-1)/4}=0.
+\]
+This is only a necessary cancellation condition for the indicated logarithmic contribution, not a sufficient condition for a maximal estimate.
+
+The aid expressly says that this obstruction refutes only (0.19); it leaves the spherical Fourier partial-sum problem (0.18) open for \(n\geq2\). These are supplied unreviewed counterexample and status claims. In particular, the registry's solved label must not be interpreted as a resolution of the higher-dimensional spherical partial-sum problem.
+\subsection{Short English statement}
+Separate the spherical Fourier partial-sum maximal question from a displayed physical-space outgoing-wave truncation. The supplied aid reports that the latter fails because its individual truncation norms grow, while explicitly leaving the former unresolved in dimensions at least two.
+\subsection{Sources}
+\begin{itemize}
+\item Carbery, Question 13, equations (0.18) and (0.19), AIM \emph{Carleson theorems and multilinear operators: Open problems}, supplied verification locates the question on PDF p. 4: \url{https://aimath.org/pastworkshops/multilinopsproblems.pdf}.
+\item The original source refers to Carbery et al. [2] for detailed discussion, without supplying the full bibliography entry.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID \(20000540\), exact source code \texttt{catalogue entry}; canonical \texttt{aim-analysis-notes.json}, notes[71].
+\item The attached research attempt supplies the resonant multiplier asymptotic and counterexample claim. It is explicitly machine-generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

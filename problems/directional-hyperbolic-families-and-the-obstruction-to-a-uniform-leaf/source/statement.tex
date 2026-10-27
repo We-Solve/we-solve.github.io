@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000548}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The original source asks only to ``extend the theory of interlacing families to several variables'' and specifies no unique target theorem. The supplied partial framework uses real homogeneous polynomials as follows. Fix \(e\in\R^r\setminus\{0\}\). A degree-\(m\) homogeneous form \(p\in\R[x_1,\ldots,x_r]\), with \(p(e)>0\), is hyperbolic in direction \(e\) if \(t\mapsto p(x+te)\) has only real roots for every \(x\in\R^r\). Write these roots in increasing order as \(\lambda_1(p;x),\ldots,\lambda_m(p;x)\), including multiplicity.
+
+For a finite family \(p_1,\ldots,p_k\) of the same degree with \(p_i(e)>0\), the aid gives the equivalence
+\[
+ \text{every }\sum_i c_i p_i\text{ with }c_i\geq0,\ \sum_i c_i>0
+ \text{ is hyperbolic in }e
+\]
+if and only if, for every fixed \(x\), the univariate polynomials \(p_i(x+te)\) have a common interlacing. Here a common interlacing is a real-rooted degree-\(m-1\) polynomial with ordered roots \(\mu_1,\ldots,\mu_{m-1}\) such that
+\[
+ \lambda_j(p_i;x)\leq\mu_j\leq\lambda_{j+1}(p_i;x)
+ \quad(1\leq j<m,\ 1\leq i\leq k).
+\]
+For \(m=1\), this condition is vacuous. The interlacing may depend on \(x\).
+
+For a parent \(p=\sum_i\theta_i p_i\), \(\theta_i>0\), \(\sum_i\theta_i=1\), this yields, for each fixed \(x\), a child satisfying \(\lambda_m(p_i;x)\leq\lambda_m(p;x)\). The same fixed-slice conclusion iterates to a leaf in a finite tree with compatible siblings and positive convex parent combinations. It does not assert the quantifier reversal that one child or leaf works for every \(x\). Indeed homogeneity gives
+\[
+ \lambda_j(p;-x)=-\lambda_{m+1-j}(p;x).
+\]
+Thus an upper-largest-root inequality for one child on all slices would also force its smallest root to be no smaller than the parent's on every slice, giving two-sided spectral-interval containment.
+
+In degree one, put \(r_i(x)=-p_i(x)/p_i(e)\) and \(r(x)=-p(x)/p(e)\), linear root functionals. For a cone \(K\subset\R^r\), define its dual cone of linear functionals by
+\[
+ K^*=\{\ell:\ell(x)\geq0\text{ for all }x\in K\}.
+\]
+Then child \(i\) has \(r_i(x)\leq r(x)\) for all \(x\in K\) exactly when \(r-r_i\in K^*\). For \(K=\R^r\), this requires \(r_i=r\), or equivalently equality of the normalized linear forms.
+
+The aid's nondegenerate quadratic example is
+\[
+ p_1(s,z)=s(s-2z),\qquad p_2(s,z)=(s-z)(s+z),\qquad e=(1,0),
+\]
+with parent \(p=(p_1+p_2)/2=s^2-sz-z^2/2\). Both forms are square-free, positive at \(e\), and every nonzero nonnegative combination is hyperbolic in \(e\). On \(x=(0,1)\), the largest roots of \(p_1,p_2,p\) are respectively \(2,1,(1+\sqrt3)/2\), so child 1 fails the upper bound. On \(x=(0,-1)\), they are \(0,1,(-1+\sqrt3)/2\), so child 2 fails. No one child controls all slices. This obstructs one proposed uniform-selection extension, rather than all possible multivariate theories of interlacing.
+\subsection{Short English statement}
+The source gives a broad request for multivariate interlacing theory. The supplied framework recovers common interlacing and leaf selection on each fixed line, but the chosen leaf can change with the line. A square-free quadratic pair demonstrates why a single uniformly controlling child need not exist; degree one admits an exact dual-cone criterion.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000548\), exact public code \texttt{catalogue entry}; \texttt{aim-analysis-notes.json}, \texttt{notes[79]}.
+\item AIM workshop \emph{Beyond Kadison--Singer: paving and consequences}, source item b7: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. The exact extracted request is ``extend the theory of interlacing families to several variables.''
+\item Supplied research summary, ``Directional hyperbolic families and the obstruction to a uniform leaf,'' attempt 1, describes MSS leaf selection, the compatibility equivalence, dual-cone criterion, and quadratic counterexample. No full MSS citation or other external theorem reference is supplied; original remarks and literature fields are empty.
+\end{itemize}
+\end{document}

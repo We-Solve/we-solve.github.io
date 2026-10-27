@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002366}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $K$ be a number field with ring of integers $\mathcal O_K$, and fix an embedding $\sigma:K\hookrightarrow\C$ whose image is not contained in $\R$. This does not require every embedding of $K$ to be nonreal. Put
+\[
+ S_\sigma=\{\alpha\in\mathcal O_K:|\sigma(\alpha)|\le1\}.
+\]
+Diophantine definability here allows a finite existential polynomial-equation presentation over $\mathcal O_K$, with fixed coefficients/parameters in that ring.
+
+\textbf{Question 30, Shlapentokh.} Is $S_\sigma$ Diophantine in $\mathcal O_K$? The source states that an affirmative answer for all number fields would imply undecidability of Hilbert's Tenth Problem for all their rings of integers. This concerns rings of integers, not automatically the fraction fields.
+
+\textbf{Supplied affirmative route.} The aid invokes Koymans--Pagano, arXiv:2412.01768v3, Theorem 1.2, asserting that the embedded $\Z$ is Diophantine in $\mathcal O_K$ for every number field. Fix an integral basis $e_1,\ldots,e_d$ of $\mathcal O_K$. The integer tuples for the ball are
+\[
+ C_\sigma=\{(m_1,\ldots,m_d)\in\Z^d:
+             |\sigma(\sum_i m_ie_i)|^2\le1\}.
+\]
+This set is recursive under fixed effective number-field/embedding data, since the displayed squared modulus is a real algebraic number and its comparison with one is decidable exactly. By MRDP it has a Diophantine definition over $\Z$. Requiring all its integer coordinates and witnesses to lie in the Diophantine copy of $\Z\subset\mathcal O_K$, and adding $x=\sum_i m_ie_i$, gives the aid's claimed Diophantine definition of $S_\sigma$ over $\mathcal O_K$. The same transfer applies to any fixed recursive predicate on integral-basis coordinates. The resulting formula can depend on $K$, the embedding and the chosen basis; no single parameter-free or characteristic-uniform formula is inferred.
+
+\textbf{Supplied signature dichotomy.} If $K$ is imaginary quadratic, then
+\[
+ S_\sigma=\{0\}\cup\mathcal O_K^\times,
+ \qquad x\in S_\sigma\ \Longleftrightarrow\
+                \exists y\in\mathcal O_K\quad x(xy-1)=0.
+\]
+This special formula is parameter free. In every other number field with the chosen nonreal embedding, the unit rank is positive. The aid uses the Dirichlet logarithmic unit lattice to find a unit $\eps$ with $|\sigma(\eps)|<1$, and asserts
+\[
+ S_\sigma\cap\langle\eps\rangle=\{\eps^n:n\ge0\}.
+\]
+Here $\langle\eps\rangle$ contains all integer powers, so the formula picks a one-sided cyclic ray. In particular this single-embedding ball is infinite outside the imaginary-quadratic case. It is not a bound at all archimedean embeddings, and the ray description is not itself a definition of the entire ball. The main affirmative answer depends on the supplied all-number-field theorem and the transfer argument, which require independent checking.
+\subsection{Short English statement}
+The aid reports an affirmative answer using Koymans--Pagano's Diophantine definition of $\Z$ in every ring of integers and an effective algebraic-number comparison for the fixed complex embedding. Imaginary quadratic fields have the simple zero-or-unit formula; other signatures give infinitely many unit powers in the ball. The conclusion is ring-specific and need not be uniform or parameter free.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002366, source code catalogue entry; canonical \texttt{aim-logic-notes.json}, notes[141].
+\item AIM \emph{Problems related to ``Extensions of Hilbert's Tenth Problem''}, Question 30 (Shlapentokh), moderated by B.~Poonen and T.~Scanlon, notes by J.~Demeyer: \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}. The record reports a direct PDF check, not performed here.
+\item Koymans--Pagano, arXiv:2412.01768v3, Theorem 1.2, as supplied: \url{https://arxiv.org/abs/2412.01768v3}. The aid describes the all-number-field result as a 2025 theorem; no additional title/publication data are invented.
+\item MRDP and Dirichlet's logarithmic unit theorem are invoked by the aid without full bibliography. Registry research attempt 1, dated 2026-08-14: full solution, rigor ``proved'', novelty confidence low. The explicitly machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

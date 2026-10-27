@@ -1,0 +1,89 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001269}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The principal source question, \emph{Max/min Perimeter of central cross-sections} (Hermann K\"onig), concerns \(Q_n=[-1,1]^n\), \(n\ge2\), its central sections \(Q_n\cap u^\perp\), \(u\in S^{n-1}\), and their intrinsic perimeter
+\[
+P_d(K)=\mathcal H^{d-1}(\partial K),\qquad d=n-1,
+\]
+where boundary and Hausdorff measure are taken inside the section space. It asks for maximum and minimum perimeter, then analogous extrema for mean width and intrinsic volumes, other codimensions, other measures such as Gaussian measure, and perimeters of projections. Those extensions do not specify a unique measure, normalization or codimension; each must be specified before it becomes one extremal problem.
+
+The aid reports the known global maximum
+\[
+\max_{u\in S^{n-1}}P_{n-1}(Q_n\cap u^\perp)=2^{n-1}\bigl(1+(n-2)\sqrt2\bigr),
+\]
+attained at \(u=(1,1,0,\ldots,0)/\sqrt2\), attributed to K\"onig--Koldobsky. The coordinate-section global minimum is described as an open natural conjecture in the literature checked by the aid; it is not established by the following sparse-normal calculation.
+
+For \(u=(a,b,0,\ldots,0)\), \(a\ge b\ge0\), \(a^2+b^2=1\), the section is isometric to a box with side lengths \(2/a,2,\ldots,2\), and its orthogonal projection onto \(u^\perp\) is isometric to a box with side lengths \(2(a+b),2,\ldots,2\). Normalize intrinsic volumes by
+\[
+\operatorname{vol}_d(K+tB_2^d)=\sum_{j=0}^d\kappa_{d-j}V_j(K)t^{d-j},\qquad \kappa_i=\operatorname{vol}_i(B_2^i),\quad\kappa_0=1.
+\]
+The aid's complete two-coordinate ledger is
+\[
+\sum_{j=0}^{n-1}V_j(Q_n\cap u^\perp)t^j=(1+2t/a)(1+2t)^{n-2},\qquad
+\sum_{j=0}^{n-1}V_j(Q_n|u^\perp)t^j=(1+2(a+b)t)(1+2t)^{n-2}.
+\]
+Thus \(P_d=2V_{d-1}\) gives section perimeter \(2^{n-1}(1+(n-2)/a)\) and projection perimeter \(2^{n-1}(1+(n-2)(a+b))\). Mean width in the convention of the spherical average of directional widths is \(2\kappa_{d-1}V_1/(d\kappa_d)\). These formulas determine the corresponding monotonicity within this family, not all global extrema. For induced standard Gaussian measure on the section space, one particular interpretation of the Gaussian extension is
+\[
+\gamma_d(Q_n\cap u^\perp)=\Pr\{|Z|\le1/a\}\Pr\{|Z|\le1\}^{n-2},\quad Z\sim N(0,1).
+\]
+Ambient \(n\)-dimensional Gaussian measure of a hyperplane section would instead be zero. For the equal three-coordinate normal and \(n\ge3\), the aid gives the benchmark
+\[
+P_{n-1}\left(Q_n\cap(1,1,1,0,\ldots,0)^\perp\right)=2^{n-3}\bigl(6\sqrt2+3\sqrt3(n-3)\bigr).
+\]
+Combining the Vaaler section-volume bound \(\operatorname{vol}_d(Q_n\cap u^\perp)\ge2^d\) with the Euclidean isoperimetric inequality gives the supplied nonsharp universal lower bound \(P_d\ge d\kappa_d^{1/d}2^{d-1}\).
+
+The extracted field also includes later, distinct problems, which must not be silently treated as solved by this ledger.
+
+Problem 2, Mathieu Meyer: for origin-symmetric convex bodies \(K\subset\R^n\), find the asymptotic order in \(n\) of the supremum over \(K\) of
+\[
+\inf_{u,v\in S^{n-1},\,u\cdot v\ne0}\frac{\operatorname{vol}_{n-1}(P_{v,u^\perp}K)}{\operatorname{vol}_{n-1}(K\cap u^\perp)},\qquad P_{v,u^\perp}x=x-\frac{x\cdot u}{v\cdot u}v.
+\]
+This repairs the extracted numerator, which displays a set rather than its volume, and excludes undefined parallel projection directions. The source writes maximum/minimum; attainment is not established here. It notes affine invariance of the inner value, value 1 for ellipsoids, hence lower bound 1, and a rough bound \(2^n\). Its projection-norm argument, interpreted in the norm with unit ball \(K\), gives \(P_HK\subseteq2(K\cap H)\) and the sharper stated volume factor \(2^{n-1}\).
+
+Problem 3, Maria Alfonseca: for an origin-symmetric star body \(K\), define its radial function \(\rho_K(u)=\max\{a\ge0:au\in K\}\) and intersection body by \(\rho_{IK}(u)=\operatorname{vol}_{n-1}(K\cap u^\perp)\). Ask what conditions on the ``convex kernel'' imply convexity of \(IK\). The supplied definition is the intersection of all convex bodies contained in \(K\), with an additional case mismatch \(M/m\). Taken literally, intersections of arbitrary contained convex bodies may be empty; an intended alternative kernel definition is not supplied.
+
+Problem 4, Carsten Sch\"utt: determine cotype and volume ratio of \(\ell_p^n\otimes_\pi\ell_q^n\otimes_\pi\ell_r^n\). The projective norm of a tensor \(z\) is the infimum of \(\sum_i\|x_i\|_p\|y_i\|_q\|z_i\|_r\) over decompositions \(z=\sum_i x_i\otimes y_i\otimes z_i\). Standard Banach-space notation suggests \(1\le p,q,r\le\infty\), but ranges are not printed. A cotype-\(s\) inequality compares \((\sum_i\|w_i\|^s)^{1/s}\) to \((\E\|\sum_i\epsilon_iw_i\|^2)^{1/2}\) up to a constant, with independent random signs; the question does not specify whether optimal exponents or dimension-dependent constants are sought. Volume ratio ordinarily means \((\operatorname{vol}(B_X)/\max_{E\subseteq B_X}\operatorname{vol}(E))^{1/\dim X}\), with the maximum over ellipsoids, and requires a normalization convention.
+
+Problem 5, Mark Rudelson: for \(\alpha\in(0,1)\) and symmetric convex bodies \(K,L\subset\R^n\), suppose all common sections of dimension \(\alpha n\) have Banach--Mazur distance at most \(b>0\). Is \(d_{\rm BM}(K,L)\le f(b,\alpha)\) for some dimension-independent function? Here the usual distance is the infimum of \(\lambda\ge1\) such that \(K\subseteq TL\subseteq\lambda K\) for an invertible linear map \(T\). The extraction quantifies \(E\) over a class of bodies rather than subspaces; the section-space interpretation and rounding when \(\alpha n\) is not integral are unresolved. The source reports that Rudelson showed the analogous assertion for geometric distance \(d_g\) during a problem session, but does not define \(d_g\).
+
+Problem 6, Richard Gardner: ask whether there is a continuous, affine-invariant map from all convex bodies in \(\R^n\) to origin-symmetric convex bodies, injective modulo translations and reflection in the origin, agreeing with the intersection-body operator on the intended restricted class. The restriction subscript is corrupted in the extraction. Affine invariance versus covariance, topology for continuity, and the exact subclass on which agreement is required are not specified and cannot be silently repaired.
+
+Problem 7, Richard Gardner (discrete Aleksandrov projection theorem): if two full-dimensional centrally symmetric convex lattice sets in \(\Z^n\) have equal cardinalities of their projections on every lattice hyperplane, must they be translates? A convex lattice set has the form \(\operatorname{conv}(A)\cap\Z^n\); the standard reading of projection is orthogonal projection, but it is not explicitly stated. The source says [GGZ] asks this for \(n\ge3\). For \(n=2\) it reports three noncongruent origin-symmetric examples, each with 11 points, in Figure 4 of that paper, and asks whether sufficiently large cardinality restores an affirmative answer. The ``only isolated counterexample known'' qualification is historical.
+
+Problem 8, Richard Gardner, begins by defining the Grassmannian \(G(n,k)\) of \(k\)-dimensional linear subspaces with \(2\le k\le n-1\), interior \(\operatorname{int}K\), origin \(o\), and orthogonal projection \(K|S\). The field ends before its actual questions, so none can be recovered from this fragment.
+
+The registry labels the entry partially solved and exact, while its own verification acknowledges that the extraction runs beyond Problem 1. Attempt 1 is labeled partial result, problem partially solved at the run, internal rigor proved, novelty confidence low. These are supplied assessments. The machine-generated research aid is not peer reviewed and requires independent verification before citation.
+\subsection{Short English statement}
+The main question asks for extremal perimeters and related functionals of cube sections and projections. The aid gives the reported global perimeter maximum, explicit two-coordinate formulas, a three-coordinate benchmark and a nonsharp lower bound; it does not settle all minima or extensions. Several later convex-geometry problems accidentally merged into this entry are retained with their missing definitions and damaged quantifiers identified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001269\), source code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[0]}.
+\item AIM, \emph{Sections of convex bodies}, Problem 1, page 2, \emph{Max/min Perimeter of central cross-sections}, proposed by Hermann K\"onig, and the additional extracted Problems 2--8: \url{https://aimath.org/pastworkshops/sectionsconvexproblems.pdf}. Attribution and page/title recovery come from the supplied verification; no independent PDF inspection is claimed.
+\item The aid names K\"onig--Koldobsky for the maximum perimeter result, Vaaler's theorem for the volume lower bound, and the Euclidean isoperimetric inequality. No full bibliographic citations or theorem numbers are supplied.
+\item Problem 7 cites [GGZ], Figure 4, without authors, title, publication data or URL. Other problem attributions are retained in the text. The original literature field is empty.
+\item Supplied research attempt 1 and verification note, registry update August 14, 2026: machine-generated aid, not peer reviewed.
+\end{itemize}
+\end{document}

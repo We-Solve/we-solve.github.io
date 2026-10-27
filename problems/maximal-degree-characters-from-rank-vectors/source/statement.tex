@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002821}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Problem 1.9 asks to describe maximal-degree irreducible characters of pattern groups, as supercharacters, using dimension vectors and polynomial equations. Its remark says to check a paper by Dixmier, without identifying it. The source does not define the intended dimension vectors or whether a particular supercharacter theory is required. The supplied aid uses the standard algebra-group theory and proves a claimed special case for pattern posets with no four-element chain.
+
+Let \(P\) be a finite poset on labelled indices, let \(J_P\) be the \(\F_q\)-algebra spanned by matrix units \(E_{ik}\) for \(i<_Pk\), and set \(G_P=1+J_P\). Matrix multiplication is \(E_{ij}E_{jk}=E_{ik}\) when indices match. Fix a nontrivial additive character \(\psi:\F_q\to\C^*\). For \(\lambda\in J_P^*\), the standard Diaconis--Isaacs supercharacter is
+\[
+ \chi_\lambda(g)=\frac{|G_P\lambda|}{|G_P\lambda G_P|}
+        \sum_{\nu\in G_P\lambda G_P}\psi(\nu(g-1)).
+\]
+Different \(\lambda\)'s in the same two-sided orbit label the same supercharacter; rank loci below are parameter loci, not a claim of unique character labels.
+
+Suppose \(P\) has height at most three, meaning no chain of four distinct elements, so \(J_P^3=0\). For each index \(j\), let \(a_j\) and \(b_j\) be the numbers of predecessors and successors of \(j\), and form the \(a_j\times b_j\) matrix
+\[
+ A_j(\lambda)=\bigl(\lambda(E_{ik})\bigr)_{i<_Pj<_Pk}.
+\]
+The aid reports that every standard supercharacter is irreducible, all ordinary irreducible characters are obtained, and
+\[
+ \chi_\lambda(1)=q^{\sum_j\operatorname{rank}A_j(\lambda)}.
+\]
+Define the exact finite-field optimization
+\[
+ R_q(P)=\max_{\lambda\in J_P^*}
+                  \sum_j\operatorname{rank}A_j(\lambda),\qquad
+ R(P)=\sum_j\min(a_j,b_j).
+\]
+The maximal ordinary character degree in this special case is \(q^{R_q(P)}\). Its parameter locus is the union of the rank-vector strata with total rank \(R_q(P)\). Exact rank \(r_j\) means all \((r_j+1)\)-minors vanish and at least one \(r_j\)-minor is nonzero, with the usual empty-minor convention for rank zero. Thus these are determinantal equations and inequations. A nonzero minor condition can be encoded by an auxiliary variable \(u\) and equation \(uD-1=0\), on the corresponding minor chart. Shared entries between different \(A_j\)'s must be retained; their feasible ranks are not independent choices.
+
+The aid reports the uniform sufficient field-size criterion
+\[
+ q>R(P)\quad\Longrightarrow\quad R_q(P)=R(P),
+\]
+so the maximum degree is \(q^{R(P)}\) in that range. It does not claim this field-size threshold is necessary or sharp, or that the same formula always holds over smaller fields. The exact optimization remains valid for every prime power.
+
+For arbitrary finite-dimensional nilpotent algebra \(J\), the aid gives a separate polynomial-rank test for irreducibility of a standard supercharacter. In a basis \(e_1,\ldots,e_s\), let
+\[
+ B_\lambda=(\lambda(e_ue_v))_{u,v=1}^s.
+\]
+The left and right orbit-direction spaces have dimensions \(\operatorname{rank}B_\lambda\); their intersection vanishes exactly when
+\[
+ \operatorname{rank}[B_\lambda\ B_\lambda^T]
+                  =2\operatorname{rank}B_\lambda.
+\]
+The aid identifies this with irreducibility of \(\chi_\lambda\); its degree is \(q^{\operatorname{rank}B_\lambda}\). This is a test for irreducible standard supercharacters. Outside the height-three setting it does not imply all irreducibles are standard supercharacters or solve the maximal ordinary-degree problem. Nor does it specify the broader dimension-vector interpretation requested by the original source.
+\subsection{Short English statement}
+The aid answers a height-at-most-three special case using matrices of functional values along length-two paths. Their rank sum gives every irreducible degree, and maximal-degree parameters are determinantal strata. A field-size condition realizes all individual rank maxima simultaneously. For general algebra groups only a standard-supercharacter irreducibility test is supplied, not the full maximal-degree classification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002821, catalogue entry; canonical \texttt{aim-representation-theory-notes.json}, notes[92].
+\item AIM \emph{Supercharacters and combinatorial Hopf algebras}, Problem 1.9, \url{https://aimath.org/WWN/supercharacters/supercharacters.pdf}. No individual proposer is supplied.
+\item Original remark: ``Check paper by Dixmier.'' No title, year, theorem number or bibliographic entry is supplied; none is invented.
+\item The aid names the standard Diaconis--Isaacs supercharacter theory without full bibliographic details. Machine-generated research attempt 1 is labeled partial result, partially solved, rigor proved and low novelty confidence. Its rank formulas are not peer reviewed and require independent verification.
+\end{itemize}
+\end{document}

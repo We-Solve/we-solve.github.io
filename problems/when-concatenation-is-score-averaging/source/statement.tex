@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000875}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Section A.6, ``Thursday Open Discussion,'' is a collection of workshop prompts rather than a single formal problem. Lou Billera asks whether sequence-to-tree procedures are coherent with concatenation regarded as averaging; Penny asks about different concatenations and parameter counts. No sequence model, tree space, inference rule, or definition of averaging/coherence is specified. The following score formulation is the supplied aid's separate partial analysis of that prompt.
+
+Let \(\mathcal T\) be a finite nonempty candidate set, with data blocks \(j=1,\ldots,m\). For candidate \(T\), let \(\ell_j(T,\theta_j)\) be a real score, with finite attained maximum
+\[
+ s_j(T)=\max_{\theta_j}\ell_j(T,\theta_j).
+\]
+For weights \(w_j\ge0\), fully partitioned nuisance parameters give
+\[
+ S_{\mathrm{part}}(T,w)
+ =\max_{(\theta_1,\ldots,\theta_m)}\sum_jw_j\ell_j(T,\theta_j)
+ =\sum_jw_js_j(T).
+\]
+The aid reports that the weights for which \(T\) is a possibly tied winner form the closed convex polyhedral cone
+\[
+ W_T=\left\{w\in\R_{\ge0}^m:
+ \sum_jw_j(s_j(T)-s_j(U))\ge0\ \text{for every }U\in\mathcal T\right\}.
+\]
+In particular \(T\) wins for every nonnegative weight vector exactly when it wins every individual block. This uses weak winners; at \(w=0\), all candidates tie, so it is not a unique-winner statement. The aid reports that retaining only the block-winning topology labels cannot in general determine the winner of the sum: score margins discarded by those labels can change the result.
+
+If nuisance parameters are instead linked, specify a common nonempty parameter space \(\Theta\) and define
+\[
+ S_{\mathrm{shared}}(T,w)=\max_{\theta\in\Theta}\sum_jw_j\ell_j(T,\theta),
+ \qquad A_j(T)=\operatorname*{argmax}_{\theta\in\Theta}\ell_j(T,\theta).
+\]
+Assuming the individual and shared maxima are finite and attained, the aid reports
+\[
+ S_{\mathrm{shared}}(T,w)\le S_{\mathrm{part}}(T,w),
+\]
+with equality exactly when
+\[
+ \bigcap_{j:w_j>0}A_j(T)\ne\varnothing.
+\]
+For all-zero weights the intersection is \(\Theta\). Without attainment, equality of suprema need not yield a common optimizer. An explicit two-block example is reported to show that linking parameters can reverse the selected candidate, but its scores are not supplied. These are score-level criteria and do not assert equivalence to a geometric average of inferred trees.
+
+The remaining discussion prompts are retained independently. Diaconis mentions residuals for discrete-data analysis and natural measures on tree space. Confidence sets and likelihood contours are discussed near branch-transition points, including short-edge maximum-likelihood trees, with possible relevance of curvature. Holmes asks about directions and multivariate distances; Diaconis mentions vector-valued or partially ordered distances. Epstein asks about alternatives to trees, and St. John suggests networks with non-tree portions. Vert proposes repeatedly generating data from a tree and re-estimating a tree by maximum likelihood, asking about the resulting walk. Shareshian asks whether two-colored trees could model orthology and paralogy. None is supplied with the spaces, probability kernels, loss functions, or axioms needed for a unique theorem. The final discussion also concerns interdisciplinary follow-up groups and possible AIM meetings; it does not resolve these questions.
+
+The source defects ``One question He noted,'' ``date,'' and ``prodcue'' are reported as present in the PDF itself; no mathematical content is reconstructed from them. The isolated 12 is a page number.
+\subsection{Short English statement}
+The discussion asks several questions about trees, sequence concatenation, and geometry. The supplied aid treats one precise score version: independently profiled block scores add, winner regions are polyhedral cones, and linking nuisance parameters preserves a candidate's score exactly when the block optimizers intersect.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000875\), source code \texttt{catalogue entry}; \texttt{aim-biology-notes.json}, \texttt{notes[39]}, tag \texttt{section}.
+\item AIM workshop report, \emph{Geometric models of biological phenomena}, section A.6, ``Thursday Open Discussion'': \url{https://aimath.org/WWN/geombio/geombio.pdf}. Statement status \texttt{exact}; the supplied verification reports comparison to the PDF and identifies source defects. No PDF was accessed for this draft.
+\item Lou Billera, moderator; discussion attributions Diaconis, Penny, Holmes, Epstein, St. John, Vert, and Shareshian. Organizers Lou Billera, Susan Holmes, and Karen Vogtmann and ARCC are acknowledged in the source. No original remarks, literature references, or authoritative external citation for the score criteria are supplied.
+\item Research attempt 1: \texttt{context\_only}, problem status at run \texttt{not\_a\_problem}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{open}, classification \texttt{OPEN-TRIAGE}, suggested difficulty L2. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed and must be independently verified before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

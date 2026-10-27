@@ -1,0 +1,98 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 701471}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Identify the oriented circle with \(S^1=\R/\Z\), so that rotation parameters are measured in full turns. Use the concrete group of lifts
+\[
+\widetilde{\operatorname{Homeo}}^{+}(S^1)
+=\{A:\R\to\R\mid A\text{ is an increasing homeomorphism and }A(x+1)=A(x)+1\}.
+\]
+The source calls its target the universal central extension of \(\operatorname{Homeo}^{+}(S^1)\); the formulation here uses this standard group of lifts. For \(A\) in this group, define its translation number, called its real-valued rotation number in the source, by
+\[
+\tau(A)=\lim_{n\to\infty}\frac{A^n(x)-x}{n},\qquad x\in\R.
+\]
+This limit is independent of \(x\). The real value depends on the chosen lift of a circle homeomorphism; the rotation number of the circle homeomorphism itself is the class modulo \(\Z\). Thus all real-valued quantities below belong to specified lifts. This also corrects the source's placement of \(x\) in \(S^1\) in the displayed lift formula.
+
+Let \(F=\langle a,b\rangle\) be the free group of rank two. For \(w\in F\) and \(r,s\in\R\), put
+\[
+\mathcal H(r,s)=\{\rho:F\to\widetilde{\operatorname{Homeo}}^{+}(S^1)\mid \rho\text{ is a homomorphism},\ \tau(\rho(a))=r,\ \tau(\rho(b))=s\}.
+\]
+Following the source, write
+\[
+R(w,r,s)=\max_{\rho\in\mathcal H(r,s)}\tau(\rho(w)).
+\]
+The word ``maximum'' is retained from the source; its attainment is an implicit prerequisite of this definition and is not established in this statement-only draft.
+
+For \(t\in\R\), let \(T_t(x)=x+t\). Define
+\[
+\mathcal H_{\mathrm{rot}}(r,s)=\left\{\rho:F\to\widetilde{\operatorname{Homeo}}^{+}(S^1)\ \middle|\ 
+\begin{array}{l}
+\rho\text{ is a homomorphism, and there exist }U,V\in\widetilde{\operatorname{Homeo}}^{+}(S^1)\\
+\text{such that }\rho(a)=UT_rU^{-1},\quad \rho(b)=VT_sV^{-1}
+\end{array}\right\}
+\]
+and
+\[
+R(w,r-,s-)=\sup_{\rho\in\mathcal H_{\mathrm{rot}}(r,s)}\tau(\rho(w)).
+\]
+Here \(r-\) and \(s-\) are the source's notation for this conjugacy-restricted supremum; no identification with a one-sided limit is assumed.
+
+For a word \(w\) containing only positive powers of \(a\) and \(b\), let \(h_a(w)\) and \(h_b(w)\) count its occurrences of \(a\) and \(b\), respectively. The four questions are:
+\begin{enumerate}
+\item[(a)] For every \(w\in F\) and \(r,s\in\Q\), is \(R(w,r,s)\in\Q\)?
+\item[(b)] For every \(w\in F\) and \(r,s\in\Q\), is \(R(w,r-,s-)\in\Q\)?
+\item[(c)] \emph{Weak Slippery Conjecture.} For a positive word \(w\), call \((r,s)\in\R^2\) slippery if
+\[
+\forall r',s'\in\R,\qquad
+(r'<r\ \text{and}\ s'<s)\ \Longrightarrow\ R(w,r',s')<R(w,r-,s-).
+\]
+For every such word and every slippery pair, must
+\[
+R(w,r-,s-)=h_a(w)r+h_b(w)s
+\]
+hold?
+\item[(d)] \emph{Slippery Conjecture.} Let \(m\geq1\) be an integer and
+\[
+w=a^{\alpha_1}b^{\beta_1}\cdots a^{\alpha_m}b^{\beta_m},
+\qquad \alpha_i,\beta_i\in\Z_{>0}.
+\]
+Thus \(h_a(w)=\sum_{i=1}^{m}\alpha_i\) and \(h_b(w)=\sum_{i=1}^{m}\beta_i\). For every \(r,s\in\R\), if
+\[
+R(w,r,s)=\frac pq,\qquad p\in\Z,\quad q\in\Z_{>0},\quad \gcd(|p|,q)=1,
+\]
+must
+\[
+\left|\frac pq-h_a(w)r-h_b(w)s\right|\leq\frac mq
+\]
+hold? No slipperiness assumption is imposed in this part, and rationality of \(r\) and \(s\) is not imposed by the supplied formulation.
+\end{enumerate}
+\subsection{Short English statement}
+For actions of a rank-two free group by lifts of orientation-preserving circle homeomorphisms, ask whether the largest translation number of a word is rational when the generators have rational translation numbers. Ask the analogous question when the generators are individually conjugate to rigid rotations. For positive words, the two Slippery Conjectures propose an equality at slippery parameter pairs and a denominator-dependent bound whenever the unrestricted maximum is rational. These are supplied questions, and the registry's open label is not an independently verified status assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(701471\), source problem code \texttt{catalogue entry}, title \emph{Kourovka Notebook Problem 18.42}. Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}. The record was created and updated on 2026-10-16 and labels the problem open; this label is supplied metadata, not an independently verified mathematical assessment.
+\item \emph{The Kourovka Notebook (Unsolved Problems in Group Theory)}, original problem 18.42, proposed by D. Calegari and A. Walker in 2014. The supplied background identifies the 18th issue (2014) and a 21st-issue edition (2026), with identifier \texttt{arXiv:1401.0300v48}. The supplied collection description names E. I. Khukhro and V. D. Mazurov as editors. This bibliographic attribution is supplied evidence and has not been independently checked; no explicit source URL or separate literature-verification date was supplied.
+\end{itemize}
+\end{document}

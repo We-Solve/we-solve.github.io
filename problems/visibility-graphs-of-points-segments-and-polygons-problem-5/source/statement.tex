@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800535}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied excerpt does not define blockers or $b(n)$, and does not explicitly specify the ambient space. The following is a precise candidate formulation under a planar interpretation, with $b(n)$ interpreted as a minimum over point configurations. These interpretations require confirmation from the complete source.
+
+For an integer $n\geq 2$, let $P\subset\R^2$ consist of $n$ distinct points in general position, meaning that no three points of $P$ are collinear. For distinct $p,q\in P$, define the open segment
+\[
+(p,q)=\{(1-t)p+tq:0<t<1\}.
+\]
+A finite set $B\subset\R^2\setminus P$ blocks $P$ if
+\[
+B\cap(p,q)\neq\varnothing
+\qquad\text{for every distinct }p,q\in P.
+\]
+Under the interpretation above, set
+\[
+b(P)=\min\{|B|:B\text{ is a finite set blocking }P\},
+\qquad
+b(n)=\min_{\substack{P\subset\R^2,\ |P|=n\\\text{no three points of }P\text{ collinear}}}b(P).
+\]
+The requested conjecture is
+\[
+\lim_{n\to\infty}\frac{b(n)}{n}=+\infty.
+\]
+Equivalently, for every real $M>0$ there exists an integer $N\geq2$ such that, for every integer $n\geq N$, every such configuration $P$ of $n$ points, and every finite set $B$ blocking $P$, one has $|B|\geq Mn$. The threshold $N$ must be uniform over all these configurations.
+
+For the accompanying source context, define
+\[
+\mu(P)=\left|\left\{\frac{p+q}{2}:p,q\in P,\ p\neq q\right\}\right|,
+\qquad
+\mu(n)=\min_{\substack{P\subset\R^2,\ |P|=n\\\text{no three points of }P\text{ collinear}}}\mu(P).
+\]
+Thus coincident midpoints are counted only once. The excerpt states $b(n)\leq\binom n2$ and attributes to Stanchescu and Pach, independently, the bounds
+\[
+b(n)\leq\mu(n)\leq n\,2^{c\sqrt{\log n}},
+\]
+where $c$ is an absolute constant, using Freiman's theorem on set addition. Here $\log$ may be read as the natural logarithm, with its fixed base absorbed into $c$; the excerpt does not specify the range of $n$ for the displayed estimate. Its accompanying observation is that any failure of $\mu(n)=O(n)$ is constrained by this upper bound to slightly superlinear growth. These bounds and attributions are supplied background, not independently verified results in this draft. The registry labels the problem open; that label is supplied curation rather than an independent assessment.
+\subsection{Short English statement}
+Under the explicitly stated planar interpretation, prove that the minimum number of added points needed to block every segment joining two of $n$ points, with no three original points collinear, grows faster than every constant multiple of $n$, uniformly over all configurations. The excerpt leaves the definitions of blockers and $b(n)$ implicit, so this interpretation requires source confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID $800535$, exact source problem code \texttt{catalogue entry}, title ``Visibility Graphs of Points, Segments and Polygons --- Problem 5.'' The record attributes the problem to Ghosh and Goswami, with proposed year 2010, and supplies status \texttt{open}. The record was created and updated on 2026-10-16.
+\item Ghosh and Goswami, \emph{Unsolved Problems in Visibility Graphs of Points, Segments and Polygons} (2010), Problem 5. Supplied source URL: \url{https://arxiv.org/abs/1012.5187}. The background records access on 2026-10-16 and extraction method \texttt{arxiv\_latex}. This access information is supplied provenance, not a claim that this draft independently visited or verified the source.
+\item The excerpt cites Freiman's theorem on set addition with reference label \texttt{[f-fsts-1973]}, and attributes the midpoint upper bound independently to Stanchescu, \texttt{[ys-psc-2002]}, and Pach, \texttt{[p-msip-2003]}. Full bibliographic entries for these labels were not supplied.
+\item The excerpt says that many authors have stated or conjectured the superlinear blocker assertion, citing \texttt{[dpt-nbvp-2009]}, \texttt{[hhuz-mpp-2001]}, \texttt{[m-bvpg-2009]}, \texttt{[pw-ovb-2010]}, and \texttt{[ys-psc-2002]}. These reference labels are preserved without inventing missing bibliographic details or assigning a unique originator.
+\end{itemize}
+\end{document}

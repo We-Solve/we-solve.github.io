@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000391}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Pollack's source question asks what is known about gaps between irreducible polynomials over \(\F_q\). The supplied research interpretation takes a gap to mean an additive difference between monic irreducibles of the same large degree, rather than consecutive polynomials in an unspecified ordering. Fix a prime power \(q\), a nonzero \(h\in\F_q[T]\) of degree \(d\), and an integer \(n>d\). Define
+\[
+ N_q(n;h)=\#\{f\in\F_q[T]:f\text{ monic of degree }n,\ f\text{ and }f+h\text{ irreducible}\}.
+\]
+The original question is to describe results or bounds for such gaps and counts; it supplies no specific asymptotic formula or limiting regime. Its final isolated text ``\(>1\)'' has no stated antecedent and is not imposed here as a further condition.
+
+For a monic irreducible \(P\), set \(|P|=q^{\deg P}\) and let \(\nu_P(h)\) be the number of distinct residues among \(0,-h\) modulo \(P\). Thus \(\nu_P(h)=1\) if \(P\mid h\), and \(2\) otherwise. Call \(\{0,h\}\) admissible when \(\nu_P(h)<|P|\) for every such \(P\), and define its singular series by
+\[
+ \mathfrak S_q(h)=\prod_P
+ \frac{1-\nu_P(h)/|P|}{(1-1/|P|)^2}.
+\]
+The supplied candidate synthesis asserts that this product converges and is positive exactly for admissible pairs, with
+\[
+ \{0,h\}\text{ admissible}\quad\Longleftrightarrow\quad
+ \begin{cases}
+ \text{always},&q>2,\\
+ T(T+1)\mid h,&q=2.
+ \end{cases}
+\]
+It reports that failure of admissibility forces \(N_q(n;h)=0\) for sufficiently large \(n\); admissibility alone is not asserted to prove a prime-pair asymptotic.
+
+For fixed \(n>d\), \(a\in\F_q^*\), and \(b\in\F_q\), define
+\[
+ f^{a,b}(T)=a^{-n}f(aT+b),\qquad h^{a,b}(T)=a^{-n}h(aT+b).
+\]
+The reported normalized affine invariance preserves monicity, irreducibility, the count \(N_q(n;h)\), admissibility and the singular series, with the count for \(h\) equal to that for \(h^{a,b}\). If the leading coefficient of \(h\) is \(c\), those of its transformed gaps are precisely
+\[
+ c(\F_q^*)^{n-d},
+\]
+since each transformation gives coefficient \(ca^{d-n}\). In particular the condition \(\gcd(n-d,q-1)=1\) makes this power-coset all of \(\F_q^*\). The report identifies this condition in an unnamed published monomial scaling theorem as a restriction of affine transport, distinct from a local obstruction. The theorem's full statement and reference are not supplied, so no additional prescribed-gap existence theorem is inferred.
+\subsection{Short English statement}
+Study additive differences between monic irreducible polynomials of equal degree. The supplied report identifies the binary local obstruction and separates it from the leading-coefficient restriction imposed by affine changes of variable; it does not supply a general prime-pair asymptotic.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000391\), source code \texttt{catalogue entry}; AIM algebraic number theory corpus, \texttt{aim-algebraic-number-theory-notes.json}, notes[42]. Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0.
+\item AIM workshop \emph{Arithmetic statistics over finite fields and function fields}, Question 13, attributed to Pollack: \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. The extracted question ends with an unexplained ``\(>1\)''; original remarks and literature fields are empty. The verification field ends after ``The exact record in the AIM corpus is:''.
+\item The research summary refers to a published monomial scaling theorem without author, title, date or full statement; no bibliographic details are invented.
+\item Registry assessment dated August 14, 2026: \texttt{partially\_solved}, \texttt{PARTIAL-PROGRESS}; attempt 1 labelled partial result, rigor proved, novelty confidence low. Its coordinate-audited candidate synthesis is a machine-generated research aid, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

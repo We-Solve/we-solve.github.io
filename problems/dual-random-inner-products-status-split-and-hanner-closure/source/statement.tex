@@ -1,0 +1,94 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001281}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(K\subseteq\R^n\), \(n\geq1\), be an origin-symmetric convex body, and define its polar
+\[
+ K^*=\{y:\langle x,y\rangle\leq1\text{ for all }x\in K\}.
+\]
+Interpret the random vectors as independent and uniform: \(X\sim\operatorname{Unif}(K)\), \(Y\sim\operatorname{Unif}(K^*)\). This probability convention is necessary and is not spelled out in the extracted phrase ``distributed in''. With \(Z=\langle X,Y\rangle\), symmetry gives mean zero and \(|Z|\leq1\). For \(p>0\), put
+\[
+ S(K)=|K||K^*|,\quad
+ J_p(K)=\int_K\int_{K^*}|\langle x,y\rangle|^p\,\dd y\,\dd x,
+ \quad M_p(K)=\E|Z|^p=\frac{J_p(K)}{S(K)}.
+\]
+Thus \(\operatorname{Var}(Z)=M_2(K)\). All these quantities are unchanged by invertible linear transformations of \(K\). For the Euclidean unit ball \(B_2^n\), writing \(\kappa_n=|B_2^n|\),
+\[
+ M_2(B_2^n)=\frac{n}{(n+2)^2},\qquad
+ J_2(B_2^n)=\kappa_n^2\frac{n}{(n+2)^2}.
+\]
+The source asks whether ellipsoids maximize \(M_2\), and separately whether they maximize \(J_2\); Paouris asks the analogous moment questions \(M_p(K)\leq M_p(B_2^n)\) and \(J_p(K)\leq J_p(B_2^n)\), for \(p>0\). Normalization by \(S(K)\) is material.
+
+For \(0<c<1\), the source literally writes the event \(Z=c\) and the volume of its region. Under the continuous uniform convention both have value zero for every body, so the literal level-set assertion is vacuous. The aid interprets the substantive variation as a tail comparison. One explicit symmetric convention is
+\[
+ T_c(K)=\Pr(|Z|\geq c),\qquad
+ U_c(K)=\mathcal L^{2n}\{(x,y)\in K\times K^*:|\langle x,y\rangle|\geq c\}=S(K)T_c(K).
+\]
+The conjectural inequalities would be \(T_c(K)\leq T_c(B_2^n)\) or, separately, \(U_c(K)\leq U_c(B_2^n)\). Signed positive tails are half these quantities by symmetry, so they give equivalent comparisons; the source's equality sign is not silently rewritten.
+
+The aid reports a mixed status. Klartag's 2018 construction refutes the normalized variance bound in sufficiently high dimension. It also reports failure of the normalized tail bound at some threshold, using
+\[
+ M_2(K)=2\int_0^1c\,T_c(K)\,\dd c.
+\]
+By contrast, a May 2026 preprint by Böröczky, Patsalos and Saroglou is reported to prove
+\[
+ J_2(K)\leq J_2(B_2^n),\qquad
+ \text{with equality exactly for ellipsoids}.
+\]
+The report leaves the general \(p\)-moment questions and pointwise unnormalized tail-volume comparisons unresolved in general. This means no full parameter classification is supplied; the normalized moment conjecture already fails at \(p=2\).
+
+The aid further records exact closure formulas. Let \(A\subseteq\R^a\), \(B\subseteq\R^b\) be origin-symmetric convex bodies, \(a,b\geq1\), \(n=a+b\), and define
+\[
+ A\oplus_1B=\operatorname{conv}\bigl((A\times\{0\})\cup(\{0\}\times B)\bigr),\quad
+ \alpha_a=\frac{(a+1)(a+2)}{(n+1)(n+2)},\quad
+ \alpha_b=\frac{(b+1)(b+2)}{(n+1)(n+2)}.
+\]
+For \(\Sigma_K=|K|^{-1}\int_Kxx^{\mathsf T}\,\dd x\), the reported sum/product recursions have the explicit block form
+\[
+ \Sigma_{A\times B}=\operatorname{diag}(\Sigma_A,\Sigma_B),\qquad
+ \Sigma_{A\oplus_1B}=\operatorname{diag}(\alpha_a\Sigma_A,\alpha_b\Sigma_B),
+\]
+with polar identities \((A\times B)^*=A^*\oplus_1B^*\) and \((A\oplus_1B)^*=A^*\times B^*\). For either \(H=A\times B\) or \(H=A\oplus_1B\), the aid reports
+\[
+ M_2(H)=\alpha_aM_2(A)+\alpha_bM_2(B),\qquad
+ S(H)=\frac{a!b!}{n!}S(A)S(B).
+\]
+Starting with symmetric intervals and iterating these two operations defines Hanner polytopes. Every \(n\)-dimensional Hanner polytope, independently of its decomposition, is reported to satisfy
+\[
+ S(H)=\frac{4^n}{n!},\qquad
+ M_2(H)=\frac{2n}{3(n+1)(n+2)},\qquad
+ J_2(H)=\frac{4^n}{n!}\frac{2n}{3(n+1)(n+2)}.
+\]
+These explicit-family identities are separate from the unresolved general moment and tail questions.
+\subsection{Short English statement}
+Normalized moments and unnormalized integrals have different reported outcomes. The aid attributes a high-dimensional variance counterexample to Klartag, a positive quadratic integral result to a May 2026 preprint, and exact sum/product formulas to its Hanner-polytope analysis. Literal equality-level events have zero probability and volume.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001281\), exact public code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[12]}.
+\item AIM workshop ``Mahler's conjecture and duality in convex geometry'' (2010), Problem 17, attributed to G. Kuperberg, with the \(p>0\) variation attributed to G. Paouris: \url{https://aimath.org/WWN/mahlerduality/mahlerduality.pdf}. The extraction begins ``7.''; the supplied verification says the leading 1 was lost and identifies Problem 17. The final isolated 1 is a page artifact. The literature field is empty.
+\item The supplied aid attributes the normalized-variance counterexample to Klartag (2018), and the unnormalized quadratic inequality with ellipsoid equality to Böröczky, Patsalos and Saroglou, May 2026 preprint. It supplies no titles, publication details or separate URLs for these works.
+\item Research attempt 1: \texttt{partial\_result}, status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It reports the mixed literature status, layer-cake consequence and covariance/volume recursions, describing the Hanner closure and explicit values as a candidate contribution. Its current-status descriptions are supplied assessments rather than new source checks.
+\end{itemize}
+\end{document}

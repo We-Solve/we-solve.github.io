@@ -1,0 +1,92 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002027}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Problem 8 asks to express the Gauss--Bonnet integrand as a Schouten symmetric-function term plus explicit Weyl corrections, and then explain the relation between Q-curvature and topology. Fix \(n=2m\geq4\), the Laplacian \(\Delta=\operatorname{div}\nabla\), and
+\[
+ J=\frac{R}{2(n-1)},\qquad
+ P=\frac{\operatorname{Ric}-Jg}{n-2},\qquad
+ \operatorname{Rm}=W+P\mathbin{\star} g.
+\]
+Use the Kulkarni--Nomizu convention
+\[
+ (P\mathbin{\star} g)_{ij}{}^{kl}
+ =P_i{}^k\delta_j^l+P_j{}^l\delta_i^k
+  -P_i{}^l\delta_j^k-P_j{}^k\delta_i^l.
+\]
+Let the generalized delta be the determinant of Kronecker deltas and define the standard Euler scalar
+\[
+ E_{2m}=2^{-m}\delta^{i_1\cdots i_{2m}}_{j_1\cdots j_{2m}}
+ \prod_{a=1}^m R_{i_{2a-1}i_{2a}}{}^{j_{2a-1}j_{2a}}.
+\]
+With these conventions \(E_4=|\operatorname{Rm}|^2-4|\operatorname{Ric}|^2+R^2\), and on a closed manifold
+\(\int E_{2m}\,\dd\mathrm{vol}=(4\pi)^m m!\chi(M)\).
+
+The aid's all-even-dimensional finite contraction formula is
+\[
+ E_{2m}=2^m(m!)^2\sigma_m(P)+\sum_{r=1}^m C_{m,r}(W,P),
+\]
+where an explicit definition of each correction is
+\[
+ C_{m,r}=2^{-m}\binom mr
+ \delta^{i_1\cdots i_{2m}}_{j_1\cdots j_{2m}}
+ \left(\prod_{a=1}^r
+ W_{i_{2a-1}i_{2a}}{}^{j_{2a-1}j_{2a}}\right)
+ \left(\prod_{a=r+1}^m
+ (P\mathbin{\star} g)_{i_{2a-1}i_{2a}}{}^{j_{2a-1}j_{2a}}\right).
+\]
+Empty products are one. Every correction contains a Weyl factor, and the displayed coefficient of the pure Schouten term fixes its normalization. This is a complete contraction expression, not a claim that every correction has been simplified into a minimal list of independent invariants. For dimension two, where the usual Schouten formula is undefined, the Euler scalar is directly \(E_2=R=2K\).
+
+In dimension four use the full tensor norm \(|W|^2=W_{ijkl}W^{ijkl}\), rather than a curvature-operator norm differing by a fixed factor. The aid gives
+\[
+ E_4=|W|^2+16\sigma_2(P),\qquad
+ Q_4=4\sigma_2(P)-\Delta J,
+ \quad J=R/6.
+\]
+Equivalently \(Q_4=-\frac16\Delta R-\frac12|\operatorname{Ric}|^2+\frac16R^2\). Thus every closed Riemannian four-manifold satisfies
+\[
+ \int_MQ_4\,\dd\mathrm{vol}
+ =8\pi^2\chi(M)-\frac14\int_M|W|^2\,\dd\mathrm{vol}.
+\]
+In particular total Q is bounded above by \(8\pi^2\chi\), with equality exactly when \(W\) vanishes identically. The closedness assumption removes the Laplacian integral and the Gauss--Bonnet boundary correction.
+
+For the worked family, let \(S^2(a)\) and \(S^2(b)\) denote round spheres of positive Gaussian curvatures \(a,b\), not radii. On their product put \(r=a/b\). Then
+\[
+ \int Q_4\,\dd\mathrm{vol}
+ =\frac{16\pi^2}{3}(4-r-r^{-1}),\qquad
+ \int|W|^2\,\dd\mathrm{vol}
+ =\frac{64\pi^2}{3}(r+2+r^{-1}).
+\]
+The Euler characteristic is four. Within this product family total Q is at most \(32\pi^2/3\), with equality precisely at \(a=b\), and tends to \(-\infty\) as \(r\to0\) or \(r\to\infty\). This family maximum is not the unrestricted topological upper bound. The unit round \(S^4\) independently has \(E_4=24\), \(Q_4=6\), \(W=0\), and \(\int Q_4=16\pi^2\), checking the normalization. The aid does not claim a complete all-even-dimensional Q-topology formula or a fully simplified basis for all Weyl corrections.
+\subsection{Short English statement}
+Expanding the Euler scalar gives an explicit Schouten term and finitely many contractions containing Weyl curvature. In dimension four the resulting integral Q identity separates topology from the Weyl norm. The sphere-product family checks the constants and shows total Q can decrease without bound even at fixed topology.
+\subsection{Sources}
+\begin{itemize}
+\item Permanent UnsolvedMath ID \(20002027\), exact public code catalogue entry; local registry \texttt{aim-geometry-notes.json}, \texttt{notes[364]}, canonical tag problem.
+\item AIM workshop ``Conformal structure in geometry, analysis, and physics,'' Problem 8: \url{https://aimath.org/WWN/confstruct/confstruct.pdf}. No PDF was accessed.
+\item The supplied verification report says both official PDF and HTML have the typo ``expess,'' the PDF line break explains ``in-volving,'' and \(\sigma_{n/2}(P)\) is the intended notation. The clean-statement field is itself malformed, so the original request and supplied mathematical recovery are distinguished.
+\item Research attempt 1, ``Euler integrands, Schouten symmetric functions, and total Q-curvature,'' labelled partial\_result, partially\_solved, proved and low novelty confidence; statement corrected\_verified. It supplies no full primary reference, original literature entry, proposer or year. It explicitly limits the complete Q-topology treatment to dimension four.
+\end{itemize}
+\end{document}

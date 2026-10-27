@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1429}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For integers \(k\geq2\) and \(n\geq k+1\), the complete \(k\)-uniform hypergraph \(K_n^{(k)}\) has vertex set \([n]=\{1,\ldots,n\}\) and all \(k\)-element subsets as edges. A tight Hamilton cycle is given by a cyclic ordering \(v_1,\ldots,v_n\) of all vertices, with edges
+\[
+\{v_i,v_{i+1},\ldots,v_{i+k-1}\},\qquad i=1,\ldots,n,
+\]
+where indices are taken modulo \(n\). In this range it has \(n\) distinct edges and each vertex has degree \(k\). A tight Hamilton decomposition is a partition of the entire edge set of \(K_n^{(k)}\) into such cycles.
+
+The supplied sentence asks whether complete uniform hypergraphs admit such decompositions, but omits the parameters and admissibility hypotheses. Necessarily the number of cycles would be
+\[
+\frac1n\binom nk,
+\]
+and the degree at a vertex would be a multiple of \(k\). Thus the necessary divisibility condition is
+\[
+n\mid\binom nk
+\quad\Longleftrightarrow\quad
+k\mid\binom{n-1}{k-1}.
+\]
+The supplied triage describes the intended asymptotic conjecture as sufficiency of this condition for sufficiently large admissible parameters. A standard fixed-uniformity version has quantifier pattern
+\[
+\forall k\geq3\ \exists n_0(k)\ \forall n\geq\max\{n_0(k),k+1\}:
+\quad k\mid\binom{n-1}{k-1}
+\Longrightarrow K_n^{(k)}\text{ has a tight Hamilton decomposition}.
+\]
+This makes the inferred large-\(n\), fixed-\(k\) reading explicit; the short source sentence itself does not specify that quantifier pattern or its small-parameter exceptions. Its unrestricted universal reading is not adopted, since the supplied triage says it fails divisibility.
+
+A Hamilton Berge cycle is a different object: it uses a cyclic listing of all vertices and distinct edges, each assigned edge containing the corresponding consecutive vertex pair, rather than requiring edges to be precisely consecutive \(k\)-vertex windows. The supplied triage dated 2026-08-17 reports a Berge-cycle decomposition theorem of K\"uhn--Osthus for admissible \(n\) when \(k=3\), and for \(n\geq30\) when \(k\geq4\); it does not identify this with a tight-cycle theorem. It also reports tight decompositions for restricted complete multipartite families, not for all complete uniform hypergraphs. The background's unqualified graph-decomposition analogy likewise omits admissibility such as the degree parity condition. The registry status is open, while the dated triage labels the row partially solved and the intended general tight-cycle conjecture unresolved.
+\subsection{Short English statement}
+Can every sufficiently large complete \(k\)-uniform hypergraph satisfying the necessary divisibility condition be partitioned into spanning tight cycles? The original sentence omits that condition and its parameter quantifiers. Berge-cycle decompositions and restricted multipartite results do not settle the tight-cycle question.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 1429, source code catalogue entry, ``Hamiltonian Decomposition of Hypergraphs,'' including supplied literature triage dated 2026-08-17.
+\item Daniela K\"uhn and Deryk Osthus, ``Decompositions of complete uniform hypergraphs into Hamilton Berge cycles,'' \emph{Journal of Combinatorial Theory, Series A} 126 (2014), 128--135: \url{https://arxiv.org/abs/1403.7932}.
+\item Deryk Osthus, ``Hamilton cycles in graphs and hypergraphs: an extremal perspective,'' survey, Conjecture 5.8: \url{https://web.mat.bham.ac.uk/D.Osthus/icmsurvey4.pdf}. The supplied triage cites a general Hamilton \(\ell\)-cycle decomposition conjecture and necessary divisibility conditions.
+\item Taijiang Jiang, Qiang Sun, Shunzhe Zhang, and Chao Zhang, ``The perfect matching and tight Hamilton cycle decomposition of complete n-balanced mk-partite k-uniform hypergraphs,'' \emph{Discrete Mathematics} 346 (2023), 113631: \url{https://doi.org/10.1016/j.disc.2023.113631}.
+\end{itemize}
+\end{document}

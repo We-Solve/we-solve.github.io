@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002826}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Problem 1.14.} Give a basis of noncommutative symmetric functions \(\operatorname{NCSym}\) naturally related to the supercharacter basis. The source points to the power-sum discussion on page 20 of \emph{Supercharacters, symmetric functions in non commuting variables, and related Hopf algebras}. ``Nicely related'' does not prescribe a unique normalization or transition property.
+
+\textbf{Reported basis answer.} The aid attributes to Bergeron and Thiem (2013) a \(q\)-power-sum basis, unitriangular over the monomial/superclass basis, for which the supercharacter transition is lower triangular with an explicit factored nonzero diagonal. The full \(q\)-weight and transition formula are not supplied, so no coefficients or specialization range are invented. This is retained as a reported literature answer, with the following precise \(q=1\) combinatorial consequence.
+
+For a set partition \(\pi\) of \([n]\), let \(A(\pi)\) be its arcs: pairs of consecutive elements within a block. Let \(m_\pi\) be the monomial NCSym element summing words with equality pattern exactly \(\pi\). At \(q=1\), the aid's arc-inclusion power sum is
+\[
+ P_\nu=\sum_{A(\mu)\supseteq A(\nu)}m_\mu.
+\]
+Compare this with the usual refinement power sum
+\[
+ p_\nu=\sum_{\mu\text{ coarser than }\nu}m_\mu.
+\]
+Arc inclusion implies coarsening, but need not allow every coarsening.
+
+\textbf{Reported block-order bijection.} Give the blocks of \(\nu\) the strict order
+\[
+ B<C\quad\Longleftrightarrow\quad\max B<\min C.
+\]
+The aid reports a bijection between partitions \(\mu\) with \(A(\mu)\supseteq A(\nu)\) and partitions of this block set into chains. A chain part is merged by taking the union of its original blocks. The order inside each chain is forced, and separation of the block intervals preserves the original arcs.
+
+Consequently,
+\[
+ P_\nu=p_\nu\quad\Longleftrightarrow\quad
+ \text{every block of }\nu\text{ is an interval of }[n],
+\]
+equivalently every arc is adjacent. Thus the \(q=1\) arc-inclusion construction is not generally the usual refinement power sum.
+
+For an explicit commutativization convention, let \(\rho\) make the variables commute. For a chain partition \(\mathcal C\) of the block poset, let \(\lambda(\mathcal C)\) be the integer partition of union sizes, and let \(m_d(\lambda)\) be the multiplicity of part \(d\). The corresponding chain formula is
+\[
+ \rho(P_\nu)=\sum_{\mathcal C}
+ \left(\prod_{d\geq1}m_d(\lambda(\mathcal C))!\right)
+ m_{\lambda(\mathcal C)},
+\]
+where the final \(m_\lambda\) is the ordinary commutative monomial symmetric function. The factorial accounts for distinct original blocks of equal union size under the stated noncommutative monomial convention. This formula and the interval criterion concern the arc-inclusion specialization, not unspecified generic \(q\)-weights or a full reconstruction of the supercharacter transition. All supplied basis and bijection claims require independent verification.
+\subsection{Short English statement}
+The aid reports Bergeron--Thiem's triangular \(q\)-power-sum basis as a response to the source. At \(q=1\), its indexing coarsenings are exactly chain partitions of the block interval order. This agrees with the usual refinement power sum precisely for interval set partitions and gives an explicit commutativization rule.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002826\), catalogue entry, \texttt{aim-representation-theory-notes.json}, \texttt{notes[97]}, \emph{Supercharacters and combinatorial Hopf algebras}, Problem 1.14: \url{https://aimath.org/WWN/supercharacters/supercharacters.pdf}.
+\item Original source reference: \emph{Supercharacters, symmetric functions in non commuting variables, and related Hopf algebras}, power-sum discussion p. 20; no authors/publication details are supplied.
+\item Supplied research attribution: Bergeron and Thiem (2013), \(q\)-power-sum basis and triangular supercharacter transition; full citation and formulas are absent. The aid supplies the block-poset bijection and interval criterion. Attempt 1: partial\_result, status at run ``solved'', rigor ``proved'', low novelty confidence; registry solved/SOLVED-IN-LITERATURE. The machine-generated aid is not peer reviewed and requires independent verification before citation; no PDF visit is claimed.
+\end{itemize}
+\end{document}

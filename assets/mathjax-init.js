@@ -7,6 +7,23 @@
   if (!containers.length || !engineSource || !root.MathJax) return;
   var config = root.MathJax;
   var failedExpressions = new Set();
+  var pendingTypesets = [];
+  var runTypeset;
+  var engineFailed = false;
+  root.ProblemHunting = root.ProblemHunting || {};
+  // Dynamic previews share the exact same document-isolated queue as initial
+  // page content. Requests made before the self-hosted engine starts wait here.
+  root.ProblemHunting.typesetTeXContainers = function (selected) {
+    selected = Array.prototype.slice.call(selected);
+    selected.forEach(function (container) {
+      if (containers.indexOf(container) === -1) containers.push(container);
+    });
+    if (engineFailed) { showLoadFailure(); return Promise.resolve(false); }
+    if (runTypeset) return runTypeset(selected);
+    return new Promise(function (resolve, reject) {
+      pendingTypesets.push({ containers: selected, resolve: resolve, reject: reject });
+    });
+  };
 
   function refreshEquationReferences(container) {
     var mathDocument = root.MathJax.startup.document;
@@ -92,6 +109,9 @@
   }
 
   function showLoadFailure() {
+    engineFailed = true;
+    pendingTypesets.forEach(function (request) { request.resolve(false); });
+    pendingTypesets = [];
     replaceErrors();
     containers.forEach(function (container) {
       container.dataset.mathStatus = 'source';
@@ -176,6 +196,15 @@
       var resize = new root.ResizeObserver(sizeWideMath);
       containers.forEach(function (container) { resize.observe(container); });
     } else root.addEventListener('resize', sizeWideMath);
+    runTypeset = function (selected) {
+      if (resize) selected.forEach(function (container) { resize.observe(container); });
+      selected.forEach(typeset);
+      return queue;
+    };
+    pendingTypesets.forEach(function (request) {
+      runTypeset(request.containers).then(request.resolve, request.reject);
+    });
+    pendingTypesets = [];
   };
   config.loader.failed = showLoadFailure;
   var engine = document.createElement('script');

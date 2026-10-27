@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002303}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\psi\in L^2(\R)\), and define
+\[
+B_\psi=\{\psi(\cdot-k):k\in\Z\},\qquad V_\psi=\overline{\operatorname{span}B_\psi}^{\,L^2(\R)}.
+\]
+Assume that \(B_\psi\) is a Schauder basis for \(V_\psi\). More explicitly, for its basis ordering \(\sigma:\N\to\Z\), every \(f\in V_\psi\) has unique coefficients \((a_n)_{n\geq1}\) such that
+\[
+\lim_{N\to\infty}\left\|f-\sum_{n=1}^{N}a_n\psi(\cdot-\sigma(n))\right\|_{L^2(\R)}=0.
+\]
+The supplied record does not specify this ordering; its intended choice requires confirmation.
+
+Use the Fourier convention \(\widehat\psi(\xi)=\int_{\R}\psi(x)e^{-2\pi i x\xi}\,\dd x\) when the integral is defined, extended to \(L^2(\R)\) by continuity. Define the periodized Fourier weight, almost everywhere, by
+\[
+p_\psi(\xi)=\sum_{k\in\Z}|\widehat\psi(\xi+k)|^2.
+\]
+This is a nonnegative, integrable, \(1\)-periodic function on a period.
+
+To make the weight condition explicit, use the periodic interpretation of the Muckenhoupt classes: for \(1<p<\infty\), a \(1\)-periodic, locally integrable function \(w\), positive almost everywhere, belongs to \(A_p\) if
+\[
+[w]_{A_p}=\sup_{\substack{I\subset\R\text{ an interval}\\0<|I|<\infty}}
+\left(\frac{1}{|I|}\int_I w(\xi)\,\dd\xi\right)
+\left(\frac{1}{|I|}\int_I w(\xi)^{-1/(p-1)}\,\dd\xi\right)^{p-1}<\infty.
+\]
+Here the supremum is over bounded intervals of positive length. The supplied extract does not explicitly specify the weight domain or its interval convention; this periodic interpretation requires checking against the report.
+
+Set
+\[
+q_\psi=\inf\{p>1:p_\psi\in A_p\},
+\]
+with the convention \(\inf\varnothing=+\infty\). The strict inequality \(p>1\) follows the supplied corrected statement and its supplied verification note; the older wording instead used \(p\geq1\).
+
+The requested characterization is: for every prescribed \(q\in[1,2)\), identify necessary and sufficient properties of the integer-translate Schauder basis \(B_\psi\) for
+\[
+q_\psi=q.
+\]
+The endpoint \(q=1\) is included as an infimum value; the definition does not require membership in \(A_1\). The endpoint \(q=2\) is excluded. The supplied record does not specify which kinds of basis properties the characterization should use, or whether the intended properties may depend on the basis ordering.
+\subsection{Short English statement}
+For each \(1\leq q<2\), characterize those Schauder bases formed by integer translates of an \(L^2(\R)\) function whose periodized Fourier weight has Muckenhoupt threshold \(q\). The basis ordering and the precise weight-domain convention need confirmation from the source. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record, permanent ID \(30002303\), source problem code \texttt{catalogue entry}, title \emph{Muckenhoupt Thresholds for Integer-Translate Schauder Bases}. The record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2013; no individual proposer is supplied.
+\item Supplied report citation: \emph{Structured Function Systems and Applications} (2013), Oberwolfach Reports, DOI 10.4171/owr/2013/11, pp.~579--655. Source URL and supplied literature reference \emph{Oberwolfach Report 11/2013}: \url{https://doi.org/10.4171/owr/2013/11}. The supplied extract does not identify the specific problem page or discussion author.
+\item The registry labels the statement \texttt{corrected\_verified}. Its supplied verification note says that the official report defines the translate system, its closed span, the periodized Fourier weight, and the strict inequality in the infimum, and that the corrected statement repairs malformed interval notation. This is supplied verification metadata, not an independent source check performed for this draft.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open, describes the threshold as controlled by an \(A_2\) weight for translate Schauder bases, and reports that no characterization realizing each prescribed \(q\in[1,2)\) was found. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. Its time-sensitive status and cited claims require independent verification.
+\end{itemize}
+\end{document}

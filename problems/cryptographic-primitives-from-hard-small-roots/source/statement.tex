@@ -1,0 +1,47 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800030}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A small-root search instance must specify integer polynomials, coordinate bounds \(B_i\), and any moduli. Its valid solutions satisfy the stated exact equations or modular congruences together with \(|x_i|\le B_i\). The source does not choose the polynomial family, degree, number of variables, root range, or representation.
+
+For a cryptographic hardness assumption one would additionally specify a polynomial-time samplable ensemble \(\mathcal D_\lambda\), indexed by a security parameter \(\lambda\), of polynomial-length instances promised to have valid roots. A witness-producing sampler could output \((I,w)\) with \(w\) a valid small root and give only \(I\) to the attacker. The relevant average-case search assumption would be that every probabilistic polynomial-time algorithm \(A\) has negligible success:
+\[
+\Pr_{I\leftarrow\mathcal D_\lambda}
+[A(I)\text{ is a valid small root of }I]\le\operatorname{negl}(\lambda).
+\]
+This is a framework for the missing assumption, not an assertion that an arbitrary small-root ensemble is hard. Worst-case difficulty alone is not the displayed cryptographic hypothesis.
+
+May's programme asks for additional primitives with proved security reductions to an appropriate such assumption. For a chosen primitive and security experiment, a reduction must turn any successful efficient adversary into an efficient small-root solver with an explicitly controlled success loss. Thus the direction is breaking the primitive \(\Rightarrow\) solving the assumed-hard root problem. Merely using lattice algorithms in construction or mentioning lattice/knapsack hardness does not establish that reduction.
+
+The source gives no primitive type, security notion, adversary model, parameter regime, distribution, or baseline examples meant by additional. Those are part of any concrete answer. The supplied research summary reports scattered related primitives but no verified comprehensive answer to this programme; it does not supply an average-case root assumption or security theorem.
+\subsection{Short English statement}
+Construct new primitives with explicit security reductions showing that an efficient successful attack would solve a precisely distributed hard small-root problem. The root ensemble, primitive, and security experiment are unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(8800030\), exact source code \texttt{catalogue entry}, ``Cryptographic primitives from hard small roots.'' Proposer Alexander May.
+\item IPAM \emph{Workshop on Number Theory and Cryptography --- Open Problems} (2006), attachment 6222, recorded PDF page 26, printed slide 20; \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}. Recorded access 2026-07-29; pdf-and-legacy-ppt visual-audit extraction.
+\item Supplied OPEN-TRIAGE summary mentions RSA, knapsack, and ideal-lattice contexts but supplies no precise small-root assumption, security reduction, or complete publication references matching the requested programme.
+\end{itemize}
+\end{document}

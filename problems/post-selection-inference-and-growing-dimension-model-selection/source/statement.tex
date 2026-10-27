@@ -1,0 +1,47 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000339}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(D_n\) denote data of sample size \(n\), let \(\{\mathcal M_j\}\) be the intended candidate models, and let \(\widehat j(D_n)\) be a model-selection rule. In the familiar maximum-likelihood convention, \(\mathrm{AIC}_j=-2\ell_j(\widehat\theta_j)+2d_j\) and \(\mathrm{BIC}_j=-2\ell_j(\widehat\theta_j)+d_j\log n\), where \(d_j\) is model dimension. The record gives neither a sampling model nor a definition of FIC; a focused information criterion additionally needs the chosen focus and its risk setup. The following preserves all four requests without choosing those missing data.
+\begin{enumerate}
+\item After selection by AIC or FIC, determine the actual coverage of a nominal \(95\)-percent interval. For a fixed target \(\psi(\theta)\), a possible unconditional quantity is
+\[
+ \Pr_\theta\{\psi(\theta)\in I_{\widehat j(D_n)}(D_n)\}.
+\]
+This differs from coverage conditional on \(\widehat j=j\), and from coverage for a model-dependent target \(\psi_{\widehat j}(\theta)\). The source does not select one, and nominal \(0.95\) is not assumed to equal actual coverage. The interval construction and how the selection data are reused are unspecified.
+\item Determine how to repair the associated over-optimism in confidence intervals and \(p\)-values. A calibration target might require interval coverage at least \(1-\alpha\) or \(\Pr_\theta\{p_{\mathrm{adj}}\leq t\}\leq t\) for \(0\leq t\leq1\) under the relevant null. Conditional versus unconditional, pointwise versus uniform, and finite-sample versus asymptotic versions are different requirements; these are illustrative criteria, not a selected repair or a claim that every post-selection procedure has the same bias.
+\item Determine limit distributions in Bayesian model averaging. A conventional posterior for a common estimand is the mixture \(\sum_j\Pr(\mathcal M_j\mid D_n)\Pi_j(\,\cdot\mid D_n)\). The source does not specify whether the requested limit concerns this random posterior, posterior model weights, a posterior mean or another model-averaged statistic. Priors, compatibility of estimands across models, centering and scaling, data-generating law and misspecification regime are absent.
+\item Develop the behavior of AIC/BIC theory when parameter dimension increases with sample size, say \(d_n\to\infty\). The rate relative to \(n\), number and structure of candidates, regularity and sparsity assumptions, and the performance target are missing. Prediction/risk properties and probability of selecting a designated true model are distinct targets; no dimension threshold or theorem is inferred from the criterion names alone.
+\end{enumerate}
+The literature triage checked 2026-08-21 reports later asymptotic theory for model selection and averaging but says the broad list remains unresolved. This does not give an individual theorem status for every formulation above. The verification field reports retaining all four questions byte-for-byte; the partially-solved label is supplied metadata, not an independently checked claim about any chosen statistical model.
+\subsection{Short English statement}
+The source asks for actual post-selection coverage, repairs to confidence intervals and \(p\)-values, Bayesian model-averaging limits, and AIC/BIC theory with growing dimension. A precise answer in each case needs the data model, target, construction and asymptotic regime. In particular, conditional and unconditional guarantees must be distinguished.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000339, source code catalogue entry, ``Post-Selection Inference and Growing-Dimension Model Selection,'' including all four unchanged statistical questions and exact-statement verification.
+\item \emph{Statistische und Probabilistische Methoden der Modellwahl (2006)}, Oberwolfach Reports, pp.\ 2611--2704, DOI 10.4171/owr/2005/47: \url{https://doi.org/10.4171/owr/2005/47}. This is the sole supplied literature reference, labelled ``Oberwolfach Report 47.'' The title uses 2006, while the DOI and proposed-year metadata use 2005.
+\item Literature triage checked 2026-08-21; local record updated 2026-09-16. No external source has been visited or independently reviewed here.
+\end{itemize}
+\end{document}

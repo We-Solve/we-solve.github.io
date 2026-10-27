@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001295}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Grigoris Paouris asks whether every compact set is anti-$\psi_2$ in some direction. As stated this lacks a probability measure, a location/scale normalization, a tail range, and a one-sided versus absolute-tail convention. Arbitrary compact sets may have zero Lebesgue volume. A nontrivial lower tail bound for a compactly supported distribution cannot hold for all unbounded thresholds.
+
+A natural restricted interpretation takes a compact set $K\subseteq\R^n$ of positive volume, $X$ uniform on $K$, and $m_\theta=\E|\langle X,\theta\rangle|$. An $L_1$-normalized absolute-tail formulation would seek universal $c,C>0$ and an admissible threshold range containing $t=1$, such that some unit $\theta$ satisfies
+\[
+ \Pr\{|\langle X,\theta\rangle|\geq t m_\theta\}\geq c e^{-Ct^2}
+\]
+throughout that range. This is an explicit interpretation, not a recovered definition from the one-line question.
+
+The supplied aid refutes this version even for centered rotationally invariant positive-volume compact sets: for every $n\geq1$ and $0<\epsilon<1/2$ there is such $K$ with
+\[
+ \Pr\{|\langle X,\theta\rangle|\geq m_\theta\}\leq\epsilon
+ \qquad\text{for every }\theta\in S^{n-1}.
+\]
+An explicit realization of its ball-plus-shell description is the following. Let $a_n=\int_{S^{n-1}}|u_1|\,\dd\sigma(u)>0$ for probability surface measure, choose $R>\max(1,1/(\epsilon a_n))$, set $T=(R^n+\epsilon/(1-\epsilon))^{1/n}$, and take
+\[
+ K=B_2^n\ \cup\ \{x:R\leq\|x\|_2\leq T\}.
+\]
+The shell has exactly fraction $\epsilon$ of the uniform mass, while $m_\theta\geq\epsilon R a_n>1$ in every direction, so only shell points can contribute at that threshold. This defeats any universal positive lower bound already at $t=1$; the example is not convex.
+
+The aid separately reports Klartag's affirmative theorem for densities with a median-based normalization and an affirmative $L_1$-normalized convex-body version via log-concave scale comparison. Those claims are not contradictory to the nonconvex compact-set example. Their exact median convention, constants, sidedness, and finite threshold range are absent, so no stronger theorem is fabricated from the summary.
+\subsection{Short English statement}
+The compact-set question is undefined without measure and normalization. Under a natural uniform-measure, first-absolute-moment normalization it is false in every dimension, by concentrating most mass in a ball and a little in a distant shell. The supplied positive median and convex-body variants are distinct statements.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Algorithmic convex geometry}, problem 8 attributed to Grigoris Paouris: \url{https://aimath.org/WWN/convexgeometry/convexgeometry.pdf}.
+\item The attached aid names Klartag's density theorem and log-concave scale comparison, without full bibliographic entries or exact theorem formulations.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001295, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-convex-geometry-notes.json notes[26]}. Attached attempt 1, counterexample, problem status at run partially solved, rigor proved, low novelty confidence; machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

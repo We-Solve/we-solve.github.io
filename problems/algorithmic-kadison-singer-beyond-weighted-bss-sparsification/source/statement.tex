@@ -1,0 +1,50 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000561}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Original request (Leonid Gurvits).} Revisit a Batson--S--S/BSS-type approach to an algorithmic Kadison--Singer theorem, despite the note's report that its proponents had thought the approach would not work. The source gives no precise algorithmic conjecture, quantitative target or input model; this is a proposal to revisit a technique, not a proved impossibility statement.
+
+\textbf{Attached unreviewed status and algorithm claim.} The aid reports the broad polynomial-time Weaver/KS construction as open, while saying BSS-inspired determinant barriers cover an equal-norm dense regime $m\ge49d^2$. The full hypotheses, output guarantee and reference for that regime are not supplied.
+
+Its separate rounded-state dynamic program has the following specified input: rational real symmetric positive-semidefinite $d$-by-$d$ matrices $A_1,\ldots,A_m$ with $\sum_iA_i=I_d$. Define
+\[\operatorname{OPT}=\min_{\sigma\in\{\pm1\}^m}\left\|\sum_i\sigma_iA_i\right\|_{\mathrm{op}}.\]
+For a positive rational tolerance, explicitly restricting to $0<\tau\le1$ for the nontrivial approximation range, the aid claims a deterministic output signing with
+\[\left\|\sum_i\sigma_iA_i\right\|_{\mathrm{op}}\le\operatorname{OPT}+\tau\]
+and at most
+\[\left(\frac{6dm}{\tau}\right)^{d(d+1)/2}\]
+rounded states per layer. The tolerance restriction avoids reading a state bound below one for arbitrarily large $\tau$; larger tolerances are trivial since every signing has discrepancy at most one. The real-symmetric state dimension is essential and is not silently replaced by complex Hermitian dimension.
+
+The aid says an explicit rational bit-complexity analysis accompanies the algorithm, but that analysis is not in the summary. The stated count is exponential in dimension and depends polynomially on $1/\tau$ only when $d$ is fixed; it is not a dimension-uniform polynomial-time KS solution. An existential bound on $\operatorname{OPT}$, including an applicable MSS bound for rank-one inputs, would translate to that bound plus $\tau$ in fixed dimension, subject to the claimed implementation details.
+
+The aid also reports a one-dimensional counterexample to ``support-only deweighting'' of a BSS certificate: dropping positive sparsification weights and retaining just their support need not yield the desired unweighted partition. The actual counterexample is not supplied. It separately claims that for commuting rank-one summands with $\sum_iA_i=I$ and $\|A_i\|\le\alpha$, greedy signing achieves operator discrepancy at most $\alpha$ in the sign convention above. These special results do not settle whether other BSS-inspired constructions work. All algorithmic, status and novelty claims require independent review.
+\subsection{Short English statement}
+Gurvits proposes revisiting BSS methods for constructive Kadison--Singer. The aid offers an additive-optimal signing algorithm for fixed dimension, with explicit state count but omitted bit-complexity details, plus special commuting results and a deweighting obstruction. It does not claim a polynomial-time solution uniform in dimension.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20000561, source code catalogue entry; \texttt{aim-analysis-notes.json}, notes[92], tag \texttt{question}.
+\item AIM 2014 workshop \emph{Beyond Kadison-Singer: paving and consequences}, source item b20, attributed to Leonid Gurvits: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. No document was visited and no original bibliography is supplied.
+\item Attached machine-generated research attempt 1 names BSS and MSS frameworks and an equal-norm dense regime without publication locators. Result \texttt{partial\_result}, status \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low. It is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

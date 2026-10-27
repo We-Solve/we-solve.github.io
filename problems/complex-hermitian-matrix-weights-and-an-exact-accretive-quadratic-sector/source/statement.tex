@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002681}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks to extend the Guionnet--Maurel-Segala model
+\[
+ \exp\!\left[-n\operatorname{Tr}\left(P(A_1,\ldots,A_m)+\tfrac12\sum_iA_i^2\right)\right]
+ \,\dd A_1\cdots\dd A_m
+\]
+to non-self-adjoint $P$, described in the source as polynomials with complex coefficients. The aid retains the original Hermitian integration cycle $A_i\in\operatorname{Herm}_n$; it does not replace it by a new complex contour. Formal self-adjointness, complex coefficients, and reality of a traced polynomial are distinct issues.
+
+Let $V=P+\tfrac12\sum_iA_i^2$ and $V_H=(V+V^*)/2$ on that cycle. The unnormalized complex measure has total-variation density exactly $e^{-n\operatorname{Tr}V_H}$. Thus finite total variation is equivalent to integrability of the real-part Gibbs weight. Even then its complex partition function can vanish, preventing division by $Z_n$; a normalized complex expectation need not be positive.
+
+The aid solves a quadratic sector. For a complex symmetric $m\times m$ matrix $B$, vectors $h\in\C^m$, and $c\in\C$, define
+\[
+ Z_n(B,h,c)=\int_{\operatorname{Herm}_n^m}
+ e^{-n\operatorname{Tr}[\frac12\sum_{i,j}B_{ij}A_iA_j-\sum_ih_iA_i+cI]}
+ \,\dd A.
+\]
+It reports finite total variation if and only if $\operatorname{Re}B>0$, with real part understood as the real symmetric quadratic form on the color variables. In this accretive sector,
+\[
+ \frac{Z_n(B,h,c)}{Z_n(I,0,0)}=
+ \exp\left[-\frac{n^2}{2}\operatorname{Logdet}B-n^2c
+ +\frac{n^2}{2}h^TB^{-1}h\right]\ne0.
+\]
+The transpose has no complex conjugation. Here $\operatorname{Logdet}$ is the holomorphic logarithmic determinant continued from $B=I$ within the accretive symmetric sector, not an arbitrary scalar-log branch of $\det B$.
+
+Writing $a=B^{-1}h$ and $C=B^{-1}$, the aid reports Gaussian Wick formulas at finite $n$ and the planar centered moments
+\[
+ \lim_{n\to\infty}\frac1n\langle\operatorname{Tr}
+ (A_{i_1}-a_{i_1}I)\cdots(A_{i_k}-a_{i_k}I)\rangle
+ =\sum_{\pi\in\mathrm{NC}_2(k)}\prod_{\{r,s\}\in\pi}C_{i_ri_s}.
+\]
+Here $\mathrm{NC}_2(k)$ denotes noncrossing pairings; the sum is zero for odd $k$. Brackets are normalized complex integration, not necessarily a probability expectation or positive noncommutative state.
+
+For $P=i\lambda A_1A_2$, $\lambda\in\R$, the relevant block is $B=\left(\begin{smallmatrix}1&i\lambda\\i\lambda&1\end{smallmatrix}\right)$, with $h=c=0$. The reported exact ratio is $(1+\lambda^2)^{-n^2/2}$, and the limiting mixed second moment is $-i\lambda/(1+\lambda^2)$. This works at every real coupling, but remains a quadratic special case rather than an extension theorem for arbitrary non-self-adjoint polynomial potentials.
+\subsection{Short English statement}
+On the original Hermitian contour, complex weights are integrable exactly when their real-part weight is integrable, but normalization can still fail at a partition-function zero. The aid gives a zero-free accretive quadratic sector with explicit partition functions and complex Wick limits, not a general nonlinear complex-potential theory.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002681, source code catalogue entry; created and updated 14 August 2026. Canonical \texttt{aim-probability-notes.json}, zero-based \texttt{notes[122]}, tag \texttt{question}, item 21.
+\item AIM ``Free Analysis,'' physical page 5, subsection 0.8, ``Focus Group on Combinatorics of Random Matrix Models (day 4),'' according to the supplied verification: \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}. Wording is marked exact; original remarks and literature field are empty. The source names Guionnet and Maurel-Segala without a full publication citation.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run open, rigor label \texttt{proved}, novelty confidence low. No complete authoritative reference or full nonlinear extension theorem is supplied for the partial results.
+\item Ulam AI / UnsolvedMath Contributors, CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

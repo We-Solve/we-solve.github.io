@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004048}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record concerns a biconstrained two-step density function, but omits some conventions needed to define it uniquely. The following is an explicitly conditional reconstruction; its graph conventions, parameter domain, path interpretation, and universal quantifier require confirmation from the source.
+
+Assume that graphs are finite, simple, and undirected. For real parameters \(x,y\in[0,1]\), let \(\mathcal{G}_{x,y}\) consist of quadruples \((G,A,B,C)\), where \(A,B,C\subseteq V(G)\) are pairwise disjoint nonempty sets satisfying
+\[
+\begin{aligned}
+|N_G(a)\cap B|&\ge x|B| &&(a\in A),\\
+|N_G(b)\cap A|&\ge x|A| &&(b\in B),\\
+|N_G(b)\cap C|&\ge y|C| &&(b\in B),\\
+|N_G(c)\cap B|&\ge y|B| &&(c\in C).
+\end{aligned}
+\]
+Here \(N_G(v)\) denotes the set of neighbors of \(v\). No additional restrictions on edges or on vertices outside \(A\cup B\cup C\) are imposed in this reconstruction.
+
+Interpreting the relevant two-edge paths as paths through \(B\), define
+\[
+T_A(c)=\{a\in A:\text{ there exists }b\in B\text{ with }ab,bc\in E(G)\}.
+\]
+The uniform guaranteed density would then be
+\[
+\psi(x,y)=\inf_{(G,A,B,C)\in\mathcal{G}_{x,y}}
+\max_{c\in C}\frac{|T_A(c)|}{|A|}.
+\]
+Equivalently, this is the largest \(z\in[0,1]\) such that every \((G,A,B,C)\in\mathcal{G}_{x,y}\) has a vertex \(c\in C\) with \(|T_A(c)|\ge z|A|\). Under these conventions, the proposed symmetry question is
+\[
+\psi(x,y)\stackrel{?}{=}\psi(y,x)
+\qquad\text{for all allowed }x,y.
+\]
+The supplied record does not specify the allowed parameter domain, including whether zero or one is permitted. The interval \([0,1]\) above provides a domain for the conditional reconstruction, not a verified source boundary convention.
+
+The record also does not explicitly quantify over all admissible graphs when defining \(\psi\). Read literally for one fixed quadruple, its largest density is instead \(\max_{c\in C}|T_A(c)|/|A|\), which depends on that quadruple. Moreover, the text does not explicitly require the middle vertex of each path to lie in \(B\); allowing arbitrary middle vertices would change the definition. The original wording refers to a preceding setup that was not supplied. These unresolved points prevent identifying the reconstruction unconditionally with the source's intended function.
+\subsection{Short English statement}
+The intended question asks whether the guaranteed proportion of \(A\) reachable from some vertex of \(C\) in two steps is unchanged when the two bidirectional degree thresholds are exchanged. A conditional precise definition is given above; the parameter domain, graph conventions, universal guarantee, and restriction of intermediate vertices to \(B\) require source confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30004048\), title ``Symmetry of Bidirectional Two-Step Path Density,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection, Graph Theory category. The record gives proposed year \(2019\) and supplies no named proposer.
+\item Supplied report citation: \emph{Graph Theory (2020)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2019/1}, pp.\ 5--63. \url{https://doi.org/10.4171/owr/2019/1}. The background describes these reports as documenting mathematical workshops and their open-problem discussions. The supplied title year and DOI year are retained without reconciliation.
+\item Supplied literature reference: Chudnovsky et al., \emph{Concatenating bipartite graphs}. \url{https://doi.org/10.37236/8451}.
+\item Supplied literature reference: \emph{Concatenating bipartite graphs}, preprint. \url{https://arxiv.org/abs/1902.10878}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and states that several lower bounds for the biconstrained function are known, while symmetry was left unresolved in the primary paper. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that mathematical content was preserved while notation, typography, duplicate clauses, or omitted definitions were repaired. These are supplied editorial assertions, not mathematical verification of this draft.
+\end{itemize}
+\end{document}

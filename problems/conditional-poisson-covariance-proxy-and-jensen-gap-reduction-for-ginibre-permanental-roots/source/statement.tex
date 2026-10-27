@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000627}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an $N\times N$ matrix $A$, its permanent is $\operatorname{Per}(A)=\sum_{\sigma\in\mathfrak S_N}\prod_{i=1}^NA_{i,\sigma(i)}$. A permanental polynomial is $p_N(z)=\operatorname{Per}(zI_N-Z)$. Its normalized mean zero measure, counting multiplicities, is
+\[
+ \overline\nu_N=\frac1N\E\sum_{p_N(\zeta)=0}\delta_\zeta.
+\]
+A mean planar density, when it exists, is the density of this measure with respect to planar area.
+
+\textbf{Question 2 (Yan Fyodorov).} What is the mean density of permanental polynomials? The 2006 workshop text says it is unknown for random matrices larger than $5\times5$. It does not specify the matrix ensemble, entry normalization, finite-size versus limiting target, or whether the density is normalized by degree; that historical sentence is not a verified current status claim.
+
+\textbf{Reported complex-Ginibre reduction.} The attached aid specializes to independent centered circular complex Gaussian entries with $\E|Z_{ij}|^2=1/N$. Let $S_N(x)=\sum_{k=0}^Nx^k/k!$. It reports the covariance kernel
+\[
+ K_N(z,w)=\E[p_N(z)\overline{p_N(w)}]=\frac{N!}{N^N}S_N(Nz\overline w).
+\]
+Define a covariance proxy, rather than the actual zero measure, by
+\[
+ \nu_N^{\mathrm{cov}}=\frac1{4\pi N}\Delta_z\log K_N(z,z)\,\dd A(z),
+\]
+where $\Delta_z$ is the ordinary two-dimensional Laplacian. For $x=Nr^2$ let $Y_x$ have the Poisson$(x)$ distribution conditioned on $Y_x\leq N$:
+\[
+ \Pr(Y_x=k)=\frac{x^k}{k!S_N(x)}\quad(0\leq k\leq N).
+\]
+The aid gives the exact radial formulas
+\[
+ \nu_N^{\mathrm{cov}}(\{|z|\leq r\})=\frac{\E Y_x}{N},\qquad
+ \frac{\dd\nu_N^{\mathrm{cov}}}{\dd A}(z)=\frac{\operatorname{Var}(Y_x)}{\pi x},\quad x=N|z|^2>0,
+\]
+with the density at zero interpreted by its limit. This proxy converges weakly to $\pi^{-1}\mathbf1_{\{|z|<1\}}\dd A$; the reported pointwise density convergence excludes the edge $|z|=1$.
+
+To specify the reported Jensen-gap normalization, put
+\[
+ J_N(r)=\log\E|p_N(r)|^2-\E\log|p_N(r)|^2.
+\]
+Rotational invariance makes this radial, and Jensen's inequality gives $J_N\geq0$ wherever the expectations are defined. The aid reports the exact disk-count identity
+\[
+ \overline\nu_N(\{|z|\leq r\})-
+ \nu_N^{\mathrm{cov}}(\{|z|\leq r\})
+ =-\frac{rJ_N'(r)}{2N}
+\]
+for almost every $r$, together with its radial distributional formulation. Equivalently, in potential form the difference is $-(4\pi N)^{-1}\Delta J_N$. Thus appropriate control $J_N'(r)=o(N/r)$, at the radii needed for passage to a limiting measure, would transfer the proxy's disk-law limit to the actual mean zero measure. Such a derivative bound is a remaining target, not a proved consequence of the covariance calculation.
+
+The aid explicitly checks that the proxy is not the actual finite-$N$ density. At $N=1$, the sole root is a standard circular complex Gaussian, of actual density $\pi^{-1}e^{-|z|^2}$, whereas the covariance proxy has density $\pi^{-1}(1+|z|^2)^{-2}$. The reported result is therefore a reduction for the specified ensemble, not a computation of the original general mean density.
+\subsection{Short English statement}
+Compute the expected zero distribution of a random matrix's permanental polynomial. For complex Ginibre matrices, the aid gives exact conditional-Poisson formulas for a covariance-based proxy and an exact Jensen-gap correction to the true mean disk count. Controlling that correction remains necessary; covariance alone gives the wrong finite-size density even at $N=1$.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000627$, \texttt{catalogue entry}; canonical \texttt{aim-analysis-notes.json}, \texttt{notes[158]}, Question 2.
+\item AIM workshop ``Random Analytic Functions,'' problem list compiled by Swaminathan Sethuraman, dated April 17, 2006; question attributed to Yan Fyodorov: \url{https://aimath.org/WWN/randomzeros/arcc1.pdf}. Supplied verification describes the original two-page PDF, but the registry statement status is \texttt{reconstructed\_unverified}. Its decorative end marker is omitted here.
+\item Research attempt 1, \texttt{reduction}, run status \texttt{open}, internal rigor \texttt{proved}, low novelty confidence; current registry partially solved. Explicitly a machine-generated research aid, not peer reviewed; independently verify before citation. No original literature entry or full external reference for the reduction is supplied.
+\end{itemize}
+\end{document}

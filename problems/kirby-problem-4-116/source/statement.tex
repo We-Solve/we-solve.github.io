@@ -1,0 +1,50 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2992}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A trisection of a smooth closed four-manifold $X$ decomposes it into three four-dimensional handlebodies whose pairwise intersections are three-dimensional handlebodies and whose triple intersection is a closed surface $\Sigma$ of genus $g$. A diagram uses three cut systems $\alpha,\beta,\gamma$ on $\Sigma$. A cut system consists of $g$ disjoint simple closed curves cutting the surface into a connected genus-zero surface. These data are finite when the surface and curves are encoded combinatorially.
+
+The source asks two algorithmic questions. First, given a trisection diagram, can one compute its cut-complex distance? Its background describes distance by the shortest loop in a cut or pants complex meeting representatives of all three systems. Once the complex, allowed representatives and edge-length convention are fixed, a schematic target is
+\[
+ D(\mathcal T)=\min\{\ell(\eta):\eta\text{ a closed edge path meeting }
+                  \mathcal R_\alpha,\mathcal R_\beta,\mathcal R_\gamma\}.
+\]
+Here $\mathcal R_\delta$ denotes the allowed representatives of the indicated cut-system data, and $\ell$ the specified path length. This is a schema, not an asserted formula for every trisection-distance variant. The source mentions several notions, but does not give edge moves, weights, or whether representatives range over isotopy classes only or all systems for a handlebody. Replacing those classes by three single listed vertices could change the question and is not done silently.
+
+Second, is the Kirby--Thompson $L$-invariant computable from a finite description of a trisection or its smooth four-manifold? The background says $L$ uses this complexity idea through a limiting construction. It does not reproduce the precise normalization, stabilization procedure, or defining limit. The exact invariant is the one in [KT22a], not a newly invented shortest-loop quantity. A solution would require a terminating algorithm for every valid finite input returning the exact value under that definition; enumeration of candidate loops or successive upper bounds without an effective stopping certificate is insufficient. The relationship between the fixed-diagram problem and the limiting manifold invariant must be proved, rather than assuming that an algorithm for one automatically computes the other.
+
+The background relates the construction to established Heegaard-distance theory for three-manifolds. It states that a homology four-sphere with $L=0$ is diffeomorphic to $S^4$, connecting the second question with recognition of the smooth four-sphere. This stated implication is retained without claiming a new sphere-recognition algorithm. It also reports Asano--Naoe--Ogawa's lower bound for $L(X)$ in terms of the first Betti number $b_1(X)=\dim_{\Q}H_1(X;\Q)$; the exact inequality is not supplied and is not invented. The prose calls that work a preprint, while its supplied citation lists a 2024 journal publication.
+
+The literature triage checked 17 August 2026 reports no verified general algorithm for either distance or $L$, and asks for finite searchable certificates or an undecidability obstruction. Both the registry and triage label the record open; the motivating framework and Betti-number bound do not constitute a computability result.
+\subsection{Short English statement}
+Can one compute a trisection's cut-complex distance and the limiting Kirby--Thompson $L$-invariant? The source leaves several distance and input conventions unstated; exact terminating computation is stronger than searching for successively shorter loops or upper bounds.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $2992$, exact source code \texttt{catalogue entry}, ``Kirby Problem 4.116,'' including the literature triage checked 17 August 2026.
+\item \emph{K3: A New Problem List in Low-Dimensional Topology} (2026), Problem 4.116, \url{https://aimath.org/pastworkshops/kirbylistrep.pdf}, as supplied.
+\item [KT22a] Robion Kirby and Abigail Thompson, \emph{Trisections and link surgeries}, New Zealand Journal of Mathematics \textbf{52} (2021 [2021--2022]), 145--152, DOI 10.53733/94; supplied defining reference for $L$.
+\item [ANO24] Nobutaka Asano, Hironobu Naoe and Masaki Ogawa, \emph{Some lower bounds for the Kirby-Thompson invariant}, Mathematical Research Letters \textbf{31}(6) (2024), 1611--1637, DOI 10.4310/mrl.250210225353.
+\end{itemize}
+\end{document}

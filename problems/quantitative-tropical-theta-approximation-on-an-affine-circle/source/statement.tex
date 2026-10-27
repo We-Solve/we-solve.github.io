@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001990}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source's Section A.8 contains a program in tropical affine geometry. It calls a real \(m\)-manifold \(B\), with dense integral-affine locus \(B_0\) and discriminant \(\Delta=B\setminus B_0\), a ``tropical Calabi--Yau manifold'' when affine transitions lie in \(\R^m\rtimes\operatorname{GL}_m(\Z)\) and \(\Delta\) is a locally finite union of locally closed submanifolds. It proposes integral-slope piecewise-linear functions on \(B_0\), extending continuously to \(B\), as a structure sheaf. Sturmfels asks whether these singularities define a natural tropical Calabi--Yau variety, in relation to Zharkov's question about cutting tentacles. The bare definition supplies no balancing, polarization, local singularity model or convexity data.
+
+Let \(\operatorname{Aff}(B,\R)\) be the additive sheaf of continuous functions restricting to integral-slope affine functions on \(B_0\). The source defines a tropical line bundle \(\mathcal L\) by \(H^1(B,\operatorname{Aff}(B,\R))\). For an additive \v{C}ech cocycle \(\alpha_{ij}\), a section is a compatible collection of tropical functions \(s_i\) with \(s_i-s_j=\alpha_{ij}\), using ordinary subtraction. It mentions theta functions on tori. Eisenbud asks for tropical Riemann--Roch, also referring to the page-4 Riemann--Roch question, and the section asks for ampleness and meaningful embeddings into tropical projective space, including for more general tropical varieties.
+
+Its concrete exercise uses the homogeneous max-plus cubic whose ten terms are
+\[
+ -6+3x,\ -4+2x+y,\ -3+x+2y,\ -6+3y,\ -4+2y+z,
+\]
+\[
+ -3+y+2z,\ x+y+z,\ -3+2x+z,\ -1+x+2z,\ -3+3z,
+\]
+where the first four homogeneous terms also include the appropriate zero powers of \(z\). Equivalently the first term is \(-6+3x\) and all displayed terms have total tropical degree three. The tropical curve is the locus where the maximum is attained at least twice. After removing unbounded rays, an edge with \(v-w=\ell d\), \(d\) primitive integral, has affine length \(|\ell|\). The source asks to check perimeter \(13\), embed the resulting circle \(\R/13\Z\) in \(\mathbb{TP}^2\) using three degree-five line-bundle sections, and interpret the observed contraction of segments with degree-three sections as a possible failure of very ampleness. The aid instead reports perimeter \(15\) for the exact printed coefficients under the standard projective lattice convention. This conflict is unresolved; neither the length-\(13\) assertion nor the requested degree-five embedding is adopted as a verified result. Failure of one chosen triple of sections would also need distinguishing from failure of every complete linear-system embedding.
+
+For the SYZ-related part, the integral-affine lattice \(\Lambda\subset TB_0\) is locally spanned by \(\partial/\partial y^j\), and its dual \(\check\Lambda\subset T^*B_0\) by \(\dd y^j\). The source constructs the complex torus bundle \(X(B_0)=TB_0/\Lambda\) and canonical symplectic bundle \(\check X(B_0)=T^*B_0/\check\Lambda\). It seeks smooth local sections \(u_i-u_j=\alpha_{ij}\) with positive Hessian satisfying
+\[
+ \det\left(\frac{\partial^2u_i}{\partial y^j\partial y^k}\right)
+       =\text{positive constant},
+\]
+so that their pullbacks give semi-flat Ricci-flat K\"ahler potentials under the necessary compatibility hypotheses. Gross, Siebert and Zharkov ask for a tropical Monge--Amp\`ere equation and sections \(s_n\in\Gamma(B,\mathcal L^{\otimes n})\) with \(n^{-1}s_n\) converging to such a solution, together with numerical construction and visualization. This sequence notation explicitly repairs the source's \(s_i/s_n\) mismatch using \(\hbar=1/n\). Singular extension, boundary conditions, convergence topology and an actual numerical algorithm are not specified.
+
+The aid's quantitative special case has no singularities. Let \(B=\R/L\Z\), \(L>0\), with positive degree \(d\in\Z_{>0}\) and automorphy \(u(y+L)-u(y)=dy+dL/2\). Normalize
+\[
+ u(y)=\frac{dy^2}{2L},\qquad
+ T_n(y)=\max_{j\in\Z}\left(jy-\frac{Lj^2}{2nd}\right)\quad(n\geq1).
+\]
+Then \(T_n(y+L)-T_n(y)=ndy+ndL/2\), so \(T_n\) is a max-plus section of \(\mathcal L^{\otimes n}\), and
+\[
+ u(y)-n^{-1}T_n(y)
+ =\frac{L}{2n^2d}\operatorname{dist}(ndy/L,\Z)^2
+ \leq\frac{L}{8n^2d}.
+\]
+The constant-Hessian potential with the fixed automorphy and \(u(0)=0\) is unique. Writing distributional Hessians as periodic measures on the circle, for every Lipschitz test function \(\phi\),
+\[
+ \left|\int_B\phi\,\dd\bigl(n^{-1}T_n''-(d/L)\dd y\bigr)\right|
+ \leq\frac{L}{4n}\operatorname{Lip}(\phi).
+\]
+The notation on the left denotes integration against the signed difference measure, not an additional derivative. This proves an \(O(n^{-2})\) potential and \(O(n^{-1})\) weak-measure approximation in that circle class, not the broad singular higher-dimensional problem.
+
+The original remark also interprets phase/translation patching classes in \(H^1(B_0,(\Lambda\otimes\R)/\Lambda)\) as B-field data under mirror symmetry. The aid reports established tropical Riemann--Roch/curve linear-system theories and more structured Gross--Siebert singular-affine settings, while qualifying general singular Monge--Amp\`ere approximation as known only in structured cases; no complete modern status theorem is supplied.
+\subsection{Short English statement}
+The section asks for singular tropical Calabi--Yau structures, line bundles, Riemann--Roch, embeddings and Monge--Amp\`ere approximation. The aid gives exact theta-section convergence on an affine circle. It also flags that the printed cubic's reported perimeter is \(15\), conflicting with the exercise's \(13\); the general singular program is not resolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001990\), source code \texttt{catalogue entry}; canonical collection \texttt{aim-geometry-notes.json}, notes[327]. Statement status \texttt{reconstructed\_unverified}; clean statement null.
+\item AIM workshop ``Amoebas and tropical geometry,'' Section A.8, ``Tropical Calabi--Yau manifolds and tropical line bundles,'' contributed by Mark Gross: \url{https://aimath.org/WWN/amoebas/amoebas.pdf}. Questions are attributed to Sturmfels, Eisenbud, and Gross--Siebert--Zharkov. Footnote \(33\) points to the page-4 Riemann--Roch question; page numbers \(6,7\) are not mathematical data. No PDF was opened in this session.
+\item Original remark: Kontsevich--Soibelman paper from 2000; Gross's book with Joyce and Huybrechts; Haase--Zharkov preprints; Symington's work; and Gross's then-recent paper with Siebert, Section \(1\), for degeneration constructions and mirror-symmetry applications. It also discusses phases and the B-field, relevant to Strominger--Yau--Zaslow. Full titles and authoritative publication details are absent; the literature field is empty.
+\item Supplied research attempt \(1\), \texttt{partial\_result}, run status \texttt{partially\_solved}, rigor label ``proved,'' novelty confidence ``low.'' Registry classification \texttt{PARTIAL-PROGRESS}, updated 14 August 2026. No proposer-field value or proposed year is supplied.
+\end{itemize}
+\end{document}

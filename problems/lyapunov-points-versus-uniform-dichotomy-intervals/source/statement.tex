@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001409}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks broadly about spectral properties and Lyapunov spectra for sequential or nonstationary systems. It does not specify the cocycle, state space, spectrum, time axis, or stationarity assumptions. The aid distinguishes from-origin growth exponents from a uniform exponential-dichotomy spectrum in a deterministic finite-dimensional setting.
+
+For a scalar equation \(x_{n+1}=e^{s_n}x_n\), \(n\ge0\), assume \(s_n\) is a bounded real sequence. Define uniform long-window endpoints
+\[
+ \underline\beta=\lim_{L\to\infty}\inf_{m\ge0}
+ \frac1L\sum_{j=m}^{m+L-1}s_j,\qquad
+ \overline\beta=\lim_{L\to\infty}\sup_{m\ge0}
+ \frac1L\sum_{j=m}^{m+L-1}s_j.
+\]
+The aid reports that its logarithmic uniform dichotomy spectrum is exactly \([\underline\beta,\overline\beta]\). Here a parameter \(\lambda\) lies outside that spectrum when the reweighted evolution \(e^{-\lambda(n-m)}\Phi(n,m)\) has a uniform exponential dichotomy: invariant projections, and constants \(C,\alpha>0\), bound stable forward evolution and unstable backward evolution by \(Ce^{-\alpha|n-m|}\), for all valid time pairs. These are uniform-in-start-time estimates, not only estimates from time zero. Bounded logarithmic increments, rather than merely bounded multipliers possibly tending to zero, are explicit.
+
+An explicit balanced-run realization of the reported example uses
+\[
+ A_+=\operatorname{diag}(e,e^{-2}),\qquad
+ A_-=\operatorname{diag}(e^{-1},e^{-2}),
+\]
+in successive blocks \(+^1,-^1,+^2,-^2,+^3,-^3,\ldots\). Let \(s_j\in\{1,-1\}\) be this sign sequence and
+\[
+ \Phi(n,m)=\operatorname{diag}
+ \left(\exp\Bigl(\sum_{j=m}^{n-1}s_j\Bigr),e^{-2(n-m)}\right).
+\]
+The aid reports convergence of the full from-origin singular-value exponents to \(0,-2\), with the top finite-time error \(O(n^{-1/2})\). Every product is positive diagonal and normal, so eigenvalue moduli agree with its singular values. The invariant coordinate splitting is uniformly dominated, with
+\[
+ \frac{\|\Phi(n,m)|_{\R e_2}\|}
+ {\|\Phi(n,m)|_{\R e_1}\|}\le e^{-(n-m)}\qquad(n\ge m).
+\]
+Nevertheless the unbounded positive and negative runs give first-coordinate uniform endpoints \(-1,1\), and the second coordinate is constant \(-2\). Its reported full dichotomy spectrum is therefore
+\[
+ \{-2\}\cup[-1,1].
+\]
+Thus normality, equality of product eigenvalue/singular-value moduli, domination, and convergent origin exponents do not collapse this uniform spectrum to the two origin points. The example separates notions of spectrum; it does not classify general sequential transfer operators, infinite-dimensional cocycles, or all nonstationary systems asked about by the source.
+\subsection{Short English statement}
+The source asks about spectra in nonstationary dynamics. The supplied aid separates ordinary growth from one starting time from uniform growth over all time windows, with a dominated positive diagonal example having origin exponents \(0,-2\) but dichotomy spectrum \(\{-2\}\cup[-1,1]\).
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001409\), source code \texttt{catalogue entry}; \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[66]}, tag \texttt{problem}.
+\item AIM workshop ``Stochastic methods for non-equilibrium dynamical systems,'' Problem 24: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. Statement status \texttt{exact}. No PDF was accessed for this draft.
+\item Bohl endpoints and uniform exponential-dichotomy spectra are named in the aid without full authoritative citations or proof artifacts for the scalar interval theorem and balanced-run example. No original remarks or literature field are supplied.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run \texttt{unknown}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

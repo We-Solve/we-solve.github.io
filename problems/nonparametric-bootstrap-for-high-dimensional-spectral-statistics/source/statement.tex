@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004161}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(X_{n,1},\ldots,X_{n,n}\) denote observations of dimension \(p=p_n\), and let \(S_n\) denote their sample covariance matrix, with eigenvalues \(\lambda_1(S_n),\ldots,\lambda_p(S_n)\). The observation field, dependence assumptions, population covariance model, subtraction of a sample mean, and covariance normalization are not specified by the supplied record and must be fixed before a theorem can be stated. For a real-valued test function \(f\) defined on the relevant spectra, define the linear spectral statistic and its centered version by
+\[
+L_n(f)=\sum_{j=1}^{p} f\bigl(\lambda_j(S_n)\bigr),
+\qquad T_n(f)=L_n(f)-a_n(f).
+\]
+Here \(a_n(f)\) denotes the intended centering, which the record does not identify. In particular, centering by an expectation and centering by a deterministic spectral approximation must not be assumed equivalent.
+
+A fully nonparametric bootstrap is intended to construct a conditional resampling law from the observed data without imposing a parametric population model. In the dimension-adjusted scheme mentioned in the record, let \(m=m_n\) be the resampled observation count and \(q=q_n\) the resampled dimension. Write \(S_n^*\) for the resulting \(q\times q\) bootstrap covariance matrix and set
+\[
+T_n^*(f)=\sum_{j=1}^{q} f\bigl(\lambda_j(S_n^*)\bigr)-a_n^*(f),
+\]
+where the resampling rule and bootstrap centering \(a_n^*(f)\) remain to be specified. The record requires preservation of the dimension-to-sample ratio. If the intended asymptotic regime is \(p_n/n\to\gamma\), its corresponding requirement is \(q_n/m_n\to\gamma\); neither the existence nor the admissible values of \(\gamma\) are supplied.
+
+For clarity, one possible precise meaning of distributional consistency, once the missing choices have been fixed, is
+\[
+d_{\mathrm{BL}}\!\left(
+\mathcal L\bigl(T_n^*(f)\mid X_{n,1},\ldots,X_{n,n}\bigr),
+\mathcal L\bigl(T_n(f)\bigr)
+\right)\xrightarrow{\mathbb P}0,
+\]
+where, for probability measures \(\mu,\nu\) on \(\R\),
+\[
+d_{\mathrm{BL}}(\mu,\nu)=
+\sup_{\substack{\|h\|_\infty\leq 1\\ |h(x)-h(y)|\leq |x-y|\ \text{for all }x,y\in\R}}
+\left|\int h\,\dd\mu-\int h\,\dd\nu\right|.
+\]
+This criterion is an explicit candidate interpretation of consistency, not a criterion specified in the source. Any required normalization of the centered statistics must also be fixed.
+
+\textbf{Source question, with unresolved scope.} Determine under which observation models, high-dimensional regimes, test-function classes, centerings, and resampling rules a fully nonparametric bootstrap consistently approximates centered linear spectral statistics of sample covariance matrices. The supplied formulation highlights an \(m\)-out-of-\(n\), \(q\)-out-of-\(p\) scheme preserving the dimension-to-sample ratio and subject to representative-subpopulation assumptions. Those assumptions are not defined in the record, so a precise quantified consistency assertion for that scheme cannot be recovered from the supplied material alone.
+
+The supplied dated assessment states that classical and ordinary \(m\)-out-of-\(n\) nonparametric bootstraps fail in the high-dimensional covariance setting, whereas a dimension-subsampling method has a consistency result under additional structural assumptions. These are supplied literature qualifications whose hypotheses and scope are unavailable here; they are not universal failure or consistency assertions established by this draft.
+\subsection{Short English statement}
+The question asks when resampling observed high-dimensional data can reproduce the distribution of centered functions of sample covariance eigenvalues. The proposed approach reduces both the sample size and the dimension while preserving their ratio, under additional representative-subpopulation assumptions. The data model, test functions, centerings, asymptotic regime, resampling procedure, and structural assumptions remain unspecified. The supplied status is \emph{partially solved}; this draft does not independently verify that assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30004161\), source problem code \texttt{catalogue entry}, title: \emph{Nonparametric Bootstrap for High-Dimensional Spectral Statistics}. Provenance: the supplied complete source record in the Oberwolfach Reports Open Problems collection. No individual proposer is identified; the supplied proposed year is 2019.
+\item Supplied primary citation: \emph{Statistical Methodology and Theory for Functional and Topological Data} (2020), Oberwolfach Reports, pp.\ 1697--1735, DOI \texttt{10.4171/owr/2019/28}. \url{https://doi.org/10.4171/owr/2019/28}. The record attributes the problem to workshop open-problem discussions documented in Oberwolfach Reports, but supplies no problem-specific page or verbatim report excerpt.
+\item Supplied literature source, labeled ``nonparametric bootstrap in high dimension'': \url{https://proceedings.mlr.press/v89/karoui19a.html}.
+\item Supplied literature source, labeled ``later nonparametric covariance bootstrap'': \url{https://arxiv.org/abs/2406.16849}.
+\item Literature assessment checked at \texttt{2026-08-22}: supplied dated curation, not independently verified. The recorded status is \emph{partially solved}. The assessment reports failure of classical and ordinary \(m\)-out-of-\(n\) nonparametric bootstraps in the high-dimensional covariance setting and consistency of a dimension-subsampling method under additional structural assumptions, with no universal resolution of the broad question. The background explicitly requests independent verification of these time-sensitive claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says that mathematical content was preserved while notation, typography, duplicate clauses, or omitted definitions were repaired. This is supplied editorial metadata, not independent mathematical verification by this draft.
+\end{itemize}
+\end{document}

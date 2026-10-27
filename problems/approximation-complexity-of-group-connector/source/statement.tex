@@ -1,0 +1,48 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000060}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for the approximation complexity of Group Connector: given a weighted graph and pairwise disjoint terminal sets with requirements, find a minimum-cost forest satisfying every requirement.
+
+In the usual nonnegative-edge-cost interpretation, write the input as a finite undirected graph $G=(V,E)$, costs $c:E\to\R_{\ge0}$, disjoint sets $T_1,\ldots,T_k\subset V$, and requirement data $r_1,\ldots,r_k$. Let $\mathcal R_i(F;r_i)$ denote the precise connectivity requirement assigned to group $T_i$. Then the optimization target has the form
+\[
+ \operatorname{OPT}=\min\left\{\sum_{e\in F}c(e):
+ F\subset E,\ (V,F)\text{ is a forest},\ 
+ \mathcal R_i(F;r_i)\text{ for every }i\right\}.
+\]
+Determining approximation complexity means finding achievable polynomial-time approximation ratios, with corresponding hardness bounds under specified complexity assumptions. A ratio $\rho$ requires a feasible returned forest of cost at most $\rho\operatorname{OPT}$, with the usual separate care for zero optimum.
+
+The displayed $\mathcal R_i$ is deliberately a placeholder: the supplied extract does not say which terminals must be connected, how numerical requirements are interpreted, or whether connections between different groups matter. It therefore cannot identify Group Connector with a chosen group-Steiner, quota-connectivity or pair-demand problem. The graph's orientation, cost and input-encoding conventions also need confirmation; nonnegative undirected costs above are explicit standard conventions, not additional verified source hypotheses. The parameter governing an approximation factor and the complexity assumption for hardness are likewise absent.
+
+The literature assessment checked on 21 August 2026 reports a logarithmic hardness bound in the original report but no authoritative result determining the full approximation complexity. It supplies neither the logarithm's parameter nor the precise hardness assumption. That dated search assessment is retained without inventing a matching bound or claiming independently verified current openness.
+\subsection{Short English statement}
+Determine the best approximation guarantees and hardness for minimum-cost Group Connector forests with disjoint terminal groups. The exact requirement semantics are missing from the extract, so they cannot be replaced by another familiar network-design problem.
+\subsection{Sources}
+\begin{itemize}
+\item \emph{Approximation Algorithms for NP-Hard Problems} (2005), Oberwolfach Reports, DOI 10.4171/owr/2004/28, pp. 1461--1540, \url{https://doi.org/10.4171/owr/2004/28}; the supplied proposed year is 2004.
+\item The sole literature source in the assessment checked 21 August 2026 is the ``original Oberwolfach Report 28/2004,'' \url{https://doi.org/10.4171/owr/2004/28}. No later authoritative approximation-complexity reference is supplied.
+\item Local UnsolvedMath registry, permanent ID $30000060$, exact source code \texttt{catalogue entry}, created 25 August 2026 and updated 16 September 2026. Statement status is exact; the open label is supplied dated curation.
+\end{itemize}
+\end{document}

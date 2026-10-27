@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005235}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Gamma_n\) and \(\Lambda_n\) be finite groups with symmetric generating sets \(S_n\subseteq\Gamma_n\setminus\{1\}\) and \(T_n\subseteq\Lambda_n\setminus\{1\}\). Write \(G_n=\operatorname{Cay}(\Gamma_n,S_n)\) and \(H_n=\operatorname{Cay}(\Lambda_n,T_n)\) for their undirected Cayley graphs, equipped with graph distances \(d_{G_n}\) and \(d_{H_n}\). Here \(|G_n|=|V(G_n)|\). Uniformly bounded degree means that there exists an integer \(D\geq1\), independent of \(n\), such that \(|S_n|,|T_n|\leq D\).
+
+The sequences are uniformly quasi-isometric if there exist constants \(A\geq1\) and \(B\geq0\), independent of \(n\), and maps \(F_n:V(G_n)\to V(H_n)\) such that
+\[
+ A^{-1}d_{G_n}(x,y)-B\leq d_{H_n}(F_n(x),F_n(y))\leq A d_{G_n}(x,y)+B
+ \qquad(x,y\in V(G_n)),
+\]
+and every vertex of \(H_n\) has distance at most \(B\) from \(F_n(V(G_n))\).
+
+The supplied record does not define the random walk or the mixing threshold. One conventional interpretation uses discrete-time lazy simple random walk: on a finite connected regular graph \(K\) of positive degree, its transition matrix is
+\[
+ P_K(x,y)=\frac12\mathbf{1}_{\{x=y\}}+\frac{1}{2\deg(K)}\mathbf{1}_{\{x\sim y\}},
+ \qquad \pi_K(y)=\frac1{|V(K)|},
+\]
+with
+\[
+ t_{\mathrm{mix}}^{\mathrm{lazy}}(K)=\min\left\{t\in\Z_{\geq0}:\max_{x\in V(K)}\frac12\sum_{y\in V(K)}\left|P_K^t(x,y)-\pi_K(y)\right|\leq\frac14\right\}.
+\]
+This convention is stated explicitly for a conditional formulation; the supplied evidence does not establish that it is the source's convention.
+
+Under this convention, a standard asymptotic reading of the supplied question is: do there exist such sequences, constants \(D,A,B\), and \(n_0\in\N\), with \(|G_n|\to\infty\), for which
+\[
+ t_{\mathrm{mix}}^{\mathrm{lazy}}(G_n)\geq\log\log\log|G_n|\;t_{\mathrm{mix}}^{\mathrm{lazy}}(H_n)
+ \qquad(n\geq n_0)?
+\]
+Here logarithms are taken to be natural, another convention not specified in the record. The growth condition ensures that the iterated logarithm is eventually defined and positive. Neither this growth condition nor the range of indices for the inequality is explicit in the supplied statement, so both require confirmation against the report's surrounding context. The displayed inequality retains the coefficient exactly as supplied, without an unspecified multiplicative constant.
+
+The source also asks whether the factor \(\log\log\log|G_n|\) can be improved. A possible precise asymptotic interpretation asks whether, with the same bounded-degree and uniform quasi-isometry requirements, there exist a function \(f:(e^e,\infty)\to(0,\infty)\) satisfying
+\[
+ \lim_{x\to\infty}\frac{f(x)}{\log\log\log x}=\infty
+\]
+and sequences as above such that
+\[
+ t_{\mathrm{mix}}^{\mathrm{lazy}}(G_n)\geq f(|G_n|)\;t_{\mathrm{mix}}^{\mathrm{lazy}}(H_n)
+\]
+for all sufficiently large \(n\). The record does not specify what counts as an improvement or whether this second question retains the bounded-degree requirement; this formulation is therefore conditional, not a verified reconstruction of the original target.
+\subsection{Short English statement}
+The question asks for pairs of finite Cayley graphs with uniformly bounded degrees and uniformly controlled quasi-isometries, but with mixing times differing by at least a triple logarithm of the number of vertices. It also asks for a larger separation. The walk convention, asymptotic growth requirement, and scope of the improvement question need confirmation. The supplied record labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete source record for permanent ID \(30005235\), source problem code \texttt{catalogue entry}, title \emph{Bounded-Degree Sensitivity of Mixing Times}. Registry locations identified by the project are \texttt{data/unsolvedmath/problems.json} and the supplementary \texttt{catalog/problems.json}; their contents were not independently inspected for this draft.
+\item Supplied report citation: \emph{Large Scale Stochastic Dynamics} (2023), Oberwolfach Reports, DOI \texttt{10.4171/owr/2022/41}, pp.\ 2399--2466. \url{https://doi.org/10.4171/owr/2022/41}. The record gives proposed year 2022 and names no proposer. Its retained original passage asks whether the preceding example can additionally have uniformly bounded degrees; that preceding exposition is not reproduced in the record.
+\item Supplied literature reference: Hermon--Kozma, \emph{Sensitivity of mixing times of Cayley graphs}. \url{https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/sensitivity-of-mixing-times-of-cayley-graphs/0FDBD1D1ED671C875FB2DBB0DC7E905C}.
+\item Supplied published-PDF link: \url{https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0FDBD1D1ED671C875FB2DBB0DC7E905C/S0008414X23000421a.pdf/sensitivity-of-mixing-times-of-cayley-graphs.pdf}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and states that known Cayley-graph constructions exhibit mixing-time sensitivity, while the requested uniformly bounded-degree example and improvement of the iterated-logarithm factor are not resolved by the cited published result. This is supplied dated curation, not an independently verified literature assessment.
+\item The supplied statement status is \texttt{corrected\_verified}; its verification note says that the official report was checked and notation repaired. These are source-record assertions, not verification performed for this draft.
+\end{itemize}
+\end{document}

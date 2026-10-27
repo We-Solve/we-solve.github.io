@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003111}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each integer \(d\geq 1\), let
+\[
+\mathcal P_d=\left\{\sum_{j=0}^{d}a_jx^j:a_j\in\{-1,0,1\}\right\},
+\qquad \mathcal P_d^*=\mathcal P_d\setminus\{0\}.
+\]
+Thus degrees are at most \(d\), and the displayed source family includes the zero polynomial. The source asks about minimum root distances and minimum rational evaluations, and its reconstructed statement requests the following exponential lower bounds. Necessary qualifications and unresolved interpretations are made explicit below.
+
+For \(K\in\{\R,\C\}\), define
+\[
+\Delta_d(K)=\min\left\{|\alpha-\beta|:\ P,Q\in\mathcal P_d^*,\ \alpha,\beta\in K,\ P(\alpha)=Q(\beta)=0,\ \alpha\ne\beta\right\}.
+\]
+Here \(P\) and \(Q\) are independently chosen; they are not required to be distinct. Excluding the zero polynomial is necessary to obtain the intended finite collection of polynomial roots. The source does not explicitly specify whether the roots are real or complex, so \(K\) remains an unresolved parameter. For the intended choice of \(K\), the root-separation question is whether
+\[
+\exists C_1>0\ \forall d\geq1:\qquad
+\Delta_d(K)\geq \exp(-C_1d),
+\]
+with \(C_1\) an absolute constant.
+
+For a rational number \(r=p/q\in[9/10,19/20]\), represented with \(p,q\in\Z\), \(q>0\), and \(\gcd(p,q)=1\), define the minimum positive evaluation
+\[
+m_d^+(p/q)=\min\left\{|P(p/q)|:\ P\in\mathcal P_d,\ P(p/q)\ne0\right\}.
+\]
+The source instead writes \(\min_{P\in\mathcal P_d}|P(p/q)|\). That literal minimum is zero because \(0\in\mathcal P_d\); consequently it cannot satisfy the proposed positive lower bound. The definition of \(m_d^+\) is an explicit candidate repair requiring review, not an unqualified transcription.
+
+Under this repair, the recorded baseline is \(m_d^+(p/q)\geq q^{-d}\). A precise version of the requested improvement with an absolute exponential rate is
+\[
+\begin{gathered}
+\exists C_2>0\ \forall r=p/q\in\Q\cap[9/10,19/20]\
+\exists c_{p,q}>0\ \forall d\geq1:\\
+m_d^+(p/q)\geq c_{p,q}\exp(-C_2d).
+\end{gathered}
+\]
+Here \(c_{p,q}\) may depend on the fixed reduced rational but not on \(d\). The source explicitly fixes \(p/q\), but does not fully specify whether the second exponential rate must be uniform over these rationals. The displayed quantifier order expresses the absolute-rate interpretation and requires confirmation. If \(C_2\) may depend arbitrarily on \(p/q\), the stated baseline already has that exponential form, so the intended meaning of improvement would need further specification.
+\subsection{Short English statement}
+The record asks whether roots of polynomials with coefficients in \(\{-1,0,1\}\) have an absolute exponential separation bound, and whether their nonzero values at fixed rationals in \([9/10,19/20]\) admit a stronger exponential lower bound. The root domain, exclusion of zero evaluations, and uniformity of the second exponential rate require clarification. The supplied open label is dated curation, not an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003111\), source code \texttt{catalogue entry}, titled ``Root Separation and Rational Values of Littlewood Polynomials.'' The original statement asks for the two minima; the reconstructed statement specifies exponential lower-bound questions. The background attributes the root-separation question to Hochman; the structured proposer field is unspecified. The proposed year is recorded as 2016.
+\item Supplied report citation: \emph{Diophantische Approximationen} (2017), \emph{Oberwolfach Reports}, pp.\ 1099--1187, DOI \texttt{10.4171/owr/2016/21}. \url{https://doi.org/10.4171/owr/2016/21}. The record describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source, ``OWR report'': \url{https://ems.press/content/serial-article-files/46625?nt=1}.
+\item Supplied literature source, ``Breuillard--Varju'': \url{https://arxiv.org/abs/1610.09154}. No further bibliographic details are supplied.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied status is ``open.'' The assessment states that the cited literature supplies only Mahler's exponential-in-\(d\log d\) bound and the trivial \(q^{-d}\) evaluation bound, with the requested improvement unresolved. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The supplied statement status is \texttt{corrected\_verified}. Its verification note reports that the official report was checked and that reconstruction restored the polynomial family and the explicit exponential bounds requested in its first and third questions. This is a supplied verification claim; no source visit or independent verification is asserted here.
+\end{itemize}
+\end{document}

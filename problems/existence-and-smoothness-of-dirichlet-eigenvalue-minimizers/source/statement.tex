@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001158}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Interpret the source's smooth complete two-dimensional manifold as a smooth complete Riemannian surface $(M,g)$, with Riemannian area measure $\mu_g$. A metric is necessary to define both area and the Laplace operator, although the source statement does not explicitly name it. For a nonempty open set $\Omega\subset M$, define the variational Dirichlet spectral value by
+\[
+\lambda_1^D(\Omega;g)
+:=\inf_{\substack{u\in C_c^\infty(\Omega)\\u\ne0}}
+\frac{\displaystyle\int_\Omega |\nabla_g u|_g^2\,\dd\mu_g}
+{\displaystyle\int_\Omega |u|^2\,\dd\mu_g}.
+\]
+This specifies the Dirichlet condition variationally. On a general noncompact domain, this infimum need not be attained by an eigenfunction; the source does not specify hypotheses guaranteeing that its ``first Dirichlet eigenvalue'' is an eigenvalue.
+
+Let $a\in(0,\infty)$ be a prescribed area for which the intended competitor class is nonempty. Write $\mathcal D(M)$ for the source's intended class of domains and set
+\[
+\mathcal D_a(M,g):=\{\Omega\in\mathcal D(M):\mu_g(\Omega)=a\}.
+\]
+Here domains are understood as nonempty open sets, with any intended requirements of connectedness, boundedness, or relative compactness left unresolved. The notation $\mathcal D(M)$ retains this missing admissibility information rather than choosing it silently. Under the conventional interpretation, a smooth domain has $C^\infty$ boundary in $M$.
+
+\textbf{Question 1 (existence on a complete surface).} For a smooth complete Riemannian surface $(M,g)$ and a prescribed feasible area $a$, does there exist $\Omega_*\in\mathcal D_a(M,g)$ with smooth boundary such that
+\[
+\lambda_1^D(\Omega_*;g)
+=\inf_{\Omega\in\mathcal D_a(M,g)}\lambda_1^D(\Omega;g)?
+\]
+The natural universal reading asks this for every such surface and every feasible prescribed finite positive area. The source does not explicitly state the area quantifier or fully specify the competitor class. It also does not specify whether $M$ may have a boundary or which conditions would apply there.
+
+\textbf{Question 2 (regularity of planar local minimizers).} Equip $\R^2$ with its Euclidean metric and Lebesgue area $|\cdot|$. For fixed-area domains define
+\[
+d_\triangle(\Omega,\Lambda):=|\Omega\triangle\Lambda|,
+\qquad
+\Omega\triangle\Lambda=(\Omega\setminus\Lambda)\cup(\Lambda\setminus\Omega).
+\]
+A domain $\Omega_*\in\mathcal D_a(\R^2)$ is a local minimizer in this sense if
+\[
+\exists\,\delta>0\quad\forall\,\Omega\in\mathcal D_a(\R^2),\qquad
+ d_\triangle(\Omega,\Omega_*)<\delta
+ \ \Longrightarrow\ 
+ \lambda_1^D(\Omega_* )\leq\lambda_1^D(\Omega).
+\]
+Is every such local minimizer necessarily smooth?
+
+There is an unresolved qualification in the second question: $d_\triangle$ is a pseudometric on actual open sets and becomes a metric only after identification up to sets of area zero. The variational Dirichlet value need not be invariant under arbitrary changes on sets of area zero. Consequently, a formulation on equivalence classes requires an additional convention for admissible representatives and for the spectral functional. The source also leaves unclear whether smoothness is required of the given domain or of a suitable representative. These choices, together with the admissible domain class, require clarification before the questions have a unique fully specified formulation.
+\subsection{Short English statement}
+The source asks whether a prescribed-area domain with smooth boundary minimizes the first Dirichlet spectral value on every smooth complete surface, and whether every planar fixed-area local minimizer measured by symmetric difference is smooth. The admissible domains, some quantifiers and boundary conventions, and the treatment of sets differing by area zero remain unspecified. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \textbf{30001158}, title \emph{Existence and Smoothness of Dirichlet Eigenvalue Minimizers}, source problem code \texttt{catalogue entry}, in the \emph{Oberwolfach Reports Open Problems} collection. The record gives proposed year 2009 and supplies no individual proposer.
+\item \emph{Low Eigenvalues of Laplace and Schrödinger Operators} (2009), Oberwolfach Reports, pp.~355--428, DOI: \url{https://doi.org/10.4171/owr/2009/06}. The supplied background identifies Oberwolfach Reports as workshop reports documenting mathematical discussions and open problems. This reference is supplied as the source report and as a literature-review source; no problem-specific page is supplied.
+\item Supplied additional literature source: Henrot, \emph{shape optimization and spectral theory}, \url{https://doi.org/10.1515/9783110550887}. No more detailed bibliographic information or supporting passage is supplied in the record.
+\item Literature assessment dated \textbf{2026-08-21}: the supplied curation labels the problem \emph{open} and states that general shape-optimization theory does not settle existence of a smooth fixed-area minimizer on an arbitrary smooth complete surface. This is supplied dated literature triage derived from the OWR curation, not an independently verified assessment; time-sensitive status and the cited claims require independent verification. The supplied assessment addresses the surface existence question and does not separately assess the planar local-regularity question.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that its mathematical content was checked against the official Oberwolfach report, with notation, context, and question form normalized without changing the source-level claim. This is supplied verification metadata, not verification performed for this draft.
+\end{itemize}
+\end{document}

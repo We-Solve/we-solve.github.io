@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002437}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether the preceding barotropic flow model has stationary spherical viscous or inviscid shocks; how its mass and force sources \(s,f\) should be chosen; whether either source may vanish identically; how curvature affects stability and nearby perturbed spherical fronts; and whether stability can change at a critical radius \(r_*\), with larger radii more stable. It notes that curvature does not enter Majda's short-time analysis. The extracted text omits the preceding equations. The supplied verification field identifies dimensions \(d=2,3\), \(m=d-1\), radial density \(\rho(r,t)\), and velocity \(u(r,t)x/r\), but does not actually reproduce the full displayed PDE, viscous stress, or force convention.
+
+The aid's explicit stationary inviscid reduction uses the normalization
+\[
+ (\rho u)'+\frac mr\rho u=s(r),\qquad
+ (\rho u^2+p(\rho))'+\frac mr\rho u^2=F(r),
+\]
+where \(F\) denotes the radial momentum source in this normalization. Its relation to the source's \(f\) requires the omitted equation. Assume \(\rho>0\), \(p\in C^2\), and \(c(\rho)^2=p'(\rho)>0\). With \(q=\rho u\), source-free mass balance on an annulus gives
+\[
+ s=0\quad\Longrightarrow\quad q(r)=Jr^{-m}.
+\]
+If also \(F=0\), the radial momentum equation becomes
+\[
+ (c(\rho)^2-u^2)\rho'=\frac{m\rho u^2}{r}.
+\]
+This equation is locally regular away from the center and from sonic states.
+
+The local realization assertion is: fix a nonsonic stationary planar Lax shock pair \((\rho_-,u_-),(\rho_+,u_+)\) for this pressure law, with common nonzero flux and momentum flux
+\[
+ \rho_-u_-=\rho_+u_+=j,\qquad
+ \rho_-u_-^2+p(\rho_-)=\rho_+u_+^2+p(\rho_+),
+ \qquad u_\pm^2\ne c(\rho_\pm)^2.
+\]
+For every prescribed \(R>0\), set \(J=R^mj\). Solving the radial ODE on each side with these traces at \(r=R\) produces a local stationary source-free spherical shock, retaining the strict Lax condition near the interface. This is local annular existence. It does not fix one global flux while varying \(R\), impose remote boundary conditions, or establish viscous profiles or stability at all radii.
+
+On a full ball a regular center instead imposes \(\lim_{r\downarrow0}r^m q(r)=0\). Integration yields the exact compatibility condition
+\[
+ q(r)=r^{-m}\int_0^r\tau^m s(\tau)\,\dd\tau,
+ \qquad
+ \int_0^R\tau^m s(\tau)\,\dd\tau=R^mj
+\]
+for a front with mass-flux trace \(j\) at \(R\). In particular \(s\equiv0\) excludes a nonzero-flux stationary front with a regular center. This distinguishes a full ball from an annulus and does not assert nonexistence of all possible zero-flux configurations.
+
+The aid reports post-workshop constructions of source-free stationary spherical Euler shocks and Navier--Stokes profiles on bounded annuli, settling that existence issue in that geometry. No precise pressure-law, boundary, viscosity hypotheses, or citations are supplied for those constructions. It explicitly does not settle the spherical stability or critical-radius questions. A stability transition must be posed for a specified family with fixed physical and boundary data, perturbation class, and norm; the local covariance \(J=R^mj\) is not itself evidence for or against that transition.
+\subsection{Short English statement}
+The aid separates annular stationary-shock existence from the regular-center problem and from stability. A fixed nonsonic planar shock pair extends locally to any positive spherical radius when the radial flux is adjusted. A regular center instead forces an exact source integral, excluding nonzero flux when the mass source vanishes.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002437\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[48]}.
+\item \emph{Open Problems in Multidimensional Stability of Waves and Patterns}, compiled by N. Costanzino after the AIM workshop of 16--20 May 2005, first open problem; supplied reference \url{https://aimath.org/WWN/multidimwaves/multidimwaves.pdf}. The supplied verification identifies omitted barotropic equations and dimensions two or three but does not include the equations themselves. No PDF was accessed here.
+\item Majda's short-time analysis is mentioned in the source without full bibliographic data. The aid reports later annular Euler-shock and Navier--Stokes-profile constructions without authors, titles, theorem numbers, or precise hypotheses.
+\item Supplied research attempt 1: \texttt{partial\_result}, run and registry status \texttt{partially\_solved}, rigor label \texttt{proved}, low novelty confidence; classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

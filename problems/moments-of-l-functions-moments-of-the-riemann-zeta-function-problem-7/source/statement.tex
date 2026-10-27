@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800158}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(m\geq 1\) be an integer, let \(\mathbf{k}=(k_1,\ldots,k_m)\) consist of fixed positive real numbers, and let \(\alpha_i=\alpha_i(T)\) be real-valued functions satisfying \(\alpha_i(T)=o(T)\) as \(T\to\infty\). Assume that every limit
+\[
+\lim_{T\to\infty}\alpha_i(T)\log T,
+\qquad
+\lim_{T\to\infty}(\alpha_i(T)-\alpha_j(T))\log T
+\]
+exists in the extended real line, and that, for \(i\ne j\), the shifts are distinct and \(\alpha_i(T)-\alpha_j(T)=O(1)\). These distinctness assumptions apply throughout the range of \(T\) under consideration; the supplied text does not specify that range more precisely.
+
+Let \(\zeta\) denote the Riemann zeta function. The Riemann Hypothesis asserts that every nontrivial zero of \(\zeta\) has real part \(1/2\). The supplied moment formula omits the imaginary unit from its zeta arguments and has unmatched delimiters. Consequently, its intended definition requires verification. Under the explicitly provisional interpretation that vertical shifts on the critical line were intended, define
+\[
+M_{\mathbf{k}}(T,\boldsymbol{\alpha})
+:=\int_0^T\prod_{i=1}^m
+\left|\zeta\!\left(\tfrac12+\mathrm{i}(t+\alpha_i(T))\right)\right|^{2k_i}\,\dd t,
+\qquad \mathrm{i}^2=-1.
+\]
+The supplied record attributes to Chandee [Ch, Theorem 1.2] the following bound, conditional on the Riemann Hypothesis: for every \(\varepsilon>0\) and sufficiently large \(T\),
+\[
+M_{\mathbf{k}}(T,\boldsymbol{\alpha})
+\ll_{\mathbf{k},\varepsilon}
+T(\log T)^{\sum_{i=1}^m k_i^2+\varepsilon}
+\prod_{1\leq i<j\leq m}
+\left(\min\left\{\frac{1}{|\alpha_i(T)-\alpha_j(T)|},\log T\right\}\right)^{2k_i k_j}.
+\]
+Here \(A\ll_{\mathbf{k},\varepsilon}B\) means that \(A\leq C_{\mathbf{k},\varepsilon}B\) for some positive constant with the indicated dependence; an empty product equals \(1\).
+
+The requested improvement is to use Harper's method [Ha] to remove the \(\varepsilon\): under the same hypotheses and the Riemann Hypothesis, establish, for sufficiently large \(T\),
+\[
+M_{\mathbf{k}}(T,\boldsymbol{\alpha})
+\ll_{\mathbf{k}}
+T(\log T)^{\sum_{i=1}^m k_i^2}
+\prod_{1\leq i<j\leq m}
+\left(\min\left\{\frac{1}{|\alpha_i(T)-\alpha_j(T)|},\log T\right\}\right)^{2k_i k_j}.
+\]
+The displayed target interprets removal of \(\varepsilon\) as also removing its dependence from the implied constant. The intended uniformity over shift families, including dependence on the constants in the \(O(1)\) hypotheses and on the threshold for \(T\), is not specified in the supplied record and remains unresolved. The record states that the case \(m=2\), \(k_1=k_2\), has been dealt with in [NSW]; this is a supplied literature qualification, not an independently verified assertion.
+\subsection{Short English statement}
+Assuming the Riemann Hypothesis, remove the extra factor \((\log T)^\varepsilon\) from Chandee's stated upper bound for products of shifted zeta moments, using Harper's method. The supplied record says that two shifts with equal exponents have already been treated in [NSW]. The moment formula requires confirmation of a missing imaginary unit, and the intended uniformity in the shifts remains unclear.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800158\), source code \texttt{catalogue entry}; title: ``Moments of L-functions --- Moments of the Riemann zeta function --- Problem 7.'' The supplied registry labels the problem open; this status has not been independently verified.
+\item Hamieh, Kadiri, Ng, \emph{Moments of L-functions Problem List} (2024), Problem 7. Supplied source URL: \url{https://arxiv.org/abs/2405.17800}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of access in this preparation.
+\item The problem carries the attribution ``N. Ng, Lethbridge''; the registry lists Hamieh, Kadiri, Ng as proposers and 2024 as the proposed year.
+\item [Ch, Theorem 1.2]: attributed in the supplied text to Chandee as the existing conditional moment bound. No full bibliographic entry or separate link is supplied.
+\item [Ha]: Harper's method, requested in the supplied text as the method for removing \(\varepsilon\). No full bibliographic entry or separate link is supplied.
+\item [NSW]: cited in the supplied text for the case of two shifts with equal exponents. No full bibliographic entry or separate link is supplied.
+\end{itemize}
+\end{document}

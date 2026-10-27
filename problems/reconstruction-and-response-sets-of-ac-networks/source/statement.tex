@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002818}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks for reconstruction and classification of alternating-current networks. The following standard network model makes the response matrix explicit; the source qualifications that remain unresolved are stated below.
+
+Let \(b\geq 1\), and let \(G=(V,E)\) be a finite connected undirected graph with a labeled boundary set \(B=\{v_1,\ldots,v_b\}\subseteq V\) and interior set \(I=V\setminus B\). Assign a complex conductance \(c_e\) to each edge. Provisionally interpret ``positive-real conductances'' as
+\[
+\operatorname{Re}c_e>0\qquad(e\in E).
+\]
+The supplied record does not explicitly define this phrase or specify the graph conventions; these choices require confirmation against the source.
+
+For boundary potentials \(f\in\C^b\), extend \(f\) to potentials \(u:V\to\C\) satisfying Kirchhoff's law at every interior vertex:
+\[
+u(v_j)=f_j\quad(1\leq j\leq b),\qquad
+\sum_{e=\{v,w\}\in E}c_e\bigl(u(v)-u(w)\bigr)=0\quad(v\in I),
+\]
+where each sum is over edges incident to its indicated vertex. The boundary current is
+\[
+J_j=\sum_{e=\{v_j,w\}\in E}c_e\bigl(f_j-u(w)\bigr),\qquad 1\leq j\leq b.
+\]
+Under the strict positivity convention above, this defines the response matrix \(\Lambda_{G,c}\in\C^{b\times b}\) by \(J=\Lambda_{G,c}f\). Equivalently, if \(L\) is the weighted graph Laplacian partitioned by \(V=B\sqcup I\), then
+\[
+\Lambda_{G,c}=L_{BB}-L_{BI}L_{II}^{-1}L_{IB},
+\]
+with \(\Lambda_{G,c}=L_{BB}\) when \(I=\varnothing\). For a specified class \(\mathcal G\) of such graphs with labeled boundary, define its response set by
+\[
+\mathcal R_b(\mathcal G)=\left\{\Lambda_{G,c}:G\in\mathcal G,\ \operatorname{Re}c_e>0\text{ for every }e\in E(G)\right\}.
+\]
+
+The requested tasks are as follows.
+\begin{enumerate}
+\item Given \(b\) and a matrix \(\Lambda\) known to arise from a connected alternating-current network, give an algorithm producing a network \(G\) and admissible edge conductances \(c\) with \(\Lambda_{G,c}=\Lambda\). The target is a realizing network; the record supplies no uniqueness requirement or information sufficient to identify an original network.
+\item Characterize the response set for series-parallel networks. The record does not specify whether this means two-terminal series-parallel networks or another graph class, or how the \(b\) boundary vertices participate in the series-parallel construction. Consequently this part does not yet specify a unique class \(\mathcal G\).
+\item Characterize \(\mathcal R_b(\mathcal G_{\mathrm{out}})\), where \(\mathcal G_{\mathrm{out}}\) consists of graphs admitting a planar embedding in which every boundary vertex lies on the outer face. The record does not specify whether a cyclic order of the labeled boundary vertices is prescribed.
+\item For each fixed graph \(G\) and fixed assignment \(\sigma:E(G)\to\{1,-1\}\), put \(c_e(\omega)=\omega^{\sigma(e)}\). Describe all response-matrix functions
+\[
+\omega\longmapsto\Lambda_{G,c(\omega)}
+\]
+obtainable in this manner. Under the provisional strict positive-real convention, a common admissible parameter domain is \(\{\omega\in\C:\operatorname{Re}\omega>0\}\). The supplied record gives no parameter domain, does not state whether singular or boundary parameter values are included, and does not explicitly say whether this part concerns all connected networks or one of the restricted classes above. These qualifications remain unresolved; the displayed domain is conditional on the stated convention.
+\end{enumerate}
+The supplied formulation gives a realizability promise for the reconstruction input. Its accompanying literature assessment also mentions realizability, but does not specify a separate decision problem for arbitrary input matrices.
+\subsection{Short English statement}
+Reconstruct an alternating-current network from its boundary response matrix, characterize the responses of series-parallel networks and planar networks whose boundary vertices lie on the outer face, and classify response functions when every edge conductance is \(\omega\) or \(1/\omega\). The meaning of positive-real conductance, the series-parallel boundary convention, the planar boundary order, and the parameter domain require source clarification. The supplied dated curation labels the problem partially solved; this draft does not independently verify that assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002818\), title \emph{Reconstruction and Response Sets of AC Networks}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record associates the problem with 2015 and names no individual proposer.
+\item \emph{Discrete Differential Geometry} (2015), Oberwolfach Reports, DOI 10.4171/owr/2015/13, pp.~661--729. Supplied source report and literature link: \url{https://doi.org/10.4171/owr/2015/13}. The record describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions; it supplies no more specific page or problem locator within this report.
+\item Rote, ``response maps of AC networks'' (label supplied by the registry): \url{https://arxiv.org/abs/1904.02031}. No fuller bibliographic details are supplied.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem \emph{partially solved} and states that Rote solves reconstruction and realizability, while the series-parallel, planar, and variable-conductance classification questions in the extracted record are not all resolved. This is supplied dated curation derived from the OWR record, not independently verified literature assessment. The record expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review of its cleanup. These are supplied editorial claims and do not establish mathematical correctness or independent source verification of this draft.
+\end{itemize}
+\end{document}

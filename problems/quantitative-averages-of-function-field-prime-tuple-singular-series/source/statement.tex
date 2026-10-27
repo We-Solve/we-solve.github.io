@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000408}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The AIM item asks whether averages of Hardy--Littlewood constants can be computed in the function-field setting, followed by the word ``Yes''. It specifies no family, normalization or limit. The supplied report explicitly reconstructs one reading, without asserting it is the only intended one.
+
+Fix a prime power $q$ and an integer tuple size $k\geq1$. Let $B_m=\{h\in\F_q[T]:\deg h<m\}$, including zero, with $N_m=q^m$. For an ordered pairwise-distinct tuple $\mathbf h=(h_1,\ldots,h_k)$, let $\nu_P(\mathbf h)$ be the number of its distinct residue classes modulo a monic irreducible $P$, and put $Q_P=q^{\deg P}$. The prime-tuple singular series in this normalization is
+\[
+ \mathfrak S(\mathbf h)=\prod_P\frac{1-\nu_P(\mathbf h)/Q_P}{(1-1/Q_P)^k}.
+\]
+A tuple is admissible when $\nu_P<Q_P$ for every $P$; otherwise its series is zero. Pairwise distinctness matters for the full product.
+
+The report claims the quantitative degree-box mean
+\[
+ q^{-mk}\sum_{\substack{\mathbf h\in B_m^k\\h_i\ne h_j\ (i\ne j)}}\mathfrak S(\mathbf h)
+ =1+O_{q,k}\bigl(1/\log(m+2)\bigr),
+\]
+and the same estimate when normalized instead by $(N_m)_k=N_m(N_m-1)\cdots(N_m-k+1)$. These are fixed-$q$, fixed-$k$, large-$m$ statements for the full series, not just a finite truncation.
+
+For a finite set of primes, independent uniform residue tuples give an exact truncated mean of one by CRT. The associated local occupancy formula, for an integer moment $a\geq1$ and $Q=Q_P$, is
+\[
+ \E\left[\left(\frac{1-\nu_P/Q}{(1-1/Q)^k}\right)^a\right]
+ =(1-1/Q)^{-ka}\sum_{j=1}^{\min(k,Q)}
+ \frac{(Q)_j\left\{\begin{smallmatrix}k\\j\end{smallmatrix}\right\}}{Q^k}(1-j/Q)^a,
+\]
+where the braces are Stirling numbers of the second kind. This residue model permits repeated residues; exact CRT averaging does not by itself prove the distinct-tuple full-tail estimate.
+
+The report also gives an $L^2$ profinite residue-product model with mean one. In that model the admissibility probability is the finite product
+\[
+ p_{\mathrm{adm}}(q,k)=\prod_{Q_P\leq k}
+ \left(1-\frac{Q_P!\left\{\begin{smallmatrix}k\\Q_P\end{smallmatrix}\right\}}{Q_P^k}\right)>0.
+\]
+It claims the corresponding admissibility-conditioned limiting mean is $1/p_{\mathrm{adm}}$, not one. Finally it reports exponential convergence of the pair average, without supplying its exact rate or formula. The finite CRT identity, repeated-tuple treatment and full infinite-product tail are separate steps; detailed proofs and authoritative references are absent.
+\subsection{Short English statement}
+Compute averages of function-field Hardy--Littlewood constants after specifying a family. The report chooses fixed-field additive degree boxes and distinct ordered shifts, claiming full singular-series mean one with a quantitative error. It separates exact finite CRT moments from infinite-tail estimates and gives a different mean after conditioning on admissibility.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent ID $20000408$, source code \texttt{catalogue entry}; original item, explicit-reconstruction qualification and supplied research summary. Statement status reconstructed and unverified.
+\item AIM workshop ``Arithmetic statistics over finite fields and function fields'', Question 30, attributed as ``Rubenstein'' in the original: \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. Canonical location \texttt{aim-algebraic-number-theory-notes.json}, \texttt{notes[59]}; original remarks and literature field empty. No PDF was opened here.
+\item No full authoritative reference is supplied for the degree-box mean, occupancy/profinite construction or pair-average rate. The clean-statement field also contains the variant spelling ``Rubinstein''; no identity expansion is guessed.
+\item Supplied machine-generated research attempt 1: partial result; problem solved at the run and in the registry, classification \texttt{SOLVED-IN-LITERATURE}; rigor metadata ``proved'', novelty confidence low. The non-peer-reviewed theorem package requires independent verification before citation.
+\end{itemize}
+\end{document}

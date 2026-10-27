@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 801032}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A Polish space is a separable topological space admitting a compatible complete metric. A metric presentation consists of a complete separable metric space \((X,d)\) together with a numbered dense sequence \((x_n)_{n\in\N}\). Such a presentation is left-c.e. if there is a uniformly computable family of rational numbers \(a_{i,j,s}\), nondecreasing in \(s\), such that
+\[
+\lim_{s\to\infty}a_{i,j,s}=d(x_i,x_j)\qquad(i,j\in\N).
+\]
+It is right-c.e. if the analogous rational approximations are nonincreasing. It is computable if a single algorithm, on input \(i,j,k\in\N\), produces a rational \(q\) satisfying \(\lvert q-d(x_i,x_j)\rvert\leq 2^{-k}\). A space is compact if every open cover has a finite subcover. The supplied source does not define its additional effectiveness requirement in the phrase ``effectively compact''; that requirement must be specified relative to the presentation before the effective version can be made precise.
+
+The source asks: Does every \emph{(effectively) compact left-c.e. Polish space} have a \emph{computable (right-c.e.) Polish copy}? A quantified template for the question is
+\[
+\begin{gathered}
+\text{For every left-c.e. presentation }(X,d,(x_n)),\\
+\mathcal K(X,d,(x_n))\ \Longrightarrow\
+\exists (Y,\rho,(y_n))\,
+\bigl[\mathcal P(Y,\rho,(y_n))\ \land\ X\sim Y\bigr],
+\end{gathered}
+\]
+where the existential quantifier ranges over complete separable metric presentations. Here \(\mathcal K\) denotes the intended compactness or effective compactness condition, and \(\mathcal P\) denotes the intended computable or right-c.e. presentation condition. The parenthetical wording does not specify how these alternatives are paired, so this template is not an assertion that all four combinations are intended.
+
+There is also an unresolved interpretation of \(X\sim Y\). If ``copy'' means an isometric copy of the given metric space, the requirement is a bijection \(f:X\to Y\) with
+\[
+\rho(f(x),f(x'))=d(x,x')\qquad(x,x'\in X).
+\]
+If it means a topological copy, the requirement is a homeomorphism \(f:X\to Y\). These requirements are different, and the supplied record does not explicitly select one. Neither interpretation imposes computability on \(f\) unless an additional requirement is supplied.
+
+As background, the record attributes to Melnikov and Ng the existence of a left-c.e. Polish space with no computable Polish presentation, and to Koh, Melnikov, and Ng the existence of a left-c.e. Polish space with no right-c.e. Polish presentation. It also attributes to Melnikov and Ng the positive result that every left-c.e. Stone space is homeomorphic to a computable Polish space. A Stone space is a compact Hausdorff space with a basis of clopen sets. These are supplied background claims; their precise presentation conventions and hypotheses are not independently verified here.
+\subsection{Short English statement}
+The question asks whether compactness, possibly with an effectiveness condition, ensures that a left-c.e. Polish space has a computable or right-c.e. Polish copy. The source leaves the pairing of these alternatives, the effective compactness convention, and whether a copy must preserve distances or only topology unresolved. The registry labels this problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(801032\), exact source code \texttt{catalogue entry}, titled ``Open Problems in Mathematical Logic --- Problem 44.'' The record lists Barmpalias, Gao et al. as proposers, gives the year 2026, and labels the problem \texttt{open}.
+\item Supplied source attribution: Barmpalias, Gao et al., \emph{Open Problems in Mathematical Logic} (2026), Problem 44, \url{https://arxiv.org/abs/2608.26628}. The background records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. This is supplied provenance, not a claim of independent access or verification.
+\item Supplied background attributions: Melnikov and Ng for the nonexistence of a computable presentation in a left-c.e. example and for the positive Stone-space result; Koh, Melnikov, and Ng for the nonexistence of a right-c.e. presentation in a left-c.e. example. No separate bibliographic references for these results are supplied.
+\end{itemize}
+\end{document}

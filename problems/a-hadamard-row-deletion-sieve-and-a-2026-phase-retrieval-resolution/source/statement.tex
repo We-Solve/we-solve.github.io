@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001866}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This canonical record merges source problems \(1\)--\(17\), rather than one problem. Items \(18\)--\(21\) in the handout are outside this record. Let \(F=(f_j)_{j=1}^N\) be a frame spanning \(\C^M\) or \(\R^M\). A unit-norm tight frame (UNTF) satisfies \(\|f_j\|=1\) and \(\sum_j f_jf_j^*=(N/M)I\). An equiangular tight frame (ETF) also has constant \(|\langle f_i,f_j\rangle|\) for \(i\ne j\); its squared value is \((N-M)/(M(N-1))\) in the nondegenerate range. A real flat ETF has coordinates \(\pm M^{-1/2}\). Write \(\mathbb T=\{z\in\C:|z|=1\}\), and define the phase-invariant intensity map
+\[
+ A_F:\C^M/\mathbb T\to\R^N,\qquad
+ [x]\mapsto(|\langle x,f_j\rangle|^2)_{j=1}^N.
+\]
+Its injectivity means phase retrieval for all signals. The source questions are preserved individually:
+\begin{enumerate}
+\item Zauner's conjecture: do complex ETFs with \(N=M^2\) exist for every positive integer \(M\)?
+\item Hadamard conjecture: for every positive integer \(k\), does a real \(4k\)-by-\(4k\) matrix \(H\) with entries \(\pm1\) satisfy \(HH^T=4kI\)?
+\item Paulsen problem: quantify distance from a frame approximately tight and approximately equal-norm to a frame with both properties. The corrupted tolerance glyph is interpreted as \(\eps\); the source does not define the approximation norms, frame normalization or distance.
+\item Dustin Mixon: does \(N<4M-4\) force noninjectivity of \(A_F\)?
+\item Dan Edidin: near \(N=4M-4\), can the injective-frame locus be open while its complement has positive measure?
+\item Dan Edidin: what does injectivity of the displayed restricted map \(B:[x]\mapsto(|\langle x,f_k\rangle|^2)_k\) imply for phase retrieval? Its extracted domain \(\mathbb P^{M-1}/\mathbb T\) and missing codomain are unresolved; projective vectors without a norm convention do not define these intensities. The extraction labels this item ``16'' before item \(7\).
+\item Bernhard Bodmann: find measurement numbers \(N\) allowing a quantitative stability measure; the metric, signal class and constants are not specified.
+\item Dustin Mixon: find \(N\) allowing a quantitative computational-efficiency measure; no algorithm or complexity model is specified.
+\item Ferenc Szollosi: determine the maximum number of equiangular lines in \(\R^{14}\). The source's historical stated possibilities are \(28,29,30\), without a current-status verification.
+\item Ferenc Szollosi: give a full algebraic classification of complex ETFs for small \((M,N)\); the parameter range and equivalence are unspecified.
+\item Matt Fickus: do real equimodular ETFs, represented by sign matrices after normalization, exist with redundancy \(N/M\) not approximately \(2\)? ``Approximately'' is not quantified.
+\item Ferenc Szollosi: can ETFs be constructed from nonabelian difference sets? The group, difference-set convention and construction are not supplied.
+\item Matt Fickus: what integrality conditions on dimensions constrain complex equiangular frames? The source does not consistently require tightness in this item.
+\item Matt Fickus: seek an elementary proof of the proposed assertion that any \(2(M-2)\) two-planes in \(\R^M\) admit another two-plane having a principal angle \(\pi/2\) with each. The intended principal-angle convention, dimensional restrictions and hypotheses must be checked; this is a requested assertion, not adopted as a proved theorem.
+\item Dustin Mixon: for fixed \(N\), does ``worst case coherence'' strictly decrease as \(M\) increases? For unit vectors coherence is \(\max_{i\ne j}|\langle f_i,f_j\rangle|\); whether the question optimizes its minimum over frames or means another worst-case quantity is unspecified.
+\item Matt Fickus: find a threshold certifying that optimization over UNTFs for
+\(U(F)=\max_{m\ne n}|\langle\varphi_n,\varphi_m\rangle|^2\)
+is in the well of a global minimizer. Neither the optimization dynamics nor a precise basin criterion is supplied.
+\item Zhiqiang Xu: for \(x_0\in\C^M\) with \(\|x_0\|_0\leq k\) and \(b_j=|\langle f_j,x_0\rangle|\), determine minimal \(N\) for (a) unique recovery up to phase and (b) recovery by
+\[
+ \min_{x\in\C^M}\|x\|_1\quad\text{subject to}\quad
+ |\langle f_j,x\rangle|=b_j\quad(1\leq j\leq N).
+\]
+The source leaves uniform versus pointwise recovery and generic versus designed frames unspecified.
+\end{enumerate}
+
+The aid's Hadamard partial result uses an order-\(h\) Hadamard matrix split into \(r\) rows and \(h-r\) complementary rows, with \(1\leq r<h\). After normalizing columns in their respective dimensions, one family is a flat ETF exactly when the other is. If \(\lambda\) is the common absolute raw cross-inner-product of the \(r\)-row columns, the necessary conditions are
+\[
+ \lambda^2=\frac{r(h-r)}{h-1},\qquad
+ \lambda\equiv r\pmod2,\qquad h-1\mid r(r-1).
+\]
+Thus fixed \(r\geq2\) cannot produce such ETFs for arbitrarily large \(h\); \(r=1\) yields the standard complementary flat simplex family. This is a restriction on that deletion mechanism, not on all real flat ETFs or on the Hadamard conjecture itself.
+
+The aid separately reports that the phase-retrieval-injective frame locus is open, and combines Vinzant's injective \(11\)-frame in \(\C^4\) with Li's June 2026 nonempty open noninjective locus. Under those reported results, \((M,N)=(4,11)\) gives a nonempty open injective locus and a positive-Lebesgue-measure complement, answering item \(5\) affirmatively and refuting the universal formulation in item \(4\). Li's result is explicitly a recent preprint, and no precise citation is supplied. No resolution of the remaining merged questions is asserted.
+\subsection{Short English statement}
+This record contains seventeen frame and phase-retrieval questions. The supplied partial progress restricts ETFs made by deleting a fixed number of Hadamard rows and reports a \((4,11)\) phase-retrieval example with both injective and open noninjective regions. All other questions, ambiguities, historical bounds and the recent-preprint caveat remain separate.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001866\), source code \texttt{catalogue entry}; canonical collection \texttt{aim-geometry-notes.json}, notes[203]. Statement status \texttt{reconstructed\_unverified}; clean-statement field null.
+\item John Haas, ``Open Problems in Frame Theory/Phase Retrieval,'' compiled at the AIM workshop ``Frame Theory Intersects Geometry,'' August 2013, source label [AIM13]: \url{https://aimath.org/pastworkshops/frametheorygeomproblems.pdf}. This record contains problems \(1\)--\(17\) only. The PDF was not opened in this drafting session.
+\item The source attributes questions to Dustin Mixon, Dan Edidin, Bernhard Bodmann, Ferenc Szollosi, Matt Fickus and Zhiqiang Xu, and names Zauner's conjecture, the Hadamard conjecture and the Paulsen problem. Original remarks and literature fields are empty; registry proposer/year fields are null.
+\item Vinzant's injective \(11\)-frame in \(\C^4\) and Li's June 2026 open-noninjectivity result are named by the aid without full titles, identifiers or authoritative publication details. Li's result is expressly described as a recent preprint.
+\item Supplied research attempt \(1\), \texttt{partial\_result}, run status \texttt{partially\_solved}, rigor label ``proved,'' novelty confidence ``low.'' Registry classification \texttt{PARTIAL-PROGRESS}, updated 14 August 2026.
+\end{itemize}
+\end{document}

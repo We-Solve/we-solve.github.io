@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001219}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n_1,n_2\) be positive integers and let \(M\in\mathbb K^{n_1\times n_2}\) have rank \(r\), where \(\mathbb K\) denotes either \(\R\) or \(\C\). The source does not specify the field or the quantitative range intended by low rank. For a matrix \(X\), define its nuclear norm by
+\[
+\|X\|_*:=\sum_{j=1}^{\min(n_1,n_2)}\sigma_j(X),
+\]
+where \(\sigma_j(X)\) are its singular values. Let \(\Omega\subseteq\{1,\ldots,n_1\}\times\{1,\ldots,n_2\}\) be a random set of observed positions, and let \(P_\Omega X=(X_{ij})_{(i,j)\in\Omega}\), with any fixed ordering of the coordinates.
+
+The intended question concerns matrices that are sufficiently incoherent. The record supplies no definition or numerical threshold for this condition, no sampling law for \(\Omega\), and no required sample size. These are unresolved hypotheses, not conditions that may be omitted.
+
+For noiseless observations, nuclear-norm completion is the optimization problem
+\[
+\operatorname*{minimize}_{X\in\mathbb K^{n_1\times n_2}}\ \|X\|_*
+\qquad\text{subject to}\qquad
+P_\Omega X=P_\Omega M.
+\]
+Its exact-recovery target is that \(M\) be the unique minimizer, so that all entries outside \(\Omega\) are recovered exactly. The source asks whether this target holds for sufficiently incoherent low-rank matrices under random sampling, but does not specify the success probability, parameter regime, or whether recovery is required for each fixed matrix or simultaneously for a class of matrices.
+
+For noisy observations, write \(y=P_\Omega M+e\), where \(e\) is the observation error. A constrained formulation of the requested stability question is
+\[
+\operatorname*{minimize}_{X\in\mathbb K^{n_1\times n_2}}\ \|X\|_*
+\qquad\text{subject to}\qquad
+\|P_\Omega X-y\|_{\mathrm{obs}}\leq\delta,
+\qquad \|e\|_{\mathrm{obs}}\leq\delta,
+\]
+where \(\delta\geq0\) and \(\|\cdot\|_{\mathrm{obs}}\) denotes a chosen observation-error norm. The intended stability target is a controlled bound on \(\|\widehat M-M\|_{\mathrm{err}}\) for a recovered minimizer \(\widehat M\), with the bound tending to zero as the noise bound tends to zero in a fixed admissible setting. Neither norm, the quantitative bound, its parameter dependence, nor the required uniformity over errors and minimizers is supplied. The displayed noisy program is therefore an explicit possible interpretation of the request, not a source-verified choice of noise model or algorithmic variant.
+
+Thus the supplied problem asks for sampling, rank, and incoherence hypotheses ensuring exact recovery and stability by nuclear-norm minimization. It does not determine a single fully quantified theorem. The supplied literature assessment labels the problem partially solved and reports established exact-recovery results under incoherence and random-sampling hypotheses; that dated assessment does not itself specify or establish the requested noisy guarantee.
+\subsection{Short English statement}
+Can minimizing the sum of singular values reconstruct a sufficiently incoherent low-rank matrix exactly from randomly observed entries, and give controlled reconstruction error when those observations contain bounded noise? The source leaves the sampling law, sample size, incoherence condition, probability guarantee, and quantitative meaning of stability unspecified. Its partially solved label is supplied dated curation.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local problem registry record, permanent UnsolvedMath ID \(30001219\), source problem code \texttt{catalogue entry}, title \emph{Stable Low-Rank Matrix Completion from Random Samples}; collection: Oberwolfach Reports Open Problems; proposed year: 2009. No individual proposer is identified.
+\item Source report: \emph{Sparse Recovery Problems in High Dimensions: Statistical Inference and Learning Theory} (2009), Oberwolfach Reports, pp. 867--916, DOI 10.4171/owr/2009/16. Supplied source URL and literature-source link: \url{https://doi.org/10.4171/owr/2009/16}. The supplied background describes these reports as records of mathematical workshops and their open-problem discussions; no problem-specific page or passage is supplied.
+\item Supplied literature source, labeled ``Cand\`es--Recht primary paper'': \url{https://doi.org/10.1007/s10208-009-9045-5}.
+\item Supplied literature source, labeled ``exact matrix-completion preprint'': \url{https://arxiv.org/abs/0805.4471}.
+\item Literature assessment checked at \texttt{2026-08-21}: the supplied curation labels the problem partially solved and states that exact low-rank matrix completion by nuclear-norm minimization is rigorously established under incoherence and random-sampling hypotheses. It explicitly rejects interpreting the extraction as an all-matrices theorem and describes substantial resolution of the intended low-rank problem. This is supplied dated curation, not an independently verified literature assessment; its time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and describes its verification as meaning-preserving semantic, typographic, and LaTeX cleanup without unsupported source-dependent additions. This supplied label is not independent mathematical verification of this draft.
+\end{itemize}
+\end{document}

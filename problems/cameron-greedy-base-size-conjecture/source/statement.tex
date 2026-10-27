@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006239}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Omega\) be a finite nonempty set and let \(G\leq\operatorname{Sym}(\Omega)\). The action is primitive if it is transitive and its only \(G\)-invariant partitions are the partition into singletons and the partition \(\{\Omega\}\). For a sequence \((\alpha_1,\ldots,\alpha_k)\) of points, write
+\[
+G_{\alpha_1,\ldots,\alpha_k}=\{g\in G:g\alpha_i=\alpha_i\text{ for every }1\leq i\leq k\}.
+\]
+A base is such a sequence with trivial pointwise stabilizer, and \(b(G)\) is the minimum length of a base in this action.
+
+The supplied record does not define the greedy procedure or its treatment of ties. To make the intended statement precise, use the following conventional interpretation, which requires confirmation against the cited report. Set \(H_0=G\). Whenever \(H_i\neq\{1\}\), choose \(\alpha_{i+1}\in\Omega\) such that
+\[
+|H_i\alpha_{i+1}|=\max_{\omega\in\Omega}|H_i\omega|,
+\qquad H_{i+1}=(H_i)_{\alpha_{i+1}}.
+\]
+Stop at the first index \(k\) for which \(H_k=\{1\}\). Define the greedy base size \(\gamma(G)\) to be the maximum such length \(k\) over all choices permitted by ties. This quantity is denoted \(G(G)\) in the supplied record. For the trivial group, take the empty base and set \(b(G)=\gamma(G)=0\); this also handles the singleton action.
+
+\textbf{Cameron's Greedy Conjecture, under the preceding interpretation.} There exists a real constant \(c>0\), independent of both \(\Omega\) and \(G\), such that for every finite primitive permutation group \(G\leq\operatorname{Sym}(\Omega)\),
+\[
+\gamma(G)\leq c\,b(G).
+\]
+Equivalently, every execution of the specified greedy procedure has length at most \(c\,b(G)\). The missing source definition of greedy base size, especially the extremum over tie choices, remains a formulation qualification requiring human review.
+\subsection{Short English statement}
+Cameron's conjecture asks whether the longest base produced by repeatedly choosing a point in a largest orbit of the current pointwise stabilizer is bounded by a universal constant times the shortest possible base, for every finite primitive permutation action. The supplied record leaves the greedy rule and tie convention unstated, so this precise interpretation requires confirmation. Its supplied status is partially solved; that status is not independently verified here.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, with \texttt{catalog/problems.json} as the additional-record registry; permanent UnsolvedMath ID \(30006239\), source code \texttt{catalogue entry}. The supplied record titles this problem ``Cameron Greedy Base-Size Conjecture,'' attributes the conjecture by name to Cameron, gives the year 2025, and identifies no separate proposer.
+\item Source report: \emph{Finite Groups, Fusion Systems and Applications} (2025), Oberwolfach Reports, pp.\ 689--752, DOI \texttt{10.4171/owr/2025/16}. \url{https://doi.org/10.4171/owr/2025/16}. The supplied original statement labels this Conjecture 1. Oberwolfach Reports are described in the record as documenting mathematical workshops and their open-problem discussions.
+\item Supplied report background says the program had focused primarily on almost simple primitive groups. It asserts that primitive groups with sporadic socle satisfy \(b(G)=G(G)\), citing its reference [8], and that primitive groups of odd order satisfy the same equality, citing its reference [2]. The bibliographic identities of [8] and [2] are not supplied; these assertions are retained as source claims without independent verification.
+\item Supplied literature source: del Valle--Roney-Dougal, 2025. \url{https://arxiv.org/abs/2503.23964}.
+\item Supplied literature source: del Valle--Roney-Dougal, diagonal type. \url{https://arxiv.org/abs/2605.16032}.
+\item Supplied literature source: workshop status report. \url{https://doi.org/10.4171/owr/2025/16}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem partially solved and says that the general finite primitive case remains open, with substantial recent results for sporadic, odd-order, alternating, and diagonal-type families. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; the record expressly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

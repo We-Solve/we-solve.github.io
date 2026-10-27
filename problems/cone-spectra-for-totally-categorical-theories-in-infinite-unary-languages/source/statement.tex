@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002323}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(T\) be a complete theory with infinite models in a countable computable language. It is totally categorical if it has exactly one model up to isomorphism in each infinite cardinality. For a Turing degree \(\mathbf d\), a \(\mathbf d\)-computable presentation means a presentation whose atomic diagram is computable from a representative of \(\mathbf d\). Define the computability spectrum
+\[
+ \operatorname{Spec}_{\le}(T)
+ =\{\mathbf d:\exists M\models T\text{ countable with }D(M)\le_T\mathbf d\}.
+\]
+A cone with base \(\mathbf c\) is \(\{\mathbf d:\mathbf c\le_T\mathbf d\}\). With this spectrum convention, Conjecture 21 asks whether
+\[
+ \forall T\text{ totally categorical}\ \exists\mathbf c\quad
+ \operatorname{Spec}_{\le}(T)=\{\mathbf d:\mathbf c\le_T\mathbf d\}.
+\]
+The source says this is true in a finite language. Its short excerpt does not define \(\operatorname{Spec}(T)\); the distinction from degrees exactly equal to diagram degrees matters below.
+
+The supplied partial result concerns a computable countable purely unary relational language \(L=\{P_i:i\in\omega\}\) and a complete \(\aleph_0\)-categorical \(T\), with unique countably infinite model \(M\). For \(a\in M\), its unary pattern is
+\[
+ p_a=\{i:M\models P_i(a)\}\subseteq\omega.
+\]
+There are finitely many distinct realized patterns \(p_1,\ldots,p_r\). List their characteristic sequences in lexicographic order and encode their finite join by
+\[
+ C_M=\{\langle j,i\rangle:1\le j\le r,\ i\in p_j\}.
+\]
+The aid's cone-base assertion, interpreted as a computability spectrum, is
+\[
+ \operatorname{Spec}_{\le}(T)
+ =\{\mathbf d:\deg_T(C_M)\le\mathbf d\}.
+\]
+The multiplicity of each pattern is a fixed positive integer or countably infinite. These finitely many multiplicity data may be hard-coded for this fixed \(M\); they are not additional infinite oracle information. Every presentation computes the finite family of patterns, up to the fixed finite identifying data, and the patterns with these multiplicities compute a presentation. These reducibility assertions need not give one procedure uniform over all input theories or unknown numbers of patterns. The conclusion applies in particular to the totally categorical theories in this unary class, and does not settle the conjecture in arbitrary languages.
+
+The aid also says that every cone is realized by a one-pattern example. For \(A\subseteq\omega\), take an infinite unary structure in which
+\[
+ \forall x\,P_i(x)\quad(i\in A),\qquad
+ \forall x\,\neg P_i(x)\quad(i\notin A).
+\]
+Its complete theory is totally categorical, \(C_M\) has degree \(\deg_T(A)\), and its computability spectrum is the cone above \(\deg_T(A)\).
+
+If instead \(\operatorname{Spec}_{=}(T)\) means the set of degrees \emph{equal} to atomic-diagram degrees of copies on the standard domain \(\omega\), this one-pattern example has only the diagram degree \(\deg_T(A)\): permutations cannot change the predicates, since each is everywhere true or everywhere false. Thus the one-pattern cone assertion cannot use that exact-degree convention. The record does not supply the original definition resolving this issue, so the convention is explicit here rather than silently conflated.
+
+The remaining extracted text is not part of Conjecture 21: it includes the page header, section 1.13 on model-theoretic consequences of Erd\H{o}s--Rado attributed to Greenberg, Task 22 attributed to Hirschfeldt concerning proofs in second-order arithmetic, with forking versus dividing in simple theories as an example, and the section 1.14 heading on Borel complexity attributed to Marker. These are preserved as source-boundary information only.
+\subsection{Short English statement}
+The conjecture asks whether the degrees that compute models of a totally categorical theory form one cone. The supplied unary-language result identifies its base with the finite join of realized predicate patterns. A one-pattern example realizes every computability cone, but would have a singleton spectrum under an exact-diagram-degree convention.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002323\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-logic-notes.json}, \texttt{notes[98]}.
+\item AIM, \emph{Computable Stability Theory}, Conjecture 21 and its finite-language note; supplied source reference \url{https://aimath.org/pastworkshops/computestabproblems.pdf}. The record reports inspection of page 4 and identifies following-page contamination. That is supplied verification history, not an inspection performed here. No proposer, year, remarks, or literature citation is supplied for the conjecture.
+\item Supplied research attempt 1: \texttt{partial\_result}, run status \texttt{open}, rigor label \texttt{proved}, low novelty confidence; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The finite-pattern theorem and realization assertion have no primary bibliographic reference in the record.
+\item The supplied research aid is explicitly machine generated, not peer reviewed, and must be independently verified before citation.
+\end{itemize}
+\end{document}

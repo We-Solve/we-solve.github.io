@@ -1,0 +1,51 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000872}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The concrete counting question in the discussion is: given $k$ candidate edges, interpreted as leaf splits $S$, determine for every $J\subseteq S$ the number of leaf-labeled binary trees containing all splits in $J$ and none in $S\setminus J$. The workshop does not fix rooting or planar conventions. The attached aid treats the following explicit version.
+
+Let $X$ be a fixed label set of size $n\geq3$, and let $\mathcal T_X$ consist of finite unrooted, nonplanar trees whose leaves are bijectively labeled by $X$ and whose internal vertices have degree three, up to label-preserving graph isomorphism. An edge induces an unordered split $A\mid(X\setminus A)$; it is nontrivial when both sides have size at least two. Write $\Sigma(T)$ for the nontrivial splits of $T$. For a finite set $S$ of distinct nontrivial splits define
+\[
+ N_S(J)=\#\{T\in\mathcal T_X:\Sigma(T)\cap S=J\}\qquad(J\subseteq S).
+\]
+This all-pattern counting function is the definite target, not merely the count of trees containing at least $J$.
+
+For $F\subseteq S$ write $R(F)=\#\{T\in\mathcal T_X:F\subseteq\Sigma(T)\}$. Two splits $A\mid A^c$ and $B\mid B^c$ are compatible if at least one of $A\cap B,A\cap B^c,A^c\cap B,A^c\cap B^c$ is empty. The aid records $R(F)=0$ for incompatible $F$; for a compatible family, let $T_F$ be the least-resolved $X$-tree with precisely the nontrivial splits $F$, with no degree-two internal vertices. Its recorded formulas are
+\[
+ R(F)=\prod_{v\in V_{\mathrm{int}}(T_F)}(2\deg(v)-5)!!,\qquad
+ N_S(J)=\sum_{J\subseteq K\subseteq S}(-1)^{|K|-|J|}R(K),
+\]
+where $(2m-1)!!=1\cdot3\cdots(2m-1)$ for $m\geq1$ and $1!!=1$. In particular $F=\varnothing$ uses the unresolved star. The polynomial $\sum_{J\subseteq S}N_S(J)\prod_{s\in J}z_s$ records all exact patterns. Repeated copies of the same candidate split must have identical presence bits; inconsistent requests have count zero. Trivial leaf splits occur in every tree and therefore cannot be forbidden. These rules precede application of the distinct-nontrivial-split formula. Rooted clade constraints can instead be translated by adjoining a distinguished outgroup leaf and replacing each clade $A$ by $A\mid((X\setminus A)\cup\{o\})$; they are not counted under an unchanged unrooted convention.
+
+Other questions in the same source remain separate: count trees at a prescribed distance from a specified family (nearest-neighbor interchange is suggested); find efficient tree codes; and find notation whose small changes correspond to nearby trees during a random walk. The discussion additionally asks about discrete or vector edge data, character states in the Klein four-group with edge differences, $k$-ary trees, and graph structures with cycles to represent uncertainty and distances faithfully. Neither a metric and neighborhood on codes nor a criterion of efficiency or biological fidelity is specified, so these broader requests are not resolved by the split-counting formulas.
+\subsection{Short English statement}
+Count every exact pattern of required and forbidden phylogenetic splits. The supplied aid gives compatible-split refinement counts and inclusion--exclusion under an explicit unrooted nonplanar binary convention. The workshop also asks about tree distances, efficient local encodings, and richer biological structures; those questions require further specifications.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Geometric Models of Biological Phenomena}, Section A.3, ``Monday Discussion on Combinatorial Issues,'' moderated by Michelle Wachs: \url{https://aimath.org/WWN/geombio/geombio.pdf}. Huelsenbeck motivates split-constrained counts for priors; Holmes discusses inclusion--exclusion; Evans suggests MCMC; Billera distinguishes the counting question from complexity and asks for efficient representations; Diaconis asks for locally continuous random-walk notation.
+\item The discussion names Wachs's type-B permutation coding (left-to-right minima unbarred), Penny's insertion and numerical codes, Newick/New Hampshire notation, Brooks and Graham--Winkler ancestor matrices, Diaconis--Holmes sibling matchings, Billera's Pr\"ufer-code connection, and Bridson's Weyl-group Cayley-graph observation. It also attributes character mapping to Huelsenbeck, vector edge values to Epstein, Klein four-group states to Evans/Penny, uncertainty cycles and distance fidelity to Penny, SplitsTree to Holmes, and an associahedral space with $(n-2)!$ cycles to Shareshian. No complete bibliographic references or specifications for these constructions are supplied.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20000872, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-biology-notes.json notes[36]}. Attached attempt 1 is labeled partial result, problem status at run partially solved, rigor proved, and low novelty confidence. Its formulas are supplied machine-generated research aid, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

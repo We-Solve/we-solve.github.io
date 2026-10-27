@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002457}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This record is Bruno Despr\'es's participant-interest note, not a stated open problem. It discusses finite-volume convergence via consistency plus stability, including nonlinear scalar conservation laws, and work with Christophe Buet on implicit approximations of a stiff two-moment model. The first extracted equation is $u_t+\eps^{-1}v_x=0$; the second lacks a spatial derivative on its flux. The supplied verification explicitly reconstructs
+\[
+ u_t+\eps^{-1}v_x=0,\qquad
+ v_t+\eps^{-1}\partial_x f(u,v)=-\sigma\eps^{-2}v.
+\]
+This derivative is an inference, not verified original typography. The flux, boundary conditions, and detailed original numerical solver are not supplied. The participant reports an implicit one-dimensional solver using a linear system with frozen coefficients, preserving the kinetic constraint $|v|/u\le1$ and having the correct diffusion limit. In nonnegative variables the closed kinetic cone is $\mathcal K=\{(u,v):u\ge|v|\}$; the displayed ratio itself presupposes $u>0$.
+
+The aid studies the explicitly reconstructed linear telegraph specialization $f(u,v)=u$, $\sigma>0$, $\eps>0$, rather than identifying the participant's nonlinear solver. Its formal diffusion limit is $u_t=\sigma^{-1}u_{xx}$. It reports an exact $\eps$-uniform discrete $L^2$ energy identity for a fully implicit staggered backward-Euler discretization, but the stencil, boundary conditions, and identity are not present in the supplied record.
+
+Its asymptotic-preserving claim is specifically a fixed-grid, fixed-time-step limit: if the initial grid vector $u_\eps^0\to\bar u^0$ and $v_\eps^0$ remains uniformly bounded as $\eps\downarrow0$, then at each fixed time index the computed $u_\eps^n$ converges to the standard three-point backward-Euler diffusion sequence initialized by $\bar u^0$. On a uniform grid with spacing $h$ and step $\tau$, that limiting interior update is
+\[
+ \frac{\bar u_j^{n+1}-\bar u_j^n}{\tau}
+ =\frac{\bar u_{j+1}^{n+1}-2\bar u_j^{n+1}+\bar u_{j-1}^{n+1}}{\sigma h^2},
+\]
+with compatible boundary conditions still to be specified. No initial requirement $v_\eps^0=O(\eps)$ is imposed in the reported result. This is not a simultaneous continuum-limit or uniform-in-time convergence assertion.
+
+The aid separately reports an exact four-cell periodic counterexample for the collocated centered implicit analogue: cone-admissible initial cell states produce an updated cell with $u<|v|$. The update parameters and rational cell values are not included here. This distinguishes discrete energy stability and a correct fixed-grid diffusion limit from preservation of $\mathcal K$; it does not refute the participant's separate claim for an unspecified different solver.
+\subsection{Short English statement}
+This is a participant note about implicit relaxation solvers. Its damaged flux is explicitly reconstructed, and the aid audits a linear telegraph specialization. The reported energy identity and fixed-grid diffusion limit do not by themselves imply preservation of the kinetic cone.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002457, source code catalogue entry; created and updated 14 August 2026. Canonical \texttt{aim-pdes-notes.json}, zero-based \texttt{notes[68]}, tag \texttt{section}, item A.4, ``Despres, Bruno.''
+\item AIM workshop ``Stiff sources and numerical methods for conservation laws'': \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}. The note names collaborator Christophe Buet. Original remarks and literature field are empty; the statement is marked reconstructed\_unverified.
+\item Supplied verification refers to later two-moment radiation equations of Buet and Despr\'es as motivation for restoring the flux derivative, but gives no complete citation. Research attempt 1: \texttt{context\_only}, problem status at run \texttt{not\_a\_problem}, rigor label \texttt{proved}, novelty confidence low. Its advertised exact stencil, identity, and rational counterexample are not included in this source record.
+\item Ulam AI / UnsolvedMath Contributors, CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

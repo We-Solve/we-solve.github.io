@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800531}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(m\in\Z_{\ge 0}\) denote the number of permitted matrix--matrix multiplications. For a univariate polynomial \(p(t)=\sum_{j=0}^{d}a_jt^j\), its corresponding matrix function is \(p(A)=\sum_{j=0}^{d}a_jA^j\), where \(A^0\) is the identity matrix. Following the supplied source, let \(\Pi_{2^m}^{*}\) denote the set of polynomials whose corresponding matrix functions can be computed using \(m\) matrix--matrix multiplications and arbitrarily many matrix additions and scalar scalings. The source does not specify the coefficient field, the matrix sizes for which an evaluation scheme must work, or whether the multiplication budget means exactly \(m\) or at most \(m\).
+
+For a real parameter \(\delta\), set
+\[
+I_\delta=[-1,-\delta]\cup[\delta,1].
+\]
+The intended separated-interval formulation is meaningful without specifying a value of the sign function at zero when \(0<\delta\le 1\); the source does not explicitly impose this range. The intervals are nondegenerate when \(0<\delta<1\). On \(\R\setminus\{0\}\), define
+\[
+\operatorname{sign}(x)=
+\begin{cases}
+-1,&x<0,\\
+1,&x>0.
+\end{cases}
+\]
+Subject to the parameter and computational-model qualifications above, the source asks for the asymptotic behavior, as a function of \(m\) and \(\delta\), of
+\[
+\epsilon_m^{*}(\delta)
+=
+\min_{p\in\Pi_{2^m}^{*}}
+\max_{x\in I_\delta}
+\left|p(x)-\operatorname{sign}(x)\right|.
+\]
+The minimum notation is retained from the source; attainment is not justified in the supplied record. If attainment is unavailable, the corresponding optimal-error quantity must instead be defined using an infimum. The source does not specify whether the requested asymptotics concern \(m\to\infty\) with fixed \(\delta\), \(\delta\to0^{+}\), or a joint regime.
+\subsection{Short English statement}
+Determine the asymptotic best uniform approximation error for the sign function on two intervals separated from zero, when polynomial evaluation is restricted to \(m\) matrix--matrix multiplications and unrestricted additions and scalar scalings. The parameter range, precise evaluation model, attainment of the stated minimum, and intended asymptotic regime require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record with permanent ID \(800531\), exact source problem code \texttt{catalogue entry}, and title \emph{Linear Systems and Eigenvalue Problems --- Problem 40}. The registry attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels its status as open. This is a supplied status label, not an independently verified mathematical assessment.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 40. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not a claim of independent source access or verification.
+\item Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}. Registry creation and update timestamps are both \texttt{2026-10-16T14:00:00Z}.
+\end{itemize}
+\end{document}

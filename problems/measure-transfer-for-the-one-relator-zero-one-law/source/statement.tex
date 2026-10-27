@@ -1,0 +1,84 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002316}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The literal conjecture is
+\[
+ \forall\varphi\ \exists\ell_\varphi\in\{0,1\}\ \forall n\quad
+ \lim_{t\to\infty}h_{n,t,\varphi}=\ell_\varphi.
+\]
+Here \(\varphi\) is a first-order group sentence according to the research aid. The excerpt omits the preceding definition of \(h_{n,t,\varphi}\), including the allowed ranks \(n\), the relator convention, and the probability measure. Consequently this displayed quantification records the intended independence of \(n\) but cannot by itself define the source's random objects. The following is the aid's conditional one-relator reconstruction, with \(n\ge2\) fixed; this rank restriction is not recovered from the excerpt itself.
+
+Let \(F_n=\langle x_1,\ldots,x_n\rangle\). After fixing either the reduced-word or cyclically reduced-word convention consistently, let \(\mathcal R_{n,s}\) be the finite set of relators of exact length \(s\), and put
+\[
+ w_{n,s}=|\mathcal R_{n,s}|,\quad
+ \mathcal P_{n,t}=\bigsqcup_{s\le t}\mathcal R_{n,s},\quad
+ W_{n,t}=|\mathcal P_{n,t}|,\quad
+ G_r=F_n/\langle\!\langle r\rangle\!\rangle.
+\]
+The union is over lengths allowed by the chosen convention. Uniform presentation sampling has sentence probabilities
+\[
+ \alpha_{n,s,\varphi}=\frac{|\{r\in\mathcal R_{n,s}:G_r\models\varphi\}|}{w_{n,s}},\qquad
+ \beta_{n,t,\varphi}=\frac{\sum_{s\le t}w_{n,s}\alpha_{n,s,\varphi}}{W_{n,t}},
+\]
+with empty spheres omitted. If the exact-length probabilities tend to \(\ell_\varphi\), and
+\[
+ \frac{\sum_{s\le L}w_{n,s}}{W_{n,t}}\longrightarrow0
+ \qquad\text{for every fixed }L,
+\]
+then the at-most-length presentation probabilities also tend to \(\ell_\varphi\). The aid reports an announced full first-order free-group law for an exact-length density-zero presentation model: the proposed limiting truth value is the truth value of \(\varphi\) in a nonabelian free group and is independent of rank \(n\ge2\). Application of this announcement requires checking the exact reduced versus cyclically reduced convention against the AIM definition. No full citation or theorem statement for the announcement is supplied.
+
+Uniform sampling of abstract isomorphism types is a different measure. Let \(\mathcal I_{n,t}=\{[G_r]:r\in\mathcal P_{n,t}\}\), \(K_{n,t}=|\mathcal I_{n,t}|\), and
+\[
+ m_{n,t}(H)=|\{r\in\mathcal P_{n,t}:[G_r]=H\}|,\qquad
+ \overline m_{n,t}=W_{n,t}/K_{n,t}.
+\]
+The pushforward presentation measure and the uniform isomorphism-type measure are
+\[
+ \mu_{n,t}(H)=\frac{m_{n,t}(H)}{W_{n,t}},\qquad
+ \nu_{n,t}(H)=\frac1{K_{n,t}}.
+\]
+Their exact total-variation distance is
+\[
+ \|\mu_{n,t}-\nu_{n,t}\|_{\mathrm{TV}}
+ =\frac1{2K_{n,t}}\sum_{H\in\mathcal I_{n,t}}
+ \left|\frac{m_{n,t}(H)}{\overline m_{n,t}}-1\right|.
+\]
+In particular, if \(A_\varphi=\{H:H\models\varphi\}\), then
+\[
+ |\mu_{n,t}(A_\varphi)-\nu_{n,t}(A_\varphi)|
+ \le\|\mu_{n,t}-\nu_{n,t}\|_{\mathrm{TV}}.
+\]
+Vanishing normalized mean absolute fiber dispersion is therefore a sufficient condition to transfer every presentation-model zero-one limit to the uniform abstract-group model. The equality is for total variation, the supremum over all events; the discrepancy for an individual sentence need not equal it. The aid explicitly leaves this dispersion condition unproved for the AIM ball model. Thus neither the missing definition of \(h\) nor the abstract-isomorphism sampling version is silently resolved by the presentation theorem.
+\subsection{Short English statement}
+The conjecture asks for a rank-independent first-order zero-one law. Exact-length presentation limits transfer to length balls under a negligible-prefix condition. Transfer to uniform abstract isomorphism types additionally requires control of presentation multiplicities, which the supplied aid leaves unproved.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002316\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-logic-notes.json}, \texttt{notes[91]}.
+\item AIM, \emph{Computable Stability Theory}, Conjecture 14; supplied source reference \url{https://aimath.org/pastworkshops/computestabproblems.pdf}. The record says the extracted conjecture is faithful but omits notation introduced immediately before it. That preceding definition is not actually included in the supplied record. No proposer, year, original remarks, or literature entry is supplied.
+\item Supplied research attempt 1: \texttt{partial\_result}, run status \texttt{partially\_solved}, rigor label \texttt{proved}, low novelty confidence; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The announced exact-length free-group law is not accompanied by an author, full citation, or precise theorem statement.
+\item The aid explicitly describes itself as machine generated, not peer reviewed, and requiring independent verification before citation.
+\end{itemize}
+\end{document}

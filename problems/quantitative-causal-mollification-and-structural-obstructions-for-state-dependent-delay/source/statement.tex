@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001439}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The June 2010 source lists four questions about variable time lags.
+\begin{enumerate}
+\item Establish existence and smoothness of local invariant manifolds at equilibria for neutral equations with state-dependent delay, including
+\[
+ x'(t)=A\bigl(x'(t-r(x(t)))\bigr)+f(x(t)),
+\]
+with linear \(A\), delay function \(r\) and smooth \(f\).
+\item Extend lap-number techniques as widely as possible, especially to nonmonotonic delays, implicitly defined delays and multiple delays. A lap number counts sign changes of a scalar function, with conventions at zeros needed for a precise theorem. The source also proposes numerical case studies to guide analysis.
+\item Determine how replacing constant delay by state-dependent delay changes dynamics, analytically and numerically, for scalar one-delay equations such as Wright's and Mackey--Glass equations, scalar equations with at least two delays, and higher-order equations with one or more delays. The claim that studies are missing is the source's historical description.
+\item Approximate the printed term \(x(t+r(x(t)))\) by distributed or integral terms to improve smoothness. The plus sign is retained: for positive \(r\), this is an advanced evaluation, unlike the retarded term in question 1.
+\end{enumerate}
+The questions give no complete phase space, delay bounds, regularity orders, spectral gaps or desired invariant-manifold theorem.
+
+The attached aid treats a restricted causal approximation. Fix \(h>0\), \(0<\delta<h/2\), a \(C^k\) delay \(r\) with values in \([\delta,h-\delta]\), and a nonnegative smooth kernel \(\kappa\), supported in \((-1,1)\), of integral one. For \(0<\epsilon<\delta\) and history \(\phi\in C([-h,0],\R^q)\), set
+\[
+ D_0(\phi)=\phi(-r(\phi(0))),\qquad
+ D_\epsilon(\phi)=\int_{-1}^1\kappa(s)\phi(-r(\phi(0))+\epsilon s)\,ds.
+\]
+This uses only causal history. For each fixed \(\epsilon\), the aid reports a \(C^k\) functional, using the equivalent smooth-kernel integral on the fixed history interval. With \(m_j=\int|s|^j\kappa(s)\,ds\), it reports
+\[
+ |D_\epsilon(\phi)-D_0(\phi)|\le\epsilon m_1\|\phi'\|_\infty\quad(\phi\in C^1),
+\]
+and, for an even kernel,
+\[
+ |D_\epsilon(\phi)-D_0(\phi)|\le\tfrac12\epsilon^2m_2\|\phi''\|_\infty\quad(\phi\in C^2).
+\]
+At a fixed \(C^1\) history the reported derivative consistency is in operator norm on \(C^1\) perturbations, with
+\[
+ DD_0(\phi)v=v(-r(\phi(0)))-\phi'(-r(\phi(0)))Dr(\phi(0))v(0).
+\]
+It is not stated as derivative convergence on all continuous histories. For the printed advanced evaluation, two trajectories with identical histories through the present but different values at the sampled future time give the same value to every causal-history functional. The aid uses this to obstruct uniform causal approximation on any class containing such branching futures.
+
+For an equilibrium \(x_*\) with \(f(x_*)=0\) and \(r_*=r(x_*)\), the aid also reports the frozen neutral characteristic matrix
+\[
+ \Delta(\lambda)=\lambda(I-Ae^{-\lambda r_*})-Df(x_*),
+\]
+a quadratic remainder under sufficient history regularity, and a finite-time comparison of retarded state-dependent and frozen constant-delay equations under appropriate Lipschitz bounds. It explains structural obstacles to classical lap-number arguments from loss of ordered delay arguments and multiple delays; this is not an impossibility theorem for all replacement techniques. Neither mollification nor the characteristic matrix alone supplies the invariant manifolds or all dynamical comparisons requested above.
+\subsection{Short English statement}
+Retain all four variable-delay questions: neutral invariant manifolds, broader lap-number methods, comparison with constant delays, and integral approximation. The supplied aid quantifies smoothing of an interior retarded evaluation and distinguishes it from the printed advanced term, which cannot be recovered from arbitrary causal histories.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Low dimensional structures in dynamical systems with variable time lags}, June 2010, record 1: \url{https://aimath.org/WWN/variabletimelag/variabletimelag.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001439, source code \texttt{catalogue entry}; canonical source \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[96]}.
+\item The supplied verification says the PDF was previously checked and all four questions were recovered with signs preserved. This draft does not independently repeat that inspection.
+\item Attached machine-generated attempt 1: partial result, internal rigor label ``proved'', low novelty confidence; not peer reviewed and requiring independent verification before citation. No separate literature reference is supplied.
+\end{itemize}
+\end{document}

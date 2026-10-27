@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001304}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This record concatenates Problems 7 and 8 of the 2007 AIM list, rather than one question.
+
+Problem 7 (S. Robins) asks for an explicit configuration of \(N\) ``uniformly'' arranged points on \(S^{n-1}\), and whether these coincide with the vertices of a maximum-volume inscribed \(N\)-vertex polytope. ``Uniformly'' is not defined: separation, discrepancy, energy and spherical-design conditions are different targets. A convex polytope cannot literally be contained in the sphere unless degenerate; the meaningful inscribed reading is that its vertices lie on the sphere and the polytope lies in the unit ball. Positive \(n\)-dimensional volume requires \(N\ge n+1\).
+
+An equal-weight spherical 2-design \(x_1,\ldots,x_N\in S^{n-1}\) satisfies
+\[
+\frac1N\sum_i x_i=0,\qquad\frac1N\sum_i x_ix_i^{\mathsf T}=\frac1n I_n.
+\]
+The aid reports that regular polygons in the planar case and regular simplices for \(N=n+1\) simultaneously give maximum inscribed volume, spherical designs and optimal separation in their respective settings. It also gives a mismatch: for odd \(n\ge3\) and \(N=n+2\), no equal-weight spherical 2-design exists. The maximum-volume configuration attributed to Horvath--Langi is a join of two regular simplices in orthogonal complementary subspaces of dimensions \(d=\lfloor n/2\rfloor\) and \(e=n-d\). The join means the convex hull of their union. It is instead a weighted 2-design: each of the \(d+1\) vertices in the first simplex may receive weight \(d/[n(d+1)]\), and each of the \(e+1\) vertices in the second weight \(e/[n(e+1)]\). These weights have sum one, weighted mean zero and weighted second moment \(I_n/n\). Thus one particular precise meaning of uniformity need not agree with the volume extremum.
+
+Problem 8 asks whether the Fourier transform of a function \(f\) on \(S^{n-1}\) can determine whether it is a support function or a radial function of a convex body. The transform convention and regularity are not fixed in the original question. The aid supplies the following great-circle Fourier criterion, for real continuous \(f\) and \(n\ge2\).
+
+For every orthonormal pair \(a,b\in\R^n\), restrict \(f\) to \(u(t)=a\cos t+b\sin t\), and define
+\[
+c_k=\frac1{2\pi}\int_0^{2\pi}f(u(t))e^{-ikt}\,\dd t,\qquad k\in\Z.
+\]
+Then all the matrices
+\[
+T_r=\bigl[(1-(j-k)^2)c_{j-k}\bigr]_{j,k=0}^r,\qquad r=0,1,2,\ldots,
+\]
+are required to be positive semidefinite for every great-circle restriction. Equivalently, the circle distribution \(f+f''\) is nonnegative on each such restriction. The aid's nonsmooth characterization is that this condition is exactly the condition for \(f\) to be a support function of a nonempty compact convex set, with homogeneous extension \(H(x)=|x|f(x/|x|)\), \(H(0)=0\). If ``convex body'' requires nonempty interior, the additional condition that the resulting set be full dimensional is necessary; it can be expressed by
+\[
+f(u)+f(-u)>0\quad\text{for every }u\in S^{n-1}.
+\]
+The Toeplitz condition alone also permits support functions of points and other lower-dimensional sets. This qualification corrects the aid's unqualified use of the word body.
+
+For a positive continuous \(f\), set \(K_f=\{tu:u\in S^{n-1},\ 0\le t\le f(u)\}\). It is a convex body with origin in its interior exactly when the same Toeplitz test holds for the great-circle Fourier coefficients of \(1/f\); in that case \(1/f\) is the support function of the polar \(K_f^\circ\). Positivity is essential for this reciprocal criterion.
+
+The aid also asserts that no fixed finite spherical-harmonic cutoff decides either property. Specifically, for a cutoff \(L\), choose an odd degree \(m>L\), sufficiently large that \(m(m+n-2)>2(n-1)\), and a real spherical harmonic \(Y_m\) of degree \(m\) normalized by \(\|Y_m\|_\infty=1\). Its oddness gives extrema \(1\) and \(-1\). The positive perturbation
+\[
+f(u)=1+\frac{2(n-1)}{m(m+n-2)}Y_m(u)
+\]
+has exactly the same harmonic modes through degree \(L\) as the constant function 1, but the aid reports that it is neither a support function nor a radial function of a convex body. The normalization and sufficiently-large-degree restriction make the claimed positive example precise. The all-circles, all-matrix-sizes criterion is an infinite characterization and is not thereby a finite algorithm for arbitrary input functions.
+
+The registry labels the entry partially solved; attempt 1 is a partial result, problem partially solved at the run, internal rigor proved, novelty confidence low. The machine-generated research aid is not peer reviewed and requires independent verification before citation.
+\subsection{Short English statement}
+Robins's point-placement question has several inequivalent meanings of uniformity; the aid gives an explicit case where equal-weight design requirements cannot match a volume maximizer. The appended recognition question receives an infinite Fourier positivity criterion, with reciprocal testing for radial functions. Finite low-frequency data alone cannot decide these properties, and nonempty interior needs a separate qualification for support functions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001304\), source code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[35]}.
+\item AIM, \emph{Fourier analytic methods in convex geometry} (2007), printed page 4, Problems 7 (S. Robins) and 8: \url{https://aimath.org/WWN/fourierconvex/fourierconvex.pdf}. The problem-number recovery is attributed to the supplied verification, not independent PDF inspection.
+\item Horvath--Langi maximum-volume join, as named in the research summary; no article title, publication date or theorem number is provided. The original literature field is empty.
+\item Supplied research attempt 1 and registry update August 14, 2026; no separate authoritative citation for the Fourier-slice criterion or harmonic-cutoff obstruction is supplied.
+\end{itemize}
+\end{document}

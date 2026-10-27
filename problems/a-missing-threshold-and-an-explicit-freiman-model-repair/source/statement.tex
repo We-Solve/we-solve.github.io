@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001086}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+N. Katz's source question fixes $k\geq3$ and $C\geq2$ and asks whether every finite integer set with $|A+A|<C|A|$ has at least $c(k,C)|A|^2$ arithmetic progressions of length $k$. Interpret a proper progression as $(x,x+d,\ldots,x+(k-1)d)$ with $d\neq0$; count increasing ones by taking $d>0$. The source does not state a size threshold or whether zero differences are allowed.
+
+The literal all-finite-set assertion is false under this proper-progression convention. For every $k\geq3$, take $A=\{0,\ldots,k-2\}$. Then
+\[
+ |A|=k-1,\qquad |A+A|=2k-3<2|A|\leq C|A|,
+\]
+but there is no proper $k$-term progression.
+
+The aid reports the following precise asymptotic repair. Let $L=S_k(1/(8C^4))$ be a Szemer\'edi threshold, chosen so every integer interval of length at least $L$ has a proper $k$-term progression in each subset of relative density at least $1/(8C^4)$. Then every $A\subset\Z$ with
+\[
+ |A|\geq2L,\qquad |A+A|\leq C|A|
+\]
+contains at least
+\[
+ \frac{|A|^2}{128C^4L^2}
+\]
+increasing $k$-term progressions. Thus the reported valid constants are $N_0=2L$ and $c=1/(128C^4L^2)$; the source's strict-doubling hypothesis is included in this nonstrict version.
+
+The stated method models a subset of at least half of $A$ as a dense subset of a prime cyclic group using Ruzsa's Freiman modeling lemma, then applies Varnavides averaging rather than only an existence conclusion. A Freiman isomorphism of order two preserves two-sum equalities, including repetitions, in both directions. This suffices to pull back a cyclic progression, even if it wraps around: its consecutive identities
+\[
+ b_j+b_{j+2}=2b_{j+1}\qquad(0\leq j\leq k-3)
+\]
+become the same identities in the integers, forcing a single common difference. Injectivity retains nontriviality. No Freiman order $k$ assumption is needed for this transfer.
+
+The original record includes B. Green's affirmative comment using Ruzsa modeling and Szemer\'edi's theorem, and J. Solymosi's note that Katz used the question in an induction in his alternative Balog--Szemer\'edi proof. These explain the intended large-set formulation. The supplied refuted/solved labels concern the missing-threshold literal reading, not a refutation of that intended asymptotic theorem.
+\subsection{Short English statement}
+Small sets refute the literal proper-progression statement because it omits a size threshold. The aid supplies an affirmative large-set version with explicit constants in terms of a Szemer\'edi threshold. Order-two Freiman modeling suffices, including for cyclic progressions that wrap around.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001086$, source code \texttt{catalogue entry}, supplied complete source record, comments and research summary.
+\item American Institute of Mathematics, \emph{Recent trends in additive combinatorics}, Problem 1.5, N. Katz, with comments by B. Green and J. Solymosi; supplied URL \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. Canonical local record \texttt{aim-combinatorics-notes.json}, \texttt{notes[210]}. No PDF was retrieved.
+\item Supplied method references: Ruzsa's modeling lemma, Szemer\'edi's theorem, Varnavides averaging, and Solymosi's alternative Balog--Szemer\'edi argument. No full bibliographic entries or authoritative citation for the explicit constants are provided; the original literature field is empty.
+\item Research attempt 1: counterexample to the literal quantifiers; problem refuted at the run, registry status solved and classification \texttt{SOLVED-IN-LITERATURE}; supplied rigor label ``proved'', novelty confidence ``low''. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

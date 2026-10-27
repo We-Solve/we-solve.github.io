@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004767}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer \(r\geq 1\), let \(F_r\) denote the free group on a specified basis of \(r\) generators. A homomorphism between finitely generated free groups is specified by the images of the basis generators. A decision algorithm must terminate on every admissible finite input and correctly answer whether the required object exists.
+
+The supplied record asks whether the Post correspondence problem is decidable for free groups, including a rank-two case. It does not specify the precise version of that problem or which free group has rank two. To expose the missing choices, let \(k,r\geq 1\), let \(F_k=F(x_1,\ldots,x_k)\), and let \(f,g:F_k\to F_r\) be input homomorphisms. Define
+\[
+\operatorname{Eq}(f,g)=\{w\in F_k:f(w)=g(w)\}.
+\]
+Two distinct possible decision predicates are
+\[
+\operatorname{Eq}(f,g)\setminus\{1\}\neq\varnothing
+\quad\text{and}\quad
+\operatorname{Eq}(f,g)\setminus(\ker f\cap\ker g)\neq\varnothing.
+\]
+The second asks for an equalizer element whose common image is nonidentity; the first permits a nonidentity element in the common kernel. A formulation requiring a nonempty positive word instead would restrict the witness to the free monoid on \(x_1,\ldots,x_k\). These witness conditions are not interchangeable. The record supplies neither a witness convention nor restrictions such as injectivity of either homomorphism. Thus the free-group question is retained as a request for decidability, with its exact input and witness conventions unresolved. In particular, the phrase ``even in rank \(2\)'' does not specify whether \(k=2\), \(r=2\), or both.
+
+For a group \(G\), use the commutator convention
+\[
+[A,B]=A^{-1}B^{-1}AB,
+\qquad
+\operatorname{Comm}(G)=\{[A,B]:A,B\in G\}.
+\]
+The matrix question is whether, for the intended infinite linear group \(G\), there is an algorithm which, on input a matrix \(M\in G\), terminates and decides whether
+\[
+\exists A,B\in G\quad M=A^{-1}B^{-1}AB.
+\]
+This asks for a single commutator. The supplied examples are
+\[
+\operatorname{SL}(n,\Z)=\{A\in\operatorname{Mat}_{n\times n}(\Z):\det A=1\},
+\qquad
+\operatorname{GL}(n,\Z)=\{A\in\operatorname{Mat}_{n\times n}(\Z):\det A\in\{1,-1\}\}.
+\]
+Their infinite cases have \(n\geq 2\). The record does not specify a particular \(n\), whether the algorithm may depend on \(n\), or whether a single algorithm must take \(n\) as part of its input. For a general infinite linear group, it also does not specify the coefficient field, the effective presentation of \(G\), or whether \(G\) is fixed or supplied as input. These choices remain unresolved qualifications of the decision problem.
+\subsection{Short English statement}
+The record asks for decision algorithms for a free-group Post correspondence problem, including a rank-two case, and for recognizing matrices that are single commutators in specified infinite linear groups. The Post correspondence witness convention, the meaning of rank two, and the uniformity and representation requirements for the matrix problem require clarification. The supplied open status is a dated curation claim, not an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied record with permanent ID \(30004767\), exact source code \texttt{catalogue entry}, title ``Post Correspondence and Matrix Commutators in Infinite Groups,'' in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is recorded as \(2021\).
+\item Supplied report citation: \emph{Computational Group Theory (2022)}, Oberwolfach Reports, pp. 2027--2087, DOI \texttt{10.4171/owr/2021/38}. The literature-source label is ``Oberwolfach Report 38/2021.'' \url{https://doi.org/10.4171/owr/2021/38}. The differing year indications are retained as supplied.
+\item Supplied literature source: ``GPCP and injectivity.'' \url{https://researchportal.hw.ac.uk/files/50837506/GPCP_and_injectivity.pdf}. The record supplies no authors or further bibliographic details for this reference.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open, attributes to the report the assertion that Post correspondence remains open for free groups even in rank two, and describes the accompanying matrix-commutator decision questions as presented without a general solution. This is supplied dated curation, not independently verified literature assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and records a claim that the official report was checked directly and the clean statement preserves the complete target. These are supplied provenance claims; no source visit or independent mathematical verification is asserted in this draft.
+\end{itemize}
+\end{document}

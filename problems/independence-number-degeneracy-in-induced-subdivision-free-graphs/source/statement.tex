@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006562}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(K_t\) denote the complete graph on \(t\) vertices, and let \(K_{t,t}\) denote the complete bipartite graph with two parts of size \(t\). For a simple undirected graph \(G\) and \(v\in V(G)\), define its open neighborhood by
+\[
+N_G(v)=\{u\in V(G):uv\in E(G)\}.
+\]
+A vertex set is independent if no two of its distinct vertices are adjacent. Write \(\alpha(N_G(v))\) for the independence number of the induced graph \(G[N_G(v)]\). For potentially infinite graphs, the inequality \(\alpha(N_G(v))\le C\) can be read as saying that every finite independent subset of \(N_G(v)\) has size at most \(C\).
+
+A subdivision of \(K_t\) in which every edge is subdivided at least once is obtained by replacing each edge of \(K_t\) by a finite path of length at least two, with distinct replacement paths having disjoint interiors and all internal vertices distinct from the original vertices. Such a subdivision occurs as an induced subgraph of \(G\) if some vertex set of \(G\) induces a graph isomorphic to that subdivision; thus no additional edges are permitted among the selected vertices.
+
+The supplied question has the following quantified form, with \(\mathcal G\) denoting the intended class of graphs:
+\[
+\begin{aligned}
+&\forall t\in\Z_{>0}\ \exists C=C(t)\in\R_{>0}\ \forall G\in\mathcal G,\\
+&\quad\left[\begin{array}{l}
+G\text{ has no induced subgraph isomorphic to }K_{t,t},\\
+G\text{ has no induced subgraph isomorphic to a subdivision of }K_t\\
+\text{in which every original edge is subdivided at least once}
+\end{array}\right]\\
+&\qquad\Longrightarrow\ \exists v\in V(G)\quad \alpha(N_G(v))\le C.
+\end{aligned}
+\]
+The constant may depend on \(t\), but must be independent of \(G\). The question is whether this assertion holds.
+
+The source does not explicitly specify whether graphs are finite, simple, undirected, or nonempty. The definitions above explain the simple undirected interpretation without resolving the intended domain \(\mathcal G\). In particular, if the empty graph is admitted, it satisfies both exclusion conditions but has no vertex witnessing the conclusion. A nonemptiness restriction therefore requires clarification; it has not been silently added to the displayed assertion. The supplied original transcription is incomplete and contains an apparent unrelated figure caption, so this draft follows the supplied corrected statement subject to these qualifications.
+\subsection{Short English statement}
+For each positive integer \(t\), the question asks for a bound \(C(t)\) such that every graph in the intended domain avoiding both an induced \(K_{t,t}\) and every induced subdivision of \(K_t\) with all edges subdivided has a vertex whose neighborhood contains no independent set larger than \(C(t)\). The graph domain, especially finiteness and exclusion of the empty graph, needs clarification. The supplied record labels the problem open; that status is not independently verified here.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30006562\), title ``Independence-Number Degeneracy in Induced-Subdivision-Free Graphs,'' exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2026 and does not identify a proposer.
+\item Supplied primary report citation: \emph{Combinatorics} (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/1, pp. 5--79, \url{https://doi.org/10.4171/owr/2026/1}. The background describes these reports as records of mathematical workshops and open-problem discussions. The supplied record marks the statement \texttt{corrected\_verified} and reports that the official report was checked, the question isolated from surrounding exposition, and notation repaired. These are supplied verification claims, not checks performed for this draft.
+\item Supplied literature reference: Kuehn--Osthus, \emph{Induced subdivisions in K-free graphs}, \url{https://doi.org/10.1007/s00493-004-0017-8}.
+\item Supplied literature reference: Du et al., \emph{Induced C4-free subgraphs}, \url{https://doi.org/10.1016/j.jctb.2025.04.002}.
+\item Literature assessment date: \texttt{2026-08-22}. This is supplied dated curation, not independently verified. It labels the problem open, states that the proposed independence-number degeneracy analogue is not implied by the known induced-subdivision theorem, and reports that no proof of a ``uniform \(C\) for all \(t\)'' is currently available. That wording needs clarification against the corrected statement's quantifier order \(\forall t\,\exists C(t)\). The supplied background explicitly calls for independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

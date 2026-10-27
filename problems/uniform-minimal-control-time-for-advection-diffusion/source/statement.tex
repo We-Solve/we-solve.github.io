@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003759}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a length \(L>0\) and a nonzero constant drift \(M\). Let \(H_0^1(0,L)\) be the Sobolev space of functions with square-integrable weak first derivative and zero endpoint traces, and let \(H^{-1}(0,L)=(H_0^1(0,L))'\) be its continuous dual. The supplied record does not explicitly specify the scalar field or state that \(M\) is real; these conventions require confirmation from the source.
+
+For a candidate control time \(T>0\), diffusion parameter \(\varepsilon>0\), initial datum \(y_0\in H^{-1}(0,L)\), and boundary control \(v\in L^2(0,T)\), consider
+\[
+\begin{cases}
+\partial_t y-\varepsilon\partial_{xx}y+M\partial_xy=0,
+& (x,t)\in(0,L)\times(0,T),\\
+y(0,t)=v(t),\qquad y(L,t)=0,
+& t\in(0,T),\\
+y(\cdot,0)=y_0.
+\end{cases}
+\]
+For these data, the boundary conditions and solution must be interpreted weakly. A standard transposition interpretation is intended in the formulation below; the supplied record does not specify its precise solution convention. A control is a \emph{null control} if its corresponding solution satisfies \(y(\cdot,T)=0\) in \(H^{-1}(0,L)\).
+
+To make uniform control cost precise, use the normalized worst-case cost
+\[
+\mathcal C_{\varepsilon}(T;L,M)
+:=\sup_{\substack{y_0\in H^{-1}(0,L)\\ \|y_0\|_{H^{-1}(0,L)}=1}}
+\inf\left\{\|v\|_{L^2(0,T)}:
+ v\text{ is a null control for }y_0\right\},
+\]
+where the infimum of an empty set is \(+\infty\). This is the standard operator-norm interpretation of the supplied phrase ``cost uniformly bounded''; the record does not itself give an explicit cost formula. Uniform null controllability as \(\varepsilon\to0^+\) means that there exist \(\varepsilon_0>0\) and \(C<\infty\), independent of \(\varepsilon\) and the initial datum, such that for every \(0<\varepsilon<\varepsilon_0\) and every \(y_0^{\varepsilon}\in H^{-1}(0,L)\), a null control \(v^{\varepsilon}\in L^2(0,T)\) exists with
+\[
+\|v^{\varepsilon}\|_{L^2(0,T)}
+\le C\|y_0^{\varepsilon}\|_{H^{-1}(0,L)}.
+\]
+In particular, the initial datum may depend on \(\varepsilon\).
+
+With \(L\) fixed, define the threshold denoted by \(T_M\) in the source by
+\[
+T_M:=\inf\left\{T>0:
+\exists\,\varepsilon_0>0\quad
+\sup_{0<\varepsilon<\varepsilon_0}
+\mathcal C_{\varepsilon}(T;L,M)<\infty\right\},
+\]
+again using \(\inf\varnothing=+\infty\). The dependence on the fixed length \(L\) is suppressed in the source notation.
+
+\textbf{Problem.} Determine this minimal uniform null-controllability time \(T_M\). The use of an infimum does not assert that uniform controllability holds at \(T=T_M\); the supplied record does not clarify whether its word ``minimal'' includes attainment of the threshold.
+\subsection{Short English statement}
+Determine the least time threshold for driving every initial state to zero by controlling the left boundary of the stated advection--diffusion equation, with control norm bounded by a constant times the initial-state norm uniformly as \(\varepsilon\to0^+\). The right boundary remains zero, and the drift may have either sign in the intended real setting. The precise scalar-field, weak-solution, cost, and threshold-attainment conventions require source confirmation. The supplied record labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: supplied complete record for permanent UnsolvedMath ID \(30003759\), titled \emph{Uniform Minimal Control Time for Advection--Diffusion}, in the Oberwolfach Reports Open Problems collection; exact source problem code \texttt{catalogue entry}. No individual proposer is identified; the supplied proposed year is 2018.
+\item Supplied report citation: \emph{Challenges in Optimal Control of Nonlinear PDE-Systems} (2019), Oberwolfach Reports, pp.\ 941--1020, DOI \texttt{10.4171/owr/2018/16}. Supplied source URL: \url{https://doi.org/10.4171/owr/2018/16}. The record attributes the problem to workshop open-problem discussions documented in Oberwolfach Reports. Its 2019 citation year and 2018 report identifier/proposed year are retained without reconciliation.
+\item Supplied literature reference, ``Oberwolfach Report 16'': \url{https://doi.org/10.4171/OWR/2018/16}.
+\item Supplied literature reference, ``Control research group'': \url{https://www.ljll.fr/~trelat/GDT/}.
+\item Supplied literature reference, ``Controllability time bounds'': \url{https://arxiv.org/abs/2203.03266}.
+\item Supplied literature assessment, checked at \texttt{2026-08-21}: the record labels the problem open and reports sharp lower and upper bounds in important cases, while describing the exact minimal time in the stated setting as unknown. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; its time-sensitive status and cited claims require independent checking.
+\item Supplied statement-verification metadata labels the statement \texttt{corrected\_verified} and reports that the official report was checked to restore the equation, boundary and initial data, control space, and uniform-cost meaning. This verification claim belongs to the supplied record and has not been independently checked for this draft.
+\end{itemize}
+\end{document}

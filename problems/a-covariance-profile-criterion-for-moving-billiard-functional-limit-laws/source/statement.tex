@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001407}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks what limit theorems can be obtained for random billiards with moving or deforming scatterers. It specifies no motion law, geometry, observable, invariant or initial measure, time parameter, or limiting normalization. Thus no single unconditional billiard theorem can be recovered from the question alone.
+
+The supplied machine aid gives a conditional martingale-reduction formulation. Let $S_{n,k}\in\R^\ell$, $0\leq k\leq n$, be centered sequential sums on a specified common phase space. Suppose there are martingale differences $D_{n,j}$ for filtrations $\mathcal A_{n,j}$, with $\E(D_{n,j}\mid\mathcal A_{n,j-1})=0$, and $M_{n,k}=\sum_{j=1}^kD_{n,j}$, such that
+\[
+ \frac1{\sqrt n}\max_{0\leq k\leq n}\|S_{n,k}-M_{n,k}\|\longrightarrow0
+ \quad\text{in probability}.
+\]
+Assume some $\delta>0$ and uniform finite $C$ satisfy
+\[
+ \E(\|D_{n,j}\|^{2+\delta}\mid\mathcal A_{n,j-1})\leq C
+ \quad\text{almost surely for all }n,j.
+\]
+Write $V_{n,j}=\E(D_{n,j}D_{n,j}^T\mid\mathcal A_{n,j-1})$ for the predictable covariance. In a finite-regime model, associate fixed positive-semidefinite matrices $\Gamma_1,\ldots,\Gamma_R$ with table regimes $r_j\in\{1,\ldots,R\}$. The aid's sublinear accumulated covariance-error requirement is
+\[
+ \frac1n\max_{k\leq n}\left\|\sum_{j=1}^k(V_{n,j}-\Gamma_{r_j})\right\|
+ \longrightarrow0\quad\text{in probability}.
+\]
+If the regime profile also stabilizes uniformly over prefixes, namely
+\[
+ \max_{k\leq n}\left\|\frac1n\sum_{j=1}^k\Gamma_{r_j}
+                         -\frac{k}{n}\Gamma\right\|\longrightarrow0,
+\]
+then the reported conclusion is a functional Brownian limit for $n^{-1/2}S_{n,\lfloor nt\rfloor}$ with fixed covariance matrix $\Gamma$: its limiting process $B_\Gamma$ has $\E[B_\Gamma(s)B_\Gamma(t)^T]=\min(s,t)\Gamma$. A precise path-space topology and interpolation convention should be specified in the full theorem; the supplied summary does not quote them.
+
+For finitely many regimes, the aid states that ordinary occupation-frequency limits
+\[
+ \frac1n\#\{1\leq j\leq n:r_j=r\}\longrightarrow p_r,
+ \qquad p_r\geq0,\quad\sum_rp_r=1,
+\]
+imply the needed uniform prefix profile and select $\Gamma=\sum_rp_r\Gamma_r$. A stationary ergodic environment gives the corresponding almost-sure frequency profile. A quenched functional limit would still require the other martingale and covariance-error hypotheses under the conditional path law for almost every environment, rather than following from ergodicity alone. The aid describes an explicit three-defect bound separating the remainder, covariance error and frequency profile, but does not supply its full formula.
+
+The proposed moving-billiard application remains conditional on proving the martingale approximation and covariance-error estimates across moving singularities and on identifying the evolving tables with a common phase space. The summary also reports existing memory-loss results, annealed and quenched central-limit phenomena, vector almost-sure invariance principles, a mixing local limit theorem, and a self-normalized sequential-billiard CLT in important perturbative regimes. Those regime-specific literature claims have no citations or precise hypotheses in the record and are not asserted as universal results for arbitrary scatterer motion.
+\subsection{Short English statement}
+The question asks for statistical limit laws in billiards whose scatterers move or deform. The supplied partial work reduces a functional Brownian limit to a uniform martingale approximation, stabilized covariance, and sublinear covariance errors. Regime frequencies then select the covariance. Establishing those hypotheses for actual moving billiards, especially through their singularities, remains a separate task.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001407, exact source code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[64]}, source item 22, tag ``problem'', workshop \emph{Stochastic methods for non-equilibrium dynamical systems}; \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item The original asks about random ``billards'' with moving/deforming scatterers; its spelling is normalized without changing scope. No proposer or independent bibliographic reference is supplied, including for the prior memory-loss, limit-law, invariance-principle, local-limit and self-normalized results mentioned in the research summary. Original remarks and literature field are empty.
+\item Supplied metadata: PARTIAL-PROGRESS, registry status ``partially\_solved'', statement status ``exact''; attempt 1, result ``partial\_result'', problem status at run ``partially\_solved'', recorded rigor ``proved'', novelty confidence ``low'', candidate type ``reduction''. The machine-generated aid is not peer reviewed and explicitly requires independent verification before citation. No outside source was visited.
+\end{itemize}
+\end{document}

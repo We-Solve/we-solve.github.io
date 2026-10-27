@@ -1,0 +1,44 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001146}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A finite simple graph is Berge if neither it nor its complement has an induced odd cycle of length at least five. An even pair is a nonadjacent pair such that every induced path joining it has even edge length. An even-pair skew-partition, with the source's nonemptiness convention, is a partition $V(G)=A\mathbin{\dot\cup}B\mathbin{\dot\cup}C\mathbin{\dot\cup}D$ into four nonempty sets such that $A$ is complete to $B$, $C$ is anticomplete to $D$, and every nonadjacent pair within $A$ or within $B$ is an even pair.
+
+The question is whether every Berge graph is basic, has a $2$-join, or has such an even-pair skew-partition. The supplied extract does not define basic or the side-degeneracy convention for a $2$-join. Under the usual Berge-decomposition interpretation, the basic classes are bipartite graphs, their complements, line graphs of bipartite graphs, their complements, and double-split graphs. A double-split graph consists of matching pairs $\{a_i,b_i\}$ with no edges between distinct pairs, complementary-matching pairs $\{c_j,d_j\}$ with all edges between distinct pairs, and exactly two disjoint edges between each pair $\{a_i,b_i\}$ and each pair $\{c_j,d_j\}$, with at least two pairs of each type.
+
+A standard nondegenerate $2$-join interpretation partitions $V(G)=X_1\mathbin{\dot\cup}X_2$, $|X_i|\geq3$, with disjoint nonempty $A_i,B_i\subseteq X_i$, such that the cross edges are exactly all $A_1$--$A_2$ and $B_1$--$B_2$ edges, and neither side is just a three-vertex induced path with its ends in $A_i,B_i$. Some literature imposes further connectedness conditions; the source convention must be checked before choosing among these versions. These explicit conventions clarify the target without claiming they were defined in the isolated question.
+
+The aid supplies a useful exact reduction independent of those two terms: in an even-pair-free graph, an even-pair skew-partition exists if and only if there is a clique cutset of size at least two. A clique cutset is a clique $S$ with $G-S$ disconnected into at least two nonempty parts. The size requirement corresponds to splitting $S$ into nonempty $A,B$; the internal even-pair requirement is then vacuous.
+
+For a reported counterexample, the aid takes $H=\overline W$, where $W$ is the 21-vertex ``Worst Berge Graph Known So Far'' in Trotignon's survey. It reports that $W$ is perfect and nonbasic, has neither a $2$-join nor a complement $2$-join, and every edge of $W$ is the middle edge of an induced four-vertex path. It consequently reports $H$ Berge, nonbasic, with no $2$-join and no even pair. It then reports exhaustive checking of all 3,229 cliques of $H$ with no clique cutset, which would rule out even-pair skew-partitions by the equivalence above and refute the question. The reproduced adjacency list and check certificate are not present in this supplied record, so this is a reported counterexample, not an independently verified explicit graph or exhaustive check here.
+\subsection{Short English statement}
+Ask whether every Berge graph decomposes by a $2$-join or an even-pair skew-partition unless it is basic. The supplied aid reports a 21-vertex counterexample via an even-pair-free complement with no clique cutset, but the graph data and exhaustive-check certificate are absent.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{The Perfect Graph Conjecture}, official version dated August 24, 2004, question 1 and the source definition of even-pair skew-partition: \url{https://aimath.org/WWN/perfectgraph/perfectgraph.pdf}.
+\item The attached aid cites Trotignon's survey for the 21-vertex WBGKSF and its properties, without the survey title or complete reference. It describes an adjacency-list enumeration of 3,229 cliques, but that list and certificate are not supplied here.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001146, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[270]}. Attached attempt 1, counterexample, problem status at run refuted, rigor proved, low novelty confidence; machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

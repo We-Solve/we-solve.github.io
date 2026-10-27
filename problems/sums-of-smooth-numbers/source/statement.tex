@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 120}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer $m\geq 2$, let $P^{+}(m)$ denote its greatest prime factor, and put $P^{+}(1)=1$. A positive integer $m$ is $y$-smooth when $P^{+}(m)\leq y$. The supplied source asks whether every $n\leq N$ is a sum of two integers whose prime factors are at most $N^{\varepsilon}$. Its asymptotic interpretation requires a range for $n$ and a convention concerning the summands; these are not explicitly supplied.
+
+Under the usual interpretation with positive summands, define, for $n\geq2$,
+\[
+f(n)=\min_{\substack{a,b\in\Z_{\geq1}\\a+b=n}}\max\{P^{+}(a),P^{+}(b)\}.
+\]
+The target identified in the supplied dated literature assessment is
+\[
+\forall\varepsilon>0\ \exists n_0(\varepsilon)\ \forall n\in\Z_{\geq n_0(\varepsilon)}:\quad f(n)\leq n^{\varepsilon},
+\]
+that is, $f(n)=n^{o(1)}$. Equivalently, with the same positive-summand convention, the uniform formulation is
+\[
+\forall\varepsilon>0\ \exists N_0(\varepsilon)\ \forall N\in\Z_{\geq N_0(\varepsilon)}\ \forall n\in\Z,\ 2\leq n\leq N:\quad
+\exists a,b\in\Z_{\geq1},\quad a+b=n,\quad P^{+}(a),P^{+}(b)\leq N^{\varepsilon}.
+\]
+The lower cutoff $n\geq2$, positivity, and sufficiently large $N$ make explicit conventions needed for this formulation; the unqualified wording ``every $n\leq N$'' does not specify them. In particular $n=1$ cannot be represented by two positive integers. If zero or signed summands were intended, their permitted domains and smoothness convention would need to be specified separately.
+
+The supplied literature triage, checked 2026-08-17, labels the problem partially solved and reports Balog's estimate
+\[
+f(n)\ll_{\varepsilon}n^{4/(9\sqrt e)+\varepsilon}
+\quad(\varepsilon>0),
+\]
+with exponent $4/(9\sqrt e)\approx0.2695$. It states that arbitrarily small positive exponents remain open and describes a least-quadratic-nonresidue consequence and a Burgess-type barrier, without supplying their precise formulations. These are dated source assessments, not a new verification. The registry's primary status remains ``open''. The source identifies the local code catalogue entry with Green Problem 59 and Erd\H{o}s Problem 334 by statement.
+\subsection{Short English statement}
+Does every sufficiently large integer split into two positive integers whose largest prime factors are smaller than every prescribed positive power of that integer? The source also gives a uniform formulation for $n\leq N$, but does not explicitly state the range endpoints or summand convention. Its dated assessment reports partial progress with exponent about $0.2695$.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath local registry, permanent ID 120, source code catalogue entry, ``Sums of Smooth Numbers'', Ben Green's 100 Open Problems collection. Dataset attribution: Ulam AI and the UnsolvedMath Contributors; curation and metadata under CC BY 4.0.
+\item T. F. Bloom, Erd\H{o}s Problem 334, \url{https://www.erdosproblems.com/334}. The supplied triage records a check on 2026-08-17 and cites its open label and Balog bound.
+\item B. Green, \emph{100 Open Problems}, Problem 59, version recorded as retrieved 2026-08-17, \url{https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf}. The supplied triage cites the same exponent and discussion of least quadratic nonresidues.
+\item The supplied record attributes the partial bound to Balog but gives no direct bibliographic citation to Balog's work.
+\end{itemize}
+\end{document}

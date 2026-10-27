@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002299}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a field $K$, put $R=K[t]$ and define the ambient binary relation
+\[
+ E^\times(f,g)\quad\Longleftrightarrow\quad
+ f\ne0,\ g\ne0,\ \deg f=\deg g.
+\]
+Alternatively one may extend degree by $\deg0=-\infty$; the resulting relation additionally contains $(0,0)$. The source does not choose a zero convention or a language. Let $\mathcal L_t$ be the ring language with a named transcendence coordinate $t$.
+
+\textbf{Question 15, Demeyer.} Is equal degree definable, especially existentially definable, over $\C[t]$? For $\F_p[t]$, is there an existential definition uniform in the prime $p$? Uniformity may mean one fixed formula or an effective prime-dependent choice; the source does not specify which. General first-order, existential with inequations, and positive-existential definitions must be distinguished in polynomial rings.
+
+\textbf{Supplied language obstruction.} With only constant-field parameters, evaluation $t\mapsto0$ is a ring homomorphism fixing all allowed parameters. It takes the true pair $(t,t+1)$ to $(0,1)$, false for either ambient relation above. Since positive-existential formulas are preserved by homomorphisms, neither ambient relation has such a definition in that language. This argument does not rule out arbitrary first-order or existential formulas with negations. If agreement is required only when both arguments are nonzero, with no constraint on zero inputs, the evaluation argument alone does not prove a contradiction: its image leaves that restricted domain. Naming $t$ removes the homomorphism obstruction because evaluation is no longer an $\mathcal L_t$ map.
+
+\textbf{Supplied named-coordinate reductions.} A field-independent positive-existential nonzero predicate in $\mathcal L_t$ can be made explicit as
+\[
+ \mathrm{NZ}(f):\quad\exists u,v,w\quad
+ fu=(tv-1)((t-1)w-1).
+\]
+For $f=0$, neither factor on the right can vanish in $K[t]$; for nonzero $f$, splitting off its power of $t$ and normalizing the remaining factor at zero supplies witnesses. This uniform predicate allows nonzero-domain guards without inequations.
+
+Write $D^\times(f,g)$ for nonzero $f,g$ with $\deg f\le\deg g$. Then
+\[
+ E^\times(f,g)\ \Longleftrightarrow\
+              D^\times(f,g)\wedge D^\times(g,f),
+\]
+\[
+ D^\times(f,g)\ \Longleftrightarrow\
+ \mathrm{NZ}(f)\wedge\mathrm{NZ}(g)\wedge
+ \left[E^\times(f,g)\ \vee\ \exists h\,
+       (E^\times(h,g)\wedge E^\times(f+h,g))\right].
+\]
+Thus either relation positively-existentially defines the other under the named-$t$ convention, preserving characteristic uniformity.
+
+At infinity in $K(t)$, let $v_\infty(f/g)=\deg g-\deg f$ and let $\mathcal O_\infty$ be the marked valuation ring. For nonzero polynomial numerator and denominator,
+\[
+ f/g\in\mathcal O_\infty\quad\Longleftrightarrow\quad D^\times(f,g).
+\]
+This is a reduction with a specified fraction representation. Passing between one-sorted field formulas and polynomial-ring formulas also requires a marked polynomial sort or a justified interpretation of quantifiers and nonzero denominators; a polynomial-ring definition alone is not silently claimed to define the polynomial subring inside its fraction field. The aid describes mutual reductions to the marked infinity valuation, but does not supply all such language details.
+
+The aid reports Demeyer's 2007 theorem gives equal-degree definability for each fixed finite field. It reports no checked source settling the named-$t$ $\C[t]$ question or a single formula across all prime characteristics. These are its dated literature limits, not new unconditional nondefinability or decidability conclusions.
+\subsection{Short English statement}
+Demeyer asks about equal-degree definability over $\C[t]$ and uniformity over finite prime fields. The aid's obstruction concerns positive-existential ambient relations without a named coordinate. With $t$ named, nonzeroness and degree-comparison reductions are uniform, while the complex-field and one-formula-across-primes questions remain unverified by the supplied literature.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002299, source code catalogue entry; canonical \texttt{aim-logic-notes.json}, notes[74].
+\item AIM \emph{Definability and Decidability Problems in Number Theory}, Question 15 (Demeyer), September 9--13, 2013, moderated by Thomas Scanlon, notes by Jeroen Demeyer, p.~3: \url{https://aimath.org/pastworkshops/definabilityinntproblems.pdf}.
+\item Demeyer's 2007 theorem is named by the aid without a full title, publication entry or theorem label. No further authoritative citations for the remaining cases or fraction-field reductions are supplied.
+\item Registry research attempt 1, dated 2026-08-14: partial result, rigor ``proved'', novelty confidence low. The explicitly machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

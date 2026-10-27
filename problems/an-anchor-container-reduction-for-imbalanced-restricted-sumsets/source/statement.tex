@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001104}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For finite nonempty \(A,B\subseteq\Z\) and \(G\subseteq A\times B\), define
+\[
+ A+_G B=\{a+b:(a,b)\in G\},\qquad A+B=\{a+b:a\in A,b\in B\}.
+\]
+Tao's question is whether, for every \(0<\delta\leq1\) and \(C>0\), there exist \(c=c(\delta,C)>0\) and \(K=K(\delta,C)>0\) with the following property. Whenever \(|A|=m>n=|B|\geq1\), \(|G|\geq\delta mn\), and
+\[
+ |A+_G B|<Cm,
+\]
+there are \(A'\subseteq A\), \(B'\subseteq B\) such that
+\[
+ |A'|\geq cm,\qquad |B'|\geq cn,\qquad |A'+B'|\leq Km.
+\]
+The constants must be independent of \(m,n\), their ratio, the particular integer sets and \(G\). The source also asks more generally what structure these hypotheses force, and notes that the balanced case \(m=n\) is the Balog--Szemerédi theorem.
+
+The supplied aid reports an anchor-container reduction. With \(S=A+_G B\), it gives subsets satisfying
+\[
+ |A'|\geq\delta^2m,\qquad
+ |B'|\geq\frac{\delta^2}{2-\delta^2}n,\qquad
+ A'+B'\subseteq S+S-S,
+\]
+where \(S+S-S=\{s_1+s_2-s_3:s_i\in S\}\). Hence, under the additional growth hypothesis \(|S+S-S|\leq L|S|\), it reports the desired conclusion with
+\(c=\delta^2/(2-\delta^2)\) and \(K=LC\). To answer the original ratio-free question in this way, \(L\) must itself be bounded in terms of \(\delta,C\), or be a separately fixed structural parameter.
+
+The aid singles out containment in a bounded-rank generalized arithmetic progression of size \(O(m)\). An explicit version avoiding the ambiguity of ``size'' is
+\[
+ S\subseteq P=\{x_0+\textstyle\sum_{j=1}^r t_jv_j:0\leq t_j<L_j,\ t_j\in\Z\},
+ \quad x_0,v_j\in\Z,\ L_j\in\N,\quad \prod_jL_j\leq Dm.
+\]
+For fixed \(r,D\), the reported container conclusion yields \(|A'+B'|\leq3^rDm\). Here the product is parameter-box volume; for a proper progression it equals \(|P|\). If the aid intends cardinality for an arbitrary nonproper progression, the precise extra size control needs checking.
+
+Independently the aid reports the mixed energy bound. Define
+\[
+ E(A,B)=|\{(a,b,\widetilde a,\widetilde b)\in A\times B\times A\times B:
+ a+b=\widetilde a+\widetilde b\}|.
+\]
+The hypotheses give
+\[
+ E(A,B)\geq\frac{|G|^2}{|S|}\geq\frac{\delta^2}{C}mn^2.
+\]
+The aid says that Tao--Vu's asymmetric Balog--Szemerédi--Gowers theorem supplies a known near-answer with arbitrarily small powers of \(m/n\) lost. It does not specify the exact theorem, the locations of those losses, or their constants, so no more precise asymmetric theorem is asserted here. This reported near-answer and the conditional container result do not establish the full ratio-free conclusion.
+\subsection{Short English statement}
+Tao asks whether a dense graph with a small restricted sumset has large subsets with a small full sumset, using constants independent of the size ratio. The aid gives a threefold-sumset container and an energy reduction, with a ratio-free conclusion under extra growth control.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001104\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[228]}.
+\item AIM workshop ``Recent trends in additive combinatorics'', Problem 2.4, attributed to T. Tao: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. The supplied verification says the mathematical statement is uncorrupted and line breaks are extraction artifacts. The original remark identifies the \(m=n\) case with Balog--Szemerédi's theorem. The literature field is empty.
+\item Supplied research attempt 1: \texttt{partial\_result}, status at run \texttt{unknown}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It reports the codegree-anchor container, the mixed-energy estimate and a near-answer attributed to Tao--Vu's asymmetric BSG theorem. No full publication citation or theorem number is supplied for that theorem or the anchor lemma.
+\end{itemize}
+\end{document}

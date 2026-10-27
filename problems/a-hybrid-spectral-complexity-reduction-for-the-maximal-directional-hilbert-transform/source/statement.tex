@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000532}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a unit vector \(v\in S^1\), let
+\[
+ H_vf(x)=\operatorname{p.v.}\int_\R f(x-tv)\,\frac{\dd t}{t}
+\]
+for Schwartz functions, extended to \(L^2(\R^2)\) by its Fourier multiplier \(-i\pi\operatorname{sgn}(\xi\cdot v)\). For a finite nonempty direction set \(V\), put \(T_Vf=\max_{v\in V}|H_vf|\). The weak norm is
+\[
+ \|h\|_{L^{2,\infty}}=\sup_{\lambda>0}\lambda\,|\{x\in\R^2:|h(x)|>\lambda\}|^{1/2}.
+\]
+Di Plinio's question asks whether there is an absolute constant \(C\) such that, for every \(N\geq2\), every choice \(v_1,\ldots,v_N\in S^1\), and every \(f\in L^2(\R^2)\),
+\[
+ \left\|\max_{1\leq j\leq N}|H_{v_j}f|\right\|_{L^{2,\infty}}\leq C\sqrt{\log N}\,\|f\|_2.
+\]
+The restriction \(N\geq2\) avoids the literal zero on the right at \(N=1\). Since \(H_{-v}=-H_v\), the effective cardinality is the number \(M\) of distinct projective directions; the equivalent uniformly nonzero formulation uses \(\sqrt{\log(1+M)}\).
+
+For the supplied partial estimate, take one representative of each projective direction. Let the angular sign cells be the connected components of
+\[
+ \R^2\setminus\bigcup_{v\in V}\{\xi:\xi\cdot v=0\},
+\]
+so every multiplier sign is constant on each cell. There are \(2M\) cells. For \(j\in\Z\), set \(A_j=\{\xi:2^j\leq|\xi|<2^{j+1}\}\). Choose \(L\geq1\) such annuli and \(K\geq1\) such cells, and let \(S\) be the intersection of their respective unions. The aid reports an absolute-constant bound
+\[
+ \operatorname{supp}\widehat f\subset S\ \Longrightarrow\quad
+ \|T_Vf\|_{L^{2,\infty}}\leq C\min\{\sqrt L,\log(K+1)\}\,\|f\|_2.
+\]
+Support containment is understood up to null sets. More generally, with \(P_S\) the orthogonal Fourier projection \(\widehat{P_Sf}=1_S\widehat f\), its reported stable form is
+\[
+ \|T_Vf\|_{L^{2,\infty}}\leq
+ C\min\{\sqrt L,\log(K+1)\}\,\|P_Sf\|_2
+ +C\log(M+1)\,\|f-P_Sf\|_2.
+\]
+Consequently, if a nonzero input supported in such a finite-complexity region satisfies
+\(\|T_Vf\|_{L^{2,\infty}}\geq c\sqrt{\log(1+M)}\,\|f\|_2\) for a fixed \(c>0\), then
+\[
+ L\geq c_1\log(1+M),\qquad
+ K+1\geq\exp\!\bigl(c_2\sqrt{\log(1+M)}\bigr),
+\]
+for positive constants depending on \(c\) and the estimate's absolute constant. This is an obstruction for such inputs, not an existence assertion for near-extremizers or a bound at the conjectured scale for arbitrary inputs.
+
+The original source reports that Katz proved a ``maximal variant'' and that the proposed estimate is known for lacunary and Vargas direction sets, with uniformly distributed directions as a typical Vargas example. The precise variant and structural hypotheses are not specified in this record.
+\subsection{Short English statement}
+The question is whether the maximum of \(M\) directional Hilbert transforms has weak-\(L^2\) norm growing only as \(\sqrt{\log(1+M)}\). The supplied partial estimate bounds inputs with limited radial or angular Fourier complexity and quantifies a remainder. It forces any spectrally finite input reaching the conjectured scale to occupy many radial bands and angular cells.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000532\), exact public code \texttt{catalogue entry}; \texttt{aim-analysis-notes.json}, \texttt{notes[63]}.
+\item AIM workshop \emph{Carleson theorems and multilinear operators: Open problems}, Question 5 (Di Plinio), page 2, displays (0.4) and (0.5): \url{https://aimath.org/pastworkshops/multilinopsproblems.pdf}. The supplied verification field identifies the display; no independent PDF access is claimed.
+\item Original source references: Katz [8], Demeter [5], and Demeter and Di Plinio [6], for the reported maximal variant and special direction structures. Full bibliography entries are not supplied.
+\item Supplied research summary, ``A hybrid spectral-complexity reduction for the maximal directional Hilbert transform,'' attempt 1. No external citation for the hybrid estimate is provided; the original literature field is empty.
+\end{itemize}
+\end{document}

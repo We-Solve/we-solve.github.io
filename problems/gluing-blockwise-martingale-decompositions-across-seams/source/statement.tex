@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001406}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether function spaces can yield martingale decompositions and concatenations for some class of hyperbolic maps. It specifies no maps, invariant/reference measures, function spaces or concatenation rule. The aid supplies an abstract seam-gluing statement on a common decreasing filtration; it does not identify a complete hyperbolic-map application.
+
+Let \(\mathcal F_0\supseteq\mathcal F_1\supseteq\cdots\) be sigma-algebras on one probability space, and choose block times \(0=t_0<t_1<\cdots\). Suppose \(Y_t,D_t\in L^2(\mathcal F_t)\), with
+\(\E[D_t\mid\mathcal F_{t+1}]=0\), and for every block \(j\) there are \(H_t^{(j)}\in L^2(\mathcal F_t)\), \(t_j\leq t\leq t_{j+1}\), such that
+\[
+ Y_t=D_t+H_{t+1}^{(j)}-H_t^{(j)}\qquad(t_j\leq t<t_{j+1}).
+\]
+At a seam \(\tau=t_j\), \(j\geq1\), define
+\[
+ J_\tau=H_\tau^{(j-1)}-H_\tau^{(j)}\in L^2(\mathcal F_\tau),\qquad
+ A_{\tau,t}=\E[J_\tau\mid\mathcal F_t]-\E[J_\tau\mid\mathcal F_{t+1}]\quad(t\geq\tau).
+\]
+The future reverse-Doob increments have conditional mean zero. Define one global reverse-martingale-difference sequence by
+\[
+ \widetilde D_t=D_t+\sum_{\substack{\tau\text{ a seam}\\0<\tau\leq t}}A_{\tau,t}.
+\]
+Each sum is finite, and \(\E[\widetilde D_t\mid\mathcal F_{t+1}]=0\).
+
+For a horizon \(N\geq1\), let \(j_N\) be the block containing time \(N-1\). The exact finite-horizon identity reported by the aid can be written
+\[
+ \sum_{t=0}^{N-1}Y_t
+ =\sum_{t=0}^{N-1}\widetilde D_t+R_N,
+\]
+\[
+ R_N=H_N^{(j_N)}-H_0^{(0)}
+ +\sum_{\substack{\tau\text{ a seam}\\0<\tau<N}}
+ \E[J_\tau\mid\mathcal F_N].
+\]
+Thus each seam mismatch contributes only its still-unforgotten future conditional expectation; all its intervening projection increments are absorbed in \(\widetilde D_t\). A seam exactly at \(N\) is not included, since the horizon ends with the preceding block.
+
+A precise summable-memory sufficient condition is: both outer correctors have \(L^2\) norm at most \(C\), uniformly in \(N\), and there is a nonnegative sequence \(k(r)\), \(r\geq1\), with \(\sum_rk(r)<\infty\) such that
+\[
+ \|\E[J_\tau\mid\mathcal F_N]\|_2\leq k(N-\tau)\quad(0<\tau<N).
+\]
+Since there is at most one seam at each integer time, this gives
+\[
+ \sup_N\|R_N\|_2\leq2C+\sum_{r\geq1}k(r)<\infty.
+\]
+In particular \(R_N/\sqrt N\to0\) in \(L^2\), even with one seam per time. This permits transfer of a separately established martingale limit theorem; it is not itself a CLT without its further variance and Lindeberg-type hypotheses. The record does not state an exact norm-kernel convention, so the displayed version makes its requirements explicit.
+
+The aid's persistent-tail obstruction can be expressed with a single Rademacher variable \(Z\), \(\Pr(Z=1)=\Pr(Z=-1)=1/2\), and \(\mathcal F_t=\sigma(Z)\) for every \(t\). Give every time its own block, take \(Y_t=Z,D_t=0\), and choose that block's initial corrector zero and terminal corrector \(Z\). Every local corrector has norm at most one, but all \(N-1\) internal seams equal \(Z\), and the outer endpoint also equals \(Z\). Every projection increment is zero, while
+\[
+ R_N=(N-1)Z+Z=NZ,\qquad
+ N^{-1/2}\sum_{t<N}Y_t=\sqrt N\,Z
+\]
+is not tight. Thus uniformly bounded local correctors alone do not control concatenation; decay of conditional seam memory is a separate requirement.
+\subsection{Short English statement}
+The aid glues blockwise reverse-martingale decompositions by projecting seam mismatches into the common future filtration. Summable conditional seam memory gives a uniform remainder, whereas persistent aligned seams can accumulate linearly despite bounded local correctors.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001406\), exact public code \texttt{catalogue entry}; \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[63]}.
+\item AIM workshop ``Stochastic methods for non-equilibrium dynamical systems'', Problem 21: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. The exact question asks about function spaces, martingale decompositions and concatenations for hyperbolic maps. No map class, proposer, function-space assumptions or authoritative literature reference is supplied; the literature field is empty.
+\item Research attempt 1: \texttt{partial\_result}, status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It reports the future-projected seam identity, summable-memory remainder and persistent-tail Rademacher obstruction as a candidate gluing synthesis. The current registry status is partially_solved. No separate publication citation is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004963}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The following is a precise formulation under the convention that all graphs are finite, simple and undirected. This convention is not explicit in the supplied record, so its agreement with the intended source domain requires review.
+
+A graph is planar if it admits a drawing in the plane in which edges intersect only at common endpoints. A path is a graph with vertices \(p_1,\ldots,p_m\), where \(m\geq 1\), and edges exactly \(p_ip_{i+1}\) for \(1\leq i<m\).
+
+For graphs \(H\) and \(P\), their strong product \(H\boxtimes P\) has vertex set \(V(H)\times V(P)\). Distinct vertices \((h,p)\) and \((h',p')\) are adjacent precisely when
+\[
+\bigl(h=h'\text{ or }hh'\in E(H)\bigr)
+\quad\text{and}\quad
+\bigl(p=p'\text{ or }pp'\in E(P)\bigr).
+\]
+Saying that \(G\) is a subgraph of \(H\boxtimes P\) means that there is an injective map \(\varphi:V(G)\to V(H)\times V(P)\) such that every edge of \(G\) maps to an edge of the product. Nonedges need not be preserved.
+
+A tree decomposition of a nonempty graph \(H\) consists of a finite nonempty tree \(T\) and bags \(B_t\subseteq V(H)\), indexed by \(t\in V(T)\), such that the bags cover \(V(H)\), the endpoints of every edge of \(H\) lie together in some bag, and for each vertex \(v\in V(H)\), the set \(\{t:v\in B_t\}\) induces a connected subtree of \(T\). Its width is \(\max_{t\in V(T)}|B_t|-1\), and \(\operatorname{tw}(H)\) is the minimum width of a tree decomposition of \(H\).
+
+For each integer \(k\geq 0\), let \(\mathcal A(k)\) be the assertion
+\[
+\begin{gathered}
+\text{for every finite simple undirected planar graph }G,\\
+\text{there exist a finite nonempty simple undirected graph }H
+\text{ and a finite nonempty path }P\\
+\text{such that }\operatorname{tw}(H)\leq k
+\text{ and }G\text{ is isomorphic to a subgraph of }H\boxtimes P.
+\end{gathered}
+\]
+Both \(H\) and \(P\) may depend on \(G\); the integer \(k\) must be uniform over all such \(G\).
+
+The problem is to determine
+\[
+k_{\mathrm{planar}}=\min\{k\in\Z:k\geq 0\text{ and }\mathcal A(k)\}.
+\]
+The supplied source describes the bounds \(3\leq k_{\mathrm{planar}}\leq 6\) and asks to close this gap. Thus, under the stated graph convention, the target is to determine which of \(3,4,5,6\) is the optimum. These bounds and the claim that the gap remains open are supplied source claims, not independently verified conclusions of this draft. The original excerpt refers to an upper bound in its Theorem 3, whose statement is not included in the record.
+\subsection{Short English statement}
+Determine the least uniform treewidth bound \(k\) such that every planar graph embeds as a subgraph of the strong product of a graph of treewidth at most \(k\) and one path. The factors may depend on the planar graph. The supplied record reports a gap between \(3\) and \(6\). The finite simple undirected interpretation used here requires source confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(30004963\), title \emph{Optimal Product Structure for Planar Graphs}, in the Oberwolfach Reports Open Problems collection. Exact source problem code: \texttt{catalogue entry}. No individual proposer is named in the supplied record; its proposed year is 2022.
+\item Supplied source citation: \emph{Graph Theory (2023)}, Oberwolfach Reports, DOI 10.4171/owr/2022/1, pp.\ 5--78. Supplied source URL: \url{https://doi.org/10.4171/owr/2022/1}. The citation's 2023 label and the record's 2022 provenance require reconciliation; neither has been corrected here.
+\item Supplied literature source labelled ``original OWR report'': \url{https://doi.org/10.4171/OWR/2022/1}.
+\item Supplied literature source labelled ``2025 related product-structure result'': \url{https://arxiv.org/abs/2411.00343}. No title, authors, or precise theorem from this reference are supplied. The record says that related improvements do not settle the exact single-path product question.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and says that the gap between the upper bound six and lower bound three remains unclosed. This is supplied dated curation, not independently verified literature assessment; the record itself requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports comparison with the official Oberwolfach report. This is a supplied verification claim, not verification performed for this draft. The original passage mentions Theorems 1 and 2 and applications to queue number, non-repetitive chromatic number, and adjacency labelling (universal graphs) for planar graphs, using reference labels [5], [3], and [2, 7], respectively. Those theorem statements and bibliographic entries are absent from the supplied record.
+\end{itemize}
+\end{document}

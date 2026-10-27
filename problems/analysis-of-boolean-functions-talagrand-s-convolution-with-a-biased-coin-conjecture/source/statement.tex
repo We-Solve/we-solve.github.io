@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800434}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer \(n\), equip \(\{-1,1\}^n\) with the uniform probability measure \(\mu_n\). For \(0<\rho<1\), define the usual Boolean noise operator by
+\[
+(\mathbb T_\rho f)(x)=\mathbb E[f(Y)\mid X=x],
+\]
+where, conditional on \(X=x\), the coordinates of \(Y\) are independent and satisfy
+\[
+\Pr(Y_i=x_i)=\frac{1+\rho}{2},\qquad
+\Pr(Y_i=-x_i)=\frac{1-\rho}{2}.
+\]
+These are standard conventions used to make the statement precise; the supplied record does not explicitly define its measure or noise operator.
+
+\textbf{Talagrand's ``Convolution with a Biased Coin'' conjecture, under the dimension-uniform interpretation.} For every fixed \(\rho\in(0,1)\) and every \(\varepsilon>0\), there exists \(T=T(\rho,\varepsilon)>1\) such that, for every positive integer \(n\), every function \(f:\{-1,1\}^n\to[0,\infty)\) satisfying
+\[
+\mathbb E_{\mu_n}[f]=1,
+\]
+and every real \(t\ge T\),
+\[
+\mu_n\bigl(\{x:(\mathbb T_\rho f)(x)\ge t\}\bigr)<\frac{\varepsilon}{t}.
+\]
+Thus the source's expression \(\Pr[\mathbb T_\rho f\ge t]<o(1/t)\) is interpreted as a tail bound that is \(o(1/t)\) as \(t\to\infty\), uniformly over both \(n\) and \(f\), with \(\rho\) fixed. This uniformity is not explicit in the supplied wording and requires confirmation. If \(n\) and \(f\) are fixed before taking the limit, the tail is eventually zero because the domain is finite.
+
+The supplied remarks attribute to Talagrand the stronger suggested bound
+\[
+\mu_n\{\mathbb T_\rho f\ge t\}
+=O_\rho\!\left(\frac{1}{t\sqrt{\log t}}\right)
+\qquad(t\to\infty),
+\]
+again understood here as uniform over \(n\) and normalized nonnegative \(f\). The dependence of the implicit constant is not specified in the record; the displayed dependence on \(\rho\) is part of this interpretation.
+
+As historical background, the supplied source describes a Gaussian analogue on \(\mathbb R^n\) with Gaussian measure as open, while reporting bounds attributed to Ball, Barthe, Bednorz, Oleszkiewicz, and Wolff, reference label [BBB+10]: \(O(1/(t\sqrt{\log t}))\) in dimension \(1\), and \(O((\log\log t)/(t\sqrt{\log t}))\) in each fixed constant dimension. The Gaussian smoothing operator, its parameterization, and the dependence of constants are not specified in the supplied record, so these remarks do not constitute a complete separate formulation. These are supplied historical assessments and reported results, not independently verified claims about current literature.
+\subsection{Short English statement}
+For each fixed noise parameter, applying Boolean noise to any nonnegative function of mean one should give a tail smaller than every fixed multiple of \(1/t\) for sufficiently large \(t\), uniformly over functions and dimensions. The source also records Talagrand's stronger suggested logarithmic improvement. The measure, operator convention, and uniformity require source confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(800434\), exact source problem code \texttt{catalogue entry}; title: Analysis of Boolean Functions --- Talagrand's ``Convolution with a Biased Coin'' Conjecture. The record is labeled \texttt{open}; this is supplied registry status, not an independently verified mathematical assessment. Registry creation and update date: 2026-10-16.
+\item Ryan O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 3, as identified in the supplied record: \url{https://arxiv.org/abs/1204.6447}. Supplied extraction method: \texttt{arxiv\_latex}. Supplied access date: 2026-10-16; this date records supplied provenance, not an access performed for this draft.
+\item The registry's proposer fields name O'Donnell and the year 2012, while the background attributes the conjecture to Talagrand and identifies its proposed/source reference as [Tal89]. Full bibliographic details for [Tal89] are not supplied. The background also reports that Talagrand offered a \$1000 prize; its current availability is not verified.
+\item The background attributes the stated Gaussian bounds to Ball, Barthe, Bednorz, Oleszkiewicz, and Wolff, reference label [BBB+10]. No full bibliographic details or separate link for [BBB+10] are supplied. The reported bounds and open-status remarks are supplied historical curation and have not been independently checked.
+\end{itemize}
+\end{document}

@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002476}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each positive integer \(n\), let \(M_n\) be a random matrix taking values in \(\{-1,1\}^{n\times n}\), and write \(\mathbb P_n\) for its probability law. The original and cleaned statements do not specify this law, including independence or the probabilities of the two signs. Consequently, the questions below depend on an unresolved choice of random-matrix model. The supplied literature assessment discusses the model with independent entries, each equal to \(1\) or \(-1\) with probability \(1/2\); adopting that model for the original questions requires confirmation.
+
+For \(A=(a_{ij})\in\{-1,1\}^{n\times n}\) and \(s=(s_1,\ldots,s_n)\in\{-1,1\}^n\), define \(A^{[s]}\) by
+\[
+(A^{[s]})_{ij}=\begin{cases}a_{ij},&i\ne j,\\s_i,&i=j.\end{cases}
+\]
+Thus only the diagonal entries are replaced, and every possible assignment of their signs is permitted. A matrix is singular if its determinant is zero. The first question is whether
+\[
+\lim_{n\to\infty}\mathbb P_n\!\left(\det(M_n^{[s]})\ne0\ \text{for every }s\in\{-1,1\}^n\right)=1.
+\]
+The universal quantifier over diagonal assignments is inside the probability event: every assignment must yield a nonsingular matrix for the sampled matrix.
+
+An eigenvalue of \(A\) is a complex root of \(\det(tI_n-A)\); it is real when it belongs to \(\R\). To expose an unresolved counting convention, define
+\[
+N_{\R}^{\mathrm{alg}}(A)=\sum_{\substack{\lambda\in\R\\\det(\lambda I_n-A)=0}}\operatorname{mult}_{\lambda}\bigl(\det(tI_n-A)\bigr),
+\qquad
+N_{\R}^{\mathrm{dist}}(A)=\#\{\lambda\in\R:\det(\lambda I_n-A)=0\},
+\]
+where \(\operatorname{mult}_{\lambda}\) denotes root multiplicity. The second question asks whether \(M_n\) has at least two real eigenvalues with probability \(1-o(1)\) as \(n\to\infty\). If eigenvalues are counted with algebraic multiplicity, its precise form is
+\[
+\lim_{n\to\infty}\mathbb P_n\!\left(N_{\R}^{\mathrm{alg}}(M_n)\ge2\right)=1.
+\]
+If two distinct real eigenvalues are required, replace \(N_{\R}^{\mathrm{alg}}\) by \(N_{\R}^{\mathrm{dist}}\). The supplied statement does not explicitly settle this convention. Both questions retain the unrestricted limit through positive integers; no parity restriction is supplied.
+\subsection{Short English statement}
+The problem asks whether a random sign matrix almost surely remains nonsingular under every replacement of its diagonal signs, and whether it almost surely has at least two real eigenvalues, as its size tends to infinity. The probability distribution and eigenvalue-counting convention require confirmation. Supplied dated curation labels the combined problem partially solved; this draft does not independently verify that assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record with permanent ID \(30002476\), title \emph{Diagonal Signings and Real Eigenvalues of Random Matrices}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2014 and supplies no individual proposer.
+\item Supplied report citation: \emph{Combinatorics} (2014), Oberwolfach Reports, pp.~5--90, DOI 10.4171/owr/2014/01. \url{https://doi.org/10.4171/owr/2014/01}. The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source, labelled ``Oberwolfach combinatorics report'': \url{https://ems.press/content/serial-article-files/46491}.
+\item Supplied literature source, labelled ``Han, random matrix singular values and eigenvalues'': \url{https://arxiv.org/abs/2502.13819}. The record supplies no fuller author identification or bibliographic details for this reference.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the bundled problem partially solved, states that the diagonal-sign switching singularity conjecture remains open, and attributes to Han a result that independent identically distributed Rademacher matrices have order-square-root-many real eigenvalues with high probability. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. The source itself requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review asserting that the cleanup preserves meaning, is self-contained, and adds no unsupported source-dependent content. These are supplied registry qualifications, not a mathematical verification performed for this draft.
+\end{itemize}
+\end{document}

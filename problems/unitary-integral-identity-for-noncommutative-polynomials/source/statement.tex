@@ -1,0 +1,83 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005922}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For the complex scalar-coefficient interpretation of the supplied statement, let \(d\geq 1\) and let \(p,q\in\C\langle x_1,\ldots,x_d\rangle\) satisfy \(p(0)=q(0)=1\). For \(X=(X_1,\ldots,X_d)\in M_N(\C)^d\), evaluation means substitution of matrices into each word, preserving the order of multiplication. Let \(U(N)=\{V\in M_N(\C):V^*V=VV^*=I_N\}\), and interpret \(\mathrm dU\) on \(U(N)^d\) as the product of normalized Haar probability measures.
+
+To expand the tuple notation in the supplied identity, write \(A=(A_1,\ldots,A_d)\in M_k(\C)^d\) and \(B=(B_1,\ldots,B_d)\in M_\ell(\C)^d\), with finite positive integers \(k,\ell\), and interpret
+\[
+ A\otimes X=\sum_{j=1}^d A_j\otimes X_j,
+ \qquad
+ B\otimes X=\sum_{j=1}^d B_j\otimes X_j,
+ \qquad
+ A\otimes\overline B=\sum_{j=1}^d A_j\otimes\overline{B_j},
+\]
+where the bar denotes entrywise complex conjugation. Interpret the determinantal representations as the identities
+\[
+ \det p(X)=\det\!\left(I_{kN}-\sum_{j=1}^d A_j\otimes X_j\right),
+ \qquad
+ \det q(X)=\det\!\left(I_{\ell N}-\sum_{j=1}^d B_j\otimes X_j\right)
+\]
+for every \(N\geq1\) and every \(X\in M_N(\C)^d\). These conventions make the notation explicit; the supplied excerpt does not itself specify the coefficient field, representation sizes, tuple-product convention, or evaluation quantifiers.
+
+\textbf{Conjecture 10, as reconstructed in the supplied registry.} Suppose that \(p\) and \(q\) are stable and have the preceding determinantal representations. The proposed identity is
+\[
+ \lim_{N\to\infty}
+ \int_{U(N)^d}
+       \det(p(U))\,\overline{\det(q(U))}\,\mathrm dU
+ =
+ \det\!\left(
+       \left(I_{k\ell}-\sum_{j=1}^d A_j\otimes\overline{B_j}\right)^{-1}
+       \right).
+\]
+Here \(A,B,p,q\) are fixed as \(N\) tends to infinity. The inverse on the right requires \(I_{k\ell}-\sum_j A_j\otimes\overline{B_j}\) to be invertible.
+
+\textbf{Unresolved hypotheses.} The supplied record does not define ``stable,'' specify its matrix domain or boundary convention, or state any restrictions on the representing tuples beyond the displayed determinant identities. Consequently, it does not establish that the inverse exists or identify precisely which representations the conjecture permits. The formula above records the intended identity under explicit notational interpretations; it is not a complete unconditional formulation until these hypotheses are recovered. The conjugations follow the supplied clean and reconstructed statements; they are not legible in the supplied original extraction.
+
+\textbf{Related Conjecture 12 supplied with the source.} Using the usual row norm
+\[
+ \|A\|_{\mathrm{row}}
+ =\left\|\sum_{j=1}^d A_jA_j^*\right\|^{1/2},
+\]
+where the norm on the right is the operator norm, the excerpt proposes that for every \(0\leq r<1\) and every integer \(k\geq1\), there exists a finite constant \(C(r,k)\) such that every tuple \(A\in M_k(\C)^d\) with \(\|A\|_{\mathrm{row}}\leq r\) satisfies
+\[
+ \sup_{N\geq1}\int_{U(N)^d}
+ \left|\det\!\left(I_{kN}-\sum_{j=1}^d A_j\otimes U_j\right)\right|^2
+ \,\mathrm dU
+ \leq C(r,k).
+\]
+The excerpt does not clarify whether \(d\) is fixed throughout or the bound must hold uniformly over all positive integers \(d\). It states that a formal argument for Conjecture 10, in the spirit of a proof of the strong Szeg\H{o} limit theorem attributed to Bump and Diaconis, would become rigorous if this weaker conjecture held. This implication is recorded as a supplied source claim.
+\subsection{Short English statement}
+Conjecture 10 proposes that a limiting Haar average of determinants of two normalized stable noncommutative polynomials equals a determinant formed from their representing matrix tuples. The supplied record leaves the meaning of stability and admissible representations unresolved. It also includes a related uniform second-moment conjecture asserted to suffice for the formal argument. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied record with permanent ID \(30005922\), source problem code \texttt{catalogue entry}, titled \emph{Unitary Integral Identity for Noncommutative Polynomials}. The record attributes the problem to the 2024 Oberwolfach collection and supplies no individual proposer.
+\item \emph{Non-commutative Function Theory and Free Probability} (2024), Oberwolfach Reports, DOI \texttt{10.4171/owr/2024/22}, pp.~1227--1284: \url{https://doi.org/10.4171/owr/2024/22}. The supplied excerpt labels the main identity Conjecture 10, equation (11), and the related estimate Conjecture 12, equation (13).
+\item Supplied literature source labeled ``Volcic'': \url{https://arxiv.org/abs/1807.05645}. No title or specific supporting result is supplied.
+\item The excerpt mentions Bump and Diaconis, reference [1], for a proof of the strong Szeg\H{o} limit theorem that motivates the formal argument. Full bibliographic details of reference [1] are not supplied.
+\item Supplied literature assessment, checked \textbf{2026-08-22}: the record labels the problem open and reports that the identity was not proved in the cited report or primary literature located, and that known stability representation results and special cases did not settle the general assertion. This is supplied dated curation, not an independently verified literature assessment.
+\item The registry labels the statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official Oberwolfach report. This is supplied verification metadata; no independent source visit or verification is claimed here.
+\end{itemize}
+\end{document}

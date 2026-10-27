@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006151}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\ell,m\in\Z_{\geq 0}\) with \(m\geq 2\). Let \(G\) be a finite input graph and let \(s,t\in V(G)\) be specified vertices. Under the usual interpretation of length as the number of edges, write \(|E(P)|\) for the length of a path \(P\), and similarly for a cycle. Define
+\[
+\mathcal P_{\ell,m}(G;s,t)=\{P:P\text{ is an }s\text{--}t\text{ path in }G,\ |E(P)|\equiv\ell\pmod m\},
+\]
+and
+\[
+\mathcal C_{\ell,m}(G)=\{C:C\text{ is a cycle in }G,\ |E(C)|\equiv\ell\pmod m\}.
+\]
+The terms ``graph'', ``path'', and ``cycle'' in these definitions must follow the intended source conventions, which are not fully specified in the supplied record.
+
+\begin{enumerate}
+\item Does there exist a polynomial-time algorithm that, for every permitted input \(G,s,t\), reports that \(\mathcal P_{\ell,m}(G;s,t)=\varnothing\) when this set is empty, and otherwise outputs some \(P_*\in\mathcal P_{\ell,m}(G;s,t)\) satisfying
+\[
+|E(P_*)|=\min_{P\in\mathcal P_{\ell,m}(G;s,t)}|E(P)|?
+\]
+\item Does there exist a polynomial-time algorithm that, for every permitted input \(G\), reports that \(\mathcal C_{\ell,m}(G)=\varnothing\) when this set is empty, and otherwise outputs some \(C_*\in\mathcal C_{\ell,m}(G)\) satisfying
+\[
+|E(C_*)|=\min_{C\in\mathcal C_{\ell,m}(G)}|E(C)|?
+\]
+\end{enumerate}
+
+The supplied formulation does not resolve whether \(\ell,m\) are fixed parameters, so that an algorithm may depend on them and polynomial time is measured in the graph input size, or are part of the input to a uniform algorithm, in which case their encoding and contribution to input size must be specified. It also does not state whether graphs are directed or undirected, whether loops or parallel edges are permitted, or the precise simplicity conventions for paths and cycles. In particular, the treatment of \(s=t\), zero-length paths, and cycles of lengths one or two requires clarification. The displayed formulation uses edge-count length; this interpretation also requires confirmation from the full source context.
+
+The retained source passage says that the \(k=1\) case of Theorem~1 yields a corollary solving an open problem in its reference~[1], and that taking \(H\) to be a loop in Corollary~3 yields another such corollary. Those statements are source context, not a supplied resolution of the two optimization questions above. The mention of a loop in \(H\) does not by itself specify the permitted input graphs.
+\subsection{Short English statement}
+For nonnegative integers \(\ell,m\) with \(m\geq2\), ask whether polynomial-time algorithms can find a shortest path between specified vertices, or a shortest cycle, subject to its length being congruent to \(\ell\) modulo \(m\), and correctly report when none exists. The intended graph conventions and whether the modulus is fixed or supplied as input remain unresolved. The record labels these optimization questions open; that label is supplied curation rather than an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30006151\), title: ``Shortest Paths and Cycles of Prescribed Modular Length''; exact source problem code: \texttt{catalogue entry}. The record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2025. No individual proposer is supplied.
+\item Supplied source citation: \emph{Graph Theory} (2025), Oberwolfach Reports, pp.~5--74, DOI \texttt{10.4171/owr/2025/1}. \url{https://doi.org/10.4171/owr/2025/1}. The supplied literature entry labels this ``Liu--Yoo report and Problem 5''; the exact location of Problem~5 within the report is not supplied.
+\item Supplied literature reference: Arkin--Papadimitriou--Yannakakis, \url{https://doi.org/10.1145/116825.116850}. The record supplies no title, publication details, or precise result from this reference.
+\item Literature assessment dated \texttt{2026-08-22}: this is supplied dated curation, not independently verified. It states that the cited Liu--Yoo results decide existence of paths or cycles in a prescribed length residue class, while the extracted Problem~5 asks for a shortest such object. It reports that no proof resolving that optimization question was located and labels the problem open. The background expressly describes this as dated literature triage derived from the supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item The local statement status is supplied as \texttt{corrected\_verified}. Its accompanying verification note says that only formula delimiters, notation, grammar, and typography were repaired and that mathematical content and scope were preserved. This draft does not independently verify that assertion or the external references.
+\end{itemize}
+\end{document}

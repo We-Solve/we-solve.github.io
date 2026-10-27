@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003431}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied problem asks for a \emph{natural} or \emph{canonical} continuous Markov martingale connecting two probability measures in convex order, and for a natural continuous-time formulation of martingale transport. Neither naturality nor canonicity is defined in the record. The state space, moment hypotheses, time interval, meaning of continuity, and transport objective are also unspecified, so a unique fully quantified formulation cannot be recovered.
+
+The following gives an explicitly conditional Euclidean interpretation, rather than supplying missing hypotheses as facts about the source. Fix a dimension \(d\geq 1\) and a finite horizon \(T>0\). Let \(\mathcal P_1(\R^d)\) be the Borel probability measures \(\lambda\) satisfying \(\int_{\R^d}|x|\,\lambda(\dd x)<\infty\). For \(\mu,\nu\in\mathcal P_1(\R^d)\), write \(\mu\preceq_{\mathrm{cx}}\nu\) if
+\[
+\int_{\R^d}\varphi(x)\,\mu(\dd x)\leq\int_{\R^d}\varphi(x)\,\nu(\dd x)
+\]
+for every finite convex function \(\varphi:\R^d\to\R\), allowing integrals with value \(+\infty\). The first-moment assumption and an affine lower bound for \(\varphi\) make these integrals well-defined. This is the non-strict convex-order interpretation of the source notation \(\mu\prec_c\nu\); the record does not explicitly define that notation.
+
+Let \(\Omega=C([0,T],\R^d)\), let \(X_t(\omega)=\omega(t)\), and let \(\mathcal F_t=\sigma(X_r:0\leq r\leq t)\). Define \(\mathcal M^{\mathrm{cont,Markov}}_T(\mu,\nu)\) to consist of probability laws \(P\) on \(\Omega\) such that
+\[
+P\circ X_0^{-1}=\mu,\qquad P\circ X_T^{-1}=\nu,
+\]
+\[
+\E_P[|X_t|]<\infty,\qquad
+\E_P[X_t\mid\mathcal F_s]=X_s
+\quad(0\leq s\leq t\leq T),
+\]
+and, for every bounded Borel function \(f:\R^d\to\R\),
+\[
+\E_P[f(X_t)\mid\mathcal F_s]
+=\E_P[f(X_t)\mid\sigma(X_s)]
+\quad P\text{-almost surely},\qquad 0\leq s\leq t\leq T.
+\]
+Here continuity means continuity of sample paths, and the Markov property is allowed to depend on both times \(s,t\). These are conditional interpretations, not specified source requirements.
+
+Within an intended framework of this kind, the first question is whether, for every admissible pair \(\mu\preceq_{\mathrm{cx}}\nu\), there is a law
+\[
+P_{\mu,\nu}\in\mathcal M^{\mathrm{cont,Markov}}_T(\mu,\nu)
+\]
+selected by a mathematically specified natural or canonical construction. Membership in this set expresses only the endpoint, continuity, Markov, and martingale requirements; it does not express canonicity. The source supplies neither a selection criterion nor conditions under which such a criterion should give uniqueness.
+
+For context, in this conditional Euclidean framework a static martingale coupling is a probability measure \(\pi\) on \(\R^d\times\R^d\) with marginals \(\mu,\nu\) such that, for the coordinate variables \((U,V)\), \(\E_\pi[V\mid U]=U\). The source's second question asks for a natural continuous-time version of the martingale transport problem. It does not specify a cost functional, optimization direction, admissible path laws, intermediate marginal constraints, or the relation required between static and continuous-time problems. Consequently this second question remains a request to formulate a theory, rather than a specified variational problem.
+\subsection{Short English statement}
+Given probability measures in convex order, the source asks for a natural or canonical continuous Markov martingale with those endpoint laws, and for a natural continuous-time martingale transport formulation. The displayed framework is conditional: the source leaves the state space, regularity assumptions, meaning of canonicity, and transport objective unresolved. Its supplied status is \emph{partially solved}; this draft does not independently verify that assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003431\), title \emph{Canonical Continuous-Time Martingale Transport}, source problem code \texttt{catalogue entry}, in the collection \emph{Oberwolfach Reports Open Problems}. No individual proposer is identified. The supplied proposed year is 2017.
+\item Supplied report citation: \emph{Mathematics of Quantitative Finance (2018)}, Oberwolfach Reports, DOI 10.4171/owr/2017/13, pp.\ 683--769. \url{https://doi.org/10.4171/owr/2017/13}. This same URL appears in the supplied literature sources under the label ``Oberwolfach martingale-transport report.'' The relationship between the citation's 2018 date and the supplied 2017 provenance requires verification.
+\item Supplied literature reference: Backhoff-Veraguas--Beiglbock--Pammer, ``martingale Benamou--Brenier.'' \url{https://arxiv.org/abs/1708.04869}. This reproduces the supplied attribution and descriptive label; the record supplies no more detailed bibliographic citation.
+\item Literature assessment dated exactly \texttt{2026-08-21}: supplied dated curation, not independently verified. The supplied status is \emph{partially solved}. The assessment describes Kellerer-type continuous martingales, the Bass martingale, and martingale Benamou--Brenier solutions as natural examples, while stating that naturality has no unique mathematical definition and that no universal canonical choice is known. The record characterizes this as literature triage derived from supplied Oberwolfach curation and explicitly calls for independent verification of time-sensitive status and cited claims. These statements are retained as attributed curation, not established here as mathematical or literature conclusions.
+\item The supplied editorial label is \texttt{corrected\_verified}, with the explanation that mathematical content was preserved while notation, typography, and sentence structure were repaired for publication. This label does not constitute independent mathematical review of this draft or verification of the references.
+\end{itemize}
+\end{document}

@@ -1,0 +1,32 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000092}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Questions.} For Helmholtz Galerkin boundary-element discretizations, how do the stability threshold and error depend on the wave number and mesh width? Can the stabilization be implemented efficiently, and with what computational complexity? These stability, error, implementation, and complexity requests are all part of the problem.\par In a conditional notation for a specified boundary-integral formulation of the Helmholtz equation \((\Delta+k^2)u=0\), let \(k>0\) be the wave number, \(\Sigma\) the boundary, \(X\) the trace or density space, and \(a_k\) the chosen boundary-integral sesquilinear form. For a mesh of width \(h\), let \(V_h\subset X\) be the boundary-element space and seek \(u_h\in V_h\) satisfying \(a_k(u_h,v_h)=\ell(v_h)\) for every \(v_h\in V_h\). A possible stability quantity is\[\beta(k,h)=\inf_{0\ne w_h\in V_h}\sup_{0\ne v_h\in V_h}\frac{|a_k(w_h,v_h)|}{\|w_h\|_X\|v_h\|_X}.\] Determine the resolution conditions and explicit dependence on \(k,h\) under which the relevant discrete scheme is stable, and derive error bounds with their wave-number dependence, for example a qualified quasi-optimality factor in \(\|u-u_h\|_X\le C(k,h)\inf_{v_h\in V_h}\|u-v_h\|_X\), with any additional consistency terms required by the fully implemented scheme. The source does not supply a threshold formula, polynomial degree, boundary regularity, nontrapping assumption, frequency exclusions, or choice of norm, so no particular condition such as a fixed bound on \(kh\) is asserted.\par For the intended stabilization, specify its construction and prove estimates for computational work and storage in terms of the number \(N\) of degrees of freedom and the relevant \(k,h\), accuracy, and solver parameters. The stabilization method, operator representation, preconditioner, and cost model are missing; neither a particular fast complexity rate nor a claim that every Helmholtz formulation needs the same stabilization is implied.\par \textbf{Literature mismatch.} The supplied triage checked 2026-08-21 labels the record partially solved, but its assessment concerns uniqueness in inverse obstacle scattering from one incident wave, citing acoustic and elastic results and contrasting them with a broader electromagnetic formulation. That is a different mathematical question from the stated Helmholtz Galerkin stability and complexity problem. The assessment and links are retained as supplied provenance, but they do not substantiate progress or status for this problem without source reconciliation.
+\subsection{Short English statement}
+Quantify how Helmholtz boundary-element stability and error change with frequency and mesh resolution, then analyze the implementation cost of the intended stabilization. The attached literature review addresses a different inverse-scattering uniqueness question and cannot support the stated problem's partial-solution status as supplied.
+\subsection{Sources}
+\begin{itemize}\item Local UnsolvedMath registry, permanent ID 30000092, code catalogue entry; \emph{Stability and Complexity of Helmholtz Boundary Elements}, Oberwolfach Reports Open Problems.\item \emph{Fast Numerical Methods for Non-local Operators (2005)}, Oberwolfach Reports, DOI 10.4171/owr/2004/33, pp. 1747--1788. \url{https://doi.org/10.4171/owr/2004/33}. Proposed year and year tag: 2004; no proposer named.\item Supplied literature label \emph{Liu, acoustic uniqueness from one incident wave}: \url{https://arxiv.org/abs/1610.03237}. This label concerns a different question.\item Supplied literature label \emph{Liu, elastic uniqueness from one incident wave}: \url{https://arxiv.org/abs/1608.01090}. This label likewise concerns a different question.\item Supplied literature label \emph{Original Oberwolfach report}: \url{https://doi.org/10.4171/owr/2004/33}.\item Literature triage checked 2026-08-21, registry status \texttt{partially\_solved}; record updated 2026-09-16. The \texttt{corrected\_verified} field reports checking the official report, but neither that claim nor the mismatched assessment was independently verified here.\end{itemize}
+\end{document}

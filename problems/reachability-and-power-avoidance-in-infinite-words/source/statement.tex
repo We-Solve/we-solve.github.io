@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001548}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A finite word over an alphabet $A$ is a finite sequence of elements of $A$; a right-infinite word is a sequence $(w_i)_{i\geq 0}$ in $A$. A factor is a contiguous finite block. A prefix begins at the first position, and a suffix of a finite word ends at its last position. A finite word occurs infinitely often in a right-infinite word if its set of starting positions is infinite. For a nonempty finite word $x$ and an integer $k\geq 2$, the word $x^k$ is the concatenation of $k$ copies of $x$. A word is square-free, respectively cube-free, if none of its factors is $x^2$, respectively $x^3$, for any nonempty $x$.
+
+\textbf{1. Reachability for power-free words.} The supplied question asks whether a reachability property holds for every prefix $u$ and suffix $v$ occurring infinitely often. The record does not define the reachability relation, specify the ambient words in which $u$ and $v$ occur, or state the alphabet and forbidden powers. In particular, an ordinary right-infinite word has no finite terminal suffix, so the intended meaning of ``suffix'' requires clarification. Consequently, a quantified mathematical assertion for this component cannot be recovered uniquely. The supplied background specifically distinguishes a square-free reachability question from cube-free analogues, but does not supply their precise formulations.
+
+\textbf{2. Curling-number question.} Under the conventional positive-integer interpretation, for a nonempty finite word $s$ define its curling number by
+\[
+\operatorname{curl}(s)=\max\{k\in\mathbb Z_{\geq 1}:s=XY^k,\ X\text{ a possibly empty finite word},\ Y\text{ a nonempty finite word}\}.
+\]
+For every $m\geq 1$ and every seed $(a_1,\ldots,a_m)\in\mathbb Z_{\geq 1}^{m}$, define subsequent terms recursively by
+\[
+ a_{n+1}=\operatorname{curl}(a_1\cdots a_n)\qquad(n\geq m).
+\]
+The conventional formulation asks whether
+\[
+\forall m\geq 1\ \forall(a_1,\ldots,a_m)\in\mathbb Z_{\geq 1}^{m}\ \exists n\geq m:
+\operatorname{curl}(a_1\cdots a_n)=1.
+\]
+Thus a $1$ must eventually be appended, even when the seed already contains a $1$. The supplied record does not itself specify the seed domain or recursion; this conventional expansion requires source confirmation.
+
+\textbf{3. Lexicographic power-avoidance question.} Order words over $\mathbb N$ lexicographically using the usual order on their letters: two distinct infinite words are compared at their first differing position. For a nonempty finite word $z=z_1\cdots z_\ell$, a positive integer $p\leq\ell$ is a period if $z_i=z_{i+p}$ for every $1\leq i\leq\ell-p$. An exact fractional $5/2$-power can be defined as a word having a period $p$ and length $5p/2$, where $p$ is even. A different avoidance convention forbids every factor having a period $p$ and length at least $5p/2$. The record does not specify which convention is intended.
+
+After fixing the intended meaning of avoiding $5/2$-powers, let $\mathcal W$ be the class of right-infinite words over $\mathbb N$ satisfying that avoidance condition. The supplied question presupposes a lexicographically least member $w^*$ of $\mathcal W$ and asks whether
+\[
+\bigl|\{w_i^*:i\geq 0\}\bigr|\leq 3.
+\]
+Here ``uses only three letters'' is interpreted as ``uses at most three distinct letters''; an interpretation requiring exactly three should be checked. The existence of the intended least word and the precise avoidance convention require confirmation from the source.
+\subsection{Short English statement}
+This record bundles three questions: reachability within classes of power-free words, eventual production of $1$ by the curling-number recursion, and whether a lexicographically least infinite word avoiding $5/2$-powers uses at most three letters. The reachability relation is missing, and the other two formulations require confirmation of conventions. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath problem registry, permanent ID $30001548$, source problem code \texttt{catalogue entry}, title ``Reachability and Power Avoidance in Infinite Words.'' The supplied record belongs to the Oberwolfach Reports Open Problems collection. No individual proposer is identified.
+\item Supplied source citation: \emph{Mini-Workshop: Combinatorics on Words (2011)}, Oberwolfach Reports, pp.\ 2195--2244, DOI \texttt{10.4171/owr/2010/37}. \url{https://doi.org/10.4171/owr/2010/37}. The record gives proposed year $2010$, whereas the supplied report title contains $2011$; this discrepancy is unresolved.
+\item Supplied literature source labelled ``cube-free transition theorem'': \url{https://arxiv.org/abs/1812.11119}.
+\item Supplied literature source labelled ``curling-number conjecture'': \url{https://arxiv.org/abs/0912.2382}.
+\item Supplied literature source labelled ``original OWR report'': \url{https://doi.org/10.4171/owr/2010/37}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the bundled record ``partially solved'' and states that transition results solve cube-free analogues, while the square-free reachability question, curling-number conjecture, and lexicographic question remain unresolved. This is supplied dated curation, not an independently verified assessment; the background expressly requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement-status label is \texttt{corrected\_verified}. Its accompanying verification says that word variables, alphabet, and exponent were put into standard mathematical notation without changing the questions. This supplied label does not establish that the missing definitions and hypotheses have been verified mathematically.
+\end{itemize}
+\end{document}

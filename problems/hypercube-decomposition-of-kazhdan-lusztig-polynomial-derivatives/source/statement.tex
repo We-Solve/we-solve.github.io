@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004891}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(S_{n+1}\) be the symmetric group on \(\{0,1,\ldots,n\}\), with its standard Coxeter generators, Bruhat order \(\leq\), and length function \(\ell\). For \(x\leq y\), write \([x,y]=\{z:x\leq z\leq y\}\), and let \(P_{x,y}(q)\) denote the Kazhdan--Lusztig polynomial in the usual normalization \(P_{x,x}=1\). Define its \(q\)-derivative by
+\[
+\partial P_{x,y}(q)=\frac{P_{x,y}(q)-q^{\ell(y)-\ell(x)}P_{x,y}(q^{-1})}{1-q}.
+\]
+The displayed quotient is interpreted as a polynomial in the indeterminate \(q\), rather than as evaluation of a rational expression at \(q=1\).
+
+The supplied source proposes, for every such pair \(x\leq y\) and its designated canonical element \(c\), the identity
+\[
+\partial P_{x,y}(q)=I_{x,y,c}(q)+H_{x,y,c}(q).
+\]
+Here \(I_{x,y,c}\) is described as an inductive piece determined by the polynomials \(P_{z,y}\) and \(P_{x,z}\) for \(z\in(x,c]\), where \((x,c]=\{z:x<z\leq c\}\). No formula defining this piece is supplied.
+
+The description of \(c\) requires clarification. The extraction calls \(c\) the unique maximum of
+\[
+\{z\in S_{n+1}:z(n)=x(n)\},
+\]
+and also states
+\[
+[x,c]=(S_n\cdot x)\cap[x,y],
+\]
+where \(S_n\) permutes \(\{0,\ldots,n-1\}\) and fixes \(n\). The first displayed set has no restriction involving \(y\), whereas the interval identity requires \(c\leq y\). These descriptions do not consistently specify the intended element for arbitrary \(x\leq y\). Restricting the maximum to elements of \([x,y]\) is a possible intended reading, but it is not explicitly present in the supplied extraction. Moreover, under the convention \((uv)(i)=u(v(i))\), the condition \(z(n)=x(n)\) describes the right coset \(xS_n\), so the written left coset also needs a convention or correction.
+
+To distinguish a vertex set from the polynomial term, denote the source's external-neighbour set by
+\[
+\mathcal H_{x,y,c}=\{tx\in[x,y]:t\text{ is a reflection and }tx\notin[x,c]\}.
+\]
+Here a reflection in \(S_{n+1}\) is a transposition; this interpretation follows the source's description in terms of neighbours in the Bruhat graph. The hypercube-cluster piece \(H_{x,y,c}\) is said to depend only on the polynomials \(P_{u,y}\) for \(u\in\mathcal H_{x,y,c}\). The extraction begins an auxiliary expression, readable as
+\[
+\widetilde H_{x,y,c}(q)=\sum_{\varnothing\ne J\subseteq\mathcal H_{x,y,c}}(q-1)^{|J|}P_{\theta(J),y}(q).
+\]
+However, it does not define \(\theta(J)\), explain the required hypercube structure, or specify how \(\widetilde H_{x,y,c}\) determines \(H_{x,y,c}\). Consequently this expression is a transcription of an incomplete definition, not a well-defined construction from the supplied data.
+
+Thus the displayed decomposition preserves the source's mathematical target, but a precise, independently evaluable conjecture requires consistent specification of \(c\), the formula for \(I_{x,y,c}\), the hypercube map and its domain, and the conversion from \(\widetilde H_{x,y,c}\) to \(H_{x,y,c}\). The supplied dated assessment additionally discusses arbitrary admissible decompositions, but neither admissibility nor that broader formulation is defined in this record.
+\subsection{Short English statement}
+The proposed identity splits a transformed Kazhdan--Lusztig polynomial into an inductive contribution and a contribution from Bruhat-graph neighbours outside a canonical subinterval. The supplied extraction leaves essential definitions incomplete and gives inconsistent descriptions of the canonical element. Its dated curation reports the canonical or standard case as proved and the arbitrary-admissible-decomposition case as unresolved; these are supplied assessments, not independently verified conclusions.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004891\), source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2021 and identifies no individual proposer.
+\item Supplied report citation: \emph{Enveloping Algebras and Geometric Representation Theory} (2022), Oberwolfach Reports, pp.\ 2827--2891, DOI \texttt{10.4171/owr/2021/52}. \url{https://doi.org/10.4171/owr/2021/52}. The record attributes the problem to workshop open-problem discussions and reproduces a footnote saying that the details were too involved for the report and would appear on arXiv; no specific forthcoming item is identified by that footnote.
+\item Supplied literature reference: Blundell et al., hypercube formula. \url{https://arxiv.org/abs/2111.15161}.
+\item Supplied literature reference: Gurevich--Wang, parabolic recursions. \url{https://link.springer.com/article/10.1007/s00029-024-00972-0}.
+\item Supplied literature reference: BBDVW lower-interval theorem. \url{https://doi.org/10.1093/imrn/rnag022}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: supplied dated curation, not independently verified. It labels the problem partially solved, states that the canonical or standard decomposition is proved and has algebraic extensions, and states that the proposed formula for arbitrary admissible decompositions is not established in full. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels its statement \texttt{corrected\_verified} and reports a direct check of the official report. That is a supplied provenance claim; no source visit or independent verification is asserted in this draft.
+\end{itemize}
+\end{document}

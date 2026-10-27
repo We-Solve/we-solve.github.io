@@ -1,0 +1,44 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800006}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Develop a fast algorithm computing the Tate--Lichtenbaum pairing $T_n$ on its intended input class. The source does not specify the field, curve/abelian-variety class, input representations, or whether reduced pairing values are requested.
+
+For context, one standard finite-field elliptic-curve version takes an elliptic curve $E/K$, $K=\mathbb F_{q^k}$, an integer $n\geq2$ prime to the characteristic, and $n\mid(|K|-1)$. For $P\in E(K)[n]$ choose a degree-zero divisor $D_P$ representing $P$ and a function with $\operatorname{div}(f_P)=nD_P$. For $[Q]\in E(K)/nE(K)$, using a representative divisor $D_Q$ with disjoint support, the pairing value is
+\[
+T_n(P,[Q])=f_P(D_Q)\pmod{(K^*)^n}\in K^*/(K^*)^n.
+\]
+Here evaluation on $D_Q=\sum_R m_R(R)$ is the corresponding product $\prod_R f_P(R)^{m_R}$ where defined. The reduced finite-field value is obtained by the final exponentiation $f_P(D_Q)^{(|K|-1)/n}\in\mu_n$. This explains a common specialization, not a verified restriction of the general source item.
+
+The algorithmic target must state how its cost depends on $n$, field representation/extension degree, and the curve or genus data. The supplied summary reports Miller's algorithm and refinements as resolving the practical computation problem. Its $O(\log n)$ iteration count is not a full bit-complexity bound: iterations include field operations and evaluations, with final exponentiation for the reduced pairing. No universal optimality or machine-independent practical comparison is asserted.
+\subsection{Short English statement}
+Compute the Tate--Lichtenbaum pairing efficiently, with the pairing variant, input family, and cost model made explicit. The supplied summary reports Miller-based methods and practical refinements as a resolution.
+\subsection{Sources}
+\begin{itemize}
+\item Gerhard Frey, IPAM \emph{Workshop on Number Theory and Cryptography --- Open Problems} (2006), attachment 6219, PDF page 31, Problem 5, schedule source \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}; accessed 2026-07-29. The supplied provenance records a PDF/legacy-PPT visual audit, not an audit performed in this drafting step.
+\item Supplied algorithm attributions: Miller (1986); Granger--Page--Smart, ePrint 2006/059; Hess--Smart--Vercauteren and ate/BKLS/Barreto--Galbraith variants; Barreto--Naehrig curves. Complete publication details and the expansion of BKLS are not supplied.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID $8800006$, source code catalogue entry, \emph{Fast Tate--Lichtenbaum pairing computation}. Dataset attribution: Ulam AI and the UnsolvedMath Contributors.
+\end{itemize}
+\end{document}

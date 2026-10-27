@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001308}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an origin-symmetric \(n\)-dimensional convex body \(K\), define
+\[
+ \operatorname{zr}(K)=\inf_{Z\subseteq K\ \mathrm{zonoid}}
+ (|K|/|Z|)^{1/n},\qquad
+ \operatorname{vr}(K)=\inf_{E\subseteq K\ \mathrm{ellipsoid}}
+ (|K|/|E|)^{1/n},
+\]
+with full-dimensional inscribed sets and the corresponding Euclidean volumes. A zonoid is a Hausdorff limit of Minkowski sums of segments. Thus \(\operatorname{zr}\le\operatorname{vr}\). The source begins with symmetric bodies but its final question says all convex bodies; the aid uses the centrally symmetric Banach-space interpretation and central linear sections.
+
+The source reports a Gordon--Junge theorem: an absolute \(C_0>0\) exists such that every symmetric \(K\subset\R^n\) has a section \(L\) of dimension \(\lfloor n/2\rfloor\) with \(\operatorname{zr}(L)\ge C_0\operatorname{vr}(K)\). It also attributes \(\chi_u(L)\ge\operatorname{zr}(L)\) to K. Ball, where \(\chi_u\) is the local unconditional constant, and describes the resulting lower bound as computationally useful. No definition or access/complexity model for computing these parameters is supplied.
+
+For given \(0<\lambda<1\), Y. Gordon's question asks for the greatest positive \(f(\lambda)\) guaranteeing an \(\lfloor\lambda n\rfloor\)-dimensional section with
+\[
+ \operatorname{zr}(L)\ge f(\lambda)\operatorname{vr}(K)
+\]
+for every \(n\ge3\) and every intended body. The literal dimension can be zero, where the ratio is undefined. Two possible repairs are to restrict to \(\lfloor\lambda n\rfloor\ge1\), or to replace it by \(m_\lambda(n)=\max\{1,\lfloor\lambda n\rfloor\}\). These need not yield the same all-dimension constant; the aid's extra three-dimensional cap below uses the latter explicit correction.
+
+Define, in the symmetric central-section model,
+\[
+ \alpha_{n,m}=\inf_K\sup_{F\in G(n,m)}
+ \frac{\operatorname{zr}(K\cap F)}{\operatorname{vr}(K)}
+ \quad(1\le m<n),
+\]
+where \(K\) ranges over full-dimensional origin-symmetric bodies. If \(\kappa_n\) is the volume of the Euclidean unit ball, the aid reports the cube/John bound
+\[
+ \alpha_{n,m}\le\frac{\sqrt m\,\kappa_n^{1/n}}2.
+\]
+Consequently the asymptotic version, explicitly taking
+\(F_\infty(\lambda)=\liminf_{n\to\infty}\alpha_{n,\lfloor\lambda n\rfloor}\), satisfies the reported upper obstruction
+\[
+ F_\infty(\lambda)\le
+ \min\{1,\sqrt{\pi e/2}\sqrt\lambda\}.
+\]
+For the corrected all-dimension value
+\(F_{\mathrm{all}}(\lambda)=\inf_{n\ge3}\alpha_{n,m_\lambda(n)}\), it additionally reports
+\[
+ F_{\mathrm{all}}(\lambda)\le\frac{(4\pi/3)^{1/3}}2.
+\]
+The latter uses dimension three and the fact that sections of dimension one or two have zonoid ratio one. It must not be transferred without qualification to a rounding convention that excludes dimension three. These are necessary upper bounds on an optimal guaranteed constant, not positive lower estimates or a determination of sharp dependence, which the aid reports still open.
+\subsection{Short English statement}
+The source asks for the best zonoid-ratio guarantee in proportional-dimensional sections. The supplied aid identifies missing symmetry and rounding conventions and gives upper obstructions, including a square-root-in-proportion bound and a separate small-dimension cap for one explicit correction.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001308\), source code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[39]}, tag \texttt{problem}.
+\item AIM workshop ``Fourier analytic methods in convex geometry,'' Y. Gordon's Problem 12 on PDF page 4, stored under source item 2: \url{https://aimath.org/WWN/fourierconvex/fourierconvex.pdf}. Statement status \texttt{exact}; numbering discrepancy is identified by the supplied verification. No PDF was accessed for this draft.
+\item Y. Gordon and M. Junge, attributed half-dimensional section theorem; K. Ball, attributed local-unconditional lower bound; John's theorem, named in the aid. No full bibliographic entries are supplied.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}. Created and updated 14 August 2026. No original remarks or literature field are supplied. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

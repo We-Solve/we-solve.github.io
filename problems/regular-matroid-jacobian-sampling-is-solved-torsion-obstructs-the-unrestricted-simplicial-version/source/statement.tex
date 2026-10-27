@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000967}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $D\in\Z^{n\times m}$ have full row rank, let $L=DD^{\mathsf T}$, and define the finite group
+\[
+ J(D)=\Z^n/L\Z^n.
+\]
+A column basis is an $n$-element index set $B$ with $\det D_B\ne0$.
+
+\textbf{Problem 2 and discussion.} Jeremy Martin asks whether sampling a graph Jacobian and mapping to a uniform spanning tree generalizes to simplicial complexes, concretely whether uniform samples from $J(D)$ can efficiently yield uniform column bases. Farbod Shokrieh proposes regular matroids, for which the Jacobian has the right basis-count cardinality, and asks for an efficient bijection analogous to Dhar's burning algorithm. Matt Baker invokes Cauchy--Binet under unimodularity. Martin's final comment suggests the condition on maximal minors suffices. The distinction between total unimodularity and nonzero-maximal-minor unimodularity is made precise below; the extracted phrase ``all maximal minors'' should not silently exclude zero minors.
+
+\textbf{Reported regular-matroid resolution and matrix transport.} Cauchy--Binet gives
+\[
+ |J(D)|=\det(DD^{\mathsf T})=\sum_{|B|=n}\det(D_B)^2.
+\]
+If every nonzero maximal minor is $\pm1$, this equals the number of column bases. Choose one basis $B_0$, put $U=D_{B_0}^{-1}\in\mathrm{GL}_n(\Z)$ and $A=UD$. The aid proves $A$ is totally unimodular, meaning every square minor lies in $\{0,\pm1\}$, and
+\[
+ AA^{\mathsf T}=U(DD^{\mathsf T})U^{\mathsf T},\qquad
+ [x]\longmapsto[Ux]:J(D)\xrightarrow{\sim}J(A).
+\]
+It credits Backman--Baker--Yuen (2019) with explicit regular-matroid Jacobian torsors and polynomial-time basis bijections, applicable after this transport. Their auxiliary choices and full algorithm are not supplied in the summary.
+
+\textbf{Reported direct projection sampler.} For arbitrary full-row-rank $D$, the rank-$n$ projection kernel
+\[
+ K=D^{\mathsf T}(DD^{\mathsf T})^{-1}D
+\]
+yields a sequential Schur-complement sampler with
+\[
+ \Pr(B)=\det K_{B,B}=\frac{\det(D_B)^2}{\det(DD^{\mathsf T})}.
+\]
+This is uniform under the nonzero-maximal-minor-$\pm1$ condition. A qualification to the summary's phrase ``uniform precisely in this unimodular regime'' is needed: for the sampler alone, the exact criterion is that all nonzero maximal determinants have equal absolute value. For example $D=(2\ \ 2)$ samples its two bases uniformly but has $|J(D)|=8$, so no bijection to its two bases. Unimodularity is the regime giving both uniform determinant weights and the stated Jacobian cardinality, not a necessary condition for every uniform projection sample.
+
+For the worked family $D=[I_n\mid v]$, $v\in\{0,\pm1\}^n$, let $s$ count its nonzero coordinates. The aid states that $[v]$ generates the cyclic group $J(D)$ of order $s+1$, and there are exactly $s+1$ bases: $I_n$ and each replacement of a column $i$ with $v_i\ne0$ by $v$. It reports a linear-time bijection in this family; the computational bit-cost convention is not given.
+
+For general simplicial complexes, higher tree formulas retain torsion-squared weights. The report therefore does not solve the unrestricted unweighted problem. Cardinality/weight obstructions to this particular Jacobian-bijection approach are not a proof that every other uniform-sampling method is impossible.
+\subsection{Short English statement}
+The regular-matroid Jacobian-to-basis bijection is reported solved, and the aid transports the exact integer-matrix hypothesis to a totally unimodular representation. A projection sampler works more generally but weights bases by squared determinants. General simplicial torsion prevents simply treating those weighted samples as uniform; the summary's claimed necessity of unimodularity for sampler uniformity also needs qualification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000967$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[91]}.
+\item AIM workshop ``Generalizations of chip-firing and the critical group,'' July 8--12, 2013, Problem 2: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. Original attributions: Jeremy Martin, Farbod Shokrieh and Matt Baker. The extracted footnote gives workshop site \url{https://aimath.org/WWN/chipfiring/}; page headers are not mathematical text.
+\item Backman--Baker--Yuen (2019), as named in the summary for regular-matroid torsors and polynomial-time bijections. No full title, theorem number or identifier supplied.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{partially\_solved}, internal rigor \texttt{proved}, low novelty confidence. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. Original literature field empty. Supplied verification refers to authoritative [AIM13] and says three OCR/layout errors matter, but does not enumerate them.
+\end{itemize}
+\end{document}

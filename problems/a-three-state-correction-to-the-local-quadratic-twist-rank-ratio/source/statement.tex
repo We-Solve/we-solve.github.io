@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000379}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Brian Conrey's AIM question compares high-rank quadratic twists according to a local value. The supplied report explicitly reconstructs the setting as follows: fix odd $q$, an elliptic curve $E/\F_q(T)$, a finite rational good-reduction place $P=(T-a)$ with $a\in\F_q$, and monic squarefree polynomials $f$ of degree $n$. Let $E^f$ be the quadratic twist and let $h(f)$ denote the event $\operatorname{rank}E^f\geq2$. The original PDF does not state these field/place/family assumptions or define $\F_q[T]_n$; the rank convention also needs confirmation.
+
+Partition the chosen family $\mathcal S_n$ into $\mathcal S_n^+$, $\mathcal S_n^-$ and $\mathcal S_n^0$ by $f(a)$ being a nonzero square, a nonsquare, or zero. The literally printed ratio is
+\[
+ R_n=\frac{\#\{f\in\mathcal S_n^+:h(f)\}}
+ {\#\{f\in\mathcal S_n^-\cup\mathcal S_n^0:h(f)\}}.
+\]
+Indeed ``not a nonzero square'' includes zero, a ramified state. This differs from the cleaned unramified ratio with only $\mathcal S_n^-$ in the denominator. The extracted proposed local constant involves point counts on $E_P$ and its quadratic twist, but the radical/fraction formatting is damaged, so its exact value $C_P$ is not silently reconstructed. The source motivates the comparison by number-field numerical evidence, random matrix theory, moments of $L$-functions and BSD.
+
+The report's unconditional local-counting theorem is
+\[
+ A_n:=\#\mathcal S_n^++\#\mathcal S_n^-=
+ \frac{(q-1)(q^n-(-1)^n)}{q+1},
+\]
+\[
+ \#\mathcal S_n^+-\#\mathcal S_n^-=
+ \begin{cases}0&n\text{ odd},\\1-q&n>0\text{ even}.
+ \end{cases}
+\]
+For fixed $q$ as $n\to\infty$, the resulting proportions in the full squarefree family are respectively
+\[
+ \frac{q}{2(q+1)},\qquad\frac{q}{2(q+1)},\qquad\frac1{q+1}.
+\]
+No high-rank asymptotic follows from these unconditional counts alone.
+
+Put $r_\epsilon(n)=\#\{f\in\mathcal S_n^\epsilon:h(f)\}/\#\mathcal S_n^\epsilon$ for $\epsilon=+,-,0$. Conditionally, if the rates are defined, $r_-(n)>0$ eventually and
+\[
+ r_+(n)/r_-(n)\to C,\qquad r_0(n)/r_-(n)\to\lambda
+\]
+with finite nonnegative limits, the report gives
+\[
+ R_n\longrightarrow\frac{C}{1+2\lambda/q},
+\]
+whereas the cleaned square/nonsquare ratio tends to $C$. If $C=C_P$ and $\lambda=1$, the literal prediction is $qC_P/(q+2)$ rather than $C_P$. The existence and values of these rank-conditioned limits are unproved in the supplied record, which explicitly labels this consequence conditional.
+\subsection{Short English statement}
+Compare high-rank quadratic twists with square and nonsquare local values. The literal denominator also counts zeros, a positive-density ramified state. The report proves three-state local proportions, but its corrected limiting high-rank ratio remains conditional on unproved relative rank frequencies and on the explicit reconstructed family assumptions.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent ID $20000379$, source code \texttt{catalogue entry}; damaged original question, supplied reconstruction and full research summary. Statement status reconstructed and unverified.
+\item AIM workshop ``Arithmetic statistics over finite fields and function fields'', Question 1, attributed to Brian Conrey: \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. Canonical location \texttt{aim-algebraic-number-theory-notes.json}, \texttt{notes[30]}; original remarks and literature field empty. No PDF was opened here.
+\item Original motivation: number-field numerical evidence, random matrix theory, moments of $L$-functions and BSD; no full references supplied. The exact radical/point-count constant is not recoverable from the included extraction.
+\item Supplied machine-generated research attempt 1: conditional result; problem open at the run and currently partially solved; rigor metadata ``conditional'', novelty confidence low. The local counting is reported unconditional, the rank-ratio consequence conditional. The non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

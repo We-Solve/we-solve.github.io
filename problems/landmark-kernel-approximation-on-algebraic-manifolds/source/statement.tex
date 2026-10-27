@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002679}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\mathcal M\subset\R^n\) be an algebraic manifold of dimension \(D\), and let \(k\) be a degree-\(d\) polynomial kernel, as specified in the supplied record. The record does not specify the defining algebraic or smoothness conventions for \(\mathcal M\), the precise polynomial kernel, its normalization, or whether degree refers to total degree or degree in each argument. Fix \(x,y\in\mathcal M\).
+
+Let \(Z=(z_1,\ldots,z_m)\) consist of independent, identically distributed standard-normal landmark points. If this means ambient standard-normal sampling, then \(z_i\sim\mathcal N(0,I_n)\), where \(I_n\) is the \(n\times n\) identity matrix; this interpretation requires \(k\) to be defined at the sampled ambient points, which need not lie on \(\mathcal M\). A distribution supported on \(\mathcal M\) is not specified.
+
+Whenever the kernel evaluations exist, define
+\[
+K(x,Z)=\begin{pmatrix}k(x,z_1)&\cdots&k(x,z_m)\end{pmatrix},\qquad
+K(Z,y)=\begin{pmatrix}k(z_1,y)\\\vdots\\k(z_m,y)\end{pmatrix},
+\]
+\[
+K(Z,Z)=\bigl(k(z_i,z_j)\bigr)_{i,j=1}^{m}.
+\]
+On outcomes for which \(K(Z,Z)\) is invertible, define the landmark approximation error
+\[
+E_Z(x,y)=k(x,y)-K(x,Z)K(Z,Z)^{-1}K(Z,y).
+\]
+The inverse and hence this error are undefined on singular outcomes. The record supplies neither an almost-sure invertibility hypothesis nor a convention for singular outcomes. In particular, a polynomial kernel can have finite feature rank, so invertibility cannot be inferred from a lower bound on the number of landmarks.
+
+The source requests an asymptotic estimate of compressed-sensing type under the sampling-size condition
+\[
+m\geq\lambda Dd\log n,
+\]
+with the following displayed inequality offered as an example of the desired form:
+\[
+\Pr\!\left(\lvert E_Z(x,y)\rvert\geq\varepsilon\right)
+\leq C\varepsilon^{-c\lambda}.
+\]
+Here probability is intended to concern the random landmarks, with \(x,y\) fixed. This is a proposed bound shape, not a fully specified quantified assertion: the source gives no ranges for \(\lambda\) and \(\varepsilon\), no quantifiers or permitted dependencies for \(C,c\), no normalization or geometric bounds, and no asymptotic parameter or limiting regime. The meaning of the probability also requires resolution of singular outcomes. No pseudoinverse, regularization, conditioning event, or additional hypothesis is supplied, and none is substituted here. A precise theorem or conjecture therefore requires further source clarification.
+\subsection{Short English statement}
+For fixed points on an algebraic manifold, the source asks for a probabilistic bound on the error of a polynomial-kernel landmark approximation using independent standard-normal landmarks. Its sample-size condition and illustrative tail bound are preserved, but the kernel specification, treatment of singular matrices, constant dependencies, parameter ranges, and asymptotic regime remain unresolved. The supplied literature assessment also refers to a Gaussian kernel, whereas the mathematical statement specifies a polynomial kernel. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002679\), title \emph{Landmark Kernel Approximation on Algebraic Manifolds}; collection: Oberwolfach Reports Open Problems; exact source problem code: \texttt{catalogue entry}. No individual proposer is named. The record gives proposed year \(2014\).
+\item Supplied source citation: \emph{Mini-Workshop: Asymptotic Statistics on Stratified Spaces (2015)}, Oberwolfach Reports, pp.\ 2481--2527, DOI \texttt{10.4171/owr/2014/44}. Supplied source URL and literature-source link: \url{https://doi.org/10.4171/owr/2014/44}. The title's year \(2015\) and the record's \(2014\) year information are retained without reconciliation.
+\item Supplied literature source: \emph{Recursive sampling for the Nystr\"om method}, \url{https://arxiv.org/abs/1605.07583}.
+\item Supplied literature source: Cai--Nagy--Xi, deterministic Nystr\"om approximation, \url{https://doi.org/10.1137/21M1424627}.
+\item Literature assessment date: \texttt{2026-08-21}. This is supplied dated curation, not an independently verified assessment. The supplied status is \emph{open}. The assessment states that Nystr\"om theory gives error bounds under specified landmark-sampling and regularity assumptions, while the extracted Gaussian-kernel asymptotic claim is unqualified and remains unresolved as stated. Its Gaussian-kernel wording conflicts with the polynomial kernel in the supplied statement. The background explicitly calls this dated literature triage derived from the supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says mathematical content was preserved while notation, typography, or omitted definitions were repaired for publication. These are supplied editorial labels, not independent mathematical or source verification of this draft. No external source was visited for this preparation.
+\end{itemize}
+\end{document}

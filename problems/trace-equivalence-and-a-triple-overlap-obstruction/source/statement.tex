@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001062}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Source identity and reconstruction.} The canonical fragment is labeled ``Conjecture 6.5'' and starts at item 3. Supplied verification identifies it instead as items 3--4 of Conjecture 6.17, Section 6.3 ``Matrices.'' The appended spectral-radius definition and page numeral belong to the next subsection, not this conjecture. The first two items and complete original matrix hypotheses are absent.
+
+Under the aid's recovered convention, write $A_i=I+M_i\in\{0,1\}^{n\times n}$, $1\leq i\leq t$, with zero diagonal $M_i$ and each off-diagonal support oriented (no opposite arcs within one $M_i$). The stated colored-load condition is
+\[
+ \sum_{i=1}^t\sum_{w\ne v}(M_i)_{vw}\geq n\qquad\text{for every }v.
+\]
+The recovered strict-trace target is
+\[
+ \operatorname{tr}(A_1\cdots A_t)>n.
+\]
+The exact match to the missing parent hypotheses requires checking.
+
+\textbf{Layered and increasing-cycle formulations.} Put $t+1$ copies of $V$ in order. Between layers $i$ and $i+1$, include each horizontal edge $v\to v$ and every arc of $M_i$. Product entries count layered paths, and the $n$ all-horizontal returns show trace at least $n$. The aid proves that strict trace excess is equivalent to a return from $u$ in layer one to the same $u$ in layer $t+1$ using an off-diagonal edge. After identifying layers and assigning color $i$ to $M_i$ arcs, this is equivalent to a rainbow directed cycle whose colors strictly increase when traversed from a suitable starting vertex. An arbitrary rainbow cycle without this ordering condition is not the asserted equivalent target.
+
+\textbf{Reported overlap obstruction.} Suppose the load hypotheses hold but the trace is exactly $n$. Let $m(e)$ count the matrices containing off-diagonal arc $e$. The aid proves that the union support must be oriented and
+\[
+ \sum_e\max\{m(e)-2,0\}\geq n.
+\]
+Indeed, oppositely directed arcs with distinct layer times would create a layered return, while one-layer opposite arcs are prohibited by orientation. The resulting oriented union has at most $\binom n2$ arcs, so the load total at least $n^2$ forces at least $n$ multiplicity units beyond two.
+
+Consequently the strict-trace conjecture holds when every off-diagonal arc appears at most twice. For $t>2$, a counterexample must have at least $\lceil n/(t-2)\rceil$ distinct arcs of multiplicity at least three; for $t=3$, at least $n$ arcs must appear in all three matrices. These are necessary conditions, not constructions of counterexamples.
+
+\textbf{Reported sharp two-matrix relaxation.} At the weakened pointwise load threshold $n-1$, trace equality for two matrices is classified by duplicated regular tournaments: $M_1=M_2$ is the adjacency matrix of a regular tournament, so $n$ is odd, each load is $n-1$ and $\operatorname{tr}((I+M_1)^2)=n$. Conversely the aid reports that these are exactly the two-matrix trace-equality instances under that relaxed load condition. This does not settle the unrestricted many-matrix conjecture.
+\subsection{Short English statement}
+The fragment concerns layered matrix paths and increasing-color cycles, despite its wrong extracted conjecture number. The aid proves the trace/path/cycle equivalence and shows that a counterexample needs substantial triple overlap of arc supports. It settles multiplicity at most two and classifies the two-matrix one-unit-weaker threshold, leaving the general problem open.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001062$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[186]}, extracted source item 6.5.
+\item AIM workshop ``The Caccetta--Haggkvist conjecture,'' Section 6.3 ``Matrices,'' Conjecture 6.17 items 3--4 according to supplied PDF verification: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. That verification distinguishes the erroneous 6.5 label and the transition to Conjecture 6.18; no independent PDF inspection is asserted here.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{open}, internal rigor \texttt{proved}, low novelty confidence; current registry partially solved. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. No complete external reference or original literature entry supplied.
+\end{itemize}
+\end{document}

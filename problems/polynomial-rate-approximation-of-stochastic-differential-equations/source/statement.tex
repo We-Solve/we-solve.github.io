@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003392}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Consider the stochastic differential equation on the full interval $[0,1]$,
+\[
+\dd X(t)=\mu(X(t))\,\dd t+\sigma(X(t))\,\dd W(t),\qquad X(0)=x_0.
+\]
+Here $\mu$ is the drift, $\sigma$ is the diffusion, and $W$ denotes the driving Wiener process. The supplied record does not specify the dimensions of $X$ and $W$, the coefficient domains and codomains, or the stochastic-integral convention. These choices must be specified before a complete formulation is possible. Existence and uniqueness of the relevant solution on $[0,1]$, and the integrability needed for absolute-mean error, must also be addressed by the proposed assumptions.
+
+For a scalar state, the absolute-mean error of an approximation $Y$ to the terminal value is
+\[
+\E\bigl[|X(1)-Y|\bigr].
+\]
+For a vector-valued state, a state space and a norm must first be specified; the record does not make those choices.
+
+Under an interpretation in which $n$ bounds the number of observations, a polynomial convergence rate means that there are approximations $(Y_n)_{n\geq1}$ and constants $C<\infty$, $r>0$, and $n_0\in\N$ such that each $Y_n$ uses at most $n$ point evaluations of $W$ at times in $[0,1]$ and
+\[
+\E\bigl[|X(1)-Y_n|\bigr]\leq C n^{-r}
+\qquad\text{for every integer }n\geq n_0.
+\]
+This formula states the scalar interpretation; in a specified vector setting the absolute value would be replaced by the specified norm. The approximations must use the same driving process as the target solution. The source leaves the admissible observation rules unspecified: in particular, whether observation times are deterministic or adaptive, whether auxiliary randomness is allowed, and whether the observation budget is a deterministic bound or an expected cost. It also leaves unspecified the allowed dependence of $C$, $r$, and $n_0$ on $\mu$, $\sigma$, and $x_0$, and whether any bound is required uniformly over a class of equations or initial values.
+
+\textbf{Problem.} Identify assumptions on the drift $\mu$ and diffusion $\sigma$ under which the terminal value $X(1)$ admits approximation in absolute mean at a polynomial rate using finitely many evaluations of $W$. The displayed rate gives an observation-budget interpretation of this target. The unresolved choices above prevent the supplied question from determining a single fully quantified characterization problem; the source does not explicitly demand necessary and sufficient conditions.
+
+The supplied dated curation labels the problem partially solved. It reports that smooth bounded coefficients alone do not guarantee any polynomial absolute-mean rate, that positive polynomial-rate results hold under additional regularity or structural assumptions, and that a general characterization remains open. These are supplied literature assessments, not independently verified mathematical claims in this draft; their precise dimensions, information models, and hypotheses require consultation of the cited sources.
+\subsection{Short English statement}
+Determine which assumptions on an SDE's drift and diffusion permit approximation of $X(1)$ with expected absolute error bounded by $C n^{-r}$ for some $r>0$, using at most $n$ observations of the driving Wiener process. This observation-budget interpretation requires clarification of the state and noise dimensions, solution assumptions, admissible observation rules, and uniformity of the bound. The supplied partially solved status is dated curation requiring independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID $30003392$, source problem code \texttt{catalogue entry}, title: Polynomial-Rate Approximation of Stochastic Differential Equations. Collection: Oberwolfach Reports Open Problems. No individual proposer is supplied; the proposed year is recorded as 2017.
+\item Supplied report citation: Mini-Workshop: Stochastic Differential Equations: Regularity and Numerical Analysis in Finite and Infinite Dimensions (2018), Oberwolfach Reports, pp.~453--498, DOI 10.4171/owr/2017/9. \url{https://doi.org/10.4171/owr/2017/9}. The citation's year 2018 and the registry's proposed year 2017 are retained without reconciliation.
+\item Supplied literature source, Oberwolfach report: \url{https://ems.press/content/serial-article-files/46671}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source, attributed to Jentzen--M\"uller-Gronbach--Yaroslavtseva: \url{https://doi.org/10.4310/CMS.2016.V14.N7.A1}. No article title or detailed theorem hypotheses are supplied.
+\item Supplied literature source, attributed to Yaroslavtseva: \url{https://doi.org/10.1016/j.jco.2017.04.002}. No article title or detailed theorem hypotheses are supplied.
+\item Literature assessment checked at \texttt{2026-08-21}: supplied dated curation derived from the supplied OWR curation, not independently verified here. Its status is partially solved; it reports negative results for smooth bounded coefficients alone, positive polynomial-rate results under additional assumptions, and an open general characterization. The supplied background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and records a manual semantic, typographic, and LaTeX review asserting preservation of the mathematical target. This is supplied review metadata, not independent verification of mathematical completeness or correctness.
+\end{itemize}
+\end{document}

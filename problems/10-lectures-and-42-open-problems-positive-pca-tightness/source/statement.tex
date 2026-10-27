@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2800905}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a real symmetric matrix $W\in\R^{n\times n}$, the standard nonnegative-PCA problem is
+\[
+ \operatorname{OPT}_+(W)=\max\{x^TWx:x\in\R^n,\ x\geq0,\ \|x\|_2=1\}.
+\]
+A standard semidefinite relaxation is
+\[
+ \operatorname{OPT}_{\mathrm{SDP}}(W)
+ =\max\{\operatorname{Tr}(WX):X=X^T\succeq0,\ X_{ij}\geq0\ \forall i,j,
+                                      \ \operatorname{Tr}X=1\}.
+\]
+It is a relaxation because $X=xx^T$ is feasible for every nonnegative unit vector. Exact value tightness means $\operatorname{OPT}_{\mathrm{SDP}}(W)=\operatorname{OPT}_+(W)$, equivalently existence of a rank-one optimal matrix for this relaxation. It does not require every SDP optimizer to have rank one.
+
+The source asks whether the positive-PCA semidefinite relaxation is tight with high probability for Wigner matrices. For an intended sequence of ensembles $W_n$, the standard exact-value reading is
+\[
+ \mathbb P\bigl(\operatorname{OPT}_{\mathrm{SDP}}(W_n)
+                  =\operatorname{OPT}_+(W_n)\bigr)\longrightarrow1
+ \qquad(n\to\infty).
+\]
+A real Wigner model ordinarily has independent centered upper-triangular entries, symmetry below the diagonal, and a specified variance scaling; diagonal laws and moment/tail assumptions must also be fixed.
+
+Neither the optimization/relaxation formulas nor the ensemble law are supplied in the record. The displays give the standard nonnegative and entrywise-nonnegative SDP interpretation, explicitly subject to confirmation. Strict positivity, another SDP, asymptotic vanishing gap, and planted-vector recovery would be different targets. In particular the source statement does not include a planted spike or signal-to-noise parameter, whereas its research summary discusses them; no spiked model is silently substituted for pure Wigner input.
+\subsection{Short English statement}
+Does the nonnegative-PCA SDP have an exact rank-one solution for a typical Wigner input as dimension grows? The supplied summary records partial progress from spiked/nonnegative PCA and angular-synchronization SDP work, but gives no precise theorem or certified sharp tightness threshold. Those different models do not by themselves settle the unspiked question as written. The exact ensemble, relaxation and meaning of tightness require source review.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath permanent ID 2800905, source code catalogue entry, ``10 Lectures and 42 Open Problems --- Positive PCA tightness.'' Registry curation and metadata: Ulam AI and UnsolvedMath Contributors, CC BY 4.0; proposer Afonso S. Bandeira, 2015; updated 2026-08-06.
+\item Bandeira, source list \emph{42 Open Problems in Data Science} (2016), Open Problem 9.5: \url{https://afonsobandeira.wordpress.com/2015/11/28/10l42psbm/}. Supplied HTML extraction accessed 2026-07-29. The metadata says the source presents an open item and marks status/release and rights review NEEDS\_REVIEW.
+\item The supplied partial-progress summary names subject areas but no authors, papers, theorem statements or resolving locators. No missing bibliography is invented.
+\end{itemize}
+\end{document}

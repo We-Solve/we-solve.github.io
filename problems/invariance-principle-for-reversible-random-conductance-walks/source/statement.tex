@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005257}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(d\geq 1\) be an integer, let \(e_1,\ldots,e_d\) be the canonical basis of \(\R^d\), and put \(E=\{e_1,\ldots,e_d,-e_1,\ldots,-e_d\}\). The source describes a random environment \(a=(a_e(x))_{x\in\Z^d,\,e\in E}\) satisfying, for fixed constants \(0<b_1<b_2<\infty\),
+\[
+ b_1\leq a_e(x)\leq b_2,
+ \qquad a_e(x)=a_{-e}(x+e)
+ \quad\text{for every }x\in\Z^d,\ e\in E.
+\]
+The state space is the whole lattice \(\Z^d\); no spatial boundary is specified. The source says that uniform ellipticity can be relaxed, but supplies no replacement assumptions.
+
+The walk \((X_t)_{t\geq0}\) is described by exponential clocks for the possible jumps from \(x\) to \(x+e\). Literally, the source gives the clock in direction \(e\) mean \(a_e(x)\), hence rate \(a_e(x)^{-1}\). If these clocks are conditionally independent given the environment and are freshly sampled at each arrival, this description defines the continuous-time Markov chain with generator
+\[
+ (L_a f)(x)=\sum_{e\in E}\frac{f(x+e)-f(x)}{a_e(x)}
+\]
+for finitely supported \(f:\Z^d\to\R\). Independence and renewal of the clocks are necessary specifications of this interpretation and are not explicit in the supplied statement. Writing \(T=\min_{e\in E}\tau_e\) and \(e_* =\operatorname*{arg\,min}_{e\in E}\tau_e\), its jump rule would be
+\[
+ X_{t+s}=x\quad(0\leq s<T),\qquad X_{t+T}=x+e_*.
+\]
+Here the half-open holding interval repairs the source's incompatible assignment of both the old and new positions at the jump time. Under the conditional independence interpretation, ties have probability zero. If instead the quantities called conductances were intended to be jump rates, the generator would be
+\[
+ (\widetilde L_a f)(x)=\sum_{e\in E}a_e(x)\bigl(f(x+e)-f(x)\bigr),
+\]
+which is a different model; the supplied record does not resolve this mean-versus-rate issue.
+
+\textbf{Recorded question and unresolved formulation.} The extracted question asks whether an invariance principle can be derived for this random walk in random environment. A possible diffusive-limit target is
+\[
+ \bigl(\varepsilon(X_{t/\varepsilon^2}-X_0)\bigr)_{t\geq0}
+ \ \Longrightarrow\ (B_t)_{t\geq0}
+ \qquad\text{as }\varepsilon\downarrow0,
+\]
+where \(B\) is a Brownian motion in \(\R^d\), started at zero, with covariance \(\mathbb E[B_tB_t^{\mathsf T}]=t\Sigma\). This display is a formulation template, not an asserted theorem or a uniquely recoverable source statement. The source does not specify the initial law, the law of the environment, whether convergence is under the joint environment-and-walk law (annealed) or under the walk law for almost every fixed environment (quenched), the path-space topology, or the required properties of \(\Sigma\).
+
+The supplied literature assessment refers to a reversible, stationary, ergodic conductance environment and says an invariance principle is proved under those hypotheses using additive-functional limit theorems. Stationarity and ergodicity of the environment law are not included in the extracted mathematical statement, and the supplied material does not identify the precise theorem or its full hypotheses. The assessment expressly does not claim a theorem for unrestricted random walks in random environments. Moreover, the supplied statement-verification field says the official report answers the extracted question with an invariance-principle theorem and does not leave it open. Consequently this record does not determine a precise remaining open problem; it requires source and mathematical review.
+\subsection{Short English statement}
+The record asks for a Brownian scaling limit of a continuous-time nearest-neighbour walk on \(\Z^d\) with bounded positive symmetric random edge parameters. Its literal clock means give reciprocal jump rates, while its conductance terminology suggests another convention. Essential assumptions and the intended mode of convergence are missing. Supplied curation reports a conditional invariance-principle result and says the report does not leave this question open; no precise remaining open target is recoverable.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30005257\), exact source problem code \texttt{catalogue entry}, title \emph{Invariance Principle for Reversible Random Conductance Walks}. The supplied record labels the status \texttt{partially\_solved} and the statement status \texttt{unrecoverable}. No individual proposer is supplied; the proposed year is 2022.
+\item Supplied source citation: \emph{Arbeitsgemeinschaft: Quantitative Stochastic Homogenization} (2023), Oberwolfach Reports, pp.~2741--2809, DOI \texttt{10.4171/owr/2022/48}. Source URL and supplied literature-source label \emph{Oberwolfach Report 48/2022}: \url{https://doi.org/10.4171/owr/2022/48}. The background describes Oberwolfach Reports as records of mathematical workshops and their open-problem discussions.
+\item Supplied literature source, labeled \emph{Kipnis--Varadhan}: \url{https://doi.org/10.1007/BF01210789}. The supplied record gives no full bibliographic citation or theorem number.
+\item Literature checked at: \texttt{2026-08-22}. This is supplied dated curation, not independently verified. Its assessment says that additive-functional limit theorems prove an invariance principle for the stated reversible, stationary, ergodic conductance environment, conditional on those hypotheses, and do not yield a general theorem for unrestricted random walks in random environments. The background calls this dated literature triage derived from the supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item Supplied statement-verification note: the official report answers the extracted question with an invariance-principle theorem and does not leave it as an open problem. This note is preserved as supplied attribution, not as an independently verified finding.
+\end{itemize}
+\end{document}

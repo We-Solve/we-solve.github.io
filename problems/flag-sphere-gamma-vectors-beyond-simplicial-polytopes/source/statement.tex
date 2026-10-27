@@ -1,0 +1,83 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003462}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(A\) denote a fixed coefficient system, either a field or \(\Z\). The supplied record does not specify which coefficient system is intended; the formulation below is relative to that choice.
+
+A finite simplicial complex \(K\) is flag if every set of pairwise adjacent vertices is a face. For a face \(\sigma\in K\), define
+\[
+\operatorname{lk}_K(\sigma)=\{\tau\in K:\tau\cap\sigma=\varnothing,\ \tau\cup\sigma\in K\}.
+\]
+A finite pure \((d-1)\)-dimensional complex \(K\) is an \(A\)-homology sphere if, for every face \(\sigma\), including the empty face,
+\[
+\widetilde H_i(\operatorname{lk}_K(\sigma);A)\cong
+\begin{cases}
+A,&i=d-|\sigma|-1,\\
+0,&i\ne d-|\sigma|-1.
+\end{cases}
+\]
+Here reduced homology includes degree \(-1\), with the usual empty-sphere convention.
+
+Write \(f_{i-1}(K)\) for the number of faces with \(i\) vertices, with \(f_{-1}(K)=1\), and define
+\[
+h_K(t)=\sum_{i=0}^{d}f_{i-1}(K)t^i(1-t)^{d-i}.
+\]
+For a homology sphere this polynomial is symmetric of degree parameter \(d\), so its gamma coefficients are uniquely defined by
+\[
+h_K(t)=\sum_{j=0}^{\lfloor d/2\rfloor}\gamma_j(K)t^j(1+t)^{d-2j}.
+\]
+Use the finite tuple convention
+\[
+\gamma(K)=(\gamma_0(K),\ldots,\gamma_{\lfloor d/2\rfloor}(K)).
+\]
+A flag simplicial polytope means a convex simplicial polytope in a real Euclidean space whose boundary complex is flag; its gamma vector is that of its boundary complex.
+
+\textbf{Principal question.} For the intended coefficient system \(A\), does there exist a finite flag \(A\)-homology sphere \(\Delta\) such that
+\[
+\gamma(\Delta)\ne\gamma(\partial P)
+\qquad\text{for every flag simplicial convex polytope }P,
+\]
+where \(P\) may have any dimension? Equivalently, is there a vector realized as the gamma vector of a flag homology sphere that is not realized as the gamma vector of any flag simplicial polytope?
+
+\textbf{Additional question in the supplied original statement.} The original statement also asks whether every flag simplicial complex \(\Gamma\) admits a flag homology sphere \(\Delta\), of any dimension, with \(\gamma(\Delta)=f(\Gamma)\). Under the finite-complex convention and the convention that the face vector includes the empty face, this reads
+\[
+\forall\,\Gamma\text{ finite and flag},\quad
+\exists\,\Delta\text{ a finite flag }A\text{-homology sphere}:\quad
+\gamma(\Delta)=(f_{-1}(\Gamma),f_0(\Gamma),\ldots,f_{\dim\Gamma}(\Gamma)).
+\]
+This additional question is absent from the supplied clean statement and principal statement; it is retained as a distinct source question, without asserting that it is equivalent to the principal question.
+
+\textbf{Unresolved qualifications.} The record does not specify homology coefficients, explicitly state finiteness, or explain whether vector equality permits adjoining or deleting trailing zeros. The displayed formulations use finite complexes and literal equality of finite tuples as explicit working conventions requiring review. In the additional question, inclusion of \(f_{-1}\) also requires confirmation. No restriction to equal dimensions between \(\Delta\) and \(P\) is supplied. The accompanying literature assessment concerns a different point-and-line covering problem and cannot establish the status of these gamma-vector questions.
+\subsection{Short English statement}
+The principal question asks whether a gamma vector of a flag homology sphere can fail to occur for every flag simplicial convex polytope, allowing polytopes of any dimension. The original statement additionally asks whether every flag complex has its face vector realized as such a sphere's gamma vector. Homology coefficients and vector conventions remain unspecified, and the supplied literature assessment concerns a different problem.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003462\), exact source problem code \texttt{catalogue entry}, title ``Flag Sphere Gamma Vectors Beyond Simplicial Polytopes.'' The record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year \(2017\); no individual proposer is supplied.
+\item Supplied source citation: \emph{Discrete Geometry (2018)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2017/19}, pp.\ 1135--1205. Supplied source URL and literature-source link labelled ``Original Oberwolfach report'': \url{https://doi.org/10.4171/owr/2017/19}. This is the supplied report-level attribution; no precise page or named contributor for this problem is supplied. The citation's year \(2018\) and the record's proposed year \(2017\) are retained without reconciliation.
+\item Additional supplied literature source: ``Ramsey type problems for lines and points,'' \url{https://www.renyi.hu/conferences/hunrus18/abstracts/grigoriev_abstract.pdf}.
+\item Supplied literature-check date: \texttt{2026-08-21}. This is supplied dated curation, not independently verified here. Its supplied status is ``open.'' Its assessment says that an even-parameter point-covering conjecture has partial bounds and exact Ramsey values in large finite regimes, while an all-but-one-points-on-\((k-1)\)-lines conclusion is not proved in general. These claims concern a different mathematical subject from the gamma-vector questions. The background describes this assessment as dated literature triage derived from the supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item The registry supplies the statement-status label \texttt{corrected\_verified} and reports that the official Oberwolfach report was checked directly and that the clean statement restores definitions while preserving the target. These are supplied provenance assertions, not verification performed for this draft. The registry's ``open'' label is likewise retained as a supplied label rather than a verified mathematical conclusion.
+\end{itemize}
+\end{document}

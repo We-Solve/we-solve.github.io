@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005466}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied excerpt does not define \(\operatorname{Pos}(n,m)\), \(\operatorname{SOS}(n,m)\), or the ambient space on which the operators act. The following precise reconstruction is therefore conditional on a polynomial interpretation; these definitions require confirmation from the source.
+
+For an integer \(n\geq 1\) and an even integer \(m\geq 0\), let
+\[
+V_{n,m}=\R[x_1,\ldots,x_n]_{\leq m},
+\qquad
+\operatorname{Pos}(n,m)=\{p\in V_{n,m}:p(x)\geq 0\text{ for every }x\in\R^n\},
+\]
+and let
+\[
+\operatorname{SOS}(n,m)=\left\{\sum_{j=1}^{r}q_j^2:r\in\Z_{\geq 0},\ q_j\in\R[x_1,\ldots,x_n]_{\leq m/2}\right\},
+\]
+where the empty sum is zero. Here the degree bound is total degree. Define the Laplacian on this space by
+\[
+\Delta_n=\sum_{i=1}^{n}\frac{\partial^2}{\partial x_i^2}.
+\]
+For a real linear endomorphism \(A:V_{n,m}\to V_{n,m}\), define
+\[
+e^{tA}=\sum_{k=0}^{\infty}\frac{t^kA^k}{k!}.
+\]
+In particular, \(e^{t\Delta_n}\) is well defined on \(V_{n,m}\), and its series terminates.
+
+Under these conditional definitions, the two questions extracted from the original statement are as follows.
+\begin{enumerate}
+\item Determine the integers \(d\in\N\) for which
+\[
+\exists\,\tau_{2,2d}\in[0,\infty)\quad
+ e^{\tau_{2,2d}\Delta_2}\operatorname{Pos}(2,2d)
+ \subseteq\operatorname{SOS}(2,2d).
+\]
+The same time \(\tau_{2,2d}\) must work for every polynomial in the indicated cone. The displayed original question requires inclusion at this one time; it does not explicitly quantify over all later times.
+\item For each pair \((n,m)\in\N\times2\N\), ask whether there exist a real linear endomorphism \(A:V_{n,m}\to V_{n,m}\) and a number \(\tau_{n,m}(A)\in[0,\infty)\) such that
+\[
+\forall\,t\in[\tau_{n,m}(A),\infty)\quad
+ e^{tA}\operatorname{Pos}(n,m)
+ \subseteq\operatorname{SOS}(n,m).
+\]
+Here \(m\) denotes the degree parameter called \(d\) in the original second question. Both \(A\) and the threshold may depend on the pair \((n,m)\), but neither may depend on the input polynomial. The cleaned statement also asks which linear flows have this property, suggesting a characterization in addition to the displayed existence question.
+\end{enumerate}
+
+Several qualifications remain unresolved. The cleaned statement calls the inputs positive binary forms, which ordinarily suggests homogeneous polynomials in two variables, whereas the reconstruction above uses polynomials of bounded degree and interprets positivity as nonnegativity on all of \(\R^n\). The ordinary Laplacian lowers homogeneous degree by two, so its exponential does not generally preserve the space of forms of a fixed degree. Thus the homogeneous formulation cannot simply be substituted into the displayed reconstruction without additional definitions. Strict positivity, any normalization, the precise admissible class of operators \(A\), and the convention concerning zero in \(\N\) are not specified in the supplied excerpt. No such additional hypotheses are asserted here.
+\subsection{Short English statement}
+Conditionally interpreting the cones as globally nonnegative polynomials and sums of polynomial squares of bounded degree, the first question asks which bivariate even degrees admit one heat-flow time that works for every input. The second asks whether each dimension and even degree admit a linear flow whose images lie in the sum-of-squares cone at every sufficiently large time. The source terminology concerning forms, positivity, and admissible operators needs clarification before this reconstruction can be accepted.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete source record for permanent ID \(30005466\), title \emph{Heat Flows into Sum-of-Squares Cones}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2023 and supplies no individual proposer.
+\item Supplied source citation: \emph{Real Algebraic Geometry with a View toward Koopman Operator Methods} (2023), Oberwolfach Reports, pp.~741--811, DOI \texttt{10.4171/owr/2023/14}. Supplied URL: \url{https://doi.org/10.4171/owr/2023/14}. The extracted text identifies Open Problems 1 and 2 and includes a page marker for p.~795.
+\item Supplied literature reference, labeled ``OWR report and results'': \url{https://doi.org/10.4171/owr/2023/14}. The exact supplied literature-check date is \texttt{2026-08-22}. This is supplied dated curation, not an independently verified assessment. It labels the problem open and reports that heat-flow results settle the quadratic and ternary-quartic cases and give obstructions, while the stated bivariate higher-degree and general-linear-operator existence questions remain unresolved. The supplied background requests independent verification of this time-sensitive status and the cited claims; it does not provide their precise hypotheses or theorem statements.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official report was checked directly and the cleaned formulation restores definitions and removes extraction artifacts. These are supplied provenance claims; this draft does not independently verify them or claim to have visited the report.
+\end{itemize}
+\end{document}

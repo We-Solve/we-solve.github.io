@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3100081}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $(X_n)_{n\geq0}$ be a nearest-neighbor walk on $\mathbb Z^2$, started at $X_0=(0,0)$. For a directed nearest-neighbor pair $(u,v)$, write
+\[
+N_n(u,v)=|\{0\leq k<n:X_k=u,\ X_{k+1}=v\}|.
+\]
+The literal ``from $(x,y)$ to the destination'' version of the rule is
+\[
+\Pr(X_{n+1}=v\mid X_0,\ldots,X_n)
+=\frac{1+N_n(X_n,v)}{\sum_{z:\|z-X_n\|_1=1}(1+N_n(X_n,z))}
+\quad\text{if }\|v-X_n\|_1=1,
+\]
+with probability zero otherwise. Define the first positive return time
+\[
+\tau_0=\inf\{n\geq1:X_n=(0,0)\},\qquad\inf\varnothing=\infty.
+\]
+Determine $\Pr(\tau_0<\infty)$. The source additionally asks this for reinforcement capped at two: replace each weight $1+N_n(u,v)$ by $\min\{2,1+N_n(u,v)\}$ in the same normalization.
+
+There is a material convention issue: the source later describes an edge weight as one plus the number of steps ``between two points,'' which can mean undirected reinforcement. For that version replace $N_n(u,v)$ by
+\[
+M_n(\{u,v\})=|\{0\leq k<n:\{X_k,X_{k+1}\}=\{u,v\}\}|.
+\]
+Both the uncapped and capped rules are then defined by the same formulas with $M_n$ in place of $N_n$. The supplied text does not decide between these two models. Its question is about at least one return at a strictly positive time, not explicitly about infinitely many returns.
+\subsection{Short English statement}
+A walk on the square lattice favors steps along previously traversed edges. Determine its probability of ever returning to its starting point, both with unrestricted reinforcement and with edge weights capped at two. The source is ambiguous about whether traversals in opposite directions share one weight.
+\subsection{Sources}
+\begin{itemize}
+\item Cooper, \emph{Combinatorial Problems I Like}, October 2020 snapshot, ``Probability,'' source-order bullet 81, \url{https://people.math.sc.edu/cooper/combprob.html}; accessed 2026-07-29, HTML extraction.
+\item The supplied research summary attributes introduction of edge-reinforced random walks to Coppersmith--Diaconis and reports the finite-cap question as open per the list. No specific publication or theorem citation is supplied.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID $3100081$, source code catalogue entry. Dataset attribution: Ulam AI and the UnsolvedMath Contributors.
+\end{itemize}
+\end{document}

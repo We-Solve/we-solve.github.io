@@ -1,0 +1,106 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001795}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+All groups below are regarded as discrete. The supplied record collects several questions rather than one fully specified conjecture.
+
+For a positive integer \(n\), let \(\operatorname{Sym}(n)\) have normalized Hamming distance
+\[
+ d_{\mathrm H}(\sigma,\rho)=\frac{1}{n}\bigl|\{i\in\{1,\ldots,n\}:\sigma(i)\ne\rho(i)\}\bigr|.
+\]
+A group \(G\) is \emph{sofic} if, for every finite subset \(E\subseteq G\) and every \(0<\varepsilon<1\), there exist \(n\geq1\) and a map \(\sigma:G\to\operatorname{Sym}(n)\) such that \(\sigma(1)=\operatorname{id}\),
+\[
+ d_{\mathrm H}(\sigma(gh),\sigma(g)\sigma(h))<\varepsilon\qquad(g,h\in E),
+\]
+and
+\[
+ d_{\mathrm H}(\sigma(g),\sigma(h))>1-\varepsilon\qquad(g,h\in E,\ g\ne h).
+\]
+For complex \(n\times n\) matrices, write \(\tau_n(A)=n^{-1}\operatorname{Tr}(A)\) and \(\|A\|_{2,n}=\tau_n(A^*A)^{1/2}\). A group \(G\) is \emph{hyperlinear} if, for every finite \(E\subseteq G\) and every \(0<\varepsilon<1\), there exist \(n\geq1\) and a map \(\varphi:G\to U(n)\) with \(\varphi(1)=I_n\) such that
+\[
+ \|\varphi(gh)-\varphi(g)\varphi(h)\|_{2,n}<\varepsilon\qquad(g,h\in E),
+\]
+and
+\[
+ |\tau_n(\varphi(g))|<\varepsilon\qquad(g\in E\setminus\{1\}).
+\]
+A group \(K\) is \emph{residually finite} if, for every \(k\ne1\), there exist a finite group \(Q\) and a homomorphism \(q:K\to Q\) with \(q(k)\ne1\).
+
+For a finite nonempty set \(A\), equip \(A^G\) with the product topology and the shift action
+\[
+ (g\cdot x)(h)=x(g^{-1}h).
+\]
+The group \(G\) is \emph{surjunctive} if every continuous \(G\)-equivariant injective map \(A^G\to A^G\) is surjective, for every such \(A\).
+
+The questions supplied under permanent UnsolvedMath ID \(30001795\), source code \texttt{catalogue entry}, are as follows.
+\begin{enumerate}
+\item Determine soficity and, separately, hyperlinearity for Thompson's group \(F\), one-relator groups, Burnside groups, Burger--Mozes groups, Gromov's monster groups, word-hyperbolic groups, and random finitely presented groups. Here Thompson's \(F\) is the group of increasing piecewise-linear homeomorphisms of \([0,1]\) with finitely many dyadic breakpoints and slopes in \(\{2^k:k\in\Z\}\). A one-relator group has a presentation \(\langle X\mid r\rangle\) with a single defining relator. A word-hyperbolic group admits a finite generating set whose Cayley graph has \(\delta\)-thin geodesic triangles for some \(\delta\geq0\).
+
+In particular, the universal word-hyperbolic questions are
+\[
+ \forall G\;\bigl(G\text{ word-hyperbolic}\Longrightarrow G\text{ sofic}\bigr)
+\]
+and
+\[
+ \forall G\;\bigl(G\text{ word-hyperbolic}\Longrightarrow G\text{ hyperlinear}\bigr).
+\]
+The original statement additionally says ``equivalently as conjectured precisely when all such groups are residually finite.'' This qualification is retained as supplied source wording. Its intended logical relationship to the two displayed questions is unclear; no equivalence with universal residual finiteness is asserted here.
+
+The source does not specify the intended Burnside groups, the constructions or parameters of the Burger--Mozes and Gromov monster groups, or the probability model and limiting regime for random presentations. It also does not explicitly delimit the generating sets in the one-relator question. Those portions therefore remain a list of targets requiring clarification, rather than fully quantified assertions about specified families. In particular, ``random'' cannot be assigned an almost-sure or asymptotic-probability interpretation from this record alone.
+
+\item For each property \(\mathcal P\in\{\text{soficity},\text{hyperlinearity}\}\), ask whether the following holds: for every pair of groups \(G_1,G_2\) having \(\mathcal P\), every residually finite group \(K\), and every pair of injective homomorphisms \(\iota_i:K\hookrightarrow G_i\), does the amalgamated free product
+\[
+ G_1*_{K}G_2
+ = (G_1*G_2)\big/\big\langle\!\big\langle
+ \iota_1(k)\iota_2(k)^{-1}:k\in K
+ \big\rangle\!\big\rangle
+\]
+have \(\mathcal P\)? The denominator is the normal closure in the free product. No finite-generation assumption or additional condition on the embeddings is supplied. This gives two closure questions with the same property imposed on both factors; the source does not clearly specify a separate mixed sofic/hyperlinear question.
+
+\item For every pair of finitely generated surjunctive groups \(G_1,G_2\), must both \(G_1\times G_2\) and \(G_1*G_2\) be surjunctive?
+
+\item Classify the sofic approximations of a direct product of two nonabelian free groups. Writing \(F(X)\) for the free group on a set \(X\), the cleaned record describes products \(F(X)\times F(Y)\) with \(|X|,|Y|\geq2\), but does not specify the ranks. For a countable group \(H\), a sequential sofic approximation can be described by maps \(\sigma_j:H\to\operatorname{Sym}(n_j)\), with \(n_j\to\infty\) and \(\sigma_j(1)=\operatorname{id}\), satisfying
+\[
+ d_{\mathrm H}(\sigma_j(gh),\sigma_j(g)\sigma_j(h))\longrightarrow0
+ \quad(g,h\in H)
+\]
+and
+\[
+ d_{\mathrm H}(\sigma_j(g),\sigma_j(h))\longrightarrow1
+ \quad(g,h\in H,\ g\ne h).
+\]
+This explains one usual meaning of the objects mentioned; it does not impose a countability assumption missing from the source. The original wording asks whether an ``analogous classification'' holds for the direct product of two free groups, without supplying the antecedent classification. The cleaned wording specifies sofic approximations and nonabelian factors. Neither version specifies the equivalence relation or invariants for classification, so the intended classification problem remains incomplete.
+\end{enumerate}
+\subsection{Short English statement}
+This record asks about soficity and hyperlinearity of several group families, preservation under amalgamation over residually finite subgroups, preservation of surjunctivity under direct and free products, and classification of sofic approximations of products of free groups. Several family parameters and the classification target are unspecified. The supplied residual-finiteness qualification is ambiguous and is not asserted as an equivalence. The supplied open status is dated curation, not an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied record with permanent ID \(30001795\), source problem code \texttt{catalogue entry}, in the \emph{Oberwolfach Reports Open Problems} collection. Project registry locations are \texttt{data/unsolvedmath/problems.json} and the supplementary \texttt{catalog/problems.json}; their contents were not independently inspected for this draft.
+\item Supplied report citation: \emph{Finite-dimensional Approximations of Discrete Groups} (2011), Oberwolfach Reports, pp.~1429--1467, DOI \texttt{10.4171/owr/2011/26}. Supplied source URL: \url{https://doi.org/10.4171/owr/2011/26}. The background describes these reports as records of mathematical workshops and their open-problem discussions. No individual proposer is identified in the supplied record.
+\item Supplied literature source, labelled ``original open problems'': \url{https://doi.org/10.4171/owr/2011/26}.
+\item The literature assessment was checked on \texttt{2026-08-21}, according to the supplied record. This is supplied dated curation, not independently verified here. It labels the record open and states that several general cases in this omnibus collection remain unresolved, so the extracted collection is not solved. The background expressly calls this a dated literature triage derived from supplied OWR curation and asks that time-sensitive status and cited claims be verified independently.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that it was checked against the official Oberwolfach report, with hypotheses, notation, and open target preserved. This is a supplied verification claim; no source visit or independent verification was performed for this draft. The differences and missing qualifications described above remain unresolved.
+\end{itemize}
+\end{document}

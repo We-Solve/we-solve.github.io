@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002341}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a prime \(p\) and put \(R=\F_p[Z]\). Demeyer's Question 4 asks for fixed Diophantine formulas, independent of \(q=p^n\), \(n\ge1\), defining a domain \(S_q\) and its addition/multiplication graphs over \(R\), with a bijection \(S_q\cong\F_q[Z]\). The exact proposed parameter is \(t=Z^q\), though another reasonable encoding of \(q\) is permitted. Auxiliary primed variables in the source are existentially quantified. The prime is fixed; no uniformity across all primes is requested.
+
+The aid attributes to Demeyer's 2007 theorem that every recursively enumerable finite-arity relation over \(R\) is Diophantine, and uses it to report a positive answer even for the exact parameter. Choose computably for each \(n\) an irreducible polynomial of degree \(n\) over \(\F_p\), giving a basis \(1,u_n,\ldots,u_n^{n-1}\) of \(\F_{p^n}\). Define the additive bijection
+\[
+ e_n:\F_{p^n}[Z]\longrightarrow R,\qquad
+ e_n\left(\sum_{i=0}^{n-1}u_n^i a_i(Z)\right)
+ =\sum_{i=0}^{n-1}Z^i a_i(Z^n).
+\]
+The coefficient polynomials \(a_i\) lie in \(R\). Splitting exponents into residue classes modulo \(n\) gives the inverse, so the domain can be \(S_q=R\), with no quotient equivalence relation. Addition transports to ordinary addition; multiplication need not be ordinary multiplication in \(R\).
+
+Consider the single global relation
+\[
+ H=\{(Z^{p^n},a,b,c):n\ge1,\quad
+ c=e_n(e_n^{-1}(a)e_n^{-1}(b))\}\subseteq R^4.
+\]
+The aid reports it recursive, since the parameter determines \(n\) and the finite-field arithmetic and stride operations are effective. Demeyer's theorem yields one polynomial \(h(t,a,b,c,\bar w)\) over \(R\), with fixed witness length, such that
+\[
+ (t,a,b,c)\in H\quad\Longleftrightarrow\quad
+ \exists\bar w\in R^{|\bar w|}:h(t,a,b,c,\bar w)=0.
+\]
+Together with the identically true domain equation and \(a+b-c=0\), these provide fixed \(f,g,h\) working at every \(t=Z^q\). The summary supplies no explicit expanded polynomial \(h\); its existence comes from the named representability theorem.
+
+The aid also records a single-equation packing method valid in characteristic two as well: over \(R\), \(U^2+ZV^2=0\) forces \(U=V=0\), by the opposite parities of the \(Z\)-adic valuations of nonzero terms. Iteration combines finite systems without relying on ordered-field sums of squares. The source's suggestion that the modeling result might imply r.e. equals Diophantine is historical speculation; this reported construction instead uses the subsequently available equality theorem and does not prove that suggested converse implication.
+\subsection{Short English statement}
+The aid reports a uniform direct model using all of \(\F_p[Z]\) as the domain. Stride encoding makes addition ordinary, and the known r.e.-to-Diophantine theorem supplies one parameterized polynomial for all transported multiplication tables. Uniformity is in the finite extension degree for a fixed prime, and no quotient or explicit expanded multiplication polynomial is claimed.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002341, exact source code catalogue entry; canonical \texttt{aim-logic-notes.json}, \texttt{notes[116]}, tag \texttt{question}; AIM Workshop Problem Lists, Logic, Question 4 (J. Demeyer). Created and updated 14 August 2026.
+\item \emph{Problems related to ``Extensions of Hilbert's Tenth Problem''}; \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}. The supplied verification repairs layout and preserves the exact \(Z^q\) parameter. The PDF was not accessed.
+\item Demeyer's 2007 r.e.-equals-Diophantine theorem over \(\F_p[Z]\), as named in the aid. No full title, publication identifier, theorem number, or separate URL is supplied.
+\item Attempt 1: \texttt{full\_solution}, problem status at run \texttt{solved}, rigor label \texttt{proved}, novelty confidence \texttt{low}; classification \texttt{SOLVED-IN-LITERATURE}, registry status \texttt{solved}. Candidate: exponent-stride direct model and parameterized recursive multiplication relation. These are dated supplied assessments, not independent certification.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

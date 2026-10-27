@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800454}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each integer \(n\geq 1\), equip \(\{-1,1\}^n\) with the coordinatewise order induced by \(-1<1\). A Boolean function \(f:\{-1,1\}^n\to\{-1,1\}\) is monotone if \(x\leq y\) implies \(f(x)\leq f(y)\). For \(x\in\{-1,1\}^n\) and \(i\in\{1,\ldots,n\}\), let \(x^{\oplus i}\) denote the point obtained by reversing coordinate \(i\). Define the sensitivity at \(x\), maximum sensitivity, and total influence by
+\[
+s_f(x)=\bigl|\{i:f(x)\neq f(x^{\oplus i})\}\bigr|,\qquad
+\operatorname{sens}[f]=\max_{x\in\{-1,1\}^n}s_f(x),
+\]
+\[
+\mathbf I[f]=\sum_{i=1}^n\Pr_{x\sim\mathrm{Unif}(\{-1,1\}^n)}[f(x)\neq f(x^{\oplus i})]
+=2^{-n}\sum_{x\in\{-1,1\}^n}s_f(x).
+\]
+The supplied statement reads \(\mathbf I[f]<o(\operatorname{sens}[f])\), without specifying an asymptotic parameter or uniformity. The strict inequality with a little-\(o\) expression is not itself a precise asymptotic assertion. A natural precise interpretation, recorded here subject to confirmation of the intended formulation, is the following conjecture:
+\[
+\begin{gathered}
+\forall\varepsilon>0\ \exists S\geq 1\ \forall n\geq 1\ \forall\text{ monotone }f:\{-1,1\}^n\to\{-1,1\},\\
+\operatorname{sens}[f]\geq S\quad\Longrightarrow\quad
+\mathbf I[f]\leq\varepsilon\operatorname{sens}[f].
+\end{gathered}
+\]
+Thus the proposed interpretation is uniform over dimensions and monotone functions as maximum sensitivity tends to infinity. Constant functions have both quantities equal to zero and do not enter this asymptotic regime. No balance or essential-coordinate assumption is supplied. The source does not explicitly establish that this is its intended meaning.
+
+As historical context, the supplied remarks report that the tightest example known in the source's context has \(\mathbf I[f]\approx\operatorname{sens}[f]^{0.61}\), attributed to O'Donnell and Servedio, reference label [OS08b]. The meaning of the approximation, the exact exponent, and the example's asymptotic parameters are not specified in the supplied record; this remark is retained as a source report.
+\subsection{Short English statement}
+The proposed interpretation asks whether the average number of sensitive coordinates of a monotone Boolean function is uniformly negligible compared with its maximum number of sensitive coordinates, as that maximum grows. The source's asymptotic notation requires clarification. The registry labels the problem open; this label and the historical example are supplied information, not independently verified conclusions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record: permanent ID \(800454\), source problem code \texttt{catalogue entry}, title ``Analysis of Boolean Functions --- Average versus Max Sensitivity for Monotone Functions.'' The supplied status is \texttt{open}.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 25, ``Average versus Max Sensitivity for Monotone Functions.'' Supplied source URL: \url{https://arxiv.org/abs/1204.6447}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not access or verification performed for this draft.
+\item The background attributes the proposal to Rocco Servedio and Li-Yang Tan, 2010. The registry's separate proposer and year fields list O'Donnell and 2012; these distinct attribution records are preserved without identifying them as the same role.
+\item O'Donnell and Servedio, reference label [OS08b], is the supplied attribution for the historical example \(\mathbf I[f]\approx\operatorname{sens}[f]^{0.61}\). No full bibliographic citation or separate link for [OS08b] is supplied.
+\end{itemize}
+\end{document}

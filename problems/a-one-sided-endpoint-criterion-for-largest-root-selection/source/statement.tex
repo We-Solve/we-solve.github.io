@@ -1,0 +1,50 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000571}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Original question.} If an interlacing-polynomial argument only needs the largest root, can weaker hypotheses replace full interlacing or existence of all other roots as real roots, making the method more usable? The note specifies neither a polynomial family nor an application or algorithmic target. For polynomials with nonreal zeros, ``largest'' requires a convention: the aid below controls the largest \emph{real} zero, not the largest modulus or real part among all complex zeros.
+
+\textbf{Attached unreviewed one-point certificate.} Let $f_1,\ldots,f_s\in\R[x]$ have positive leading coefficients and at least one real zero each. Define $R(f)=\max\{x\in\R:f(x)=0\}$, choose strictly positive weights $w_i$, and put
+\[F=\sum_iw_if_i,\qquad r_-=\min_iR(f_i),\qquad r_+=\max_iR(f_i).\]
+The aid asserts the sufficient implication
+\[F(r_-)\le0\quad\Longrightarrow\quad F\text{ has a largest real zero }R(F)\in[r_-,r_+].\]
+In particular some child has $R(f_i)\le R(F)$. Degrees may differ and the $f_i$ may have nonreal zeros. This is a mixture-specific sufficient condition, not a necessary-and-sufficient replacement for interlacing under all weight choices.
+
+For a finite rooted tree, let every internal polynomial be a strictly positive weighted sum of its child polynomials, all with positive leading coefficients. Assume each leaf has a real zero and at each internal node $v$ impose
+\[p_v\bigl(\min_{u\text{ child of }v}R(p_u)\bigr)\le0.\]
+Interpreting the conditions inductively from leaves, the aid claims all internal largest real zeros exist and a leaf $\ell$ can be selected with $R(p_\ell)\le R(p_{\mathrm{root}})$. No common degree or full real-rootedness is required.
+
+The aid mentions a common nonpositive right-barrier sufficient condition and examples strictly outside ordinary common interlacing. One explicit sufficient sign pattern is a real $b\le r_-$ with $f_i(x)\le0$ throughout $[b,R(f_i)]$ for every child; this makes every $f_i(r_-)$ nonpositive. The actual barrier definition and separating examples are not supplied in the summary, so this sign-pattern interpretation is explicit rather than presented as their verified transcription.
+
+The certificate may still require finding or certifying child largest real roots. The aid supplies no efficient root oracle, general complexity guarantee, or proof that such weakened conditions hold in the intended KS/MSS applications. All selection and scope claims require independent review.
+\subsection{Short English statement}
+The source asks whether largest-root selection can use less than full interlacing. The aid gives a one-point sign certificate that composes through positive-mixture trees, allowing varying degrees and nonreal zeros. It controls largest real zeros only and does not supply an efficient application-wide certification method.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20000571, source code catalogue entry; \texttt{aim-analysis-notes.json}, notes[102], tag \texttt{question}.
+\item AIM workshop \emph{Beyond Kadison-Singer: paving and consequences}, source item b30, supplied Google document: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. No individual attribution or original bibliography is supplied; no document was visited.
+\item Attached machine-generated research attempt 1: result \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low. It is not peer reviewed and requires independent verification before citation. No authoritative reference is supplied for the certificate, barrier condition or examples.
+\end{itemize}
+\end{document}

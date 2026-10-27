@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004152}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(h\) denote a predictive model, let \(T_0\) be a held-out test set, and let \(T_1\) be a newly constructed test set obtained using the same data source and cleaning protocol as \(T_0\). Write \(A(h,T)\in\R\) for a performance score on a test set \(T\), with larger values representing better performance. This score is notation for the unspecified performance criterion in the source; no particular metric is prescribed.
+
+\textbf{Research question.} Characterize what good performance \(A(h,T_0)\) implies about \(A(h,T_1)\), and identify the assumptions under which generalization between these repeatedly constructed test sets can be described quantitatively.
+
+For example, if a joint probability law for the model and the two test sets is specified, one possible way to express this question is to characterize
+\[
+\mathbb{P}\!\left(A(h,T_1)\geq b\,\middle|\,A(h,T_0)\geq a\right),
+\qquad
+\mathbb{P}\!\left(A(h,T_0)\geq a\right)>0,
+\]
+for specified score thresholds \(a,b\in\R\). This expression is an illustrative formalization, not a probability bound or a uniquely specified target supplied by the source.
+
+\textbf{Unresolved qualifications.} The source does not specify the observation domain, test-set sizes, sampling law, cleaning mechanism, performance metric, meaning of ``good,'' or the dependence of model training and selection on either test set. Using the same source and cleaning protocol does not itself specify independent sampling or equality of the resulting distributions. Consequently, the supplied question does not determine a single quantified theorem, confidence guarantee, or distribution-shift model.
+
+\textbf{Supplied dated context.} The supplied literature assessment labels the problem partially solved. It reports that on ImageNet and CIFAR, newly constructed test sets reduce absolute accuracy while largely preserving model rankings and relative improvements, and that relative difficulty explains much of the apparent failure. The supplied assessment explicitly characterizes this as strong empirical evidence, not a universal theorem about all test-set shifts. These statements are supplied curation and have not been independently verified here.
+\subsection{Short English statement}
+What can strong performance on a held-out test set tell us about performance on another test set constructed from the same data source and cleaning protocol? A precise guarantee requires additional specifications of the sampling process, performance metric, and model selection procedure. The supplied partially solved label concerns dated empirical evidence and does not supply a universal mathematical guarantee.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, supplied record with permanent UnsolvedMath ID \(30004152\), source problem code \texttt{catalogue entry}, titled ``Generalization across Repeatedly Constructed Test Sets,'' in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2019 and does not identify a proposer.
+\item Supplied report attribution: \emph{Foundations and new horizons for causal inference} (2020), Oberwolfach Reports, DOI 10.4171/owr/2019/25, pp. 1499--1571. \url{https://doi.org/10.4171/owr/2019/25}. The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions; no passage or problem-specific page is supplied.
+\item Supplied literature reference: Recht--Roelofs--Schmidt--Shankar. \url{https://arxiv.org/abs/1902.10811}.
+\item Supplied literature reference: Shankar et al. \url{https://proceedings.mlr.press/v119/shankar20c/shankar20c.pdf}.
+\item Literature assessment date: \texttt{2026-08-22}. The partially solved label and the assessment of accuracy, model rankings, relative improvements, and relative difficulty are supplied dated curation derived from the supplied OWR curation, not independently verified here. The record requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports manual semantic, typographic, and LaTeX review. This is supplied review metadata, not independent verification of the report attribution, empirical assessment, or mathematical correctness of this draft.
+\end{itemize}
+\end{document}

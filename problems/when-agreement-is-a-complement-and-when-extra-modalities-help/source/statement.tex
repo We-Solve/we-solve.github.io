@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000862}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source is Chapter E, ``Different Functional Roles of Feedback and Horizontal Connections,'' of a discussion involving Virginia de Sa. It asks about motion rather than position in lip-pattern processing, scaling to more categories or modalities, agreement versus disagreement, independence of modalities, and their shared physical cause. The replies attribute motion processing to expediency, report no experiment with more classes, and identify a common cause for lip movement and its phoneme. Comments distinguish contextual feedback across modalities from horizontal connections between similar receptive fields, describe the slice connections as short-range, and locate recording in layers 2--3. These are recorded discussion statements, not a specified mathematical conjecture.
+
+One precise restricted version of the agreement question is as follows. Let $K\geq2$, let $h_i(z)\in\{1,\ldots,K\}$ be complete hard labels for $m$ modalities on a common observation $z$, and fix a collection $P$ of modality pairs with nonnegative weights $w_{ij}$ independent of the predictions. Define
+\[
+ A(z)=\sum_{(i,j)\in P}w_{ij}\mathbf1_{\{h_i(z)=h_j(z)\}},\qquad
+ D(z)=\sum_{(i,j)\in P}w_{ij}\mathbf1_{\{h_i(z)\ne h_j(z)\}}.
+\]
+The aid's complement identity is $A(z)+D(z)=\sum_{(i,j)\in P}w_{ij}$; therefore maximizing expected agreement and minimizing expected disagreement are equivalent for a fixed observation distribution and fixed pair coverage. Abstentions, changing coverage, and unrelated soft-score definitions need separate analysis: the transcript does not define their objectives, and the aid reports counterexamples to unrestricted extensions.
+
+For the claim about extra modalities, if $Y\in\{1,\ldots,K\}$ is the target and $U,V$ are observed views, define the optimal zero--one risk
+\[
+ R^*(U)=\inf_g\Pr(g(U)\ne Y),\qquad
+ R^*(U,V)=\inf_h\Pr(h(U,V)\ne Y),
+\]
+where the infima range over all measurable classifiers on the indicated observation spaces. The aid's optional-view claim is $R^*(U,V)\leq R^*(U)$, since the decision class permits ignoring $V$. This is not a statement about a forced fusion rule, a fixed trained algorithm, or performance with a finite training sample; the aid reports that forced fusion can worsen risk.
+
+A restricted binary latent-view interpretation of the aid's identifiability formula is $X_i=YE_i\in\{-1,1\}$, where the errors $E_i$ are mutually independent and independent of a latent label $Y\in\{-1,1\}$. Put $\rho_i=\E E_i$ and $c_{ij}=\E[X_iX_j]$. For distinct $i,j,k$ with $c_{jk}\ne0$, the recorded formula becomes
+\[
+ c_{ij}=\rho_i\rho_j,\qquad
+ \rho_i^2=\frac{c_{ij}c_{ik}}{c_{jk}}.
+\]
+Three views with nonzero reliabilities thus determine these magnitudes in this restricted model. Simultaneously reversing the latent label and all reliability signs leaves the observed variables unchanged, so an external orientation anchor is needed to attach semantic labels. Conditional independence by itself, without an appropriate observation/error model, does not supply all these hypotheses. This model makes the aid interpretable and is not asserted to be the transcript's actual experimental model.
+\subsection{Short English statement}
+The transcript asks when agreement and disagreement are equivalent and how extra sensory modalities help. Fixed complete hard-label comparisons are complements, and an optional extra view cannot increase optimal classification risk. Binary multi-view reliability formulas require additional model assumptions and do not determine semantic label orientation.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Inference and Prediction in Neocortical Circuits}, version October 24, 2003, Chapter E, discussion involving Virginia de Sa: \url{https://aimath.org/WWN/brain/brain.pdf}. The supplied verification describes a discussion transcript and reports checking extraction defects against that PDF; no PDF was consulted for this draft.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20000862, exact source code \texttt{catalogue entry}, canonical location \texttt{aim-biology-notes.json notes[26]}.
+\item Attached attempt 1, context only, problem status at run ``not\_a\_problem,'' rigor ``proved,'' low novelty confidence. It distinguishes a 1998 audiovisual classifier from a likely 2001 mouse-slice abstract, conflicting with the transcript's ``rat,'' but supplies no complete references for either. It is machine-generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800442}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n,k\) be positive integers. Using the convention that \(+1\) represents truth, a linear threshold function is a function \(h\colon\{-1,1\}^n\to\{-1,1\}\) admitting weights \(w\in\R^n\) and a threshold \(t\in\R\) such that
+\[
+h(x)=\begin{cases}+1,&\langle w,x\rangle\ge t,\\-1,&\langle w,x\rangle<t.\end{cases}
+\]
+An intersection of \(k\) such functions \(h_1,\ldots,h_k\) is the Boolean function \(f\) defined by
+\[
+f(x)=+1\quad\Longleftrightarrow\quad h_i(x)=+1\text{ for every }i\in\{1,\ldots,k\}.
+\]
+For an explicit conventional definition of noise sensitivity, let \(X\) be uniform on \(\{-1,1\}^n\). For \(\delta\in[0,1]\), independently flip each coordinate of \(X\) with probability \(\delta\) to obtain \(Y\), and set
+\[
+\operatorname{NS}_{\delta}[f]=\Pr\bigl(f(X)\ne f(Y)\bigr).
+\]
+The supplied source proposes the uniform estimate
+\[
+\operatorname{NS}_{\delta}[f]\le C\sqrt{\log k}\sqrt{\delta},
+\]
+where the \(O(\sqrt{\log k})\) notation is understood to require an absolute constant \(C>0\), independent of the dimension, the halfspaces, \(k\), and the admissible noise rate. The intended assertion concerns every intersection of \(k\) halfspaces in every dimension.
+
+Two qualifications prevent a fully specified universal statement. First, the supplied record does not define its noise convention or the claimed range of \(\delta\); the independent coordinate-flip definition above is an explicit conventional interpretation, and its definability on \([0,1]\) does not establish that the source claims the estimate throughout that interval. Second, the displayed expression vanishes when \(k=1\), so it cannot literally bound the noise sensitivity of every single halfspace at positive noise rates. The record does not specify whether \(k\ge2\), an asymptotic restriction on \(k\), or a modification such as \(\sqrt{\log(2k)}\) is intended. No such repair is asserted here.
+
+The supplied background reports an \(O(k)\sqrt{\delta}\) bound from Peres's theorem and describes it as the best known bound in that source context. It also reports that a Gaussian special case follows from Nazarov's work \([\mathrm{Naz03}]\), and that sufficiently regular halfspaces satisfy a bound of the form \(\operatorname{polylog}(k)\delta^{\Omega(1)}\) by \([\mathrm{HKM10}]\). These are supplied contextual claims; the Gaussian formulation, regularity hypothesis, and exponents are not specified in the record.
+\subsection{Short English statement}
+The proposed bound says that the probability that an intersection of \(k\) Boolean halfspaces changes value under random coordinate noise is at most a universal constant times \(\sqrt{\log k}\sqrt{\delta}\). The noise convention, noise range, and treatment of \(k=1\) require clarification. The registry labels the problem open; this is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800442\), exact source problem code \texttt{catalogue entry}; title: ``Analysis of Boolean Functions --- Noise Sensitivity of Intersections of Halfspaces.'' The supplied registry attributes the record to O'Donnell, with proposed year \(2012\), and labels it open. These are supplied metadata, not independently verified conclusions.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 12, ``Noise Sensitivity of Intersections of Halfspaces.'' Supplied source URL: \url{https://arxiv.org/abs/1204.6447}. The record reports access on \texttt{2026-10-16} and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not a claim of access during this preparation.
+\item The supplied background gives ``Proposed/Source: [KOS02].'' No full bibliographic entry for \([\mathrm{KOS02}]\) is supplied; its attribution is retained without expansion.
+\item Supplied contextual references: Peres's theorem for the \(O(k)\sqrt{\delta}\) bound; Nazarov \([\mathrm{Naz03}]\) for the Gaussian special case; and \([\mathrm{HKM10}]\) for sufficiently regular halfspaces. Full bibliographic entries and separate links are not supplied. The description of the first bound as best known belongs to the supplied source context and has not been independently verified.
+\end{itemize}
+\end{document}

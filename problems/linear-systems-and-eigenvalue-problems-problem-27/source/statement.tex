@@ -1,0 +1,51 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800518}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) be a positive integer and let \(B=(b_{ij})\) be an \(n\times n\) upper bidiagonal matrix, meaning that \(b_{ij}=0\) unless \(j=i\) or \(j=i+1\). The source does not specify whether the entries of \(B\) are real or complex. For \(x\in\C^n\), let \(\|x\|_2=(\sum_{j=1}^n|x_j|^2)^{1/2}\); for a matrix, \(\|\cdot\|_2\) denotes the induced operator norm. Write \(x^H\) for the conjugate transpose of \(x\), and let \(\epsilon\) denote machine precision.
+
+For a requested integer number \(k\) of triples, is there an algorithm using \(O(kn)\) operations that produces \((\sigma_i,v_i,u_i)\), \(1\leq i\leq k\), satisfying
+\[
+\sigma_i\geq0,\qquad v_i,u_i\in\C^n,\qquad \|v_i\|_2=\|u_i\|_2=1,
+\]
+\[
+\|Bv_i-\sigma_i u_i\|_2=O(\epsilon n\|B\|_2)
+\qquad(1\leq i\leq k),
+\]
+and
+\[
+|v_i^Hv_j|=O(\epsilon n),\qquad |u_i^Hu_j|=O(\epsilon n)
+\qquad(1\leq i\neq j\leq k)?
+\]
+The admissible range of \(k\), the numerical computation model, and the parameter dependence and uniformity of the constants in the three \(O\)-bounds are not specified in the source. Thus the intended universal quantification over inputs requires clarification. The displayed requirements include only the residual \(Bv_i-\sigma_i u_i\); no bound for \(B^Hu_i-\sigma_i v_i\), nor a rule selecting particular singular values, is supplied.
+\subsection{Short English statement}
+Can an algorithm produce \(k\) nonnegative scalars and pairs of unit vectors for an upper bidiagonal matrix in \(O(kn)\) operations, with the stated small residuals and approximate orthogonality within each vector family? The matrix field, allowable \(k\), and numerical complexity conventions remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record: permanent ID \(800518\), source problem code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 27.'' The registry attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels it open. This label is supplied metadata, not an independently verified mathematical or literature assessment.
+\item Supplied source list: Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 27. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}.
+\item Supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. These are supplied provenance statements; the source has not been independently visited or verified for this draft. Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\end{itemize}
+\end{document}

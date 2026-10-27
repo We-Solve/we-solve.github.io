@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003135}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Interpret a graph provisionally as a finite simple undirected graph; the supplied record does not explicitly specify this convention. Let \(n\geq 1\) and \(e\) be integers satisfying
+\[
+\frac{n^2}{4}<e\leq\binom n2.
+\]
+The upper bound restricts attention to parameters for which such graphs exist. For a graph \(G\), define its set of triangular edges by
+\[
+T(G)=\bigl\{\{u,v\}\in E(G):\text{there exists }w\in V(G)\setminus\{u,v\}\text{ with }\{u,w\},\{v,w\}\in E(G)\bigr\}.
+\]
+Thus each edge contained in at least one triangle is counted once. Define
+\[
+\operatorname{Tr}(n,e)=\min\bigl\{|T(G)|:|V(G)|=n,\ |E(G)|=e\bigr\}
+\]
+and
+\[
+g(n,e)=\min\left\{e-bc:(a,b,c)\in\mathbb Z_{\geq0}^{3},\ a+b+c=n,\ \binom a2+ab+bc\geq e\right\}.
+\]
+The nonnegative integer domain for \(a,b,c\) is supplied by the surrounding family definition.
+
+For such a triple \((a,b,c)\), write \(\mathcal T(a,b,c)\) for the family denoted \(\operatorname{Tr}(a,b,c)\) in the source. Its members are described as graphs admitting a partition
+\[
+V(G)=A\sqcup B\sqcup C,\qquad |A|=a,\quad |B|=b,\quad |C|=c,
+\]
+where \(B\) and \(C\) are independent sets, every possible edge between \(B\) and \(C\) is present, and there are no edges between \(A\) and \(C\). Writing \(E_G(A,B)\) for the edges with one endpoint in each of \(A,B\), the source additionally requires that the edges inside \(A\) and between \(A\) and \(B\) form an ``almost-complete graph'' with
+\[
+|E(G[A])|+|E_G(A,B)|>\binom{a-1}{2}+ab.
+\]
+Two qualifications remain unresolved: the record does not define ``almost-complete'' or specify whether it adds any condition beyond this strict inequality; and, although \(a=0\) is allowed, it supplies no convention for \(\binom{-1}{2}\) in that boundary case. Accordingly, this description preserves the supplied family but does not resolve its full meaning at every allowed parameter.
+
+The requested all-\(n\) assertions are that, for every feasible integer pair \((n,e)\) above,
+\[
+\operatorname{Tr}(n,e)=g(n,e),
+\]
+and that every graph \(G\) attaining this minimum satisfies
+\[
+G\in\bigcup_{\substack{a,b,c\in\mathbb Z_{\geq0}\\a+b+c=n}}\mathcal T(a,b,c).
+\]
+The second assertion is subject to the unresolved family qualifications just stated.
+
+The supplied record labels the problem partially solved and reports that the triangular-edge extremal conjecture has an exact formula for all sufficiently large \(n\), while the extracted all-\(n\) statement is not fully established in the cited literature. This is a supplied dated assessment, not an independently verified theorem or current literature determination; it does not separately specify the established scope of the assertion about every extremal graph.
+\subsection{Short English statement}
+Among \(n\)-vertex graphs with \(e>n^2/4\) edges, minimize the number of edges belonging to triangles. The source asks whether the displayed function \(g(n,e)\) always gives this minimum and whether every minimizing graph has the stated three-part structure. The meaning of ``almost-complete'' and the \(a=0\) boundary case require clarification. The supplied partially solved label is dated curation, not independently verified here.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30003135\), title ``Minimum Triangular Edges above Tur\'an Density,'' exact source problem code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. This draft uses the complete supplied registry record.
+\item Supplied report citation: \emph{Combinatorics and Probability (2017)}, Oberwolfach Reports, DOI 10.4171/owr/2016/22, pp.~1189--1257. \url{https://doi.org/10.4171/owr/2016/22}. The record describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. It records the proposed year as 2016 and names no individual proposer; the relationship between that year and the citation's 2017 label is not explained.
+\item Gruslys and Letzter, \emph{Minimizing the Number of Triangular Edges}. \url{https://doi.org/10.1017/S0963548317000189}.
+\item F\"uredi and Maleki, \emph{Symmetrization for Multiple Graphs}. \url{https://arxiv.org/abs/1411.0771}.
+\item Literature assessment checked at \texttt{2026-08-21}: the supplied curation labels the problem partially solved and reports an exact formula for all sufficiently large \(n\), while stating that the extracted all-\(n\) assertion is not fully established in the cited literature. The background calls this dated literature triage derived from the supplied OWR curation and requests independent verification of time-sensitive status and cited claims. This date and assessment are supplied curation, not independently verified here.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that it was checked against the official Oberwolfach report, preserving its hypotheses, notation, and open mathematical target. That verification claim is supplied metadata; no source visit or independent verification is asserted in this draft.
+\end{itemize}
+\end{document}

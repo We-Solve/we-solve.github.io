@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001074}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(D=(V,E)\) be a finite nonempty digraph. A feedback arc set is \(F\subseteq E\) for which \(D-F=(V,E\setminus F)\) has no directed cycle. It is \emph{inclusion-minimal} if no proper subset is a feedback arc set; this is different from requiring least cardinality. Write \(\delta^+(D)=\min_{v\in V}d_D^+(v)\), and let the length of a directed path with distinct vertices be its number of arcs. The conjecture attributed to Lichiardopol asks
+\[
+ \forall D\ \exists F\subseteq E:\quad
+ F\text{ is an inclusion-minimal feedback arc set and }
+ (V,F)\text{ has a directed path of length }\delta^+(D).
+\]
+Equivalently one can ask for length at least \(\delta^+(D)\), by truncating a path. The source extraction is OCR-damaged; its number is identified as Conjecture 6.29 in the supplied record. The intended meaning of ``minimal'' is taken from the research aid, which consistently uses inclusion-minimality.
+
+The supplied aid reports a refutation even in the simple oriented setting: for every integer \(k\geq3\), the Botler--Schneider construction supplies a finite simple loopless digon-free strongly connected \(D_k\) with \(\delta^+(D_k)=k\) such that
+\[
+ \text{every inclusion-minimal feedback arc set }F\text{ of }D_k
+ \text{ has no directed path of length greater than }2.
+\]
+The record does not supply the construction or its full bibliographic reference.
+
+It also reports a structural certificate. Put
+\[
+ K(D)=\{v:d_D^-(v)\geq2\text{ and }d_D^+(v)\geq2\},
+\]
+and let \(\rho(H)\) be the maximum number of vertices in a directed path of \(H\), with \(\rho(\varnothing)=0\). Every internal vertex of a directed path in an inclusion-minimal feedback arc set is reported to belong to \(K(D)\). Consequently, for every such \(F\),
+\[
+ \max\{\operatorname{length}(P):P\text{ a directed path in }(V,F)\}
+ \leq\rho(D[K(D)])+1.
+\]
+The aid claims sharpness for every nonnegative value of \(\rho\); no sharpness constructions are included in the summary. Degree counts for multidigraphs must be specified separately.
+
+For the multiplicity-counted reading allowed by the aid's interpretation of the AIM survey, it further reports a complete description on an \(r\)-fold parallel directed \(n\)-cycle. For \(r\geq2,n\geq3\), the inclusion-minimal feedback arc sets are precisely the full bundles of \(r\) parallel arcs on one consecutive ordered pair. Each such set has longest directed path length one, whereas \(\delta^+(D)=r\) when arcs are counted with multiplicity. Distinct-outneighbor degree is one, so this particular example addresses only that convention; the reported Botler--Schneider refutation addresses simple digraphs as well.
+
+The original source notes assert that the conjecture would imply Hoàng--Reed (6.20), Caccetta--Häggkvist (2.1), Bermond--Thomassen (6.19), and Thomassé (6.34). These are preserved as reported implications, not as formulations or resolutions of those other conjectures.
+\subsection{Short English statement}
+Lichiardopol's conjecture asks for an inclusion-minimal feedback arc set containing a path as long as the minimum outdegree. The supplied aid reports simple strongly connected counterexamples and a two-sided degree-core bound on all paths in such feedback sets.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001074\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[198]}.
+\item AIM workshop ``The Caccetta--Häggkvist conjecture'', Lichiardopol's Conjecture 6.29: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. The source-item field is 6 and the extracted number is damaged. The supplied verification quotes the feedback-arc-set definition immediately preceding the conjecture. The literature field is empty; no proposer year is supplied.
+\item Original notes name implications to Hoàng--Reed (6.20), Caccetta--Häggkvist (2.1), Bermond--Thomassen (6.19), and Thomassé (6.34).
+\item Research attempt 1: \texttt{counterexample}, status at run \texttt{refuted}, rigor label \texttt{proved}, novelty confidence low. It attributes the simple counterexample construction to Botler and Schneider, and reports the degree-core certificate, its sharpness and the parallel-cycle classification. No title, date, publication details, or separate authoritative reference is supplied for Botler--Schneider.
+\end{itemize}
+\end{document}

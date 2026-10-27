@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003334}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks about first coboundary expansion in a random Latin-square complex. It does not explicitly define the associated complex, coefficient system, or normalization of the expansion constant. The following gives a conventional precise interpretation; these conventions require confirmation against the supplied references.
+
+For an integer \(n\geq 1\), write \([n]=\{1,\ldots,n\}\). A Latin square of order \(n\) is a map \(L:[n]\times[n]\to[n]\) such that each row and each column is a permutation of \([n]\). Let \(A=\{a_1,\ldots,a_n\}\), \(B=\{b_1,\ldots,b_n\}\), and \(C=\{c_1,\ldots,c_n\}\) be disjoint vertex sets. In the customary tripartite construction, \(X(L)\) has vertex set \(A\cup B\cup C\), all edges joining different parts, and triangles
+\[
+\{a_i,b_j,c_{L(i,j)}\},\qquad i,j\in[n].
+\]
+For a positive integer \(d\), choose \(L_1,\ldots,L_d\) independently and uniformly from all Latin squares of order \(n\), and set
+\[
+Y_{n,d}=\bigcup_{r=1}^{d}X(L_r).
+\]
+This union is a simplicial complex: repeated triangles are counted once. Thus \(d\) counts sampled Latin squares and does not assert that every edge belongs to exactly \(d\) distinct triangles.
+
+One conventional expansion constant uses \(\F_2=\Z/2\Z\) coefficients and unnormalized support cardinalities. For a finite two-dimensional simplicial complex \(Y\), let \(Y(k)\) denote its set of \(k\)-simplices and put \(C^k(Y;\F_2)=\{f:Y(k)\to\F_2\}\). Define
+\[
+(\delta_0g)(\{u,v\})=g(u)+g(v),\qquad
+(\delta_1f)(\{u,v,w\})=f(\{u,v\})+f(\{u,w\})+f(\{v,w\}),
+\]
+with sums in \(\F_2\), and let \(B^1(Y;\F_2)=\operatorname{im}\delta_0\). For a cochain \(f\), let \(|\operatorname{supp}f|\) be the number of simplices on which it is nonzero. Define
+\[
+\|[f]\|=\min_{b\in B^1(Y;\F_2)}|\operatorname{supp}(f+b)|,
+\qquad
+h_1^{\mathrm{count}}(Y;\F_2)=
+\min_{f\in C^1(Y;\F_2)\setminus B^1(Y;\F_2)}
+\frac{|\operatorname{supp}(\delta_1f)|}{\|[f]\|}.
+\]
+Under this interpretation, the question is whether
+\[
+\exists\,\varepsilon>0\quad
+\lim_{n\to\infty}
+\mathbb P\!\left(h_1^{\mathrm{count}}(Y_{n,4};\F_2)>\varepsilon\right)=1,
+\]
+where \(n\) tends to infinity through positive integers and \(\varepsilon\) is independent of \(n\).
+
+The source writes this target using \(h_1(Y)\). Identifying that notation with the displayed counting convention, and identifying its associated complexes with the tripartite construction above, remain explicit interpretive qualifications rather than facts established by the supplied record.
+\subsection{Short English statement}
+Does the union of the complexes from four independent uniform Latin squares have first coboundary expansion bounded below by a fixed positive constant with probability tending to one as the order grows? The displayed precise interpretation uses tripartite complexes and \(\F_2\) cochains with support-counting norms; the source's exact conventions require confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003334\), title ``Degree-Four Expansion from Random Latin Squares,'' exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2017 and names no individual proposer. It describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied primary citation: ``Combinatorics (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/1, pp. 5--81,'' \url{https://doi.org/10.4171/owr/2017/1}. This is also the supplied literature source labeled ``original OWR report.'' The citation's 2018 designation and the record's 2017 provenance are retained without reconciliation.
+\item Supplied literature source: Lubotzky--Luria--Rosenthal, ``random Latin squares,'' \url{https://arxiv.org/abs/1512.08331}.
+\item Supplied literature source: Lubotzky--Luria--Rosenthal, ``random Steiner systems,'' \url{https://doi.org/10.1007/s00454-018-9991-2}.
+\item Supplied dated literature curation, checked \texttt{2026-08-21}: the record labels the problem open and reports that random Latin-square constructions establish higher-dimensional coboundary expansion for some sufficiently large fixed degree, that random Steiner-system methods broaden existence results, and that the specific \(d=4\) conjecture remains unresolved. This is supplied dated curation, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The supplied statement status is \texttt{corrected\_verified}, with a supplied assertion that the clean statement was checked against the official Oberwolfach report and preserves its hypotheses, notation, and target. That verification assertion is recorded as provenance and has not been independently checked for this draft.
+\end{itemize}
+\end{document}

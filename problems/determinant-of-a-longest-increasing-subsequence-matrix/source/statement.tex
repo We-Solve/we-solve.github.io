@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002473}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer \(n\), let \([n]=\{1,\ldots,n\}\) and let \(S_n\) denote the permutations of \([n]\), regarded as functions on positions. Define
+\[
+\operatorname{LIS}(\sigma)=\max\bigl\{k:\text{there exist }1\le i_1<\cdots<i_k\le n\text{ with }\sigma(i_1)<\cdots<\sigma(i_k)\bigr\}.
+\]
+The supplied extract asks that one choose a longest increasing subsequence \(S(\sigma)\) for each relevant \(\sigma\). It uses a parameter \(t\), without specifying its domain or range, and gives the column index set
+\[
+C_{n,t}=\{\sigma\in S_n:\operatorname{LIS}(\sigma)\ge n-t\}.
+\]
+Under the possible interpretation that \(S(\sigma)\) means the set \(I_\sigma\subseteq[n]\) of positions of the chosen subsequence, the stated entry rule would be
+\[
+A=(A_{\pi,\sigma})_{\pi\in S_n,\,\sigma\in C_{n,t}},\qquad
+A_{\pi,\sigma}=\begin{cases}
+1,&\pi(i)=\sigma(i)\text{ for every }i\in[n]\setminus I_\sigma,\\
+0,&\text{otherwise}.
+\end{cases}
+\]
+This interpretation of the subsequence as a set of positions is conditional: the extract does not explicitly distinguish positions from values. It also gives no rule for selecting among multiple longest increasing subsequences and does not state whether the requested quantity should be independent of those choices.
+
+The requested quantity is \(\det(A)\). However, the displayed indexing gives \(n!\) rows and \(|C_{n,t}|\) columns, with no hypothesis ensuring that these numbers agree. Thus the extract does not unambiguously define a square matrix whose determinant can be requested. It also supplies no ordering of the row and column indices for a numerical determinant. The supplied statement-verification note additionally reports inconsistent use of the matrix names \(M\) and \(A\) in the official problem session. The admissible parameters, intended index sets, subsequence convention, and any necessary ordering or choice conventions must be recovered before a precise determinant problem can be stated. This is an unresolved reconstruction of the supplied question, not a corrected formulation.
+\subsection{Short English statement}
+The extract asks for the determinant of a matrix defined using chosen longest increasing subsequences of permutations. Its row and column sets need not have equal size, and parameter and subsequence conventions are missing. Consequently, the intended determinant problem remains unrecoverable from the supplied record.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: supplied record with permanent UnsolvedMath ID \(30002473\), exact source problem code \texttt{catalogue entry}, titled \emph{Determinant of a Longest-Increasing-Subsequence Matrix}. The record gives proposed year 2014 and supplies no individual proposer attribution.
+\item Supplied report citation: \emph{Combinatorics (2014)}, Oberwolfach Reports, pp.~5--90, DOI \texttt{10.4171/owr/2014/01}: \url{https://doi.org/10.4171/owr/2014/01}. The background describes these reports as documenting mathematical workshops and their open-problem discussions. No precise page for this question is supplied.
+\item Supplied literature source, labeled ``Oberwolfach combinatorics report'': \url{https://ems.press/content/serial-article-files/46491}.
+\item Supplied literature assessment dated \texttt{2026-08-21}: the extracted record omits the defining matrix and does not determine a verifiable proposition; no resolution can be assigned, so it is classified open under the triage rule. This is supplied dated curation, not independently verified source consultation or a verified mathematical open-status assessment. The accompanying note requests independent verification of time-sensitive status and cited claims.
+\item Supplied statement-verification note: the official problem session reportedly uses both \(M\) and \(A\), indexes columns by an apparent proper subset of \(S_n\) while asking for a determinant, and does not unambiguously define a square matrix. The registry labels the statement \texttt{unrecoverable}, supplies no clean statement, and retains the original extract for provenance.
+\end{itemize}
+\end{document}

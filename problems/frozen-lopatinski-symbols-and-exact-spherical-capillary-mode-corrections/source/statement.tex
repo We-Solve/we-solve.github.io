@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002438}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Question and recovered context.} Determine the relation between the stability Lopatinski determinant and spherical-harmonic analyses of spherical waves, including the work of C. C. Wu and P. H. Roberts on bubble shape instability. The supplied verification places the question under S. Benzoni-Gavage, H. K. Jenssen and M. Williams, ``Existence and Stability of Spherical Fronts'', concerning curved shock, reactive or viscous fronts. It supplies the preceding radial barotropic equations in dimensions \(d=2,3\):
+\[
+ \rho_t+(\rho u)_r+\frac{(d-1)\rho u}{r}=s(r,t),
+\]
+\[
+ (\rho u)_t+(\rho u^2+P(\rho))_r+\frac{(d-1)\rho u^2}{r}
+ =\nu\left(u_r+\frac{(d-1)u}{r}\right)_r+F(r,t).
+\]
+Here \(u\) is radial velocity, \(P\) the pressure law, and \(s,F\) source terms. Their values, base front, boundary/radiation conditions and admissible perturbations are not specified. The verification says an earlier question concerns stationary fronts and curvature/sources; its description of a subsequent question is truncated and cannot be reconstructed.
+
+\textbf{Reported frozen shock-symbol relation.} For an isotropic inviscid planar Lax shock, the aid distinguishes its frozen principal Lopatinski symbol \(\Delta_{\mathrm{Lop}}(\lambda,k)\) from a full spherical-front determinant. On a three-dimensional sphere of radius \(R\), spherical harmonics satisfy
+\[
+ -\Delta_{S_R^2}Y_{\ell m}=\frac{\ell(\ell+1)}{R^2}Y_{\ell m},\qquad
+ k_\ell=\frac{\sqrt{\ell(\ell+1)}}{R}.
+\]
+The reported frozen principal multiplier evaluates the planar symbol at \(k=k_\ell\). Radial evolution, lower-order curvature, sources and base-state terms remain in the full front problem, so this substitution is not an exact identity of complete stability determinants. A viscous Evans function or a reactive-front determinant would require its own setup.
+
+\textbf{Separate static capillary calculation reported by the aid.} For a static inviscid incompressible two-fluid capillary sphere in three dimensions, let \(R>0\), surface tension \(\sigma>0\), interior density \(\rho_-\geq0\) and exterior density \(\rho_+>0\). In the standard interior-regular/exterior-decaying potential-flow interpretation, with no imposed base flow or gravitational term, the supplied modal dispersion determinant for \(\ell\geq1\) is
+\[
+ D_{\mathrm{sph},\ell}(\lambda)=
+ \lambda^2R\left(\frac{\rho_-}{\ell}+\frac{\rho_+}{\ell+1}\right)
+ +\frac{\sigma(\ell-1)(\ell+2)}{R^2}.
+\]
+The stated spatial/radiation interpretation makes the displayed formula meaningful; it is not supplied as boundary data for the original shock problem. The degree-zero volume mode is not covered, and \(\ell=1\) is the neutral translation mode. With planar normalization
+\[
+ D_{\mathrm{pl}}(\lambda,k)=(\rho_-+\rho_+)\lambda^2+\sigma k^3,
+\]
+the aid's exact correction identity is
+\[
+\begin{split}
+ k_\ell D_{\mathrm{sph},\ell}(\lambda)-D_{\mathrm{pl}}(\lambda,k_\ell)
+ ={}&\lambda^2\left[\rho_-\left(\sqrt{\frac{\ell+1}{\ell}}-1\right)
+ +\rho_+\left(\sqrt{\frac{\ell}{\ell+1}}-1\right)\right]\\
+ &-\frac{2\sigma k_\ell}{R^2}.
+\end{split}
+\]
+The first correction comes from the spherical Dirichlet-to-Neumann factors and the second from mean curvature. The difference tends to zero in the joint limit \(R,\ell\to\infty\), \(k_\ell\to k>0\), for fixed \(\lambda\) and fixed densities and surface tension. It is not an exact finite-radius planar substitution.
+
+For the gas-bubble limit \(\rho_-=0\), writing \(\lambda=\mathrm i\omega_\ell\) for oscillatory modes, the aid further reports
+\[
+ \frac{\omega_\ell^2}{\sigma k_\ell^3/\rho_+}
+ =1+\frac{1}{2\ell}+O(\ell^{-2})\qquad(\ell\to\infty).
+\]
+This capillary determinant is neither a shock Lopatinski determinant nor an Evans function. Its identity and asymptotic calibration do not resolve the full curved-front comparison for the unspecified sourced or viscous equations.
+\subsection{Short English statement}
+The aid distinguishes a frozen planar shock symbol evaluated at spherical-harmonic frequencies from a complete spherical-front stability problem. It also gives an exact but separate static capillary dispersion correction and its planar limit. The capillary formula is not identified with a shock or viscous stability determinant.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002438\), catalogue entry, \texttt{aim-pdes-notes.json}, \texttt{notes[49]}, workshop \emph{Stability criteria for multi-dimensional waves and patterns}, open problem 2: \url{https://aimath.org/WWN/multidimwaves/multidimwaves.pdf}.
+\item Supplied preceding-source attribution: S. Benzoni-Gavage, H. K. Jenssen and M. Williams, ``Existence and Stability of Spherical Fronts''.
+\item C. C. Wu and P. H. Roberts, \emph{Bubble shape instability and sonoluminescence}, Phys. Lett. A \textbf{250}, 131 (1998), as explicitly cited by the workshop.
+\item Supplied research summary on frozen principal Lopatinski multipliers and the separate capillary modal determinant. Attempt 1: partial\_result, partially\_solved, rigor ``proved'', low novelty confidence. This machine-generated aid is not peer reviewed and requires independent verification before citation. The supplied verification reports a PDF comparison, but this draft has not visited it.
+\end{itemize}
+\end{document}

@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002324}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Use the customary countable-model setting: $L$ is a countable language, $T$ an $L$-theory, $L'=L\cup\{c\}$, and $T'$ an $L'$-theory whose reducts satisfy $T$. Write $\operatorname{Mod}_\omega(T)$ for its standard Borel space of models on $\omega$, and $\cong_T$ for isomorphism. For equivalence relations $E,F$, $E\leq_B F$ means that a Borel map $h$ satisfies $xEy\Longleftrightarrow h(x)Fh(y)$. In this context Borel completeness means that isomorphism of every class of countable structures reduces to the given isomorphism relation, equivalently that a standard universal isomorphism relation such as countable-graph isomorphism reduces to it. The source does not explicitly specify countability or completeness of the theories; these conventions require confirmation.
+
+Question 23 asks whether
+\[
+\cong_{T'}\text{ is Borel complete}\quad\Longrightarrow\quad
+\cong_T\text{ is Borel complete}
+\]
+holds for every expansion by one constant. The supplied account reports the general implication open in the literature checked, with no check date or full literature reference supplied.
+
+To state the aid's partial reductions, let
+\[
+P_M=\{a\in\omega:(M,a)\models T'\},\quad
+X=\{M\models T:P_M\ne\varnothing\},\quad
+Y=\{(M,a):M\in X,\ a\in P_M\}.
+\]
+Let $E$ be reduct isomorphism on $X$, and $F$ pointed isomorphism on $Y$. The set $X$ is Borel, and the $F$-classes lying above the $E$-class of a fixed $M$ correspond to the $\operatorname{Aut}(M)$-orbits on $P_M$, so there are at most countably many. The forgetful map $r(M,a)=M$ is a Borel reduction $F\leq_B E$ exactly when $\operatorname{Aut}(M)$ acts transitively on $P_M$ for every $M\in X$. Under this additional hypothesis, the desired Borel-completeness implication follows.
+
+For any equivalence relation $F$ on $Y$, its Friedman--Stanley jump $F^+$ on $Y^\omega$ is defined by
+\[
+(y_i)_{i\in\omega}\ F^+\ (z_j)_{j\in\omega}
+\quad\Longleftrightarrow\quad
+\{[y_i]_F:i\in\omega\}=\{[z_j]_F:j\in\omega\}.
+\]
+Borel enumeration of every nonempty $P_M$, with legal repeated entries when it is finite, yields a reduction $E\leq_B F^+$. One can take $a_0(M)=\min P_M$ and enumerate all legal integers, padding with $a_0(M)$; the resulting sequence consists of $(M,a)$ for all $a\in P_M$. This direction of reduction does not establish $F\leq_B E$ in general.
+
+The aid also reports a sufficient criterion using uniform orbit labels and absorption of countably many labels. One precise sufficient formulation is: there is a Borel $\ell:Y\to\omega$ such that
+\[
+(M,a)F(N,b)\quad\Longleftrightarrow\quad
+M E N\ \text{ and }\ \ell(M,a)=\ell(N,b),
+\]
+and $E\times =_\omega\leq_B\cong_T$. Then $F\leq_B\cong_T$, so Borel completeness of $F$ implies Borel completeness of $\cong_T$. The summary supplies no proof that these additional hypotheses hold in general; they must not be treated as consequences of merely naming one constant.
+\subsection{Short English statement}
+Does Borel completeness survive forgetting a single named element? The supplied partial results identify the countable fibers of the forgetful map, prove the implication when legal pointings form one automorphism orbit, and give a reduction of reduct isomorphism to a jump of pointed isomorphism. They leave the unrestricted question open as reported.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002324$, \texttt{catalogue entry}; \texttt{aim-logic-notes.json}, \texttt{notes[99]}.
+\item American Institute of Mathematics, \emph{Computable stability theory}, Question 23; the supplied verification locates it in Section 1.14, ``Borel complexity of isomorphism (Marker).'' \url{https://aimath.org/pastworkshops/computestabproblems.pdf}. No individual proposer or full external literature citation is supplied.
+\item Research attempt 1: reduction; problem status open at run; rigor label ``proved''; novelty confidence low. Registry classification partial progress, status partially solved, and statement status exact are supplied metadata, not independent mathematical review.
+\end{itemize}
+\end{document}

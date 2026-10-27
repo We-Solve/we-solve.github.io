@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001781}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n,N\geq 1\) be integers, and let \(X_1,\ldots,X_n\) be independent random vectors in \(\R^N\), without an assumption that they are identically distributed. Each vector is assumed to be isotropic, meaning
+\[
+\E X_i=0,\qquad \E[X_iX_i^{\mathsf T}]=I_N,
+\]
+and log-concave, meaning that its distribution has a density \(f_i\) satisfying
+\[
+f_i((1-t)x+ty)\geq f_i(x)^{1-t}f_i(y)^t
+\quad(x,y\in\R^N,\ 0<t<1).
+\]
+A vector \(X_i\) is unconditional if, for every \(\varepsilon\in\{-1,1\}^N\), the vectors \(X_i\) and \((\varepsilon_1X_{i1},\ldots,\varepsilon_NX_{iN})\) have the same distribution. Unconditionality is the hypothesis whose removal is being asked about.
+
+Let \(A\in\R^{n\times N}\) have rows \(X_i^{\mathsf T}\). For integers \(1\leq k\leq n\) and \(1\leq m\leq N\), and index sets \(J\subseteq\{1,\ldots,n\}\), \(I\subseteq\{1,\ldots,N\}\) of sizes \(k\) and \(m\), respectively, let \(A(J,I)\) be the corresponding submatrix. Define
+\[
+A_{k,m}=\max_{\substack{J\subseteq\{1,\ldots,n\},\ |J|=k\\ I\subseteq\{1,\ldots,N\},\ |I|=m}}
+\|A(J,I)\|_{2\to2},
+\qquad
+\|B\|_{2\to2}=\sup_{\|u\|_2=1}\|Bu\|_2.
+\]
+\textbf{Source question.} Without assuming unconditionality, does the following estimate hold with high probability?
+\[
+A_{k,m}\leq C\left(\sqrt{m\log\frac{3N}{m}}+\sqrt{k\log\frac{3n}{k}}\right).
+\]
+Here \(\log\) denotes the natural logarithm, and \(C\) represents the implicit multiplicative constant in the supplied notation \(\lesssim\). The source record does not specify the failure probability, the permitted dependencies of \(C\), or whether one probability event must give the estimate simultaneously for all admissible \((k,m)\). Consequently, the displayed question preserves the supplied target but does not determine a complete quantitative probability assertion; these qualifications require clarification from the underlying source.
+\subsection{Short English statement}
+The question asks whether independent isotropic log-concave rows satisfy the stated bound on the largest Euclidean operator norm of a submatrix, even without invariance under coordinate sign changes. The supplied record leaves the meaning of ``with high probability,'' the constant dependencies, and simultaneous validity over submatrix sizes unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30001781\), source problem code \texttt{catalogue entry}, title \emph{Maximal Submatrix Bounds Without Unconditionality}; supplied complete source record associated with \texttt{data/unsolvedmath/problems.json}.
+\item \emph{Random Matrices, Geometric Functional Analysis and Algorithms} (2011), Oberwolfach Reports, pp.~1287--1360, DOI \texttt{10.4171/owr/2011/24}. Supplied source URL and literature reference labeled ``original OWR report'': \url{https://doi.org/10.4171/owr/2011/24}. The record attributes the problem to workshop open-problem discussions documented in this report and supplies no named proposer.
+\item Literature assessment dated \texttt{2026-08-21}: the supplied curation labels the problem open, says that the report leaves removal of unconditionality as a conjecture, and describes available work as retaining hypotheses or providing related special cases. This is supplied dated curation, not an independently verified literature assessment.
+\item The supplied statement status is \texttt{corrected\_verified}; its verification note reports that the official report was checked and that the random-matrix setup, maximal submatrix norm, target estimate, and unconditionality question were restored. This is a supplied verification claim, not verification performed for this draft.
+\end{itemize}
+\end{document}

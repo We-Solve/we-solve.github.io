@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001141}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finitely supported real random variable \(Z\), write \(H(Z)=-\sum_z\Pr(Z=z)\log\Pr(Z=z)\), using one fixed logarithm base and \(0\log0=0\). The random variables \(X,Y\) may have an arbitrary joint distribution; independence is not assumed.
+
+Problem 4.10, attributed to T. Tao, asks for the best entropy exponent in a finite family of linear projections. The printed text introduces \(r_1,\ldots,r_n\) but imposes \(H(X+r_jY)<\log N\) for \(j=1,\ldots,N\), then asks for \(H(X-Y)<(1+\varepsilon)\log N\). Its remark gives the then best known \(\varepsilon=0.67512\ldots\). The supplied verification identifies genuine printing defects: the slope count and entropy threshold are conflated, and the restriction \(r_j\ne-1\) is missing. Allowing \(-1\) would make the target projection one of the hypotheses and trivialize the question.
+
+A precise reconstruction consistent with the research aid is to determine
+\[
+\varepsilon_* =\inf\left\{\varepsilon\ge0:\ \exists n\ge1\ \exists r_1,\ldots,r_n\in\R\setminus\{-1\}\ \forall(X,Y),\quad H(X-Y)\le(1+\varepsilon)\max_{1\le j\le n}H(X+r_jY)\right\}.
+\]
+Here the slopes are chosen before the joint law and do not depend on its support. Equivalently, for these slopes and every real threshold \(N>1\), the strict projection bounds \(H(X+r_jY)<\log N\) imply \(H(X-Y)<(1+\varepsilon)\log N\). This separates \(n\) from \(N\); it is a reconstruction, not an unambiguous literal transcription. Restricting \(N\) to integers, allowing slope choices to depend on \(N\), or asking for attainment of the infimum would require additional source clarification.
+
+The supplied aid reports the global upper bound \(\varepsilon_*\le0.675130870566646\ldots\) and describes \(\varepsilon=0\) as conjectural. No citation for this updated bound or exact formulation of the zero-exponent conjecture is supplied. In particular, \(\varepsilon_*=0\) and the existence of one finite slope family attaining exponent \(1\) are distinct assertions.
+
+The aid proves a bounded-support special case. If the joint support \(S\subset\R^2\) has at most \(m\ge1\) points, every collection of \(\binom m2+1\) distinct real slopes avoiding \(-1\) contains a slope \(r\) for which \((x,y)\mapsto x+ry\) is injective on \(S\). Consequently,
+\[
+H(X-Y)\le H(X,Y)=H(X+rY)\le\max_{s\in R}H(X+sY).
+\]
+In particular \(R=\{0,1,\ldots,\binom m2\}\) works simultaneously for all joint laws supported on at most \(m\) atoms. The dependence of the slope family on \(m\) prevents this from settling the unrestricted problem.
+
+More explicitly, the exceptional slopes are contained in
+\[
+\left\{-\frac{x-x'}{y-y'}:(x,y),(x',y')\in S,\ (x,y)\ne(x',y'),\ y\ne y'\right\},
+\]
+which has at most \(\binom m2\) elements. For \(S=\{(2^{2i},2^i):1\le i\le m\}\), its pair-collision slopes \(-(2^i+2^k)\), \(i<k\), are distinct, so this collision-count bound is attained. This does not establish optimality of the number of slopes for every \(m\). For \(m=2\), two slopes are necessary in the stated universal entropy comparison: for any single admissible slope one may place a nondegenerate two-point law in its kernel, while \(X-Y\) remains nonconstant.
+
+The registry labels this record partially solved and the attempt a partial result (attempt 1, problem open at the run, internal rigor label proved, novelty confidence low). These are supplied status assessments. The research aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\subsection{Short English statement}
+Tao asks how closely finitely many admissible projection entropies can control the entropy of \(X-Y\). The printed slope count and threshold are inconsistent, so the draft labels its repaired quantifiers explicitly. The supplied bounded-support result gives exponent \(1\) using a number of slopes depending on the support size; the global zero-exponent question remains a conjectural target in the aid.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001141\), source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json}, \texttt{notes[265]}.
+\item American Institute of Mathematics, \emph{Recent trends in additive combinatorics}, workshop September 9--12, 2004, Problem 4.10 (T. Tao), including the original remark \(0.67512\ldots\): \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}.
+\item Supplied statement-verification note and research attempt 1, recorded with the registry update of August 14, 2026. The verification says that the official PDF was inspected and that the defects are printed defects; this draft makes no independent source-inspection claim. No separate authoritative citation for the reported updated global bound or bounded-support theorem is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002551}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied problem asks for exact asymptotics of minimax \(L^p\)-risk in Gaussian white noise over anisotropic Nikol'skii classes. The record does not specify the observation domain, class parameters, boundary conditions, loss convention, or noise normalization. Consequently, it does not determine a unique minimax quantity or a fully specified mathematical statement.
+
+The following gives a conditional framework for expressing the requested quantity, without selecting the missing hypotheses. Let \((D,\mathcal D,\mu)\) be a specified measure space and, in a square-integrable realization of Gaussian white noise, put \(H=L^2(D,\mu;\R)\). Let \(W\) be a centered Gaussian process indexed by \(H\), linear in its index, with
+\[
+\E[W(h)W(g)]=\langle h,g\rangle_H.
+\]
+For a noise level \(\varepsilon>0\), a possible normalization of the observation is
+\[
+Y_\varepsilon(h)=\langle f,h\rangle_H+\varepsilon W(h),\qquad h\in H.
+\]
+This normalization and the square-integrability requirement are conditional specifications of this framework; they are not supplied hypotheses of the source record.
+
+For \(1\le p<\infty\), define
+\[
+\|u\|_{L^p(D,\mu)}=\left(\int_D |u|^p\,\dd\mu\right)^{1/p},
+\]
+and define \(\|u\|_{L^\infty(D,\mu)}\) as the essential supremum of \(|u|\). These definitions do not settle the intended range of \(p\), which the record omits. For a specified function class \(\mathcal F\subseteq H\cap L^p(D,\mu)\), and a specified moment exponent \(q>0\), one possible minimax risk is
+\[
+R_{\varepsilon,p,q}(\mathcal F)
+=\inf_{\widehat f}\sup_{f\in\mathcal F}
+\E_f\!\left[\|\widehat f-f\|_{L^p(D,\mu)}^q\right],
+\]
+where the infimum is over measurable estimators based on the entire observation \(Y_\varepsilon\). Expected norm loss corresponds to \(q=1\), expected \(p\)-th power loss to \(q=p\) when \(p<\infty\), and some conventions instead report \(R_{\varepsilon,p,q}^{1/q}\). The source does not select among these conventions.
+
+The class \(\mathcal F\) is intended to be an anisotropic Nikol'skii class. Its precise definition requires the dimension, coordinate smoothness orders, integrability indices, radii, underlying domain, and conventions for differences or derivatives and boundary behavior. None is supplied, so no particular class definition is asserted here.
+
+\textbf{Requested asymptotic determination, conditional on those specifications.} For each admissible fixed choice of the intended class parameters and loss parameters, determine the leading asymptotic expression for the corresponding minimax risk as the noise tends to zero. For example, if its sharp form is
+\[
+R_{\varepsilon,p,q}(\mathcal F)
+=C\,a(\varepsilon)\bigl(1+o(1)\bigr),\qquad \varepsilon\downarrow0,
+\]
+with \(a(\varepsilon)>0\) and \(0<C<\infty\), determine both the normalization \(a\) and the leading constant \(C\), rather than merely establishing two-sided bounds up to unspecified constants. The record neither supplies this normalization nor guarantees this particular form of an asymptotic equivalent. The permitted parameter ranges and whether any class parameters vary with the noise also remain unspecified.
+\subsection{Short English statement}
+Determine the exact leading behavior of minimax \(L^p\)-risk for anisotropic Nikol'skii classes observed in Gaussian white noise, including sharp constants where an asymptotic equivalent exists. The supplied record omits the domain, class parameters, boundary conditions, noise normalization, and precise loss convention, so the displayed formulation is conditional and requires human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30002551\), title ``Exact Minimax Asymptotics in Anisotropic Nonparametric Estimation,'' exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2014 and names no individual proposer.
+\item Supplied primary report citation: \emph{Adaptive Statistical Inference} (2014), Oberwolfach Reports, pp.\ 721--779, DOI 10.4171/owr/2014/13. \url{https://doi.org/10.4171/owr/2014/13}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. No problem-specific page or passage is supplied.
+\item Supplied literature source: Klopp--Pensky (2015), \url{https://doi.org/10.1214/15-AOS1309}. No article title or supporting passage is supplied.
+\item Supplied literature source: Klopp--Pensky preprint, \url{https://arxiv.org/abs/1312.4087}.
+\item Supplied literature source: Original Oberwolfach report, \url{https://doi.org/10.4171/owr/2014/13}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and states that the cited work provides rate bounds and adaptive procedures, while exact asymptotic minimax risk remains unproved for the general model. This is supplied dated curation, described as literature triage derived from the supplied OWR curation; it is not independently verified here. Its time-sensitive status and cited claims require independent verification.
+\item The registry assigns statement status \texttt{corrected\_verified} and states that mathematical content was preserved while notation, typography, or omitted definitions were repaired for publication. These are supplied metadata claims, not independent verification of this draft or its mathematical formulation.
+\end{itemize}
+\end{document}

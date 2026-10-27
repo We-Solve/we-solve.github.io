@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005479}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\), write \([n]=\{1,\ldots,n\}\), and let \(M\) be a loopless matroid on \([n]\). Its rank function is \(\operatorname{rk}_M(A)=\max\{|I|:I\subseteq A\text{ is independent in }M\}\); looplessness means \(\operatorname{rk}_M(\{j\})=1\) for every \(j\in[n]\).
+
+Interpret the matroid-fan support as the unprojectivized Bergman support
+\[
+F=\left\{w\in\R^n:\text{for every circuit }C\text{ of }M,\ \min_{j\in C}w_j\text{ is attained at least twice}\right\}.
+\]
+Here a circuit is a minimally dependent subset. This uses the minimum convention for the Bergman support; the supplied record does not explicitly specify its fan convention. In particular, \(F\) is taken in \(\R^n\), without quotienting by the all-ones direction.
+
+A rationally spanned subspace is a real linear subspace \(U\subseteq\R^n\) having a basis in \(\Q^n\). Define its Minkowski sum with \(F\) by
+\[
+U+F=\{u+f:u\in U,\ f\in F\}.
+\]
+For such a polyhedral set, \(\dim_{\R}(U+F)\) denotes its polyhedral dimension, namely the largest dimension of its polyhedral pieces, rather than the dimension of its linear span.
+
+The proposed statement is that, for every such \(M\),
+\[
+\min_{\substack{U\leq\R^n\\U\text{ has a basis in }\Q^n}}
+\left(2\dim_{\R}(U+F)-\dim_{\R}U\right)
+=
+\min_{\substack{1\leq k\leq n\\[n]=P_1\sqcup\cdots\sqcup P_k\\P_i\neq\varnothing\ (1\leq i\leq k)}}
+\sum_{i=1}^{k}\left(2\operatorname{rk}_M(P_i)-1\right).
+\]
+Thus the right-hand minimum ranges over all partitions into nonempty blocks, with the number of blocks allowed to vary. The source states that the inequality from left to right follows by choosing \(U=\operatorname{span}_{\R}\{\mathbf{1}_{P_1},\ldots,\mathbf{1}_{P_k}\}\), where \((\mathbf{1}_{P_i})_j=1\) for \(j\in P_i\) and is zero otherwise; it asks for the converse.
+
+The nonempty-ground-set assumption and the explicit interpretation of matroid-fan support above require confirmation against the intended source conventions. No empty-ground-set formulation is supplied.
+\subsection{Short English statement}
+For every loopless matroid on a nonempty finite ground set, ask whether minimizing a dimension expression over rationally spanned subspaces gives the same value as minimizing a rank expression over partitions into nonempty blocks. The supplied dated assessment reports the equality for complex-realizable matroids and describes the non-realizable case as conjectural; these are supplied curation claims requiring independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005479\), title ``Equality of Tropical and Matroidal Amoeba-Dimension Formulas,'' source problem code \texttt{catalogue entry}, identified in the source excerpt as ``Open question 2.'' No individual proposer is supplied; the proposed year is 2023.
+\item \emph{New Directions in Real Algebraic Geometry} (2023), Oberwolfach Reports, pp.\ 813--881, DOI \texttt{10.4171/owr/2023/15}: \url{https://doi.org/10.4171/owr/2023/15}. The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature reference: Draisma--Eggleston--Pendavingh--Rau--Yuen, Proceedings of the AMS: \url{https://doi.org/10.1090/proc/16744}.
+\item Supplied literature reference labeled ``primary preprint'': \url{https://arxiv.org/abs/2303.13143}.
+\item Supplied literature reference labeled ``OWR report'': \url{https://doi.org/10.4171/owr/2023/15}.
+\item Literature assessment date: \texttt{2026-08-22}. This is supplied dated curation derived from the OWR record, not an independently verified assessment. It labels the problem partially solved and reports that the equality is proved for matroids realizable over \(\C\), including the linear-space amoeba formula, while the general non-realizable case remains conjectural. The supplied curation requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official Oberwolfach report. This records supplied verification provenance, not verification performed for this draft.
+\end{itemize}
+\end{document}

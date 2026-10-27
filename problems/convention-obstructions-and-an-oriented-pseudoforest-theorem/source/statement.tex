@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001080}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite digraph \(D\), let \(d^+(v),d^-(v)\) be degrees, counting arcs with multiplicity when parallel arcs are allowed, and let \(d(u,v)\) be directed distance, with unreachable distance infinity. Define
+\[
+ S(D)=\sum_v|d^+(v)-d^-(v)|,\qquad
+ p(D)=|\{v:d^+(v)>d^-(v)\}|,
+\]
+\[
+ R_{\le2}(D)=|\{(u,v):u\ne v,\ d(u,v)\le2\}|.
+\]
+The ordered-pair and distinct-terminal convention is forced by the source note claiming equality for transitive tournaments; counting trivial self-pairs would change that note. The source, Conjecture 6.35 attributed to Thomass\'e, asserts
+\[
+ S(D)+R_{\le2}(D)\ge2|E(D)|+p(D).
+\]
+The aid reports that the AIM source uses a general digraph convention permitting digons and parallel arcs, under which the assertion is false.
+
+Its first obstruction is a two-vertex digon: \(|E|=2\), \(S=p=0\), and \(R_{\le2}=2\), so the proposed inequality would be \(2\ge4\). Its second is a directed triangle with every arc doubled: \(|E|=6\), all indegrees and outdegrees equal two, and all six distinct ordered pairs have distance at most two, giving the false inequality \(6\ge12\). Thus forbidding digons alone does not repair the assertion while parallel arcs remain allowed.
+
+For a likely repaired class, let \(D\) be finite, simple and oriented: no loops, parallel arcs, or antiparallel pairs. Put
+\[
+ q(D)=|\{(u,v):d(u,v)=2\}|,\qquad m=|E(D)|.
+\]
+Then \(R_{\le2}=m+q(D)\), and the repaired inequality is exactly
+\[
+ q(D)+S(D)\ge m+p(D).
+\]
+This class restriction is a proposed repair, not silently substituted for the original general-digraph wording. The source's transitive-tournament equality is retained in this setting.
+
+The supplied aid reports the repaired inequality for every oriented pseudoforest, meaning that the underlying undirected graph has at most one cycle per connected component. For its slack
+\[
+ \sigma(D)=q(D)+S(D)-m-p(D),
+\]
+it reports an exact nonnegative increment when a pendant vertex and its incident oriented edge are attached. Repeatedly deleting pendant vertices reduces each component to an isolated vertex or an oriented cycle core. The reported equality classification is that the cores have zero slack and every pendant attachment has zero increment. The actual piecewise increment formulas and explicit list of zero-slack cycle orientations are not supplied, so the classification cannot be expanded into a full orientation test from this record alone. No proof for arbitrary oriented graphs is claimed. Consequently the supplied refuted label applies to the original broad convention, while the repaired general assertion remains outside the established special-family result.
+\subsection{Short English statement}
+The printed inequality fails for a digon and also for a doubled directed triangle. The supplied aid separates these convention counterexamples from a proposed simple-oriented repair, which it reports proved only for pseudoforests with a recursive equality criterion whose full formulas are missing.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001080\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[204]}, tag \texttt{conjecture}.
+\item AIM workshop notes, ``The Caccetta--H\"aggkvist conjecture,'' Conjecture 6.35, attributed to Thomass\'e: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. Statement status \texttt{exact}; the supplied source note says equality holds for transitive tournaments. No PDF was accessed for this draft.
+\item No original remarks, literature field, authoritative external paper citation, or full pendant-recurrence artifact is supplied.
+\item Research attempt 1: \texttt{counterexample}, problem status at run \texttt{refuted}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{solved}, classification \texttt{SOLVED-IN-LITERATURE}. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

@@ -1,0 +1,141 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800136}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record combines three contributions under Problem 5 of the cited problem list. It does not specify a single common conjecture.
+
+\textbf{Nathan Ng's discrete moment questions.}
+Let \(\zeta(s)\) denote the Riemann zeta function, and write a nontrivial zero as \(\rho=\beta+i\gamma\), where \(0<\beta<1\) and \(\gamma\in\R\). For \(T>0\) and \(k>0\), the source considers the expression
+\[
+M_k(T)=\sum_{\substack{\rho:\,\zeta(\rho)=0\\0<\operatorname{Im}\rho<T}}
+\left|\frac{\zeta(2\rho)}{\zeta'(\rho)}\right|^{2k}.
+\]
+This expression requires a qualification absent from the supplied statement: division by \(\zeta'(\rho)\) requires the zeros in the sum to be simple. No convention for multiple zeros, no zero-counting convention, and no Riemann hypothesis assumption are supplied. Thus the displayed expression is a proposed moment, defined as written when all included zeros are simple; this draft does not add simplicity as an established fact.
+
+The source attributes to Ng's Ph.D. thesis [NgPhd] the conjecture
+\[
+M_1(T)\sim\frac{T}{2\pi}\qquad(T\to\infty).
+\]
+Its first requested task is to use the argument of Milinovich and Ng [MN] to establish
+\[
+M_1(T)\geq\left(\frac{1}{4\pi}+o(1)\right)T
+\qquad(T\to\infty).
+\]
+Whenever the moment is defined, this lower-bound target can equivalently be expressed as
+\[
+\liminf_{T\to\infty}\frac{M_1(T)}{T}\geq\frac{1}{4\pi}.
+\]
+Its second requested task is to prove lower bounds of the displayed shape
+\[
+M_k(T)\gg T(\log T)^{(k+1)^2}\qquad(T\to\infty).
+\]
+The range of \(k\) for this task is not explicitly specified. The immediately following comparison concerns \(k>0\), but that does not resolve the intended range or exponent in this task. For a fixed admissible \(k\), the notation \(\gg\) means a lower bound by a positive constant times the right-hand side for all sufficiently large \(T\), with the constant permitted to depend on \(k\).
+
+There is an unresolved incompatibility: if the second task includes \(k=1\), it requests \(M_1(T)\gg T(\log T)^4\), which cannot hold together with the preceding conjecture \(M_1(T)\sim T/(2\pi)\). Both formulas are retained exactly as supplied; neither the exponent nor the range of \(k\) is corrected here.
+
+For comparison, the source attributes to Heap, Li, and Zhao [HLZ] and Gao and Zhao [GZ] lower bounds of the form
+\[
+\sum_{0<\gamma<T}\frac{1}{|\zeta'(\rho)|^{2k}}
+\gg T(\log T)^{(k+1)^2},\qquad k>0.
+\]
+This is a supplied literature claim, not an independently verified theorem in this draft. Its hypotheses, treatment of multiple zeros, and precise summation convention are not provided.
+
+\textbf{Nicol Leong's multiplicity question.}
+For a nontrivial zero \(\rho\), let \(m(\rho)\) be its order of vanishing: the integer \(m\geq1\) such that \(\zeta^{(j)}(\rho)=0\) for \(0\leq j<m\) and \(\zeta^{(m)}(\rho)\neq0\). The question is to improve upper bounds for \(m(\beta+i\gamma)\) as \(\gamma\to+\infty\). The source reports the unconditional bound
+\[
+m(\beta+i\gamma)\ll\log\gamma,
+\]
+and, respectively under the Lindel\"of hypothesis and the Riemann hypothesis, the bounds
+\[
+m(\beta+i\gamma)=o(\log\gamma),
+\qquad
+m(\beta+i\gamma)\ll\frac{\log\gamma}{\log\log\gamma}.
+\]
+Here the Riemann hypothesis states that every nontrivial zero has real part \(1/2\), and the Lindel\"of hypothesis states that, for every \(\varepsilon>0\),
+\[
+|\zeta(1/2+it)|\ll_{\varepsilon}(1+|t|)^{\varepsilon}
+\qquad(|t|\to\infty).
+\]
+The reported bounds concern all nontrivial zeros of sufficiently large positive ordinate. A bound \(\ll\) has an implied constant independent of the zero; the little-oh bound is understood uniformly over such zeros.
+
+The source attributes further unconditional results of order \(\ll\log\gamma\) to Ivi\'c [Ivic1, Ivic2], and attributes to Karatsuba the conjectured bound
+\[
+m(\beta+i\gamma)\ll1.
+\]
+The latter asks for a constant bound independent of the zero. The source also states that its ``LI conjecture'' would imply \(m(\rho)=1\) for every nontrivial zero. Since LI is not defined in the record, that implication is preserved as a source qualification without assigning it a precise hypothesis here. The requested improvement has no specified quantitative target; Karatsuba's bound is presented as a conjectured benchmark.
+
+\textbf{Alexandre Bailleul's question about bias and first reversals.}
+For real \(x>1\), define
+\[
+\pi(x)=\#\{p\leq x:p\text{ is prime}\},
+\qquad
+\operatorname{li}(x)=\operatorname{PV}\int_0^x\frac{\mathrm{d}t}{\log t}.
+\]
+For an integer \(q\geq2\) and an integer \(a\), define
+\[
+\pi(x;q,a)=\#\{p\leq x:p\text{ is prime and }p\equiv a\pmod q\}.
+\]
+For a measurable set \(E\subseteq[2,\infty)\), its logarithmic density, when the limit exists, is
+\[
+\delta(E)=\lim_{X\to\infty}\frac{1}{\log X}
+\int_2^X\mathbf{1}_E(t)\,\frac{\mathrm{d}t}{t}.
+\]
+These definitions describe the quantities used in the source; they do not resolve its missing hypotheses for density existence.
+
+The source calls the smallest \(x\) with \(\pi(x)>\operatorname{li}(x)\) ``Skewes's number.'' The search domain must be specified for that description to be precise. With the principal-value definition above, an unrestricted search over \(x>1\) includes small values near \(1\), so the intended large first crossing requires an additional domain restriction. No such restriction is stated in the record.
+
+For the intended large crossing, the source credits Littlewood with existence and Skewes with an initial enormous bound, and reports the interval
+\[
+\left(10^{19},\;1.3971653\times10^{316}\right).
+\]
+It attributes the lower endpoint bound to B\"uthe [Buthe0] and the upper endpoint bound to Saouter, Trudgian, and Demichel [STD]. It says that the value remains unknown and that experts suggest a value close to the upper bound; the latter is an unattributed expectation, not a quantitative claim.
+
+The source attributes to Rubinstein and Sarnak [RS] the approximate logarithmic density
+\[
+\delta\bigl(\{x\geq2:\pi(x)>\operatorname{li}(x)\}\bigr)
+\approx2.6\times10^{-7}.
+\]
+For the race between primes congruent to \(2\pmod3\) and primes congruent to \(1\pmod3\), it reports a corresponding density, denoted there by \(\delta_{q;1,2}\), of approximately \(1.0\times10^{-3}\), again attributed to [RS]. The record does not explicitly identify the inequality represented by that notation. It attributes to Bays and Hudson the assertion that the first sign change of
+\[
+\pi(x;3,2)-\pi(x;3,1)
+\]
+occurs at \(x=608{,}981{,}813{,}029\). The treatment of ties and the meaning of ``first sign change'' are not specified.
+
+The proposed research direction is to investigate whether the size of the first reversal in a prime number race is correlated with the strength of its logarithmic-density bias. The source further says that classical prime number races have logarithmic densities tending to \(1/2\) as \(q\to\infty\), and suggests that their corresponding first-reversal values should become less extreme, while remaining bounded below by \(q\). The family of races, hypotheses, normalization of first-reversal size, meaning of correlation, and conditions for the asserted lower bound by \(q\) are unspecified. Consequently this contribution supplies a heuristic research question, not a fully quantified conjecture.
+\subsection{Short English statement}
+Permanent UnsolvedMath ID \(800136\) bundles questions about discrete zeta moments, multiplicities of zeta zeros, and the relationship between prime-race bias and first reversals. The supplied moment exponent conflicts with the supplied first-moment conjecture if \(k=1\) is included. Simplicity assumptions, several literature hypotheses, and a precise formulation of the prime-race question remain unresolved. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(800136\), source problem code \texttt{catalogue entry}, title ``Comparative Prime Number Theory --- Problem 5,'' in the AMR Open Problem Lists collection. The registry labels the record \texttt{open}; this is supplied metadata, not an independently verified status assessment. The supplied upstream revision is \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Hamieh, Kadiri, Martin, and Ng, \emph{Comparative Prime Number Theory Problem List} (2024), source item Problem (\#5), \url{https://arxiv.org/abs/2407.03530}. The supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied dated provenance, not a claim of independent source access or verification. Registry creation and update are dated 2026-10-16.
+\item The individual contributions are attributed to Nathan Ng, University of Lethbridge; Nicol Leong, University of New South Wales--Canberra at ADFA; and Alexandre Bailleul, Universit\'e Paris--Saclay. The registry attributes the collected problem to Hamieh, Kadiri, Martin, and Ng, with proposed year 2024.
+\item [NgPhd]: Ng's Ph.D. thesis, cited in the supplied source for the first-moment conjecture. No full bibliographic entry or separate URL is supplied.
+\item [MN]: Milinovich and Ng, cited for an argument proposed for the first-moment lower bound. No title, date, full bibliographic entry, or separate URL is supplied.
+\item [HLZ]: Heap, Li, and Zhao; [GZ]: Gao and Zhao. The supplied source attributes lower bounds for negative discrete moments of \(\zeta'\) to these articles, without supplying their full bibliographic entries, URLs, or theorem hypotheses.
+\item [Ivic1, Ivic2]: works of Ivi\'c, cited for multiplicity bounds and the associated approach. The record supplies no full bibliographic entries or separate URLs. Karatsuba is credited with the conjectured bounded-multiplicity estimate, without a separate citation.
+\item [Buthe0]: B\"uthe, credited with the stated lower bound for the intended first crossing of \(\pi\) and \(\operatorname{li}\). [STD]: Saouter, Trudgian, and Demichel, credited with the stated upper bound. No full bibliographic entries or separate URLs are supplied.
+\item [RS]: Rubinstein and Sarnak, credited with the stated approximate logarithmic densities. Bays and Hudson are credited with the stated first sign change for the modulus-\(3\) race. Littlewood and Skewes are credited with the existence result and an initial bound, respectively. No further bibliographic details, separate URLs, or relevant theorem hypotheses are supplied for these claims.
+\end{itemize}
+\end{document}

@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800530}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(T=(V,E)\) be a specified tree tensor network with \(|V|=m\) nodes, physical index dimensions \(d_1,\ldots,d_n\), and prescribed internal edge dimensions \(r_e\) for \(e\in E\). The ambient tensor space is \(\mathcal H=\R^{d_1\times\cdots\times d_n}\). A tensor is representable by this network if it is obtained by contracting real core tensors along all internal edges, each contracted index having its prescribed dimension. Write \(S\subseteq\mathcal H\) for the set of representable tensors. Under this usual core-dimension interpretation, the actual ranks of a represented tensor may be smaller than the prescribed dimensions; the source does not explicitly distinguish this interpretation from requiring exact ranks.
+
+For \(\mathcal B\in\mathcal H\), define the squared Frobenius norm by
+\[
+\|\mathcal B\|_F^2=\sum_{i_1=1}^{d_1}\cdots\sum_{i_n=1}^{d_n}B_{i_1,\ldots,i_n}^{\,2}.
+\]
+When the indicated minimum exists, put
+\[
+\operatorname{OPT}_S(\mathcal A)=\min_{\mathcal Y\in S}\|\mathcal Y-\mathcal A\|_F^2.
+\]
+The source uses a minimum; its existence must be justified for the intended interpretation of \(S\).
+
+\textbf{Requested statement, retaining the source's unresolved qualifications.} For every choice of an \(m\)-node tree tensor network, including tensor train or Tucker networks, and prescribed edge dimensions, find a polynomial-time algorithm which, for every input \(\mathcal A\in\mathcal H\), returns \(\mathcal X\in S\) satisfying
+\[
+\|\mathcal X-\mathcal A\|_F^2<(m-1)\operatorname{OPT}_S(\mathcal A),
+\]
+or establish, under suitable complexity-theoretic assumptions, that an \((m-1)\)-approximation is optimal. The displayed factor applies to the squared Frobenius error.
+
+\textbf{Unresolved formulation issues.} The strict inequality cannot hold when \(\mathcal A\in S\), since then the minimum is zero and the left-hand side is nonnegative. No exclusion of such inputs is supplied. For \(m=2\), the strict inequality also requires an error strictly below the minimum; for \(m=1\), its right-hand side is zero whenever the minimum is defined. The source supplies no lower restriction on \(m\). Consequently, the universal strict requirement needs correction or qualification before it can express the intended approximation problem. No correction is selected here. The source also leaves unspecified the computational model for arbitrary real inputs, the required numerical accuracy, which network parameters contribute to input size, whether one uniform algorithm is required across all networks and ranks, and the assumptions and precise lower-bound quantifiers intended by optimality of the factor. Its output notation \(\mathbb S\) is undefined; the displayed formulation provisionally reads it as the previously defined set \(S\).
+\subsection{Short English statement}
+For any prescribed tree tensor network with \(m\) nodes and chosen edge dimensions, the source asks for a polynomial-time approximation whose squared Frobenius error is strictly less than \((m-1)\) times the best representable error, or a conditional proof that this factor is optimal. The strict inequality, rank convention, computational model, and intended hardness claim require clarification. This is a statement-only draft; the supplied registry labels the problem open.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800530\), source problem code \texttt{catalogue entry}, title \emph{Linear Systems and Eigenvalue Problems --- Problem 39}, in the AMR Open Problem Lists collection. The supplied record attributes the problem to Amsel, Baumann et al., proposed in 2026, and labels it \emph{open}; this label is supplied registry metadata, not an independently verified mathematical assessment.
+\item Supplied source reference: Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 39, \url{https://arxiv.org/abs/2602.05394}. The supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. These are supplied provenance notes; no independent source visit or verification is claimed.
+\item Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}. The supplied record was created and updated on 2026-10-16.
+\end{itemize}
+\end{document}

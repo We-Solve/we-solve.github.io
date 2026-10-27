@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000868}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Chapter K records interdisciplinary requests from four breakout groups: psychology/psychophysics, anatomists, and two theory groups. It is not a single mathematical open problem. The requests include models operating on real and moving images, associative-memory spiking models on available hardware, understandable mid-level vision theory, quantitative circuit descriptions (cell proportions, myelination, timing, thalamus, excitation/inhibition, and layers), natural stimuli, accessible raw data and multi-electrode recordings, and clarification of whether BOLD signals are reactive or predictive. They also call for theories and falsifiable predictions before experiments, rigorous model comparison and failure analysis, biologically plausible surface representations and differentiated feedback models, clearer experimental approaches and endpoints, complete reporting, centralized connectivity data, training, communication, and employment of theorists.
+
+The research aid supplies a separate finite-observation model-comparison statement. Let $\Omega$ be finite, let $p,q$ be probability mass functions of two fixed predictive models, and let $f:\Omega\to\mathcal S$ be a deterministic released summary. Put
+\[
+ p_f(s)=\sum_{x:f(x)=s}p(x),\quad q_f(s)=\sum_{x:f(x)=s}q(x),\quad
+ \operatorname{TV}(p,q)=\tfrac12\sum_{x\in\Omega}|p(x)-q(x)|.
+\]
+For discrimination between the two fixed models with equal prior probabilities and zero--one loss, the aid states
+\[
+ R_f^*=\tfrac12\bigl(1-\operatorname{TV}(p_f,q_f)\bigr),\qquad
+ \operatorname{TV}(p_f,q_f)\leq\operatorname{TV}(p,q).
+\]
+Equality in the latter holds exactly when each fiber $f^{-1}(s)$ has either $p(x)-q(x)\geq0$ for every $x$ in it or $p(x)-q(x)\leq0$ for every such $x$. Here preservation of discrimination means preservation of this equal-prior optimal error for this particular pair; it is not a claim of sufficiency for every statistical model or every prior.
+
+For the distinct BOLD timing issue, the aid assumes a pure-delay model $b=t+d$, where $t$ is neural event time relative to task time zero, the observed BOLD time obeys $b\in[b_L,b_U]$, and haemodynamic delay obeys $d\in[d_{\min},d_{\max}]$, with the endpoints ordered. If every pair of permitted $b,d$ is feasible, the set of compatible neural times is
+\[
+ I=[b_L-d_{\max},\ b_U-d_{\min}].
+\]
+Under this model a strictly predictive timing conclusion requires $\sup I<0$, and a strictly reactive one requires $\inf I>0$. If the interval crosses or touches zero, a strict classification of this kind is unsupported by those bounds alone. This timing certificate assumes the pure-delay relation; it is not a general physiological identification result for BOLD signals.
+\subsection{Short English statement}
+The workshop section lists requests for better models, experiments, quantitative anatomy, data sharing, training, and communication. A supplementary mathematical aid states when a deterministic report preserves two-model discrimination and when delay bounds support a strictly predictive or reactive BOLD timing interpretation.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Inference and Prediction in Neocortical Circuits}, version October 24, 2003, Chapter K, ``Notes from Breakout Session I'': \url{https://aimath.org/WWN/brain/brain.pdf}. The source describes 45-minute meetings of psychology/psychophysics, anatomy, Theory I, and Theory II groups, each asked for three requests to other groups, followed by joint discussion.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20000868, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-biology-notes.json notes[32]}.
+\item Attached attempt 1, labeled context only, problem status at run ``not\_a\_problem,'' rigor ``proved,'' and low novelty confidence. Its model-discrimination and pure-delay certificates have no separate authoritative citation in the supplied record. The aid is machine-generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

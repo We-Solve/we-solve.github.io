@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002456}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Participant research objective (Cleopatra Christoforou).} Construct solutions of dissipative hyperbolic balance laws as vanishing-viscosity limits,
+\[
+ u_t+\partial_xf(u)+g(u)=0,\qquad
+ u_t^\epsilon+\partial_xf(u^\epsilon)+g(u^\epsilon)
+ =\epsilon u_{xx}^\epsilon,\qquad\epsilon\downarrow0.
+\]
+The supplied verification identifies the extracted ``\(\leq\)'' symbols as corrupted epsilons. The participant statement reports extending Bianchini--Bressan's method using supplementary Lyapunov functionals and obtaining exponential decay of total variation. It proposes extending the techniques to other systems, especially physical viscosity, but gives no precise nonlinear hypotheses, initial-data class, domain or convergence topology. The aid interprets physical viscosity as \(\epsilon\partial_x(B(u)u_x)\); this matrix-viscosity form is explicit interpretation rather than a displayed source equation.
+
+\textbf{Reported constant-coefficient periodic result.} On \(\mathbb T=\R/2\pi\Z\), consider
+\[
+ u_t+A u_x+D u=\epsilon B u_{xx},\qquad u(0)=u_0\in H^2(\mathbb T;\R^m).
+\]
+Let \(A,D,B\) be constant real matrices, and suppose a symmetric positive-definite \(S\) and \(\gamma>0\) satisfy
+\[
+ SA=A^TS,\qquad SD+D^TS\geq2\gamma S,\qquad
+ SB+B^TS\geq0.
+\]
+Use \(\|u\|_{L^2_S}^2=\int_{\mathbb T}u^TSu\,\mathrm dx\),
+\( |u_0|_{H^2_S}=\|\partial_x^2u_0\|_{L^2_S}\), and
+\[
+ K_S(C)=\|S^{1/2}CS^{-1/2}\|_{\mathrm{op}}.
+\]
+The aid reports the uniform vanishing-viscosity estimate against the solution \(u^0\) with \(\epsilon=0\) and the same datum:
+\[
+ \|u^{\epsilon,B}(t)-u^0(t)\|_{L^2_S}
+ \leq\epsilon K_S(B)t e^{-\gamma t}|u_0|_{H^2_S},
+ \qquad t\geq0,
+\]
+therefore its supremum over all time is at most
+\(\epsilon K_S(B)|u_0|_{H^2_S}/(e\gamma)\).
+
+More generally, if both \(B_1,B_2\) satisfy the same entropy-positivity condition, then the reported comparison is
+\[
+ \|u^{\epsilon,B_1}(t)-u^{\epsilon,B_2}(t)\|_{L^2_S}
+ \leq\epsilon K_S(B_1-B_2)t e^{-\gamma t}|u_0|_{H^2_S},
+\]
+with the corresponding uniform bound obtained by replacing \(te^{-\gamma t}\) by \(1/(e\gamma)\). The viscosity matrices may be singular and need not commute with \(A\); the common symmetrizer and full source damping remain hypotheses. This is a linear periodic estimate, not a nonlinear small-total-variation theorem for arbitrary physical viscosities.
+
+\textbf{Reported diagnostic limitations.} The aid includes anti-diffusion and uncoupled-mode examples. Their mechanisms are made explicit by a scalar negative viscosity \(B=-1\), whose Fourier modes can grow at rate \(\epsilon k^2-\gamma\), and by an undamped component, for which the difference between \(\cos x\) and \(e^{-\epsilon t}\cos x\) does not remain \(O(\epsilon)\) uniformly in time. These show why entropy positivity and a source of damping cannot simply be dropped from this estimate. Kawashima-type coupling may provide a different damping mechanism, but no general coupled replacement theorem or its hypotheses is supplied.
+
+The original exponential total-variation claim and interest in mathematical biology/numerical methods are participant context. The explicit linear certificate does not verify the full nonlinear extension or supply a physical-system application. All reported claims require independent verification.
+\subsection{Short English statement}
+The participant asks to extend vanishing-viscosity methods to dissipative balance laws and physical viscosity. The aid supplies a periodic linear result: full source damping and a common entropy symmetrizer give uniform-time \(O(\epsilon)\) comparison even for singular, noncommuting viscosity matrices. It does not establish the general nonlinear program.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002456\), catalogue entry, \texttt{aim-pdes-notes.json}, \texttt{notes[67]}, workshop \emph{Stiff Sources and Numerical Methods for Conservation Laws}, participant item A.3, Cleopatra Christoforou: \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}.
+\item Original reference [BiB], Bianchini and Bressan, on vanishing viscosity, without supplied title or publication details. The participant reports additional Lyapunov functionals and exponential total-variation decay, and interests in physical viscosity, mathematical biology and numerical methods.
+\item Supplied research summary on the periodic fully damped matrix estimate, viscosity comparison, anti-diffusion and uncoupled modes. Attempt 1: partial\_result, partially\_solved, rigor ``proved'', low novelty confidence. This machine-generated aid is not peer reviewed and requires independent verification before citation. The supplied verification reports checking the epsilon OCR issue; no PDF visit is claimed by this draft.
+\end{itemize}
+\end{document}

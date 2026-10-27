@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000229}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Consider the two-dimensional Poisson problem in the report's energy space $V$ on a domain $\Omega\subset\R^2$, with right-hand side $f\in V^*$ and weak solution $u$ satisfying
+\[
+ \int_\Omega\nabla u\cdot\nabla v\,\dd x=\langle f,v\rangle
+ \quad(v\in V).
+\]
+For example, in the usual homogeneous Dirichlet setting $V=H_0^1(\Omega)$ with energy norm $\|v\|_V=\|\nabla v\|_2$, and the dual norm is $H^{-1}$. The source's boundary and mesh conventions must be used for the actual problem.
+
+Let $\mathbb T_n$ be its admissible partitions with at most $n$ elements, let $S^1(\mathcal T)\cap V$ be the conforming piecewise-linear space, and let $P^0(\mathcal T)$ be the piecewise-constant functions, viewed as functionals on $V$. Define
+\[
+ \sigma_n(u)=\inf_{\mathcal T\in\mathbb T_n}
+              \inf_{v\in S^1(\mathcal T)\cap V}\|u-v\|_V,
+ \qquad
+ \delta_n(f)=\inf_{\mathcal T\in\mathbb T_n}
+              \inf_{g\in P^0(\mathcal T)}\|f-g\|_{V^*}.
+\]
+For $0<s\le1/2$, membership in $\mathcal A^s$ means $\sigma_n(u)=O(n^{-s})$. The conjecture is
+\[
+ \forall s\in(0,1/2],\qquad
+ u\in\mathcal A^s\quad\Longrightarrow\quad\delta_n(f)=O(n^{-s}).
+\]
+The constants may depend on the data and $s$ but not on $n$. The approximating partitions for $u$ and $f$ need not be the same. This is an existence implication; the original passage explicitly distinguishes existence of these data approximations from knowing how to construct them.
+
+The extract does not specify domain/boundary regularity, admissible refinement and shape-regularity rules, the precise mesh-complexity offset, or all Sobolev hypotheses alluded to by its literature assessment. The notation above exposes these inputs without replacing the source mesh class by unrestricted partitions.
+
+The literature assessment checked on 21 August 2026 reports optimal adaptive finite-element results conditional on the required data approximation property and positive results for important data classes, but no resolution of the broader implication over its full stated ranges. A theorem assuming that property does not prove that it follows from $u\in\mathcal A^s$. This is dated supplied partial-progress triage requiring independent verification.
+\subsection{Short English statement}
+If piecewise-linear adaptive meshes approximate a two-dimensional Poisson solution at rate $n^{-s}$ for $0<s\le1/2$, must piecewise constants approximate its forcing at the same rate in the dual energy norm? The question asks for existence, not an algorithm that finds those approximations.
+\subsection{Sources}
+\begin{itemize}
+\item \emph{Schnelle L\"oser f\"ur partielle Differentialgleichungen} (2006), Oberwolfach Reports, DOI 10.4171/owr/2005/24, pp. 1299--1370, \url{https://doi.org/10.4171/owr/2005/24}; proposed year supplied as 2005.
+\item Literature assessment checked 21 August 2026: original report, \url{https://doi.org/10.4171/owr/2005/24}; Stevenson, ``optimality of adaptive finite elements,'' \url{https://doi.org/10.1007/s10208-005-0183-0}.
+\item Local UnsolvedMath registry, permanent ID $30000229$, exact source code \texttt{catalogue entry}, created 25 August 2026 and updated 16 September 2026. Supplied verification restores the Poisson/linear-element setting, $0<s\le1/2$, the energy rate and piecewise-constant dual-norm rate.
+\end{itemize}
+\end{document}

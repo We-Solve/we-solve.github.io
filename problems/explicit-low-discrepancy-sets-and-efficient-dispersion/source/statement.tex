@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003394}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n,d\in\N\) with \(n,d\geq1\). For an \(n\)-element set \(P\subseteq[0,1]^d\), define its star discrepancy, using the closed anchored boxes specified in the source, by
+\[
+D^*(P)=\sup_{x\in[0,1]^d}\left|\frac{\#(P\cap[0,x])}{n}-\prod_{j=1}^d x_j\right|,
+\qquad [0,x]=\prod_{j=1}^d[0,x_j].
+\]
+Define the smallest attainable star discrepancy by
+\[
+\operatorname{disc}^*(n,d)=\inf_{\substack{P\subseteq[0,1]^d\\\#P=n}}D^*(P).
+\]
+The discrepancy problem is to determine the optimal joint dependence of \(\operatorname{disc}^*(n,d)\) on \(n\) and \(d\), improving the upper or lower estimates displayed in the supplied record:
+\[
+c\,\frac dn\leq\operatorname{disc}^*(n,d)\leq C\sqrt{\frac dn}.
+\]
+Here the intended interpretation appears to be that \(c,C>0\) are absolute constants, independent of \(n,d\), but the record does not specify their quantifiers or the parameter range. This qualification is essential: \(D^*(P)\leq1\), so the displayed lower estimate cannot hold with a fixed positive \(c\) for every pair of positive integers \(n,d\). A parameter restriction or a saturation modification is missing; neither is silently imposed here.
+
+The construction problem is to produce point sets \(P\subseteq[0,1]^d\), \(\#P=n\), satisfying
+\[
+D^*(P)\leq C\sqrt{d/n},
+\]
+with an absolute constant \(C>0\), by an explicit construction or a randomized construction using less randomness than \(n\) independent uniform samples from \([0,1]^d\). The record specifies neither an effectiveness or running-time requirement for ``explicit'' nor a precision, success probability, or measure of randomness for the randomized alternative. Consequently, these algorithmic targets remain qualified by those missing specifications. The original statement also refers to discrepancy more generally, but supplies a precise test-box family only for star discrepancy.
+
+For the dispersion question, one possible precise boundary convention is to define
+\[
+\operatorname{disp}_{\mathrm{open}}(P)=
+\sup\left\{\prod_{j=1}^d(b_j-a_j):
+0\leq a_j<b_j\leq1\ (1\leq j\leq d),\quad
+P\cap\prod_{j=1}^d(a_j,b_j)=\varnothing\right\}.
+\]
+This uses open axis-parallel boxes and a supremum; the source does not specify this convention. Under this convention, a natural extremal quantity is
+\[
+\operatorname{disp}_{\mathrm{open}}(n,d)=
+\inf_{\substack{P\subseteq[0,1]^d\\\#P=n}}
+\operatorname{disp}_{\mathrm{open}}(P).
+\]
+The source asks for the optimal order of the largest empty axis-parallel box and the complexity of finding one. It does not distinguish explicitly between determining this extremal quantity and computing a largest empty box for a given input set \(P\). It also leaves the boundary convention, exact versus approximate output, input encoding, and computational model unspecified. Thus the displayed dispersion definitions describe a possible precise formulation, rather than an unqualified identification of the source's intended target.
+\subsection{Short English statement}
+Determine the optimal dependence of minimum star discrepancy on the number of points and the dimension, and construct point sets achieving the stated upper bound explicitly or with reduced randomness. Also determine optimal empty-box volumes and the complexity of finding such boxes. The supplied discrepancy lower bound needs a parameter restriction or saturation correction, and the algorithmic and dispersion questions need additional specifications.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003394\), source problem code \texttt{catalogue entry}, titled ``Explicit Low-Discrepancy Sets and Efficient Dispersion,'' in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is recorded as 2017.
+\item Supplied report citation: \emph{Mini-Workshop: Perspectives in High-Dimensional Probability and Convexity (2018)}, Oberwolfach Reports, pp.\ 499--526, DOI \texttt{10.4171/owr/2017/10}. \url{https://doi.org/10.4171/owr/2017/10}. The citation's 2018 label differs from the proposed year and the year appearing in the DOI; their relationship is unresolved in the supplied record.
+\item Supplied literature source, labeled ``Oberwolfach report'': \url{https://ems.press/content/serial-article-files/46672}.
+\item Supplied literature source, labeled ``Novak--Pillichshammer'': \url{https://arxiv.org/abs/2403.07961}. No title or specific supporting result is supplied.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem partially solved and reports improved probabilistic and constructive bounds, while stating that the requested optimal bounds and fully explicit constructions remain unknown in the generality of the record. This is supplied dated curation, not an independently verified literature assessment. The background expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says it was checked against the official report. These are supplied source-verification claims; no independent source consultation or mathematical verification is asserted here.
+\end{itemize}
+\end{document}

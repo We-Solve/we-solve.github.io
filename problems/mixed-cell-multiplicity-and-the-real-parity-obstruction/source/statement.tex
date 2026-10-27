@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001984}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $f_1,\ldots,f_n$ be Laurent polynomials on $(\C^*)^n$, with Newton polytopes $P_i$. Set
+\[
+ \operatorname{Log}(z)=(\log|z_1|,\ldots,\log|z_n|),\qquad
+ \mathcal A_i=\operatorname{Log}(\{f_i=0\}).
+\]
+Let $K$ be a connected compact component of $\bigcap_i\mathcal A_i$ and let $N_K$ count common zeros in $\operatorname{Log}^{-1}(K)$ when that zero set is finite, with a multiplicity convention to be specified. The Ronkin function is
+\[
+ R_i(x)=\frac1{(2\pi)^n}\int_{[0,2\pi]^n}
+          \log|f_i(e^{x+i\theta})|\,\dd\theta.
+\]
+Write $\operatorname{MA}(R_1,\ldots,R_n)$ for the mixed Monge--Amp\`ere measure, with its normalization kept explicit when comparing it to mixed volume.
+
+\textbf{Question A.2, contributed by Fr\'ed\'eric Bihan.} Does the mixed Monge--Amp\`ere mass of $K$ equal the volume/multiplicity of a mixed cell corresponding to $K$ in tropical Bernstein theory? Is there a bijection between the system's solutions in $\operatorname{Log}^{-1}(K)$ and the solutions of the mixed cell's binomial system, taking real solutions to real solutions? The existence of a distinguished cell corresponding to an ordinary amoeba-intersection component, the chosen regular subdivision/degeneration, nondegeneracy and multiplicity hypotheses are not specified. The background says the mixed measure equals the fixed system's root count, whereas the aid warns that the relevant local formula is a phase-averaged root count; this distinction prevents that background assertion from being adopted unqualified.
+
+\textbf{Precise binomial special case from the aid.} For a transverse fully mixed cell, choose integer edge endpoints $u_i,v_i\in\Z^n$ and nonzero coefficients $a_i,b_i$, and put
+\[
+ Q=[u_1,v_1]+\cdots+[u_n,v_n],\qquad
+ A_{ij}=(v_i-u_i)_j,\quad\det A\ne0.
+\]
+The associated binomial equations $a_i z^{u_i}+b_i z^{v_i}=0$ are equivalent to $z^{v_i-u_i}=c_i$, where $c_i=-a_i/b_i$. Over $\C$, they have exactly $|\det A|$ simple torus roots. This determinant is the Bernstein cell multiplicity, or parallelepiped volume with a fundamental lattice parallelepiped of volume one; it must not be confused with an additional $n!$-rescaling of simplex-normalized volume. In an isolated transverse regular non-Archimedean degeneration in characteristic zero, with this binomial initial system and valid simple-root lifting hypotheses, the aid asserts that the corresponding valuation cluster has the same $|\det A|$ roots. A valuation cluster in a specified degeneration is not automatically $\operatorname{Log}^{-1}(K)$ for an arbitrary original complex system.
+
+For real binomial coefficients, encode the signs by $\operatorname{sgn}(c_i)=(-1)^{\tau_i}$ and write $\overline A=A\bmod2$. Then the exact number of real torus roots of the binomial system is
+\[
+ \begin{cases}
+ 0,&\tau\notin\operatorname{im}(\overline A:\F_2^n\to\F_2^n),\\
+ 2^{n-\operatorname{rank}_{\F_2}\overline A},
+    &\tau\in\operatorname{im}\overline A.
+ \end{cases}
+\]
+The absolute values are fixed by the invertible real linear system $A\log|z|=\log|c|$; the parity equation controls the possible signs. Thus cell volume alone contains insufficient real-root information. A bijection sending real roots of the original system to real binomial roots requires at least the corresponding real-count inequality; a conjugation-equivariant bijection would require equality. The source asks only the forward real-preservation condition, not explicitly equivariance or real preservation by the inverse. Applying the parity formula to an actual correspondence requires the missing degeneration and lifting data, not merely equality of complex multiplicities.
+\subsection{Short English statement}
+Bihan asks whether an amoeba-intersection component is counted by a corresponding tropical mixed cell and admits a real-preserving binomial correspondence. The supplied aid gives the determinant multiplicity and an exact signed parity test for a transverse binomial cell, while warning that a phase-averaged measure and a degeneration's valuation cluster do not automatically count the original fixed-phase solutions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001984, source code catalogue entry; canonical \texttt{aim-geometry-notes.json}, notes[321].
+\item AIM workshop \emph{Amoebas and tropical geometry}, January 2004, Question A.2, contributed by Fr\'ed\'eric Bihan: \url{https://aimath.org/WWN/amoebas/amoebas.pdf}. Despite registry tag ``section'', the record contains two questions.
+\item Supplied references: Sturmfels, \emph{Solving systems of polynomial equations}; M.~Passare and H.~Rullg\aa rd, \emph{Amoebas, Monge--Amp\`ere measures and triangulations of the Newton polytope}. No further bibliographic details are supplied.
+\item Registry research attempt 1, dated 2026-08-14, partial result, rigor ``proved'', novelty confidence low. The machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,89 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002664}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The registry fuses two consecutive Free Analysis questions: multivariable Cauchy/Poisson smoothing, and \(L^2\)-closure of cyclic gradients. The intervening ``1Q:'' is a page-number artifact, not one combined question.
+
+For the first, the normalized scalar Poisson kernel is \(P_\varepsilon(z)=\varepsilon/[\pi(z^2+\varepsilon^2)]\), \(\varepsilon>0\). With a scalar Cauchy \(Z_\varepsilon\) independent of a Hermitian matrix \(A\), central noise \(C_\varepsilon=Z_\varepsilon I\) gives
+\[
+ \mathbb E_C[f(A+C_\varepsilon)\mid A]=(P_\varepsilon*f)(A)
+\]
+for bounded Borel \(f\). If \(A\) is random this is a conditional expectation over the added noise. The source's damaged kernel and unspecified ``matrix Cauchy'' law require review; central noise is one explicit realization, not an assertion about every matrix-Cauchy ensemble.
+
+For a commuting Hermitian \(d\)-tuple \(A\), choose an independent isotropic \(d\)-dimensional Cauchy vector \(Z\) with density
+\[
+ p_\varepsilon(z)=\frac{\Gamma((d+1)/2)}{\pi^{(d+1)/2}}
+ \frac{\varepsilon}{(\varepsilon^2+|z|^2)^{(d+1)/2}}.
+\]
+The aid's joint-functional-calculus extension is
+\[
+ \mathbb E_Z f(A_1+Z_1I,\ldots,A_d+Z_dI)
+ =(p_\varepsilon*f)(A_1,\ldots,A_d),
+\]
+conditional on \(A\), with derivative bounds
+\[
+ \|\partial^\gamma(p_\varepsilon*f)\|_\infty
+ \le C_{d,\gamma}\varepsilon^{-|\gamma|}\|f\|_\infty.
+\]
+The derivative exponent is scale sharp. This joint Cauchy density is not generally a product of independent scalar Cauchy laws. For noncommuting tuples, an arbitrary scalar function on \(\R^d\) has no specified joint functional calculus; moreover Cauchy moments prevent an unrestricted finite-expectation polynomial extension. These are obstructions to a naive extension, not a theorem excluding every noncommutative smoothing construction.
+
+For the second question, take self-adjoint \(x_1,\ldots,x_m\) in a tracial von Neumann algebra, with faithful normal trace, and work in \(\mathcal N=W^*(x_1,\ldots,x_m)\). Assume the free difference quotients on the polynomial algebra are well-defined densely defined operators
+\[
+ \partial_i x_j=\delta_{ij}1\otimes1,\qquad
+ J_i=\partial_i^*(1\otimes1)\in L^2(\mathcal N,\tau).
+\]
+Existence of the adjoint values is a hypothesis. Put \(D_i=m_{\mathrm{flip}}\partial_i\), where \(m_{\mathrm{flip}}(a\otimes b)=ba\), and \(D=(D_1,\ldots,D_m)\). The source asks whether there are common polynomials \(H_k\) such that
+\[
+ \sum_i\|D_iH_k(x)-J_i\|_2^2\longrightarrow0,
+ \quad\text{that is }J\in\overline{\operatorname{Ran}D}^{\,L^2(\mathcal N)^m}.
+\]
+It is not enough to approximate each coordinate using unrelated potentials.
+
+The aid's exact Hilbert-space test is
+\[
+ J\in\overline{\operatorname{Ran}D}
+ \quad\Longleftrightarrow\quad
+ \langle J,F\rangle=0\text{ for every }F\in\ker D^*,
+ \qquad
+ \operatorname{dist}(J,\overline{\operatorname{Ran}D})
+ =\|P_{\ker D^*}J\|_2.
+\]
+The kernel uses the actual adjoint domain; this criterion does not itself prove annihilation in the general problem. In one variable, polynomial antiderivatives make the cyclic-gradient range dense in \(L^2(\mathcal N)\), so the assertion holds whenever the conjugate variable exists. For a centered nondegenerate correlated semicircular family with covariance matrix \(\Sigma\succ0\), it holds exactly with
+\[
+ J_i=\sum_j(\Sigma^{-1})_{ij}x_j,\qquad
+ H(X)=\tfrac12\sum_{i,j}(\Sigma^{-1})_{ij}X_iX_j,
+ \qquad D_iH(x)=J_i.
+\]
+No general multivariable closure theorem is claimed from these special cases.
+\subsection{Short English statement}
+The fused record contains two questions. The aid gives exact multivariable Poisson smoothing for commuting tuples using central Cauchy noise, and an adjoint-kernel criterion for cyclic-gradient closure, with one-variable and correlated-semicircular positive cases. Neither is a general noncommutative solution.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002664\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-probability-notes.json}, \texttt{notes[105]}.
+\item AIM, \emph{Free Analysis}, 2006 workshop questions; supplied reference \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}. The verification field says the first question ends on page 1 and the second starts on page 2, with page number 1 attached to ``Q:''; it identifies U+000F as corrupted epsilon and the arrow extraction as a corrupted maps-to symbol. No PDF was accessed here.
+\item Supplied research attempt 1: \texttt{partial\_result}, run status \texttt{open}, rigor label \texttt{proved}, low novelty confidence; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, statement status \texttt{reconstructed\_unverified}, created and updated 14 August 2026. No proposer, original remarks, literature entry, or primary citations for the supplied partial results are given.
+\item The aid is machine generated, not peer reviewed, and explicitly requires independent verification before citation.
+\end{itemize}
+\end{document}

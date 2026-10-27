@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000402}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Conrey asks for the variance, as a function of the shift \(h\), of a polynomial von Mangoldt correlation \(\sum_f\Lambda(f)\Lambda(f+h)\). For monic \(f\in\F_q[T]\), the polynomial von Mangoldt function is \(\Lambda(f)=\deg P\) if \(f=P^m\) for a monic irreducible \(P\) and \(m\ge1\), and zero otherwise. The source gives only \(f\) as the summation subscript: it specifies neither degree nor monicity, the shift set and probability measure, normalization, or limiting regime. Thus no unique variance is defined by the original sentence.
+
+The supplied report explicitly labels the following as a reconstruction. Fix a prime power \(q\) and integer \(n\ge1\), let \(G_n=\{h\in\F_q[T]:\deg h<n\}\), including zero, and let \(Q=q^n\). Set
+\[
+ C_n(h)=\sum_{\substack{f\text{ monic}\\\deg f=n}}\Lambda(f)\Lambda(f+h),\quad
+ \mu=Q^{-1}\sum_{h\in G_n}C_n(h),\quad
+ V=Q^{-1}\sum_{h\in G_n}(C_n(h)-\mu)^2.
+\]
+All shifts are uniform in this definition. The reported mean is \(\mu=Q\). To specify the normalization of its Fourier identity, put \(a(u)=\Lambda(T^n+u)\) for \(u\in G_n\), and for an additive character \(\chi:G_n\to\C^*\) put \(\widehat a(\chi)=\sum_{u\in G_n}a(u)\overline{\chi(u)}\). The report states
+\[
+ V=Q^{-2}\sum_{\chi\ne1}|\widehat a(\chi)|^4.
+\]
+For the uniform nonzero-shift mean and variance
+\[
+ \mu_*=(Q-1)^{-1}\sum_{h\ne0}C_n(h),\qquad
+ V_*=(Q-1)^{-1}\sum_{h\ne0}(C_n(h)-\mu_*)^2,
+\]
+the reported ANOVA decomposition has the explicitly centered form
+\[
+ V=\frac{Q-1}{Q}V_*+
+ \frac{Q-1}{Q^2}(C_n(0)-\mu_*)^2.
+\]
+These formulas concern this reconstructed model, not an unspecified distribution of shifts in the source.
+
+For \(n=2\) over every finite field, the candidate theorem states
+\[
+ C_2(h)=q^2+q(r_q(h)-1),\qquad
+ r_q(h)=\#\{x\in\F_q:h(x)=0\}\quad(h\in G_2).
+\]
+In particular \(r_q(0)=q\). The three classes of shifts are zero, nonzero constants, and nonconstant polynomials of degree one; their respective sizes are \(1,q-1,q(q-1)\), and their correlation values are \(2q^2-q,q^2-q,q^2\). The report gives
+\[
+ V=q(q-1),\qquad V_*=\frac{q^3}{(q+1)^2}.
+\]
+The second variance is centered at its own nonzero-shift mean \(\mu_*\). The higher-degree question remains associated in the report with the nontrivial additive-Fourier fourth moment, rather than a supplied general asymptotic evaluation.
+\subsection{Short English statement}
+The source asks for the variance of a polynomial prime-pair correlation without specifying how to sum or average. Under the report's explicit fixed-degree monic reconstruction, the mean and Fourier formula are exact, and degree two has a complete all-characteristic distribution. Including zero among shifts and excluding it produce different, separately centered variances.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000402\), source code \texttt{catalogue entry}; AIM algebraic number theory corpus, \texttt{aim-algebraic-number-theory-notes.json}, notes[53]. Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0.
+\item AIM workshop \emph{Arithmetic statistics over finite fields and function fields}, Question 24, attributed to Brian Conrey: \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. Original remarks and literature fields are empty. The extracted summation subscript is only \(f\), with stray formatting text; the supplied verification field gives no further detail after ``The extracted record is:''.
+\item Registry dated August 14, 2026: \texttt{partially\_solved}, \texttt{PARTIAL-PROGRESS}; attempt 1 records problem status unknown, partial result, rigor proved, novelty confidence low. The reconstruction, Fourier/ANOVA identities and degree-two candidate theorem are machine-generated research aids, not peer reviewed, requiring independent verification before citation. No additional authoritative citation is supplied.
+\end{itemize}
+\end{document}

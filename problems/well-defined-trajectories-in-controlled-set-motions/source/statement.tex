@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005732}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Omega_0\subset\R^2\) be a bounded initial set. Write \(\operatorname{meas}_2\) for planar Lebesgue measure. For the terminal time \(T\) and effort bound \(M\) appearing in the supplied model, consider a set motion \(t\mapsto\Omega(t)\subset\R^2\), with \(\Omega(0)=\Omega_0\), and a boundary control \(\beta(t,x)\). Whenever the boundary integral is defined, set
+\[
+E(t)=\int_{\partial\Omega(t)}\bigl(1+\beta(t,x)\bigr)\,\dd\sigma(x),
+\]
+where \(\dd\sigma\) denotes boundary arclength measure. The displayed optimization problem in the source is to minimize
+\[
+J=\operatorname{meas}_2\bigl(\Omega(T)\bigr)
+\]
+subject to the initial condition and
+\[
+\beta(t,x)\geq -1,
+\qquad
+E(t)\leq M\quad\text{for every }t\in[0,T].
+\]
+The lower bound on \(\beta\) is imposed on the boundary control; the extract does not specify whether it is interpreted pointwise or almost everywhere.
+
+\emph{Question, conditional on the intended admissible evolution model.} For an optimal motion satisfying these requirements, determine the regularity of the sets \(\Omega(t)\) and their boundaries, and determine whether the trajectories described in the supplied clean statement as orthogonal to \(\partial\Omega(t)\) can always be well defined. At a smooth boundary point, orthogonality means that a trajectory's tangent vector lies in the normal line to the boundary. This describes the geometric meaning only: the extract does not supply the trajectory equation, its parametrization, or the intended meaning of well-definedness.
+
+\emph{Unresolved formulation qualifications.} The supplied extract does not give the evolution law linking \(\beta\) to \(\Omega(t)\), the admissible class of motions or controls, the boundary interpretation for nonsmooth sets, or the admissible ranges of \(T\) and \(M\). Consequently, the displayed constraints alone do not specify the optimization problem completely. In particular, no normal-velocity convention, additional regularity of \(\Omega_0\), or existence or uniqueness requirement for trajectories is imposed here.
+
+The extract also discusses a function \(\phi\) in an unavailable cost formula labelled (1). It explicitly describes the hard-constraint choice
+\[
+\phi(s)=\begin{cases}
+0,&s\leq M,\\
++\infty,&s>M,
+\end{cases}
+\]
+on its unspecified argument domain, and explains that this enforces \(E(t)\leq M\) at every time. Another alternative for \(\phi\) is typographically corrupted in the supplied text and is not reconstructed here. The extract attributes the introduction and sharp-interface derivation of problems of the form (1) to its reference [2], and existence of optimal solutions and Pontryagin-type necessary conditions to its reference [3]. Their hypotheses and bibliographic identities are absent, so these statements do not supply missing hypotheses for the question above.
+\subsection{Short English statement}
+Starting from a bounded planar set, the supplied optimization problem minimizes terminal area while bounding total boundary-control effort at every time. It asks what regularity optimal evolving sets have and whether orthogonal trajectories can always be defined. The evolution law and trajectory construction are missing from the extract, so a complete precise formulation requires further source context. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30005732\), source problem code \texttt{catalogue entry}; supplied complete record, titled ``Well-Defined Trajectories in Controlled Set Motions.'' The record gives proposed year 2023 and names no proposer.
+\item Supplied report citation: \emph{Control Methods in Hyperbolic PDEs} (2024), \emph{Oberwolfach Reports}, pp.\ 2941--3011, DOI 10.4171/owr/2023/52. Supplied source URL and literature reference ``Oberwolfach Report 52/2023'': \url{https://doi.org/10.4171/owr/2023/52}. The background describes these reports as records of mathematical workshops and their open-problem discussions. The cited report was not independently consulted for this draft.
+\item Supplied literature reference: Bianchini and Zizza, \emph{Existence of spiral strategies for blocking fire spreading}, \url{https://arxiv.org/abs/2508.05324}.
+\item Supplied literature assessment dated exactly \texttt{2026-08-22}: the record labels the problem open, states that the report leaves well-definedness of the relevant trajectories open, and states that the later spiral-barrier literature does not establish well-definedness for the general trajectories in the extract. This is supplied dated curation, not an independently verified literature assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels its statement \texttt{corrected\_verified} and supplies an assertion that it was checked against the official report. That assertion is source metadata, not verification performed here. The extract's internal references [2] and [3] are not bibliographically identified in the supplied record.
+\end{itemize}
+\end{document}

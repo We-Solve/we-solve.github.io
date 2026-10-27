@@ -1,0 +1,84 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005277}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Write \(n=d+m\), with \(d,m\) the dimensions appearing in the supplied record, and let \(f=(f_1,\ldots,f_m):\R^d\to\R^m\). For \(x=(x_1,\ldots,x_d)\in\R^d\), set
+\[
+\alpha(x)=(x_1,\ldots,x_d,f_1(x),\ldots,f_m(x))\in\R^n.
+\]
+For \(t\in\R\), define its distance to the nearest integer by
+\[
+\|t\|_{\Z}=\inf_{a\in\Z}|t-a|.
+\]
+The source does not specify the admissible dimension ranges, the regularity or nondegeneracy of \(f\), or the hypotheses on the approximation function \(\psi\).
+
+To express the proposed statement, provisionally interpret denominators as positive integers and take \(\psi:\Z_{\geq1}\to[0,\infty)\). These conventions require confirmation against the source; they are not complete hypotheses for the claimed law. For each integer \(h\geq1\), define
+\[
+A(h)=\left\{x\in\R^d:\ \exists(q_1,\ldots,q_n)\in\{1,\ldots,h\}^n\ \forall j\in\{1,\ldots,n\},\quad
+\|q_j\alpha_j(x)\|_{\Z}\leq\psi(h)\right\}.
+\]
+Thus each coordinate has an independently chosen denominator; the denominators need not be distinct. Define
+\[
+A^*=\limsup_{h\to\infty}A(h)
+=\bigcap_{H=1}^{\infty}\ \bigcup_{h\geq H}A(h).
+\]
+The recorded question asks whether, under suitable nondegeneracy assumptions on \(f\) and any necessary additional hypotheses, these sets are Lebesgue measurable and satisfy
+\[
+\begin{aligned}
+\sum_{h=1}^{\infty}h^{n-1}\psi(h)<\infty
+&\quad\Longrightarrow\quad \lambda_d(A^*)=0,\\
+\sum_{h=1}^{\infty}h^{n-1}\psi(h)=\infty
+&\quad\Longrightarrow\quad \lambda_d(\R^d\setminus A^*)=0,
+\end{aligned}
+\]
+where \(\lambda_d\) denotes \(d\)-dimensional Lebesgue measure. Full measure here means that the complement in the parameter space \(\R^d\) has measure zero. The series is reproduced exactly as supplied. Because the missing assumptions determine the scope and validity of the assertion, this is a formulation template requiring review, rather than a fully specified conjecture.
+
+The original excerpt also proposes a second formulation, described there only as likely to be essentially equivalent. For a rational point displayed as
+\[
+\rho=(a_1/q_1,\ldots,a_n/q_n)\in\Q^n,
+\]
+it writes
+\[
+H(\rho)=\max\{|a_1|,\ldots,|a_n|,|q_1|,\ldots,|q_n|\}.
+\]
+A convention for the rational representations is required to make this a well-defined height of \(\rho\). Subject to that unresolved convention, the alternative approximation sets, interpreted on the same parameterized graph, would be
+\[
+B(h)=\left\{x\in\R^d:\ \exists\rho\in\Q^n,\quad H(\rho)\leq h,\quad
+|\alpha(x)-\rho|<\frac{\psi(h)}{h}\right\}.
+\]
+The norm denoted by \(|\cdot|\) is unspecified. The excerpt asks whether \(\limsup_{h\to\infty}B(h)\) satisfies the same convergence and divergence conclusions. Its restriction to the graph is an interpretation of the surrounding context that requires confirmation; the excerpt itself writes the set using \(\alpha\) without explicitly restating its domain. Equivalence of the two formulations is not supplied as a theorem.
+
+The excerpt identifies the case \(n=1\) with Khinchin's theorem. This attribution is retained as a source claim: the omitted hypotheses on \(\psi\) prevent a precise identification with a particular version of that theorem.
+\subsection{Short English statement}
+The problem asks for a measure-zero or full-measure criterion for points on the graph of \(f\) whose coordinates admit simultaneous approximation with separately chosen bounded denominators. The proposed criterion is convergence or divergence of \(\sum_{h\geq1}h^{n-1}\psi(h)\). Essential assumptions on \(f\) and \(\psi\) are missing. A rational-height formulation is also supplied as a possible equivalent version, with unresolved representation and norm conventions.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, supplied record with permanent UnsolvedMath ID \(30005277\), title ``Zero--One Laws in Simultaneous Diophantine Approximation,'' source problem code \texttt{catalogue entry}. The supplied collection is ``Oberwolfach Reports Open Problems,'' drawn from workshop reports and their open-problem discussions. No individual proposer is identified; the recorded proposed year is \(2022\).
+\item Supplied source citation: \emph{Analytic Number Theory} (2023), \emph{Oberwolfach Reports}, DOI \texttt{10.4171/owr/2022/50}, pp.\ 2895--2960. \url{https://doi.org/10.4171/owr/2022/50}. The citation year \(2023\) and the recorded proposed year \(2022\) are retained as supplied.
+\item Supplied literature source: ``Oberwolfach Report 50.'' \url{https://ems.press/content/serial-article-files/46986}.
+\item Supplied literature assessment dated exactly \texttt{2026-08-22}: the proposed law is labeled open, with no later resolution identified by the supplied curation. This is supplied dated curation, not an independently verified assessment of the literature or current status.
+\item The registry labels the statement \texttt{corrected\_verified} and states that it was reconstructed and checked against the official report. This is supplied verification metadata; no independent source consultation or mathematical verification is claimed here.
+\end{itemize}
+\end{document}

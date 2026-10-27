@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003481}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(k,d\geq 1\) be integers. A standard nonsingular \(k\)-component Gaussian mixture on \(\R^d\) has density
+\[
+f(x)=\sum_{i=1}^{k}w_i\frac{\exp\!\left(-\tfrac12(x-\mu_i)^{\mathsf T}\Sigma_i^{-1}(x-\mu_i)\right)}{(2\pi)^{d/2}(\det\Sigma_i)^{1/2}},
+\qquad w_i>0,\quad \sum_{i=1}^{k}w_i=1,
+\]
+where \(\mu_i\in\R^d\) and each \(\Sigma_i\) is a real symmetric positive definite \(d\times d\) matrix. Write \(\mathcal G_{k,d}\) for this class. These are explicit working conventions: the supplied record does not specify covariance nonsingularity, whether zero weights or repeated components are permitted, or whether \(k\) denotes a displayed representation or the smallest possible number of components.
+
+Under the strict-local-maximum convention, define
+\[
+\operatorname{Modes}_{\mathrm{str}}(f)=\left\{x\in\R^d:\ \exists r>0\ \forall y\in\R^d,\quad 0<\lVert y-x\rVert<r\ \Longrightarrow\ f(y)<f(x)\right\},
+\qquad N_{\mathrm{str}}(f)=\#\operatorname{Modes}_{\mathrm{str}}(f).
+\]
+An infinite count is recorded as \(+\infty\). The source does not specify whether modes must be strict, isolated, or nondegenerate, or whether all local maxima are counted. Consequently, the following formulation is conditional on the strict-local-maximum convention and the nonsingular mixture class above.
+
+\begin{enumerate}
+\item Determine the possible mode counts and their sharp upper bound:
+\[
+\mathcal A_{k,d}=\{N_{\mathrm{str}}(f):f\in\mathcal G_{k,d}\},
+\qquad M_{k,d}=\sup_{f\in\mathcal G_{k,d}}N_{\mathrm{str}}(f).
+\]
+Determine whether the supremum is finite and attained. The source also asks for the ``distribution'' of the number of modes. If this means a probability distribution, a probability law on mixture parameters must first be supplied; none is specified. The set \(\mathcal A_{k,d}\) describes attainable counts, not a probability distribution.
+\item For the componentwise isotropic interpretation, let
+\[
+\mathcal G^{\mathrm{iso}}_{k,d}=\{f\in\mathcal G_{k,d}:\Sigma_i=\sigma_i^2I_d,\ \sigma_i>0\text{ for every }i\}.
+\]
+Is it true that
+\[
+\forall d\geq1\ \exists C_d\in(0,\infty)\ \forall k\geq1\ \forall f\in\mathcal G^{\mathrm{iso}}_{k,d},\qquad N_{\mathrm{str}}(f)\leq C_d k?
+\]
+Here \(C_d\) must be independent of the weights, means, variances, and \(k\). The source does not say whether isotropy instead requires a common variance \(\sigma_1=\cdots=\sigma_k\); that narrower version must be distinguished from the displayed version.
+\item Give explicit, verifiable sufficient conditions on the mixture parameters ensuring \(N_{\mathrm{str}}(f)\leq k\). The source specifies neither a required form of these conditions nor a requirement that they be necessary.
+\item Formulate a Gaussian analogue of ``strong modes.'' The supplied record gives no definition of strong modes or reference identifying the intended antecedent notion, so this part remains a request for a definition and cannot yet be stated as a unique mathematical assertion.
+\end{enumerate}
+
+The supplied registry labels the problem partially solved. Its dated curation reports advances in mode-count bounds and constructions, says the full distribution and sharp maximum remain open, and reports that a binomial maximum conjecture is false already for three bivariate heteroscedastic components. These are supplied literature assessments, not independently verified facts in this draft. The record supplies no formula or precise hypotheses for that binomial conjecture.
+\subsection{Short English statement}
+For a mixture of \(k\) Gaussian distributions in \(\R^d\), determine the possible numbers of modes and the sharp maximum. In fixed dimension, ask whether isotropic mixtures have at most \(C_d k\) modes, find checkable conditions guaranteeing at most \(k\) modes, and define an appropriate Gaussian notion of a strong mode. The meaning of mode, the isotropic covariance convention, and any probability law underlying ``distribution'' require clarification. The supplied partially solved status is dated curation requiring independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, with \texttt{catalog/problems.json} as the supplementary registry; supplied complete record for permanent UnsolvedMath ID \(30003481\), title \emph{Mode Counts of Gaussian Mixtures}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is recorded as 2017.
+\item Supplied report citation: \emph{Algebraic Statistics (2018)}, Oberwolfach Reports, DOI 10.4171/owr/2017/20, pp.\ 1207--1279. \url{https://doi.org/10.4171/owr/2017/20}. The record attributes the problem to workshop open-problem discussions. Its title year 2018 and its recorded proposed year 2017 are retained without resolving their relationship.
+\item Supplied literature source: ``Kabata Matsumoto and Okuno counterexample.'' \url{https://arxiv.org/abs/2608.01776}.
+\item Supplied literature source: ``Nguyen on mode-count bounds.'' \url{https://arxiv.org/abs/2605.15531}.
+\item Supplied literature source: ``Améndola Engström and Haase.'' \url{https://arxiv.org/abs/1702.05066}.
+\item Literature assessment date, copied exactly: \texttt{2026-08-21}. This is supplied dated curation derived from the supplied OWR curation, not independently verified source inspection. It labels the problem partially solved, reports progress on bounds and constructions, describes the full distribution and sharp maximum as open, and reports a counterexample to a binomial maximum conjecture for three bivariate heteroscedastic components. The cited claims and time-sensitive status require independent verification.
+\item The supplied statement status is \texttt{corrected\_verified}; its accompanying explanation says that notation, typography, and sentence structure were repaired while mathematical content was preserved. This registry label does not establish independent mathematical verification of the present draft.
+\end{itemize}
+\end{document}

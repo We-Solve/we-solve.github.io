@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005450}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks about persistence of a maximum-degree vertex in preferential-attachment models with vertex removal. It does not specify an attachment rule, a removal rule, a parameter range, an initial graph, or a convention for ties. Thus it supplies a family of questions rather than a fully specified probabilistic assertion.
+
+For a specified discrete-time model, let \((G_n)_{n\geq 0}\) be its random graph process, with vertex identities retained across time. Write \(V_n=V(G_n)\), let \(d_n(v)\) denote the degree of a present vertex under the model's degree convention, and, whenever \(V_n\neq\varnothing\), define
+\[
+M_n=\left\{v\in V_n:d_n(v)=\max_{u\in V_n}d_n(u)\right\}.
+\]
+One possible precise meaning of persistence is the event
+\[
+\mathcal P=\left\{\exists N\geq0\ \exists v\in V_N\ \forall n\geq N:\ v\in M_n\right\}.
+\]
+This event requires that the same vertex remain present and have maximum degree at every sufficiently late time, while allowing ties. If instead the intended object is a single leader, the model must specify a rule selecting \(L_n\in M_n\). Provided this leader is defined at every sufficiently late time, eventual persistence and infinitely many identity changes are respectively
+\[
+\mathcal P_L=\left\{\exists N\geq0\ \exists v\ \forall n\geq N:\ L_n=v\right\},
+\qquad
+\mathcal C_L=\left\{L_{n+1}\neq L_n\text{ for infinitely many }n\right\}.
+\]
+The source question is to determine, for the intended removal models and parameter values, whether the maximum-degree vertex eventually persists or its identity changes infinitely often. Whether this asks for an almost-sure dichotomy, event probabilities, or a classification across models is unspecified. The displayed events are candidate formalizations requiring these choices; the source does not establish their intended equivalence to its wording. Empty graphs, extinction, and any continuous-time interpretation also require explicit conventions.
+
+The original excerpt additionally lists a question about the relation between local limits of preferential-attachment models and a ``Bernoulli model.'' Neither that model nor the desired relation or mode of convergence is specified, so no precise secondary assertion can be extracted.
+
+The adjacent graph-distance passage presents, as background, a theorem for \(\mathrm{PA}_n(m,\delta)\) with \(m\geq2\) and fixed \(\delta>0\): for vertices \(o_1,o_2\) chosen independently and uniformly from \([n]=\{1,\ldots,n\}\), there exist \(0<c_1\leq c_2<\infty\) such that
+\[
+\Pr\!\left(c_1\log n\leq \operatorname{dist}_{\mathrm{PA}_n(m,\delta)}(o_1,o_2)\leq c_2\log n\right)\longrightarrow1.
+\]
+Here graph distance is the shortest-path distance; the excerpt also introduces \(\operatorname{diam}(G)\), the graph diameter. The excerpt does not define this preferential-attachment model or specify disconnected-graph conventions. This supplied background statement does not furnish the missing hypotheses for the removal question.
+\subsection{Short English statement}
+Determine whether a maximum-degree vertex eventually remains the leader in preferential-attachment graphs with vertex removal, or whether the leader changes infinitely often. A precise statement requires the attachment and removal mechanisms, parameter ranges, probability quantifiers, and conventions for ties and extinction. The accompanying Bernoulli-model question is also underspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005450\), title \emph{Persistent Hubs under Preferential-Attachment Removal}, source problem code \texttt{catalogue entry}, Oberwolfach Reports Open Problems collection. The record gives proposed year 2023 and names no individual proposer.
+\item \emph{MATRIX-MFO Tandem Workshop: Stochastic Reinforcement Processes and Graphs} (2023), Oberwolfach Reports, pp.~639--679, DOI 10.4171/owr/2023/12. Supplied original report reference: \url{https://doi.org/10.4171/owr/2023/12}.
+\item Supplied literature reference: Heydenreich--Lodewijks, preferential attachment with vertex death, \url{https://arxiv.org/abs/2503.08675}.
+\item Supplied literature reference: universality of preferential-attachment local limits, \url{https://arxiv.org/abs/2212.05551}.
+\item Literature checked at: \texttt{2026-08-22}. This is supplied dated curation, not an independently verified assessment. The record labels the problem \texttt{partially\_solved} and reports that special removal mechanisms and several preferential-attachment local limits have been analyzed, including a 2025 vertex-death model, while the general persistence and Bernoulli-limit questions remain unresolved. The supplied background explicitly calls for independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that it was checked against the official Oberwolfach report. This is a supplied verification claim, not verification performed for this draft.
+\end{itemize}
+\end{document}

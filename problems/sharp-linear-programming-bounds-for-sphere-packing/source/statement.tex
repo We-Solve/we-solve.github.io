@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005091}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each integer \(n\geq 1\), let \(B_n=\{x\in\R^n:\|x\|\leq 1\}\), where \(\|\cdot\|\) is the Euclidean norm, and let \(v_n=\operatorname{vol}(B_n)\). A packing of unit balls has a center set \(C\subset\R^n\) satisfying \(\|c-c'\|\geq 2\) for distinct \(c,c'\in C\). Define its upper density by
+\[
+\overline\delta(C)=\limsup_{R\to\infty}\frac{v_n\,\#(C\cap[-R,R]^n)}{(2R)^n},
+\qquad
+\Delta_n=\sup_C\overline\delta(C).
+\]
+Here the supremum ranges over all such center sets.
+
+To make the first question precise in a standard Cohn--Elkies formulation, use the Fourier transform convention
+\[
+\widehat f(y)=\int_{\R^n}f(x)e^{-2\pi i\langle x,y\rangle}\,\dd x.
+\]
+Call a real, even Schwartz function \(f:\R^n\to\R\) admissible if
+\[
+\widehat f(0)>0,\qquad \widehat f(y)\geq 0\quad(y\in\R^n),\qquad f(x)\leq 0\quad(\|x\|\geq 2).
+\]
+Such a function gives the Cohn--Elkies upper bound \(\Delta_n\leq v_n f(0)/\widehat f(0)\).
+
+\textbf{Question 1.} Do there exist a real number \(\lambda\) with \(0.604<\lambda<0.605\), an integer \(n_0\), a real sequence \((\varepsilon_n)_{n\geq n_0}\) tending to zero, and an admissible function \(f_n\) in each dimension \(n\geq n_0\), such that
+\[
+\Delta_n\leq v_n\frac{f_n(0)}{\widehat f_n(0)}\leq 2^{-(\lambda+\varepsilon_n)n}\qquad(n\geq n_0)?
+\]
+This expresses the supplied target \(2^{-(\lambda+o(1))n}\) as an upper bound obtainable by the method. It does not assert that \(\lambda\) is the exact exponential rate of the optimal Cohn--Elkies bound. The source record does not specify whether that stronger interpretation is intended, nor does it supply a precise admissible function class; the Schwartz formulation above is an explicit conventional interpretation.
+
+For a full-rank lattice \(L\subset\R^4\), let \(\operatorname{covol}(L)\) be the volume of a fundamental parallelepiped and let \(m(L)=\min\{\|x\|:x\in L\setminus\{0\}\}\). Define
+\[
+\Delta_4^{\mathrm{lat}}=\sup_{\substack{L\subset\R^4\text{ full-rank lattice}\\m(L)\geq 2}}\frac{v_4}{\operatorname{covol}(L)}.
+\]
+\textbf{Question 2.} Is the strengthened three-point lattice upper bound referred to in the supplied record sharp in dimension \(4\)? If \(U_4^{\mathrm{str},3}\) denotes the optimal upper-bound value of that particular construction, the intended sharpness question is schematically
+\[
+U_4^{\mathrm{str},3}=\Delta_4^{\mathrm{lat}}\,?
+\]
+The record supplies neither the optimization constraints defining this strengthened bound nor its value. Consequently, \(U_4^{\mathrm{str},3}\) is only a placeholder for the source-specific construction, and this second question cannot be made fully explicit from the supplied record alone. The original excerpt refers to ``it'' and ``this new bound'' without including their antecedent definitions; their identification with the two methods above comes from the supplied clean statement. The supplied curation describes both questions as conjectural and supported by computations, which are not proofs.
+\subsection{Short English statement}
+The first question asks whether Cohn--Elkies sphere-packing bounds can achieve an asymptotic decay rate \(2^{-(\lambda+o(1))n}\) for some \(0.604<\lambda<0.605\). The second asks whether a particular strengthened three-point bound equals the optimal lattice packing density in dimension \(4\); its defining constraints are missing. Both are labeled open in the supplied dated curation, without independent verification here.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005091\), title \emph{Sharp Linear-Programming Bounds for Sphere Packing}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is recorded as \(2022\).
+\item Supplied report citation: \emph{Conic Linear Optimization for Computer-Assisted Proofs} (2023), Oberwolfach Reports, pp.\ 1039--1089, DOI \texttt{10.4171/owr/2022/20}. \url{https://doi.org/10.4171/owr/2022/20}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The record retains the quoted conjectural passage as context, but not the antecedent definitions needed to identify its bounds fully.
+\item Supplied literature source: ``Oberwolfach Report 20/2022.'' \url{https://doi.org/10.4171/owr/2022/20}.
+\item Supplied literature source: ``Afkhami-Jeddi et al., high-dimensional sphere packing.'' \url{https://doi.org/10.1007/JHEP12(2020)066}. No more detailed bibliographic attribution or problem-specific result from this reference is supplied.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problems open and states that the asymptotic \(\lambda\) bound and dimension-\(4\) lattice sharpness remain conjectural, with computational support but no proof. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; its status and cited claims require independent checking.
+\item The supplied statement status is \texttt{corrected\_verified}, accompanied by a claim that the clean statement was checked against the official report and preserves its hypotheses, notation, and target. This verification claim is reported as source metadata and has not been independently checked here.
+\end{itemize}
+\end{document}

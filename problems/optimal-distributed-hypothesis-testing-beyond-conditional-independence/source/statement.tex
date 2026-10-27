@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005055}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(P_n\) and \(Q_n\) denote the joint laws of observations available at separate terminals under the null hypothesis \(H_0\) and the alternative hypothesis \(H_1\), respectively. A distributed testing protocol \(\pi_n\) specifies local processing, permitted communication, and a final decision \(D_n\in\{0,1\}\), where \(D_n=0\) accepts \(H_0\). Its error probabilities are
+\[
+\alpha_n(\pi_n)=\Pr_{P_n,\pi_n}\{D_n=1\},\qquad
+\beta_n(\pi_n)=\Pr_{Q_n,\pi_n}\{D_n=0\}.
+\]
+The probabilities include any randomization allowed in the protocol. Given a specified admissible protocol class \(\mathcal A_n\) and a specified tolerance \(\varepsilon\in[0,1]\), a precise finite-experiment optimality target would be
+\[
+\beta_n^*(\varepsilon;P_n,Q_n,\mathcal A_n)
+=\inf\bigl\{\beta_n(\pi_n):\pi_n\in\mathcal A_n,\ \alpha_n(\pi_n)\leq\varepsilon\bigr\}.
+\]
+This is a parameterized way to express an error tradeoff; the supplied record does not specify this particular criterion, the classes \(\mathcal A_n\), or an asymptotic criterion.
+
+A binary symmetric double source with crossover parameter \(p\in[0,1]\) is the law \(B_p\) of a pair \((X,Y)\in\{0,1\}^2\) given by
+\[
+X\sim\operatorname{Bernoulli}(1/2),\qquad
+Z\sim\operatorname{Bernoulli}(p),\qquad
+X\perp Z,\qquad Y=X\oplus Z,
+\]
+where \(\oplus\) is addition modulo \(2\). Equivalently,
+\[
+B_p(x,y)=
+\begin{cases}
+(1-p)/2,&x=y,\\
+p/2,&x\ne y.
+\end{cases}
+\]
+Thus a pair of single-observation hypotheses of the named type can be written \(H_0:B_p\) and \(H_1:B_q\). The record supplies neither parameter restrictions for the intended problem nor a complete sampling and communication model; the interval above defines the source family rather than asserting the intended parameter range.
+
+\textbf{Source problem, with unresolved specifications.} Determine an optimal distributed hypothesis-testing scheme for settings beyond testing against independence or conditional independence. In particular, determine whether the Shimokawa--Han--Amari scheme is optimal when both hypotheses are binary symmetric double sources. To turn this request into a uniquely specified optimization problem, the observation model, admissible communication protocols and resource bounds, error criterion, and any asymptotic quantifiers must be supplied. The record does not define the Shimokawa--Han--Amari construction or the conditional-independence setting being excluded.
+
+\textbf{Supplied qualification.} The dated curation reports that, for product binary-symmetric double sources, a sequential scheme strictly improves the Shimokawa--Han--Amari scheme, disproving its optimality there, while the optimal scheme in the general setting remains unresolved. This is a supplied assessment, not an independently verified result in this draft. The record does not specify the product construction, parameter regimes, communication budgets, or performance criterion for that improvement. Consequently, the product-source qualification must not be silently identified with every interpretation of the single-pair question above.
+\subsection{Short English statement}
+Determine the best distributed hypothesis-testing performance beyond independence and conditional-independence alternatives, including the scope of optimality of the Shimokawa--Han--Amari scheme for binary symmetric double sources. The supplied curation reports a strict improvement for product sources and labels the broader problem partially solved. The communication model, optimization criterion, and precise scope of that improvement remain unspecified in this record.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(30005055\), source problem code \texttt{catalogue entry}, title ``Optimal Distributed Hypothesis Testing beyond Conditional Independence.'' Registry locations designated by the project are \texttt{data/unsolvedmath/problems.json} and \texttt{catalog/problems.json}; this draft uses the supplied complete record without inspecting those files.
+\item Supplied report citation: \emph{New Mathematical Techniques in Information Theory (2023)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2022/14}, pp.\ 683--707. \url{https://doi.org/10.4171/owr/2022/14}. The literature-source list labels this ``Oberwolfach Report 14/2022.'' The supplied proposed year is 2022; the citation's 2023 designation is retained without reconciliation.
+\item Shun Watanabe, \emph{On the Suboptimality of Random Binning for Distributed Hypothesis Testing}, as named in the supplied original statement. The supplied literature-source label is ``Watanabe, suboptimality of random binning'': \url{https://arxiv.org/abs/2201.13005}. No proposer is identified in the registry record.
+\item Literature assessment date: \texttt{2026-08-22}. This is supplied dated curation, not independently verified. It reports a strict sequential-scheme improvement over Shimokawa--Han--Amari for product binary-symmetric double sources and an unresolved general optimum; the supplied status is \texttt{partially\_solved}. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}; its verification note says the clean statement was checked against the official Oberwolfach report and preserves its hypotheses, notation, and mathematical target. That verification claim is part of the supplied provenance and was not independently checked for this draft.
+\end{itemize}
+\end{document}

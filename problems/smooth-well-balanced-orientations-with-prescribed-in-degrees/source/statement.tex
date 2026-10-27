@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3000080}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G=(V,E)$ be a finite undirected graph and let
+\[
+ T\subseteq\{v\in V:\deg_G(v)\text{ is odd}\}.
+\]
+An orientation $D$ assigns a direction to each edge. Write $d_D^-(v)$ and $d_D^+(v)$ for the in-degree and out-degree. It is smooth if
+\[
+ |d_D^-(v)-d_D^+(v)|\leq1\qquad(v\in V).
+\]
+For distinct $u,v$, let $\lambda_G(u,v)$ be the maximum number of edge-disjoint undirected $u$--$v$ paths, and let $\lambda_D(u,v)$ be the maximum number of arc-disjoint directed paths from $u$ to $v$. The orientation is well-balanced if
+\[
+ \lambda_D(u,v)\geq\left\lfloor\frac{\lambda_G(u,v)}2\right\rfloor
+ \qquad\text{for every ordered pair }u\ne v.
+\]
+Thus the directed requirement applies in both orders; no vertex-connectivity interpretation is used.
+
+The problem is to characterize the pairs $(G,T)$ for which an orientation exists satisfying smoothness, well-balancedness, and
+\[
+ d_D^-(v)<d_D^+(v)\qquad(v\in T).
+\]
+By smoothness and the odd degree assumption this last condition is equivalently $d_D^-(v)=(\deg_G(v)-1)/2$ for $v\in T$. There is no corresponding prescribed sign at odd-degree vertices outside $T$, and $T$ need not contain every odd-degree vertex.
+
+Finiteness is the standard degree/connectivity setting used here; the isolated source does not explicitly discuss infinite graphs or whether parallel edges and loops are permitted. Local edge-connectivity is conventionally an off-diagonal quantity, so its displayed all-$u,v$ phrase is stated above for distinct vertices. These graph conventions require confirmation; no simplicity or algorithmic-time requirement is silently imposed.
+\subsection{Short English statement}
+Determine exactly when one can orient a graph so every vertex is nearly degree-balanced, every ordered pair retains at least half its undirected local edge-connectivity rounded down, and the specified odd-degree vertices have one more outgoing than incoming edge. The supplied assessment records partial progress through a general orientation-with-bounds framework but supplies no exact theorem for arbitrary $T$. Its archived Egres status is not a current resolution authority.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath permanent ID 3000080, source code catalogue entry, ``Smooth well-balanced orientations with prescribed in-degrees.'' Registry curation and metadata: Ulam AI and UnsolvedMath Contributors, CC BY 4.0; updated 2026-08-06.
+\item Egres Open, \emph{List of open problems}, indexed page ``Smooth well-balanced orientations with prescribed in-degrees'': \url{https://oldlemon.cs.elte.hu/egres/open/List_of_open_problems}. Supplied HTML extraction accessed 2026-07-29. The archived index classifies the page open; current status requires review. Redistribution rights are NEEDS\_REVIEW because no license was displayed in the archived footer.
+\item The supplied partial-progress summary gives no author, theorem, or complete reference for its orientation-with-bounds comparison. No missing citation is invented.
+\end{itemize}
+\end{document}

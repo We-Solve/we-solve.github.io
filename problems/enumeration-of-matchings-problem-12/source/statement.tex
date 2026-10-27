@@ -1,0 +1,50 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800341}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer \(n\geq 1\), define the Aztec diamond of order \(n\) to be the union of unit squares with centres \((i+\tfrac12,j+\tfrac12)\), where \(i,j\in\Z\) and
+\[
+\left|i+\tfrac12\right|+\left|j+\tfrac12\right|\leq n.
+\]
+Its domino adjacency graph has these squares as vertices, with an edge between two squares sharing a side. Colour a square black when \(i+j\) is even and white otherwise, and denote the two vertex classes by \(B_n\) and \(W_n\). An edge represents a vertical domino when its two squares are vertically adjacent, and a horizontal domino otherwise.
+
+The source uses a nonsingular signed bipartite adjacency matrix \(K_n\), with rows indexed by \(B_n\) and columns indexed by \(W_n\). Nonadjacent pairs have entry zero, horizontal domino edges have entry \(1\), and vertical domino edges have entries \(1\) or \(-1\), with the source specifying that ``every other vertical domino has its sign flipped.'' The intended signing is described as a Kasteleyn signing. The supplied record does not give a coordinate rule or diagram specifying this alternating vertical signing. Consequently, the exact matrix convention remains an unresolved part of the formulation; the assertion below concerns the source's intended matrix, once that convention is specified, and is not an assertion for every Kasteleyn signing.
+
+For that intended choice of \(K_n\), the requested assertion is
+\[
+\forall n\in\Z_{\geq 1},\qquad
+\sum_{w\in W_n}\sum_{b\in B_n}(K_n^{-1})_{w,b}
+=\frac{(n-1)(n+3)}{2}-2^{n-1}+2.
+\]
+The source reports that this formula works for \(n=1,\ldots,8\); this is a supplied computational qualification, not an independently verified check here.
+\subsection{Short English statement}
+Propp asks for a proof of an explicit formula for the sum of all entries of the inverse signed adjacency matrix of an Aztec diamond, for every positive integer order. The precise alternating vertical-edge sign convention must be recovered before this becomes a fully specified matrix identity. The registry labels the problem open; that label is supplied source data.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800341\), source code \texttt{catalogue entry}, title ``Enumeration of Matchings --- Problem 12.'' The supplied record attributes the problem to Propp, with proposed year \(1998\), and labels it \texttt{open}. Its creation and update timestamps are both \texttt{2026-10-16T14:00:00Z}; its upstream revision is \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Propp, \emph{Twenty Open Problems in Enumeration of Matchings} (1998), Problem 12 (\#12), \url{https://arxiv.org/abs/math/9801060}. The supplied provenance records access on \(2026\text{-}10\text{-}16\) and extraction by \texttt{arxiv\_latex}. These are supplied provenance claims; the source was not independently visited or verified for this draft.
+\item The supplied problem text mentions Greg Kuperberg's thoughts on inverses of Kasteleyn matrices and suggests that representation-theory methods might be useful. It supplies no separate citation for those remarks; they are background suggestions, not additional mathematical assertions.
+\end{itemize}
+\end{document}

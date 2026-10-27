@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800418}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix an integer \(N\geq 1\) and a prime power \(q\), and put
+\[
+X=\PP^N(\F_q),\qquad m=\#X=1+q+\cdots+q^N.
+\]
+The supplied excerpt does not define its graph and averaging notation. For this draft, use the following conventional interpretations, which require confirmation against the source context. For a positive integer \(d\), let \(\operatorname{End}_d^N(\F_q)\) denote the set of degree-\(d\) morphisms \(f:\PP^N\to\PP^N\) defined over \(\F_q\). Such a morphism is represented by \(N+1\) homogeneous degree-\(d\) polynomials over \(\F_q\) having no common zero in \(\PP^N(\overline{\F}_q)\), with tuples identified under multiplication by a common nonzero scalar. Distinct morphisms are counted separately even when they induce the same function on \(X\).
+
+For a function \(g:X\to X\), let \(\Gamma_g\) be the directed graph with vertex set \(X\) and one edge \(x\to g(x)\) for each \(x\in X\). Let \(\operatorname{Comp}(\Gamma_g)\) count connected components after forgetting edge directions. For an integer \(m\geq1\), define the uniform random-function average by
+\[
+\operatorname{Comp}_{\mathrm{avg}}(m)
+=\frac{1}{m^m}\sum_{g:\{1,\ldots,m\}\to\{1,\ldots,m\}}
+\operatorname{Comp}(\Gamma_g).
+\]
+For an endomorphism \(f\), its graph means the graph of its restriction to \(X\).
+
+Under these interpretations, the supplied Question 41 asks whether
+\[
+\frac{1}{\#\operatorname{End}_d^N(\F_q)}
+\sum_{f\in\operatorname{End}_d^N(\F_q)}
+\operatorname{Comp}(\Gamma_f)
+=\operatorname{Comp}_{\mathrm{avg}}(m)+O(1)
+\qquad(d\to\infty).
+\]
+With \(N\) and \(q\) fixed as stated, the literal bounded-error formulation is that there exist \(C_{N,q}\geq0\) and \(d_0(N,q)\geq1\) such that, for every integer \(d\geq d_0(N,q)\),
+\[
+\left|
+\frac{1}{\#\operatorname{End}_d^N(\F_q)}
+\sum_{f\in\operatorname{End}_d^N(\F_q)}
+\operatorname{Comp}(\Gamma_f)
+-\operatorname{Comp}_{\mathrm{avg}}(m)
+\right|\leq C_{N,q}.
+\]
+The excerpt does not specify whether the error bound must instead be uniform in \(N\) or \(q\). Because the vertex set is fixed in the stated limit, the intended strength of this comparison requires source-context review; no uniformity or alternative limiting regime is imposed here.
+\subsection{Short English statement}
+For fixed projective dimension \(N\) and finite field \(\F_q\), compare the average number of graph components of degree-\(d\) projective endomorphisms with the average for uniformly chosen functions on the same number of points, asking for bounded error as \(d\to\infty\). The notation and intended uniformity of the bound require confirmation. The registry labels this question open; that label is supplied metadata, not an independently verified assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800418\), exact source problem code \texttt{catalogue entry}, title ``Open Problems in Arithmetic Dynamics --- Question 41.'' The supplied record attributes the problem to Benedetto, DeMarco, Ingram, Jones et al., with proposed year 2018 and status \texttt{open}.
+\item Supplied source: Benedetto, DeMarco, Ingram, Jones et al., \emph{Current Trends and Open Problems in Arithmetic Dynamics} (2018), Question 41, \url{https://arxiv.org/abs/1806.04980}. The provenance records access on 2026-10-16 and extraction method \texttt{arxiv\_latex}. These are supplied provenance details; the source and current mathematical status have not been independently verified for this draft.
+\end{itemize}
+\end{document}

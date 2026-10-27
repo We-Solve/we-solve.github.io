@@ -1,0 +1,85 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004506}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Write \(\|\cdot\|\) for the Euclidean norm. For an integer \(d\geq1\), let \(\mathcal S(\R^d;\R)\) denote the real-valued smooth functions whose derivatives decay faster than every inverse polynomial: for every multi-index \(\alpha\) and every integer \(N\geq0\),
+\[
+\sup_{z\in\R^d}(1+\|z\|)^N|\partial^\alpha h(z)|<\infty.
+\]
+For the conditional formulation below, use the Fourier-transform convention
+\[
+\widehat h(\xi)=\int_{\R^d}h(z)e^{-2\pi i\langle z,\xi\rangle}\,\dd z.
+\]
+The supplied record does not specify this normalization. Its compatibility with the intended statement, particularly the numerical thresholds in the second conjecture, requires source review.
+
+A standard precise interpretation of the linear-programming bound is as follows. For each integer \(n\geq1\), put
+\[
+\mathcal A_n=\left\{g\in\mathcal S(\R^n;\R):
+\begin{array}{l}
+\widehat g(0)>0,\\
+\widehat g(\xi)\in[0,\infty)\quad\text{for every }\xi\in\R^n,\\
+g(x)\leq0\quad\text{whenever }\|x\|\geq1
+\end{array}\right\}
+\]
+and define
+\[
+L_n=\operatorname{vol}_n\bigl(\{x\in\R^n:\|x\|\leq\tfrac12\}\bigr)
+\inf_{g\in\mathcal A_n}\frac{g(0)}{\widehat g(0)}.
+\]
+Here \(\operatorname{vol}_n\) is Lebesgue volume. This supplies an explicit interpretation of the optimized linear-programming upper bound for the density of packings by congruent Euclidean balls; the record itself does not define the admissible class or optimization.
+
+\textbf{First supplied conjecture.} Under this interpretation, there is a constant \(\lambda>0\), reported numerically as \(\lambda\approx0.6044\), such that
+\[
+L_n=2^{-(\lambda+\varepsilon_n)n},\qquad \varepsilon_n\longrightarrow0
+\quad(n\longrightarrow\infty\text{ through positive integers}).
+\]
+Equivalently, \(-n^{-1}\log_2 L_n\to\lambda\). The supplied decimal approximation does not specify an exact value, a rigorous interval, or an error tolerance for \(\lambda\); this numerical part of the target therefore remains incompletely specified.
+
+\textbf{Second supplied conjecture.} There exists
+\[
+f\in\mathcal S(\R^2\times\R^2;\R),\qquad f\not\equiv0,
+\]
+such that
+\[
+f(0,0)=0,\qquad \widehat f=-f,
+\]
+and, for every \(x,y\in\R^2\),
+\[
+\left(\|x\|^2-\|y\|^2\in2\Z\ \text{ and }\
+\|x\|^2+\|y\|^2\geq\frac43\right)
+\quad\Longrightarrow\quad f(x,y)\geq0.
+\]
+The Fourier transform here acts on all four real coordinates, using the convention above. The boundary \(\|x\|^2+\|y\|^2=4/3\) is included. No sign condition away from the displayed set, and no separate radiality assumption, is supplied. The record presents both conjectures together without asserting an equivalence or implication between them.
+\subsection{Short English statement}
+The record proposes an asymptotic exponent near \(0.6044\) for the optimized linear-programming sphere-packing bound, together with the existence of a nonzero real Schwartz function on \(\R^2\times\R^2\) satisfying a Fourier eigenvalue equation and the stated restricted nonnegativity condition. The exact exponent and intended Fourier normalization require clarification. Both claims are supplied as conjectures, and this statement-only draft requires human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(30004506\), title \emph{Sphere-Packing Bounds and Fourier Eigenfunction Constructions}, source problem code \texttt{catalogue entry}, collection \emph{Oberwolfach Reports Open Problems}. The record supplies proposed year \(2020\), identifies no proposer, labels the problem \texttt{open}, and labels its statement \texttt{corrected\_verified}. These are supplied registry annotations, not independent verification.
+\item Supplied report citation: \emph{Automorphic Forms and Arithmetic (2021)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2020/26}, pp.~1317--1383. \url{https://doi.org/10.4171/owr/2020/26}. The supplied background attributes the collection to workshop open-problem discussions documented in Oberwolfach Reports.
+\item Supplied literature source: \emph{High-dimensional sphere packing and the modular bootstrap}. \url{https://doi.org/10.1007/JHEP12(2020)066}.
+\item Supplied literature source: \emph{Henry Cohn modular-bootstrap status page}. \url{https://cohn.mit.edu/modular-bootstrap/}.
+\item Supplied literature assessment, checked \texttt{2026-08-22}: status \texttt{open}. The supplied assessment says that numerical extrapolation supports the asymptotic linear-programming exponent near \(0.6044\), that the primary paper explicitly leaves the conjecture unproved, and that the classical \(0.5990\) exponent remains the best general bound. This is supplied dated curation derived from the OWR collection, not an independently verified literature assessment. Its time-sensitive status and cited claims require independent verification.
+\end{itemize}
+\end{document}

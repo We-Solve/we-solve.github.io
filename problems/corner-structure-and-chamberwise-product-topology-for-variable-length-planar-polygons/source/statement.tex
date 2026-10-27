@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001853}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Holmes-Cerfon asks for the topology and volume of planar polygon configuration spaces when the labelled edge lengths satisfy \(L_i-\epsilon\leq\ell_i\leq L_i+\epsilon\). To make one standard interpretation precise, take \(n\geq3\), \(\epsilon>0\), and \(L_i>\epsilon\) for every \(i\). Let
+\[
+B=\prod_{i=1}^n[L_i-\epsilon,L_i+\epsilon],\qquad
+M_{L,\epsilon}=\left\{(z_1,\ldots,z_n)\in\C^n:
+\sum_i z_i=0,\ (|z_1|,\ldots,|z_n|)\in B\right\}/S^1,
+\]
+where \(S^1\) acts by simultaneous rotation. Edge vectors describe labelled closed polygons modulo translations and orientation-preserving Euclidean motions; self-intersections are permitted, and reflections are not identified. The length map is \(\pi([z])=(|z_i|)_i\), with fixed-length fiber \(M_\ell=\pi^{-1}(\ell)\). These quotient and embedding conventions are not specified in the original question.
+
+The source describes \(M_{L,\epsilon}\) as a manifold with boundary and asks to understand its topology and volume. Simultaneous closed interval constraints naturally give corners; smoothness is not automatic without regularity assumptions. The supplied aid reports that vertex-genericity of \(B\), meaning
+\[
+\sum_{i=1}^n\sigma_i\ell_i\ne0
+\quad\text{for every vertex }\ell\text{ of }B
+\text{ and every }\sigma\in\{-1,1\}^n,
+\]
+suffices for the nonempty configuration space to be a compact smooth manifold with corners of dimension \(2n-3\). At collinear configurations on a positive-dimensional length face, a free radial edge variation supplies the derivative missing from angular variations; at vertices, the stated condition excludes collinear configurations.
+
+For a generic central vector \(L\), put
+\[
+\delta(L)=\min_{\sigma\in\{-1,1\}^n}\left|\sum_i\sigma_iL_i\right|>0.
+\]
+The aid reports that \(n\epsilon<\delta(L)\) gives a noncanonical diffeomorphism over the entire length box
+\[
+M_{L,\epsilon}\cong M_L\times B,
+\]
+intertwining \(\pi\) with projection to \(B\). This is a chamberwise statement, not a description when the box crosses a signed-length wall.
+
+For \(n=3\), assume every length vector in \(B\) satisfies the strict triangle inequalities. Then each fiber has two points, distinguished by orientation, and the aid reports two copies of \(B\). A precise length-counting volume in this zero-dimensional-fiber case is
+\[
+\int_B\#M_\ell\,\dd\ell_1\dd\ell_2\dd\ell_3
+=2(2\epsilon)^3=16\epsilon^3.
+\]
+If reflections are identified, there is one copy of \(B\), and this volume is \(8\epsilon^3\). These formulas concern length-counting measure, not an unspecified Riemannian quotient volume. For general \(n\), fibers are positive dimensional and the source must specify a measure or metric before ``volume'' has a numerical meaning.
+\subsection{Short English statement}
+Study labelled planar polygons whose edge lengths vary independently in intervals. Under explicit genericity assumptions the supplied aid describes a compact manifold with corners and, within one length chamber, a product with the fixed-length polygon space. Volume depends on the chosen quotient and measure; the reported triangle formula counts orientation fibers over length space.
+\subsection{Sources}
+\begin{itemize}
+\item Holmes-Cerfon, problem 4 in the AIM workshop \emph{Configuration spaces of linkages}: \url{https://aimath.org/pastworkshops/linkagesproblems.pdf}. Canonical location: \texttt{aim-geometry-notes.json}, \texttt{notes[190]}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001853, code \texttt{catalogue entry}; updated 14 August 2026. Statement status is reconstructed unverified. The recorded verification note reports inspection of PDF page 1 and reconstruction of \(\epsilon\) and \(\ell_i\) from extraction artifacts; no new PDF inspection is asserted here. The original literature field is empty.
+\item Supplied attempt 1: partial result, problem status at run open, rigor label proved, novelty confidence medium; current registry status partially solved. This research aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

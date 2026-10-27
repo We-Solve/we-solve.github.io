@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002004}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Steve Zelditch's A.22 is a collection of statistical-algebraic questions. Its background places Gaussian measures on degree-\(N\) real or complex polynomials, emphasizing projectively induced \(O(m+1)\)- and \(U(m+1)\)-invariant ensembles. It distinguishes real random counts from complex counts that may be deterministic. The principal requests are:
+\begin{enumerate}
+\item For random real plane algebraic curves, determine the most probable number of connected components and the expectation.
+\item For random degree-\(N\) spherical harmonics, determine the most probable number of nodal domains, meaning connected components of the complement of the zero set, and its expectation.
+\item In \(m\) variables, choose \(m\) random polynomials with at most a fixed \(f\) monomials, spectra consisting of \(f\) lattice points in \(\Z_{\ge0}^m\cap N\Sigma\), where \(\Sigma=\{x_i\ge0:\sum_i x_i\le1\}\), then choose coefficients from the indicated invariant ensemble. Determine the expected simultaneous real-zero count. Also determine its behavior for spectra in dilated prescribed Newton polytopes \(N\Delta_j\), with \(f\) fixed, and for the Kac alternative using normal monomial coefficients without projective monomial normalization.
+\item Count and study the distribution of critical points \(\nabla s(z)=0\) of holomorphic sections \(s\in H^0(M,L)\). These depend on the Hermitian metric \(h\) or connection \(\nabla\), usually the metric connection. The source associates these with string-theoretic ``supersymmetric vacua'' and attributes the counting/statistical request to Mike Douglas.
+\end{enumerate}
+The ambient real domain, precise spectrum law, independence conventions, boundary-coordinate zeros, and covariance normalization require specification before these become unique numerical questions.
+
+The source attributes a fewnomial bound to Khovanski, but its extracted expression \texttt{2m2f (f-1)/2(m+1) f} has lost exponent placement; no exact inequality is reconstructed from that typography. Its description as an enormous overestimate is a historical assessment. It also reports an exact fewnomial density formula with Shiffman, while saying asymptotics were then unavailable and Kac real-zero counts decrease. The readable kernel and constant definitions are
+\[
+ \Pi_N|_S(x,y)=\sum_{\beta\in S}\binom{N}{\beta}x^\beta y^\beta,
+ \qquad Q=\int_{\R^m}|\xi|e^{-\langle\xi,\xi\rangle}\dd\xi,
+\]
+where \(\binom N\beta\) is the projective multinomial coefficient and \(\mathcal S(N,f)\) is the set of spectra. The displayed density averages over \(S\) and involves a square root of a determinant of \(\nabla_x\nabla_y\log\Pi_N|_S\) on the diagonal, but its prefactor and placement of the kernel powers are corrupted. No exact density identity is asserted here. Shared versus independent spectra for the equations also require checking.
+
+The aid's exact partial result is conditional on a fixed binomial system on the real algebraic torus:
+\[
+ c_i x^{a_i}+d_i x^{b_i}=0\quad(1\le i\le m),\qquad
+ x\in(\R^*)^m,
+\]
+where \(a_i,b_i\in\Z^m\), the integer matrix \(B\) with rows \(a_i-b_i\) is invertible over \(\R\), and coefficients are nonzero independent random variables with mutually independent unbiased signs. Set \(r=\operatorname{rank}_{\F_2}(B\bmod2)\). If \(Z\) counts all real-torus roots, the reported law is
+\[
+ \Pr(Z=2^{m-r})=2^{r-m},\qquad
+ \Pr(Z=0)=1-2^{r-m},\qquad \E Z=1.
+\]
+Every root is simple. If \(Z_+\) counts roots in \((\R_{>0})^m\), the aid gives \(\E Z_+=2^{-m}\). These formulas do not count roots on coordinate hyperplanes. They depend on sign assumptions, not a particular continuous distribution of coefficient magnitudes.
+
+If all exponents of this fixed system are multiplied by an integer \(D\ge1\), odd \(D\) preserves the law, while even \(D\) gives
+\[
+ \Pr(Z_D=2^m)=2^{-m},\qquad\Pr(Z_D=0)=1-2^{-m},\qquad\E Z_D=1.
+\]
+This deterministic exponent dilation is distinct from resampling spectra in \(N\Delta_j\). The binomial theorem alone does not answer arbitrary \(f\)-fewnomial, curve-topology, or holomorphic-section questions.
+
+For the usual rotationally invariant Gaussian degree-\(N\) harmonic on \(S^2\), the aid additionally reports from Nazarov--Sodin concentration that every choice of a mode \(q_N\) of its nodal-domain count satisfies \(q_N\sim c_{\mathrm{NS}}N^2\), with the corresponding positive constant in that normalization. No precise concentration estimate or citation is supplied. Mere convergence in probability by itself need not control modes of integer-valued variables, so the quantitative input in that reported derivation needs review.
+\subsection{Short English statement}
+The record asks several questions about random real curves, nodal domains, sparse polynomial zeros, and metric-dependent critical points of holomorphic sections. The aid gives an exact real-torus binomial law, whose distribution changes under even exponent dilation although its mean stays one. It also reports a spherical-harmonic mode asymptotic; neither claim resolves all of the original statistical questions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002004, exact source code catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[341]}, tag \texttt{section}; AIM Workshop Problem Lists, Geometry, \emph{Amoebas and tropical geometry}, A.22, contributed by Steve Zelditch. Created and updated 14 August 2026.
+\item AIM source \url{https://aimath.org/WWN/amoebas/amoebas.pdf}. The supplied verification identifies a collection of related questions rather than one assertion. The PDF was not accessed.
+\item Original text names Khovanski for a fewnomial bound, Shiffman with the contributor for an exact density, and Mike Douglas for the holomorphic-section counting request. It mentions Picard--Lefschetz, Milnor--Orlik, and Arnold as background on critical points of holomorphic functions. No complete bibliographic entries are supplied.
+\item Supplied aid names Nazarov--Sodin concentration without a precise publication or estimate. Attempt 1: \texttt{partial\_result}, problem status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence \texttt{low}; classification \texttt{PARTIAL-PROGRESS}, registry status \texttt{partially\_solved}. Candidate: exact binomial distribution synthesis and parity-sensitive dilation corollary. All status claims are dated supplied assessments.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

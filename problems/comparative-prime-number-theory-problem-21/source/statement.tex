@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800152}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer modulus \(q\), an integer residue class \(a\pmod q\), and a real number \(t\geq 0\), define
+\[
+\pi(t;q,a)=\#\{p\leq t:p\text{ is prime and }p\equiv a\pmod q\},
+\qquad
+\phi(q)=\#(\mathbb Z/q\mathbb Z)^\times.
+\]
+Also let \(\pi(t)\) denote the number of primes at most \(t\). The source does not explicitly specify the range of \(q\) or whether \(a\) must satisfy \(\gcd(a,q)=1\). The definitions above make sense for every residue class, but the intended domain of the requested classification remains to be confirmed.
+
+Write \(\operatorname{li}(t)\) for the logarithmic integral. For a precise conventional interpretation, take
+\[
+\operatorname{li}(t)=\operatorname{PV}\int_0^t\frac{\dd u}{\log u}
+\qquad(t>0,\ t\ne1),
+\]
+where the principal value is required when \(t>1\). The source does not state this normalization explicitly. Integrals involving \(\operatorname{li}(t)\) across \(t=1\) are interpreted as improper integrals; its value at that single point does not affect them. Define
+\[
+\mathfrak A_1^\pi(x;q,a)
+=\int_0^x\bigl(\phi(q)\pi(t;q,a)-\operatorname{li}(t)\bigr)\,\dd t
+\qquad(x>0).
+\]
+Assume the generalized Riemann hypothesis (GRH), meaning that every nontrivial zero of every Dirichlet \(L\)-function has real part \(1/2\). The requested problem is to classify the intended pairs \((q,a)\) for which
+\[
+\exists X=X(q,a)>2\quad\forall x\in\mathbb R,
+\qquad x\geq X\ \Longrightarrow\ \mathfrak A_1^\pi(x;q,a)<0.
+\]
+In particular, whether this classification is restricted to reduced residue classes is an unresolved source qualification.
+
+For context, the supplied record attributes to \([\texttt{johnston2023average},\ \text{Theorem }1.1]\) the equivalence of the Riemann hypothesis (RH) with
+\[
+\mathfrak A_1^\pi(x)
+:=\int_0^x\bigl(\pi(t)-\operatorname{li}(t)\bigr)\,\dd t<0
+\qquad\text{for every real }x>2.
+\]
+This is a supplied theorem attribution, not an independently verified result here. The source informally explains the negativity under RH by comparing the bias with the explicit-formula contribution involving
+\(\sum_{\rho}1/(\rho(\rho+1))\), where \(\rho\) ranges over nontrivial zeros of the Riemann zeta function, counted with multiplicity. It attributes to Martin, in private communication, the observation that the analogous sum over zeros of Dirichlet \(L\)-functions grows faster than the bias as \(q\) increases, motivating an expectation that negativity should fail for large moduli. This motivation supplies neither a precise threshold nor quantified conditions on \(a\), and is not asserted here as a theorem.
+\subsection{Short English statement}
+Assuming GRH, determine which moduli and residue classes make the integral of the scaled prime-counting error strictly negative for every sufficiently large real \(x\). The source leaves the intended residue-class domain and logarithmic-integral convention implicit. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800152\), source code \texttt{catalogue entry}, title: Comparative Prime Number Theory --- Problem 21. The registry labels the problem \emph{open}; this is supplied status metadata, not an independently verified literature assessment. Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Hamieh, Kadiri, Martin, and Ng, \emph{Comparative Prime Number Theory Problem List} (2024), Problem \(\#21\): \url{https://arxiv.org/abs/2407.03530}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of access or verification in this draft.
+\item The source item attributes the question to Daniel R. Johnston, University of New South Wales--Canberra at ADFA. The registry's proposer field lists Hamieh, Kadiri, Martin, and Ng, the authors of the source list.
+\item The source cites \texttt{johnston2023average}, Theorem 1.1, for the RH equivalence involving \(\mathfrak A_1^\pi(x)<0\) for all \(x>2\). No full bibliographic entry or separate link for this citation is supplied.
+\item The comparison between zero contributions and the bias in arithmetic progressions is attributed in the source to Martin, private communication; no separate public reference is supplied.
+\end{itemize}
+\end{document}

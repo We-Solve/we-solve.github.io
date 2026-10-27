@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002817}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite group \(G\), a supercharacter theory consists of partitions of \(G\) into superclasses and of \(\operatorname{Irr}(G)\) into character blocks, with equal numbers of blocks, the identity a superclass, and each weighted block sum \(\sum_{\chi\in X}\chi(1)\chi\) constant on superclasses. The source asks whether automorphisms of the unitriangular group give useful additional coarsenings, noting that diagonal conjugation removes labels from set partitions. ``Nice'' and whether to use every automorphism or a chosen subgroup are unspecified.
+
+For any automorphism subgroup \(A\le\operatorname{Aut}(G)\), let \(\mathcal O_A\) be its orbit supercharacter theory, whose superclasses are \(A\)-orbits of conjugacy classes, equivalently orbits under \(\langle A,\operatorname{Inn}(G)\rangle\). The aid's universal construction is the join \(\mathcal S\vee\mathcal O_A\) in the lattice ordered by coarsening: it is the least common coarsening of the given theory and the orbit theory. Here invariance means that each resulting block is setwise fixed, a stronger condition than automorphisms merely permuting blocks. If \(A\) permutes the original superclasses and character blocks, their orbit fusion gives this coarsening directly.
+
+The explicit example is \(U_n(q)=1+\mathfrak u_n(\F_q)\), with its standard labeled-set-partition supercharacter theory. Diagonal conjugations independently remove nonzero labels on partition arcs. Let \(g^\dagger=Jg^{\mathsf T}J\), with \(J\) the antidiagonal permutation matrix, and take the graph automorphism \(g\mapsto(g^\dagger)^{-1}\). Together with diagonals it preserves the standard theory and, after labels are removed, sends a partition by reversal \(i\mapsto n+1-i\). The aid's coarsening is therefore indexed by ordinary set partitions of \([n]\) modulo reversal. It is field independent at the level of this block indexing, not an assertion that the numerical character values are independent of \(q\).
+
+Write \(B_n\) for Bell numbers and \(F_n\) for the number of reversal-fixed partitions. With \(a=\lfloor n/2\rfloor\), \(b=n-2a\), and Stirling numbers \(\begin{Bmatrix}j\\\ell\end{Bmatrix}\), a weighted Bell--Stirling formula is
+\[
+ F_n=\sum_{j=0}^a\binom aj B_{a-j+b}
+ \sum_{\ell=0}^j \begin{Bmatrix}j\\\ell\end{Bmatrix}2^{j-\ell},
+ \qquad\#\text{blocks}=\frac{B_n+F_n}{2}.
+\]
+Use \(B_0=1\), \(\begin{Bmatrix}0\\0\end{Bmatrix}=1\). The \(j\) transposed pairs assigned to exchanged block pairs contribute \(2^{j-\ell}\) orientations, while the remaining pairs and possible middle point partition into invariant blocks. Burnside's formula then gives the first counts, for \(n=1,\ldots,7\),
+\[
+ 1,\ 2,\ 4,\ 11,\ 32,\ 117,\ 468.
+\]
+This answers a specific subgroup-fusion construction. It does not classify all automorphisms' action on all supercharacter theories, all possible further coarsenings, or every desirable combinatorial property of the full automorphism join.
+\subsection{Short English statement}
+The aid gives a universal orbit-join construction and a concrete unitriangular example: diagonal and graph automorphisms produce set partitions modulo reversal. An explicit Bell--Stirling formula counts its blocks. The construction does not classify every full-automorphism coarsening or define the source's word ``nice.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002817\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-representation-theory-notes.json}, \texttt{notes[88]}. The AIM domain is Representation theory; the registry category is Algebra.
+\item AIM, \emph{Supercharacters and combinatorial Hopf algebras}, Problem 1.5; supplied reference \url{https://aimath.org/WWN/supercharacters/supercharacters.pdf}. The original note says torus conjugation lets one ignore partition labels. The extracted page-12 editor header names Carolina Benedetti. No PDF was accessed here.
+\item John A. Gibbs, \emph{Automorphisms of certain unipotent groups}, as suggested by the source; no year, publication data, or theorem number is supplied.
+\item Supplied research attempt 1: \texttt{partial\_result}, run and registry status \texttt{partially\_solved}, rigor label \texttt{proved}, low novelty confidence; classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 11000012}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Sigma_h\) be an oriented genus-\(h\) surface and \(\operatorname{Mod}_g\) the mapping class group of a genus-\(g\) surface. Given
+\[
+ \rho:\pi_1(\Sigma_h)\longrightarrow\operatorname{Mod}_g,
+\]
+Problem 2.6 asks for an algorithm or group-theoretic invariant deciding/detecting whether \(\rho\) has a holomorphic representative. Conventionally this means a map from a Riemann-surface structure on \(\Sigma_h\) to the genus-\(g\) moduli orbifold \(\mathcal M_g\), inducing \(\rho\) in the appropriate orbifold sense. The source extract does not state whether the base complex structure is fixed or variable, the genus range, or whether constant/isotrivial representatives are excluded.
+
+The source says irreducibility is necessary but not sufficient, defining its condition literally as absence of an essential simple-closed-curve isotopy class \(\alpha\) fixed by every image element:
+\[
+ \nexists\alpha\quad
+ \rho(\gamma)(\alpha)=\alpha\quad\text{for all }\gamma\in\pi_1(\Sigma_h).
+\]
+It expresses the belief that this condition is algorithmically decidable. This wording does not explicitly exclude an invariant multicurve whose components are permuted. Also, a constant holomorphic map has trivial, hence curve-fixing, monodromy, so the necessity statement needs omitted nonconstant or other source hypotheses. The reported necessity is not adopted unconditionally.
+
+The surrounding program asks to construct and classify such representations up to conjugacy and compute invariants including
+\[
+ \nu(\rho)=\int_{\Sigma_h} f^*\omega_{\rm WP},
+\]
+where \(\omega_{\rm WP}\) is the Weil--Petersson \(2\)-form and \(f\) is any suitable map with \(f_*=\rho\). In a classifying-orbifold convention this can be expressed as \(\langle\rho^*[\omega_{\rm WP}],[\Sigma_h]\rangle\), provided the cohomology class and normalization are fixed. Using the coarse moduli space instead would not automatically identify its fundamental group with \(\operatorname{Mod}_g\); the map and well-definedness conventions require review.
+
+The source links this computation to signatures of surface bundles over surfaces and the Gromov co-norm of \([\omega_{\rm WP}]\), without specifying that norm or a proposed bound. It regards unrestricted classification as unmanageable, noting surface-group surjections to free groups, and suggests first restricting to injective \(\rho\). It reports many irreducible injective examples via a Crisp--Wiest technique and Crisp--Farb [CF]. These are contextual reports, not an undecidability theorem or a completed classification.
+\subsection{Short English statement}
+Detect which surface-group representations into a mapping class group are realized holomorphically, then study their conjugacy classes and Weil--Petersson characteristic number. The source suggests starting with injective representations. Base-complex-structure, orbifold and nonconstant-map conventions are essential missing qualifications.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(11000012\), exact source code \texttt{catalogue entry}, Problem 2.6, ``Holomorphic representatives,'' PDF page 25. No individual proposer or proposed year is supplied.
+\item Farb, edited volume \emph{Problems on Mapping Class Groups and Related Topics}: \url{https://www.math.uchicago.edu/~farb/papers/mcgbook.pdf}. The extract includes chapter/page furniture ``Some problems on mapping class groups and moduli space,'' page 19. The volume has 329 numbered theorem-style items with repeated local numbering distinguished by PDF page.
+\item Supplied internal reference [CF] is described as J. Crisp with the chapter author; the research summary calls it Crisp--Farb and mentions a Crisp--Wiest technique. Full bibliography entries are absent. The summary dates the broader source discussion to Farb (2006).
+\item Extraction pdf-font-structure, accessed 2026-07-29. Source evidence NEEDS\_REVIEW presents an open problem and requires a current primary-literature audit. Supplied OPEN-TRIAGE summary reports no located algorithm/invariant, unresolved classification and \(\nu\)-computations, and largely open co-norm/signature questions; no separate modern primary references are supplied.
+\item Dataset attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0. Source rights NEEDS\_REVIEW: publicly accessible author/publisher copy, redistribution terms requiring review.
+\end{itemize}
+\end{document}

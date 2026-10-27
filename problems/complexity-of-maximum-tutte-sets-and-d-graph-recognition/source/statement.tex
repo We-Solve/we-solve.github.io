@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000422}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite simple graph $G$, let $o(G-S)$ count odd-order connected components of $G-S$, let $\nu(G)$ be the maximum matching size, and let
+\[
+ \operatorname{def}(G)=|V(G)|-2\nu(G)
+                     =\max_{S\subset V(G)}(o(G-S)-|S|).
+\]
+In the standard Tutte--Berge/barrier convention, a Tutte set is a set $S$ attaining this maximum. MAX TUTTE SET asks to maximize $|S|$ among such sets:
+\[
+ \max\{|S|:o(G-S)-|S|=\operatorname{def}(G)\}.
+\]
+This maximizes cardinality of an optimal deficiency witness, not deficiency itself.
+
+The source asks to identify additional graph classes where this problem is polynomial-time solvable; determine its complexity on three-connected planar graphs and on planar $(1-\varepsilon)$-tough graphs; and determine whether level-$1$ D-graphs can be recognized in polynomial time.
+
+For $t>0$, $t$-toughness means $|S|\ge t\,c(G-S)$ for every vertex set $S$ with $c(G-S)>1$, where $c$ counts all connected components. This is distinct from the odd-component count defining a Tutte set. The near-one range corresponds to $0<\varepsilon<1$. The extract does not state whether $\varepsilon$ is fixed, part of the input, or subject to a particular threshold; these lead to different uniform complexity assertions.
+
+The definition of level-$1$ D-graph is not supplied, and no graph transformation or hierarchy is invented for it. The intended Tutte-set convention and any perfect-matching restriction likewise need confirmation; the displayed definition is the usual general-deficiency interpretation. Polynomial-time recognition of D-graphs is a separate decision problem from optimizing a Tutte set on a promised graph class.
+
+The literature assessment checked on 21 August 2026 reports the questions as unresolved in its cited literature, especially three-connected planar inputs and nearby toughness thresholds. It provides no full solution or precise parameterized hardness theorem. This is dated source triage requiring independent verification.
+\subsection{Short English statement}
+Find more polynomial-time cases for maximum-cardinality Tutte sets, settle the specified planar complexity cases, and test polynomial recognition of level-one D-graphs. The D-graph definition and toughness-parameter quantifiers are missing from the extraction.
+\subsection{Sources}
+\begin{itemize}
+\item \emph{Algorithmic Graph Theory} (2006), Oberwolfach Reports, DOI 10.4171/owr/2006/07, pp. 379--460, \url{https://doi.org/10.4171/owr/2006/07}.
+\item Literature assessment checked 21 August 2026: original report, \url{https://doi.org/10.4171/owr/2006/07}; ``Tutte-set complexity paper,'' \url{https://www.sciencedirect.com/science/article/pii/S0166218X07000248}.
+\item Local UnsolvedMath registry, permanent ID $30000422$, exact source code \texttt{catalogue entry}, created 25 August 2026 and updated 16 September 2026. Supplied verification restores connectivity, toughness and level notation while retaining every algorithmic request.
+\end{itemize}
+\end{document}

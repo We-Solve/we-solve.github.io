@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000542}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For matrices \(A_1,\ldots,A_m\), define the signing discrepancy
+\[
+ \operatorname{disc}(A_1,\ldots,A_m)=
+ \min_{s\in\{-1,1\}^m}\left\|\sum_{j=1}^m s_jA_j\right\|_{\mathrm{op}}
+ =\min_{J\subset\{1,\ldots,m\}}\left\|\sum_{j\in J}A_j-\sum_{j\notin J}A_j\right\|_{\mathrm{op}}.
+\]
+The extracted source asks for \(O(\epsilon^{1/8})\) discrepancy, suggests that \(O(\sqrt\epsilon)\) might hold, and says an \(O(\epsilon)\) bound cannot hold. However it omits the setup defining the matrices, their normalization, and \(\epsilon\). Its verification narrative says preceding hypotheses exist in the workshop document but does not reproduce them. Thus an unconditional precise theorem for the original question cannot be recovered from this excerpt alone.
+
+A precise positive-matrix formulation consistent with the supplied research summary is the following scoped problem: for every \(n,m\geq1\), every \(0<\epsilon\leq1\), and positive semidefinite \(A_j\in M_n(\C)\) satisfying
+\[
+ \sum_{j=1}^m A_j\leq I_n,\qquad \operatorname{tr}(A_j)\leq\epsilon\quad(1\leq j\leq m),
+\]
+seek a dimension-independent bound \(\operatorname{disc}(A_1,\ldots,A_m)\leq C\epsilon^{1/8}\), or the stronger \(C\sqrt\epsilon\). This is an explicitly stated positive interpretation, not a recovered quotation of the missing setup. Trace norm equals trace for these positive matrices; their ranks are unrestricted. The aid attributes to Bownik's Theorem 4.1 the subset approximation
+\[
+ \forall t_1,\ldots,t_m\in[0,1]\ \exists J\subset\{1,\ldots,m\}:\quad
+ \left\|\sum_{j\in J}A_j-\sum_{j=1}^m t_jA_j\right\|_{\mathrm{op}}\leq2\sqrt\epsilon.
+\]
+Setting \(t_j=1/2\) gives discrepancy at most \(4\sqrt\epsilon\), including the normalized case \(\sum_jA_j=I_n\). This reported theorem addresses the positive interpretation, not arbitrary self-adjoint matrices with no positive or absolute-variation normalization.
+
+The aid's sharpness lemma is stated precisely as follows. Let \(m>1\) and \(1\leq n\leq m\), and let \(u_1,\ldots,u_m\in\C^n\) be a unit-norm equiangular tight frame, so
+\[
+ \sum_{j=1}^m u_ju_j^*=\frac mn I_n,\qquad
+ |\langle u_j,u_k\rangle|^2=\frac{m-n}{n(m-1)}\quad(j\neq k).
+\]
+Put \(A_j=(n/m)u_ju_j^*\), so \(\sum_jA_j=I_n\) and \(\operatorname{tr}(A_j)=n/m\). Every signing \(D_s=\sum_js_jA_j\) satisfies
+\[
+ \operatorname{tr}(D_s^2)=\left(\frac nm\right)^2
+ \left[m+\frac{m-n}{n(m-1)}\left(\left(\sum_js_j\right)^2-m\right)\right],\qquad
+ \|D_s\|_{\mathrm{op}}\geq\sqrt{\frac{n-1}{m-1}}.
+\]
+The aid reports that Singer harmonic frame families give \(\epsilon=n/m\to0\) and a lower bound asymptotic to \(\sqrt\epsilon\) for every signing. Consequently no universal bound \(C\epsilon^\alpha\) with \(\alpha>1/2\) can hold even for the positive rank-one normalized subclass. The precise frame construction is not supplied here. The broader merely self-adjoint formulation is reported unresolved without additional absolute-variation control; its exact missing hypotheses are not inferred.
+\subsection{Short English statement}
+The excerpt omits the matrix hypotheses needed to define its discrepancy question. Under the stated positive trace-small interpretation, the supplied report attributes a \(4\sqrt\epsilon\) signing bound to Bownik and gives frame examples showing exponent \(1/2\) is sharp. This does not settle an unspecified merely self-adjoint variant.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000542\), exact public code \texttt{catalogue entry}; \texttt{aim-analysis-notes.json}, \texttt{notes[73]}.
+\item AIM workshop \emph{Beyond Kadison--Singer: paving and consequences}, Question 1: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}.
+\item Original comment refers to the MSS Kadison--Singer method and the last section of the MSS paper, without a full citation. Its subsequent introductory discussion of von Neumann factors, Murray--von Neumann types I, II, III, and MASAs has no additional precise signing hypothesis in the supplied excerpt.
+\item Supplied research summary, ``Trace-norm matrix signing: positive case solved with sharp exponent,'' attempt 1, cites Bownik's Theorem 4.1 and Singer harmonic frames without complete bibliographic entries. The original literature field is empty.
+\end{itemize}
+\end{document}

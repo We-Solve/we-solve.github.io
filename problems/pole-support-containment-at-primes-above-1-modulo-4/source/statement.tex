@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002286}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(K\) be a number field, \(\mathcal O_K\) its ring of integers, and \(v_{\mathfrak p}\) the normalized additive valuation at a nonzero prime ideal. Put
+\[
+ S_1=\{\mathfrak p\subset\mathcal O_K:\mathfrak p\text{ lies above a rational prime }q\equiv1\pmod4\}.
+\]
+Pheidas's Question \(2\) asks whether an existential field formula \(\delta(x,y)\) defines, for all \(a,b\in K\),
+\[
+ \delta(a,b)\quad\Longleftrightarrow\quad
+ \forall\mathfrak p\in S_1\,
+       (v_{\mathfrak p}(a)<0\Rightarrow v_{\mathfrak p}(b)<0).
+\]
+This external prime quantifier describes the desired relation; it is not allowed as a primitive symbol in the requested existential formula. Parameters and uniformity as \(K\) varies are unspecified.
+
+Define the restricted denominator ideal
+\[
+ D_{S_1}(a)=\prod_{\mathfrak p\in S_1}
+       \mathfrak p^{\max(0,-v_{\mathfrak p}(a))},
+\]
+with \(v_{\mathfrak p}(0)=+\infty\), so \(D_{S_1}(0)=\mathcal O_K\). Each product is finite. The relation is exactly
+\[
+ \operatorname{rad}D_{S_1}(a)\mid\operatorname{rad}D_{S_1}(b),
+\]
+where ideal divisibility means inclusion of the relevant prime supports in this direction. No comparison of pole multiplicities is required.
+
+The aid's obstruction concerns a particular finite norm-detection strategy. At every \(\mathfrak p\in S_1\), \(-1\) is a square in \(K_{\mathfrak p}\), so the quadratic \(K\)-algebra obtained by adjoining \(i\), interpreted as the split algebra when appropriate, is locally split. Its local norm is surjective. Therefore a detector based solely on inert-prime restrictions from this algebra cannot distinguish the target primes.
+
+More generally, for every fixed finite list of quadratic extensions \(L_1,\ldots,L_m/K\), infinitely many \(\mathfrak p\in S_1\) split in all \(L_j\). The aid uses Chebotarev applied to a finite normal closure containing \(K\), the \(L_j\), and \(\Q(i)\). Rational primes splitting completely there are \(1\) modulo \(4\) and supply the required primes of \(K\). Hence \(S_1\) is not covered by the finite union of their inert-prime sets. This rules out that direct fixed-finite-quadratic-inert-set coverage strategy, not parameter-dependent constructions, all norm methods, or existential definability itself.
+
+The source says the analogous relation is known ``more or less'' for \(K=\Q\) and rational primes \(3\) modulo \(4\), and says a positive answer would yield existential definability of \(\Z\) in \(\Q\), hence a negative answer to Hilbert's tenth problem over \(\Q\). That is preserved as a conditional source consequence; the missing combination with other prime classes and exact hypotheses is not reconstructed. The aid does not solve the original question.
+\subsection{Short English statement}
+The desired formula expresses containment of denominator supports at primes above \(1\) modulo \(4\). The aid shows why the usual fixed quadratic inert-prime strategy cannot cover that class: infinitely many target primes split in every member of any chosen finite list. This is a method obstruction, not a nondefinability theorem.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002286\), source code \texttt{catalogue entry}; canonical collection \texttt{aim-logic-notes.json}, notes[61].
+\item AIM workshop ``Definability and decidability problems in number theory,'' Question \(2\), Pheidas: \url{https://aimath.org/pastworkshops/definabilityinntproblems.pdf}. The supplied verification reports faithful transcription with no substantive OCR error and distinguishes prime ideals \(\mathfrak p\) from underlying rational primes \(q\). No PDF was opened in this session.
+\item Source qualifications: the \(\Q\), \(3\)-modulo-\(4\) case is known ``more or less''; the requested positive answer would imply an existential integer definition and undecidability of rational polynomial solvability. No full authoritative references for those claims, the norm method or the Chebotarev application are supplied; original remarks and literature are empty, with no proposer-field value or year.
+\item Supplied research attempt \(1\), \texttt{partial\_result}, run status ``open,'' rigor label ``proved,'' novelty confidence ``low.'' Registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, updated 14 August 2026.
+\end{itemize}
+\end{document}

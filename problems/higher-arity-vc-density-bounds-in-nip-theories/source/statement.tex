@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002257}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(T\) be the first-order theory in the supplied problem. Recall that \(T\) has the no independence property (NIP) if no formula \(\psi(u;v)\) admits, for every positive integer \(m\), tuples \(a_1,\ldots,a_m\) and \(b_I\), indexed by all \(I\subseteq\{1,\ldots,m\}\), in a model of \(T\), such that
+\[
+\psi(a_i;b_I)\quad\Longleftrightarrow\quad i\in I.
+\]
+Here tuple lengths count coordinates, and variables range over their designated sorts.
+
+To explain the dual VC-density notation, use the usual complete-theory interpretation and fix a sufficiently saturated model \(\mathcal M\models T\). For a partitioned formula \(\varphi(x;y)\) and a finite set \(B\subseteq\mathcal M^{|y|}\) of parameter tuples of the appropriate sorts, let
+\[
+S_\varphi(B)=\left\{\{b\in B:\mathcal M\models\varphi(a;b)\}:a\in\mathcal M^{|x|}\right\}.
+\]
+Thus \(|S_\varphi(B)|\) counts the distinct complete consistent truth assignments to the instances \(\varphi(x;b)\), \(b\in B\). For positive integers \(t\), define
+\[
+\pi^*_\varphi(t)=\sup_{\substack{B\subseteq\mathcal M^{|y|}\\|B|\leq t}}|S_\varphi(B)|,
+\qquad
+\operatorname{vc}^*(\varphi)=\inf\left\{r\in\R_{\geq0}:\pi^*_\varphi(t)=O(t^r)\text{ as }t\to\infty\right\},
+\]
+with \(\inf\varnothing=+\infty\). The constants in this growth condition may depend on the formula. A bound on this infimum does not by itself assert that the growth estimate holds at the endpoint exponent.
+
+\textbf{Question.} Assume that \(T\) has NIP and that there is a finite bound \(k\geq0\) such that
+\[
+\forall\varphi(x;y)\quad\bigl(|x|=1\ \Longrightarrow\ \operatorname{vc}^*(\varphi)\leq k\bigr).
+\]
+Does every positive integer \(n\) admit a finite bound \(k(n)\geq0\) satisfying
+\[
+\forall\varphi(x;y)\quad\bigl(|x|=n\ \Longrightarrow\ \operatorname{vc}^*(\varphi)\leq k(n)\bigr)?
+\]
+Both quantifiers over formulas allow arbitrary finite parameter-tuple length \(|y|\). The desired bound is uniform over formulas of the specified object-tuple length. If empty object tuples are allowed, their dual VC-density is zero.
+
+\textbf{Unresolved qualifications.} The supplied record does not explicitly specify completeness of \(T\) or single-sorted versus many-sorted conventions; the definition above describes the standard complete-theory setting. For a many-sorted interpretation, the intended range of sorts in the unary hypothesis and in the higher-arity conclusion needs confirmation. For fixed \(T\), the question asks for bounds uniform over formulas; the record does not explicitly require bounds depending only on \(k\) and \(n\) uniformly across different theories.
+\subsection{Short English statement}
+The question asks whether a uniform bound on dual VC-density for formulas with one object variable in an NIP theory forces a uniform finite bound for formulas with each fixed number of object variables. Parameter tuples may have arbitrary finite length. Completeness, sort conventions, and any stronger uniformity across theories require clarification. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30002257\), source problem code \texttt{catalogue entry}, title ``Higher-Arity VC-Density Bounds in NIP Theories,'' in the supplied Oberwolfach Reports Open Problems collection.
+\item Supplied source citation: \emph{Model Theory: Groups, Geometry, and Combinatorics} (2013), Oberwolfach Reports, pp.\ 5--66, DOI \texttt{10.4171/owr/2013/01}. \url{https://doi.org/10.4171/owr/2013/01}. The supplied background describes the collection as drawn from workshop reports and their open-problem discussions. The record gives proposed year 2013 and names no individual proposer.
+\item Supplied literature source: ``Model Theory, Oberwolfach Report 01/2013.'' \url{https://doi.org/10.4171/owr/2013/01}.
+\item Supplied literature source: \emph{Fractional Helly Property and Forking in NTP2 Theories}. \url{https://chernikov.umd.edu/FHP.pdf}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem ``partially solved,'' states that the general NIP unary-to-arbitrary-arity VC-density bound remains open, and reports established bounds in restricted classes such as weakly o-minimal and finite-rank theories. This is supplied dated curation derived from the OWR collection, not an independently verified literature assessment. The precise hypotheses of the reported restricted results are not supplied.
+\item The registry labels the statement \texttt{corrected\_verified} and says that the official report asks whether the unary bound extends uniformly to each higher tuple arity. These are supplied source-verification claims; neither the report nor the linked literature has been independently consulted for this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002488}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Takis Souganidis asks about stochastic homogenization of the random Hamilton--Jacobi equation
+\[
+ F\bigl(D^2u^\varepsilon,Du^\varepsilon,u^\varepsilon,
+             x/\varepsilon,x,\omega\bigr)=0,
+ \qquad\varepsilon\downarrow0,
+\]
+where \(F\) is nonconvex and stationary ergodic in its fast spatial variable. The extraction specifies no domain, boundary conditions, scaling of a viscous term, ellipticity, coercivity, properness, or solution class. In particular, it is a research question, not a fully quantified assertion that every stationary-ergodic nonconvex operator homogenizes.
+
+A precise meaning of stationarity can be supplied by a probability space \((\Omega,\mathcal F,\mathbb P)\) with a measure-preserving \(\R^d\)-action \(\tau_z\), ergodic in the sense that invariant events have probability zero or one, and
+\[
+ F(X,p,r,y+z,x,\omega)=F(X,p,r,y,x,\tau_z\omega).
+\]
+Here \(X\in\operatorname{Sym}_d\), \(p\in\R^d\), \(r\in\R\), and \(y,x\in\R^d\). Nonconvexity usually refers to the gradient variable \(p\), but the source does not say so explicitly. Once a well-posed family of viscosity-solution boundary or initial value problems has been fixed, the homogenization target is almost-sure convergence, in a specified topology, to the solution of an appropriate deterministic effective equation, for example
+\[
+ \overline F(D^2u,Du,u,x)=0.
+\]
+The operator \(\overline F\), admissible data, and convergence mode are part of the missing formulation; this display is a target template rather than an asserted theorem.
+
+\textbf{Separate auxiliary parabolic comparison statement.} The supplied research aid considers problems of the form
+\[
+ u_t+\mathcal A^\varepsilon(D^2u,Du,u,x,t,\omega)=0,
+ \qquad
+ v_t+\mathcal B^\varepsilon(D^2v,Dv,v,x,t,\omega)=0,
+\]
+with identical initial and, when applicable, boundary data. Assume suitable viscosity comparison for these problems and the shifted subsolutions and supersolutions, admissible common solution classes, a uniform operator bound \(|\mathcal A^\varepsilon-\mathcal B^\varepsilon|\le\delta\), and a scalar-variable Lipschitz constant \(L\ge0\) for the reference operator, uniformly over the arguments used. The aid reports the stability estimate
+\[
+ |u(x,t)-v(x,t)|\le\delta\,a_L(t),\qquad
+ a_L(t)=\begin{cases}t,&L=0,\\(e^{Lt}-1)/L,&L>0.\end{cases}
+\]
+Consequently, if at a fixed \((x_*,t_*)\) the reference family has an almost-sure subsequential gap
+\[
+ \limsup_{\varepsilon\downarrow0}u^\varepsilon(x_*,t_*)
+ -\liminf_{\varepsilon\downarrow0}u^\varepsilon(x_*,t_*)\ge g>0,
+\]
+then the perturbed family's gap is at least \(g-2\delta a_L(t_*)\), on the same event. A positive lower bound rules out convergence there. The uniform operator bound and comparison assumptions are essential; stationarity and ergodicity alone do not give this estimate.
+
+The aid attributes to Ziliotto a two-dimensional first-order counterexample with limiting values 1 and 2 at \((0,1)\), without supplying its full Hamiltonian, data, or normalization. Conditional on that stated normalization, the common stationary-ergodic environment, a scalar-independent Hamiltonian, and the required comparison assumptions, any admissible Hamiltonian at uniform distance \(\delta<1/2\) has gap at least \(1-2\delta>0\). This describes openness relative to the admissible comparison class on that environment, not an unrestricted open set of all random operators. The aid also reports failure in a viscous two-dimensional subclass, but supplies neither a citation nor the scaling needed to identify it with the displayed stationary equation.
+
+For a separate proper elliptic comparison problem with identical boundary data, if the reference operator satisfies
+\[
+ F(X,p,r+s,x)-F(X,p,r,x)\ge\kappa s
+ \quad(s\ge0),\qquad\kappa>0,
+\]
+and the comparison and uniform perturbation assumptions hold, the aid reports the bound \(\|u-v\|_\infty\le\delta/\kappa\). These robustness statements do not by themselves specify which of the original nonconvex stationary problems homogenize.
+\subsection{Short English statement}
+Souganidis asks for stochastic homogenization beyond convex Hamiltonians. The source omits the hypotheses and data needed for a single theorem. The supplied aid reports counterexamples in particular parabolic subclasses and a comparison estimate that preserves a positive nonconvergence gap under sufficiently small admissible uniform perturbations. Their relation to the displayed stationary equation requires explicit hypotheses and scaling.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002488, catalogue entry; canonical \texttt{aim-pdes-notes.json}, notes[99], extracted source item 2.
+\item Takis Souganidis, contribution to the AIM workshop list \emph{New connections between dynamical systems and PDE's}, \url{https://aimath.org/WWN/dynpde/dynpde.pdf}. The supplied verification reports agreement between the official HTML and PDF; this draft does not independently verify it.
+\item Supplied machine-generated research attempt 1, labeled partial result, partially solved, proved, and low novelty confidence. It names Ziliotto's first-order counterexample but gives no paper title, date, URL, exact data, or authoritative citation; it also mentions an uncited viscous counterexample. The aid is not peer reviewed and must be independently checked before citation.
+\end{itemize}
+\end{document}

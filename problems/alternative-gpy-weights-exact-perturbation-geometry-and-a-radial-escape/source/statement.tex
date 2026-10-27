@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000750}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For \(\mathcal H=\{h_1,\ldots,h_k\}\), \(R>1\), and \(\log^+x=\max(0,\log x)\), the source GPY weight is
+\[
+ \Lambda_R(n;\mathcal H)=\sum_{d\mid\prod_i(n+h_i)}\lambda_d,
+ \qquad\lambda_d=\mu(d)\frac{(\log^+(R/d))^{k+\ell}}{(k+\ell)!}.
+\]
+J. B. Conrey asks whether changing the divisor coefficients improves the method quantitatively, including smooth choices
+\[
+ \lambda_d=\mu(d)\prod_{p\mid d}f\left(\frac{\log p}{\log R}\right)
+ Q(\log^+(R/d)).
+\]
+The source does not specify an optimization objective, distribution assumptions, admissibility of \(\mathcal H\), or endpoint/support conditions on \(f,Q\). In particular \(Q(0)\ne0\) would not automatically impose a cutoff \(d\le R\). Vaughan suggests other traditional sieve weights; another suggestion combines upper and lower sieves in Chen's style, with Soundararajan warning about negative contributions.
+
+The supplied finite-level reduction says that adjoining a candidate coefficient vector to a baseline improves a Rayleigh quotient exactly when the orthogonalized candidate either couples to the baseline or has larger quotient. In an orthonormal two-plane the matrix is \(\begin{pmatrix}\rho&b\\\bar b&\sigma\end{pmatrix}\), with optimum
+\[
+ \frac{\rho+\sigma+\sqrt{(\rho-\sigma)^2+4|b|^2}}2.
+\]
+This exceeds the baseline \(\rho\) iff \(b\ne0\) or \(\sigma>\rho\). A zero new direction adds nothing; degeneracy of a finite Gram form must be removed before this orthogonalization. The report does not provide the complete arithmetic Gram forms or a prime-gap improvement.
+
+Its separate candidate theorem uses the standard Maynard simplex \(\Delta_k=\{t_i\ge0:\sum_i t_i\le1\}\). For real \(F\in L^2(\Delta_k)\), let
+\[
+ I(F)=\int_{\Delta_k}F^2,\qquad
+ J_i(F)=\int\left(\int_0^{1-\sum_{j\ne i}t_j}F(t)\,dt_i\right)^2dt_{-i},
+ \quad\mathcal R(F)=\frac{\sum_iJ_i(F)}{I(F)},
+\]
+where the outer integral is over \(t_{-i}\ge0\), \(\sum_{j\ne i}t_j\le1\). Let \(A\) be the self-adjoint operator satisfying \(\langle AF,F\rangle=\sum_iJ_i(F)\). For every \(k\ge2\) and nonzero continuous radial profile \(F(t)=\phi(\sum_i t_i)\), the report asserts that the residual \(r=AF-\mathcal R(F)F\) is nonzero. Since \(r\perp F\), the two-plane formula with
+\(\rho=\mathcal R(F)\), \(b=\|r\|/\|F\|\), \(\sigma=\langle Ar,r\rangle/\|r\|^2\)
+gives a strict quantified improvement. At a profile stationary under all radial variations, the residual is genuinely nonradial. This is a variational statement in the later simplex framework, not a direct completed optimization of every proposed workshop weight.
+
+The report also claims a signed-mixture lemma identifying a correction needed for upper-minus-lower sieve positivity. Its exact correction formula is absent, so a signed expression is not silently treated as nonnegative and no Chen-style positivity conclusion is inferred.
+\subsection{Short English statement}
+Can alternative GPY divisor weights give quantitative gains? The supplied report gives exact two-direction optimization and a strict escape from continuous radial profiles in the Maynard functional, while leaving arithmetic implementation and signed-sieve corrections separate.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000750\), source code \texttt{catalogue entry}; AIM analytic number theory corpus, \texttt{aim-analytic-number-theory-notes.json}, notes[113]. Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0.
+\item AIM \emph{Gaps between primes}, Problem 15, ``Alternative weights in the GPY method'': \url{https://aimath.org/WWN/primegaps/WorkshopProblems.pdf}. The text names J. B. Conrey, R. C. Vaughan, Chen and K. Soundararajan. The supplied verification identifies the PDF as authority for fraction/line-break repair; no new inspection is claimed. Original remarks and literature fields are empty.
+\item The report invokes the standard Maynard simplex and finite Gram/Rayleigh methods without full primary citations, arithmetic forms or signed-mixture formula.
+\item Registry dated August 14, 2026: statement exact, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}; attempt 1 labelled partial result, rigor proved, novelty confidence low. The perturbation and radial-residual results are machine-generated research aids, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

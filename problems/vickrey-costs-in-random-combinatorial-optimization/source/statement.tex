@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001250}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) index the size of a random combinatorial optimization instance. To express the proposed asymptotic relation, let \(E_n\) be its finite set of purchasable edges or arcs, and let \(\varnothing\ne\mathcal F_n\subseteq 2^{E_n}\) be its family of feasible solutions. Assign independent, identically distributed random costs \((W_e)_{e\in E_n}\), with the uniform or exponential distribution intended by the source. The uniform support and exponential rate are not specified in the supplied record.
+
+For \(F\in\mathcal F_n\), write
+\[
+ c_n(F)=\sum_{e\in F}W_e,
+ \qquad C_n=\min_{F\in\mathcal F_n}c_n(F),
+\]
+and let \(F_n^*\) be a minimizing solution. For a fixed finite feasible family, the stated continuous cost laws give an almost surely unique minimizer. Under the standard procurement interpretation of Vickrey cost, define, for each selected edge or arc \(e\in F_n^*\),
+\[
+ C_n^{-e}=\min\{c_n(F):F\in\mathcal F_n,\ e\notin F\},
+ \qquad p_{n,e}=C_n^{-e}-(C_n-W_e),
+\]
+where the minimum of the empty set is \(+\infty\). The total Vickrey payment is
+\[
+ V_n=\sum_{e\in F_n^*}p_{n,e}.
+\]
+Thus \(p_{n,e}\) is the minimum cost of replacing the selected solution without \(e\), less the cost of the other elements of the selected solution. This payment convention makes the term ``Vickrey cost'' explicit, but its agreement with the intended report formulation requires source review.
+
+The named feasible families are spanning arborescences in a directed graph, perfect matchings in a graph not assumed bipartite, and Hamiltonian tours in the symmetric or asymmetric traveling-salesman problem. A perfect matching covers each vertex exactly once and therefore requires an even number of vertices. A Hamiltonian tour visits every vertex exactly once before returning to its starting vertex. A spanning arborescence is a directed spanning tree with directed paths either from a designated root to every vertex or from every vertex to a designated root; the source does not select the root convention or direction. In the symmetric traveling-salesman interpretation, each undirected edge has a single cost shared by both traversal directions. In the asymmetric interpretation, costs attach to directed arcs.
+
+\textbf{Question from the supplied record.} For each intended random model among these examples, and for each intended uniform or exponential cost law, does
+\[
+ \mathbb E[V_n]\sim 2\,\mathbb E[C_n]
+ \qquad (n\to\infty),
+\]
+or equivalently
+\[
+ \lim_{n\to\infty}
+ \frac{\mathbb E[V_n]}{\mathbb E[C_n]}=2,
+\]
+whenever the expectations are finite and the denominator is nonzero? The limit must be taken through admissible instance sizes, in particular even vertex counts for perfect matchings.
+
+\textbf{Unresolved scope.} The supplied record does not specify the underlying graph sequences, whether the graphs are complete, the precise size parameter, the arborescence root and orientation, or distribution parameters and their possible dependence on size. It also does not state hypotheses ensuring feasibility after deleting a selected edge or arc, or finite expected Vickrey payment. Consequently, the display records the proposed asymptotic target for models still requiring specification; it is not a conjecture for every possible graph sequence. The phrase ``such as'' leaves any additional intended optimization families unspecified.
+\subsection{Short English statement}
+The question asks whether the expected total Vickrey procurement payment is asymptotically twice the expected optimal cost for the intended random arborescence, nonbipartite perfect-matching, and symmetric or asymmetric traveling-salesman models with independent uniform or exponential costs. The graph models and several conventions remain unspecified. The supplied record labels the question open; this statement-only draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30001250\), source problem code \texttt{catalogue entry}, title ``Vickrey Costs in Random Combinatorial Optimization.'' The supplied record places the problem in the Oberwolfach Reports Open Problems collection and gives proposed year 2009; no individual proposer is supplied.
+\item Supplied report citation: \emph{Combinatorics and Probability} (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/23, pp. 1225--1302. Supplied literature label: ``Oberwolfach Report 23, Combinatorics and Probability.'' \url{https://doi.org/10.4171/owr/2009/23}.
+\item Supplied literature reference: Chebolu--Frieze--Melsted--Sorkin, ``Average-case Vickrey costs.'' \url{https://www.math.cmu.edu/~pmelsted/papers/Vickrey.pdf}.
+\item Supplied literature reference: ``VCG cost expectations and variances.'' \url{https://arxiv.org/abs/1310.1777}.
+\item Supplied literature assessment, checked \texttt{2026-08-21}: the factor-two pattern is described as proved for shortest paths, spanning trees, and bipartite assignment, while extensions to arborescences, nonbipartite matching, and traveling-salesman problems are described as conjectural. This is supplied dated curation, not an independently verified literature assessment. The record itself requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement ``exact'' and reports manual review for self-containment, mathematical coherence, and absence of extraction artifacts. These are supplied source qualifications; they do not resolve the model specifications identified here or constitute mathematical verification of this draft.
+\end{itemize}
+\end{document}

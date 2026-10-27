@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2800401}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $d,n\geq1$ be integers, let $A_1,\ldots,A_n\in\mathbb R^{d\times d}$ be symmetric, and let $g_1,\ldots,g_n$ be independent standard real Gaussian variables. Put $X=\sum_{k=1}^ng_kA_k$ and use the Euclidean operator norm. The conventional variance parameters for this question are
+\[
+\sigma=\left\|\sum_{k=1}^n A_k^2\right\|^{1/2},\qquad
+\sigma_* =\sup_{\|u\|_2=\|v\|_2=1}
+\left(\sum_{k=1}^n|u^{\mathsf T}A_kv|^2\right)^{1/2}.
+\]
+The source displays these symbols without definitions, so the conventional choices are explicit rather than asserted to have been recovered from its blog text.
+
+\textbf{Proposed inequality.} Is there an absolute constant $C<\infty$, independent of $n,d$ and all the matrices, such that
+\[
+\mathbb E\|X\|\leq C\big(\sigma+\sqrt{\log d}\,\sigma_*\big)
+\]
+for every such Gaussian matrix series? The notation $\lesssim$ in the source means such a dimension-independent constant.
+
+The supplied research summary reports that this is false, citing Bandeira--Boedihardjo--van Handel, Proposition 8.2, and reports failure even if $\sqrt{\log d}$ is replaced by $(\log d)^\beta$ for any fixed exponent $\beta$. Its reported family consists of tensor sums
+\[
+X_{n,N}=\sum_{k=1}^n I_N\otimes\cdots\otimes G_k^N\otimes\cdots\otimes I_N
+\]
+of independent normalized Wigner matrices in distinct tensor factors, of dimension $d=N^n$, with reported scales $\sigma=\sqrt n$, $\sigma_*=O(\sqrt{n/N})$, and $\mathbb E\|X_{n,N}\|\geq(2-o(1))n$. The record does not supply the precise Wigner normalization or limiting quantifiers, so this is retained as the cited counterexample report rather than a reconstructed proof.
+\subsection{Short English statement}
+Can the logarithmic loss in a Gaussian matrix norm bound be confined to the weak variance parameter? The supplied Proposition 8.2 attribution reports a tensor-Wigner counterexample, including failure of every fixed logarithmic power replacement.
+\subsection{Sources}
+\begin{itemize}
+\item Afonso S. Bandeira, \emph{42 Open Problems in Data Science} (source list labelled 2016), Open Problem 4.1, author blog \url{https://afonsobandeira.wordpress.com/2015/10/25/10l42concentration/}; HTML extraction, accessed 2026-07-29. The registry gives proposed year 2015.
+\item Bandeira--Boedihardjo--van Handel, arXiv:2108.06312, \url{https://arxiv.org/abs/2108.06312}; \emph{Inventiones Mathematicae} 234 (2023), Proposition 8.2. The supplied summary says that proposition explicitly disproves this open-list conjecture; no article title or page range is supplied.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID $2800401$, source code catalogue entry, \emph{10 Lectures and 42 Open Problems --- Improvement over Non-commutative Khintchine inequality}. The record labels this solved and SOLVED-IN-LITERATURE, with the conjecture false; its source-status and rights checks remain marked NEEDS\_REVIEW.
+\end{itemize}
+\end{document}

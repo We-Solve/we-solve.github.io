@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002693}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\Gamma$ be a countable discrete group and let $\psi:\Gamma\to\R$ be normalized conditionally negative definite: $\psi(e)=0$, $\psi(g^{-1})=\psi(g)$, and
+\[
+ \sum_{i,j}\overline{c_i}c_j\psi(g_i^{-1}g_j)\le0
+ \quad\text{whenever }\sum_i c_i=0.
+\]
+Its minimal cocycle construction gives a Hilbert space $H_\psi$, an orthogonal representation (or its unitary complexification) $\pi_\psi$, and a cocycle $b$ with
+\[
+ b(gh)=b(g)+\pi_\psi(g)b(h),\qquad
+ \|b(g)\|^2=\psi(g),\qquad
+ H_\psi=\overline{\operatorname{span}}\{b(g):g\in\Gamma\}.
+\]
+The associated affine action is $\xi\mapsto\pi_\psi(g)\xi+b(g)$. Its space is not automatically $\ell^2(\Gamma)$. The source asks when its representation is a multiple of the left regular representation and what direct conditions on $\psi$ ensure this.
+
+The aid's precise criterion addresses containment in an amplification: an isometric intertwiner
+\[
+ H_\psi\longrightarrow\ell^2(\Gamma)\otimes K,
+ \qquad \pi_\psi\hookrightarrow\lambda_\Gamma\otimes I_K,
+\]
+where $(\lambda_\Gamma(s)\xi)(t)=\xi(s^{-1}t)$. This is weaker than unitary equivalence to an entire amplification, if ``multiple'' is meant literally. Let $A(\Gamma)$ be the Fourier algebra, consisting of sums of regular coefficients $u(s)=\sum_r\langle\lambda_\Gamma(s)\xi_r,\eta_r\rangle$ with $\sum_r\|\xi_r\|_2\|\eta_r\|_2<\infty$. The reported necessary-and-sufficient condition is
+\[
+ C_{g,h}\in A(\Gamma)\quad\text{for every }g,h\in\Gamma,
+\]
+where the directly computable polarization is
+\[
+ C_{g,h}(s)=\frac{\psi(sg)-\psi(s)
+                    -\psi(g^{-1}s^{-1}h)+\psi(s^{-1}h)}2
+           =\langle\pi_\psi(s)b(g),b(h)\rangle.
+\]
+Thus the test concerns coefficients of the minimal linear part, not a claimed embedding of affine translations themselves as a regular linear action.
+
+For $\Gamma=\Z$, the vector $b(1)$ is cyclic and the sequence
+\[
+ q(r)=\tfrac12[\psi(r+1)-2\psi(r)+\psi(r-1)]
+\]
+is positive definite. Let its Herglotz measure $\nu$ on the unit circle satisfy $q(r)=\int z^r\,\nu(\dd z)$. The aid identifies this as the cyclic spectral measure of $\pi_\psi$, so
+\[
+ \pi_\psi\hookrightarrow\lambda_{\Z}\otimes I_K
+ \quad\Longleftrightarrow\quad \nu\ll m_{\mathbb T},
+\]
+where $m_{\mathbb T}$ is normalized Haar measure. Absolute continuity is a containment criterion; support and spectral multiplicity remain relevant to literal equality with a full multiple.
+
+For $\psi(n)=|n|$, $q(r)=\mathbf1_{\{r=0\}}$ and $\nu$ is Haar, giving the regular representation. For $\psi(n)=n^2$, $q(r)=1$ and $\nu=\delta_1$, giving the trivial one-dimensional representation. Both functions are proper, and on the amenable group $\Z$ the trivial representation is weakly contained in the regular one. It is nevertheless not an actual subrepresentation of a regular amplification. Hence properness and weak containment do not suffice for the aid's stronger regular-containment conclusion.
+\subsection{Short English statement}
+Test the minimal cocycle representation of a negative-definite function by explicit Fourier-algebra polarization coefficients. On $\Z$, the second difference recovers a spectral measure whose absolute continuity characterizes containment in a regular amplification; this is distinct from weak containment or literal equality with a full multiple.
+\subsection{Sources}
+\begin{itemize}
+\item American Institute of Mathematics workshop list \emph{Free analysis}, Question 33, section 0.11, ``Focus Group on Dirichlet Forms, from Classical to Quantum (day 5),'' \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}.
+\item Local UnsolvedMath registry, permanent ID 20002693, source code \texttt{catalogue entry}, canonical location \texttt{aim-probability-notes.json}, \texttt{notes[134]}, record dated 14 August 2026. The original literature field is empty.
+\item Supplied research attempt 1: partial result, problem status at run partially solved, rigor labelled proved, novelty confidence low. Its polarization/Fourier criterion and cyclic special case are machine-generated research aid, not peer reviewed; independently verify before citation. No separate authoritative bibliographic reference for these refinements is supplied.
+\end{itemize}
+\end{document}

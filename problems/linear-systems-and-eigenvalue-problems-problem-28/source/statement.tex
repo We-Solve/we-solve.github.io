@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800519}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\), and consider a nonnormal \(n\times n\) matrix admitting an eigendecomposition
+\[
+A=V\Lambda V^{-1},\qquad
+\Lambda=\operatorname{diag}(\mu_1,\ldots,\mu_n),
+\]
+where \(V\) is invertible. Thus the displayed assumption restricts the question to diagonalizable matrices. Write
+\[
+\rho=\max_{1\leq j\leq n}|\mu_j|,
+\qquad
+\kappa_V=\|V\|\,\|V^{-1}\|<\infty.
+\]
+Here \(\rho\) denotes the largest eigenvalue magnitude called \(\lambda_1\) in the source. The scalar field and matrix norm are unspecified in the supplied record; in particular, whether real input matrices may use complex eigenvectors is not stated. The condition number refers to the displayed choice of \(V\); no normalization or minimization over eigenvector matrices is specified.
+
+For a positive accuracy parameter \(\epsilon\), define the set of eigenvalues near the spectral radius by
+\[
+S_\epsilon(A)=\{\mu_j:1\leq j\leq n,\ |\mu_j|\geq(1-\epsilon)\rho\}.
+\]
+The intended admissible range of \(\epsilon\), beyond its role as an accuracy parameter, is not supplied.
+
+The source asks whether there is an algorithm which, uniformly over the stated matrix class, uses
+\[
+\operatorname{poly}\!\left(\log(n\kappa_V),\frac{1}{\epsilon}\right)
+\]
+matrix--vector products with \(A\) and returns a scalar \(\lambda\) approximating an eigenvalue in \(S_\epsilon(A)\) to absolute error at most \(\epsilon\rho\).
+
+The quantifier in the source phrase ``any eigenvalue'' is unresolved. If it means an eigenvalue chosen by the algorithm, the requested output condition is
+\[
+\exists\lambda'\in S_\epsilon(A)
+\quad |\lambda-\lambda'|\leq\epsilon\rho.
+\]
+If it means every qualifying eigenvalue simultaneously, the condition is instead
+\[
+\forall\lambda'\in S_\epsilon(A)
+\quad |\lambda-\lambda'|\leq\epsilon\rho.
+\]
+These are distinct formulations; the supplied record does not unambiguously select one. It also does not specify whether the algorithm may be randomized, its required success probability, its arithmetic precision, or what information about \(V\), \(\kappa_V\), and \(\rho\) is supplied. The stated resource bound counts matrix--vector products with \(A\); other allowed operations and access to the matrix are not described. No hypothesis excludes \(\rho=0\); in that boundary case the stated error bound is zero.
+\subsection{Short English statement}
+For a diagonalizable nonnormal matrix, can an algorithm use only \(\operatorname{poly}(\log(n\kappa_V),1/\epsilon)\) products with the matrix to approximate an eigenvalue whose magnitude is at least \((1-\epsilon)\) times the spectral radius, with error at most \(\epsilon\) times that radius? The source leaves unresolved whether the output must approximate one qualifying eigenvalue or every such eigenvalue, and leaves several computational and domain conventions unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(800519\), exact source problem code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 28,'' in the AMR Open Problem Lists collection. The supplied registry labels the problem \emph{open}; this is a supplied status, not an independently verified mathematical or literature assessment.
+\item Supplied attribution: Amsel, Baumann et al., proposed year 2026. Source list: \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 28. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}.
+\item Supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; the registry record was created and updated on 2026-10-16. These are supplied provenance dates, not evidence of independent source verification for this draft. Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\end{itemize}
+\end{document}

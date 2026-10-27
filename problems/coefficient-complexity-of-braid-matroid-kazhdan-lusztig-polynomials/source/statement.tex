@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003699}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite loopless matroid \(M\), write \(r(M)\) for its rank and \(L(M)\) for its lattice of flats. For a flat \(F\), let \(M|F\) and \(M/F\) denote restriction and contraction. Its characteristic polynomial is
+\[
+\chi_M(t)=\sum_{F\in L(M)}\mu(\varnothing,F)t^{r(M)-r(F)},
+\]
+where \(\mu\) is the Möbius function of \(L(M)\). The matroid Kazhdan--Lusztig polynomial \(P(M,t)\in\Z[t]\) is characterized by \(P(M,t)=1\) when \(r(M)=0\), by \(\deg P(M,t)<r(M)/2\) when \(r(M)>0\), and by
+\[
+t^{r(M)}P(M,t^{-1})
+=\sum_{F\in L(M)}\chi_{M|F}(t)P(M/F,t).
+\]
+Let \(B_n\) denote the braid matroid indexed by \(n\) in the supplied source, and put
+\[
+r_n=r(B_n),\qquad c_{n,k}=[t^k]P(B_n,t)\quad(k\in\Z_{\geq0}).
+\]
+Under the usual convention that \(B_n\) is the graphic matroid of the complete graph on \(n\) vertices, it is represented by the vectors \(e_i-e_j\in\Q^n\), \(1\leq i<j\leq n\), and \(r_n=n-1\) for \(n\geq1\). The supplied record does not explicitly specify this indexing convention, so this identification must be checked against the report before using rank-dependent coefficient indices. Independently of that convention, \(c_{n,k}=0\) for \(k\geq r_n/2\) whenever \(r_n>0\), and \(P(B_n,t)=1\) when \(r_n=0\).
+
+\textbf{Research question (supplied corrected formulation).} Can the known flag-Whitney-number and Stirling-number formulas for the coefficients \(c_{n,k}\) be used to obtain effective complexity bounds and computations of the remaining coefficients of \(P(B_n,t)\)? Any resulting algorithmic formulation should specify which indices \((n,k)\) it covers, whether it computes one coefficient or the entire polynomial, the input encoding, and the computational cost model.
+
+\textbf{Unresolved qualifications.} The supplied record does not reproduce the formulas, the statements of Theorems 2, 3, and 4 referenced in the original question, a definition of coefficient ``complexity,'' or a particular proposed bound. Consequently it does not determine a unique quantified complexity assertion. The phrase ``remaining coefficients'' does not identify a precise set of coefficient indices. The supplied literature assessment also mentions a complete explicit formula, without specifying what form of explicitness is required.
+
+The original question additionally asked whether those theorems could help compute a conjectured top coefficient. The supplied dated assessment attributes a proof of the previously conjectured top-coefficient formula to Ferroni and Larson; the corrected formulation therefore omits that clause. Neither the conjectured formula nor its precise indexing is supplied here. This resolution is recorded as supplied curation, not as an independently verified mathematical conclusion.
+\subsection{Short English statement}
+The problem asks whether existing combinatorial coefficient formulas for braid-matroid Kazhdan--Lusztig polynomials yield effective computations and provable complexity bounds. The computational model, coefficient range, and referenced formulas are not supplied, so a single precise complexity conjecture cannot yet be extracted. The supplied assessment reports that Ferroni and Larson resolved the earlier top-coefficient conjecture; the remaining question concerns other coefficient computations and complexity.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30003699\), exact source problem code \texttt{catalogue entry}, title \emph{Coefficient Complexity of Braid-Matroid Kazhdan--Lusztig Polynomials}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year \(2018\) and no named proposer.
+\item Supplied report citation: \emph{Topology of Arrangements and Representation Stability (2019)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2018/2}, pp.~43--123. \url{https://doi.org/10.4171/owr/2018/2}. The supplied original question refers to Theorems 2, 3, and 4, whose contents are not included in the record.
+\item Supplied literature source: Ferroni and Larson, ``braid matroid polynomials.'' \url{https://arxiv.org/abs/2303.02253}. The record attributes the proof of the previously conjectured top-coefficient formula to these authors.
+\item Supplied literature source: Oberwolfach report. \url{https://doi.org/10.4171/owr/2018/2}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied status is ``partially solved.'' The assessment says that the top-coefficient formula was proved, while the complexity questions and a complete explicit formula requested in the record remain open. This is supplied dated curation derived from the OWR collection, not an independently verified assessment; the record itself requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}. Its verification note reports that the official report was checked, that numbered theorem references were replaced by descriptions of the combinatorial formulas, and that the resolved top-coefficient clause was omitted. These are supplied provenance claims; no source visit or independent verification is asserted here.
+\end{itemize}
+\end{document}

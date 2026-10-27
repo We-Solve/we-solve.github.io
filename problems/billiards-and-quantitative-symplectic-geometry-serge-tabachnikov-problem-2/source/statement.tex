@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800480}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(M\) be a closed manifold, understood as compact and without boundary, and let \(f\colon M\to\R^d\) be an immersion into Euclidean space. The ambient dimension and the regularity of the immersion are not specified in the source; the differential formulation below requires at least \(C^1\) regularity.
+
+For an integer \(n\geq2\), write \(x_{n+1}=x_1\) and consider the configuration space
+\[
+\mathcal C_n(f)=\{(x_1,\ldots,x_n)\in M^n: f(x_i)\ne f(x_{i+1})\text{ for every }i\}.
+\]
+Its perimeter function is
+\[
+L_n(x_1,\ldots,x_n)=\sum_{i=1}^n\|f(x_{i+1})-f(x_i)\|.
+\]
+The exclusion of zero-length edges makes this function differentiable. It is a qualification needed for this formulation, not an explicit restriction in the supplied source.
+
+The source defines a generalized \(n\)-periodic billiard trajectory as an inscribed \(n\)-gon having an ``extremal perimeter.'' If ``extremal'' means stationary under independent variations of the vertices along the immersion, its regular configurations are precisely the critical points of \(L_n\). Equivalently, with indices read modulo \(n\), they satisfy
+\[
+\left\langle
+\frac{f(x_i)-f(x_{i-1})}{\|f(x_i)-f(x_{i-1})\|}
++
+\frac{f(x_i)-f(x_{i+1})}{\|f(x_i)-f(x_{i+1})\|},
+\mathrm df_{x_i}(v)
+\right\rangle=0
+\qquad(v\in T_{x_i}M,
+i=1,\ldots,n).
+\]
+The source does not specify whether ``extremal'' means critical, locally maximizing or minimizing, or globally extremizing; these meanings must not be identified without clarification.
+
+\textbf{Problem.} Estimate from below the number of generalized \(n\)-periodic billiard trajectories in terms of the topology of \(M\) and the immersion \(f\). A precise numerical counting statement additionally requires conventions concerning cyclic relabeling, reversal, repeated vertices, iterates of shorter trajectories, and distinct points of \(M\) with the same image under \(f\). These conventions are absent from the supplied record. Thus the displayed critical-point formulation describes a natural regular interpretation, while the intended trajectory count remains unresolved.
+
+For \(n=2\), the perimeter is \(2\|f(x_1)-f(x_2)\|\). Under the stationary interpretation, a nonzero chord is critical exactly when it is orthogonal to the immersed tangent spaces at both endpoints; the source calls such trajectories \emph{diameters}. It reports that [Pu] gives a lower bound depending on the topology of \(M\), but not on the immersion, and that a two-dimensional torus has at least \(10\) such diameters, with this estimate sharp. This is a supplied literature assertion: the reference, counting convention, and any additional hypotheses needed for that assertion are not provided. For higher periods the source refers to [Du1, Du2].
+
+The source also asks a similar lower-bound question for periodic trajectories of the outer symplectic billiard about \(M\), referring to [ACT]. It supplies neither the definition of this billiard nor the ambient symplectic structure, admissible submanifolds, or domain of the billiard relation or map. Consequently this additional question cannot be made into a precise quantified statement from the supplied record alone.
+\subsection{Short English statement}
+For a closed immersed manifold, seek lower bounds on the number of inscribed polygons with extremal perimeter, using both the topology and the immersion. A regular stationary-perimeter formulation is given above, but the meaning of extremality and the rules for counting trajectories require clarification. The source also poses an analogous question for outer symplectic billiards without supplying its defining hypotheses. Its reported sharp bound of \(10\) diameters for a two-dimensional torus remains a source assertion requiring reference and hypothesis checks.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath local registry, permanent ID \(800480\), source problem code \texttt{catalogue entry}; supplied title: ``Billiards and Quantitative Symplectic Geometry --- Serge Tabachnikov --- Problem 2.'' The registry labels the problem \emph{open}; this is supplied status metadata, not an independently verified mathematical assessment.
+\item Albach, Barraud et al., \emph{Open Problems in Billiards and Quantitative Symplectic Geometry} (2026), Serge Tabachnikov, Problem 2. Supplied source URL: \url{https://arxiv.org/abs/2602.12896}. Contributor attribution: Serge Tabachnikov. The supplied provenance records access on \texttt{2026-10-16} and extraction by \texttt{arxiv\_latex}; these are source-provided provenance statements, not a claim of access or verification for this draft.
+\item [Pu]: supplied reference label for the diameter case, including the reported sharp lower bound of \(10\) for a two-dimensional torus. No author expansion, title, publication details, or URL is supplied.
+\item [Du1, Du2]: supplied reference labels for higher periods. No bibliographic details or URLs are supplied.
+\item [ACT]: supplied reference label for a recent study of outer symplectic billiards about \(M\). The description ``recent'' belongs to the supplied 2026 source; no bibliographic details or URL is supplied.
+\end{itemize}
+\end{document}

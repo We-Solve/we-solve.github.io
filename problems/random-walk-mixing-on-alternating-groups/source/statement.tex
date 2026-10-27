@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 177}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $A_n$ denote the alternating group of even permutations of $\{1,\ldots,n\}$. The source asks about random elements $x_1,\ldots,x_k\in A_n$ and the walk using these elements and their inverses. Under the usual interpretation that the elements are sampled independently and uniformly, the nonlazy walk with equal weights on the indexed generators and inverse generators has transition operator
+\[
+ (P_{\boldsymbol{x}}F)(g)=\frac1{2k}\sum_{i=1}^{k}
+ \bigl(F(gx_i)+F(gx_i^{-1})\bigr),\qquad g\in A_n.
+\]
+Repeated generators are counted with their multiplicities in this convention. The sampling law and treatment of repetitions are not explicit in the imported wording, so this is a stated interpretation, not an additional source assertion.
+
+Let $u_n$ be the uniform probability measure on $A_n$. For probability measures $\mu,\nu$ on this finite group, their total variation distance is
+\[
+ \|\mu-\nu\|_{\mathrm{TV}}=\frac12\sum_{g\in A_n}|\mu(g)-\nu(g)|.
+\]
+For $0<\varepsilon<1$, a conventional mixing time is
+\[
+ t_{\mathrm{mix}}(\varepsilon)=\inf\left\{t\in\Z_{\geq0}:
+ \sup_{g\in A_n}\|P_{\boldsymbol{x}}^t(g,\cdot)-u_n\|_{\mathrm{TV}}\leq\varepsilon\right\},
+\]
+with value $+\infty$ if the set is empty.
+
+\textbf{Source question.} Does this random walk equidistribute in time $O(n\log n)$, almost surely as $n\to\infty$? If equidistribution means total variation mixing to a fixed threshold such as $1/4$, and ``almost surely'' is intended in the high-probability sense used by the supplied review, a precise proposed estimate for a fixed $k$ would be
+\[
+ \exists C_k<\infty:\qquad
+ \lim_{n\to\infty}\Pr_{\boldsymbol{x}}\!left(
+ t_{\mathrm{mix}}(1/4)\leq C_k n\log n\right)=1.
+\]
+The record does not quantify $k$: it does not decide between $k=2$, every fixed $k\geq2$, or existence of a fixed $k$. Nor does it fix the mixing metric or threshold, a lazy versus nonlazy convention, or a coupling across $n$ that would make a literal almost-sure statement meaningful. Thus the display explains a standard precise interpretation without settling the missing choices.
+
+The supplied literature triage dated 2026-08-17 identifies Green's Problem 79 as the maintained source, despite the local code catalogue entry. It says the maintained comments pose a fixed-$k$ expansion question and mention $k=2$. It reports Helfgott--Seress--Żuk bounds, with high probability for a random pair in the symmetric or alternating group, of diameter $O(n^2(\log n)^C)$ and mixing time $O(n^3(\log n)^C)$, together with a nonconstant spectral-gap bound. It regards uniform fixed-degree expansion and the requested mixing scale as unresolved.
+
+The triage calls a constant spectral gap and $O(n\log n)$ mixing equivalent. For an appropriate reversible aperiodic or lazy walk, a uniform gap gives an $O(\log|A_n|)=O(n\log n)$ mixing bound, but the reverse implication does not follow from a mixing-time estimate alone in general. The exact intended expansion formulation and any claimed equivalence therefore require source review rather than being silently assumed. All literature-status claims here are attributed to the supplied dated assessment.
+\subsection{Short English statement}
+For a fixed small number of random even permutations, ask whether walking by those permutations and their inverses mixes to the uniform distribution in $O(n\log n)$ steps with probability tending to one. The exact quantifier on the number of generators, mixing convention, and meaning of almost surely remain unspecified; the supplied review connects this to a uniform-expansion question.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath local registry, data/unsolvedmath/problems.json, permanent ID 177, source code catalogue entry, ``Random Walk Mixing on Alternating Groups,'' with embedded literature triage dated 2026-08-17.
+\item H. A. Helfgott, Á. Seress, A. Żuk, ``Random generators of the symmetric group: diameter, mixing time and spectral gap,'' \emph{J. Algebra} 421 (2015), 349--368, DOI 10.1016/j.jalgebra.2014.08.033; supplied link \url{https://arxiv.org/abs/1311.6742}. The supplied review cites its abstract for the polynomial diameter and mixing bounds.
+\item B. Green, \emph{100 Open Problems}, Problem 79, version described as retrieved 2026-08-17, \url{https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf}. The supplied review cites its expansion formulation and comments mentioning a fixed number of random generators, including $k=2$. No linked paper or PDF was independently consulted for this draft.
+\item Ulam AI and the UnsolvedMath Contributors, \emph{UnsolvedMath: A Curated Collection of Open Mathematics Problems}. Dataset curation and original metadata are supplied under CC BY 4.0; referenced source material retains its own terms.
+\end{itemize}
+\end{document}

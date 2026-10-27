@@ -1,0 +1,49 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 11000024}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a finite generating set \(S\) for \(\operatorname{Mod}_g\), and encode two elements by words \(u,v\) in \(S\cup S^{-1}\), with total input length \(L=|u|+|v|\). The fast conjugacy problem asks for an algorithm deciding whether
+\[\exists h\in\operatorname{Mod}_g,\qquad h[u]h^{-1}=[v],\]
+in time polynomial in \(L\). In a fixed-genus interpretation, this means a bound \(C_g(L+1)^{a_g}\) for fixed constants depending on \(g,S\). The stronger question asks for quadratic time \(C_g(L+1)^2\), as the source reports for the word problem. The source does not fix a uniform-in-genus model, encoding of \(g\), compressed words or whether a conjugator must also be output; those are distinct refinements. Its principal request is not merely decidability.
+
+The source motivates the question as a major step toward a polynomial-time homeomorphism algorithm for three-manifolds fibering over the circle, referring to an omitted example on page 11. Its footnote stresses a second ingredient: computability of the Thurston norm. Neither a full reduction nor a polynomial bound for that second ingredient is supplied, so no end-to-end polynomial three-manifold algorithm is asserted here.
+
+The following paragraph introduces almost convexity, rather than an additional numbered demand. For a group \(\Gamma\) with a fixed finite symmetric generating set \(S\), let \(d_S\) be the Cayley-graph distance from the identity. In the source's formulation, almost convexity means
+\[\begin{split}
+\exists C>0\ \forall r\in\Z_{>0}\ \forall x,y\in\Gamma:\quad
+&d_S(1,x)=d_S(1,y)=r,\ d_S(x,y)=2\\
+&\Longrightarrow\exists\gamma:x\leadsto y,\quad
+\operatorname{length}(\gamma)\leq C,\quad\gamma\subseteq B_S(1,r).
+\end{split}\]
+The source attributes this theory to Cannon [Ca], notes an analogous notion for spaces, and describes recursive construction of Cayley balls by uniformly local computations near sphere points, yielding an efficient word-problem procedure. This contextual efficiency report supplies no polynomial conjugacy bound and does not assert that mapping class groups have the required almost-convex property for the chosen generators.
+\subsection{Short English statement}
+Find a polynomial-time, preferably quadratic-time, conjugacy decision algorithm for mapping class groups with word input. The following almost-convexity discussion and Thurston-norm caveat are retained as context, without turning them into a solution.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(11000024\), exact source code \texttt{catalogue entry}.
+\item Farb, \emph{Problems on Mapping Class Groups and Related Topics}, Problem 3.3, PDF page 31; reference to an example on page 11 and footnote 3: \url{https://www.math.uchicago.edu/~farb/papers/mcgbook.pdf}. Registry access 2026-07-29; pdf-font-structure extraction.
+\item Cannon [Ca] is the source's almost-convexity reference; the full bibliographic entry is absent. The summary mentions Nielsen--Thurston methods for conjugacy decidability without an exact citation.
+\end{itemize}
+\end{document}

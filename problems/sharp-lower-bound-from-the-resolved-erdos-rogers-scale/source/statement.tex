@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000934}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite simple graph $H$ and integer $r\geq2$, write $G\to_r H$ if every coloring of $E(G)$ with $r$ colors contains a monochromatic copy of $H$. A graph $G$ is $r$-Ramsey-minimal for $H$ if $G\to_r H$ but no proper subgraph has this property. Define
+\[
+ s_r(H)=\min\{\delta(G):G\text{ is $r$-Ramsey-minimal for }H\}.
+\]
+For integers $2\leq a<b$ and $N\geq1$, let $\alpha_a(G)$ be the maximum cardinality of a vertex subset inducing no $K_a$, and define the Erd\H{o}s--Rogers function
+\[
+ f_{a,b}(N)=\min\{\alpha_a(G): |V(G)|=N,\ K_b\not\subseteq G\}.
+\]
+All graph copies here are ordinary, not necessarily induced, copies.
+
+The source prints the Fox--Grinshpun--Liebenau--Person--Szab\'o conjecture as $s_r(k)=\Theta(r f_{k,k+1}(r)^2)$, without defining the clique index of $s_r(k)$. The aid flags a one-step mismatch under the convention $s_r(k)=s_r(K_k)$ and identifies the primary conjecture instead as, for every fixed $k\geq3$,
+\[
+ s_r(K_k)=\Theta_k\!\left(r f_{k-1,k}(r)^2\right)\quad(r\to\infty),
+\]
+or equivalently, for every fixed $q\geq2$,
+\[
+ s_r(K_{q+1})=\Theta_q\!\left(r f_{q,q+1}(r)^2\right).
+\]
+The constants and any lower threshold for $r$ may depend on the fixed clique parameter, but not on $r$. The original printed formula is retained as an indexing issue, not silently identified with the corrected one.
+
+The supplied aid attributes to Morris--Sahasrabudhe--Verstra\"ete a July 2026 theorem $f_{q,q+1}(N)=\Theta_q(\sqrt{N\log N})$ for fixed $q\geq2$. It reports that, combined with the FGLPS recurrence for $P_r(q)=s_r(K_{q+1})$, this yields
+\[
+ s_r(K_k)=\Omega_k(r^2\log r)\qquad(k\geq3\text{ fixed}).
+\]
+It leaves the matching upper bound for $k\geq4$ open and identifies a simultaneous packing obstruction: obtaining $r$ suitable pairwise edge-disjoint $K_{q+1}$-free graphs on a common vertex set of size $N=\Theta_q(r^2\log r)$, rather than obtaining just one Erd\H{o}s--Rogers graph.
+
+An explicit sufficient form of the packing requirement is to find such $G_1,\ldots,G_r$ with $\alpha_q(G_i)<N/r$ for every $i$. Then every vertex-coloring with colors $1,\ldots,r$ has some color class containing a $K_q$ in its matching $G_i$. This states the relevant simultaneous condition; existence of one graph does not provide disjoint copies of all $r$. The full FGLPS recurrence and the precise reduction are not supplied and require source review. The July 2026 theorem and claimed lower-bound corollary are recorded as supplied literature/research-aid claims, not independently verified results here.
+\subsection{Short English statement}
+The conjecture compares the minimum degree of Ramsey-minimal clique graphs with the squared Erd\H{o}s--Rogers function. The source has an index ambiguity. The supplied aid reports a sharp $r^2\log r$ lower bound from July 2026 literature and leaves the matching upper bound for larger cliques as a simultaneous edge-disjoint packing problem.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Graph Ramsey theory}, ``Ramsey minimal graphs,'' conjecture 12, attributed to Fox--Grinshpun--Liebenau--Person--Szab\'o and referring to Dudek's talk for the Erd\H{o}s--Rogers function: \url{https://www.overleaf.com/read/mnvcscjjysvg}.
+\item The attached aid names the primary FGLPS conjecture/packing recurrence and a July 2026 theorem of Morris--Sahasrabudhe--Verstra\"ete. No complete bibliographic details or recurrence formula are supplied.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20000934, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[58]}. Attached attempt 1 is labeled partial result, problem status at run partially solved, rigor proved, and low novelty confidence. It is machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

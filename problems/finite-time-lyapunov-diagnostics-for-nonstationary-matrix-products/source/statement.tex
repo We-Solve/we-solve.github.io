@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001403}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks what can be said about spectral properties and Lyapunov spectra in sequential or nonstationary settings. It does not specify a class of maps, operator spaces, cocycles, or a meaning of spectrum. One finite-dimensional interpretation in the attached aid is as follows. For invertible real \(m\times m\) matrices \(A_0,A_1,\ldots\), put
+\[
+ P_n=A_{n-1}\cdots A_0,\qquad
+ \chi_j(n)=\frac1n\log s_j(P_n),\quad
+ s_1(P_n)\ge\cdots\ge s_m(P_n)>0,
+\]
+using Euclidean singular values. The Lyapunov exponents in this interpretation are the limits of \(\chi_j(n)\), when they exist. With induced Euclidean norms on exterior powers, set
+\[
+ \gamma_k(n)=\frac1n\log\|\bigwedge^kP_n\|
+             =\sum_{j=1}^k\chi_j(n),\quad 1\le k\le m.
+\]
+The aid reports that convergence of all ordered singular exponents is equivalent to convergence of all these exterior-power growth rates; when the limits are finite, \(\lim\chi_k=\lim\gamma_k-\lim\gamma_{k-1}\), with \(\gamma_0=0\).
+
+For an exact moving-frame reduction
+\[
+ A_k=B_{k+1}D_kB_k^{-1},\quad
+ D_k=\operatorname{diag}(e^{a_{k,1}},\ldots,e^{a_{k,m}}),\quad B_k\in\operatorname{GL}_m(\R),
+\]
+write \(\bar a_{n,j}=n^{-1}\sum_{k=0}^{n-1}a_{k,j}\), and let \(\bar a_{n,(j)}\) be their decreasing rearrangement. An explicit endpoint-frame error is
+\[
+ R_n=\log\max\{\|B_n\|\|B_0^{-1}\|,\ \|B_n^{-1}\|\|B_0\|\}.
+\]
+The supplied quantitative statement is
+\[
+ \max_{1\le j\le m}|\chi_j(n)-\bar a_{n,(j)}|\le\frac{R_n}{n}.
+\]
+In particular, if the frame and its inverse have subexponential norm growth, then \(R_n/n\to0\); convergence questions reduce to the sorted coordinate averages. The exact reduction and subexponential distortion are hypotheses, not conclusions for arbitrary nonstationary products.
+
+As a contrasting example the aid reports a sequence drawn from four fixed determinant-one matrices, each factor and inverse having norm at most \(2\), for which
+\[
+ \liminf_{n\to\infty}\chi_1(n)=0,\qquad
+ \limsup_{n\to\infty}\chi_1(n)=\log2.
+\]
+On subsequences realizing these two endpoints, the products have only eigenvalue \(1\). Thus bounded factors and inverses need not ensure convergence, and eigenvalues of finite products need not detect their singular-value growth. The supplied summary does not include the four matrices, their dimension, or the sequence, so no explicit construction is asserted here. These finite-dimensional diagnostics constitute only the reported partial treatment of the broader question; no stationary ergodic assumptions or general operator spectral theorem are supplied.
+\subsection{Short English statement}
+Investigate spectra and Lyapunov growth without stationarity. The aid treats finite-dimensional products: exterior powers encode singular exponents, an exact diagonal moving frame gives a quantitative error bound, and a reported bounded-matrix example shows that exponents can fail to converge even when selected products have only eigenvalue one.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Stochastic methods for non-equilibrium dynamical systems}, Problem 18: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001403, source code \texttt{catalogue entry}; canonical location \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[60]}.
+\item Attached machine-generated research attempt 1: partial result, run status unknown, internal rigor label ``proved'', low novelty confidence. It is not peer reviewed and requires independent verification before citation. No separate literature reference is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001142}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Retain the source's normalization
+\[
+ C_4=\left\{\sum_{n=0}^{\infty}a_n4^{-n}:a_n\in\{0,1\}\right\}\subseteq[0,4/3],
+ \qquad E=C_4\times C_4\subseteq\R^2.
+\]
+For \(r>0\), let \(E_r^{(2)}=\{x:\operatorname{dist}_2(x,E)\leq r\}\) be the Euclidean neighborhood. The original question asks for the ``size'' of the thickened set without defining size. According to the supplied aid, the Peres--Solomyak context identifies the intended quantity as Favard length, not planar area. With \(\pi_\theta(x)=x\cdot(\cos\theta,\sin\theta)\), use the explicit normalization
+\[
+ \operatorname{Fav}(K)=\frac1\pi\int_0^\pi\mathcal L^1(\pi_\theta K)\,\dd\theta.
+\]
+The intended problem is to estimate \(\operatorname{Fav}(E_\delta^{(2)})\) as \(\delta\downarrow0\).
+
+The aid reports the following conservatively verified published bounds: for each real \(p<1/6\), there are positive constants \(c,C_p,\delta_0\) such that, for \(0<\delta<\delta_0\),
+\[
+ c\frac{\log\log(1/\delta)}{\log(1/\delta)}
+ \leq\operatorname{Fav}(E_\delta^{(2)})
+ \leq C_p\bigl(\log(1/\delta)\bigr)^{-p}.
+\]
+The meaningful decaying upper bounds have \(0<p<1/6\). The aid reports the exact deterministic order still open; it does not give full citations for these inequalities.
+
+It separately treats the literal area reading. Define
+\[
+ V_\infty(r)=\mathcal L^2(\{x:\operatorname{dist}_\infty(x,E)\leq r\}),\qquad
+ V_2(r)=\mathcal L^2(E_r^{(2)}).
+\]
+For every integer \(k\geq0\) and every
+\(\frac13 4^{-(k+1)}\leq r\leq\frac13 4^{-k}\), it reports the exact formula
+\[
+ V_\infty(r)=\left(\frac43\,2^{-(k+1)}+2^{k+2}r\right)^2.
+\]
+Equivalently, with \(t=3\cdot4^kr\in[1/4,1]\),
+\[
+ \frac{V_\infty(r)}r=\frac{(2+4t)^2}{3t}.
+\]
+The reported exact oscillation gives
+\[
+ \liminf_{r\downarrow0}\frac{V_\infty(r)}r=\frac{32}{3},\qquad
+ \limsup_{r\downarrow0}\frac{V_\infty(r)}r=12.
+\]
+For the Euclidean tube, the aid reports the explicit small-radius estimates
+\[
+ \frac{16\sqrt2}{3}r\leq V_2(r)\leq12r.
+\]
+These area statements concern a different functional from the intended Favard length and do not resolve its exact decay. The summation starting at \(n=0\), digit set \(\{0,1\}\), ambient-plane neighborhoods and choice of norm are material to the displayed constants.
+\subsection{Short English statement}
+The supplied context interprets the question as one about average projection length, with reported logarithmic bounds and an unresolved exact order. A separate area interpretation has an exact max-norm tube formula and explicit Euclidean area bounds; the two notions of size must remain distinct.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001142\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[266]}.
+\item AIM workshop ``Recent trends in additive combinatorics'', Problem 4.11, brought by B. Green and described as implicit in a paper of Solomyak and Peres: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. The supplied verification places it on the final page under the printed heading ``Erdős Distance and Kakea Problem Session''. No paper title or full Peres--Solomyak citation is supplied; the literature field is empty.
+\item Research attempt 1: \texttt{partial\_result}, status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It reports the Favard interpretation, conservatively verified published bounds, an exact max-norm tube formula and Euclidean area bounds. The exact deterministic Favard order is reported open. No separate full references for the lower and upper Favard bounds are supplied.
+\end{itemize}
+\end{document}

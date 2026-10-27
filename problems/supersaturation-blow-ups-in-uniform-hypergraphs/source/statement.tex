@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002028}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(H=(V,E)\) be a finite simple \(r\)-uniform hypergraph: \(E\subseteq\binom{V}{r}\). Interpret the source's parameter \(n\) as \(|V|\). The complete \(r\)-uniform hypergraph \(K^r_\ell\) has \(\ell\) vertices and every \(r\)-element subset as an edge. Under the unlabelled, non-induced counting convention, define
+\[
+N_\ell(H)=\bigl|\{S\in\tbinom{V}{\ell}:\tbinom{S}{r}\subseteq E\}\bigr|.
+\]
+The source does not specify its counting convention; this convention is an explicit interpretation.
+
+A complete \(\ell\)-partite \(r\)-uniform hypergraph with equal part size \(t\) has pairwise disjoint vertex classes \(V_1,\ldots,V_\ell\), each of size \(t\), and as edges all \(r\)-element sets meeting each class in at most one vertex. Containment here means subhypergraph containment: additional edges of \(H\) on these vertices are permitted.
+
+For the meaningful exponent range \(r\geq2\), the supplied question, with the above conventions, is whether
+\[
+\begin{gathered}
+\forall\ell\in\Z_{\geq1}\ \forall r\in\Z_{\geq2}\ \forall c\in\R_{>0}\
+\exists\gamma=\gamma(\ell,r,c)>0\ \forall n\in\Z_{\geq1}\
+\forall H=(V,E),\quad |V|=n,\ E\subseteq\tbinom{V}{r}:\\
+N_\ell(H)\geq c n^\ell\ \Longrightarrow\
+\exists t\in\Z_{\geq1}\ \exists V_1,\ldots,V_\ell\subseteq V,\\
+V_i\cap V_j=\varnothing\ (i\ne j),\qquad |V_i|=t\ (1\leq i\leq\ell),\\
+t\geq\gamma(\log n)^{1/(r-1)},\qquad
+\bigl\{A\in\tbinom{\bigcup_{i=1}^{\ell}V_i}{r}:\ |A\cap V_i|\leq1\text{ for all }i\bigr\}\subseteq E.
+\end{gathered}
+\]
+Here \(\log\) denotes the natural logarithm; changing its fixed base only changes \(\gamma\).
+
+The supplied source actually quantifies over all positive integers \(r\), including \(r=1\), where \(1/(r-1)\) is undefined. Thus the display records only the portion with a defined exponent, not a resolution of the full supplied wording. No hypothesis \(\ell\geq r\) is supplied; when \(\ell<r\), both complete hypergraphs in these definitions have no edges. The universal quantifier over \(n\) above is a literal interpretation of the source's implicit order parameter; the source does not explicitly distinguish all \(n\) from sufficiently large \(n\). These qualifications require review.
+\subsection{Short English statement}
+The question asks whether a positive density of complete \(r\)-uniform hypergraphs on \(\ell\) vertices forces a complete \(\ell\)-partite subhypergraph whose equal parts have size at least a constant times \((\log n)^{1/(r-1)}\). The constant may depend on \(\ell,r,c\), but not on \(n\) or \(H\). The supplied wording includes an undefined case \(r=1\) and leaves several conventions implicit. This is a statement-only draft requiring human mathematical review; the supplied open label is not independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30002028\), title ``Supersaturation Blow-Ups in Uniform Hypergraphs,'' Oberwolfach Reports Open Problems collection; exact source problem code \texttt{catalogue entry}. No individual proposer is supplied. The record gives proposed year 2012.
+\item Supplied source citation: \emph{Mini-Workshop: Hypergraph Tur\'an Problem (2013)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2012/19}, pp.\ 1149--1182. \url{https://doi.org/10.4171/owr/2012/19}. The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source, ``Oberwolfach report'': \url{https://ems.press/content/serial-article-files/46390?nt=1}.
+\item Supplied literature source, ``Finding partite hypergraphs efficiently'': \url{https://www.sciencedirect.com/science/article/pii/S0020019026000050}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and says that the stronger conjectured logarithmic blowup exponent from a positive density of complete partite copies remains unresolved, while recent algorithmic work reaches the Erd\H{o}s-order exponent but not this copy-count conjecture. This is supplied dated curation, not an independently verified assessment. Its own qualification requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and supplies a claim of manual semantic, typographic, and LaTeX review of a meaning-preserving cleanup. These are supplied provenance labels, not mathematical verification by this draft.
+\end{itemize}
+\end{document}

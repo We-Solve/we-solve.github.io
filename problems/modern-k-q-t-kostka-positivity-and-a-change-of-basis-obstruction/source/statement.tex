@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002899}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $q,t$ be independent indeterminates and let $\N[q,t]$ mean polynomials with nonnegative integer coefficients, including zero. The source asks for coefficientwise positivity of the $k$-$(q,t)$-Kostka polynomials. It does not define them in the quoted problem. The supplied aid identifies the intended 2005 convention as expansion of transformed Macdonald symmetric polynomials in the recursive $k$-split $k$-Schur basis. In that convention, for an integer $k\geq1$ and admissible $k$-bounded partitions $\lambda,\mu$ of the same degree $d$ (so $\lambda_1,\mu_1\leq k$), write
+\[
+H^{\mathrm{tr}}_\mu(X;q,t)=\sum_{\substack{\lambda\vdash d\\\lambda_1\leq k}}
+K^{(k)}_{\lambda\mu}(q,t)\,s^{(k)}_\lambda(X;t).
+\]
+Here $s^{(k)}_\lambda$ denotes the recursive $k$-split basis, and $H^{\mathrm{tr}}_\mu$ must use the transformed-Macdonald normalization of that construction. The problem is
+\[
+\forall k\geq1\ \forall\text{ admissible }\lambda,\mu,\qquad
+K^{(k)}_{\lambda\mu}(q,t)\in\N[q,t].
+\]
+The recursive definition and precise transformation of $H_\mu$ are not supplied, so an implementation must verify the convention and admissible indexing rather than substitute a different modified-Macdonald or atom basis.
+
+According to the aid, Kato's Corollary 10.4 in arXiv:2505.23202v2, combined with the Blasiak--Morse--Pun--Summers equivalence of $k$-split, strong-tableau, and Catalan $k$-Schur functions, establishes this positivity in the stated modern $k$-Schur interpretation. The aid also reports the stable range $k\geq d$ directly, where the $k$-Schur basis specializes to the Schur basis. These are supplied literature and partial-result assertions, whose precise normalizations and theorem hypotheses require checking.
+
+The aid distinguishes the original tableau-atom version by the following finite-degree cone criterion. Let $A=(a_j)_{j=1}^m$ and $B=(b_i)_{i=1}^m$ be two bases over $\Z[q,t]$, with an invertible unitriangular transition matrix $T$ defined by
+\[
+a_j=\sum_{i=1}^m T_{ij}b_i.
+\]
+For coordinate columns $x=[v]_A$, $y=[v]_B$ one has $y=Tx$. Thus $T\in\operatorname{Mat}_m(\N[q,t])$ transfers nonnegative $A$-coordinates to nonnegative $B$-coordinates. Universal transfer in the reverse direction holds exactly when $T^{-1}\in\operatorname{Mat}_m(\N[q,t])$. If both $T$ and $T^{-1}$ are coefficientwise nonnegative and $T$ is unitriangular in a fixed ordering, then $T=I$. In particular positivity in a modern basis transfers to an atom basis through a nonnegative modern-to-atom transition (or equality of bases); nonnegativity only of the opposite atom-to-modern transition is insufficient. This criterion does not establish the required transition or settle a distinct original tableau-atom conjecture.
+\subsection{Short English statement}
+The source asks for nonnegative coefficients in the $k$-$(q,t)$-Kostka polynomials. The supplied aid identifies a modern $k$-split interpretation and reports a recent theorem proving its positivity. It also keeps the original tableau-atom formulation separate: positivity transfers between bases only when the transition in the needed direction is nonnegative, and the record does not establish that atom transition.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent catalogue entry, exact source code catalogue entry; \texttt{aim-special-functions-notes.json}, \texttt{notes[3]}.
+\item AIM workshop \emph{Generalized Kostka polynomials}, Problem (4), \url{https://aimath.org/WWN/kostka/prob2.pdf}. The aid identifies the problem as from 2005. No proposer, original remarks, or original literature citation is supplied.
+\item Supplied reference: Kato, Corollary 10.4, arXiv:2505.23202v2. No paper title or full publication details are included.
+\item Supplied attribution: Blasiak--Morse--Pun--Summers, equivalence of $k$-split, strong-tableau, and Catalan $k$-Schur functions; no title, theorem number, or complete citation is provided.
+\item Supplied research attempt 1, registry updated 14 August 2026: partial result, solved-at-run label, low novelty confidence, machine-generated and not peer reviewed. It reports modern positivity, stable-range progress, and the transition-cone criterion. The verification field consists only of ``The canonical AIM record is:''.
+\end{itemize}
+\end{document}

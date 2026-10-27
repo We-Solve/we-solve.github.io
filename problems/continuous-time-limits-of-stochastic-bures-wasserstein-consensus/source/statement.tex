@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006090}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied problem asks for a continuous-time description of a stochastic Bures--Wasserstein multi-agent update as the time step tends to zero. The extracted update contains missing mathematical symbols, so the following is a conditional formulation of its intended structure, with unresolved data stated explicitly.
+
+For the conventional finite-dimensional interpretation, fix integers \(d,N\geq 1\), write \(\operatorname{Sym}_d\) for the real symmetric \(d\times d\) matrices and \(\operatorname{Sym}_d^{++}\) for the positive-definite ones, and represent agent \(i\) by \((m_i,\Sigma_i)\in\R^d\times\operatorname{Sym}_d^{++}\). These domains are a conventional interpretation of the notation, not explicit hypotheses recoverable from the supplied excerpt. For \(A,B\in\operatorname{Sym}_d^{++}\), the Bures--Wasserstein distance is
+\[
+ d_{\mathrm{BW}}(A,B)^2
+ =\operatorname{tr}(A)+\operatorname{tr}(B)
+ -2\operatorname{tr}\!\left((A^{1/2}BA^{1/2})^{1/2}\right).
+\]
+The source does not specify whether covariance matrices on the positive-semidefinite boundary are also admitted.
+
+Let \(h=\Delta t>0\), \(t_k=kh\), and let \((\bar m^k,\bar\Sigma^k)\) denote the source's barycenter of the \(N\) agent states at step \(k\), with its indicated weights \(\omega^N\). The weights, their dependence on the states or time, and the precise barycenter functional are not supplied. Write \(\exp^{\mathrm{BW}}_\Sigma\) and \(\log^{\mathrm{BW}}_\Sigma\) for the exponential and logarithm used by the source, and \(\|\cdot\|_\Sigma\) for its tangent-space norm. Their coordinate conventions and domains require specification.
+
+With these qualifications, the recoverable structure of the displayed update is
+\[
+\begin{aligned}
+ (\bar m^k,\bar\Sigma^k)
+ &=\operatorname{Barycenter}_{\omega^N}
+       \bigl((m_j^k,\Sigma_j^k)_{j=1}^N\bigr),\\
+ m_i^{k+1}
+ &=m_i^k+h(\bar m^k-m_i^k)
+       +\sigma(k)\sqrt h\,W_k^{i,m},\\
+ T_i^{k+1}
+ &=\Pi_{\Omega_\varepsilon}^{\Sigma_i^k}
+       \left(h\log^{\mathrm{BW}}_{\Sigma_i^k}(\bar\Sigma^k)
+             +\sigma(k)\sqrt h\,W_k^{i,\Sigma}\right),\\
+ \Sigma_i^{k+1}
+ &=\exp^{\mathrm{BW}}_{\Sigma_i^k}(T_i^{k+1}),
+ \qquad i=1,\ldots,N.
+\end{aligned}
+\]
+Here \(\sigma(k)>0\), \(\varepsilon>0\), and the intended projection is written in the excerpt as
+\[
+ \Pi_{\Omega_\varepsilon}^{\Sigma}(T)
+ \in\operatorname*{arg\,min}_{S\in\Omega_\varepsilon}\|T-S\|_\Sigma.
+\]
+The covariance superscript merely makes the displayed norm dependence explicit; uniqueness of the minimizer is not established by the supplied record. The source calls \(W_k^{i,\Sigma}\in\operatorname{Sym}_d\) a random tangent vector with component-wise normal distributions. Its normalization, covariance structure, independence assumptions, and the distribution of \(W_k^{i,m}\) are not specified.
+
+The excerpt states that the exponential-map domain is \(\{T\in\operatorname{Sym}_d:T\succ I\}\), where \(I\) is the identity and \(T\succ I\) means \(T-I\) is positive definite. Its proposed closed set \(\Omega_\varepsilon\) is corrupted: the extracted condition ends with \(T-I+\varepsilon I\) and contains no comparison relation. Consequently, neither this set nor its compatibility with the stated exponential-map domain can be recovered reliably. No replacement inequality is assumed here.
+
+\emph{Requested mathematical statement.} After recovering the precise update, its state space, initial data, barycenter weights, tangent coordinates, projection set, and noise law from a reliable source, establish a continuous-time limit as \(h\downarrow0\), specifying an interpolation and a mode of convergence on a stated time interval. Identify the resulting stochastic evolution, including any boundary or projection contribution. The supplied clean statement additionally requests hypotheses for well-posedness and consensus; these require a specified solution concept and a specified notion of consensus. The excerpt explicitly asks for a continuous-time description but does not itself supply those additional definitions or hypotheses. Thus the record does not determine a unique limiting stochastic differential equation or a fully quantified convergence or consensus assertion.
+\subsection{Short English statement}
+Determine the continuous-time limit of the supplied stochastic Bures--Wasserstein consensus update, and formulate appropriate well-posedness and consensus conditions. The projection set is corrupted and essential noise, weight, domain, and convergence assumptions are missing, so the displayed scheme is a conditional reconstruction requiring source verification and human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30006090\), title \emph{Continuous-Time Limits of Stochastic Bures-Wasserstein Consensus}, exact source problem code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. No individual proposer is supplied.
+\item Supplied source citation: \emph{Mini-Workshop: High-Dimensional Control Problems and Mean-Field Equations with Applications in Machine Learning (2025)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2024/56}, pp.\ 3211--3254. Source URL: \url{https://doi.org/10.4171/owr/2024/56}. The background describes Oberwolfach Reports as records of mathematical workshops and their open-problem discussions. The supplied proposed year is 2024, while the citation title gives 2025; this discrepancy is unresolved.
+\item Supplied literature source: \emph{Oberwolfach Report 56/2024}, \url{https://doi.org/10.4171/owr/2024/56}.
+\item Supplied literature source: Borghi--Herty--Stavitskiy, \emph{Dynamics of measure-valued agents}, \url{https://arxiv.org/abs/2407.06389}.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem open and states that existing barycenter and consensus results do not derive this specific stochastic continuous-time limit. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; the status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and says that only clear formula delimiters, notation, grammar, and typography were repaired while preserving mathematical content and scope. These supplied editorial labels do not establish mathematical correctness or resolve the corrupted formulas.
+\end{itemize}
+\end{document}

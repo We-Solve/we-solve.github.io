@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001989}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A set \(A\subseteq\N\) is computably enumerable if an algorithm enumerates its elements. For sets \(A,B\subseteq\N\), write \(A\leq_T B\) if membership in \(A\) is computable using \(B\) as an oracle, and write \(A\equiv_T B\) if both \(A\leq_T B\) and \(B\leq_T A\). Let \(\mathcal D_{\mathrm{ce}}\) be the set of Turing degrees containing a computably enumerable set, ordered by the order induced by \(\leq_T\). For \(\mathbf a=\deg_T(A)\) and \(\mathbf b=\deg_T(B)\), their join is \(\mathbf a\vee\mathbf b=\deg_T(A\oplus B)\), where
+\[
+A\oplus B=\{2n:n\in A\}\cup\{2n+1:n\in B\}.
+\]
+A finite lattice is a nonempty finite partially ordered set \(L\) in which each pair \(x,y\) has a least upper bound \(x\vee_L y\) and a greatest lower bound \(x\wedge_L y\).
+
+\textbf{Problem.} Characterize all finite lattices \(L\) for which there exists an injective map \(f:L\longrightarrow\mathcal D_{\mathrm{ce}}\) such that, for every \(x,y\in L\),
+\[
+f(x\vee_L y)=f(x)\vee f(y),
+\]
+and \(f(x\wedge_L y)\) is the greatest lower bound of \(f(x)\) and \(f(y)\) in \(\mathcal D_{\mathrm{ce}}\). Explicitly, the latter condition means
+\[
+f(x\wedge_L y)\leq_T f(x),\qquad f(x\wedge_L y)\leq_T f(y),
+\]
+\[
+\forall\mathbf d\in\mathcal D_{\mathrm{ce}},\quad
+\bigl(\mathbf d\leq_T f(x)\ \land\ \mathbf d\leq_T f(y)\bigr)
+\Longrightarrow \mathbf d\leq_T f(x\wedge_L y).
+\]
+The meet condition requires an ambient greatest lower bound for each image pair; it is stronger than merely being a greatest lower bound within \(f(L)\). It does not assume that every pair of computably enumerable degrees has a meet. The displayed formulation preserves binary joins and meets. The supplied wording does not specify an additional requirement that the least or greatest element of \(L\) map to the least or greatest element of \(\mathcal D_{\mathrm{ce}}\); whether such a requirement was intended remains unresolved.
+\subsection{Short English statement}
+Determine exactly which finite lattices admit an injective representation by computably enumerable Turing degrees that preserves every binary join and meet. Meets are taken in the ordered set of computably enumerable degrees. The source does not specify whether the embedding must also preserve the ambient least and greatest degrees.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30001989\), title \emph{Finite Lattices in Computably Enumerable Turing Degrees}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record assigns the year 2012 and supplies no individual proposer.
+\item Supplied source citation: \emph{Computability Theory} (2012), Oberwolfach Reports, pp.\ 397--455, DOI \texttt{10.4171/owr/2012/08}. Original report: \url{https://doi.org/10.4171/owr/2012/08}. The collection describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source, labeled ``finite-lattice status survey'': \url{https://people.math.wisc.edu/~slempp/papers/muenster.pdf}. No author or bibliographic title for this survey is supplied in the record.
+\item Supplied literature assessment, checked \texttt{2026-08-21}: the record labels the problem open and reports that a status survey describes the characterization as longstanding and open, with only substantial subclasses classified. This is supplied dated curation derived from the OWR collection, not independently verified here; time-sensitive status and cited claims require independent verification.
+\item The record marks the statement as ``exact'' and reports that its mathematical content was checked against the official Oberwolfach report, with notation, context, and question form normalized without changing the source-level claim. This verification is reported provenance, not an independent verification performed for this draft.
+\end{itemize}
+\end{document}

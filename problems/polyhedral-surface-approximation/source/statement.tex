@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 5500025}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The input is a triangulated surface \(S\subset\mathbb R^3\) and an error tolerance \(\varepsilon>0\). The source asks how efficiently one can compute a polyhedral surface approximating \(S\) within that tolerance. Its statement does not define the approximation relation or any objective controlling the output size. Without an additional requirement, retaining the input surface itself gives zero error, so the intended simplification objective is essential.
+
+The research summary interprets the task as seeking a minimum-size approximation. To express that interpretation without choosing omitted conventions, let \(\mathcal A(S)\) denote a specified admissible class of output surfaces, let \(\delta(S,Q)\) be the specified error, and let \(c(Q)\) be the selected combinatorial size. The optimization target would be
+\[
+ \operatorname{OPT}_\varepsilon(S)=
+ \min\{c(Q):Q\in\mathcal A(S),\ \delta(S,Q)\le\varepsilon\}.
+\]
+Determine the computational complexity of producing an optimal \(Q\), or a quantitatively specified approximation to this minimum, as intended by the original problem.
+
+For example, a possible positional error for nonempty compact surfaces is symmetric Hausdorff distance,
+\[
+ d_H(S,Q)=\max\left\{\sup_{x\in S}\inf_{y\in Q}|x-y|,
+ \sup_{y\in Q}\inf_{x\in S}|x-y|\right\},
+\]
+but the supplied excerpt does not select this metric. Nor does it specify whether size counts vertices, edges, or faces; whether output vertices must come from the input; whether topology, embeddedness, boundary, or normals must be preserved; or the coordinate model and running-time parameters. These choices cannot be silently fixed, and an optimal output size must be distinguished from an optimal running-time bound.
+
+The maintained TOPP entry is reported open as accessed in 2026. The supplied summary mentions near-optimal-size results for special classes and classical planar results of Agarwal--Suri and Mitchell--Suri, while leaving arbitrary three-dimensional meshes open. No precise special-case theorem, citation, or error convention is supplied, so those reports do not determine the missing general formulation.
+\subsection{Short English statement}
+How hard is it to simplify a triangulated surface in three dimensions while staying within a prescribed error? The intended problem needs an error metric and a size objective; the summary suggests minimum-size approximations, but the excerpt does not supply the necessary conventions.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(5500025\), source code catalogue entry; supplied statement, background, and research summary, updated 2026-08-06.
+\item \emph{The Open Problems Project}, Computational Geometry, Problem 25, ``Polyhedral Surface Approximation'': \url{https://topp.openproblem.net/p25}. Supplied source-TeX extraction accessed 2026-07-29; the maintained entry is reported to say ``Open''.
+\item Public source specification: \url{https://github.com/edemaine/topp}. The supplied rights note says its license expressly scopes software and problem-text reuse needs review.
+\item Agarwal--Suri and Mitchell--Suri are mentioned by the summary for planar results, without full references or exact hypotheses.
+\end{itemize}
+\end{document}

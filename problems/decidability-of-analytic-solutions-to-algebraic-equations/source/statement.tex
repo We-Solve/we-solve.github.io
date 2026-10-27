@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003241}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) be part of the input, and interpret an algebraic equation with coefficients in \(\Z[z]\) as a single polynomial equation
+\[
+P(z,X_1,\ldots,X_n)=0,
+\qquad P\in\Z[z,X_1,\ldots,X_n],
+\]
+with no differentiation. The polynomial is specified by its finite list of integer coefficients and monomials. For an open set \(U\subseteq\C\), let \(\mathcal O(U)\) denote the ring of single-valued holomorphic functions on \(U\). A solution on \(U\) is a tuple \((f_1,\ldots,f_n)\in\mathcal O(U)^n\) satisfying
+\[
+P\bigl(z,f_1(z),\ldots,f_n(z)\bigr)=0
+\quad\text{for every }z\in U.
+\]
+The source asks about deciding existence of such solutions under the following domain requirements:
+\begin{enumerate}
+\item \textbf{Analytic at \(0\):} there exists an open set \(U\subseteq\C\) containing \(0\) on which a solution exists. Equivalently, the unknown functions are holomorphic germs at \(0\) satisfying the equation as an identity of germs.
+\item \textbf{Analytic on an open superset of the unit disc:} there exists an open set \(U\subseteq\C\) containing the unit disc on which a solution exists. The supplied record does not specify whether ``unit disc'' means
+\[
+\mathbb D=\{z\in\C:|z|<1\}
+\quad\text{or}\quad
+\overline{\mathbb D}=\{z\in\C:|z|\leq1\}.
+\]
+Thus, for either specified choice \(K\in\{\mathbb D,\overline{\mathbb D}\}\), the corresponding precise predicate is
+\[
+\exists\,U\subseteq\C\text{ open},\quad
+K\subseteq U,\quad
+\exists\,(f_1,\ldots,f_n)\in\mathcal O(U)^n,
+\quad P(z,f_1(z),\ldots,f_n(z))\equiv0\text{ on }U.
+\]
+The source also does not explicitly say whether ``superset'' requires strict containment. These alternatives are left unresolved rather than identified.
+\item \textbf{Analytic on the whole complex plane:} there exists a tuple \((f_1,\ldots,f_n)\in\mathcal O(\C)^n\) satisfying the equation identically on \(\C\).
+\end{enumerate}
+\textbf{Decision question.} For each intended domain requirement, does there exist an algorithm which, for every input \(n\geq1\) and \(P\in\Z[z,X_1,\ldots,X_n]\), terminates and answers yes exactly when a solution with that requirement exists, and answers no otherwise? The domain requirements are treated here as separate decision questions. The source's use of ``or'' does not explicitly distinguish separate questions from a combined disjunctive question; the intended logical organization and the unit-disc convention require confirmation from the source. No solution tuple is required as algorithmic output.
+\subsection{Short English statement}
+Given one polynomial equation in finitely many unknown functions of the complex variable \(z\), with coefficients in \(\Z[z]\), ask whether existence of a holomorphic solution can be decided near \(0\), on an open set containing the unit disc, or on all of \(\C\). The unit-disc boundary convention and the logical role of ``or'' remain unresolved. The supplied record labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30003241\), title ``Decidability of Analytic Solutions to Algebraic Equations,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is named in the supplied record; its proposed year is \(2016\).
+\item Supplied report citation: \emph{Definability and Decidability Problems in Number Theory} (2017), \emph{Oberwolfach Reports}, pp.\ 2793--2866, DOI \texttt{10.4171/owr/2016/49}. \url{https://doi.org/10.4171/owr/2016/49}. The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source, labeled ``Oberwolfach Reports 2017'': \url{https://ems.press/content/serial-article-files/46652}.
+\item Literature assessment dated \texttt{2026-08-21}: the supplied curation labels the problem open and states that the algorithmic question for algebraic equations without differentiation is explicitly reported as open, with no later resolution located. This is supplied dated curation, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The supplied statement status is \texttt{corrected\_verified}. Its verification note reports comparison with the official Oberwolfach report and preservation of the report's hypotheses, notation, and open mathematical target. This draft records that supplied claim without asserting an independent source check.
+\end{itemize}
+\end{document}

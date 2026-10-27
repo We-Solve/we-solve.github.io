@@ -1,0 +1,48 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3800014}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The input is a sorted list $x_1\leq\cdots\leq x_n$ of real numbers. For every $k\in\{1,\ldots,n\}$, find a shortest interval $I$ containing exactly $k$ entries, where entries are counted with their list multiplicities and the length of $[u,v]$ is $v-u$. With distinct input values, the optimum length is
+\[
+L_k=\min_{1\leq i\leq n-k+1}(x_{i+k-1}-x_i),
+\]
+and an index attaining this minimum specifies the interval $[x_i,x_{i+k-1}]$. All $n$ values, together with one attaining interval for each value, are requested in one computation.
+
+If repetitions are allowed and intervals are ordinary closed subsets of $\mathbb R$, one cannot select only part of a group of equal entries. An exact formula is then the same minimum restricted to indices $i$ satisfying
+\[
+(i=1\ \text{or}\ x_{i-1}<x_i),\qquad
+(i+k-1=n\ \text{or}\ x_{i+k-1}<x_{i+k}).
+\]
+If no such index exists, no interval contains exactly $k$ entries. The source does not state whether inputs are distinct or how such infeasible outputs should be reported.
+
+Find an algorithm with subquadratic worst-case running time for all requested $k$, or prove a superlinear worst-case lower bound. One usual interpretation is an $o(n^2)$ algorithm or an $\omega(n)$ lower bound; the source does not specify a computational model or whether ``subquadratic'' means the stronger bound $O(n^{2-\varepsilon})$ for a fixed $\varepsilon>0$. The input is already sorted, so sorting cost is not part of the task.
+\subsection{Short English statement}
+Given sorted real numbers, find the shortest interval containing exactly $k$ entries for every $k$ simultaneously. Improve on quadratic time or establish a lower bound beyond linear time, under a specified computation model.
+\subsection{Sources}
+\begin{itemize}
+\item Jeff Erickson, \emph{Open Problems in Computational Geometry}, item ``A dynamic-programming interval problem,'' \url{https://jeffe.cs.illinois.edu/open/}; accessed 2026-07-29, HTML extraction. The source warns that its pages have not been systematically updated since 2001.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID $3800014$, source code catalogue entry, \emph{A dynamic-programming interval problem}. The proposer field is ``Jeff Erickson and cited proposers.'' Dataset attribution: Ulam AI and the UnsolvedMath Contributors.
+\end{itemize}
+\end{document}

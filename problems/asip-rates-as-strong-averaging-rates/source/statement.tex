@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001393}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \((Y,\mu)\) be a probability space and let \(T:Y\to Y\) preserve \(\mu\). Write \(y_n=T^ny\), with \(y\) sampled from \(\mu\), and let \(f:\R^q\times Y\to\R^q\) be integrable in its second variable. For \(\epsilon>0\), compare, from a common initial point \(x_0\),
+\[
+ x_{n+1}^{\epsilon,y}=x_n^{\epsilon,y}+\epsilon f(x_n^{\epsilon,y},T^ny),\qquad
+ \bar x_{n+1}=\bar x_n+\epsilon\bar f(\bar x_n),\quad
+ \bar f(x)=\int_Y f(x,u)\,d\mu(u).
+\]
+The averaging question asks for estimates and limit laws for
+\[
+ D_\epsilon=\sup_{0\le n<1/\epsilon}|x_n^{\epsilon,y}-\bar x_n|.
+\]
+The accompanying ASIP question asks whether the annealed almost sure invariant principle can have remainder \(N^{1/4}\log N\), in place of \(N^{1/4+\delta}\) for \(\delta>0\). Here an annealed maximal ASIP for a centered observable \(b_0:Y\to\R^q\) means a coupling, on an extension of the law \(y\sim\mu\), with a Brownian motion \(W\) of specified covariance, such that
+\[
+ S_m=\sum_{j=0}^{m-1}b_0(T^jy),\qquad
+ \max_{m\le N}|S_m-W(m)|=O_\omega(r(N)).
+\]
+The random constant in \(O_\omega\) is finite almost surely. Neither the observable and covariance in the ASIP question nor dynamical, mixing and regularity assumptions sufficient for it are specified by the source; invariance of \(\mu\) alone is not such an assumption.
+
+The supplied aid gives a conditional transfer statement for additive forcing \(f(x,y)=a(x)+b(y)\), with \(a\) globally Lipschitz of constant \(L\), \(b\) integrable, and the above ASIP for \(b_0=b-\int b\,d\mu\). Set \(A=a+\int b\,d\mu\) and define the Brownian-corrected recursion
+\[
+ X_0=x_0,\qquad X_{n+1}=X_n+\epsilon A(X_n)+\epsilon\bigl(W(n+1)-W(n)\bigr).
+\]
+It reports the bound
+\[
+ \max_{n\le N}|x_n^{\epsilon,y}-X_n|
+ \le\epsilon e^{L\epsilon N}\max_{m\le N}|S_m-W(m)|.
+\]
+For fixed \(H>0\) and \(N=\lfloor H/\epsilon\rfloor\), this yields respectively \(O_\omega(\epsilon^{3/4}\log(1/\epsilon))\) and \(O_\omega(\epsilon^{3/4-\delta})\). The single factor \(\epsilon\) is reported to be sharp when \(a=0\). These are errors relative to the Brownian-corrected recursion, whereas the discrepancy from the averaged recursion has fluctuation scale \(\sqrt\epsilon\) when a nondegenerate diffusion limit applies.
+
+For example, conditional on a functional fluctuation theorem
+\[
+ \epsilon^{-1/2}\bigl(x_{\lfloor t/\epsilon\rfloor}^{\epsilon,y}-\bar x_{\lfloor t/\epsilon\rfloor}\bigr)
+ \ \Longrightarrow\ Z(t)\quad(0\le t\le H)
+\]
+with a continuous limiting process in the uniform topology, the corresponding normalized maximal discrepancy converges to \(\sup_{0\le t\le H}|Z(t)|\). Identification of \(Z\) as a linearized Gaussian diffusion needs additional drift smoothness and fluctuation hypotheses; those hypotheses are not supplied here. Thus the conditional transfer does not establish the requested ASIP rate for general systems or a general limit theorem for \(D_\epsilon\).
+\subsection{Short English statement}
+Ask for an annealed ASIP remainder \(N^{1/4}\log N\) and for limit laws of slow dynamics relative to their averaged recursion. The supplied additive-forcing result transfers an assumed ASIP to a Brownian-corrected slow path; existence of that ASIP and general averaging limits require assumptions absent from the record.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Stochastic methods for non-equilibrium dynamical systems}, Problem 8: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001393, source code \texttt{catalogue entry}; canonical location \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[50]}.
+\item The supplied reconstruction interprets OCR superscripts as \(N^{1/4}\) and \(N^{1/4+\delta}\), the control character as \(\epsilon\), and isolated ``\(>12\)'' as a page transition. It is labeled reconstructed and unverified.
+\item Attached machine-generated attempt 1: partial result, internal rigor label ``proved'', low novelty confidence; not peer reviewed and requiring independent verification before citation. No separate literature citation is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002483}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\mathbb T=\R/\Z$ and let $L:\mathbb T^n\times\mathbb T\times\R^n\to\R$ be smooth and convex in its gradient variable, with the further usual coercivity assumptions required by the chosen variational theory. A typical source example is $L(x,s,p)=\tfrac12|p|^2+F(x,s)$ with $F$ smooth and periodic. A function $u:\R^n\to\R$ is a class-A minimizer if, for every bounded variation domain $\Omega$ and every admissible compactly supported perturbation $\varphi$,
+\[
+ \int_\Omega L(x,u,Du)\,\dd x
+ \le\int_\Omega L(x,u+\varphi,Du+D\varphi)\,\dd x.
+\]
+For the quadratic example one may take $\varphi\in W^{1,2}_0(\Omega)$ whenever the integrals are defined.
+
+The source's ``without self-intersections'' property of the projected graph in $\mathbb T^{n+1}$ is the Birkhoff ordering condition: every integer translate
+\[
+ (\tau_{k,j}u)(x)=u(x-k)+j,\qquad(k,j)\in\Z^n\times\Z,
+\]
+is everywhere above, everywhere below, or identical to $u$. It is not injectivity of the map from the noncompact graph to its torus image. The source recalls that such minimizers have a rotation covector $c\in(\R^n)^*$ with $|u(x)-u(0)-c\cdot x|$ bounded by a constant depending only on $L$, and that each rotation covector has a corresponding minimizer with $|u(x)-c\cdot x|$ bounded. Its broad question seeks analytic conditions ensuring this ordering. Its concrete question asks whether class-A minimality together with $\|Du\|_\infty<\infty$ suffices.
+
+The supplied assessment reports that the concrete implication is false in every dimension $n\ge8$. It describes a smooth nonnegative one-periodic potential $P$ and a smooth class-A minimizer $v$ for
+\[
+ \int\left(\tfrac12|Dv|^2+P(v)\right)\,\dd x
+\]
+with $1/4<v<3/4$ and bounded gradient, whose graph fails the Birkhoff ordering. The input is a nonflat Liu--Wang--Wei global Allen--Cahn minimizer with Lawson-cone asymptotics, rescaled to the Junginger--Gestrich--Valdinoci normalization. Birkhoff ordering of that bounded minimizer would force planar level sets, contradicting the nonflat asymptotics. This is a supplied literature-based counterexample account, not an independently checked construction.
+
+The aid isolates the following transfer. Let $h:\R^n\to(0,1)$ be a class-A minimizer of $\int(|Dh|^2+W(h))$, for a normalized double-well potential $W$ with $W(0)=W(1)=0$. Set
+\[
+ v=\tfrac14+\tfrac12h,
+ \qquad P(r)=\tfrac18W(2r-\tfrac12)
+       \quad(\tfrac14\le r\le\tfrac34),
+\]
+and choose a nonnegative smooth one-periodic extension $P$ agreeing on that interval, as available for the double-well input used by the aid. The energies on the compressed interval differ by the factor $1/8$. For arbitrary compact competitors, clipping to $[1/4,3/4]$ decreases the gradient contribution and replaces exterior potential values by zero endpoint values, preserving minimality. Interior elliptic bounds supply bounded gradient for this bounded smooth-potential solution. Adding passive spatial variables preserves class-A minimality and the ordering failure, giving higher-dimensional examples. A compatible smooth nonnegative extension is part of this construction; it is not asserted for an arbitrary unspecified double-well jet.
+
+The reported counterexamples refute bounded gradient as a universal sufficient condition. They do not settle all lower-dimensional cases or the broader request for other analytic criteria.
+\subsection{Short English statement}
+Ask whether bounded-gradient entire minimizers of a periodic scalar variational problem must have ordered integer translates. The supplied literature assessment reports counterexamples in every dimension at least eight, using nonflat Allen--Cahn minimizers and a smooth periodic-potential transfer.
+\subsection{Sources}
+\begin{itemize}
+\item Victor Bangert, verified Problem 26, American Institute of Mathematics workshop \emph{New connections between dynamical systems and PDE's}, \url{https://aimath.org/WWN/dynpde/dynpde.pdf}. The extracted number 6 lost its leading 2; isolated page numbers are artifacts.
+\item V. Bangert, \emph{Ann. Inst. Henri Poincar\'e, Analyse non lin\'eaire} 6 (1989), 95--138, especially Section 8, as explicitly cited in the original question.
+\item Local UnsolvedMath registry, permanent ID 20002483, source code \texttt{catalogue entry}, canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[94]}, record dated 14 August 2026. The original literature field is empty despite the citation embedded in the statement.
+\item Supplied assessment invokes Liu--Wang--Wei global Allen--Cahn minimizers and the Junginger--Gestrich--Valdinoci normalization, without full bibliographic details. Research attempt 1: counterexample, problem status at run refuted, rigor labelled proved, novelty confidence low. Its periodicization-and-lifting lemma is machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

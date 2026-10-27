@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000565}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks to understand Kadison--Singer (KS) through phase-shift theory and perhaps obtain a proof in those terms. A standard KS formulation is the unique extension of every pure state of the diagonal algebra of \(B(\ell^2)\) to \(B(\ell^2)\); the requested progress here is a phase-shift explanation or proof, not a claim that KS itself remains unproved. The supplied report interprets phase shifts as spectral/scattering shifts from perturbation determinants, not phase retrieval. The source does not specify a precise target theorem or quantitative normalization.
+
+For the report's finite-dimensional dictionary, let \(A\) be Hermitian, \(v\) a vector, and \(H=A+vv^*\). The normalized perturbation determinant is
+\[
+ \Delta_{H,A}(z)=\frac{\det(zI-H)}{\det(zI-A)}
+ =1-v^*(zI-A)^{-1}v,
+\]
+away from the spectra. A finite-dimensional positive rank-one spectral shift may be normalized by
+\(\xi_{H,A}(t)=N_A(t)-N_H(t)\), where \(N_A\) counts eigenvalues below \(t\), counted with multiplicity; endpoint values do not matter in its integral representation. With the logarithm tending to zero at infinity, the corresponding phase and barrier convention is
+\[
+ \log\Delta_{H,A}(z)=-\int\frac{\xi_{H,A}(t)}{z-t}\,dt,\qquad
+ \operatorname{tr}(zI-H)^{-1}-\operatorname{tr}(zI-A)^{-1}
+ =\int\frac{\xi_{H,A}(t)}{(z-t)^2}\,dt.
+\]
+The report asserts an exact dictionary of this normalized determinant, Krein phase shift and resolvent-barrier increment. Branch/sign conventions must be fixed as above; no independent proof is claimed.
+
+It also asserts that, for a fixed Hermitian background, a one-step expected rank-one characteristic polynomial can be realized exactly by an effective deterministic rank-one update. This is an equality of characteristic polynomials for that fixed background, not equality of the covariance with a rank-one matrix or a simultaneous realization of a multistep random process.
+
+For finite Parseval frames \((v_i)\), meaning \(\sum_i v_iv_i^*=I\), the report supplies two six-vector equal-norm examples with identical individual phase data relative to zero but different exact signing optima. Their vectors, dimension, signing functional and optimum values are absent from this record, so no explicit pair is invented. The intended obstruction is that free individual phase data lose eigendirection information. In contrast, for a \emph{commuting} rank-one decomposition of the identity with \(\|v_i\|^2\le\delta\), it claims that cumulative relative phase intervals yield an \(r\)-piece partition with
+\[
+ \left\|\sum_{i\in S_j}v_iv_i^*\right\|
+ \le\frac1r+\left(1-\frac1r\right)\delta\qquad(j=1,\ldots,r).
+\]
+The report explicitly does not supply a full phase-shift proof of the noncommutative MSS/KS theorem: the multivariate barrier/resolvent step remains its stated gap. A one-step identity and a commuting bound are not substituted for that missing step.
+\subsection{Short English statement}
+Seek a spectral phase-shift interpretation or proof of Kadison--Singer. The supplied report links rank-one perturbation phases to resolvent barriers and gives a commuting partition bound, while showing that individual phases omit essential directional data. It explicitly leaves a full noncommutative phase-shift proof unfinished.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000565\), source code \texttt{catalogue entry}; AIM analysis corpus, \texttt{aim-analysis-notes.json}, notes[96]. Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0.
+\item AIM \emph{Beyond Kadison--Singer: paving and consequences}, source item b24: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. The literal extracted bullet appends ``Dan Edidin'', while the research summary says the original document attributes this question to Mihai Putinar. This attribution conflict is preserved without silently choosing one.
+\item The report names Krein phase shifts and MSS, but supplies no full bibliographic references, six-vector examples or detailed multivariate theorem. Original remarks and literature fields are empty; the verification field only introduces the canonical text.
+\item Registry dated August 14, 2026: statement exact, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}; attempt 1 labelled partial result, rigor proved, novelty confidence low. The proposed phase-shift synthesis and obstruction are machine-generated research aids, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

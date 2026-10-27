@@ -1,0 +1,48 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800081}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+An RSA modulus is conventionally an integer $n=pq$ with distinct large primes $p,q$. The source asks for a malleable generator producing publicly related moduli $n,n'$ such that knowledge of a factorization of $n'$ makes $n$ easy to factor.
+
+A candidate formal reduction requirement is an efficient procedure $R$ such that, on generated public data and factors $n'=p'q'$, it outputs a nontrivial factor of $n$:
+\[
+1<R(n,n',p',q',\text{public data})<n,\qquad
+R(n,n',p',q',\text{public data})\mid n,
+\]
+with a specified success guarantee. This display states only the desired implication, not a construction or a security property.
+
+The source gives no generator input/output or security definition. Jointly generating two moduli with their factors and transforming an already given public modulus without its factors are different tasks. Publicly related also has no specified relation or efficient verification criterion. Distinctness, nontriviality, parameter distribution, prime sizes, reduction complexity and success probability are absent.
+
+In particular, allowing $n'=n$ makes the implication immediate, so the intended research problem needs conditions excluding such triviality and clarifying that the public relation does not already make $n$ easy to factor. A factoring reduction from $n'$ is not by itself a proof that either modulus is initially hard. No hidden-key behavior or concrete generator is inferred from the word malleable.
+\subsection{Short English statement}
+Specify a nontrivial public relation between RSA moduli that transfers a factorization of one to the other. The generator model, distinctness and required hardness/distribution guarantees are missing.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 8800081, exact source code catalogue entry, ``Malleable RSA modulus generation''; attributed to Pascal Paillier, no proposed year supplied. Registry status open, classification OPEN-TRIAGE.
+\item \emph{IPAM Workshop on Number Theory and Cryptography---Open Problems} (2006), attachment 6242, PDF pages 191--193, printed slide 27, \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}. Supplied pdf-and-legacy-ppt visual audit accessed July 29, 2026; provenance records 17 PDFs/two PPT decks inspected with repeated builds excluded. No PDF/PPT was accessed here.
+\item The supplied summary reports no verified published construction for the intended implication and mentions related-key/key-generation malleability and structured-prime work without precise references or definitions. This is supplied open-status assessment, not a new construction or impossibility theorem.
+\item Provenance flags current primary-literature status and redistribution terms NEEDS\_REVIEW.
+\end{itemize}
+\end{document}

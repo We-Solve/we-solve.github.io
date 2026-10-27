@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002505}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(N\in\N\), \(N\geq1\), and \(C>1\). A Dirichlet polynomial supported on \(\{1,\ldots,N\}\) is a function
+\[
+f(s)=\sum_{n=1}^{N}a_n n^{-s},\qquad a_n\in\C,\quad s\in\C.
+\]
+This is the meaning of ``degree at most \(N\)'' used in the supplied formula.
+
+The supplied record does not define \(\|f\|_p\). Under the conventional Dirichlet Hardy interpretation, for finite \(p>0\) one uses
+\[
+\|f\|_p^p=\lim_{R\to\infty}\frac1R\int_0^R|f(it)|^p\,\dd t.
+\]
+The statement below is conditional on this interpretation of the norm; its agreement with the report's definition requires review.
+
+For \(1\leq p<2\), define the set of admissible averaging times by
+\[
+\mathcal A_p(N,C)=\left\{T>0:\ \frac1T\int_0^T\left|\sum_{n=1}^{N}a_n n^{-it}\right|^p\,\dd t
+\leq C\left\|\sum_{n=1}^{N}a_n n^{-s}\right\|_p^p
+\ \text{for every }(a_1,\ldots,a_N)\in\C^N\right\}.
+\]
+The supplied formulation calls \(T_p(N,C)\) the least element of \(\mathcal A_p(N,C)\). Thus, wherever that least element exists, its literal definition is
+\[
+T_p(N,C)=\min\mathcal A_p(N,C).
+\]
+There is an unresolved boundary qualification: for \(N=1\), every polynomial is constant and \(\mathcal A_p(1,C)=(0,\infty)\), which has no least element. The record also does not specify whether an infimum or a threshold valid for every larger averaging time was intended. Neither convention is silently substituted here.
+
+\textbf{Problem, subject to clarification of the averaging-time definition.} Determine the dependence of \(T_p(N,C)\) on \(p\). In particular, is it true that, for each fixed \(C>1\) and each fixed \(p\in[1,2)\), there exist constants \(K(p,C)>0\) and \(N_0(p,C)\in\N\) such that
+\[
+T_p(N,C)\leq K(p,C)N\qquad\text{for every integer }N\geq N_0(p,C)?
+\]
+This spells out the supplied target \(T_p(N,C)=O(N)\) with dependence of the implicit constant on \(p\) and \(C\) allowed. The general question does not specify a domain for \(p\) beyond the explicitly stated range in this particular target. The original statement refers to a definition in connection with the triangle Hilbert integral; that definition is not reproduced in the supplied record.
+\subsection{Short English statement}
+For every Dirichlet polynomial supported on the first \(N\) positive integers, compare its average \(p\)-th power on an initial vertical interval with its Dirichlet Hardy mean. The question asks how the required averaging time depends on \(p\), especially whether it is \(O(N)\) for each fixed \(1\leq p<2\) and \(C>1\). The norm convention and the meaning of ``least averaging time'' require clarification before this becomes an unconditional precise statement.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002505\), title \emph{Averaging Times for \(H^p\) Dirichlet Polynomials}, source problem code \texttt{catalogue entry}, in the collection \emph{Oberwolfach Reports Open Problems}.
+\item \emph{Dirichlet Series and Function Theory in Polydiscs} (2014), Oberwolfach Reports, pp.\ 335--393, DOI \texttt{10.4171/owr/2014/06}. Supplied source and literature reference, labeled ``Oberwolfach Report 06/2014'': \url{https://doi.org/10.4171/owr/2014/06}. The record attributes the problem to this workshop report; no individual proposer is supplied.
+\item The original registry statement asks how \(T_p(N,C)\), as defined in the report in connection with the triangle Hilbert integral, depends on \(p\). The registry labels its expanded statement \texttt{corrected\_verified} and supplies a claim that it was checked against the official report. That verification claim is supplied metadata, not an independent verification performed for this draft.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and says that the dependence on \(p\), including the linear bound for \(1\leq p<2\), remains open in the sources checked. This is supplied dated curation, not independently verified. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

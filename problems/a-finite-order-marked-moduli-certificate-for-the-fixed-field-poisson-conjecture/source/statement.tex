@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000386}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Original question (Kiran Kedlaya).} Fix a prime power $q$. Describe, conjecturally, the distribution of $\#C(\F_q)$ for genus-$g$ curves as $g\to\infty$. The source does not specify the curve class or sampling measure.
+
+\textbf{Attached unreviewed arithmetic-stack interpretation.} For $g\ge2$, sample smooth projective geometrically connected curves over $\F_q$, giving each $\F_q$-isomorphism class weight $1/|\operatorname{Aut}_{\F_q}(C)|$, normalized to total probability one. Write $N_g=\#C(\F_q)$ and
+\[\#_{\mathrm{st}}\mathcal M_{g,r}(\F_q)=\sum_{[C;x_1,\ldots,x_r]}\frac1{|\operatorname{Aut}_{\F_q}(C;x_1,\ldots,x_r)|},\]
+where the markings are ordered distinct rational points. The aid gives the factorial-moment identity
+\[\mu_r(g):=\frac{\#_{\mathrm{st}}\mathcal M_{g,r}(\F_q)}{\#_{\mathrm{st}}\mathcal M_g(\F_q)}=\E (N_g)_r,\qquad (n)_r=n(n-1)\cdots(n-r+1),\quad(n)_0=1.\]
+It uses the proposed Poisson mean $\lambda=q+1+1/(q-1)$, so the reconstructed fixed-field target is $\operatorname{Law}(N_g)\to\operatorname{Poisson}(\lambda)$. This measure and mean are supplied by the aid, not explicit in the original one-line question.
+
+The aid's finite-order certificate uses Bonferroni truncations. For integers $r,m\ge0$ put
+\[S_J(r;g)=\sum_{j=0}^J\frac{(-1)^j\mu_{r+j}(g)}{r!j!}.\]
+The reported bounds are
+\[S_{2m+1}(r;g)\le\Pr(N_g=r)\le S_{2m}(r;g),\qquad S_{2m}-S_{2m+1}=\frac{\mu_{r+2m+1}(g)}{r!(2m+1)!}.\]
+The same truncations with $\mu_j=\lambda^j$ bracket the Poisson mass $e^{-\lambda}\lambda^r/r!$. Thus finite moment errors and finite Taylor remainders yield pointwise bounds, without interchanging an unproved infinite inclusion-exclusion series with a limit.
+
+To make the mentioned first-moment tail control explicit, any certified lower bounds $\ell_r\le\Pr(N_g=r)$ for $0\le r\le L$ give
+\[\Pr(N_g>L)\le\frac{\mu_1(g)-\sum_{r=0}^Lr\ell_r}{L+1}.\]
+For certified intervals $[\ell_r,u_r]\subseteq[0,1]$ and Poisson masses $\pi_r$, one obtains the finite-cutoff total-variation bound
+\[d_{\mathrm{TV}}\le\frac12\sum_{r=0}^L\max\{|\ell_r-\pi_r|,|u_r-\pi_r|\}+\frac12\Pr(N_g>L)+\frac12\Pr(\operatorname{Poisson}(\lambda)>L),\]
+using the displayed first-moment bound for the first tail. Moments through order $L+2m+1$ suffice for these Bonferroni intervals. The aid concludes that convergence $\mu_r(g)\to\lambda^r$ for every fixed $r$ implies total-variation convergence to this fixed Poisson law. It does not prove those marked-stack asymptotics for fixed $q$.
+
+The aid also warns that known fixed-order asymptotics in regimes written $q(g)>g^K$ do not alone establish a moving-mean Poisson approximation as $q$ grows; the needed moment orders and error control are different. No exact theorem, exponent range or citation for that comparison is supplied.
+\subsection{Short English statement}
+Kedlaya asks for the large-genus point-count distribution over one fixed finite field. The aid chooses automorphism-weighted curves and a proposed Poisson mean, then gives finite-moment bounds that would certify convergence if the necessary marked-moduli asymptotics were known. It does not prove the fixed-field conjecture or replace it by a growing-field regime.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20000386, source code catalogue entry; \texttt{aim-algebraic-number-theory-notes.json}, notes[37], tag \texttt{question}.
+\item AIM workshop \emph{Arithmetic statistics over finite fields and function fields}, Question 8 (Kiran Kedlaya): \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. Original remarks and literature fields are empty; no PDF was consulted.
+\item Attached machine-generated research attempt 1: result \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low. It is not peer reviewed and requires independent verification before citation. No authoritative reference for the Poisson prediction or compared marked-moduli asymptotics is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002365}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A valuation ring of a field \(K\) is a subring \(R\) such that, for every \(x\in K^*\), either \(x\in R\) or \(x^{-1}\in R\). Its maximal ideal is \(\mathfrak m_R\), and its residue field is \(R/\mathfrak m_R\). ``Nontrivial'' here means \(R\ne K\). Definability is in the pure field/ring structure on \(K\); the original question does not specify whether parameters are allowed.
+
+\textbf{Question 28 (Shlapentokh).} Do there exist an algebraic extension \(K/\Q\) and a nontrivial valuation ring \(R\subsetneq K\) which is definable in \(K\) and whose residue field is algebraically closed?
+
+The printed affirmative example, reconstructed as
+\[
+ K_0=\overline{\Q}\cap\Q_p,\qquad R_0=K_0\cap\Z_p,
+\]
+uses a fixed embedding into an algebraic closure of \(\Q_p\). Its residue field is \(\F_p\), not an algebraically closed field. Thus its reported definability does not by itself answer the stated question. This defect is explicitly retained rather than silently correcting the workshop text.
+
+\textbf{Corrected example reported by the research aid.} Fix a prime \(p\), an algebraic closure \(\overline{\Q}_p\), and the algebraic closure \(\overline{\Q}\) of \(\Q\) inside it. Let \(\Q_p^{\mathrm{nr}}\subseteq\overline{\Q}_p\) be the maximal algebraic unramified extension, namely the union of the finite unramified extensions, not its completion. Put
+\[
+ K_p=\overline{\Q}\cap\Q_p^{\mathrm{nr}},\qquad
+ R_p=\{x\in K_p:v_p(x)\geq0\},\qquad v_p(p)=1.
+\]
+The aid reports that the restricted valuation is henselian, has value group \(\Z\), and has residue field \(\overline{\F}_p\). In particular \(K_p/\Q\) is algebraic and \(R_p\) is a nontrivial valuation ring with algebraically closed residue field. It reports, for every fixed integer \(n>1\) coprime to \(p\),
+\[
+ \forall x\in K_p\quad
+ \left[x\in R_p\ \Longleftrightarrow\
+ \exists y\in K_p\ (y^n=1+p x^n)\right].
+\]
+This is a parameter-free existential ring formula: \(p\) and \(n\) are fixed integer numerals, not field parameters or quantified inputs. The aid further reports sharpness within this family: for \(n=1\) the predicate holds on the whole field, whereas for positive \(n\) divisible by \(p\) it fails at the integral element \(x=1\). These statements concern this specific field and formula family, not all henselian fields or all definitions of valuation rings.
+
+\textbf{Adjacent Fact 29 (Pheidas).} Independently of Question 28, the source states, with the Laurent-series parameter \(Z\),
+\[
+ \forall x\in\C((Z))\quad
+ x\in\C[[Z]]\ \Longleftrightarrow\
+ \exists y\in\C((Z))\ (y^2=1+Zx^2),
+\]
+and attributes this to Hensel's lemma. The aid reports the corresponding family
+\[
+ \C[[Z]]=\{x\in\C((Z)):\exists y\in\C((Z)),\ y^n=1+Zx^n\}
+ \quad(n>1),
+\]
+while \(n=1\) again defines the whole field. This definition uses the parameter \(Z\). The characteristic-zero residue field \(\C\), the Laurent-series ambient field and the distinction between \(Z\) and integer numerals are essential. It is not an algebraic extension of \(\Q\), and so is not itself the requested example for Question 28. All corrected-example and sharpness assertions remain supplied research claims requiring independent verification.
+\subsection{Short English statement}
+Ask for a definable nontrivial valuation on an algebraic extension of \(\Q\) with algebraically closed residue field. The printed example has the wrong residue field; the aid replaces it by the algebraic-number part of the maximal unramified \(p\)-adic extension and states an existential formula. The neighboring Laurent-series fact is retained separately.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002365\), catalogue entry, \texttt{aim-logic-notes.json}, \texttt{notes[140]}, 2005 workshop \emph{Extensions of Hilbert's tenth problem}, Question 28 (Shlapentokh) and adjacent Fact 29 (Pheidas): \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}.
+\item Supplied attribution to Hensel's lemma for Fact 29, and research summary giving the corrected field \(K_p\), its valuation invariants, existential definitions and exponent sharpness. No separate authoritative citation for the correction is supplied.
+\item Attempt 1: full\_solution, status at run ``solved'', rigor ``proved'', low novelty confidence; research classification SOLVED-IN-LITERATURE. These are metadata attached to a machine-generated, non-peer-reviewed research aid and require independent verification before citation. The supplied verification field reports visual inspection separating the consecutive items; this draft has not visited the PDF.
+\end{itemize}
+\end{document}

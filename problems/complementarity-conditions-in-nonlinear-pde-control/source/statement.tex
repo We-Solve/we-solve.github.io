@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003760}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Omega\) denote the spatial domain and let \(I=(0,T)\), where \(T>0\). Write \(z\) for the state, \(g\) for the control, and \(\dot z\) for the time derivative of \(z\). The supplied control problem has state inclusion
+\[
+0\in-\Delta z-g-\sigma\Delta\dot z+\partial|\dot z|
+\quad\text{in }H^{-1}(\Omega),
+\qquad z(0)=0,
+\]
+and objective to be minimized
+\[
+J(z,g)=j_1(z)+j_2(z(T))+
+\frac12\|g\|_{H^1(I;L^2(\Omega))}^{2}.
+\]
+Here \(H^1(I;L^2(\Omega))\) is the space of square-integrable \(L^2(\Omega)\)-valued functions with square-integrable weak time derivative. The notation \(H^{-1}(\Omega)\) denotes a negative Sobolev space; its precise convention and the realization of \(\Delta\) must be specified together with the spatial boundary conditions.
+
+For a locally optimal pair \((\bar z,\bar g)\), put \(\bar y=\dot{\bar z}\). The source introduces a subgradient \(\bar q\in\partial|\bar y|\) and an adjoint variable \(p\). For the scalar absolute value, the convex subdifferential is
+\[
+\partial|r|=
+\begin{cases}
+\{1\},&r>0,\\
+[-1,1],&r=0,\\
+\{-1\},&r<0.
+\end{cases}
+\]
+This describes the scalar notation; the source does not specify whether its state inclusion uses the pointwise graph or a subdifferential of an integral functional on a particular function space.
+
+\textbf{Question as stated in the source.} Is
+\[
+\bigl\langle p,1-|\bar q|\bigr\rangle=0
+\]
+a necessary optimality condition at a locally optimal pair for the displayed control problem?
+
+\textbf{Unresolved qualifications.} The record does not specify the dimension or regularity of \(\Omega\), spatial boundary conditions, the value or allowed range of \(\sigma\), the state space, admissible controls beyond the displayed norm, hypotheses on \(j_1,j_2\), or the topology of local optimality. It also omits the adjoint equation, adjoint boundary and terminal conditions, the spaces and integration region defining \(\langle\cdot,\cdot\rangle\), and whether the claimed condition concerns existence of suitable multipliers or every admissible choice. The relation of \(\bar q\) to the state inclusion must also be specified. Consequently, the displayed question is a statement-only reconstruction, not a fully specified quantified assertion.
+
+The supplied dated assessment says that this complementarity condition is already recorded as necessary and that sufficiency or a full characterization remains unresolved. This differs from the explicit question about necessity. Both formulations are retained here without selecting a replacement target. The source calls the system rate-independent, but does not explain the role of the term \(-\sigma\Delta\dot z\) or whether a limiting problem is intended.
+\subsection{Short English statement}
+The source asks whether a locally optimal state and control must satisfy the displayed complementarity relation involving an adjoint and a subgradient of the rate. Essential analytic hypotheses and multiplier quantifiers are missing. The supplied literature assessment instead describes necessity as recorded and sufficiency or a full characterization as unresolved; the intended target therefore requires review.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, with \texttt{catalog/problems.json} as the supplementary registry; supplied permanent UnsolvedMath ID \(30003760\), exact source problem code \texttt{catalogue entry}, title ``Complementarity Conditions in Nonlinear PDE Control.'' These identify the supplied record; no independent registry inspection is claimed.
+\item Supplied source citation: \emph{Challenges in Optimal Control of Nonlinear PDE-Systems} (2019), Oberwolfach Reports, pp.\ 941--1020, DOI 10.4171/owr/2018/16. Supplied source and background link: \url{https://doi.org/10.4171/owr/2018/16}. Attribution is to the report's workshop open-problem discussion; no individual proposer is supplied. The record separately gives proposed year 2018.
+\item Supplied literature source: ``Oberwolfach Report 16,'' \url{https://doi.org/10.4171/OWR/2018/16}. Literature checked at: \texttt{2026-08-21}. This is supplied dated curation, not independently verified: it labels the problem open, records the complementarity condition as necessary, and describes sufficiency or full characterization as unresolved. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item Supplied verification metadata labels the statement \texttt{corrected\_verified} and reports that the official report was checked to restore the state inclusion, initial condition, objective, subgradient, and adjoint variables. This is a supplied verification claim, not an independent verification by this draft.
+\end{itemize}
+\end{document}

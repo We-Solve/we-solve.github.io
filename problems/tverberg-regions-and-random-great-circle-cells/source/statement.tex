@@ -1,0 +1,84 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005815}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record combines two questions. The following formulations are conditional on conventions that are not fully specified in the supplied source text.
+
+For the first question, take positive integers \(d,n\), an \(n\)-element set \(P\subseteq\R^d\), and a point \(q\in\R^d\). Under the usual interpretation of Tverberg depth, define
+\[
+\operatorname{TvD}(P,q)=\max\left(\{0\}\cup\left\{r\in\{1,\ldots,n\}:\begin{array}{l}
+P=P_1\mathbin{\dot\cup}\cdots\mathbin{\dot\cup}P_r,\quad P_i\ne\varnothing,\\
+q\in\displaystyle\bigcap_{i=1}^r\operatorname{conv}(P_i)
+\end{array}\right\}\right),
+\]
+where \(\operatorname{conv}(B)\) denotes the convex hull of \(B\). For a positive integer \(k\), let
+\[
+D_k(P)=\{q\in\R^d:\operatorname{TvD}(P,q)\ge k\}.
+\]
+A nonempty set \(X\subseteq\R^d\) is contractible if there exist \(x_0\in X\) and a continuous map \(H:X\times[0,1]\to X\) satisfying \(H(x,0)=x\) and \(H(x,1)=x_0\) for every \(x\in X\).
+
+The intended question is to determine, for each \(d,n\), the positive integers \(k\) for which
+\[
+\text{for every }P\subseteq\R^d\text{ with }|P|=n,\qquad D_k(P)\text{ is contractible}.
+\]
+No general-position assumption on \(P\) is supplied. The definition of \(\operatorname{TvD}\), the precise parameter ranges, and the treatment of empty regions require confirmation. The definition of contractibility above requires nonemptiness; the source does not explicitly specify its convention for empty regions.
+
+The supplied original fragment identifies \(D_1(P)\) with \(\operatorname{conv}(P)\). It also states that, in \(\R^2\), \(D_k(P)\) is convex and hence contractible for \(k\le\lfloor n/3\rfloor\). These are retained as source assertions, without independent verification. Its further discussion of disconnected Tverberg-point sets contains a corrupted subscript rendered as ``Dk n'' and an unclear relation involving \(k\ge d+1\); no precise additional assertion is extracted from that passage.
+
+For the second question, let
+\[
+S^2=\{u\in\R^3:\|u\|=1\},
+\]
+and let \(\mathcal A\) be an arrangement of \(n\) great circles on \(S^2\). A great circle is the intersection of \(S^2\) with a two-dimensional linear subspace of \(\R^3\). The source requires general position but does not define it; a candidate convention is that the circles are distinct and no three pass through a common point. Let \(\mathcal F(\mathcal A)\) denote the connected components of
+\[
+S^2\setminus\bigcup_{\gamma\in\mathcal A}\gamma.
+\]
+Choose \(c\in\mathcal F(\mathcal A)\) uniformly.
+
+Under the candidate interpretation that a circle touches \(c\) when it supports a boundary arc of \(c\), set
+\[
+T(c)=\{\gamma\in\mathcal A:\gamma\text{ contains a nontrivial arc of }\partial c\},
+\qquad \mathcal A_c=\mathcal A\setminus T(c).
+\]
+Let \(C_c\) be the component of \(S^2\setminus\bigcup_{\gamma\in\mathcal A_c}\gamma\) containing \(c\). If \(e(C_c)\) is the number of edges of its boundary under the intended edge-counting convention, define \(x(c)=e(C_c)\). For a fixed arrangement, the requested expectation is then
+\[
+\E_{\mathcal A}[x]=\frac{1}{|\mathcal F(\mathcal A)|}\sum_{c\in\mathcal F(\mathcal A)}e(C_c).
+\]
+The reconstructed question asks how large this expectation can be over arrangements of \(n\) great circles in general position, equivalently to determine or bound
+\[
+M(n)=\sup_{\mathcal A}\E_{\mathcal A}[x].
+\]
+This interpretation requires confirmation of general position, the meaning of touching, the edge count when deletion leaves fewer than two circles, and whether an exact extremum or an asymptotic bound is intended. The supplied original fragment contains only the question about the expectation of \(x\), without its defining construction; that construction appears in the supplied reconstructed statement.
+\subsection{Short English statement}
+The reconstructed record asks which Tverberg-depth regions are always contractible, and how large the expected number of edges can become after deleting the great circles incident to a uniformly chosen cell. Precise interpretation requires confirmation of the depth definition, empty-region convention, circle-arrangement conventions, and intended extremal bound. Both questions are supplied as open; their status and reconstruction have not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30005815\), title ``Tverberg Regions and Random Great-Circle Cells'', source code \texttt{catalogue entry}. The supplied record gives proposed year 2024 and no named proposer for these questions.
+\item Supplied report citation: \emph{Discrete Geometry} (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/3, pp.\ 137--202. \url{https://doi.org/10.4171/owr/2024/3}.
+\item Supplied literature source: ``Oberwolfach Report 3/2024''. \url{https://ems.press/content/serial-article-files/48651}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and describes the extracted question as an incomplete fragment lacking the random variable and hypotheses, so that no verifiable resolution could be assigned. This is supplied dated curation, not an independently verified literature assessment.
+\item The supplied record separately labels its statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official report; its update timestamp is \texttt{2026-09-16T12:06:53Z}. This verification claim is reported as source metadata, not adopted as independent verification. The report links have not been visited for this draft.
+\end{itemize}
+\end{document}

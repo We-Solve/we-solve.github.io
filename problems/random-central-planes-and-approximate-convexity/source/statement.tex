@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001289}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $n\geq2$ and let $S\subset\R^n$ be compact with $0<|S|<\infty$, where $|\cdot|$ is $n$-dimensional Lebesgue measure. Assume its volume centroid is the origin: $|S|^{-1}\int_S x\,dx=0$. Let $\mathcal K$ consist of all compact convex sets with nonempty interior and also $\varnothing$, and let $S\mathbin{\triangle}C=(S\setminus C)\cup(C\setminus S)$. The source chooses
+\[
+ C_*\in\operatorname*{arg\,min}_{C\in\mathcal K}|S\mathbin{\triangle}C|
+\]
+and calls $S$ $\eta$-convex if $|S\mathbin{\triangle}C_*|\leq\eta|S|$. Equivalently one may describe the optimal normalized discrepancy $\inf_{C\in\mathcal K}|S\mathbin{\triangle}C|/|S|$; replacing attainment by an infimum alone would need care at an exact endpoint.
+
+Choose $X,Y$ independently and uniformly with respect to volume on $S$. Almost surely they span a two-dimensional linear subspace $H(X,Y)$; put $P(X,Y)=S\cap H(X,Y)$. Denote by $\mu_S$ the resulting distribution on central two-planes, or equivalently the induced distribution of these sections. Santosh Vempala's proposed implication is that there is an absolute constant $A>0$ such that, for all such $n,S$ and tolerances $0\leq\varepsilon\leq1$,
+\[
+ \Pr\bigl(P(X,Y)\text{ is convex}\bigr)\geq1-\varepsilon
+ \quad\Longrightarrow\quad
+ |S\mathbin{\triangle}C_*|\leq A n\varepsilon |S|.
+\]
+This makes the source's $O(n\varepsilon)$ conclusion explicit with a constant independent of $n$, $S$, and $\varepsilon$. The positive-volume, dimension, tolerance-range, and independence conventions are needed to define the sampling statement; they are not spelled out in the damaged excerpt. Convexity in the premise concerns the actual section as a set, whereas the conclusion measures discrepancy only up to null sets.
+
+The supplied machine aid emphasizes that $\mu_S$ is generally not Haar measure on $G(n,2)$. Relative to the rotation-invariant probability measure $\nu$, it reports a density proportional to
+\[
+ W_S(H)=\int_{(S\cap H)^2}[x,y]^{n-2}\,dx\,dy,
+ \qquad [x,y]=\sqrt{\|x\|_2^2\|y\|_2^2-\langle x,y\rangle^2},
+\]
+where integration within $H$ uses two-dimensional Lebesgue measure; thus the normalization is $d\mu_S(H)=W_S(H)d\nu(H)/\int W_S\,d\nu$.
+
+The aid also reports the following robust missing-chord bound. If $B(a,\rho),B(b,\rho)\subseteq S$ while $B((a+b)/2,\rho)\cap S=\varnothing$, with $\rho>0$ and $\kappa_n=|B(0,1)|$, then
+\[
+ \Pr\bigl(P(X,Y)\text{ is not convex}\bigr)
+ \geq\left(\frac{\kappa_n\rho^n}{|S|}\right)^2.
+\]
+It consequently reports exact convexity from zero failure probability for full-dimensional regular-closed compact sets, where regular closed means $S=\overline{\operatorname{int}S}$. In dimension two the sampled plane is almost surely $\R^2$, so the failure probability is zero or one according as $S$ is convex or not. These restricted facts are retained as supplied partial progress; the regular-closed assumption is not silently inserted into the original compact-set conjecture.
+\subsection{Short English statement}
+Sample two volume-uniform points and examine the central plane they span. The conjecture says that if almost all these sections are convex, then the set differs from a convex body by only an $O(n\varepsilon)$ fraction of its volume. The sampling favors planes according to the set itself. The supplied partial results describe this weighting and robust nonconvexity, with a separate regularity assumption for exact setwise convexity.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001289, exact source code catalogue entry; canonical \texttt{aim-convex-geometry-notes.json}, \texttt{notes[20]}, source item 2, tag ``problem'', workshop \emph{Algorithmic convex geometry}. Original attribution: Santosh Vempala. Supplied URL: \url{https://aimath.org/WWN/convexgeometry/convexgeometry.pdf}.
+\item Supplied verification marks the statement ``reconstructed\_unverified'', says the extracted U+000F control character replaces a Greek letter and several relations are damaged, and attributes repairs to inspection of the official PDF and its embedded font encoding. That note does not actually include the announced repairs. This draft uses $\varepsilon$ consistently with the supplied research context and does not claim to have repeated that inspection. No separate bibliographic references are supplied; original remarks and literature field are empty.
+\item Research classification PARTIAL-PROGRESS; registry status ``partially\_solved''; attempt 1, result ``partial\_result'', problem status at run ``open'', recorded rigor ``proved'', novelty confidence ``low'', candidate type ``reduction''. The research aid is machine generated, not peer reviewed, and explicitly requires independent verification before citation. Its determinant-weighted sampling and partial-result assertions are attributed, not independently certified.
+\end{itemize}
+\end{document}

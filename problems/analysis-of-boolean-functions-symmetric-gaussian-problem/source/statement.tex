@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800448}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each fixed positive integer \(n\), let \(\gamma_n\) denote standard Gaussian probability measure on \(\R^n\), so that
+\[
+\gamma_n(E)=(2\pi)^{-n/2}\int_E e^{-\|x\|^2/2}\,\dd x
+\]
+for measurable \(E\subseteq\R^n\). Fix \(\rho,\mu,\nu\in[0,1]\). Let \(X,Z\) be independent random vectors with distribution \(\gamma_n\), and set
+\[
+Y=\rho X+\sqrt{1-\rho^2}\,Z.
+\]
+Thus \(X\) and \(Y\) are standard Gaussian vectors with cross-covariance \(\E[XY^{\mathsf T}]=\rho I_n\). This definition includes \(\rho=0\) and \(\rho=1\).
+
+For \(A\subseteq\R^n\), write \(-A=\{-a:a\in A\}\). A set is centrally symmetric about the origin if \(A=-A\). Determine
+\[
+m_n(\rho,\mu,\nu)
+:=\inf\left\{
+\Pr[X\in A,\ Y\in B]:
+\begin{array}{l}
+A,B\subseteq\R^n\text{ are measurable},\\
+\gamma_n(A)=\mu,\quad\gamma_n(B)=\nu,\\
+A=-A
+\end{array}
+\right\}.
+\]
+All endpoint values \(\mu,\nu\in\{0,1\}\) are included. The source asks for the minimal possible value; the infimum notation does not presume attainment. The source does not specify whether \(n\) is fixed or whether optimization over dimensions is intended, so the displayed formulation records the problem separately for every fixed \(n\).
+
+The supplied source remarks assert that imposing \(B=-B\) as well gives an equivalent optimization problem. They also report that, without the symmetry requirement, opposing halfspaces minimize the probability, attributing this result to Borell [Bor85]. These are supplied source claims, not independently verified assertions in this draft.
+
+The source proposes as a reasonable conjecture that a minimizing pair consists of a ball centered at the origin of Gaussian measure \(\mu\) and the complement of a ball centered at the origin of Gaussian measure \(\nu\). The radii are chosen separately. At measures zero or one, this description requires empty or full sets, or their Gaussian-almost-everywhere equivalents; the optimization above includes these boundary cases without assuming the conjecture.
+\subsection{Short English statement}
+Determine the least joint membership probability for two positively correlated standard Gaussian vectors when the two sets have prescribed Gaussian measures and the first set is symmetric about the origin. The source suggests a centered ball paired with the complement of a centered ball as an optimizer. The dimension convention and the incomplete cited references require review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath/AMR registry, permanent UnsolvedMath ID \(800448\), exact source problem code \texttt{catalogue entry}, title ``Analysis of Boolean Functions --- Symmetric Gaussian Problem.'' The supplied registry labels the problem open and lists O'Donnell, 2012; these are supplied metadata, not an independently verified status or attribution assessment.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 18, ``Symmetric Gaussian Problem.'' Supplied source URL: \url{https://arxiv.org/abs/1204.6447}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; this draft does not claim independent access or verification.
+\item The supplied background identifies ``Proposed/Source: [CR10].'' No bibliographic expansion or link for [CR10] is supplied, so the original proposer attribution remains unresolved.
+\item The supplied background attributes the opposing-halfspaces result without symmetry to Borell [Bor85]. No full citation or link for [Bor85] is supplied.
+\end{itemize}
+\end{document}

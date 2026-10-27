@@ -1,0 +1,101 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005770}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer \(m\geq 1\), write \([m]=\{1,\ldots,m\}\) and let \(S_m\) be the set of permutations of \([m]\). Fix \(\alpha\in S_m\). Its skew sum with the one-entry permutation is \(\tau=\alpha\ominus 1\in S_{m+1}\), defined by
+\[
+\tau(i)=\alpha(i)+1\quad(1\leq i\leq m),\qquad \tau(m+1)=1.
+\]
+A permutation \(\pi\in S_n\) contains a pattern \(\sigma\in S_k\) if there are indices \(1\leq i_1<\cdots<i_k\leq n\) such that
+\[
+\pi(i_a)<\pi(i_b)\quad\Longleftrightarrow\quad \sigma(a)<\sigma(b)
+\qquad(1\leq a,b\leq k).
+\]
+It avoids \(\sigma\) if no such indices exist. Set
+\[
+\operatorname{Av}_n(\sigma)=\{\pi\in S_n:\pi\text{ avoids }\sigma\},
+\qquad
+\operatorname{Av}(\sigma)=\bigcup_{n\geq 1}\operatorname{Av}_n(\sigma).
+\]
+For \(\tau=\alpha\ominus1\), these finite avoidance sets are nonempty: the increasing permutation avoids \(\tau\).
+
+A permuton is a Borel probability measure on \([0,1]^2\) whose two coordinate marginals are Lebesgue measure on \([0,1]\). The diagonal permuton \(\mu_{\mathrm{diag}}\) is the distribution of \((U,U)\), where \(U\) is uniform on \([0,1]\); equivalently,
+\[
+\int f\,\dd\mu_{\mathrm{diag}}=\int_0^1 f(t,t)\,\dd t
+\quad\text{for every }f\in C([0,1]^2).
+\]
+For \(\pi\in S_n\), define its empirical plot measure by
+\[
+\nu_\pi=\frac1n\sum_{i=1}^n\delta_{(i/n,\pi(i)/n)}.
+\]
+Its finite marginals are discrete uniform measures; its weak limits as \(n\to\infty\) have uniform marginals and hence are permutons.
+
+\textbf{Conjecture attributed in the supplied record to David Bevan.} For every integer \(m\geq1\) and every fixed \(\alpha\in S_m\), let \(\Pi_n\) be uniformly distributed on \(\operatorname{Av}_n(\alpha\ominus1)\). Then
+\[
+\nu_{\Pi_n}\xrightarrow[n\to\infty]{\mathrm{weakly\ in\ probability}}\mu_{\mathrm{diag}}.
+\]
+Explicitly, for every \(f\in C([0,1]^2)\) and every \(\varepsilon>0\),
+\[
+\lim_{n\to\infty}
+\mathbb P\!\left(
+\left|\frac1n\sum_{i=1}^n f\!\left(\frac{i}{n},\frac{\Pi_n(i)}{n}\right)
+-\int_0^1 f(t,t)\,\dd t\right|>\varepsilon
+\right)=0.
+\]
+The uniform sampling law and convergence in probability make explicit the interpretation suggested by the source's uniform-random rare-region discussion. The conjecture sentence itself does not explicitly specify either convention, so this interpretation requires human confirmation.
+
+\textbf{Supplied rare-region background and qualifications.} For the relevant pattern \(\tau=\alpha\ominus1\), write \(\mathbb P_n^\tau\) for the uniform probability measure on \(\operatorname{Av}_n(\tau)\). A point \((x,y)\in[0,1]^2\) is \(\tau\)-rare if, for every sequence \((i_n,j_n)\in[n]^2\) with
+\[
+(i_n/n,j_n/n)\longrightarrow(x,y),
+\]
+there exists \(r\in(0,1)\), possibly depending on that sequence, such that
+\[
+\mathbb P_n^\tau\{\pi(i_n)=j_n\}=o(r^n)
+\qquad(n\to\infty).
+\]
+Let \(R_\tau\subseteq[0,1]^2\) be the set of these points. The excerpt introduces this definition for a general pattern \(\tau\in S_k\); its probability law presupposes that the relevant avoidance sets are nonempty. That condition holds for the family in the conjecture.
+
+The excerpt attributes to Atapour and Madras, reference [1, Theorem 8.1], and to Madras and Yıldırım, reference [2, Theorem 1], the assertion that, whenever \(\tau=\alpha\ominus1\) with \(\alpha\) nonempty, \((1,0)\) has an open neighborhood contained in \(R_\tau\). At this boundary point, the neighborhood is naturally read relative to \([0,1]^2\).
+
+The excerpt also attributes to Madras and Yıldırım, reference [2, Theorem 17], a convex-hull assertion printed as
+\[
+(x,y)\in[0,1]\setminus R_\tau
+\quad\Longrightarrow\quad
+\operatorname{conv}\{(x,y),(0,0),(0,1)\}
+\subseteq[0,1]\setminus R_\tau.
+\]
+This is retained only as a report of the supplied wording. Its ambient set is dimensionally inconsistent with the definition of \(R_\tau\), and both the intended ambient square and the listed vertices require checking against the original theorem. No corrected version is assumed here, and this background assertion is not a hypothesis of the conjecture.
+\subsection{Short English statement}
+For each fixed nonempty permutation \(\alpha\), choose a uniformly random permutation of size \(n\) avoiding \(\alpha\ominus1\). The conjecture says that its rescaled plot converges in probability to uniform mass on the increasing diagonal. This states the natural uniform-random interpretation of the supplied conjecture; its convergence convention and a malformed auxiliary rare-region theorem require review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005770\), titled \emph{Diagonal Permuton Limits for Skew-Sum Avoidance}; exact source problem code \texttt{catalogue entry}. The supplied record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2024.
+\item \emph{Mini-Workshop: Permutation Patterns} (2024), Oberwolfach Reports, pp.\ 273--308, DOI 10.4171/owr/2024/6. Supplied source URL and literature-source link labeled ``original OWR report'': \url{https://doi.org/10.4171/owr/2024/6}.
+\item The supplied excerpt is headed \emph{Permuton Limits of Permutation Classes and Rare Regions}, Justin M. Troyka, joint work with David Bevan. It refers to the target as Bevan's conjecture. The registry's separate \texttt{proposed\_by} field is null, so that field supplies no additional proposer attribution.
+\item Supplied literature-source link labeled ``rare-region paper'': \url{https://www.combinatorics.org/ojs/index.php/eljc/article/view/v24i4p13}. The excerpt separately names Atapour and Madras as reference [1], citing Theorem 8.1, and Madras and Yıldırım as reference [2], citing Theorems 1 and 17. Full bibliographic entries and an explicit identification of which numbered reference the supplied link represents are absent from the record.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the record ``partially solved'' and states that rare-region theorems give partial geometric constraints for patterns \(\alpha\ominus1\), while Bevan's full diagonal-permuton conjecture remains open. This is supplied dated curation, not an independently verified literature assessment. The background expressly asks that time-sensitive status and cited claims be verified independently.
+\item The supplied registry labels the statement \texttt{corrected\_verified} and reports that the official Oberwolfach report was checked directly and extraction artifacts were removed. These are source-record assertions; this draft does not claim to have visited or independently verified either external source.
+\end{itemize}
+\end{document}

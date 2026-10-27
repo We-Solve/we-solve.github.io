@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000984}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Problem 19.} Andrea Sportiello and Jordan Ellenberg ask for chip-firing on cell complexes with chips in different dimensions and genuine cross-dimensional interaction, suggesting lower-dimensional configurations influence higher dimensions. Gregg Musiker asks whether a Chow ring is present. The source specifies neither a firing rule nor a multiplication.
+
+\textbf{Reported orientation-double-cover construction.} Let $X$ be a finite connected oriented regular CW complex with cellular incidences in $\{0,\pm1\}$. Let $H_X$ be its unsigned all-cell incidence graph: vertices are cells, and an edge joins incident cells of consecutive dimensions with nonzero incidence. Write $S$ for the symmetric signed adjacency matrix, whose edge sign is the cellular incidence, and $Q$ for the diagonal degree matrix of $H_X$.
+
+Construct a lift $\widetilde H_X$ with vertices $(\sigma,\varepsilon)$, $\varepsilon\in\{\pm1\}$, joining $(\sigma,\varepsilon)$ to $(\tau,\varepsilon s_{\sigma\tau})$ for each incidence sign $s_{\sigma\tau}$. Reversing a cell orientation switches all its incident signs and gives an isomorphic lift by exchanging that cell's two sheets. The aid reports the resulting graph/sandpile type as orientation-independent.
+
+Choose a sink accessible from every vertex, or one in each connected component if the lift is disconnected. Ordinary nonnegative sandpile firing sends one chip to each neighbor when the nonsink vertex has at least its degree in chips; sinks absorb chips. The aid states finite-input termination and confluence for these sink dynamics. Since edges join consecutive cell dimensions, this is a cross-dimensional model, using two sheet states per cell. It does not identify a unique one-species unsigned cellular rule required by the original prompt.
+
+\textbf{Reported decomposition and sign obstruction.} The lift Laplacian preserves even functions $(f,f)$ and odd functions $(f,-f)$ on the sheets. The two sectors are
+\[
+ L_{\mathrm{even}}=Q-|S|,\qquad L_{\mathrm{odd}}=Q-S.
+\]
+The first is the unsigned Hasse-graph Laplacian; the second retains signed incidence. With $\partial$ the cellular boundary on the direct sum of chain spaces, $S=\partial+\partial^{\mathsf T}$ in this convention, and
+\[
+ S^2=\partial\partial^{\mathsf T}+\partial^{\mathsf T}\partial
+\]
+is the dimension-preserving Hodge Laplacian. The odd sandpile sector $Q-S$ is not being identified with this square.
+
+For a rank-two diamond having exactly two intermediate incidence paths, $\partial^2=0$ makes their sign products opposite. Its signed four-cycle has negative sign product, so no change of individual cell orientations makes every raw incidence nonnegative. The aid uses this to obstruct the naive one-species signed-incidence transport rule, not all conceivable one-species models.
+
+If $H_X$ is connected and unbalanced (has a negative signed cycle), its two-sheet lift is connected and $Q-S$ is nonsingular. The report gives the critical-group order
+\[
+ |K(\widetilde H_X)|=\tau(H_X)\frac{\det(Q-S)}2,
+\]
+where $\tau$ counts spanning trees and $K$ is the ordinary graph critical group, equivalently the cokernel of a reduced lift Laplacian. This formula is restricted to the connected unbalanced case; balanced lifts require separate component/sink treatment.
+
+The construction provides a concrete abelian dynamics and associated group, but the aid expressly does not construct the requested Chow-ring multiplication. It is partial progress on the broad cell-complex program.
+\subsection{Short English statement}
+The aid gives an orientation-independent ordinary sandpile on a two-sheet signed-incidence lift connecting all cell dimensions. It reports even/odd Laplacian sectors, a diamond sign obstruction, and a critical-group order formula in the connected unbalanced case. No Chow-ring product is supplied.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000984$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[108]}.
+\item 2013 AIM workshop ``Generalizations of chip-firing and the critical group,'' PDF Problem 19: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. Original attributions: Andrea Sportiello, Jordan Ellenberg; Chow-ring question Gregg Musiker.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{open}, internal rigor \texttt{proved}, low novelty confidence; current registry partially solved. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. No complete external reference or original literature entry supplied.
+\end{itemize}
+\end{document}

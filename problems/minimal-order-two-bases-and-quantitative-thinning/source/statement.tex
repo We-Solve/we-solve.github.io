@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001110}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Use $\N_0=\{0,1,\ldots\}$ for a precise convention. A set $A\subseteq\N_0$ is an exact order-two basis if $A+A=\N_0$, and an asymptotic order-two basis if $[N_A,\infty)\cap\Z\subseteq A+A$ for some $N_A$. Repeated summands are allowed. A basis is minimal in either sense if no proper subset remains a basis in that same sense. The source asks whether every order-two basis contains a proper basis subset, and how slowly a resulting counting function $B(x)=|B\cap[0,x]|$ can grow. It does not distinguish exact from asymptotic basis or whether zero belongs to the naturals.
+
+The attached aid reports that the universal proper-subset assertion fails under either interpretation: minimal asymptotic bases are classical, including thin strongly minimal examples, while every exact basis has a minimal exact subbasis by finite-representation compactness. Starting with such a minimal basis leaves no proper admissible subset. Thus a question about one prescribed $A$ differs from optimizing growth over all bases.
+
+For every fixed order-two basis, pair counting yields
+\[
+B(x)\ge\sqrt{2x}-O(1)\quad(x\to\infty).
+\]
+The aid reports constructions with $B(x)=\Theta(\sqrt x)$, so the square-root order is globally optimal. This does not claim an optimal leading constant or a thin proper subbasis of every prescribed $A$.
+
+Its quantitative sufficient thinning condition uses unordered representations
+\[
+r_A(n)=\#\{(a,b):a,b\in A,\ a\le b,\ a+b=n\}.
+\]
+For $F\subseteq A$, if
+\[
+r_A(n)>|F\cap[0,n]|\qquad\text{for all sufficiently large }n,
+\]
+then $A\setminus F$ remains an asymptotic basis, since each removed element can spoil at most one unordered representation of a fixed $n$. In particular if $r_A(n)\to\infty$, choose increasing thresholds $N_j$ beyond which $r_A(n)>j$, and increasing $f_j\in A$ with $f_j\ge N_j$. The aid states that $F=\{f_j:j\ge1\}$ is an infinite removable set. This hypothesis is convergence to infinity, not merely unboundedness, and ensures an asymptotic conclusion rather than preservation of every initial exact representation.
+\subsection{Short English statement}
+Minimal bases refute universal proper thinning. The supplied aid separates that obstruction from the globally optimal square-root counting scale and gives a representation-surplus condition guaranteeing an infinite removable subset for some asymptotic bases.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001110$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[234]}.
+\item American Institute of Mathematics, \emph{Recent trends in additive combinatorics}, problem 2.10: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. The supplied verification reports agreement between the official PDF and corpus wording; no PDF inspection is claimed here. Original literature and remarks fields are empty.
+\item Attached research attempt 1: counterexample, recorded run status refuted, rigor proved, novelty confidence low; registry status solved, classification SOLVED-IN-LITERATURE. It calls the minimal-basis and thin-construction facts classical but gives no complete references. Its machine-generated, non-peer-reviewed claims require independent verification before citation.
+\end{itemize}
+\end{document}

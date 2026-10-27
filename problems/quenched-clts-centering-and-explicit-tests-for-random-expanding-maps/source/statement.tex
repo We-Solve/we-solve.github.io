@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001388}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source considers two expanding maps \(T_{\beta_i}:[0,1]\to[0,1]\), \(i=1,2\), randomly composed, and asks whether an annealed central limit theorem yields an almost-sure quenched central limit theorem for an observable \(\varphi:[0,1]\to\R\). Its phrase ``for almost every \(P\in X\times\Omega\)'' does not specify a probability measure or which randomness remains after conditioning. The verification also quotes nearby Problem 14, page 2: ``Quenched central limit theorem (CTL): Are the normalizing constants and variance almost surely the same?'' Thus centering and equality of variances are part of the intended issue.
+
+One precise framework takes a probability space of environments \((\Omega,\mathbb P)\), conditional initial measures \(\mu_\omega\) on \(X=[0,1]\), and compositions \(T_\omega^{(0)}=\operatorname{id}\), \(T_\omega^{(j)}=T_{\omega_{j-1}}\circ\cdots\circ T_{\omega_0}\). Put
+\[
+S_n^\omega(x)=\sum_{j=0}^{n-1}\varphi(T_\omega^{(j)}x),\qquad
+m_n(\omega)=\int S_n^\omega\,\dd\mu_\omega.
+\]
+An annealed law averages over \(\mathbb P(\dd\omega)\mu_\omega(\dd x)\); a quenched law fixes \(\omega\) and retains randomness in \(x\). A quenched CLT means weak convergence of the latter laws for \(\mathbb P\)-almost every environment, not a normal distribution attached to a single fixed pair \((x,\omega)\). The source does not supply the environment law, stationarity, fiber measures, observable regularity, expansion constants or centering.
+
+The aid reports that under an explicit uniform twisted-transfer-operator expansion, fiberwise centered sums have a quenched CLT
+\[
+\frac{S_n^\omega-m_n(\omega)}{\sqrt n}\ \Longrightarrow\ N(0,\sigma^2)
+\quad\text{under }\mu_\omega,\quad\mathbb P\text{-almost surely},
+\]
+with deterministic variance obtained by an ergodic average. The actual operator hypotheses and expansion are absent from this record. Relative to this CLT, replacing the fiber centering by deterministic annealed centering \(na\) yields the same quenched limit exactly when
+\[
+\frac{m_n(\omega)-na}{\sqrt n}\longrightarrow0
+\quad\mathbb P\text{-almost surely}.
+\]
+A deterministic variance in the fiber-centered theorem does not itself make this accumulated environmental mean shift negligible.
+
+The aid also gives a sufficient annealed-to-quenched bridge involving summability, in \(n\), of environmental variances of conditional characteristic functions
+\[
+\chi_n(\omega,t)=\int\exp\left(it\frac{S_n^\omega-na}{\sqrt n}\right)\,\dd\mu_\omega.
+\]
+Such a criterion needs the specified range of \(t\) and simultaneous convergence/continuity conditions needed to conclude weak convergence. Those conditions are not printed in the summary, so a pointwise variance statement alone is not promoted here to a fully specified general theorem.
+
+The aid reports a counterexample to an unrestricted annealed-to-quenched implication using a stationary pair of slope-\(3/2\) piecewise expanding maps: annealed Rademacher behavior coexists with quenched fiber laws that are point masses. The explicit maps, observable and stationary disintegration are not supplied. In particular, this reported general piecewise-expanding example is not automatically a counterexample for two standard beta transformations with Lebesgue initial measure.
+
+A fully explicit positive family in the aid is different. Fix arbitrary positive integers \(a_1,a_2\) and let
+\[
+T_i(x)=2^{a_i}x\pmod1,\qquad
+\varphi(x)=\begin{cases}1,&0\le x<1/2,\\-1,&1/2\le x<1.\end{cases}
+\]
+The endpoint value at 1 and binary-expansion choices on dyadic rationals do not affect Lebesgue laws. For every deterministic environment \(\omega\in\{1,2\}^{\N}\), under Lebesgue initial measure the summands \(\varphi(T_\omega^{(j)}x)\) are exactly independent Rademacher variables. Indeed they read distinct binary digits, at positions \(1+\sum_{i=0}^{j-1}a_{\omega_i}\). Consequently, for every real \(t\),
+\[
+\int_0^1\exp\left(itS_n^\omega(x)/\sqrt n\right)\,\dd x
+=\bigl(\cos(t/\sqrt n)\bigr)^n\longrightarrow e^{-t^2/2}.
+\]
+Thus the quenched CLT has centering zero and variance one for every environment, independently of any chosen environment probability law. This special family does not settle the general expanding-map question.
+
+The registry labels the entry partially solved and reconstructed unverified; attempt 1 is a partial result, problem partially solved at the run, internal rigor proved, novelty confidence low. The aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\subsection{Short English statement}
+An annealed CLT averages over the random environment, while a quenched CLT fixes it. The supplied aid separates the required fiber centering from a possible environmental mean shift and gives conditions under which the two agree. Its explicit powers-of-two family has independent binary-digit observations and a variance-one CLT for every environment, but this does not establish a general annealed-to-quenched implication.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001388\), source code \texttt{catalogue entry}; \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[45]}.
+\item AIM, \emph{Stochastic methods for non-equilibrium dynamical systems}, Problem 3; supplied verification also cites Problem 14 on page 2 concerning quenched normalizations and variance: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item Supplied research attempt 1 and registry update August 14, 2026. The original literature field is empty and no separate authoritative reference for the transfer-operator theorem, variance bridge or counterexample is supplied. No independent PDF inspection is claimed.
+\end{itemize}
+\end{document}

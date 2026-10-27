@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001408}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a measure-preserving probability system \((X,\mu,T)\) and a centered observable \(v\), write \(S_n v=\sum_{j=0}^{n-1}v\circ T^j\). The source asks which limit theorems and statistical properties are available for slowly mixing systems. A precise general theorem would require a mixing notion and rate, a class of observables, and assumptions on the system; none is specified.
+
+The attached research aid treats a particular stationary two-sided renewal process. Let the independent block lengths \(L\) be positive integers with
+\[
+ \Pr(L\ge m)=m^{-\alpha}\quad(m\ge1),\qquad \alpha>1,\qquad
+ \mu_L=\E L=\zeta(\alpha)=\sum_{m\ge1}m^{-\alpha}.
+\]
+Assign independent signs \(\pm1\), each with probability \(1/2\), to the blocks, independently of their lengths. Use the equilibrium stationary renewal law on \(\Z\): the block containing zero has the length-biased length distribution, zero is uniform within that block, and successive blocks to either side have the original length law. Let \(X_j\) be the sign of the block containing \(j\), and put \(S_n=\sum_{j=0}^{n-1}X_j\). Equivalently, the shift on this stationary path space is a measure-preserving system and \(X_0\) is its observable.
+
+For this special family the aid reports the exact correlation identity
+\[
+ \E(X_0X_n)=\frac1{\zeta(\alpha)}\sum_{m=n+1}^{\infty}m^{-\alpha}\quad(n\ge0),
+\]
+so the positive correlations decay with power \(n^{1-\alpha}\). It reports the following trichotomy for the sums:
+\begin{itemize}
+\item If \(1<\alpha<2\), then \(n^{-1/\alpha}S_n\) converges in distribution to a nondegenerate symmetric \(\alpha\)-stable law, whose characteristic function has form \(\exp(-c_\alpha|t|^\alpha)\), \(c_\alpha>0\).
+\item If \(\alpha=2\), then the normalization has order \(\sqrt{n\log n}\) and gives a standard Gaussian limit after the appropriate constant factor. At the standard-Gaussian normalization, the second moments tend to \(2\), although the weak limit has second moment \(1\); convergence is therefore not accompanied by uniform integrability of the squared normalized sums.
+\item If \(\alpha>2\), then the usual \(\sqrt n\) normalization gives a nondegenerate Gaussian limit.
+\end{itemize}
+The Green--Kubo expression
+\[
+ \sigma^2=\E X_0^2+2\sum_{k\ge1}\E(X_0X_k)
+\]
+is finite precisely when \(\alpha>2\), according to the reported variance analysis; in that regime it is the variance in the \(\sqrt n\)-normalized Gaussian limit. The supplied summary advertises exact variance constants and a stable characteristic exponent but does not give their numerical formulas or the constant in the critical normalization. They are not invented here. The trichotomy concerns this stationary signed renewal family and its coordinate observable, rather than all systems described informally as slowly mixing.
+\subsection{Short English statement}
+Ask for limit laws and statistics of slowly mixing systems. The supplied special-family result connects explicit power-law correlations of a stationary signed renewal process with stable, critical Gaussian, and ordinary Gaussian limits, including a critical failure of second-moment convergence to the Gaussian variance.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Stochastic methods for non-equilibrium dynamical systems}, Problem 23: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001408, source code \texttt{catalogue entry}; canonical source \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[65]}. The record labels its statement reconstructed and unverified.
+\item Attached machine-generated attempt 1: partial result, internal rigor label ``proved'', low novelty confidence; not peer reviewed and requiring independent verification before citation. No separate literature reference is supplied.
+\end{itemize}
+\end{document}

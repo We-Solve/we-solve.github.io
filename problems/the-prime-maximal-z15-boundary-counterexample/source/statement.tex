@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001081}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G$ be a finite simple loopless digraph on $n$ vertices. Say it is $3$-free if it has no directed cycle of length at most three, and arc-maximal $3$-free if adjoining any missing ordered arc between distinct vertices creates such a cycle. A directed module is a set $M\subseteq V(G)$ such that every vertex outside $M$ has the same incoming and outgoing adjacency relation to each member of $M$. A nontrivial module has $2\leq|M|\leq n-1$; the source calls these homogeneous sets and excludes substitution constructions.
+
+Thomass\'e's Conjecture 6.36 as printed states that every arc-maximal $3$-free $G$ with no nontrivial module and
+\[
+ \delta^+(G)\geq4n/15
+\]
+is isomorphic, for some integer $k\geq1$, to the directed Cayley graph on $\Z/(3k+1)\Z$ with generators $1,\ldots,k$. Thus every vertex points to the next $k$ vertices in cyclic order.
+
+The source itself notes the boundary graph
+\[
+ G_0=\operatorname{Cay}(\Z/15\Z,\{1,2,4,8\}),\qquad
+ x\to x+s\quad(s\in\{1,2,4,8\}).
+\]
+The attached aid reports a full counterexample certificate: $G_0$ has outdegree and indegree $4$, is $3$-free, is globally arc-maximal $3$-free, and has no nontrivial directed module. Its degree is exactly $4\cdot15/15$, while $15$ is not $3k+1$ for any integer $k$. Hence it refutes the non-strict formulation under those supplied certificate claims. The aid describes sumset identities for maximality and a three-orbit forced-signature closure table for primeness; the table is not included in the record.
+
+The proposed strict repair replaces the hypothesis by $\delta^+(G)>4n/15$ and keeps every other condition and conclusion. It excludes this boundary example. Because outdegrees are integers, the printed and strict hypotheses differ exactly when $15$ divides $n$:
+\[
+ \delta^+(G)\geq\lceil4n/15\rceil
+ \quad\text{versus}\quad
+ \delta^+(G)\geq\lfloor4n/15\rfloor+1.
+\]
+The aid says the strict version remains open. That is a supplied assessment and not a resolution or independent literature verification of the repaired conjecture.
+\subsection{Short English statement}
+The printed structural conjecture includes its own degree-boundary counterexample on fifteen vertices, according to the supplied maximality and primeness certificate. Replacing the non-strict degree threshold by a strict one removes that example and gives a different conjecture.
+\subsection{Sources}
+\begin{itemize}
+\item Blair D. Sullivan's 2006 AIM report on \emph{The Caccetta--H\"aggkvist conjecture}, page 11, Conjecture 6.36 attributed to Thomass\'e and its $\Z/15\Z$ note: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001081, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[205]}.
+\item Attached attempt 1, counterexample, problem status at run refuted, rigor proved, low novelty confidence. Its primeness certificate and strict-repair status have no separate complete citation; the aid is machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002806}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\mathcal P\) denote an optimal-control problem governed by controlled Euler--Lagrange equations. A variational state discretization is a discretization obtained from a discrete variational principle, including an appropriate treatment of the control forces. Write \(D_h\mathcal P\) for the resulting discrete optimal-control problem, with discretization parameter \(h>0\). Here the configuration space, control domain, objective functional, time interval, endpoint conditions, admissible trajectories, and treatment of control forces must be specified as part of \(\mathcal P\) and \(D_h\); the supplied record does not specify them.
+
+Let \(\operatorname{Opt}(\mathcal P)\) denote the continuous first-order necessary conditions for optimality, including the state equations, adjoint equations, and control optimality conditions. Similarly, \(\operatorname{Opt}(D_h\mathcal P)\) denotes the necessary conditions obtained by first discretizing the optimal-control problem and then taking its first variation. These are necessary conditions, not an assertion that every solution is an optimizer. The alternative procedure first derives \(\operatorname{Opt}(\mathcal P)\) and then discretizes this system using a specified compatible discretization, denoted by \(\widehat D_h\).
+
+\textbf{Problem.} For general classes of variational integrators, determine the relation between
+\[
+\operatorname{Opt}(D_h\mathcal P)
+\qquad\text{and}\qquad
+\widehat D_h\bigl(\operatorname{Opt}(\mathcal P)\bigr),
+\]
+and determine whether the discrete adjoint equations and optimality conditions retain the approximation order of the variational state discretization. In particular, if the state discretization has order \(p\), the intended question is whether the adjoint approximation also has order \(p\) and whether the optimality conditions admit a corresponding order-\(p\) consistency or approximation statement. For a specified continuous extremal, discrete extremal, comparison map \(I_h\), and norm, an adjoint convergence interpretation would take the form
+\[
+\|\lambda_h-I_h\lambda\|=O(h^p)
+\qquad(h\to0),
+\]
+where \(\lambda\) and \(\lambda_h\) are the continuous and discrete adjoints. This formula only illustrates one possible meaning of the requested order; the source does not supply the hypotheses or comparison conventions needed to assert it.
+
+\textbf{Unresolved qualifications.} The record uses commutation of discretization and optimization to describe preservation of approximation order. Exact agreement of the two systems of necessary conditions, after a specified identification of variables, is a different requirement from equal approximation order. Neither the intended notion of commutation nor the meaning of order for the optimality conditions is fixed. The integrator class, regularity and nondegeneracy hypotheses, treatment of constraints, and local or global meaning of order are also unspecified. Thus the supplied formulation is a research question requiring these choices, rather than a fully quantified universal conjecture.
+\subsection{Short English statement}
+For variational discretizations of controlled Euler--Lagrange optimal-control problems, determine whether forming optimality conditions before or after discretization gives compatible conditions and preserves the state method's approximation order for the adjoint and optimality equations. The source leaves the relevant integrator classes, hypotheses, and meaning of commutation unspecified. Its open-status label and subclass results are supplied dated curation, not independently verified conclusions.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002806\), title \emph{Commutation of Variational Discretization and Optimal Control}, exact source problem code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. The supplied proposed year is 2015; no individual proposer is identified.
+\item \emph{Control Theory: A Mathematical Perspective on Cyber-Physical Systems} (2015), Oberwolfach Reports, pp.\ 597--659, DOI 10.4171/owr/2015/12. Supplied report and literature-source link: \url{https://doi.org/10.4171/owr/2015/12}. The record attributes the problem to workshop open-problem discussions documented in this report; it supplies no problem-specific page or named speaker.
+\item Campos, Ober-Blaubaum and Trelat, as named in the supplied literature-source entry: \url{https://www.ljll.fr/~trelat/fichiers/CamposOberBlobaumTrelat_DCDS2015.pdf}. The record supplies no full bibliographic citation or theorem locator for this reference.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and states that commutation of discretization and dualization is proved for symplectic Runge--Kutta and symplectic Galerkin subclasses, while the general variational-integrator case remains open. This is supplied dated curation derived from the OWR record, not independently verified literature assessment; the status and cited claims require independent checking.
+\item The registry labels the statement \texttt{corrected\_verified} and says that mathematical content was preserved while notation, typography, or omitted definitions were repaired for publication. This records the supplied editorial assessment and does not establish mathematical correctness of this draft.
+\end{itemize}
+\end{document}

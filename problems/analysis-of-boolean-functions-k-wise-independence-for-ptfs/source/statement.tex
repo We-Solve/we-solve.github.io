@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800450}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix \(d\in\N\) and \(\varepsilon\in(0,1)\). For a positive integer \(n\), let \(\gamma_n\) denote the distribution of a vector \(\mathbf{G}=(G_1,\ldots,G_n)\) of independent standard normal random variables. Thus \(\mathbf{G}\) is the random vector denoted by \(\mathbb{Z}\) in the supplied statement.
+
+For a positive integer \(k\), call an \(\R^n\)-valued random vector \(\mathbf{X}=(X_1,\ldots,X_n)\) \emph{\(k\)-wise independent with standard Gaussian marginals} if, for every subset \(S\subseteq\{1,\ldots,n\}\) satisfying \(1\leq |S|\leq\min\{k,n\}\), the joint distribution of \((X_i)_{i\in S}\) is the product of \(|S|\) standard normal distributions. In particular, this definition requires full independence when \(k\geq n\).
+
+Under this conventional meaning of \(k\)-wise independence, and interpreting ``degree-\(d\)'' as total degree at most \(d\), the requested quantity is
+\[
+\begin{split}
+k_*(d,\varepsilon)=\min\bigl\{k\in\Z_{\geq1}:{}&\ \text{for every }n\in\Z_{\geq1},\ \text{every }p\in\R[x_1,\ldots,x_n]
+\text{ of total degree at most }d,\\
+&\ \text{and every }\mathbf{X}\text{ with the stated }k\text{-wise Gaussian property},\\
+&\ \bigl|\Pr[p(\mathbf{X})\geq0]-\Pr[p(\mathbf{G})\geq0]\bigr|\leq\varepsilon
+\bigr\}.
+\end{split}
+\]
+Here the zero polynomial is included, and the minimum is assigned the value \(+\infty\) if the set is empty. The problem is to determine \(k_*(d,\varepsilon)\), uniformly over the dimension \(n\). The threshold convention is \(p\geq0\), including points where \(p=0\).
+
+\emph{Unresolved formulation qualifications.} The supplied statement explicitly mentions independence of collections of exactly \(k\) coordinates. The definition above uses the conventional interpretation involving all collections of at most \(k\) distinct coordinates; for \(n<k\), the literal exactly-\(k\) condition would instead be vacuous apart from the separately required Gaussian marginals. The source also does not explicitly distinguish total degree exactly \(d\) from total degree at most \(d\); the display uses the latter interpretation. If exactly \(d\) is intended, the polynomial quantifier must be restricted accordingly. The convention for whether \(0\in\N\) is unspecified; if degree zero is admitted, the same formulation includes constant polynomials.
+
+\emph{Supplied background, not independently verified.} The record attributes to Diakonikolas, Gopalan, Jaiswal, Servedio, and Viola [DGJ+09] the sufficiency of \(k=O(\varepsilon^{-2})\) for \(d=1\); to Diakonikolas, Kane, and Nelson [DKN10] the sufficiency of \(k=O(\varepsilon^{-8})\) for \(d=2\); and to Kane [Kan11b] the general sufficient bound \(O_d(1)\varepsilon^{-2^{O(d)}}\) and necessary bound \(\Omega(d^2/\varepsilon^2)\). These are recorded contextual claims; their precise parameter ranges, constants, and applicability to the displayed Gaussian formulation require checking the cited works.
+\subsection{Short English statement}
+Determine the smallest \(k\), depending only on \(d\) and \(\varepsilon\), for which every \(k\)-wise independent vector with standard Gaussian coordinates approximates every degree-\(d\) polynomial threshold probability within \(\varepsilon\), in every dimension. The draft explicitly records unresolved degree and small-dimension conventions. The registry labels the problem open; that label is supplied metadata, not an independently verified assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(800450\), source problem code \texttt{catalogue entry}, title ``Analysis of Boolean Functions --- \(k\)-wise Independence for PTFs.'' The record gives O'Donnell as proposer and \(2012\) as the proposed year, and labels the problem \texttt{open}. Its recorded update is \texttt{2026-10-16T14:00:00Z}; these are supplied registry data.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 21, ``\(k\)-wise Independence for PTFs'': \url{https://arxiv.org/abs/1204.6447}. The supplied provenance records access on \(2026\text{-}10\text{-}16\) and extraction by \texttt{arxiv\_latex}. This access date and extraction description are supplied provenance, not evidence of independent source consultation in preparing this draft.
+\item [DGJ+09]: Diakonikolas, Gopalan, Jaiswal, Servedio, and Viola. The supplied background identifies this reference as ``Proposed/Source'' and attributes the degree-one bound to it. No full bibliographic entry or separate URL is supplied.
+\item [DKN10]: Diakonikolas, Kane, and Nelson. The supplied background attributes the degree-two bound to this reference. No full bibliographic entry or separate URL is supplied.
+\item [Kan11b]: Kane. The supplied background attributes the general upper and lower bounds to this reference. No full bibliographic entry or separate URL is supplied.
+\end{itemize}
+\end{document}

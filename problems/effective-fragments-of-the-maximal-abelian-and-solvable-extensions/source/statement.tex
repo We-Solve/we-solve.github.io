@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002301}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix an algebraic closure \(\overline{\Q}\). Let \(\Q^{\mathrm{ab}}\) be the union of all finite abelian Galois extensions of \(\Q\) in \(\overline{\Q}\), and let \(\Q^{\mathrm{solv}}\) be the union of all finite solvable Galois extensions. Put
+\[
+ \Z^{\mathrm{ab}}=\Q^{\mathrm{ab}}\cap\overline{\Z},\qquad
+ \Z^{\mathrm{solv}}=\Q^{\mathrm{solv}}\cap\overline{\Z},
+\]
+where \(\overline{\Z}\) is the ring of algebraic integers in \(\overline{\Q}\). Interpreting the unqualified source word ``decidability'' in the pure unital ring language \(\{0,1,+,-,\cdot\}\), Koenigsmann's question asks, for each of these four structures \(R\), whether there is an algorithm deciding
+\[
+ \operatorname{Th}(R)=\{\varphi:R\models\varphi\}
+\]
+for every ring-language sentence \(\varphi\). The corresponding existential question restricts inputs to sentences \(\exists x_1\cdots\exists x_N\,\psi\), where \(\psi\) is quantifier free. The original short question does not distinguish full from existential theories; the supplied aid discusses both and reports all eight unrestricted decision questions as remaining open.
+
+The supplied partial result concerns integer-coefficient polynomial systems, allowing inequations, whose geometric solution set is effectively certified to be finite. For example, take
+\[
+ X=\{z\in\overline{\Q}^{,N}:f_1(z)=\cdots=f_r(z)=0,
+ \ g_1(z)\cdots g_s(z)\ne0\},
+\]
+with a certified zero-dimensional equation ideal; the empty set is allowed. List the finitely many Galois orbits of points of \(X\). For a representative \(z\), set \(K_z=\Q(z_1,\ldots,z_N)\), let \(\widetilde K_z\) be its normal closure, and set \(G_z=\operatorname{Gal}(\widetilde K_z/\Q)\). The criterion for an \(R\)-valued solution is that some representative satisfy
+\[
+\begin{array}{c|c}
+R&\text{criterion}\\ \hline
+\Q^{\mathrm{ab}}&G_z\text{ abelian}\\
+\Q^{\mathrm{solv}}&G_z\text{ solvable}\\
+\Z^{\mathrm{ab}}&G_z\text{ abelian and every }z_i\text{ integral}\\
+\Z^{\mathrm{solv}}&G_z\text{ solvable and every }z_i\text{ integral}.
+\end{array}
+\]
+The aid asserts that exact algorithms for these finite algebraic computations give a uniform decision procedure. It further includes the complete one-quantified-variable existential fragment, with arbitrary quantifier-free Boolean combinations and inequations. In a disjunctive normal form, a nonzero equation leaves only finitely many algebraic candidates. If a disjunct has no nonzero equation, its identically zero equations and identically zero inequations are treated separately; finitely many nonzero univariate inequations exclude only finitely many points and can be simultaneously satisfied by an integer. This qualification is needed for the zero-polynomial and infinite-solution cases.
+
+A separate reported structural distinction is
+\[
+ \forall n\ge1\ \forall a\in\Q^{\mathrm{solv}}\ \exists b\in\Q^{\mathrm{solv}}\ (b^n=a),
+ \qquad
+ \forall n\ge1\ \forall a\in\Z^{\mathrm{solv}}\ \exists b\in\Z^{\mathrm{solv}}\ (b^n=a).
+\]
+Here \(n\) indexes ordinary first-order sentences, rather than being a quantified exponent in the ring language. By contrast, neither \(\Q^{\mathrm{ab}}\) nor \(\Z^{\mathrm{ab}}\) contains a root of \(X^3-2\). Thus the single ring sentence \(\exists y\,(y^3=1+1)\), and also \(\forall x\,\exists y\,(y^3=x)\), separates the solvable structure from the corresponding abelian structure. These finite-fragment and closure assertions do not decide unrestricted existential or full theories.
+\subsection{Short English statement}
+Determine decidability of the maximal abelian and solvable extensions of \(\Q\), and of their rings of integers. The supplied aid reports decision procedures for finite algebraic solution systems and all one-variable existential sentences, together with a cube-root distinction, while retaining the unrestricted questions as open.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002301\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-logic-notes.json}, \texttt{notes[76]}.
+\item AIM, \emph{Problems related to ``Definability and Decidability Problems in Number Theory''}, Question 17, attributed to Koenigsmann; workshop moderated by T. Scanlon, recorded by J. Demeyer, 9--13 September 2013. Supplied source reference: \url{https://aimath.org/pastworkshops/definabilityinntproblems.pdf}. This reference has not been accessed here. The original remarks and literature fields are empty.
+\item Supplied research attempt 1: \texttt{partial\_result}, run status \texttt{open}, rigor label \texttt{proved}, low novelty confidence. Registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. Its finite-system procedure and radical-closure distinction have no additional primary bibliographic citation in the record.
+\item The research aid explicitly describes itself as machine generated, not peer reviewed, and requiring independent verification before citation.
+\end{itemize}
+\end{document}

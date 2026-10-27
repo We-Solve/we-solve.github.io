@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800514}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(A\in\C^{n\times n}\), and let \(\mathcal V\subseteq\C^n\) be a \(d\)-dimensional invariant subspace, meaning \(A\mathcal V\subseteq\mathcal V\). Let \(\widehat{\mathcal V}\subseteq\C^n\) also have dimension \(d\). For a subspace \(\mathcal S\), write \(P_{\mathcal S}\) for its orthogonal projector with respect to the standard Hermitian inner product. One precise measure of the approximation of \(\mathcal V\) by \(\widehat{\mathcal V}\) is
+\[
+\delta=\|P_{\mathcal V}-P_{\widehat{\mathcal V}}\|_2.
+\]
+For equal positive dimensions, this is the sine of the largest principal angle. The source requires a small subspace angle but does not specify an angle convention or a numerical threshold; \(\delta\) is an explicit convention for this draft.
+
+Let \(\mathcal W\subseteq\C^n\) have dimension \(r\), where \(0\le r<n-d\), and set
+\[
+\mathcal Q=\widehat{\mathcal V}+\mathcal W,
+\qquad m=\dim\mathcal Q.
+\]
+Choose \(Q\in\C^{n\times m}\) with orthonormal columns spanning \(\mathcal Q\), so that \(Q^*Q=I_m\), and define the compression \(B=Q^*AQ\). Here \(Q^*\) denotes the conjugate transpose. In general,
+\[
+m=d+r-\dim(\widehat{\mathcal V}\cap\mathcal W),
+\]
+so \(d\le m\le d+r<n\). The source describes \(m=d+r\) as the generic case; it does not explicitly assume a trivial intersection.
+
+Let \(\lambda_1,\ldots,\lambda_d\) be the eigenvalues of the restriction \(A|_{\mathcal V}\), and let \(\mu_1,\ldots,\mu_m\) be the eigenvalues of \(B\), in both cases counted with algebraic multiplicity. To make eigenvalue approximation quantitative, one possible error measure is
+\[
+E=\min_{\substack{\iota:\{1,\ldots,d\}\to\{1,\ldots,m\}\\ \iota\ \mathrm{injective}}}
+\max_{1\le j\le d}|\lambda_j-\mu_{\iota(j)}|.
+\]
+For \(d=0\), take \(E=0\); the substantive question concerns \(d>0\).
+
+\textbf{Problem.} Provide explicit sufficient conditions ensuring that \(d\) eigenvalues of \(Q^*AQ\) approximate the eigenvalues of \(A|_{\mathcal V}\). A quantitative formulation is to give conditions, involving the subspace approximation error and any other stated data, that ensure \(E\le\tau\) for a prescribed tolerance \(\tau>0\). Additional assumptions on the eigenvalues of \(A\) associated with \(\mathcal V\) may be imposed as needed, as expressly permitted by the source.
+
+The source supplies no particular tolerance, eigenvalue matching rule, convergence regime, or required uniformity in \(\mathcal W\). The error measure above specifies a possible quantitative interpretation, rather than a uniquely prescribed source formulation. No normality, diagonalizability, simplicity, or spectral separation hypothesis is supplied; any such hypothesis used in sufficient conditions must be stated explicitly.
+\subsection{Short English statement}
+Given a subspace close to an invariant subspace of a complex matrix, enlarge it by another subspace and compress the matrix to the resulting space. Find sufficient conditions guaranteeing that the compression has \(d\) eigenvalues close to those belonging to the original invariant subspace. The source permits additional assumptions on the target eigenvalues but leaves the meaning and accuracy of approximation unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record: permanent ID \(800514\), source problem code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 23.'' The registry attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels it open. This status is supplied source metadata, not an independently verified mathematical or literature assessment.
+\item Supplied source attribution: Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 23. Supplied URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not claims of independent access or verification for this draft.
+\end{itemize}
+\end{document}

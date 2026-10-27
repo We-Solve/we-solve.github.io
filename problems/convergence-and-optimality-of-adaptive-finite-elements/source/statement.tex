@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000293}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+An adaptive finite-element method produces meshes $\mathcal T_k$ and discrete solutions $u_k$, typically through solve, estimate, mark and refine steps, with possible coarsening. Let $E_k$ denote the relevant solution error or specified error-plus-data quantity and let $\eta_k(T)\ge0$ be local indicators. The source asks four classification questions:
+\begin{enumerate}
+\item For which PDE problems and adaptive methods are convergence $E_k\to0$ and quantitative error reduction guaranteed?
+\item Under what hypotheses are adaptive algorithms optimal?
+\item Is coarsening necessary for the desired convergence or optimality conclusion?
+\item Do proofs based on bulk marking extend to other marking criteria?
+\end{enumerate}
+In the standard squared-indicator version, bulk marking selects $\mathcal M_k\subset\mathcal T_k$ with
+\[
+ \sum_{T\in\mathcal M_k}\eta_k(T)^2
+ \ge\theta\sum_{T\in\mathcal T_k}\eta_k(T)^2,
+ \qquad0<\theta\le1.
+\]
+The question about other criteria is not answered merely by assuming that every marking strategy satisfies this inequality.
+
+Optimality requires a convention. Approximation-rate optimality means that when the best admissible $n$-element approximation has error $O(n^{-s})$, the algorithm achieves the corresponding rate in its own mesh complexity. Instance optimality compares each produced error with the best error at a comparable number of elements. Computational-work optimality is another requirement. These are distinct, and the extract does not select one universal definition. Likewise, error reduction may concern an energy error, an estimator, or a combined quantity rather than monotone reduction of the raw error alone.
+
+The requested scope is to identify problem and algorithm classes and their needed assumptions; it is not an assertion that every adaptive scheme converges. The PDE class, norm, estimator, mesh admissibility, data treatment, refinement/coarsening rules and marking restrictions are not fixed in the broad extraction.
+
+The literature assessment checked on 21 August 2026 reports broad convergence and optimality theorems, including standard no-coarsening methods and modified maximum-marking schemes. It leaves the four unrestricted classification questions only partially settled. Those positive results show that coarsening need not be required in every setting, but do not imply that it is unnecessary for all methods and problems or that arbitrary alternative marking rules work.
+\subsection{Short English statement}
+Identify when adaptive finite elements converge, reduce error and achieve the relevant notion of optimality; determine the role of coarsening and whether bulk-marking proofs transfer to other rules. The supplied later results answer important classes rather than every algorithm.
+\subsection{Sources}
+\begin{itemize}
+\item \emph{Mini-Workshop: Convergence of Adaptive Algorithms} (2006), Oberwolfach Reports, DOI 10.4171/owr/2005/37, pp. 2091--2138, \url{https://doi.org/10.4171/owr/2005/37}; proposed year supplied as 2005.
+\item Literature assessment checked 21 August 2026: original OWR problems, \url{https://doi.org/10.4171/owr/2005/37}; Stevenson, ``no-coarsening optimality,'' \url{https://doi.org/10.1007/s10208-005-0183-0}; ``maximum-strategy instance optimality,'' \url{https://doi.org/10.1007/s10208-014-9236-6}.
+\item Local UnsolvedMath registry, permanent ID $30000293$, exact source code \texttt{catalogue entry}, created 25 August 2026 and updated 16 September 2026. The clean statement is labelled corrected and verified, retaining all four questions.
+\end{itemize}
+\end{document}

@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005135}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix an integer \(m\geq 1\) and \(\alpha\in(0,\infty)\). Let \((n_k,d_k)\) be positive integer pairs with \(n_k,d_k\to\infty\), \(d_k\geq m\), and \(n_k/d_k\to\alpha\). For each \(k\), let \(X_{k,1},\ldots,X_{k,n_k}\) be independent random vectors with distribution \(N(0,I_{d_k})\). No coupling of samples for different \(k\) is specified in the supplied record.
+
+An orthonormal frame is a matrix \(W\in\R^{d_k\times m}\) satisfying \(W^{\mathsf T}W=I_m\). It represents an \(m\)-dimensional subspace together with an orthonormal coordinate system on that subspace. Its projected empirical law is
+\[
+\widehat\mu_{k,W}=\frac{1}{n_k}\sum_{i=1}^{n_k}\delta_{W^{\mathsf T}X_{k,i}}\in\mathcal P(\R^m),
+\]
+where \(\delta_y\) denotes unit point mass at \(y\), and \(\mathcal P(\R^m)\) is the set of Borel probability measures on \(\R^m\). The corresponding finite-sample collection, using all orthonormal frames, is
+\[
+\mathcal C_k=\left\{\widehat\mu_{k,W}:W\in\R^{d_k\times m},\ W^{\mathsf T}W=I_m\right\}.
+\]
+This coordinate representation must be distinguished from treating subspaces without a chosen basis, which would require specifying identification under orthogonal transformations of \(\R^m\).
+
+\textbf{Requested characterization.} Describe the set \(\mathcal F_{m,\alpha}\) of limiting empirical projection laws in the regime above, allowing projection directions to range over the indicated subspaces. The supplied statement does not give a complete definition of membership in \(\mathcal F_{m,\alpha}\).
+
+For example, if weak convergence is intended, the underlying convergence of probability measures is defined by
+\[
+\nu_k\Rightarrow\nu
+\quad\Longleftrightarrow\quad
+\int f\,\mathrm d\nu_k\longrightarrow\int f\,\mathrm d\nu
+\quad\text{for every bounded continuous }f:\R^m\to\R.
+\]
+An attainable-limit formulation would ask which \(\mu\) can satisfy \(\widehat\mu_{k,W_k}\Rightarrow\mu\) for a suitable sequence of frames \(W_k\). However, the record does not specify whether those frames may depend measurably on the observed sample, whether \(\mu\) must be deterministic, whether convergence is almost sure or in probability, whether subsequences are permitted, or whether the definition must hold for every sequence \((n_k,d_k)\) with the stated ratio. Nor does it specify whether a limit of the entire random collection \(\mathcal C_k\) is intended instead. These choices remain unresolved; the displayed finite-sample collection and weak-convergence definition explain a possible formulation without assigning an unsupported definitive meaning to \(\mathcal F_{m,\alpha}\).
+\subsection{Short English statement}
+Project independent standard Gaussian observations onto subspaces of a fixed dimension \(m\), while the sample size and ambient dimension tend to infinity with ratio \(\alpha\in(0,\infty)\). Characterize the probability laws attainable as limits of the projected empirical distributions. The supplied record leaves the convergence mode, admissible dependence of projections on the data, and precise meaning of the limiting set unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30005135\), source problem code \texttt{catalogue entry}, title \emph{High-Dimensional Limits of Projection-Pursuit Laws}. The supplied record is the evidence used for this draft.
+\item Supplied report citation: \emph{Re-thinking High-dimensional Mathematical Statistics} (2023), Oberwolfach Reports, pp.\ 1377--1430, DOI \texttt{10.4171/owr/2022/25}. \url{https://doi.org/10.4171/owr/2022/25}. The original excerpt identifies p.\ 1407 and the presentation \emph{From high-dimensional projection pursuit to interpolation in neural networks}, Andrea Montanari, joint work with Kangjie Zhou. The registry records proposed year 2022; the supplied citation uses 2023.
+\item Supplied literature reference: Zhou--Montanari, projection pursuit. \url{https://doi.org/10.48550/arXiv.2206.06526}.
+\item Supplied literature reference: Published projection-pursuit paper. \url{https://proceedings.mlr.press/v178/zhou22a.html}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem \emph{partially solved} and reports rigorous asymptotic descriptions and sharp bounds in important regimes, while stating that no single general limiting description covers all growth regimes of \(n\) and \(d\). This is supplied dated curation, not an independently verified assessment; the broad reference to all growth regimes does not replace the fixed-ratio regime in the statement.
+\item The supplied registry labels the statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official Oberwolfach report. That verification is reported provenance, not verification performed for this draft.
+\end{itemize}
+\end{document}

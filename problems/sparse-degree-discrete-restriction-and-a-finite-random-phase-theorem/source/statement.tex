@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000536}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(d\geq3\) be an integer, let \(\mathbb T=\R/\Z\) carry normalized Haar measure, and put \(e(t)=\exp(2\pi i t)\). For \(N\geq1\) and \(a=(a_1,\ldots,a_N)\in\C^N\), define
+\[
+ E_da(x,t)=\sum_{n=1}^N a_n e(nx+n^d t),\qquad (x,t)\in\mathbb T^2.
+\]
+The intended reconstruction of Li's OCR-damaged Question 9 is: for every \(d\geq3\), every real \(p\geq2(d+1)\), and every \(\epsilon>0\), there exists \(C_{d,p,\epsilon}<\infty\), independent of \(N,a\), such that
+\[
+ \|E_da\|_{L^p(\mathbb T^2)}\leq C_{d,p,\epsilon}
+ N^{1/2-(d+1)/p+\epsilon}\left(\sum_{n=1}^N|a_n|^2\right)^{1/2}.
+\]
+The source calls this related to Waring's problem. The statement-status field is \texttt{reconstructed\_unverified}; this displayed formulation is an explicitly identified reconstruction, not an independently verified source transcription.
+
+The supplied partial theorem concerns coefficient-dependent phase rotations. Set \(s=d+1\). For each prescribed \(b\in\C^N\), each integer \(q>s\), and independent variables \(\omega_n\) uniformly distributed on \(\{\zeta\in\C:\zeta^q=1\}\), it states
+\[
+ \E\left\|\sum_{n=1}^N\omega_n b_n e(nx+n^d t)\right\|_{L^{2s}(\mathbb T^2)}^{2s}
+ \leq s!\left(\sum_{n=1}^N|b_n|^2\right)^s.
+\]
+In particular, taking \(q=d+2=s+1\), for each \(b\) there is a choice of phases with
+\[
+ \|E_d(\omega b)\|_{2s}\leq(s!)^{1/(2s)}\|b\|_2.
+\]
+More quantitatively, for every \(\lambda\geq1\), outside a fraction at most \(\lambda^{-2s}\) of the \(q^N\) choices, the same phase vector obeys, simultaneously for all finite real \(p\geq2s\),
+\[
+ \|E_d(\omega b)\|_p\leq
+ \bigl(\lambda(s!)^{1/(2s)}\bigr)^{2s/p}
+ N^{1/2-s/p}\|b\|_2.
+\]
+The corresponding \(p=\infty\) inequality is the elementary \(\sqrt N\|b\|_2\) bound. The good phase vector may depend on \(b\), and no single choice is asserted to work for every coefficient vector. Hence this does not prove the deterministic estimate for arbitrary \(a\).
+
+The exact endpoint convolution identity reported by the aid can be written as
+\[
+ \|E_da\|_{2s}^{2s}
+ =\sum_{u,v\in\Z}\left|
+ \sum_{\substack{1\leq n_1,\ldots,n_s\leq N\\
+ n_1+\cdots+n_s=u\\ n_1^d+\cdots+n_s^d=v}}
+ a_{n_1}\cdots a_{n_s}\right|^2.
+\]
+The aid also reports a generic full-moment-curve trace loss \(N^{(d-2)/4}\), but supplies no complete ambient estimate, trace map, or hypotheses for it in this record. That report is not promoted to an independently specified theorem or to a solution of the sparse-degree restriction problem.
+\subsection{Short English statement}
+The intended question asks for a uniform discrete restriction bound for the curve \(n\mapsto(n,n^d)\). The partial theorem supplies a good choice of finite-alphabet phase rotations for each prescribed coefficient vector, with the desired high-\(p\) power and no epsilon loss. Choosing phases depending on the coefficients leaves the arbitrary-coefficient deterministic problem unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000536\), exact public code \texttt{catalogue entry}; \texttt{aim-analysis-notes.json}, \texttt{notes[67]}.
+\item AIM workshop \emph{Carleson theorems and multilinear operators}, Question 9 (Li), display (0.11): \url{https://aimath.org/pastworkshops/multilinopsproblems.pdf}. The supplied verification narrative says the PDF was checked, while the statement-status field remains \texttt{reconstructed\_unverified}; no PDF access is claimed for this draft.
+\item Supplied research summary, ``Sparse-degree discrete restriction and a finite random-phase theorem,'' attempt 1. The original remarks and literature fields are empty; no external citation is supplied for the partial theorem, the trace-loss calculation, or the assertion that the full estimate remains open in part.
+\end{itemize}
+\end{document}

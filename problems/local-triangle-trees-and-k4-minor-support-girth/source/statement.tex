@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000931}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+All graphs are finite, simple, and undirected. A tree of triangles is interpreted in the standard \(2\)-tree sense: start with \(K_3\), then repeatedly add a new vertex adjacent to the endpoints of an existing edge. Write \(G\to(K_3)_r\) if every \(r\)-coloring of \(E(G)\) contains a monochromatic triangle. The source reports the background fact that for every tree of triangles \(T\), some \(r\) ensures \(G\to(K_3)_r\Rightarrow T\subset G\).
+
+R\"odl's question asks whether, for every positive integer \(\ell\), there is \(G\to(K_3)_2\) for which each induced subgraph \(G[W]\), \(|W|=\ell\), is an ordinary subgraph of a tree of triangles. The aid uses the stronger nonvacuous formulation
+\[
+ \forall\ell\geq1\ \exists G\to(K_3)_2\quad
+ \forall W\subset V(G),\ |W|\leq\ell:\quad
+ G[W]\text{ is a subgraph of a tree of triangles}.
+\]
+Containment in the comparison triangle tree is ordinary, not induced; \(G[W]\) need not itself be a \(2\)-tree. If at least \(\ell\) vertices are desired, isolated vertices may be added. For graphs already of order at least \(\ell\), the exact-\(\ell\) and at-most-\(\ell\) conditions agree by heredity.
+
+The supplied full affirmative answer is a specialization of Reiher--R\"odl's 2023 Girth Ramsey Theorem, Theorem 1.6, with \(F=K_3\), \(r=2\), and local parameter \(\ell\). It is reported to produce a triangle-Ramsey graph whose induced subgraphs on at most \(\ell\) vertices are partial forests of triangle copies in that theorem's sense. The aid supplies a width-two tree decomposition, with a bag for each triangle and the necessary interface data, showing that these partial forests are ordinary subgraphs of AIM triangle trees. The exact forest definition and full theorem hypotheses are not reproduced in the source record and require reference verification.
+
+The separate structural equivalence can be stated without that terminology. A finite graph is an ordinary subgraph of a \(2\)-tree if and only if it has treewidth at most two, equivalently no \(K_4\) minor. Small graphs may be embedded in a larger triangle tree by adding vertices. Define
+\[
+ \sigma_4(G)=\min\{|W|:W\subset V(G),\ G[W]\text{ contains a }K_4\text{ minor}\},
+\]
+with \(\sigma_4(G)=\infty\) if no such set exists. Then
+\[
+ G\text{ is locally a tree of triangles through }\ell
+ \quad\Longleftrightarrow\quad\sigma_4(G)>\ell.
+\]
+Thus the solved local-Ramsey question is equivalently the quantified unboundedness statement: for every \(\ell\), some triangle-Ramsey graph has \(K_4\)-minor support number greater than \(\ell\). This is a minor-support condition, not ordinary cycle girth and not a statement that the whole Ramsey graph has treewidth two.
+\subsection{Short English statement}
+The supplied answer is affirmative by a 2023 Girth Ramsey theorem. Its locally produced triangle forests have treewidth at most two and hence sit inside trees of triangles. Equivalently, triangle-Ramsey graphs can require arbitrarily many vertices to support a \(K_4\) minor. The local containment is ordinary subgraph containment, with a nonvacuous at-most-\(\ell\) convention.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000931\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[55]}.
+\item AIM January 2015 workshop \emph{Graph Ramsey theory}, item 9, ``Local trees of triangles,'' attributed to Vojt\v{e}ch R\"odl: \url{https://www.overleaf.com/read/mnvcscjjysvg}.
+\item Supplied research summary cites Reiher and R\"odl's 2023 Girth Ramsey Theorem, Theorem 1.6, with \(F=K_3,r=2\). A complete paper citation and the theorem's forest definition are not supplied.
+\item Supplied research summary, ``Local triangle trees and K4-minor support girth,'' attempt 1. The original remarks and literature fields are empty; the background forcing fact and structural equivalence have no additional complete citations in the record.
+\end{itemize}
+\end{document}

@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1868}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a prime $p$, an integer $a$, and positive integer block lengths $k_1,k_2,k_3$, put $s_0=0$ and $s_j=k_1+\cdots+k_j$ for $j=1,2,3$. Define three adjacent consecutive blocks by
+\[
+B_j=\{a+s_{j-1}+1,\ldots,a+s_j\},\qquad
+P_j=\prod_{i=1}^{k_j}(a+s_{j-1}+i)\quad(1\leq j\leq3).
+\]
+Under the nonempty-block convention, the recorded least-prime question is to determine
+\[
+\min\{p:\ p\text{ prime and }\exists a\in\Z\ \exists k_1,k_2,k_3\in\Z_{\geq1},\quad
+P_1\equiv P_2\equiv P_3\equiv1\pmod p\}.
+\]
+The original statement merely says the $k_j$ are integers. Positivity is needed to interpret them as nonempty block lengths; allowing zero lengths and the empty-product convention would make the all-empty choice vacuous, and negative upper limits have no stated interpretation. Whether singleton blocks are allowed or all lengths must be at least two is also not stated. The displayed target explicitly uses nonempty blocks rather than silently treating that as a supplied hypothesis. No range restriction on the integer $a$ is supplied.
+
+The background attributes to Erdős the observation
+\[
+3\cdot4\equiv5\cdot6\cdot7\equiv1\pmod{11}
+\]
+and a suggestion that primes admitting any prescribed number of such blocks exist. It credits Narkiewicz and others with examples for larger numbers of terms and attributes the problem to Richard Guy's Section A15. That general existence direction is background, not the same as the three-block least-prime question.
+
+The supplied literature triage, checked 2026-08-17, reports that the intended least prime is $17$ and provides the witness $a=1$ and $(k_1,k_2,k_3)=(4,6,4)$:
+\[
+\prod_{j=2}^{5}j\equiv\prod_{j=6}^{11}j\equiv\prod_{j=12}^{15}j\equiv1\pmod{17}.
+\]
+It states that OEIS A060427 records $17$ as the smallest prime for three such blocks and that this witness matches the stored indexing. This is a supplied answer and minimality assessment, not a new proof of minimality. The triage labels the item solved and says nothing remains for that intended question; least primes for larger numbers of blocks form a separate sequence. It reports no separate partial result. The primary registry label remains ``open'', and the block-length conventions must be checked before the stated answer is attached to the literal unqualified wording.
+\subsection{Short English statement}
+Find the smallest prime for which three adjacent nonempty blocks of consecutive integers each have product congruent to $1$. The supplied assessment gives $17$ with blocks $2$--$5$, $6$--$11$, and $12$--$15$, but the stored statement omits the positivity and singleton conventions for block lengths.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath local registry, permanent ID 1868, source code catalogue entry, ``Congruent Products of Consecutive Numbers''. The background attributes the observation and general suggestion to Erdős, examples to Narkiewicz and others, and the problem to Richard Guy, \emph{Unsolved Problems in Number Theory}, Section A15. No edition or page is supplied.
+\item OEIS Foundation, A060427, \emph{Smallest prime $p$ such that there are $n$ strings of consecutive integers all having products $=1\bmod p$}, recorded as updated 2026-07-27, \url{https://oeis.org/A060427}. The supplied triage cites $a(3)=17$ and the explicit witness.
+\item The local literature triage records its check as 2026-08-17. Dataset attribution: Ulam AI and the UnsolvedMath Contributors; curation and metadata under CC BY 4.0. No external source was independently consulted for this draft.
+\end{itemize}
+\end{document}

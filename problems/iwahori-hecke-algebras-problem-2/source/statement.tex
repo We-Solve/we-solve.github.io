@@ -1,0 +1,102 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800361}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied excerpt omits the preceding setup of the Iwahori--Hecke algebra. Throughout, \(W\), its weight function \(L\), and the algebra \(H\) with basis \(\{T_w:w\in W\}\) mean the objects intended in that omitted setup. Their precise hypotheses and the defining multiplication of \(H\) must be recovered before this becomes a standalone conjecture. The quantifiers below concern that setup. Read \(A=\mathbb Z[v,v^{-1}]\), the damaged notation \(v\text{-}\) as \(v^{-1}\), and the damaged subscript \(w\iota\) as \(w^{-1}\); these are contextual reconstructions of the extraction.
+
+The source specifies an additive-group automorphism \(h\mapsto\overline h\) of \(H\), which is also a ring isomorphism, by
+\[
+\overline{v^nT_w}\,T_{w^{-1}}=v^{-n}1_H
+\qquad(n\in\mathbb Z,\ w\in W).
+\]
+Set
+\[
+H_{\leq0}=\bigoplus_{w\in W}\mathbb Z[v^{-1}]T_w.
+\]
+For each \(w\in W\), the source asserts that there is a unique \(c_w\in H_{\leq0}\) satisfying
+\[
+\overline{c_w}=c_w,\qquad c_w-T_w\in v^{-1}H_{\leq0},
+\]
+and that these elements form an \(A\)-basis of \(H\). Define structure constants by the finite expansions
+\[
+T_xT_y=\sum_{z\in W}f_{x,y,z}T_z,
+\qquad
+c_xc_y=\sum_{z\in W}h_{x,y,z}c_z,
+\qquad f_{x,y,z},h_{x,y,z}\in A.
+\]
+
+The first requested assertion, labelled (b) in the source, is uniform boundedness:
+\[
+\exists N\in\mathbb Z_{\geq0}\ \forall x,y,z\in W,
+\qquad v^{-N}f_{x,y,z}\in\mathbb Z[v^{-1}].
+\tag{b}
+\]
+Thus one bound must work simultaneously for every triple. The source describes (b) as immediate when \(W\) is finite and known when \(W\) is an affine Weyl group; these are supplied source qualifications.
+
+Assume (b) for all subsequent constructions. The source asserts that the same \(N\) bounds the coefficients \(h_{x,y,z}\), and that for each \(z\in W\) there is a unique \(a(z)\in\mathbb Z_{\geq0}\) such that
+\[
+\begin{aligned}
+&h_{x,y,z}\in v^{a(z)}\mathbb Z[v^{-1}]
+&&\text{for every }x,y\in W,\\
+&h_{x,y,z}\notin v^{a(z)-1}\mathbb Z[v^{-1}]
+&&\text{for at least one pair }x,y\in W.
+\end{aligned}
+\]
+Define \(\gamma_{x,y,z^{-1}}\in\mathbb Z\) by
+\[
+h_{x,y,z}-\gamma_{x,y,z^{-1}}v^{a(z)}
+\in v^{a(z)-1}\mathbb Z[v^{-1}].
+\]
+Let \(J=\bigoplus_{w\in W}\mathbb Zt_w\). Extend the rule
+\[
+t_xt_y=\sum_{z\in W}\gamma_{x,y,z^{-1}}t_z
+\]
+\(\mathbb Z\)-bilinearly; the source states that each displayed sum is finite. The second requested assertion, labelled (c), is that this multiplication makes \(J\) an associative ring, with no identity element required in general. Equivalently, for every \(x,y,u,w\in W\),
+\[
+\sum_{z\in W}\gamma_{x,y,z^{-1}}\gamma_{z,u,w^{-1}}
+=
+\sum_{z\in W}\gamma_{y,u,z^{-1}}\gamma_{x,z,w^{-1}}.
+\tag{c}
+\]
+The source states that when \(W\) is a Weyl group or an affine Weyl group and \(L\) is the length function, (c) is known and \(J\) has an identity element. The interpretation of the extracted notation \(L=||\) as the length function requires confirmation against the original setup.
+
+The excerpt also proposes a further program for an affine Weyl group with \(L\in\Sigma_W\), where \(\Sigma_W\) and \(H_q\) are defined in the omitted part (a). It describes a geometric description of the \(c_w\), referenced as [L16, 3.11], as conjectural, and suggests that it should imply (c) and the well-definedness of the map referenced in [L03, 18.9] as a \(\mathbb C\)-algebra homomorphism
+\[
+\phi_q:H_q\longrightarrow\underline J,
+\qquad \underline J=\mathbb C\otimes_{\mathbb Z}J,
+\]
+with \(\underline J\) independent of \(q\). No formula for this map or allowed values of \(q\) are supplied. The source further expects that the isomorphism classes of irreducible finite-dimensional \(\underline J\)-modules, viewed as \(H_q\)-modules through \(\phi_q\), give classes forming a basis of the Grothendieck group of \(H_q\)-modules. The intended module category defining that Grothendieck group is unspecified, so this last expectation cannot yet be stated precisely. The source says that it holds when \(L\) is the length function and suggests that the proposed approach would construct the standard modules of \(H_q\) without the dual-group geometry used in [L95] and [L02]. These statements retain the source's conditional and conjectural qualifications.
+\subsection{Short English statement}
+Lusztig asks for a uniform upper bound on the powers of \(v\) in the standard-basis structure constants of an Iwahori--Hecke algebra. Assuming that bound, he asks whether the leading coefficients in its canonical basis define an associative ring \(J\). The excerpt also proposes consequences for affine Hecke algebra modules. The omitted algebra setup and the unspecified Grothendieck-group category require clarification before a fully standalone statement is possible.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(800361\), source code \texttt{catalogue entry}, title \emph{Iwahori--Hecke Algebras --- Problem 2}. The record attributes the problem to Lusztig, with proposed year 2020, and supplies the status \texttt{open}; that status is not an independently verified mathematical assessment.
+\item Lusztig, \emph{Open Problems on Iwahori--Hecke Algebras} (2020), Problem 2, \url{https://arxiv.org/abs/2006.08535}. The supplied provenance records access on 2026-10-16 and extraction method \texttt{arxiv\_latex}. This is supplied dated provenance, not a claim of independent access or verification.
+\item [KL] and [L03]: cited in the excerpt for the existence and characterization of the basis \(\{c_w\}\). Full bibliographic entries are absent from the supplied record.
+\item [L03, 13.4]: supplied reference for assertion (b). [L03, 18.9]: supplied reference for the proposed homomorphism \(H_q\to\underline J\). No full bibliographic entry is supplied.
+\item [L16, 3.11]: supplied reference for the conjectural geometric description in the affine case with \(L\in\Sigma_W\). No full bibliographic entry is supplied.
+\item [L95] and [L02]: supplied references for constructions of standard modules involving the geometry of the dual group. Full bibliographic entries are absent.
+\end{itemize}
+\end{document}

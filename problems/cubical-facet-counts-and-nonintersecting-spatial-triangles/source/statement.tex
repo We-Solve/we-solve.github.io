@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004230}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A convex \(d\)-polytope is a convex polytope of affine dimension \(d\). For \(d\geq 2\), call it cubical if each facet is combinatorially equivalent to the \((d-1)\)-dimensional cube. Here a facet is a face of dimension \(d-1\), and combinatorial equivalence means isomorphism of face lattices. Write \(f_i(P)\) for the number of \(i\)-dimensional faces of \(P\).
+
+For each integer \(d\geq 2\), define the set of admissible vertex counts by
+\[
+ A_d=\{n\in\N: \text{there exists a cubical convex }d\text{-polytope }P\text{ with }f_0(P)=n\}.
+\]
+For \(n\in A_d\), set
+\[
+ C(d,n)=\max\{f_{d-1}(P): P\text{ is a cubical convex }d\text{-polytope},\ f_0(P)=n\}.
+\]
+The first problem is to determine the asymptotic growth of \(C(d,n)\). In particular, for every fixed integer \(d\geq 2\), is
+\[
+ C(d,n)=o(n^2)\qquad(n\to\infty,\ n\in A_d)?
+\]
+Explicitly, the latter asks whether for every such \(d\) and every \(\varepsilon>0\), there is an integer \(N\) such that
+\[
+ n\in A_d,\ n\geq N\quad\Longrightarrow\quad C(d,n)\leq\varepsilon n^2.
+\]
+The source does not specify a dimension range or define \(C(d,n)\) when no such polytope exists. The formulation above uses the usual convex-polytope interpretation, treats \(d\geq2\), and takes asymptotics through admissible vertex counts. These conventions require review against the source report; no value is assigned for inadmissible \(n\). No joint asymptotic regime for varying \(d\) and \(n\) is specified in the supplied record.
+
+For the second problem, interpret a triangle as the closed convex hull of three noncollinear points in \(\R^3\). If \(T\) is such a triangle, let \(V(T)\) denote its three vertices. For an integer \(n\geq1\), define
+\[
+\begin{split}
+ t(n)=\max\bigl\{|\mathcal T|:\;&S\subset\R^3,\ |S|=n,\quad
+ \mathcal T\subseteq\{\operatorname{conv}\{a,b,c\}:a,b,c\in S\text{ are noncollinear}\},\\
+ &\text{for all distinct }T,U\in\mathcal T,\quad
+ T\cap U=\varnothing\ \text{or}\ 
+ T\cap U=\{v\}\text{ for some }v\in V(T)\cap V(U)\bigr\}.
+\end{split}
+\]
+Thus the intersection condition applies to the entire filled triangles. A shared edge, an intersection along triangle interiors, or contact at a point that is not a vertex of both triangles is forbidden. Points of \(S\) need not all be used, and no general-position assumption on \(S\) is imposed.
+
+Determine the asymptotic growth of \(t(n)\) as \(n\to\infty\). The supplied background additionally identifies the question
+\[
+ t(n)=o(n^2)?
+\]
+although this particular subquadratic question is not explicitly posed in the supplied original or clean statement. The closed, nondegenerate interpretation of triangles is conventional but is not expressly defined in the record and requires source review.
+\subsection{Short English statement}
+Determine how the largest possible number of facets of a cubical convex polytope grows with its vertex count, especially whether it is subquadratic in every fixed dimension. Separately, determine the largest number of filled triangles on an \(n\)-point set in \(\R^3\) when distinct triangles may intersect only at a shared vertex. Dimension conventions, admissible vertex counts, and the interpretation of triangles require review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}: permanent ID \(30004230\), source code \texttt{catalogue entry}, title ``Cubical Facet Counts and Nonintersecting Spatial Triangles,'' in the Oberwolfach Reports Open Problems collection. The supplied record lists proposed year \(2019\) and provides no named proposer.
+\item Supplied report citation: \emph{Geometric, Algebraic, and Topological Combinatorics} (2020), \emph{Oberwolfach Reports}, pp.\ 2395--2472, DOI \texttt{10.4171/owr/2019/39}. Supplied source and literature link: \url{https://doi.org/10.4171/owr/2019/39}. The background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Additional supplied literature reference: \emph{Neighborly cubical polytopes}, \url{https://arxiv.org/abs/math/9908005}. The record provides no authors or more precise location supporting the stated assessment.
+\item Supplied literature assessment, checked on \texttt{2026-08-22}: the record labels the problems open and states that only broad upper and lower bounds are known for \(C(d,n)\) and \(t(n)\), with the requested asymptotics, including \(t(n)=o(n^2)\), remaining open. This is supplied dated curation, described as literature triage derived from the OWR curation; it has not been independently verified here. The source itself requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}; its verification note says that mathematical content was preserved while notation, typography, and sentence structure were repaired for publication. This is a registry qualification, not independent mathematical verification of this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000982}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Caroline Klivans's source question asks for higher-dimensional critical configurations, in the sense of source references [18] and [17]. Sam Hopkins asks whether stable recurrent configurations, parking functions, or superstable elements are intended; Klivans explicitly welcomes generalizations of any of these from graphs to simplicial complexes. The exact group, sink convention, and positivity/admissibility notion are not defined in the supplied record, so this is a request for a theory rather than a single fully specified conjecture.
+
+The supplied aid reports that Guzman--Klivans matrix chip-firing and the simplicial dollar game already provide rigorous versions, while a canonical positive cone remains unresolved. Its own structural criterion uses the following explicit matrix setting. For a finite oriented simplicial complex, let \(B\) represent the boundary map from \((q+1)\)-faces to \(q\)-faces, and form the up--down Laplacian \(BB^{\mathsf T}\). Choose a sink/reduction retaining a set \(R\) of \(q\)-faces such that the corresponding principal reduced matrix \(L\) is nonsingular. Then \(L\) is symmetric positive definite. Reorienting retained faces changes it to
+\[
+ SLS,\qquad S=\operatorname{diag}(\varepsilon_i),\quad\varepsilon_i\in\{-1,1\}.
+\]
+Define the signed support graph on \(R\) by an edge \(ij\) when \(L_{ij}\ne0\), labeled \(\sigma_{ij}=\operatorname{sgn}(L_{ij})\). Call this graph antibalanced when every cycle \(C\) satisfies
+\[
+ \prod_{ij\in E(C)}\sigma_{ij}=(-1)^{|E(C)|},
+\]
+equivalently there are signs \(\varepsilon_i\) with \(\varepsilon_i\varepsilon_j\sigma_{ij}=-1\) on all support edges. An M-matrix here means a nonsingular real matrix with nonpositive off-diagonal entries and nonnegative inverse; in this positive-definite symmetric setting the off-diagonal sign condition suffices.
+
+The aid reports the equivalence
+\[
+ \exists S\text{ with }SLS\text{ a nonsingular M-matrix}
+ \quad\Longleftrightarrow\quad
+ \text{the signed support graph of }L\text{ is antibalanced}.
+\]
+It reports a constructive linear-time cycle-sign test in the number of support vertices and edges, producing either an orientation switch or an obstructing cycle. The assumptions that the reduction is nonsingular and is a simplicial up--down matrix are essential; an arbitrary nonsingular matrix need not satisfy this criterion.
+
+The aid's example is the tetrahedral boundary in dimension two, with edge-level group \(K_1\simeq\Z/4\Z\). Removing a star spanning-tree sink is reported to fail the sign test, while a path spanning-tree sink passes, although both present the same group. The path choice is reported to give four nonnegative recurrent configurations and four parking configurations in a graph-style orthant model; the actual vectors and detailed recurrence/parking conventions are not supplied. Thus orientation switching alone need not recover the ordinary nonnegative cone for every sink choice, and equality of group presentations does not canonically identify their positive configurations. This is a structural partial result, not a definition of a canonical theory for every complex or a resolution of all three configuration notions requested by the source.
+\subsection{Short English statement}
+The source asks to extend recurrent, parking, and superstable graph configurations to simplicial complexes. The supplied aid gives an orientation test for when a chosen reduced simplicial Laplacian supports an ordinary M-matrix model, and shows that the answer can depend on the sink even when the critical group is unchanged.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000982\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[106]}, tag \texttt{problem}.
+\item AIM workshop ``Generalizations of chip-firing and the critical group,'' Problem 17, Caroline Klivans, with Sam Hopkins's clarification: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. Statement status \texttt{exact}. No PDF was accessed for this draft.
+\item Original references [18] and [17], with no bibliographic entries supplied. Guzman--Klivans matrix chip-firing and the simplicial dollar game are named in the aid without complete titles, theorem numbers, dates, or URLs.
+\item Research attempt 1: \texttt{partial\_result}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, rigor label \texttt{proved}, novelty confidence low. Created and updated 14 August 2026. No original remarks or literature field are supplied. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

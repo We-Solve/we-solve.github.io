@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000561}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks to characterize known-topology multiterminal directed networks whose unknown one-step Markov transition probabilities can be recovered, up to the natural gauge, from zeroth and first boundary travel-time moments by an \emph{equivalent analytic linearization} of the inverse equations.
+
+Let a finite directed graph have specified boundary terminals $B$ and internal vertices $U$, and let $P$ be an admissible stochastic matrix with graph-prescribed support. Positivity, terminal absorption/reinjection, reachable states and edge-time conventions must be fixed. In one standard discrete first-return model, starting at $i\in B$ one records the first return time $\tau\geq1$ to $B$ and exit terminal $j$. The data are
+\[
+ M_0(i,j)=\mathbb P_i(X_\tau=j),\qquad
+ M_1(i,j)=\mathbb E_i[\tau\,1_{\{X_\tau=j\}}].
+\]
+The first is an exit-probability matrix, not just the total zeroth moment $1$; the second is unnormalized, unlike $\mathbb E_i[\tau\mid X_\tau=j]$. With unit edge times and transient internal block $Q=P_{UU}$, the generating matrix is
+\[
+ H(z)=zP_{BB}+z^2P_{BU}(I-zQ)^{-1}P_{UB},
+ \qquad M_0=H(1),\quad M_1=H'(1).
+\]
+These formulas illustrate a well-defined forward problem under finite-moment assumptions; the excerpt does not select this first-return convention over disjoint input/output absorption or other travel-time models.
+
+Write $\mathcal F(P)=(M_0,M_1)$ for the chosen measurement map. Recovery up to a gauge group $\mathcal G$ means that its admissible fibers are precisely gauge orbits, with the specified transformations preserving graph constraints, normalization and data. The actual gauge action is not supplied. In particular an arbitrary diagonal similarity is not presumed to preserve stochasticity.
+
+The requested linearization must analytically transform the nonlinear equations $\mathcal F(P)=D$ to a linear system with a justified inverse reconstruction and the same admissible solutions modulo gauge. Merely linearizing a derivative near one parameter, or solving a relaxation that introduces spurious probability assignments, does not meet the stated equivalence. The source does not say whether the graph characterization should hold for all admissible parameters or only generically, nor specify nonsingularity and moment-finiteness assumptions.
+
+The literature triage checked 21 August 2026 reports no authoritative resolution of the extracted broad target in its targeted search. It supplies only the report and no exact general theorem, gauge definition or complete parameter classification.
+\subsection{Short English statement}
+Which directed Markov networks can be reconstructed from boundary exit probabilities and first travel-time moments by an exact analytic reduction to linear equations? The measurement convention, admissible probabilities, gauge and all-versus-generic recovery scope must be specified; a local linear approximation is not the requested equivalence.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000561, exact source code catalogue entry; \emph{Linearization of Markov Inverse Problems on Networks}. Proposed year 2006, status open. The corrected\_verified statement restores directed topology, transition probabilities, both moments and gauge-qualified analytic linearization; its claimed source inspection is metadata.
+\item Supplied report citation: \emph{Mathematical Methods in Tomography (2007)}, Oberwolfach Reports, DOI 10.4171/owr/2006/34, pp. 2059--2140, \url{https://doi.org/10.4171/owr/2006/34}. Title year differs from DOI/proposed year.
+\item Supplied literature triage checked 2026-08-21 cites the same report, \url{https://doi.org/10.4171/owr/2006/34}, and reports no authoritative resolution found in the targeted search. This dated OWR-derived curation requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

@@ -1,0 +1,51 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3100024}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G_{\mathrm{Sud}}$ have vertex set $\{1,\ldots,9\}^2$, one vertex for each cell of the standard Sudoku board. Distinct cells $(r,c),(r',c')$ are adjacent when $r=r'$, or $c=c'$, or
+\[
+\left\lfloor\frac{r-1}{3}\right\rfloor=\left\lfloor\frac{r'-1}{3}\right\rfloor,
+\qquad
+\left\lfloor\frac{c-1}{3}\right\rfloor=\left\lfloor\frac{c'-1}{3}\right\rfloor,
+\]
+so they lie in one $3\times3$ block. A list assignment gives each cell $v$ a finite set $L(v)$ of available symbols; the symbol sets need not coincide. A proper list coloring chooses $c(v)\in L(v)$ with $c(v)\ne c(w)$ for every adjacent pair.
+
+\textbf{Problem.} Determine
+\[
+\chi_{\ell}(G_{\mathrm{Sud}})=\min\{k\geq1:\text{every assignment with }|L(v)|=k
+\text{ admits a proper list coloring}\}.
+\]
+There are no prefilled cells or other constraints beyond the stated rows, columns, and blocks. The list size is uniform, but the contents are arbitrary. Each row forms a nine-vertex clique, so any interpretation involving list size $4$ cannot be a positive universal-colorability claim for this same board.
+
+The source nevertheless says even for $k=4$ the question is open. That sentence does not consistently identify a subcase of the defined nine-by-nine problem; it might refer to another board-size parameter, but no such variant is specified. The research summary speculates that the answer may be $9$ by an analogue of Galvin's theorem while explicitly admitting that it was not verified. That speculation is not accepted as a proved list-coloring result. The source’s Dinitz/Galvin comparison is an analogy, not an established reduction.
+\subsection{Short English statement}
+Find the list-chromatic number of the standard Sudoku graph with all row, column, and block conflicts. The source’s $k=4$ sentence and its speculative claim of value $9$ are unresolved source issues.
+\subsection{Sources}
+\begin{itemize}
+\item Cooper, \emph{Combinatorial Problems I Like}, Graphs, Hypergraphs, Set Systems, Designs, source-order bullet 24, October 2020 snapshot, \url{https://people.math.sc.edu/cooper/combprob.html}; HTML extraction, accessed 2026-07-29. Later resolutions were not checked item by item according to the record.
+\item Dinitz conjecture / Galvin theorem, named in the statement as an analogue. No specific Sudoku list-coloring theorem, Galvin reduction, or bibliographic identifier is supplied.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID $3100024$, source code catalogue entry, \emph{What is the list-chromatic number of Sudoku}. The record labels this open and OPEN-TRIAGE, with NEEDS\_REVIEW source-status and rights qualifications.
+\end{itemize}
+\end{document}

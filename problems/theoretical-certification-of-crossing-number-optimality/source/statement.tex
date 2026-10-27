@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000215}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G=(V,E)\) be a finite simple graph, identifying each edge with its two-element endpoint set. Let \(D\) be a touching-free plane drawing in which adjacent edges do not cross and every two edges cross at most once. Crossings are proper crossings, not tangencies. Let
+\[
+\mathcal P(G)=\{\{e,f\}:e,f\in E,\ e\cap f=\varnothing\},
+\qquad
+\mathcal C_D=\{\{e,f\}\in\mathcal P(G):e,f\text{ cross in }D\}.
+\]
+For every independently chosen family \(A=(A_e)_{e\in E}\) with \(A_e\subseteq V\setminus e\), define
+\[
+\mathcal O(A)=\{\{e,f\}\in\mathcal P(G):|e\cap A_f|+|f\cap A_e|\equiv1\pmod2\}.
+\]
+The source's optimality criterion is
+\[
+\forall (A_e\subseteq V\setminus e)_{e\in E},\qquad
+|\mathcal C_D\cap\mathcal O(A)|\leq|\mathcal O(A)\setminus\mathcal C_D|.
+\]
+Thus only nonadjacent edge pairs with the indicated odd parity are compared: the number currently crossing must not exceed the number currently noncrossing. The inequality allows equality and is required for every family of sets, not just single-edge choices.
+
+The problem asks for graph families and corresponding drawings for which this universal criterion can be verified by theoretical arguments rather than exhaustive enumeration of all set families. The source presents the criterion as certifying
+\[
+|\mathcal C_D|=\operatorname{cr}(G),
+\]
+where \(\operatorname{cr}(G)\) is the minimum crossing number over plane drawings. This is the reported sufficient certification criterion, not an asserted equivalence with every optimal drawing. Crossing counts use edge-pair multiplicity and the usual general-position convention; any more specific meaning of touching-free in the source should be matched.
+
+No particular graph family, proposed drawing, or formal complexity requirement on ``theoretical methods'' is supplied. In particular, the question does not explicitly demand a polynomial-time algorithm. The supplied assessment checked 2026-08-21 reports that no general theoretical verification method for this exponential-size criterion was located.
+\subsection{Short English statement}
+For which graph drawings can one prove the stated parity inequality for every family of vertex sets without checking all families separately, thereby certifying crossing-number optimality? The criterion and its parity and nonadjacency restrictions are explicit; the requested graph classes are not.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000215, catalogue entry, \emph{Theoretical Certification of Crossing-Number Optimality}.
+\item \emph{Discrete Geometry} (2006), Oberwolfach Reports, pp. 925--994, DOI \url{https://doi.org/10.4171/owr/2005/17}.
+\item Supplied statement-verification field reports comparison with the official report. Supplied literature triage checked 2026-08-21 cites only that report; no separate theorem attribution or algorithm reference is supplied.
+\end{itemize}
+\end{document}

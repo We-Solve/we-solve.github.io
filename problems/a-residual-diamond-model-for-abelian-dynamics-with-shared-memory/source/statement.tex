@@ -1,0 +1,51 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000978}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Lionel Levine asks for an appropriate definition of an abelian network with shared memory, broad enough to encompass abelian models outside the existing chip-firing-style framework, notably simultaneous cluster-firing studied by Spencer Backman. Jordan Ellenberg compares the issue to Persi Diaconis's non-overlapping-disc question. This is a request for a framework, not a uniquely specified conjecture.
+
+One precise candidate supplied by the aid uses a finite event alphabet $I$, a shared memory set $Q$, transitions $t_i:Q\to Q$, and output vectors $o_i:Q\to\N^I$. On unrestricted configurations $(x,q)\in\Z^I\times Q$ define
+\[
+ H_i(x,q)=(x-e_i+o_i(q),t_i(q)).
+\]
+On pending-event configurations $x\in\N^I$ the event is legal when $x_i>0$. The exact lifted-commutation criterion is, for every $i,j\in I$ and $q\in Q$,
+\[
+ t_j(t_i(q))=t_i(t_j(q)),\qquad
+ o_i(q)+o_j(t_i(q))=o_j(q)+o_i(t_j(q)).
+\]
+These conditions express shared-memory commutation and the memory-dependent output cocycle, and are equivalent to $H_jH_i=H_iH_j$ on unrestricted configurations. Under this finite, nonnegative-output event convention, the aid claims the usual least-action/odometer property: every legal word's event counts are bounded coordinatewise by those of any stabilizing word, where stabilizing means that its unrestricted final pending vector has no positive coordinates. In particular, existence of a legal halting execution bounds all legal executions and gives a unique atomic event-count vector for legal halting executions. The model conventions here are explicit; the workshop did not supply them.
+
+For a weaker guarded-batch framework, let commuting primitive maps $\phi_i$ act on a state set $\Omega$. A batch is a nonempty subset $B\subseteq I$ acting by $\phi_B=\prod_{i\in B}\phi_i$, with a state-dependent legality guard. Require the batch family to be closed under nonempty differences. The residual-legality axiom says: whenever $B,C$ are legal at $z$, the residual $C\setminus B$ is legal at $\phi_B(z)$ and $B\setminus C$ is legal at $\phi_C(z)$, interpreting an empty residual as an identity step. The two branches then have a common state $\phi_{B\cup C}(z)$. The aid claims that if legal batch rewriting terminates, this local diamond gives a unique terminal state.
+
+Uniqueness of atomic counts additionally requires an appropriate faithfulness condition: for the initial state $z$, equality $\phi^u(z)=\phi^v(z)$ for atomic count vectors $u,v\in\N^I$ must imply $u=v$. Faithfulness only as distinct global maps is not silently substituted for this pointwise condition. Batch-history counts can still differ even when total primitive counts agree. The aid reports that hereditary cluster-firing satisfies such a criterion, terminates using a reduced-Laplacian potential, and has a two-vertex example with unique vertex odometer but different cluster histories. Definitions of that model, its hypotheses, and the example are absent, so those reports do not become assertions about every cluster-firing system.
+\subsection{Short English statement}
+Seek a shared-memory notion of abelian network that includes simultaneous cluster-firing. The supplied candidate separates exact memory/output commutation from a weaker terminating batch-diamond criterion, and separates a unique terminal state or atomic odometer from a unique batch history.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Generalizations of chip-firing and the critical group}, problem 13, Lionel Levine's question and comments, with Jordan Ellenberg's comparison to Persi Diaconis: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}.
+\item The source cites Spencer Backman's cluster-firing work as reference [6], but the bibliographic entry and precise model are not supplied.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20000978, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[102]}. Attached attempt 1, partial result, problem status at run open, rigor proved, low novelty confidence; the proposed framework is machine-generated research aid, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

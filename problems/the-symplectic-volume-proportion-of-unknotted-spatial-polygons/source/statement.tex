@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001852}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source, attributed to Farber/Panina, asks for the symplectic-volume proportion of unknots among closed spatial polygons with prescribed edge lengths. Its extracted numerator is damaged and its equality-case remark is degenerate. The following reconstruction fixes the conventional moduli problem explicitly.
+
+For \(n\geq3\) and \(\ell=(\ell_1,\ldots,\ell_n)\in(0,\infty)^n\), assume strict feasibility \(\max_i\ell_i<\frac12\sum_i\ell_i\) and genericity
+\[
+ \sum_i\sigma_i\ell_i\ne0\qquad\text{for every }\sigma_i\in\{\pm1\}.
+\]
+The oriented, labelled polygon space modulo translations and orientation-preserving rotations is
+\[
+ M_\ell=\{(e_1,\ldots,e_n)\in(\R^3)^n:
+ |e_i|=\ell_i,\ \sum_i e_i=0\}/SO(3).
+\]
+It is the symplectic reduction of the product of coadjoint two-spheres, with symplectic form \(\omega\) and dimension \(2n-6\). Put \(r=n-3\) and use Liouville measure \(\omega^r/r!\). Let \(U_0\subset M_\ell\) be the locus where the associated polygonal closed curve is embedded and ambient isotopic to a standard circle in \(\R^3\). The intended proportion is
+\[
+ P_0(\ell)=\frac{\operatorname{Vol}_\omega(U_0)}
+ {\operatorname{Vol}_\omega(M_\ell)}.
+\]
+If the extracted \(U_i\) denote connected knot-type strata, the numerator means their union over unknot strata. Self-intersecting polygons are excluded from \(U_0\); in the generic regular setting their discriminant has zero Liouville measure. The original text does not define its strata or volume convention.
+
+The supplied aid states that every feasible generic vector with \(3\leq n\leq5\) has \(P_0(\ell)=1\). It further states
+\[
+ \exists\epsilon_0>0\ \forall\epsilon\in\R:\quad
+ 0<|\epsilon|<\epsilon_0\Longrightarrow
+ \ell_\epsilon=(1,1,1,1,1,1+\epsilon)
+\]
+is positive, feasible and generic, and both its embedded unknot locus and its embedded trefoil locus contain open subsets of positive symplectic volume. Consequently
+\[
+ 0<P_0(\ell_\epsilon)<1.
+\]
+These are reported partial results, not a formula for arbitrary length vectors.
+
+A precise action--angle form of the aid's reduction uses fan diagonals. With vertices \(v_0,\ldots,v_n=v_0\), set \(d_j=|v_j-v_0|\), \(d_1=\ell_1\), \(d_{n-1}=\ell_n\), and let \(\Delta_\ell\subset\R^r\) be the admissible region for \(d_2,\ldots,d_{n-2}\) defined by
+\[
+ |d_{j-1}-\ell_j|\leq d_j\leq d_{j-1}+\ell_j
+ \quad(2\leq j\leq n-1).
+\]
+On the full-measure nondegenerate action--angle locus, let \(\Phi(d,\theta)\) reconstruct the polygon, with each bending angle of period \(2\pi\). In the convention \(\omega=\sum\dd d_j\wedge\dd\theta_j\),
+\[
+ P_0(\ell)=\frac{
+ \displaystyle\int_{\Delta_\ell}\int_{(\R/2\pi\Z)^r}
+ \mathbf1_{U_0}(\Phi(d,\theta))\,\dd\theta\,\dd d}
+ {(2\pi)^r\operatorname{Vol}_r(\Delta_\ell)}.
+\]
+A common normalization factor in the symplectic form cancels in the ratio. This is an exact integral reduction, not an evaluation of its knot-type indicator.
+
+Finally, the source's condition \(\ell_1+\cdots+\ell_{n-1}=\ell_n\) forces equality in the vector triangle inequality: the first \(n-1\) edges align and the last returns along the same line. This is a degenerate collinear configuration, not an embedded unknot. It lies outside the generic positive-volume setup above, so it does not justify the source's asserted probability-one equality case.
+\subsection{Short English statement}
+The problem asks how much of a prescribed-length polygon space consists of unknots, measured by its symplectic volume. The aid reports proportion one for at most five edges and a proportion strictly between zero and one for small generic perturbations of equilateral hexagons. The source's equality-of-lengths example is collinear and degenerate.
+\subsection{Sources}
+\begin{itemize}
+\item Permanent UnsolvedMath ID \(20001852\), exact public code catalogue entry; local registry \texttt{aim-geometry-notes.json}, \texttt{notes[189]}, canonical tag problem.
+\item AIM workshop ``Configuration spaces of linkages,'' Geometry, source item 3, attributed in the extracted text to Farber/Panina: \url{https://aimath.org/pastworkshops/linkagesproblems.pdf}. The URL is retained as supplied; no PDF was accessed for this draft.
+\item The source attributes the symplectic structure to Klyatchko, without a full citation. The original literature field is empty and no proposer/year metadata are supplied beyond the in-text attribution.
+\item Research attempt 1, ``The symplectic-volume proportion of unknotted spatial polygons,'' labelled partial\_result, partially\_solved, proved and low novelty confidence. Although the statement-status field says exact, its verification note explicitly describes the extracted text as visibly damaged and identifies zero-based registry index 189.
+\end{itemize}
+\end{document}

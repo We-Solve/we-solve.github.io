@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001041}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This record is the final OCR-split fragment of a conditional argument following Conjecture 6.4, not an independent Conjecture 6.1. Companion records supply the missing definitions and preceding argument.
+
+Let $G$ be a finite simple loopless digraph on $n\geq1$ vertices, with each arc carrying a set of old labels. A directed path or cycle is rainbow if distinct labels can be chosen for all its arcs, with no requirement that labels increase along it. Let $R_G^-(u)$ be the vertices other than $u$ from which an old-label rainbow path leads to $u$. Given a set $F$ of ordered pairs $(u,v)$ with $u\ne v$, add those arcs to the host if needed and give every pair in $F$ one common fresh label; if an arc already exists, augment its label set rather than making a parallel arc. The aid's exact safety criterion is: the augmented graph has a rainbow directed cycle if and only if $G$ already has one or some $(u,v)\in F$ closes an old-label rainbow path from $v$ to $u$.
+
+Consequently, when $G$ has no rainbow directed cycle, the unique largest safe fresh-label set is
+\[
+ F_{\max}(G)=\{(u,v):u\ne v,\ v\notin R_G^-(u)\}.
+\]
+Every safe $F$ satisfies
+\[
+ d_F^+(u)\leq n-1-|R_G^-(u)|,
+\]
+with equality at every vertex exactly when $F=F_{\max}(G)$. The host must be enlarged when this set includes nonedges; the printed preceding declaration $G'=H$ does not support its full-complement count.
+
+For the conditional application, let $H$ be a finite nonempty oriented graph (no loops, parallel arcs, or digons). Let $N_H^\pm(u)$ be its first neighborhoods and $N_H^{+2}(u)$, $N_H^{-2}(u)$ the vertices at exact directed distance two from, or to, $u$. Give every old arc both labels $1,2$. There is no rainbow cycle, and
+$R_G^-(u)=N_H^-(u)\mathbin{\dot\cup}N_H^{-2}(u)$.
+Adjoining $F_{\max}$ with label $3$ preserves rainbow-cycle-freeness and gives total labeled outdegree
+\[
+ \sum_{i=1}^3d_{G_i}^+(u)
+ =n-1-|N_H^-(u)|-|N_H^{-2}(u)|+2|N_H^+(u)|.
+\]
+Assuming Seymour--Sullivan's colored Conjecture 6.1, which asserts a rainbow cycle or a vertex with rainbow out-reach at least its total labeled outdegree, one obtains a vertex $u$ with
+\[
+ |N_H^-(u)|+|N_H^{-2}(u)|\geq2|N_H^+(u)|.
+\]
+Indeed a strict reverse inequality at every vertex would make every total at least $n$, impossible for rainbow reach among at most $n-1$ other vertices. Applying this conclusion to the arc reversal of $H$ yields the intended Sullivan-2 assertion
+\[
+ \exists u:\quad |N_H^+(u)|+|N_H^{+2}(u)|\geq2|N_H^-(u)|.
+\]
+This remains a conditional implication; the safe-completion lemma does not prove the colored conjecture or Sullivan-2 unconditionally.
+\subsection{Short English statement}
+The record finishes a conditional reduction from a rainbow-reachability conjecture to Sullivan's second neighborhood inequality. A fresh label is safe exactly on arcs that close no old rainbow path. The source's host must include the required nonedges, and exact-distance neighborhoods and arc reversal must be kept explicit.
+\subsection{Sources}
+\begin{itemize}
+\item Blair D. Sullivan, \emph{A Summary of Problems and Results Related to the Caccetta--H\"aggkvist Conjecture} (2006), notes following Conjecture 6.4, pages 5--6: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001041, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[165]}. Companion IDs 20001036 (\texttt{AIM-COMBINATORICS-0161}), 20001039 (\texttt{AIM-COMBINATORICS-0164}), and 20001040 (\texttt{AIM-COMBINATORICS-0165}) supply respectively the colored conjecture, Sullivan-2 statement, and preceding proof fragment.
+\item Attached attempt 1, context only, problem status at run ``not\_a\_problem,'' rigor proved, low novelty confidence. Its verification reports inspecting the PDF and original arXiv TeX; this draft did neither. The aid is machine-generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

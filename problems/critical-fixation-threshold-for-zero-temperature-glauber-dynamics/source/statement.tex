@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004593}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(d\in\N\) with \(d\geq2\), and let \(p\in[0,1]\). Write \(\sigma_t(x)\in\{0,1\}\) for the opinion at \(x\in\Z^d\) at time \(t\geq0\), with independent initial opinions satisfying \(\mathbb P_p(\sigma_0(x)=1)=p\).
+
+For an explicit conventional interpretation of zero-temperature Glauber dynamics, give each vertex an independent rate-one Poisson clock, independent of the initial opinions. When the clock at \(x\) rings, replace its opinion by the strict majority among its \(2d\) nearest neighbours; if the neighbours are equally divided, choose either opinion with probability \(1/2\), independently at each such update. Here nearest neighbours satisfy \(\sum_{i=1}^d|x_i-y_i|=1\). The nearest-neighbour interaction, continuous-time clock convention, and independence of tie-breaking coins are conventional specifications made explicit here; the supplied record does not state them individually, so they require confirmation against the source.
+
+Define the event of sitewise fixation by
+\[
+ F_d=\bigcap_{x\in\Z^d}\left\{\exists T_x<\infty\ \exists s_x\in\{0,1\}\ \forall t\geq T_x:\ \sigma_t(x)=s_x\right\}.
+\]
+The times \(T_x\) may depend on the vertex and the realization; this definition does not require a common finite fixation time for the entire lattice. Failure of \(F_d\) means that at least one vertex changes opinion infinitely often. Whether the source instead intends infinite changes at a specified vertex, or at every vertex, is not stated.
+
+\textbf{Source conjecture and unresolved threshold definition.} The supplied statement asks whether
+\[
+ p_c(d)=\frac12\qquad\text{for every integer }d\geq2,
+\]
+particularly whether \(p_c(2)=1/2\), and describes \(p_c(d)\) as separating eventual fixation from infinitely many opinion changes. It gives no defining event, probability quantifier, or parameter range for this threshold. This omission is material: exchanging the two opinion labels preserves sitewise fixation while replacing \(p\) by \(1-p\), and both deterministic initial configurations \(p=0\) and \(p=1\) are fixed. Thus a single monotone threshold for fixation throughout \([0,1]\) cannot be inferred from the wording.
+
+One possible precise interpretation would instead concern fixation to opinion \(1\). Define
+\[
+ A_d^+=\bigcap_{x\in\Z^d}\left\{\exists T_x<\infty\ \forall t\geq T_x:\ \sigma_t(x)=1\right\},
+ \qquad
+ p_c^+(d)=\inf\{p\in[0,1]:\mathbb P_p(A_d^+)=1\}.
+\]
+Under this explicitly conditional interpretation, the proposed target would be \(p_c^+(d)=1/2\) for every \(d\geq2\). The supplied evidence does not identify \(p_c(d)\) with \(p_c^+(d)\), so this is a possible clarification, not an attributed replacement statement. An infimum equality alone also does not specify the behaviour at \(p=1/2\). The intended critical event and boundary behaviour remain unresolved.
+\subsection{Short English statement}
+The source conjectures a critical initial density of \(1/2\) for zero-temperature Glauber dynamics on every \(\Z^d\), \(d\geq2\). Its threshold is not defined precisely: fixation to either opinion and fixation of every site to opinion \(1\) are different events. The draft defines the conventional dynamics and records a conditional interpretation using fixation to opinion \(1\), while leaving the intended threshold and critical boundary behaviour for source confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30004593\), source problem code \texttt{catalogue entry}, title \emph{Critical Fixation Threshold for Zero-Temperature Glauber Dynamics}. The supplied record lists proposed year 2021 and identifies no individual proposer.
+\item Supplied report citation: \emph{Spatial Networks and Percolation (2022)}, Oberwolfach Reports, pp.\ 149--224, DOI \texttt{10.4171/owr/2021/4}. Supplied source and literature link: \url{https://doi.org/10.4171/owr/2021/4}. The record describes Oberwolfach Reports as documenting workshops and their open-problem discussions. The supplied 2022 report label and 2021 proposed-year and DOI information are retained without resolving their relationship.
+\item Supplied literature reference: Morris, zero-temperature Glauber dynamics, \url{https://doi.org/10.1007/s00440-009-0259-x)}. The intended supplied URL, without the closing punctuation, is \url{https://doi.org/10.1007/s00440-009-0259-x}.
+\item Literature assessment dated \texttt{2026-08-22}: this is supplied dated curation, not independently verified. The supplied status is \texttt{partially\_solved}. Its assessment says that the record combines proved finite-time square-lattice properties with unresolved strictness, limiting, hexagonal-lattice, and zero-temperature Glauber questions; it also says that high-dimensional asymptotics are known but the conjecture remains unsettled. No precise statements of those additional results or questions are supplied. The background requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}; its accompanying verification concerns dollar-delimiting explicit formulas and preserving supplied mathematical content. This does not establish mathematical correctness or resolve the threshold definition. The external references have not been independently consulted for this draft.
+\end{itemize}
+\end{document}

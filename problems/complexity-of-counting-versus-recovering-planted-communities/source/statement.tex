@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005482}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record does not determine a complete mathematical problem. Its principal question concerns the computational complexity of inferring community statistics compared with recovering communities, but it does not specify the random graph model, parameter regimes, success criteria, or recovery criterion. The following notation describes that question conditionally, without supplying the missing hypotheses.
+
+Let \([n]=\{1,\ldots,n\}\). If the latent communities form a partition \(\Pi_n=\{C_1,\ldots,C_{k_n}\}\) of \([n]\) into nonempty blocks, define the number of communities and their unordered size multiset by
+\[
+K(\Pi_n)=k_n,\qquad
+M(\Pi_n)=\{\!\{|C_1|,\ldots,|C_{k_n}|\}\!\}.
+\]
+Given an observed random graph \(X_n\) generated using such a latent structure, the question is whether estimating \(K(\Pi_n)\), \(M(\Pi_n)\), or other specified community statistics can be achieved by a polynomial-time algorithm in a regime where recovering the communities is believed to be computationally hard, as \(n\to\infty\). A precise formulation requires a specified family of joint laws for \((X_n,\Pi_n)\), the permitted parameter sequences, the information available to an algorithm, an estimation accuracy and success probability, a recovery criterion, and a computational hardness assumption or restricted computational model. None of these choices is determined by the supplied record; even the partition representation above is only a conditional interpretation.
+
+The supplied abstract reports a negative answer for certain hypothesis tests between models with different planted community structures, within the low-degree polynomial framework. This reported result must not be interpreted as a lower bound for every polynomial-time algorithm or every community model. The particular planted distributions, allowed polynomial degrees, parameter ranges, and comparison with recovery are absent. Consequently, the reported result does not supply a precise theorem or a precise remaining open problem here.
+
+The record also contains a separate graph-alignment discussion. For each unordered pair \(\{i,j\}\subseteq[n]\), it samples an edge-indicator pair \((A_{ij},B_{ij})\) with Bernoulli marginals of mean \(p=\lambda/n\), independently across distinct unordered vertex pairs, and with a stated correlation parameter \(s\). These indicators define simple undirected graphs \(G\) and \(H\). Necessarily \(0\leq\lambda/n\leq1\). For a random permutation \(\pi\) of \([n]\), let \(G'=\pi(H)\), so that
+\[
+E(G')=\bigl\{\{\pi(i),\pi(j)\}:\{i,j\}\in E(H)\bigr\}.
+\]
+The alignment task is to infer the hidden relabelling from \((G,G')\). The source discusses information-theoretically impossible, polynomial-time achievable, and putatively exponential-time regimes as \(n\to\infty\), depending on \(\lambda\) and \(s\), and mentions Otter's constant, associated with the growth of the number of unlabelled trees, as a correlation threshold. It supplies no threshold formula, convention for that constant, recovery accuracy, permutation distribution or independence assumption, or precise definition and admissible range of \(s\). Thus this discussion cannot be promoted to a precise threshold assertion. No connection between this alignment model and the community-counting question is supplied.
+
+The registry marks the statement as \texttt{unrecoverable} and supplies a \texttt{partially\_solved} status. These are source labels, not independently verified mathematical conclusions.
+\subsection{Short English statement}
+The intended question asks whether community counts or sizes can be inferred efficiently when finding the communities is computationally hard. The source reports limitations for certain low-degree polynomial tests, but omits the models and success criteria needed for a precise statement. It also includes a separate, insufficiently specified graph-alignment discussion. This draft requires human mathematical and source review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30005482\), source code \texttt{catalogue entry}, title ``Complexity of Counting versus Recovering Planted Communities.'' The supplied record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2023; no individual proposer is identified.
+\item Supplied report citation: \emph{Random Graphs: Combinatorics, Complex Networks and Disordered Systems} (2023), Oberwolfach Reports, pp.\ 883--914, DOI \texttt{10.4171/owr/2023/16}. \url{https://doi.org/10.4171/owr/2023/16}. This is a report-level citation; the precise contribution, speaker, and relevant pages are not identified in the record.
+\item Supplied literature reference, labelled ``ITCS 2023 paper'': \url{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2023.94}.
+\item Supplied literature reference, labelled ``Community inference paper'': \url{https://arxiv.org/abs/2212.10872}.
+\item Supplied literature reference, labelled ``OWR 2023 report'': \url{https://ems.press/content/serial-article-files/47010?nt=1}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem partially solved and reports low-degree hardness comparisons between recovery and testing for a broad planted-community framework, while stating that the general algorithmic question remains unsettled. This is supplied dated curation derived from the OWR record, not an independently verified assessment. The source explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800842}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a positive even integer \(r\) and an integer \(\ell\ge r/2\). Let \(n\to\infty\) through positive integers, with \(r\) and \(\ell\) fixed; this is the source's regime \(n\gg\ell\). Write \([n]=\{1,\ldots,n\}\) and \(\binom{[n]}{\ell}=\{I\subseteq[n]:|I|=\ell\}\). For every \(S\in\binom{[n]}{r}\), let \(Z_S\) be a standard real Gaussian random variable, with these variables mutually independent. For \(\lambda\ge0\), define the real symmetric matrix \(M_n(\lambda)\), indexed by \(\binom{[n]}{\ell}\), by
+\[
+M_n(\lambda)_{I,J}=\begin{cases}
+\lambda+Z_{I\triangle J},&|I\triangle J|=r,\\
+0,&|I\triangle J|\ne r,
+\end{cases}
+\qquad I\triangle J=(I\cup J)\setminus(I\cap J).
+\]
+Thus entries having the same symmetric difference use the same Gaussian variable; the matrix entries are not all independent. Let \(\lambda_{\max}(A)\) denote the largest eigenvalue of a real symmetric matrix \(A\), and let \(\mathbb E\) denote expectation over the Gaussian variables.
+
+The source introduces a spectral pop-out threshold \(\lambda^\natural_{r,\ell}\), described as a real number such that, for every admissible \(\lambda>\lambda^\natural_{r,\ell}\), there exists \(\varepsilon>0\) for which
+\[
+\mathbb E\bigl[\lambda_{\max}(M_n(\lambda))\bigr]
+>
+\bigl(1+\varepsilon+o(1)\bigr)
+\mathbb E\bigl[\lambda_{\max}(M_n(0))\bigr],
+\qquad n\to\infty,
+\]
+where \(o(1)\to0\) with \(r,\ell\) fixed.
+
+\textbf{Supplied conjecture (Conjecture 8, Kikuchi Spectral Threshold).} For every fixed positive even integer \(r\), the source asserts
+\[
+n^{r/4}\lambda^\natural_{r,\ell}\longrightarrow0
+\qquad\text{as }\ell\to\infty,
+\]
+with the explicit qualification that \(n\to\infty\) is taken first.
+
+\textbf{Unresolved formulation qualifications.} The threshold notation omits any dependence on \(n\), although the proposed normalization contains \(n\). Moreover, the displayed pop-out condition is only a sufficient condition above a proposed threshold: it specifies neither minimality nor behavior below the threshold, and therefore does not uniquely define a threshold. The record also does not specify whether the signal parameter in the threshold comparison is fixed or is an \(n\)-dependent sequence. If an appropriate family of thresholds \(\lambda^\natural_{r,\ell}(n)\) were specified and the inner limits existed, an iterated-limit interpretation of the proposed conclusion would be
+\[
+\lim_{\ell\to\infty}\left(\lim_{n\to\infty}
+ n^{r/4}\lambda^\natural_{r,\ell}(n)\right)=0,
+\]
+where \(\ell\) ranges over integers at least \(r/2\). This is a conditional interpretation, not a threshold definition supplied by the record. A fully precise conjecture requires these issues to be resolved.
+\subsection{Short English statement}
+The supplied conjecture concerns a Gaussian matrix indexed by \(\ell\)-element subsets, with a common nonnegative signal added when two subsets differ in exactly \(r\) elements. For fixed even \(r\), it proposes that the signal threshold for a multiplicative increase in the expected largest eigenvalue becomes negligible relative to \(n^{-r/4}\) as \(\ell\) grows, after first taking \(n\to\infty\). The threshold definition and its dependence on \(n\) remain unresolved. The registry labels the problem open; this is supplied status information, not an independently verified assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800842\), exact source problem code \texttt{catalogue entry}; supplied complete source record in the AMR Open Problem Lists collection. The record attributes the problem to Bandeira et al., gives proposed year 2025, and labels its status \texttt{open}.
+\item Bandeira et al., \emph{Randomstrasse101: Open Problems of 2024} (2025), Conjecture 8; supplied attribution/context: ``Kikuchi Spectral Threshold.'' Supplied source URL: \url{https://arxiv.org/abs/2504.20539}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not independently verified access or source verification.
+\end{itemize}
+\end{document}

@@ -1,0 +1,94 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002020}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for an explicit relation between Q-curvature and the curvature Pfaffian in the conformally flat case. Dimension, Laplacian sign and Pfaffian normalization are not stated. The aid reports the Graham--Juhl holographic formula as a solution in every even dimension; the following fixes the conventions needed for that relation.
+
+For \(n=2m\geq4\), use \(\Delta=\nabla^i\nabla_i\),
+\[
+ J=\frac{R}{2(n-1)},\qquad
+ P=\frac1{n-2}(\operatorname{Ric}-Jg),\qquad
+ c_m=\frac{(-1)^m}{2^{2m}m!(m-1)!}.
+\]
+Here \(P\) is the Schouten tensor and \(\sigma_j(P)\) is the elementary symmetric function of its endomorphism eigenvalues. In the locally conformally flat case use the formal Poincaré metric
+\[
+ g_+=r^{-2}(\dd r^2+g_r),\qquad
+ g_r(\cdot,\cdot)=g((I-r^2P/2)\cdot,(I-r^2P/2)\cdot).
+\]
+Write its volume ratio as
+\[
+ v(r)=\left(\frac{\det g_r}{\det g}\right)^{1/2}
+ =\sum_{j=0}^m v_{2j}r^{2j},\qquad
+ v_{2j}=(-1)^j2^{-j}\sigma_j(P).
+\]
+Define the harmonic-extension operators \(p_{2k}\), \(1\leq k<m\), by the formal expansion solving \(\Delta_{g_+}u=O(r^n)\) to these orders,
+\[
+ u=f+\sum_{k=1}^{m-1}r^{2k}p_{2k}f+\text{higher terms},
+\]
+and let \(p_{2k}^*\) denote their formal adjoints for \(\dd\mathrm{vol}_g\). In these conventions the reported holographic identity is
+\[
+ 2n c_m Q_n=n v_n+
+ \sum_{k=1}^{m-1}(n-2k)p_{2k}^*(v_{n-2k}).
+\]
+Normalize the scalar Pfaffian in this conformally flat setting by
+\(\operatorname{Pff}_{\mathrm{GJ}}=m!\sigma_m(P)\). Substitution gives the explicit relation
+\[
+ Q_n=2^{m-1}(m-1)!\operatorname{Pff}_{\mathrm{GJ}}
+ +\frac1{2n c_m}\sum_{k=1}^{m-1}
+              (n-2k)p_{2k}^*(v_{n-2k}).
+\]
+The sum is a natural divergence: the extension of a constant is constant, so \(p_{2k}1=0\), and formal adjoints express these terms as divergences. Its integral vanishes on a closed manifold; boundary terms must be retained otherwise. In dimension two the corresponding normalization is simply \(Q_2=\operatorname{Pff}_{\mathrm{GJ}}=K\).
+
+The aid also gives a four-dimensional normalization test valid without conformal flatness. Set
+\[
+ E_4=|\operatorname{Rm}|^2-4|\operatorname{Ric}|^2+R^2,
+ \qquad
+ Q_4=-\tfrac16\Delta R-\tfrac12|\operatorname{Ric}|^2+\tfrac16R^2.
+\]
+Then
+\[
+ E_4-4Q_4-\tfrac23\Delta R=|W|^2.
+\]
+On a locally conformally flat four-manifold this yields
+\[
+ E_4=4Q_4+\tfrac23\Delta R,
+ \qquad \operatorname{Pff}_{\mathrm{GJ}}=E_4/8,
+ \qquad Q_4=2\operatorname{Pff}_{\mathrm{GJ}}-\tfrac16\Delta R.
+\]
+The aid's workshop normalization is \(E_{\mathrm{AIM}}=4E_4=32\operatorname{Pff}_{\mathrm{GJ}}\). These are scalar normalizations before multiplying by volume density, not interchangeable normalized Euler forms. Since \(\int E_4\,\dd\mathrm{vol}=32\pi^2\chi(M)\), a closed locally conformally flat four-manifold satisfies
+\[
+ \int_MQ_4\,\dd\mathrm{vol}=8\pi^2\chi(M).
+\]
+Vanishing of the defect at a point says only \(W=0\) at that point; vanishing throughout an open set is equivalent there to local conformal flatness. The relation is modulo an explicit divergence, not generally pointwise proportionality of Q-curvature and the Pfaffian.
+\subsection{Short English statement}
+The reported holographic formula writes Q-curvature as a fixed multiple of the Pfaffian plus an explicit divergence in even-dimensional conformally flat geometry. In dimension four the remaining defect is exactly \(|W|^2\), and the integral identity on a closed conformally flat manifold follows with the stated normalization.
+\subsection{Sources}
+\begin{itemize}
+\item Permanent UnsolvedMath ID \(20002020\), exact public code catalogue entry; local registry \texttt{aim-geometry-notes.json}, \texttt{notes[357]}, canonical tag problem.
+\item AIM workshop ``Conformal structure in geometry, analysis, and physics,'' Problem 2: \url{https://aimath.org/WWN/confstruct/confstruct.pdf}. No PDF was accessed. The canonical statement uses Q and Pff without definitions or normalization.
+\item The supplied aid attributes the all-even-dimensional holographic formula to Graham and Juhl, without a full bibliographic citation. Original literature, proposer/year metadata and a full definition of the workshop's Euler scalar are absent.
+\item Research attempt 1, ``The holographic Q-curvature–Pfaffian relation and its four-dimensional defect,'' labelled full\_solution, solved, proved and low novelty confidence; classification SOLVED-IN-LITERATURE. The exact-statement verification field merely introduces the canonical text.
+\end{itemize}
+\end{document}

@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002351}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Question 14 asks for a Diophantine injection $\Q^2\hookrightarrow\Q$, motivated by coding blocks of universal quantifiers. The supplied research assessment identifies the intended full-domain algebraic target as
+\[
+ \exists P\in\Q[X,Y]\ \forall a,b,c,d\in\Q\quad
+ \bigl(P(a,b)=P(c,d)\ \Longrightarrow\ a=c\ \wedge\ b=d\bigr).
+\]
+A polynomial map has a Diophantine graph, but a function with an arbitrary positive-existentially definable graph is a more general notion of ``Diophantine injection.'' The original wording does not expressly choose between these notions. Neither means merely an injection on a restricted subset of $\Q^2$. The aid reports that the polynomial question remains open and that every polynomial of total degree at most two fails to be injective on $\Q^2$; thus a polynomial solution would have degree at least three.
+
+The source credits Jeroen Demeyer with the observation that a polynomial bijection $\N^2\to\N$ permits replacement of each consecutive universal block in a positive prenex formula over $\N$ by one universal quantifier, at the cost of additional existential quantifiers. The cited natural-number coding is from Davis, \emph{Math. Monthly} 80, 236--237. Its essential logical feature is a total surjective decoding map, not just injectivity of a coding map.
+
+Precisely, let $M$ be a nonempty structure and let $r\ge1$. A positive-existential formula is built from atomic formulas by conjunction, disjunction and existential quantification. Suppose $D(y,\bar x)$ is such a formula defining a function $M\to M^r$, so
+\[
+ (\forall y\in M)(\exists!\bar x\in M^r)D(y,\bar x),
+ \qquad
+ (\forall\bar x\in M^r)(\exists y\in M)D(y,\bar x).
+\]
+For any formula $\varphi(\bar x,\bar a)$ one then has
+\[
+ \forall\bar x\,\varphi(\bar x,\bar a)
+ \quad\Longleftrightarrow\quad
+ \forall y\,\exists\bar x\,
+       \bigl(D(y,\bar x)\wedge\varphi(\bar x,\bar a)\bigr).
+\]
+Expanding the existential witnesses in $D$ preserves the positive-prenex form and replaces the $r$ universal variables of that block by $y$.
+
+One sufficient way to obtain this decoder is a total injective map $e:M^r\to M$ with positive-existential graph $G(\bar x,y)$, a positive-existential definition $C(y)$ of $M\setminus e(M^r)$, and a named or positive-existentially specified default tuple $\bar c$. Then
+\[
+ D(y,\bar x)\ \Longleftrightarrow\
+ G(\bar x,y)\ \vee\ \bigl(C(y)\wedge\bar x=\bar c\bigr)
+\]
+is a total surjective decoder. Without the noncode clause, the direct inverse-code rewrite already fails for the tautology $\forall\bar x\,(\bar x=\bar x)$ when $e$ is not onto: its proposed replacement would falsely require every $y$ to lie in the image. This is a limitation of that direct construction, not a proof that no other coding reduction can follow from a bare injection.
+
+The source additionally says that observations in \emph{C. R. Acad. Sci. Paris} 328, 3--8 (1999) imply the desired injection from a generalized $abc$ conjecture. No exact conjecture, theorem or bibliographic identification beyond that citation is supplied, so this remains a reported conditional connection rather than an instantiated theorem.
+\subsection{Short English statement}
+Seek a polynomial injection from all rational pairs into the rationals. The research aid leaves that question open and gives a precise sufficient decoder condition for collapsing universal quantifier blocks; a non-surjective injection alone does not justify the direct inverse-code rewrite.
+\subsection{Sources}
+\begin{itemize}
+\item Cornelissen, Question 14, American Institute of Mathematics workshop \emph{Extensions of Hilbert's Tenth Problem}, \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}. The coding observation is attributed there to Jeroen Demeyer.
+\item Davis, \emph{Math. Monthly} 80, 236--237, as cited in the question for a natural-number polynomial bijection; \emph{C. R. Acad. Sci. Paris} 328, 3--8 (1999), as cited for the generalized-$abc$ connection. Titles and the author of the latter reference are not supplied.
+\item Local UnsolvedMath registry, permanent ID 20002351, source code \texttt{catalogue entry}, canonical location \texttt{aim-logic-notes.json}, \texttt{notes[126]}, record dated 14 August 2026. The original literature field is empty.
+\item Supplied research attempt 1: partial result, problem status at run open, rigor labelled proved, novelty confidence low. The decoder criterion and degree bound are machine-generated research aid, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

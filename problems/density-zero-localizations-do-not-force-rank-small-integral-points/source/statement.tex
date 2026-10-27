@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002358}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix an integral affine Weierstrass model $U=E\setminus\{O\}$ of an elliptic curve over $\Q$. For a set $S$ of rational primes, let $R_S=\Z[S^{-1}]$ and
+\[
+ U(R_S)=\{P\in U(\Q):x(P),y(P)\in R_S\},\qquad
+ H_S=\langle U(R_S)\rangle\le E(\Q).
+\]
+The source's notation $E(R_S)$ is interpreted as affine coordinate integrality: the Siegel--Mahler finiteness assertion is not about all points on a proper projective model. Write $D(P)$ for the finite set of primes occurring in the denominators of $x(P)$ or $y(P)$, so $P\in U(R_S)$ iff $D(P)\subseteq S$.
+
+\textbf{Question 21, Shlapentokh.} For a rank-two elliptic curve, can an infinite prime set $S$ be chosen with $\operatorname{rank}H_S=1$? If $S$ is infinite of density zero, must its affine integral points remain ``small''? The source cites Siegel--Mahler finiteness for finite $S$, but finite cardinality of the point set is distinct from rank of the subgroup it generates. ``Small'' is not given a precise cardinality or height-growth meaning.
+
+\textbf{Supplied density-zero full-rank construction.} For any fixed rank-$r$ curve/model, choose rational points $P_1,\ldots,P_r$ whose classes form a Mordell--Weil free basis, and let $S_0=\bigcup_iD(P_i)$. If $p_j$ is the $j$th prime, put
+\[
+ S=S_0\cup\{p_{2^n}:n\ge1\}.
+\]
+The aid asserts that $S$ is infinite and recursive and has both relative natural prime density and Dirichlet prime density zero, while $P_i\in U(R_S)$ and hence $\operatorname{rank}H_S=r$. Natural density here means $\#\{p\in S:p\le X\}/\pi(X)\to0$, not merely ordinary integer density of a prime subset. Recursiveness is relative to the fixed finite data; no uniform algorithm for finding a Mordell--Weil basis from an arbitrary curve equation is inferred. This construction concerns generated rank and does not prove that $U(R_S)$ itself is infinite or large by a height-counting criterion.
+
+\textbf{Supplied fixed-model obstruction.} On the model labelled 389a1,
+\[
+ y^2+y=x^3+x^2-2x,
+\]
+the aid states that $(0,0)$ and $(1,0)$ are independent Mordell--Weil generators. Both are integral and therefore lie in $U(R_S)$ for every $S$. Thus $\operatorname{rank}H_S=2$ for every prime set: no infinite $S$ can give rank one on this model. This refutes a universal assertion for every fixed integral rank-two model; it is not a claim about every alternative model or every refined existence question.
+
+\textbf{Supplied denominator-support criterion.} Let $A=E(\Q)/E(\Q)_{\mathrm{tors}}\cong\Z^2$ and choose a primitive rank-one line $L\subset A$. Then $H_S$ has nonzero free rank contained in $L$ exactly when:
+\begin{enumerate}
+\item some non-torsion $P$ with class in $L$ has $D(P)\subseteq S$;
+\item every $Q$ whose class is outside $L$ satisfies $D(Q)\cap(\mathcal P\setminus S)\ne\varnothing$, where $\mathcal P$ is the set of all primes.
+\end{enumerate}
+This is a hitting-set problem for denominator supports of points transverse to $L$, together with an allowed nonzero point on $L$. An empty transverse support, supplied by an integral point outside $L$, obstructs it for every $S$. Infinite/density constraints on $S$ are additional requirements not solved by restating this criterion. The source's broad density-zero ``smallness'' question remains distinct from these generated-rank results.
+\subsection{Short English statement}
+Density zero alone does not force small generated Mordell--Weil rank: the aid gives sparse prime sets containing a finite basis-denominator seed. Its explicit rank-two model already has two integral independent points, so no prime set gives generated rank one there. The exact remaining rank-one selection problem is expressed through denominator supports; other meanings of smallness are unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002358, source code catalogue entry; canonical \texttt{aim-logic-notes.json}, notes[133].
+\item AIM 2005 list \emph{Extensions of Hilbert's tenth problem}, Question 21 (Shlapentokh): \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}.
+\item Siegel--Mahler theorem named in the original question. The aid supplies the model label 389a1, its equation and generator claim, but no database link or separate proving citation. None is invented.
+\item Registry research attempt 1, dated 2026-08-14: partial result, rigor ``proved'', novelty confidence low. The explicitly machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

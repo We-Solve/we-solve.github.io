@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003822}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) be an integer, and let \(X=\{x_1,\ldots,x_n\}\) and \(Y=\{y_1,\ldots,y_n\}\) be disjoint sets. Write \(\Pi_n\) for the set of partitions of \(\{1,\ldots,n\}\), and put \(B_n=|\Pi_n|\). Use the corresponding partitions of \(X\) and \(Y\) to index rows and columns, respectively, in the same order.
+
+The supplied record does not specify a coefficient domain or the ring in which divisibility is intended. To state an explicit polynomial interpretation, take \(a_{ij}\) to be commuting indeterminates and set
+\[
+R_n=\mathbb Z[a_{ij}:1\leq i,j\leq n],\qquad A=(a_{ij})_{1\leq i,j\leq n}.
+\]
+This coefficient-ring choice is an interpretation requiring confirmation from the source.
+
+For each partition \(P\) of \(X\), choose a tree on each block of \(P\), with a singleton block contributing no edges, and let \(F_P\) be the union of these trees. A set
+\[
+S\subseteq\{x_i y_j:1\leq i,j\leq n\}
+\]
+is a transition from \(P\) to a partition \(Q\) of \(Y\) if the graph with vertex set \(X\cup Y\) and edge set \(E(F_P)\cup S\) is a forest, every connected component contains at least one vertex of \(Y\), and the nonempty intersections of its connected components with \(Y\) are exactly the blocks of \(Q\). In particular, isolated vertices of \(Y\) are permitted and give singleton blocks of \(Q\). Define
+\[
+w(S)=\prod_{x_i y_j\in S}a_{ij},\qquad
+T_{P,Q}=\sum_{\substack{S\text{ a transition}\\\text{from }P\text{ to }Q}}w(S),
+\]
+where an empty product is \(1\) and an empty sum is \(0\). Thus \(T\) is a \(B_n\times B_n\) matrix. The sum counts edge sets \(S\); auxiliary choices of trees are not additional summation indices.
+
+Set
+\[
+C_n=\frac{1}{n+1}\binom{2n}{n}.
+\]
+Under the stated polynomial interpretation, the question is whether, for every integer \(n\geq1\), there exists \(H_n\in R_n\) such that
+\[
+\det T=(\det A)^{C_n}H_n.
+\]
+The supplied clean statement explicitly uses the exponent \(C_n\); the original short statement prints \((\det A)C_n\) without an explicit exponent. The coefficient domain, the exclusion or inclusion of \(n=0\), and the convention concerning the auxiliary block trees require source confirmation. The original statement places \(T\) in a conjectured uniform presentation of the pure braid group, but that presentation is not defined in the supplied record.
+\subsection{Short English statement}
+For each positive integer \(n\), form a matrix indexed by set partitions whose entries count weighted forest transitions between two disjoint sets of \(n\) vertices. The supplied question asks whether its determinant always contains the \(n\)-th Catalan power of \(\det A\) as a factor. Polynomial divisibility over \(\mathbb Z[a_{ij}]\) is an explicit interpretation; the intended coefficient ring needs confirmation. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, with \texttt{catalog/problems.json} as the additional-record registry; supplied permanent UnsolvedMath ID \(30003822\), source problem code \texttt{catalogue entry}, title ``Catalan-Power Divisibility of a Set-Partition Transition Determinant.'' The supplied collection is Oberwolfach Reports Open Problems. No individual proposer is identified; the supplied proposed year is 2018.
+\item Supplied report citation: \emph{Enumerative Combinatorics (2019)}, Oberwolfach Reports, DOI 10.4171/owr/2018/23, pp. 1381--1464. Supplied source URL and literature-source link labelled ``original OWR report'': \url{https://doi.org/10.4171/owr/2018/23}. The supplied background describes these reports as records of mathematical workshops and their open-problem discussions.
+\item Supplied statement-verification metadata labels the statement \texttt{corrected\_verified} and reports that the official report was checked directly, with definitions restored and source-dependent wording removed while preserving the target. This is supplied verification metadata; no independent source inspection is claimed here.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open, says the report offered experimental support only through small \(n\), and reports that its subsequent literature search found no general proof or counterexample. The checked source listed is the original OWR report linked above. This is supplied dated curation, not an independently verified assessment; time-sensitive status and cited claims require independent verification.
+\end{itemize}
+\end{document}

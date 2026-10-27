@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006099}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record concerns estimation from trajectory data for an unknown deterministic dynamical system. Its state space, regularity, invariant region, and sampling model are not specified. The following notation describes a conditional formulation; these hypotheses require clarification before a convergence theorem can be stated.
+
+Let \(X\subseteq\R^n\) be a state space carrying a forward flow \(\phi_t)_{t\geq0}\), and let \(g:X\to\R\) be an observable for which the integrals below are defined. A possible convention for the long-time average and its maximal value is
+\[
+\overline g(x_0):=\limsup_{T\to\infty}\frac1T\int_0^T g(\phi_t(x_0))\,\dd t,
+\qquad
+M:=\sup_{x_0\in X}\overline g(x_0).
+\]
+The record does not specify whether an ordinary limit exists, whether a limsup is intended, whether \(M\) is finite, or whether the supremum is attained. Thus this convention does not resolve the source's use of a maximum.
+
+For a test function \(v\), the Koopman operators and their generator, whenever defined, are
+\[
+(K_t v)(x):=v(\phi_t(x)),
+\qquad
+(\mathcal L v)(x):=\lim_{h\downarrow0}\frac{v(\phi_h(x))-v(x)}{h}.
+\]
+For an ordinary differential equation \(\dot x=f(x)\) and differentiable \(v\), this generator has the expression \(\mathcal L v=f\cdot\nabla v\). The vector field \(f\) is unavailable explicitly in the problem under consideration.
+
+The original excerpt presents the auxiliary-function optimization expression
+\[
+B:=\inf\Bigl\{U\in\R:\ \exists v\in C^1(X)\ \text{such that}\ 
+U-g(x)-(\mathcal L v)(x)\geq0\quad\text{for every }x\in X\Bigr\},
+\]
+and identifies it with the maximum long-time average. Here \(v\) is an auxiliary function and \(U\) is a candidate upper bound. The meaning of \(C^1(X)\) for the unspecified set \(X\), and the hypotheses supporting this identification, are absent from the excerpt. In particular, admissibility of auxiliary functions must address their behavior along trajectories, including the boundary term
+\[
+\frac{v(\phi_T(x_0))-v(x_0)}{T}.
+\]
+The equality with \(B\) is retained as a source assertion requiring its original hypotheses, rather than asserted here as an unconditional identity.
+
+\textbf{Requested research statement.} Given sampled trajectory observations, with no explicit formula for \(f\), develop an estimator of the maximal long-time average by approximating \(\mathcal L\) on dictionaries of observables. Establish a convergence theory for a stated class of systems extending beyond polynomial ordinary differential equations, and characterize the required assumptions on the dynamics, observable, data, dictionaries, and sampling. Schematically, for data collections \(D_k\), dictionaries \(\mathcal V_k\), and generator approximations \(\widehat{\mathcal L}_k\) constructed from those data, seek estimates satisfying
+\[
+\widehat M_k=\widehat M(D_k,\mathcal V_k,\widehat{\mathcal L}_k)\longrightarrow M.
+\]
+The admissible class, data model, refinement regime, mode of convergence, and interpretation of \(M\) must be specified as part of the formulation. No particular dictionary, sampling rule, noise model, compactness assumption, or certification property is supplied. The excerpt's phrase ``in this case'' also lacks its antecedent in the supplied original quotation.
+\subsection{Short English statement}
+Estimate the largest long-time average of an observable using sampled trajectories of an unknown dynamical system and an approximation of its Koopman generator. The requested advance is a convergence theory beyond polynomial ordinary differential equations, with explicit data, dictionary, and sampling assumptions. The supplied record leaves essential hypotheses and the precise meaning of the maximal average unresolved; this is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete source record: permanent ID \(30006099\), title \emph{Data-Driven Estimation of Maximal Time Averages}, exact source problem code \texttt{catalogue entry}, collection \emph{Oberwolfach Reports Open Problems}. No individual proposer is supplied; the proposed year is recorded as 2024.
+\item Supplied report citation: \emph{Mini-Workshop: Data-driven Modeling, Analysis, and Control of Dynamical Systems (2025)}, Oberwolfach Reports, pp.\ 3255--3300, DOI \texttt{10.4171/owr/2024/57}. \url{https://doi.org/10.4171/owr/2024/57}. The report is described as documenting workshop discussions and open problems. The citation's 2025 year and the record's 2024 year information require reconciliation.
+\item Supplied literature source: Tobasco et al., \emph{Optimal bounds for time averages}. \url{https://doi.org/10.1016/j.physleta.2017.12.023}.
+\item Supplied literature source: Llamazares-Elias et al., \emph{EDMD convergence bounds}. \url{https://arxiv.org/abs/2405.00539}.
+\item Supplied literature source: Fantuzzi and Bramburger in Oberwolfach Report 57. \url{https://doi.org/10.4171/OWR/2024/57}. This is the supplied attribution for that literature entry; no individual problem proposer is identified.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem partially solved and states that auxiliary-function duality resolves the model-based maximal-average problem in a limiting sense, that EDMD data methods have convergence results under polynomial-ODE assumptions, and that a general non-polynomial data-driven theory remains open. This is supplied dated curation derived from the OWR record, not an independently verified assessment of the literature or current status.
+\item The registry labels the statement \texttt{corrected\_verified} and says that only formula delimiters, notation, grammar, and typography were repaired, preserving mathematical content and scope. These are supplied editorial claims, not independent mathematical verification. The original excerpt cites reference [5], whose bibliographic identity is not explicitly mapped in the supplied record.
+\end{itemize}
+\end{document}

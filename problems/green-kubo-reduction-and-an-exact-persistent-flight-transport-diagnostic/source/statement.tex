@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001397}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Problem 12 asks to calculate transport coefficients or related physical quantities for a variety of billiard systems. It does not specify tables, scatterers, horizon, boundary conditions, driving, invariant measure, observable or transport normalization. The aid gives a general correlation reduction and an exactly solvable persistent-flight surrogate; it does not identify that surrogate with an arbitrary billiard.
+
+For a stationary centered square-integrable collision displacement \(\xi_j\in\R^p\), let \(S_n=\sum_{j=0}^{n-1}\xi_j\) and \(C_k=\E[\xi_0\xi_k^{\mathsf T}]\). If \(\sum_{k\ge1}\|C_k\|<\infty\), the aid's symmetrized Green--Kubo covariance statement is
+\[
+\frac1n\operatorname{Cov}(S_n)=C_0+\sum_{k=1}^{n-1}(1-k/n)(C_k+C_k^{\mathsf T})\longrightarrow
+\Sigma=C_0+\sum_{k\ge1}(C_k+C_k^{\mathsf T}).
+\]
+This summability statement alone is not a functional central limit theorem. To pass to physical time one additionally needs the stated functional-limit, clock/time-change, remainder and uniform-integrability hypotheses. In a precise conditional framework, if the rescaled collision process converges to Brownian motion of covariance \(\Sigma\), the collision clock has asymptotic rate \(1/\bar\tau\), the unfinished-flight remainder is negligible on the square-root-time scale, and squared normalized physical displacements are uniformly integrable, then physical covariance per unit time is \(\Sigma/\bar\tau\). With the convention \(\operatorname{Cov}(Y(t))\sim2tD\), the physical diffusion tensor is
+\[
+D=\frac{\Sigma}{2\bar\tau}.
+\]
+Thus the collision diffusion tensor \(\Sigma/2\) is divided by mean flight time. This explicit factor-two convention avoids conflating covariance tensors and diffusion tensors; applicability of the required hypotheses to a billiard must be proved separately.
+
+The aid's scalar surrogate has stationary signs \(\epsilon_j\in\{-1,1\}\) with equal stationary probabilities and \(\Pr(\epsilon_{j+1}=\epsilon_j)=q\in(0,1)\). Let displacement per step be \(\ell\epsilon_j\), fixed flight length \(\ell>0\), and step time \(\tau>0\). With \(r=2q-1\in(-1,1)\),
+\[
+C_k=\ell^2r^k,\qquad D=\frac{\ell^2q}{2\tau(1-q)}.
+\]
+For \(D_n=\operatorname{Var}(S_n)/(2n\tau)\), the exact finite-time bias is
+\[
+D_n-D=-\frac{\ell^2r(1-r^n)}{\tau n(1-r)^2}.
+\]
+It is negative for persistent signs \(r>0\), positive for \(r<0\), and zero for \(r=0\). The one-lag ratio \(C_1/C_0=r\), together with \(\ell,\tau\), predicts the complete geometric correlation sequence and finite-time bias in this surrogate, rather than merely its limiting coefficient.
+
+The aid further gives a Perron path-tilt response identity. Normalize the tilt by physical step displacement, so the transition-weight matrix is \(M_h(i,j)=P(i,j)e^{h\ell j}\), \(i,j\in\{-1,1\}\). If \(\lambda(h)\) is its Perron eigenvalue and the associated normalized tilted chain is used, its stationary velocity is \(v(h)=\tau^{-1}(\log\lambda)'(h)\). Then the reported identity is
+\[
+v'(0)=2D.
+\]
+Only if a physical forcing convention supplies \(h=\beta F/2\) does this imply the Einstein relation \((\dd v/\dd F)(0)=\beta D\). The matching of field \(F\) to the tilt is an extra hypothesis, not an automatic property of a billiard model.
+
+Finally, for centered scalar currents with positive correlation tail \(C_k\sim c/k\), \(c>0\), the same finite-time covariance sum gives
+\[
+D_n\sim(c/\tau)\log n.
+\]
+Thus the usual finite diffusion coefficient fails in that diagnostic regime; summable-correlations formulas for a finite limit cannot be applied there.
+
+The supplied verification says ``billard'' is printed in the source itself, almost certainly a misspelling of billiard, rather than a corpus extraction error. The registry labels the entry partially solved and reconstructed unverified. Attempt 2 is a partial result, problem partially solved at the run, internal rigor proved and novelty confidence low. The aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\subsection{Short English statement}
+The broad billiard question leaves the physical system unspecified. The aid provides a Green--Kubo covariance reduction with additional conditions for physical time, and exact diffusion, finite-time bias and tilt response for a two-state persistent-flight surrogate. A positive \(1/k\) correlation tail instead gives logarithmic growth of the finite-time diffusion coefficient.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001397\), source code \texttt{catalogue entry}; \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[54]}.
+\item AIM, \emph{Stochastic methods for non-equilibrium dynamical systems}, Problem 12: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. The source spelling ``billard'' is noted by the supplied verification; this draft does not claim independent PDF inspection.
+\item Supplied research attempt 2 and registry update August 14, 2026. The original literature field is empty, and no authoritative external citations for the Green--Kubo, time-change, Perron-tilt or surrogate formulas are supplied.
+\end{itemize}
+\end{document}

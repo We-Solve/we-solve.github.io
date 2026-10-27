@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000454}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(A\) be an associative unital \(\Z\)-algebra, supplied as a free \(\Z\)-module with ordered basis \(a_1,\ldots,a_9\) and integral structure constants
+\[
+a_i a_j=\sum_{k=1}^9 c_{ij}^k a_k,\qquad c_{ij}^k\in\Z.
+\]
+The input carries the promise that \(A\) is isomorphic as a \(\Z\)-algebra to \(M_3(\Z)\), the ring of three-by-three integer matrices; an isomorphism is not part of the input. Stoll's Question 21 asks for an algorithm which, on every such promised input, terminates and produces an explicit \(\Z\)-algebra isomorphism
+\[
+\phi:A\longrightarrow M_3(\Z).
+\]
+Concretely, the output can be nine matrices \(M_i=\phi(a_i)\in M_3(\Z)\) such that
+\[
+M_iM_j=\sum_{k=1}^9 c_{ij}^k M_k\quad(1\leq i,j\leq9),\qquad
+\det\bigl(\operatorname{vec}(M_1),\ldots,\operatorname{vec}(M_9)\bigr)=\pm1.
+\]
+Here \(\operatorname{vec}\) lists the nine entries of a matrix in one fixed order. These conditions express preservation of multiplication and bijectivity of the underlying integral lattices; the resulting bijective homomorphism of unital rings preserves the identity. The question states no running-time bound and does not ask the algorithm to recognize or decide arbitrary inputs violating the promise. An isomorphism only after tensoring with \(\Q\) is insufficient.
+
+The workshop motivates this by explicit \(3\)-descent on elliptic curves. Stoll compares the \(M_2(\Z)\) case with finding rational points on conics. Voloch asks about LLL; Stoll notes that one must find nine three-by-three matrices satisfying nonlinear multiplication equations, rather than merely one nine-by-nine change-of-basis matrix.
+
+The supplied research aid labels the problem solved and describes a deterministic terminating approach: enumerate \(x\in A\) until right multiplication \(R_x:A\otimes\Q\to A\otimes\Q\), \(a\mapsto ax\), has rank \(3\); compute the exact image lattice \(L=Ax\) by column Hermite normal form; and express left multiplication by \(A\) on a \(\Z\)-basis of \(L\). It asserts that maximality identifies \(A\) with \(\operatorname{End}_{\Z}(L)\), with the displayed multiplication and unimodular-determinant identities providing a certificate. Its broader supplied orbit-lattice claim is that, for a maximal \(\Z\)-order \(\mathcal O\subset M_n(\Q)\) and \(0\ne v\in\Q^n\), the lattice \(\mathcal O v\) satisfies
+\(\mathcal O=\operatorname{End}_{\Z}(\mathcal O v)\) inside \(M_n(\Q)\). It emphasizes use of the exact orbit lattice, which need not be saturated in an ambient lattice. These are unreviewed claims of the attached aid, not proofs supplied by this draft. The aid also mentions a complexity-qualified rational splitting algorithm followed by integralization, but provides neither its reference nor the computational assumptions needed to state the complexity claim precisely.
+\subsection{Short English statement}
+Given the multiplication table of a rank-nine integral algebra promised to be \(M_3(\Z)\), compute an actual integral isomorphism. Nine integer matrices satisfying the multiplication table and a unimodular basis condition give a concrete output certificate. No efficiency requirement is specified in the original question.
+\subsection{Sources}
+\begin{itemize}
+\item Stoll, Question 21, with the LLL remark attributed to Voloch, AIM workshop \emph{Rational and integral points on higher dimensional varieties}: \url{https://aimath.org/WWN/qptsurface2/qptsurface2.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID \(20000454\), exact source code \texttt{catalogue entry}; canonical \texttt{aim-algebraic-number-theory-notes.json}, notes[105].
+\item The attached research attempt describes an orbit-lattice/Hermite-normal-form method and an unspecified rational splitting algorithm. No complete external reference for its solved-in-literature or complexity claims is supplied. The aid is explicitly machine-generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

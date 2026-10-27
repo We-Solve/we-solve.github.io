@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002709}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix integers $n,k\ge1$ and the half-turn on a regular polygon. The source requests elementary explanations for two type-$B$ proportions.
+
+First, on a $(2kn+2)$-gon, consider centrally symmetric noncrossing partial $(k+2)$-angulations. An internal chord is $k$-admissible if it can occur in a full $(k+2)$-angulation; equivalently its two resulting polygons have vertex counts congruent to $2$ modulo $k$. Count a diameter as a one-element half-turn orbit and other chords in two-element orbits. Among partial angulations with exactly $i$ chord orbits, $0\le i\le n$, S. Fomin's asserted diameter-containing proportion is $i/n$. At most one diameter can occur in a noncrossing collection.
+
+Second, on a $2kn$-gon, consider centrally symmetric noncrossing partitions whose nonzero blocks have cardinalities divisible by $k$. A zero block is invariant under the half-turn, equivalently contains an antipodal pair, and is unique when present. Its size is automatically a multiple of $2k$. Other blocks occur in antipodal pairs. The printed D. Armstrong claim says that among partitions with $b$ nonzero block-pairs the zero-block proportion is $b/n$. The supplied assessment says this is the complement of the correct proportion: it is
+\[
+ \frac{n-b}{n},\qquad 0\le b\le n,
+\]
+while $b/n$ is the zero-free proportion. Already $b=0$ gives the unique all-vertices zero block and refutes the printed claim, which would predict probability zero. The indexing must not be repaired silently by replacing the stated block count with its complement.
+
+The aid reports the exact counts. Let $F_i$ count the partial angulations with $i$ chord orbits and $D_i$ those containing a diameter; let $H_b$ count the partitions with $b$ nonzero pairs and $Z_b$ those containing a zero block. Then
+\[
+ F_i=\binom ni\binom{kn+i}i,\qquad D_i=\frac inF_i,
+\]
+\[
+ H_b=\binom nb\binom{kn}b,\qquad Z_b=\frac{n-b}{n}H_b.
+\]
+For $F(x)=\sum_{i=0}^nF_ix^i$, $D(x)=\sum_iD_ix^i$, $H(x)=\sum_bH_bx^b$ and $Z(x)=\sum_bZ_bx^b$, it further gives the positive pointed $f/h$ identity
+\[
+ F(x)-D(x)=(1+x)^{n-1}Z\left(\frac{x}{1+x}\right),
+\]
+or coefficientwise
+\[
+ F_i-D_i=\sum_{b=0}^{\min(i,n-1)}
+               \binom{n-1-b}{i-b}Z_b.
+\]
+Thus the non-diameter face enumerator connects to the zero-block enumerator after the complement correction. The source's original remarks identify the first counts with $f$-numbers of $\Delta^{(k)}_{B_n}$ and the second with its $h$-numbers, describe the similarity as striking, and say that no connection with $NC^{(k)}_{B_n}$ was then known. That is historical problem context, not a present-day literature conclusion. The aid's exact-count and transform claims do not by themselves supply a bijective elementary explanation beyond their stated summation proof, and the broad request for elementary proofs is retained separately.
+\subsection{Short English statement}
+The diameter proportion is $i/n$, but the printed zero-block proportion is complemented: it is $(n-b)/n$ for $b$ nonzero block-pairs. The aid records exact counts and a positive $f/h$ transform linking non-diameter faces to zero-block partitions.
+\subsection{Sources}
+\begin{itemize}
+\item American Institute of Mathematics workshop \emph{Braid groups, clusters and free probability}, Problem 2.3, parts attributed to S. Fomin and D. Armstrong, \url{https://aimath.org/WWN/braidgroups/braidgroups.pdf}.
+\item Source reference labels [21, 51] for admissible chords and angulations, [1, 42] for divisible noncrossing partitions, and [21] in the $f/h$ remark. Full bibliographic entries are not supplied; the remark's trailing ``See'' is incomplete.
+\item Local UnsolvedMath registry, permanent ID 20002709, source code \texttt{catalogue entry}, canonical location \texttt{aim-probability-notes.json}, \texttt{notes[150]}, record dated 14 August 2026. Statement status is reconstructed unverified, clean statement null, and original literature field empty.
+\item Supplied research attempt 1: counterexample, problem status at run refuted, rigor labelled proved, novelty confidence low. Its complement correction, fixed-type summation and pointed transform are machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002673}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for a non-microstates analogue of microstates free entropy in the presence, $\chi(X:Y)$. Let $X=(X_1,\ldots,X_m)$ and $Y=(Y_1,\ldots,Y_r)$ be selfadjoint tuples in a tracial von Neumann probability space $(\mathcal M,\tau)$, and put $B=W^*(Y)$. The aid identifies Voiculescu's algebra-conditioned non-microstates entropy $\chi^*(X:B)$ as a canonical candidate, while distinguishing it from an asserted equality with projected microstates entropy in the presence.
+
+For a formal noncommutative polynomial $P$ in $X$ with coefficients in $B$, let $\partial_jX_k=\delta_{jk}1\otimes1$, $\partial_jb=0$ for $b\in B$, and extend by the Leibniz rule. Relative conjugate variables $J_j$ satisfy
+\[
+ \tau(J_jP(X))=(\tau\otimes\tau)((\partial_jP)(X))
+\]
+for all such polynomials, interpreted as identities after evaluation. Relative free Fisher information is
+\[
+ \Phi^*(X:B)=\sum_{j=1}^m\|J_j\|_2^2,
+\]
+with value $+\infty$ when the conjugate system does not exist. If $S$ is a standard semicircular $m$-tuple free from $W^*(B,X)$, the entropy convention is
+\[
+ \chi^*(X:B)=\frac m2\log(2\pi e)
+  +\frac12\int_0^\infty\left[
+          \frac m{1+t}-\Phi^*(X+\sqrt tS:B)\right]\,\dd t,
+\]
+with its usual extended-real interpretation. The supplied properties are invariance under replacement of $Y$ by generators of the same algebra, decrease when $B$ is enlarged, equality with $\chi^*(X)$ when $B$ is free from $X$, and invariance under $X_j\mapsto X_j+b_j$ for selfadjoint $b_j\in B$.
+
+For a centered semicircular family $T$ free from $B$, with covariance matrix $C$, and $X_j=T_j+b_j$, the aid reports
+\[
+ \chi^*(X:B)=\frac m2\log(2\pi e)+\frac12\log\det C
+ \quad(C>0),
+\]
+and $\chi^*(X:B)=-\infty$ when $C$ is singular positive semidefinite. In the nonsingular case the associated perturbed Fisher information is $\operatorname{Tr}(C+tI)^{-1}$.
+
+A duplicated-generator test rules out joint-minus-marginal entropy as a general definition. Let $S,Z$ be free standard scalar semicirculars and let $c=\tfrac12\log(2\pi e)$. With $Y=(Z)$,
+\[
+ \chi^*(S,Z)-\chi^*(Z)=2c-c=c=\chi^*(S:W^*(Z)).
+\]
+But $Y'=(Z,Z)$ generates the same $B$, while
+\[
+ \chi^*(Z,Z)=-\infty,\qquad
+ \chi^*(S,Z,Z)=-\infty.
+\]
+Their formal difference is undefined, although the intrinsic conditioned entropy remains $c$.
+
+Microstates entropy in the presence uses projection of joint matrix-microstate sets onto the $X$ coordinates, allowing compatible $Y$ microstates; it is not defined by subtracting two joint entropies. The algebra-conditioned Fisher-information construction is likewise not established here to coincide with that projected notion in general. The aid supplies a canonical conditional construction and an obstruction to a naive alternative, not a general identification theorem. The appended ``Focus Group on Operator Theory (day 3)'' is the next section heading.
+\subsection{Short English statement}
+Use relative free Fisher information to define a generator-invariant non-microstates entropy conditioned on $W^*(Y)$. The aid's duplicated-semicircular-generator example shows why joint entropy minus marginal entropy is not a valid general definition, while a full identification with projected microstates entropy remains separate.
+\subsection{Sources}
+\begin{itemize}
+\item American Institute of Mathematics, \emph{Free Analysis} problem list, 24 August 2006, page 3 as identified by supplied verification, \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}.
+\item Local UnsolvedMath registry, permanent ID 20002673, source code \texttt{catalogue entry}, canonical location \texttt{aim-probability-notes.json}, \texttt{notes[114]}, record dated 14 August 2026. The verification notes uncertain conditioning-tuple typography and identifies the next section heading; the original literature field is empty.
+\item The supplied assessment attributes the relative non-microstates construction and projected microstates notion to Voiculescu without a complete bibliographic reference. Research attempt 1: partial result, problem status at run partially solved, rigor labelled proved, novelty confidence low. Its translated-semicircular calculation and duplicated-generator obstruction are machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

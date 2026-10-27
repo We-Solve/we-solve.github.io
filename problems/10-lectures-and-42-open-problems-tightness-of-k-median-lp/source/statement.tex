@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2800903}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite point cloud $x_1,\ldots,x_n$ with nonnegative metric costs $d_{ij}=d(x_i,x_j)$ and $1\leq k\leq n$, a standard discrete $k$-median formulation chooses at most $k$ data points as facilities and assigns every point to one chosen facility. Its usual linear relaxation is
+\[
+ \begin{aligned}
+ \operatorname{LP}_k(d)=\min\quad&\sum_{i,j=1}^{n}d_{ij}x_{ij}\\
+ \text{subject to}\quad&\sum_{j=1}^{n}x_{ij}=1&& (1\leq i\leq n),\\
+ &0\leq x_{ij}\leq y_j&& (1\leq i,j\leq n),\\
+ &0\leq y_j\leq1,\qquad\sum_{j=1}^{n}y_j\leq k.
+ \end{aligned}
+\]
+Here the assignment variables $x_{ij}$ are unrelated to the point notation $x_i$. Let $\operatorname{IP}_k(d)$ be the optimum when assignments and facility variables are constrained to $\{0,1\}$. Tightness means $\operatorname{LP}_k(d)=\operatorname{IP}_k(d)$, equivalently that there exists an integral LP optimum. It does not require every optimal LP solution to be integral. This is a standard relaxation supplied for context; the source does not specify its exact version or facility space.
+
+\textbf{Question (Afonso S. Bandeira).} Is the $k$-median linear-programming relaxation tight for point clouds from generative models that do not have community structure? The source does not name such a model or formally define the absence of community structure. In a specified random-cloud asymptotic setting, a natural target would be
+\[
+ \Pr\{\operatorname{LP}_{k(n)}(d^{(n)})=\operatorname{IP}_{k(n)}(d^{(n)})\}\longrightarrow1,
+\]
+but the distribution, dimension, growth of $k$, and probability regime would first have to be supplied. The excerpt does not determine a universal quantifier over all distributions or one particular existence example; no such model is invented.
+
+The supplied research summary reports a constant worst-case integrality gap and high-probability tightness under separation assumptions in community/cluster models. It says the non-community generative-model case has no full characterization located and is open/general. Those claims have no supplied theorem citations; cluster-recovery results are not substituted for the requested non-community setting.
+\subsection{Short English statement}
+Determine whether the $k$-median LP has an integral optimum for random point clouds without a planted community structure. The generative model, distance, LP version, and meaning of high-probability tightness are unspecified. Reported separated-cluster results address a different, more structured setting.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 2800903, source code catalogue entry, ``10 Lectures and 42 Open Problems --- Tightness of k-median LP''; proposed by Afonso S. Bandeira in 2015. Supplied status partially solved, classification PARTIAL-PROGRESS, updated 2026-08-06.
+\item Bandeira, source list ``42 Open Problems in Data Science'' (2016), Open Problem 9.3, \url{https://afonsobandeira.wordpress.com/2015/11/28/10l42psbm/}. The record reports HTML extraction and access on 2026-07-29. It says the source presents an open item and current status requires release review. Rights: NEEDS\_REVIEW; publicly accessible author blog.
+\item The summary reports worst-case integrality gaps and separated-cluster tightness results without identifying publications, parameters, or separation constants.
+\end{itemize}
+\end{document}

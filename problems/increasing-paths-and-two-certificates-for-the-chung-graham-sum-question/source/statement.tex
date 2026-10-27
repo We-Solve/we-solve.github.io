@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000951}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G$ be a finite simple undirected graph with a bijective edge labeling $\lambda:E(G)\to\{1,\ldots,|E(G)|\}$. An increasing path starting at $v$ is a sequence of distinct vertices $v=v_0,v_1,\ldots,v_\ell$ with consecutive vertices adjacent and
+$\lambda(v_0v_1)<\cdots<\lambda(v_{\ell-1}v_\ell)$. Its length is the number $\ell$ of edges, and the length-zero path is allowed. Put
+\[
+ t_\lambda(v)=\max\{\ell:\text{there is such a path from }v\},\qquad
+ S_\lambda(G)=\sum_{v\in V(G)}t_\lambda(v).
+\]
+Ron Graham's two questions in the source are
+\[
+ \exists c>0\ \forall n\geq2\ \forall\lambda\text{ on }K_n:\quad
+ \max_v t_\lambda(v)\geq cn,
+\]
+and the stronger arbitrary-graph assertion
+\[
+ \forall G\ \forall\lambda:\qquad S_\lambda(G)\geq |E(G)|.
+\]
+The restriction $n\geq2$ excludes the one-vertex graph, which has no positive-length path.
+
+The source reports a Calderbank--Chung--Sturtevant (1984) labeling with maximum length at most $n/2$, a Graham--Kleitman (1973) universal lower bound $(1+o(1))\sqrt n$, and a then-recent claimed improvement to $(\sqrt2+o(1))\sqrt n$ by unnamed graduate students. The upper-bound statement lacks its range of $n$ and rounding conventions; it is preserved as a source report rather than asserted literally for every small $n$.
+
+Writing $f(K_n)=\min_\lambda\max_v t_\lambda(v)$, the attached aid reports the published lower bound
+\[
+ f(K_n)\geq n/2^{O(\sqrt{\log n\log\log n})}=n^{1-o(1)},
+\]
+and says both the constant-linear question and the sum question remain open. These are supplied literature assessments, not independently checked current claims.
+
+Its two partial certificates use $n_+=|\{v:\deg_G(v)>0\}|$ and $a_\lambda(G)$, the number of edges lying in no increasing closed trail. Here a closed trail starts and ends at the same vertex, may revisit other vertices, uses no edge twice, and has strictly increasing labels in its chosen traversal. The aid states
+\[
+ S_\lambda(G)\geq2a_\lambda(G),\qquad
+ S_\lambda(G)\geq n_++\sum_{P\in\mathcal P}\binom{\ell(P)}2
+\]
+for every vertex-disjoint family $\mathcal P$ of increasing paths, with $\ell(P)$ again counting edges. Consequently the sum assertion holds when $a_\lambda(G)\geq|E(G)|/2$, or when the path-packing credit is at least $|E(G)|-n_+$. For forests the aid records the sharp stronger bound $S_\lambda(G)\geq2|E(G)|$. These conditional results are not a proof for arbitrary edge-ordered graphs.
+\subsection{Short English statement}
+Must every edge ordering of a complete graph contain a linearly long increasing simple path? More strongly, must the longest increasing lengths summed over starting vertices exceed the number of edges? The supplied aid gives partial trail and path-packing certificates, including a stronger result for forests.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Graph Ramsey theory}, question 29, ``Increasing paths in edge labelings,'' attributed to Ron Graham: \url{https://www.overleaf.com/read/mnvcscjjysvg}. Historical attributions: Calderbank--Chung--Sturtevant (1984), Graham--Kleitman (1973), and an unnamed graduate-student claim, with no full references.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20000951, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[75]}.
+\item Attached attempt 1, partial result, problem status at run open, rigor proved, low novelty confidence. It supplies the modern lower-bound assessment and two certificates without full citations; it is machine-generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

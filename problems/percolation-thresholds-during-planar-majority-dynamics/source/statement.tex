@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004592}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G\) denote the nearest-neighbour square lattice with vertex set \(\Z^2\), or the hexagonal lattice mentioned in the source. For each \(p\in[0,1]\), the initial opinions \((\eta_0^p(v))_{v\in V(G)}\) take values in \(\{0,1\}\), independently, with \(\mathbb P(\eta_0^p(v)=1)=p\). The source calls the subsequent evolution majority dynamics, but does not specify its update schedule, clock rates, independence of update randomness, or rule for resolving ties. Consequently, the questions below require a specified dynamics before they define a unique mathematical problem.
+
+For a specified such evolution, let \(T\) be its set of finite times and define the opinion-\(1\) subgraph at time \(t\in T\) to be the subgraph of \(G\) induced by \(\{v:\eta_t^p(v)=1\}\). Write
+\[
+ A_t^G=\{\text{the opinion-\(1\) subgraph at time \(t\) has an infinite connected component}\}.
+\]
+One precise interpretation of the critical probability is
+\[
+ p_c^G(t)=\inf\bigl\{p\in[0,1]:\mathbb P_p^G(A_t^G)>0\bigr\},
+\]
+where \(\mathbb P_p^G\) includes the initial opinions and any randomness of the evolution. This is an explicitly stated positive-probability interpretation: the supplied record does not specify a threshold convention or hypotheses guaranteeing equivalence with an almost-sure percolation threshold.
+
+Subject to those unresolved specifications, the source asks the following questions.
+\begin{enumerate}
+\item For the square lattice, is the threshold strictly decreasing, in the sense that
+\[
+ p_c^{\Z^2}(t_2)<p_c^{\Z^2}(t_1)
+ \qquad\text{for every }t_1,t_2\in T\text{ with }t_1<t_2?
+\]
+\item Does continuity at infinity hold, meaning
+\[
+ \lim_{\substack{t\to\infty\\t\in T}}p_c^{\Z^2}(t)
+ =p_c^{\Z^2}(\infty),
+\]
+and is
+\[
+ p_c^{\Z^2}(\infty)=\frac12?
+\]
+Here \(p_c^{\Z^2}(\infty)\) must be defined independently of the displayed limit for continuity to be a substantive question. The source does not define an infinite-time configuration, a limiting distribution, or another infinite-time percolation event. If a limiting configuration is intended, its existence and the mode of convergence must be specified; they are not assumed here.
+\item For the hexagonal lattice \(H\), is
+\[
+ p_c^H(t)=\frac12\qquad\text{for every }t\in T,
+\]
+and are there exceptional times? The supplied phrase ``for every time'' does not specify whether it includes \(0\), \(\infty\), or only positive finite times. If it includes \(0\), it also asserts that the initial independent site-percolation threshold on the intended hexagonal graph equals \(1/2\); this aspect requires source verification. The exceptional-time question does not specify the initial parameter \(p\), the time interval, or whether exceptional times concern percolation or its absence. In particular, it does not determine whether the intended event is the existence of a random time at which percolation occurs despite having probability zero at every deterministic time, or the converse phenomenon.
+\end{enumerate}
+
+The supplied record labels the problem partially solved. Its dated assessment reports finite-time continuity and monotone non-increase of the square-lattice threshold, while describing strict decrease, the infinite-time questions, and the hexagonal-lattice questions as open. These are supplied literature-status claims, not independently verified results in this draft.
+\subsection{Short English statement}
+Starting from independent Bernoulli-\(p\) opinions, ask how the threshold for an infinite connected opinion-\(1\) cluster changes under majority dynamics. The square-lattice questions concern strict decrease and an infinite-time threshold of \(1/2\); the hexagonal-lattice questions concern a constant threshold of \(1/2\) and exceptional times. The dynamics, infinite-time object, and exceptional-time event require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004592\), title: \emph{Percolation Thresholds During Planar Majority Dynamics}; collection: Oberwolfach Reports Open Problems; exact source problem code: \texttt{catalogue entry}. The record gives proposed year \(2021\) and names no proposer.
+\item Supplied source citation: \emph{Spatial Networks and Percolation (2022)}, Oberwolfach Reports, pp.~149--224, DOI \texttt{10.4171/owr/2021/4}. \url{https://doi.org/10.4171/owr/2021/4}. The supplied background attributes the problem to workshop open-problem discussions documented in Oberwolfach Reports. The citation's displayed year \(2022\) and its \(2021\) DOI component are retained as supplied.
+\item Supplied literature reference: Amir and Baldasso, majority percolation. \url{https://arxiv.org/abs/1902.03349}. The record supplies no more detailed bibliographic information for this reference.
+\item Literature assessment checked at \texttt{2026-08-22}: supplied dated curation, not independently verified. The supplied assessment reports finite-time continuity and monotone non-increase for the square-lattice critical probability, and describes strict decrease, the infinite-time questions, and the hexagonal-lattice questions as open. The background calls this a dated literature triage derived from the supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item The registry's statement-status label is \texttt{corrected\_verified}; its accompanying verification note concerns dollar-delimiting formulas and preserving supplied mathematical content. It does not establish the mathematical specifications missing from this statement.
+\end{itemize}
+\end{document}

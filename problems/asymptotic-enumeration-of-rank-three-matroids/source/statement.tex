@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004045}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A finite matroid is a pair \(M=(E,r)\), where \(E\) is a finite set and \(r:2^E\to\Z_{\geq 0}\) satisfies \(0\leq r(X)\leq |X|\), \(r(X)\leq r(Y)\) whenever \(X\subseteq Y\), and
+\[
+r(X\cup Y)+r(X\cap Y)\leq r(X)+r(Y)
+\]
+for all \(X,Y\subseteq E\). Its rank is \(r(E)\). A set \(I\subseteq E\) is independent if \(r(I)=|I|\); a circuit is an inclusion-minimal dependent set. A rank-three matroid is paving if every circuit has cardinality at least three. A flat is a set \(F\subseteq E\) such that \(r(F\cup\{e\})>r(F)\) for every \(e\in E\setminus F\). A hyperplane is an inclusion-maximal proper flat; in rank three it has rank two.
+
+For integers \(n\geq 3\), the source denotes by \(p(n,3)\) the number of rank-three matroids with \(n\) ground-set elements, and by \(p'(n,3)\) the number of such matroids that are paving and satisfy
+\[
+|H|\leq 4\qquad\text{for every hyperplane }H.
+\]
+The supplied record does not specify whether these counts are taken on a fixed labelled ground set or up to matroid isomorphism. This convention remains unresolved for both counts. We use natural logarithms, as in the supplied original statement, and write \(a_n\sim b_n\) for \(a_n/b_n\to 1\).
+
+The source asks whether there exists a real constant \(c>-2\), independent of \(n\), such that, as \(n\to\infty\) through the integers,
+\[
+\ln p(n,3)\sim\ln p'(n,3)
+=\frac{1}{n-2}\binom{n}{3}\bigl(\ln(n-2)+c\bigr).
+\]
+This reproduces the supplied relation, including its equality sign. The intended precision of that equality is unresolved. In particular, a possible asymptotic interpretation would be the pair of assertions
+\[
+\frac{\ln p(n,3)}{\ln p'(n,3)}\longrightarrow 1,
+\qquad
+\ln p'(n,3)=\frac{1}{n-2}\binom{n}{3}
+\bigl(\ln(n-2)+c+o(1)\bigr).
+\]
+This interpretation is presented only as a candidate requiring source confirmation. Replacing the displayed equality merely by another \(\sim\) would not determine the constant \(c\), since every fixed additive constant is negligible relative to \(\ln(n-2)\). Moreover, equivalence of the two logarithms alone does not transfer the constant-order term inside the parentheses to \(\ln p(n,3)\).
+\subsection{Short English statement}
+The problem compares the number of rank-three matroids with the number of rank-three paving matroids whose hyperplanes contain at most four elements. It asks for an asymptotic relation involving a constant \(c>-2\). The counting convention and the intended error term must be confirmed before this becomes an unambiguous conjecture.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath problem registry record: permanent ID \(30004045\), source problem code \texttt{catalogue entry}, title \emph{Asymptotic Enumeration of Rank-Three Matroids}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2019 and names no proposer.
+\item Supplied report citation: \emph{Graph Theory (2020)}, Oberwolfach Reports, DOI 10.4171/owr/2019/1, pp.\ 5--63. Supplied source URL: \url{https://doi.org/10.4171/owr/2019/1}. The record describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. Its literature list labels this reference \emph{Oberwolfach Report 1/2019}; the differing year designations require confirmation.
+\item Supplied literature reference: \emph{Tighter enumeration of matroids of fixed rank}, \url{https://arxiv.org/abs/1811.11810}.
+\item Supplied literature reference: \emph{Enumerating Matroids and Linear Spaces}, \url{https://arxiv.org/abs/2112.03788}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and states that coarse rank-three enumeration is known, while the finer comparison with the specified paving subclass and its constant remains unresolved. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. The record itself requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says its mathematical content was preserved while notation, typography, duplicate clauses, or omitted definitions were repaired. This is a supplied editorial qualification, not independent verification of the formulation or mathematical correctness of this draft.
+\end{itemize}
+\end{document}

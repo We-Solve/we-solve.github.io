@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000390}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a prime power $q$, a polynomial $h\in\F_q[x]$ and an integer $k\geq3$. The AIM question asks for asymptotics, with $q,h,k$ fixed and $n\to\infty$, for the shifted divisor correlation $\sum_{\deg f=n}d_k(f)d_k(f+h)$. The original does not specify monicity or unit conventions for $d_k$ and allows $h=0$ in its wording.
+
+In the supplied report's monic normalization, $d_k(f)$ counts ordered factorizations of a monic $f$ into $k$ monic factors, including factors $1$. For fixed nonzero $h$ and $n>\deg h$, set
+\[
+ S_k(n;h)=\sum_{\substack{f\text{ monic}\\\deg f=n}}d_k(f)d_k(f+h),\qquad r=k-1.
+\]
+For a monic polynomial $L$, put $|L|=q^{\deg L}$. The exactly solvable small-lcm sector is
+\[
+ T_{r,h}(n)=\sum_{\substack{A,B\text{ monic}\\\deg\operatorname{lcm}(A,B)\leq n\\\gcd(A,B)\mid h}}
+ \frac{d_r(A)d_r(B)}{|\operatorname{lcm}(A,B)|}.
+\]
+The compatibility condition is that the congruences $f\equiv0\pmod A$ and $f\equiv-h\pmod B$ be simultaneously soluble. The report claims
+\[
+ S_k(n;h)\geq q^n T_{r,h}(n),\qquad
+ T_{r,h}(n)=\frac{C_{q,r}(h)}{(2r)!}n^{2r}+O_{q,k,h}(n^{2r-1}),
+\]
+with a convergent positive shift-sensitive Euler product. In this CRT normalization its local factors can be written using monic irreducibles $P$, $Q_P=q^{\deg P}$ and $v_P(h)$ as
+\[
+ C_{q,r}(h)=\prod_P\left[(1-Q_P^{-1})^{2r}
+ \sum_{\substack{a,b\geq0\\\min(a,b)\leq v_P(h)}}
+ \binom{a+r-1}{r-1}\binom{b+r-1}{r-1}Q_P^{-\max(a,b)}\right].
+\]
+This is the product associated to the displayed sector; the report's detailed convergence and coefficient analysis is not supplied.
+
+Its consequence is the positive lower bound
+\[
+ \liminf_{n\to\infty}\frac{S_k(n;h)}{q^n n^{2k-2}}
+ \geq\frac{C_{q,k-1}(h)}{(2k-2)!}>0.
+\]
+This only bounds part of the sum from below. Contributions with lcm degree exceeding $n$ are not controlled here, so no matching upper bound or full asymptotic is asserted. The zero-shift moment and a sum over all leading coefficients require separate conventions and analysis.
+\subsection{Short English statement}
+Find fixed-$q$ asymptotics for higher divisor correlations at a fixed shift. The report handles monic polynomials and nonzero shifts, computing the complete small-lcm CRT sector and a positive lower bound on the expected scale. It does not determine the entire correlation or cover the zero shift.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent ID $20000390$, source code \texttt{catalogue entry}; original question and supplied research summary.
+\item AIM workshop ``Arithmetic statistics over finite fields and function fields'', Question 12, attributed to Julio Cesar Bueno de Andrade: \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. Canonical location \texttt{aim-algebraic-number-theory-notes.json}, \texttt{notes[41]}; original remarks and literature field empty. No PDF was opened here.
+\item Supplied machine-generated research attempt 1: partial result; problem partially solved at the run and in the registry; rigor metadata ``proved'', novelty confidence low. No full authoritative citation or proof of the sector Euler product/asymptotic is supplied. This non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

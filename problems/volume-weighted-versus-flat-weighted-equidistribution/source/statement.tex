@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20003296}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether two measures $\nu_T,\bar\nu_T$ converge to normalized Haar probability on $\Gamma\backslash G$. Their preceding definitions, lattice hypotheses, flat family, and cutoff are not included. The supplied aid treats a raw-volume-cutoff family of periodic flats and the following two normalizations. For any nonempty finite cutoff family $\mathcal F_T$, give each flat $F$ a volume $v_F>0$ and normalized probability $\mu_F$. Put $M_T=|\mathcal F_T|$, $\overline v_T=M_T^{-1}\sum_Fv_F$, and define
+\[
+\nu_T=\frac{\sum_Fv_F\mu_F}{\sum_Fv_F},\qquad
+\bar\nu_T=\frac1{M_T}\sum_F\mu_F.
+\]
+These formulas make the aid's volume-weighted versus flat-weighted convention explicit; matching their names to the omitted source definitions requires verification. The actual question is convergence of both to $m_{\Gamma\backslash G}$, not merely comparison of them.
+
+Let $\E_T$ be uniform averaging over $\mathcal F_T$ and set $a_F(f)=\mu_F(f)$. The aid's exact identity is
+\[
+\nu_T(f)-\bar\nu_T(f)=
+\frac{\operatorname{Cov}_T(v_F,a_F(f))}{\overline v_T}.
+\]
+Define $\operatorname{rMAD}_T=\E_T|v_F-\overline v_T|/\overline v_T$ and $\operatorname{CV}_T=\sqrt{\E_T(v_F-\overline v_T)^2}/\overline v_T$. With $d_{\mathrm{TV}}(\mu,\eta)=\sup_A|\mu(A)-\eta(A)|$, the uniform estimate is
+\[
+d_{\mathrm{TV}}(\nu_T,\bar\nu_T)\leq\tfrac12\operatorname{rMAD}_T
+\leq\tfrac12\operatorname{CV}_T.
+\]
+The factor one half is sharp for abstract mutually singular component measures. Thus $\operatorname{rMAD}_T\to0$ suffices to transfer convergence and mass control between normalizations. More generally, vanishing of the normalized covariance for every bounded continuous $f$ suffices for them to have the same weak probability limit. None of these small-variation or decorrelation hypotheses is established for the actual geometric cutoff family.
+
+The nonimplication is already visible in abstract two-point models, not geometric counterexamples. With equally many $\delta_0$ components of volume one and $\delta_1$ components of volume two, the flat average is $(\delta_0+\delta_1)/2$ but the volume average is $(\delta_0+2\delta_1)/3$. With twice as many volume-one $\delta_0$ components as volume-two $\delta_1$ components, the volume average is $(\delta_0+\delta_1)/2$ but the flat average is $(2\delta_0+\delta_1)/3$. Repeating labeled components gives arbitrarily large finite families. Therefore neither normalization's abstract convergence implies the other's without geometric input.
+
+The aid reports positive rank-one and arithmetic $PGL_3$ modular results but says the literal higher-rank raw-volume problem remains open in general. The precise weighting, packet, and ordering hypotheses of those results are absent. The source also quotes uniqueness of the ergodic maximal-entropy Haar measure, reference [113]; that alone does not prove either convergence, prevent escape of mass, or establish the required entropy bounds.
+\subsection{Short English statement}
+The supplied comparison identifies the exact bias between volume-weighted and equally weighted flat averages as a normalized covariance. It gives a sharp total-variation bound and sufficient conditions for transferring a limit, but does not verify those conditions for the source family. Abstract examples show why one convergence statement alone does not imply the other; the actual higher-rank Haar-equidistribution question remains separately qualified.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent catalogue entry, exact source code catalogue entry; \texttt{aim-other-notes.json}, \texttt{notes[102]}; canonical tag ``question''.
+\item AIM workshop \emph{Emerging applications of measure rigidity}, Question 24 attributed to H. Oh, \url{https://aimath.org/WWN/measrigid/measrigid.pdf}. No full preceding measure definitions, proposer year, or original literature entry is supplied.
+\item Captured reference [113] is quoted for unique ergodic maximal-entropy Haar measure for the geodesic flow; its bibliography entry is absent and the following source sentence is truncated.
+\item Supplied research attempt 1, registry updated 14 August 2026: partial result, low novelty confidence, machine-generated and not peer reviewed. It supplies the covariance/TV comparison and abstract sharp examples, and reports rank-one and arithmetic $PGL_3$ modular positive cases without titles, theorem numbers, or full authoritative citations.
+\item Verification says the exact assigned field is preserved, but gives no additional cutoff or normalization data.
+\end{itemize}
+\end{document}

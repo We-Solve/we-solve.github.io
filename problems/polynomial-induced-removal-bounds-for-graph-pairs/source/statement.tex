@@ -1,0 +1,82 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004133}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record does not specify the graph category or the normalization of edit distance. The following gives a conditional formulation using finite simple undirected graphs and edge additions or deletions normalized by the square of the number of vertices; these conventions require source confirmation.
+
+For a finite simple graph \(H\), let \(\mathcal P_H\) be the class of finite simple graphs containing no induced subgraph isomorphic to \(H\). Put
+\[
+\mathcal P_{H_1,H_2}=\mathcal P_{H_1}\cap\mathcal P_{H_2}.
+\]
+For a graph \(G\) on \(n\geq 1\) vertices and a graph property \(\mathcal P\), define
+\[
+d(G,\mathcal P)=\frac{1}{n^2}\min\bigl\{|E(G)\mathbin{\triangle}E(F)|:V(F)=V(G),\ F\in\mathcal P\bigr\},
+\]
+with value \(+\infty\) if the set over which the minimum is taken is empty. Under this convention, \(G\) is \(\eta\)-close to \(\mathcal P\) when \(d(G,\mathcal P)\leq\eta\). The empty-set convention and the non-strict inequality are explicit reconstruction choices, not specifications supplied by the record.
+
+For fixed \(H_1,H_2\) and \(0<\varepsilon<1\), consider the admissible thresholds
+\[
+\begin{split}
+D_{H_1,H_2}(\varepsilon)=\bigl\{\delta\in[0,1]:\ &\text{for every finite simple graph }G,\\
+&\bigl(d(G,\mathcal P_{H_1})\leq\delta\ \text{and}\ d(G,\mathcal P_{H_2})\leq\delta\bigr)\\
+&\qquad\Longrightarrow d(G,\mathcal P_{H_1,H_2})\leq\varepsilon\bigr\}.
+\end{split}
+\]
+The two individual approximations may use different edited graphs; the conclusion requires one edited graph avoiding both forbidden induced subgraphs. The source defines \(\delta_{H_1,H_2}(\varepsilon)\) as the largest admissible threshold. Its existence as a maximum is not justified in the supplied record. A precise threshold version uses
+\[
+\delta^*_{H_1,H_2}(\varepsilon)=\sup D_{H_1,H_2}(\varepsilon).
+\]
+Here the restriction \(\delta\in[0,1]\) is an explicit convention. When the source's largest threshold exists under these conventions, it equals \(\delta^*_{H_1,H_2}(\varepsilon)\).
+
+\textbf{Questions.} With the preceding qualifications, the standard polynomial-lower-bound interpretation of the first question is:
+\[
+\begin{gathered}
+\text{For every fixed pair }H_1,H_2,\ \text{do there exist }c>0,\ C>0,\ \varepsilon_0\in(0,1)\ \text{such that}\\
+\delta^*_{H_1,H_2}(\varepsilon)\geq c\varepsilon^C
+\qquad(0<\varepsilon<\varepsilon_0)?
+\end{gathered}
+\]
+The second question is:
+\[
+\begin{gathered}
+\text{For every real }a>0,\ \text{do there exist fixed graphs }H_1,H_2,\ K>0,
+\ \varepsilon_0\in(0,1)\ \text{such that}\\
+\delta^*_{H_1,H_2}(\varepsilon)\leq K\varepsilon^a
+\qquad(0<\varepsilon<\varepsilon_0)?
+\end{gathered}
+\]
+Thus the graphs in the second question may depend on \(a\), but not on \(\varepsilon\). The source does not explicitly define whether ``polynomial in \(\varepsilon\)'' means this lower bound, a two-sided polynomial estimate, or another formulation. Consequently these displayed questions are a conditional reconstruction, pending confirmation of that meaning and of the distance and threshold conventions.
+\subsection{Short English statement}
+If a graph can be edited a little to avoid \(H_1\), and separately edited a little to avoid \(H_2\), how much editing guarantees avoidance of both at once? The questions ask whether a polynomial threshold always suffices and whether pairs can require arbitrarily large powers of \(\varepsilon\). The precise conventions and the meaning of ``polynomial'' require confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local registry record, permanent UnsolvedMath ID \(30004133\), title ``Polynomial Induced Removal Bounds for Graph Pairs,'' source problem code \texttt{catalogue entry}. Project registry locations are \texttt{data/unsolvedmath/problems.json} and the supplementary \texttt{catalog/problems.json}; no independent inspection is claimed.
+\item Supplied report citation: \emph{Combinatorics, Probability and Computing} (2020), Oberwolfach Reports, DOI \texttt{10.4171/owr/2019/19}, pp.\ 1113--1189. \url{https://doi.org/10.4171/owr/2019/19}. The record gives proposed year 2019 and names no proposer; the supplied publication year and DOI are retained as given.
+\item Supplied literature source, ``Oberwolfach problem report'': \url{https://oa.tib.eu/renate/server/api/core/bitstreams/47388107-8726-4158-8c92-21a2323c2cf7/content}.
+\item Supplied literature source, ``Polynomial ordered-graph removal'': \url{https://arxiv.org/abs/2110.03577}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem partially solved, reports polynomial induced-removal bounds in special cases including a positive exponent-two instance, and reports further polynomial results for ordered graphs. It describes the general all-pairs bound and the exponent question as unresolved. This is supplied dated curation, not an independently verified literature assessment; the record itself requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}, with a supplied claim that the official report was checked directly and that the clean statement restores definitions while preserving the target. This draft reports that provenance claim without independently verifying it or claiming to have visited any source.
+\end{itemize}
+\end{document}

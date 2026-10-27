@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000985}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a lattice Laplacian $\Delta$, define
+\[
+\Gamma=\{A\in\operatorname{Sym}_2(\R):\exists u:\Z^2\to\Z,\ u(x)=\tfrac12x^tAx+o(1+|x|^2),\ \Delta u\le0\}.
+\]
+The source, attributed to Charles Smart, contrasts the standard lattice's Apollonian packing phenomenon with an apparently simpler $F$-lattice feasible set. Its extraction loses the fraction bar in $1/2$ and superscripts; the supplied verification identifies the displayed reading using Smart's 2013 handout and later work.
+
+For an explicit $F$-lattice convention, outgoing neighbors are horizontal at $(i,j)$ with $i+j$ even and vertical at $i+j$ odd; $\Delta_Fu$ is the sum over those two neighbors minus $2u(i,j)$. Every vertex has two incoming and two outgoing edges. With
+\[
+M(a,b,c)=\frac12\begin{pmatrix}c+a&b\\b&c-a\end{pmatrix},\qquad
+\Lambda=\{(p,q)\in\Z^2:p\equiv q\pmod2\},
+\]
+the attached aid attributes to Bou--Rabee (2024) the classification
+\[
+M(a,b,c)\in\Gamma_F\quad\Longleftrightarrow\quad
+c\le-\operatorname{dist}_{\R^2}((a,b),\Lambda).
+\]
+Equivalently, using the Loewner order $A\preceq Q$ when $Q-A$ is positive semidefinite,
+\[
+\Gamma_F=\bigcup_{s,t\in\Z}\{A:A\preceq Q_{s,t}\},\qquad
+Q_{s,t}=\frac12\begin{pmatrix}s-t&s+t\\s+t&t-s\end{pmatrix}.
+\]
+The convention for parity and outgoing Laplacian is explicit; applications using the opposite orientation must reconcile coordinates with the cited classification.
+
+The aid separately supplies integer $F$-harmonic functions
+\[
+H(i,j)=\left\lfloor\frac{i^2-j^2}2\right\rfloor,\quad K(i,j)=ij,\quad
+J(i,j)=\left\lfloor\frac{i^2+2ij-j^2}4\right\rfloor-\left\lfloor\frac j2\right\rfloor.
+\]
+Their leading matrices are respectively $M(2,0,0)$, $M(0,2,0)$ and $M(1,1,0)$. For a checkerboard apex $M(p,q,0)$, an integer harmonic representative is $(p/2)H+(q/2)K$ when $p,q$ are even, and $J+((p-1)/2)H+((q-1)/2)K$ when they are odd. Their error from the leading quadratic is subquadratic.
+
+For a diagonal matrix the exact slice becomes
+\[
+\operatorname{diag}(r,s)\in\Gamma_F\quad\Longleftrightarrow\quad
+r+s\le-\operatorname{dist}(r-s,2\Z).
+\]
+In particular $0$ and $\operatorname{diag}(1,-1)$ are feasible, but their midpoint $\operatorname{diag}(1/2,-1/2)$ is not; the simple classification is nonconvex. The aid distinguishes this solved matrix-feasibility/PDE statement from general microscopic-pattern questions, which it does not resolve.
+\subsection{Short English statement}
+Describe the integer-superharmonic quadratic matrices for the $F$-lattice. The supplied aid attributes a checkerboard-distance classification to published work and adds explicit harmonic apex functions, an exact diagonal slice and a nonconvexity witness.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000985$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[109]}.
+\item American Institute of Mathematics, \emph{Problems from the AIM Chip-Firing Workshop}, problem 20, attributed to Charles Smart: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. The supplied verification reports checking the corrected reading against Smart's 2013 $F$-lattice handout and later Bou--Rabee work; no such inspection is claimed here.
+\item Attached research attempt 1: partial result, recorded run and registry status solved, rigor proved, novelty confidence low, classification SOLVED-IN-LITERATURE. It attributes the complete feasible-matrix theorem to Bou--Rabee (2024) but supplies no title or identifier. The aid is machine generated and not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

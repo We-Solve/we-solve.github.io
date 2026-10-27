@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002354}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied verification field reconstructs the corrupted display as a sum, not a product. For an integer \(n\geq1\), coefficients \(c_j\in\Z\), and affinely independent exponent vectors \(a_1,\ldots,a_{n+1}\in\Z_{\geq0}^n\), put
+\[
+ f(x)=\sum_{j=1}^{n+1}c_jx^{a_j},\qquad
+ x^{a_j}=\prod_{i=1}^n x_i^{a_{ij}},\qquad
+ \Delta=\det\begin{pmatrix}1&\cdots&1\\a_1&\cdots&a_{n+1}\end{pmatrix}\ne0.
+\]
+Here exponent zero has its polynomial meaning, including at a zero coordinate. The source writes \(\N^n\), without fixing whether zero belongs to \(\N\); the nonnegative convention is needed for its displayed cubic example. Its original coefficients may vanish; the special results below assume all are nonzero.
+
+\textbf{Question 17 (Rojas).} For a fixed prime \(p\), decide whether
+\[
+ \exists x\in\Q_p^n\quad f(x)=0,
+\]
+and determine whether there is an algorithm polynomial in the input size. Also determine whether feasibility \(\exists x\in\Q^n\ f(x)=0\) is decidable. Dimension, sparse exponent data and coefficients form the input; a precise complexity statement must specify their encoding, ordinarily binary, rather than fixing the dimension silently. The source attributes to Poonen an encoding of \(0/1\) knapsack and the answer ``NO'' to the polynomial-time question. Without a precise reduction and complexity hypothesis, this is recorded as a hardness assertion, not an unconditional proof that no polynomial algorithm exists. The source also states that the real version is in NP and probably in P, modulo technicalities; its computational model and qualifications are not supplied. For the rational question it highlights
+\[
+ ax^3+by^3=1,
+\]
+whose projective completion is a smooth genus-one curve when \(ab\ne0\), and reports difficulty of deciding rational solubility. The original question concerns affine solutions; rational points at infinity are not silently substituted for them.
+
+\textbf{Reported local-field special case.} Assume every \(c_j\ne0\) and \(p\nmid\Delta\). Let \(v_p(p)=1\). For \(w\in\Z^n\), set
+\[
+ m_w=\min_j\{v_p(c_j)+a_j\cdot w\},\quad
+ S_w=\{j:v_p(c_j)+a_j\cdot w=m_w\},\quad
+ \operatorname{in}_w(f)(X)=\sum_{j\in S_w}
+ \overline{p^{-v_p(c_j)}c_j}\,X^{a_j}\in\F_p[X_1,\ldots,X_n].
+\]
+The research aid reports the exact criterion
+\[
+ f^{-1}(0)\cap(\Q_p^*)^n\ne\varnothing
+ \quad\Longleftrightarrow\quad
+ \exists w\in\Z^n\ \exists u\in(\F_p^*)^n\quad
+ \operatorname{in}_w(f)(u)=0.
+\]
+It reports that every residue zero appearing here is nonsingular, by independence modulo \(p\) of the augmented exponent columns, and lifts by Hensel's lemma, varying a coordinate with nonzero partial derivative. This criterion concerns torus roots only and does not itself supply a polynomial-time search over \(w\), nor cover \(p\mid\Delta\).
+
+\textbf{Reported unimodular special case.} If every coefficient remains nonzero in an infinite field \(K\) and \(|\Delta|=1\), the exponent-difference map
+\[
+ (K^*)^n\longrightarrow(K^*)^n,\qquad
+ x\longmapsto\bigl(x^{a_2-a_1},\ldots,x^{a_{n+1}-a_1}\bigr)
+\]
+is a torus automorphism. The aid reports a torus root of \(f\) over every such \(K\), in particular over \(\Q\) and every \(\Q_p\). It does not assert this over all finite fields.
+
+\textbf{Zero coordinates.} The affine question is the disjunction over coordinate strata. For \(Z\subseteq\{1,\ldots,n\}\), substitute \(x_i=0\) for \(i\in Z\), retaining only monomials with \(a_{ij}=0\) for all \(i\in Z\). The resulting polynomial must have a zero in \((K^*)^{\{1,\ldots,n\}\setminus Z}\). An identically zero restriction satisfies that stratum, whereas a nonzero constant does not. This exact reduction includes the all-zero point and prevents a torus criterion from being mistaken for the original affine decision problem. All special-case results are supplied research claims requiring independent verification.
+\subsection{Short English statement}
+Ask for local polynomial-time feasibility and global rational decidability for simplex-supported sparse polynomials. The aid supplies a torus criterion when the prime avoids the exponent determinant, a unimodular sufficient case, and a reduction of affine feasibility to coordinate strata. The stated hardness and real-field complexity claims need their missing reduction and computational conventions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002354\), catalogue entry, \texttt{aim-logic-notes.json}, \texttt{notes[129]}, workshop \emph{Extensions of Hilbert's tenth problem}, Question 17 (Rojas): \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}.
+\item Supplied workshop attribution to Poonen for the \(0/1\)-knapsack encoding, with comments on real feasibility and the genus-one rational-point subproblem. No separate authoritative reduction, complexity theorem or genus-one reference is supplied.
+\item Supplied research summary on the tropical--Hensel criterion, unimodular torus feasibility and coordinate strata. Attempt 1: partial\_result, partially\_solved, rigor ``proved'', low novelty confidence. This machine-generated aid is not peer reviewed and must be independently verified before citation. The supplied statement-verification field reports reconstruction of the product/sum and \(\Q_p^n\) extraction errors; the draft has not independently visited the PDF.
+\end{itemize}
+\end{document}

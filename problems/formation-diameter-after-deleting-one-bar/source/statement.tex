@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001858}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source, attributed to St. John, asks which bar to delete from a minimally rigid robot formation to minimize the resulting formation's geometric diameter. Its phrase ``diameter(configuration space)'' is ambiguous: the final sentence indicates minimization of vertex-set diameter over realizations, rather than a metric diameter of the configuration space itself. Ambient dimension and motion restrictions are not specified. The supplied aid treats planar point frameworks, allowing bar crossings and coincident nonadjacent vertices, with no obstacles or thickness constraints.
+
+Let \(G=(V,E)\) be a generically minimally rigid planar graph on \(n\geq3\) labelled vertices and let \(p=(p_1,\ldots,p_n)\) be a generic placement in \(\R^2\). Put
+\[
+ \ell_{ij}=|p_i-p_j|\quad(ij\in E),\qquad
+ D=\max_{i,j\in V}|p_i-p_j|.
+\]
+For a deleted edge \(e\), fix translations by \(q_1=0\) and define
+\[
+ \mathcal R_e=\{q\in(\R^2)^n:q_1=0,
+ |q_i-q_j|=\ell_{ij}\ (ij\in E\setminus\{e\})\}.
+\]
+Let \(\mathcal C_e(p)\) be the path component containing the translated original placement, and put
+\[
+ D(q)=\max_{i,j}|q_i-q_j|,\qquad
+ d_e^{\mathrm{all}}=\min_{q\in\mathcal R_e}D(q),\qquad
+ d_e^{[p]}=\min_{q\in\mathcal C_e(p)}D(q).
+\]
+The two optimization questions are \(\min_{e\in E}d_e^{\mathrm{all}}\) and \(\min_{e\in E}d_e^{[p]}\), including a realizing edge and placement. They distinguish arbitrary realization modes from actual continuous motion from \(p\).
+
+For this \(n\geq3\) planar minimal-rigidity setting, the aid states that every \(G-e\) is connected. Hence \(\mathcal R_e\) is compact after anchoring, and its semialgebraic path components are compact; both displayed minima are attained. With \(L_e=\max_{ij\in E\setminus\{e\}}\ell_{ij}\),
+\[
+ \max\{L_e,D/(n-1)\}\leq d_e^{\mathrm{all}}
+ \leq d_e^{[p]}\leq D.
+\]
+The lower \(D/(n-1)\) bound follows from retained graph paths in the original realization; in fact \(D\leq(n-1)L_e\). The restriction \(n\geq3\) matters: deletion of the only edge of a two-vertex minimally rigid framework leaves a disconnected graph.
+
+For each retained subframework \(H\subseteq G-e\) that is rigid at the original placement, all its vertex-pair distances stay fixed along \(\mathcal C_e(p)\). Define
+\[
+ B_e^{\mathrm{loc}}=\max_H\operatorname{diam}\{p_v:v\in V(H)\},
+\]
+where the maximum is over such retained rigid cores. If instead the subframework is globally rigid at \(p\) in \(\R^2\), its distances agree in every retained realization; define \(B_e^{\mathrm{glob}}\) by that smaller class. Empty maxima may be assigned zero. The aid's screening inequalities are
+\[
+ B_e^{\mathrm{loc}}\leq d_e^{[p]},\qquad
+ B_e^{\mathrm{glob}}\leq d_e^{\mathrm{all}}.
+\]
+A corresponding core containing an original diametral pair gives equality with \(D\), certifying no possible improvement for that edge in the relevant optimization. Local rigidity must not be substituted for global rigidity in the all-mode bound.
+
+For a weighted tree in the same collision-allowed planar setting, the exact minimum diameter is its longest edge. One can place vertices recursively on a circle of diameter equal to that edge, realizing every edge as a chord; the longest edge gives the matching lower bound. Its anchored realization space is path connected. Consequently deleting an edge from a triangle leaves a two-edge path with both minima equal to the larger retained length. The optimal deletion removes a longest side and gives the second-largest original side length. These exact cases and core certificates do not constitute a general edge-selection algorithm with complexity guarantees.
+\subsection{Short English statement}
+The planar problem has two versions: minimize over every retained-bar realization, or only over motions reachable from the initial placement. The aid proves attained minima and bounds, supplies rigid-core tests that rule out improvement, and solves the tree and triangle cases. General edge-selection algorithms remain a separate target.
+\subsection{Sources}
+\begin{itemize}
+\item Permanent UnsolvedMath ID \(20001858\), exact public code catalogue entry; local registry \texttt{aim-geometry-notes.json}, \texttt{notes[195]}, canonical tag problem.
+\item AIM workshop ``Configuration spaces of linkages,'' Geometry, source item 9, in-text attribution St. John: \url{https://aimath.org/pastworkshops/linkagesproblems.pdf}. No PDF was accessed for this draft. No proposer/year metadata or original literature reference is supplied beyond the extracted attribution.
+\item Research attempt 2, ``Formation diameter after deleting one bar,'' labelled partial\_result, open at the run, proved and low novelty confidence; the registry says partially\_solved.
+\item The supplied verification note identifies OCR extraction of Problem 9 and reports a source normalization restoring subscripts, an overbar and set-minus notation. The statement remains marked reconstructed\_unverified, and the supplied field does not include the promised normalized full text.
+\end{itemize}
+\end{document}

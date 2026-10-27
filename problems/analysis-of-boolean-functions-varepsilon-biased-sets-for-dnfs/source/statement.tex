@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800451}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\), and let \(U_n\) denote the uniform probability distribution on \(\{0,1\}^n\). For \(S\subseteq\{1,\ldots,n\}\), define the parity character
+\[
+\chi_S(x)=(-1)^{\sum_{i\in S}x_i}.
+\]
+Use the normalized-density convention: a density is a function \(\varphi:\{0,1\}^n\to[0,\infty)\) with \(\mathbb E_{U_n}[\varphi]=1\), inducing the probability distribution \(\mu_\varphi(x)=2^{-n}\varphi(x)\). It is \(\varepsilon\)-biased if
+\[
+\left|\mathbb E_{U_n}[\varphi\chi_S]\right|\leq\varepsilon
+\qquad\text{for every nonempty }S\subseteq\{1,\ldots,n\}.
+\]
+A DNF is a disjunction of terms, each term being a conjunction of literals \(x_i\) or \(\neg x_i\). In the formulation below, size at most \(s\) means at most \(s\) terms. Encode truth by \(+1\) and falsity by \(-1\), obtaining \(f:\{0,1\}^n\to\{-1,1\}\). A distribution \(\mu\) \(\delta\)-fools \(f\) if
+\[
+\left|\mathbb E_{U_n}[f]-\mathbb E_{y\sim\mu}[f(y)]\right|\leq\delta.
+\]
+\textbf{Question, under these conventions.} Is it true that
+\[
+\begin{gathered}
+\forall\delta>0\ \exists C_\delta>0\ \forall n\geq1\ \forall s\in\Z,\ s\geq2,\\
+\forall f:\{0,1\}^n\to\{-1,1\}\text{ computable by a DNF with at most }s\text{ terms},\\
+\forall\varphi\text{ a normalized density},\\
+\left[\ \forall\varnothing\ne S\subseteq\{1,\ldots,n\},\quad
+\left|\mathbb E_{U_n}[\varphi\chi_S]\right|\leq s^{-C_\delta}\ \right]
+\ \Longrightarrow\ 
+\left|\mathbb E_{U_n}[f]-\mathbb E_{U_n}[\varphi f]\right|\leq\delta?
+\end{gathered}
+\]
+Here \(C_\delta\) is independent of \(n,s,f,\varphi\). The restriction \(s\geq2\) makes the source's asymptotic notation \(s^{-O(1)}\) precise without forcing bias threshold \(1\) at \(s=1\); one-term DNFs are included among DNFs with at most two terms.
+
+\textbf{Unresolved source conventions.} The supplied statement calls \(\varphi\) a density on \(\{0,1\}\), although \(f\) has domain \(\{0,1\}^n\). The formulation above interprets this as a density on the full cube. The record does not explicitly define density normalization, parity bias, or the DNF size convention; the definitions above state the standard interpretation used for this draft and require source confirmation.
+
+\textbf{Supplied background qualifications.} The record attributes to De, Etesami, Trevisan, and Tulsiani, labeled [DETT10], a sufficient bias of
+\(\exp(-O(\log^2(s)\log\log s))\) for constant error, improving to \(\exp(-O(\log^2 s))\) if Mansour's Conjecture is assumed. More precisely, it reports that
+\[
+\exp\!\left(-O\!\left(\log^2(s/\delta)\log\log(s/\delta)\right)\right)
+\]
+-biased densities \(\delta\)-fool size-\(s\) DNFs. It also reports an example showing that \(s^{-O(\log(1/\delta))}\)-biased densities are necessary, and reports sufficiency of that bias scale for read-once DNFs, meaning DNFs in which each variable occurs at most once in the entire formula. These are supplied literature summaries, not independently verified assertions. Their hidden constants, precise parameter ranges, and the quantifiers intended by the necessity claim are not supplied. The variable-error expressions should not be read as literal bounds for every \(\delta>0\); the source provides no such boundary specification.
+\subsection{Short English statement}
+For each fixed error tolerance \(\delta>0\), does sufficiently small polynomial-in-\(s\) parity bias guarantee that a distribution fools every DNF with at most \(s\) terms, uniformly over the number of variables? The polynomial exponent may depend on \(\delta\). This draft uses explicit standard conventions and flags the source's domain discrepancy. The supplied registry labels the problem open; this is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800451\), exact source code \texttt{catalogue entry}, title: Analysis of Boolean Functions---\(\varepsilon\)-biased Sets for DNFs. The supplied record labels the problem \emph{open}, lists O'Donnell as \texttt{proposed\_by}, and gives the year \(2012\). These are supplied registry attributes, not an independently verified status assessment.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 22, \(\varepsilon\)-biased Sets for DNFs. Supplied source URL: \url{https://arxiv.org/abs/1204.6447}. The record reports access on \texttt{2026-10-16} and extraction by \texttt{arxiv\_latex}; these are supplied provenance claims, not a claim of access or verification by this draft's preparer.
+\item The supplied background identifies [DETT10] as the proposed/source reference and names De, Etesami, Trevisan, and Tulsiani in its literature summary. It attributes the history of pseudorandom generators for bounded-depth circuits to [AW85]. Full bibliographic entries and separate links for [DETT10] and [AW85] are not supplied.
+\item The supplied conditional improvement assumes Mansour's Conjecture. No formulation or separate citation for that conjecture is included in the record.
+\end{itemize}
+\end{document}

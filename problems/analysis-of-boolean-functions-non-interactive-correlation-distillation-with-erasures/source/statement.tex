@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800443}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) be an odd integer and let \(0\leq p<1/2\). A Boolean function \(f:\{-1,1\}^n\to\{-1,1\}\) is unbiased if \(2^{-n}\sum_{x\in\{-1,1\}^n}f(x)=0\). Identify \(f\) with its unique multilinear extension to \(\R^n\), namely
+\[
+f(t)=\sum_{S\subseteq\{1,\ldots,n\}}\widehat f(S)\prod_{i\in S}t_i,
+\qquad
+\widehat f(S)=2^{-n}\sum_{x\in\{-1,1\}^n}f(x)\prod_{i\in S}x_i.
+\]
+Let \(\mathbf z=(\mathbf z_1,\ldots,\mathbf z_n)\) have independent coordinates with
+\[
+\Pr(\mathbf z_i=1)=\Pr(\mathbf z_i=-1)=p/2,
+\qquad
+\Pr(\mathbf z_i=0)=1-p.
+\]
+Define the majority function on the Boolean cube by
+\[
+\operatorname{Maj}_n(x)=\operatorname{sgn}\!\left(\sum_{i=1}^n x_i\right),
+\]
+and evaluate it away from the cube using its multilinear extension. Oddness of \(n\) eliminates ties on the cube.
+
+The supplied open question asks whether, for every such \(n\) and \(p\) and every unbiased Boolean function \(f\),
+\[
+\mathbb E_{\mathbf z}\bigl[|f(\mathbf z)|\bigr]
+\leq
+\mathbb E_{\mathbf z}\bigl[|\operatorname{Maj}_n(\mathbf z)|\bigr].
+\]
+The probability specification forces \(p\geq0\); the endpoint \(p=0\) is included.
+
+The supplied background also reports that, for \(1/2\leq p\leq1\), Yang conjectured that a dictator \(x\mapsto x_i\) maximizes this expectation, and that O'Donnell and Wright [OW12] proved this assertion. It further attributes to Mossel [MOS10] the bound
+\[
+\mathbb E_{\mathbf z}\bigl[|f(\mathbf z)|\bigr]
+\leq
+\mathbb E_{\mathbf z}\bigl[|\operatorname{Maj}_n(\mathbf z)|\bigr]+o_\tau(1)
+\]
+when every influence is at most \(\tau\). Here the usual uniform-cube influence is \(\operatorname{Inf}_i(f)=\Pr[f(\mathbf x)\ne f(\mathbf x^{\oplus i})]\), where \(\mathbf x\) is uniform on the cube and \(\mathbf x^{\oplus i}\) flips its \(i\)-th coordinate. The source excerpt does not specify the error term's dependence on \(p\) and \(n\), its uniformity, or the full hypotheses of this background result. These background claims are supplied attributions, not independently verified theorems in this draft.
+\subsection{Short English statement}
+For every odd number of inputs and every retention probability \(0\leq p<1/2\), does majority maximize the expected absolute value of the multilinear extension among all unbiased Boolean functions, when each input is independently retained as a uniform sign or replaced by zero? The supplied registry labels this question open; this statement-only draft requires mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(800443\), source problem code \texttt{catalogue entry}, titled ``Analysis of Boolean Functions --- Non-Interactive Correlation Distillation with Erasures.'' The registry lists O'Donnell as proposer, year 2012, and status ``open''; these are supplied metadata.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 13, ``Non-Interactive Correlation Distillation with Erasures'': \url{https://arxiv.org/abs/1204.6447}. The supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. This access record is supplied provenance, not a claim of independent source consultation.
+\item The supplied background identifies ``Proposed/Source: [Yan04]'' and attributes the dictator conjecture for \(p\geq1/2\) to Yang. No complete bibliographic entry for [Yan04] is supplied.
+\item O'Donnell and Wright [OW12], cited in the supplied background for the dictator maximization result when \(p\geq1/2\). No complete bibliographic entry is supplied.
+\item Mossel [MOS10], cited in the supplied background for the small-influence comparison with majority. No complete bibliographic entry or full theorem hypotheses are supplied.
+\end{itemize}
+\end{document}

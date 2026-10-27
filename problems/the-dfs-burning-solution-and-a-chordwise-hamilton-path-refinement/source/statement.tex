@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000979}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a connected simple graph $G$ on $\{0,1,\ldots,n\}$ rooted at $0$, a $G$-parking function is $P:\{1,\ldots,n\}\to\Z_{\ge0}$ such that for every nonempty $U\subseteq\{1,\ldots,n\}$ some $v\in U$ has $P(v)$ less than the number of edges from $v$ to $V(G)\setminus U$. Write $\deg P=\sum_vP(v)$ and $g(G)=|E(G)|-|V(G)|+1$. For $K_{n+1}$ these are ordinary zero-based parking functions: after sorting, their entries $b_1\le\cdots\le b_n$ satisfy $b_i<i$.
+
+For a rooted spanning tree $T$, an inversion is a pair $(u,v)$ with $u$ a strict ancestor of $v$ and $u>v$. A $\kappa$-inversion additionally requires $\{\operatorname{parent}_T(u),v\}\in E(G)$; write $\kappa(G,T)$ for their number. On $K_{n+1}$ every inversion meets the extra condition. The original, posed by David Perkinson and attributed to Richard Stanley, asks for a natural tree/parking-function bijection satisfying
+\[
+\deg\phi(T)=g(K_{n+1})-\operatorname{inv}(T),\qquad g(K_{n+1})=\binom n2,
+\]
+and suggests an arbitrary-graph extension using Ira Gessel's $\kappa$ statistic. Its recorder already notes a resolution in reference [30].
+
+The attached aid identifies that resolution as the Perkinson--Yang--Yu DFS-burning bijection, reporting for every connected simple graph
+\[
+\deg P=g(G)-\kappa(G,T).
+\]
+Its full DFS algorithm and neighbor-order conventions are not supplied in this summary.
+
+For a spanning tree that is the rooted Hamilton path $0=a_0,a_1,\ldots,a_n$, the aid gives an explicit refinement of the inverse map. Each cotree chord $\{a_j,a_k\}$, $0\le j\le k-2$, contributes one to $P(a_k)$ exactly when $a_k>a_{j+1}$; otherwise it corresponds to the unique $\kappa$-inversion $(a_{j+1},a_k)$. Thus
+\[
+P(a_k)=\#\{j:0\le j\le k-2,\ \{a_j,a_k\}\in E(G),\ a_k>a_{j+1}\}.
+\]
+On $K_{n+1}$ this becomes
+\[
+P(a_k)=\#\{\ell:1\le\ell<k,\ a_\ell<a_k\},
+\]
+and is a bijection between rooted Hamilton paths and the box $0\le P(v)\le v-1$, $1\le v\le n$. The insertion inverse processes labels $v=1,\ldots,n$, placing $v$ after exactly $P(v)$ of the existing smaller labels, then prefixes the root $0$. The box is a special subset of all parking functions; this explicit refinement does not replace the full spanning-tree bijection.
+\subsection{Short English statement}
+Stanley's degree/inversion-preserving bijection is reported resolved by DFS burning, including the graph $\kappa$ extension. The supplied aid adds an explicit chord partition and insertion description on rooted Hamilton paths.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000979$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[103]}.
+\item American Institute of Mathematics, \emph{Problems from the AIM Chip-Firing Workshop}, problem 14, posed by David Perkinson: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. It attributes the question to Richard Stanley, chapter 6 problem 4 of hyperplane-arrangement notes [32], the $\kappa$ statistic to Ira Gessel [19], and records resolution in [30]. Those complete entries are not supplied. The page-header artifact is omitted; the verification's PDF comparison is source reported, not claimed here.
+\item Attached research attempt 1 identifies [30] with Perkinson--Yang--Yu's DFS-burning solution but supplies no paper title or identifier. It is recorded as partial result with run and registry status solved, rigor proved, novelty confidence low and classification SOLVED-IN-LITERATURE. The aid is machine generated and not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004064}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(A\in\R^{m\times n}\), let \(x\in\{-1,1\}^n\), and set \(y=Ax\); thus the data are noiseless. Define the nonempty binary solution set
+\[
+\mathcal S(A,y)=\{z\in\{-1,1\}^n:Az=y\}.
+\]
+Choose
+\[
+\mu^*\in\operatorname*{arg\,min}_{\mu\in\R^m}
+\left\{\frac12\|\mu-y\|_2^2+\|A^T\mu\|_1\right\},
+\qquad
+\widehat x_i=\operatorname{sign}\bigl((A^T\mu^*)_i\bigr),
+\quad 1\leq i\leq n.
+\]
+Here \(\|v\|_2^2=\sum_j v_j^2\), \(\|v\|_1=\sum_j|v_j|\), and the sign operation is applied coordinatewise. For nonzero real \(t\), \(\operatorname{sign}(t)=1\) if \(t>0\) and \(\operatorname{sign}(t)=-1\) if \(t<0\). The supplied record does not specify its value at zero, so the definition of \(\widehat x\) remains unresolved at zero entries of \(A^T\mu^*\).
+
+Define the set of coordinates fixed across all binary solutions by
+\[
+I(A,y)=\left\{i\in\{1,\ldots,n\}:z_i=w_i\text{ for all }z,w\in\mathcal S(A,y)\right\}.
+\]
+For each \(i\in I(A,y)\), let \(c_i\in\{-1,1\}\) denote this common value.
+
+\textbf{Questions as supplied.} For every matrix and noiseless binary datum as above, does the stated minimization and sign rule satisfy both of the following assertions?
+\begin{enumerate}
+\item If \(\mathcal S(A,y)=\{x\}\), then \(\widehat x=x\).
+\item If \(\mathcal S(A,y)\) contains more than one element, then \(\widehat x_i=c_i\) for every \(i\in I(A,y)\).
+\end{enumerate}
+The second assertion expresses the clean statement's request to recover coordinates common to all solutions. The original wording asks for the ``intersection of all solutions,'' without defining that operation on signed vectors. It is unresolved whether the intended output must also identify exactly which coordinates are fixed, for example by returning zero on every coordinate outside \(I(A,y)\). No such additional output condition is imposed here.
+
+\textbf{Unresolved scope.} The displayed formulation in the supplied record permits arbitrary real matrices \(A\). The original question refers to binary tomography but supplies no additional restrictions on tomography matrices or projection geometry. Whether such restrictions are intended, and whether the displayed minimization and sign rule completely specify the intended dual approach, require source review. The questions above retain the supplied formulas without repairing or supplementing them.
+\subsection{Short English statement}
+For noiseless measurements of a vector with entries in \(\{-1,1\}\), the supplied conjecture asks whether a specified convex minimization followed by a sign operation recovers a unique binary solution and, when several solutions exist, their common coordinate values. The sign convention at zero, the precise meaning of ``intersection,'' and any intended restrictions on tomography matrices remain unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied record with permanent ID \(30004064\), title \emph{Dual Recovery of Binary Tomography Solution Intersections}, exact source problem code \texttt{catalogue entry}, in the \emph{Oberwolfach Reports Open Problems} collection. No individual proposer is identified; the supplied proposed year is 2019.
+\item Supplied report citation: \emph{Tomographic Inverse Problems: Theory and Applications} (2020), Oberwolfach Reports, pp.~209--303, DOI \texttt{10.4171/owr/2019/4}. \url{https://doi.org/10.4171/owr/2019/4}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. No problem-specific page or named contributor is supplied.
+\item Supplied literature source: Kadu--van Leeuwen, convex binary tomography. \url{https://doi.org/10.1109/TCI.2019.2898333}.
+\item Supplied literature assessment, checked exactly \texttt{2026-08-22}: the record labels the problem open and describes both assertions as empirical rather than theorem-level, reporting that no primary source was located proving them in the stated generality. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; the record requests independent verification of time-sensitive status and cited claims.
+\item Supplied statement-verification metadata labels the statement \texttt{corrected\_verified} and reports comparison with the official Oberwolfach report, claiming preservation of its hypotheses, notation, and mathematical target. This is a supplied verification claim; no independent source consultation or mathematical verification is asserted here.
+\end{itemize}
+\end{document}

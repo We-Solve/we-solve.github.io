@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001091}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Problem 1.10 (R. Graham).} Let $A\subset\Z^2$ satisfy
+\[
+ \sum_{(x,y)\in A\setminus\{(0,0)\}}\frac1{x^2+y^2}=\infty.
+\]
+Must there be $x,y\in\Z$ and $a\in\Z\setminus\{0\}$ with $(x,y),(x+a,y),(x,y+a),(x+a,y+a)\in A$? More generally, for each fixed $k$, must $A$ contain $\{(x+ia,y+ja):0\leq i,j<k\}$ with common nonzero integer step? The source advertises a \$1000 conjecture. It does not exclude the origin or zero side length explicitly; the displayed exclusions avoid an undefined summand and a degenerate square. The intended squares are axis-aligned, with equal steps in both coordinates.
+
+\textbf{Reported dyadic reduction.} Let
+\[
+ S_j=\{z\in\Z^2:2^j\leq\|z\|_\infty<2^{j+1}\},\qquad
+ \alpha_j=\frac{|A\cap S_j|}{|S_j|},\quad j\geq0.
+\]
+The aid proves that reciprocal mass diverges exactly when $\sum_j\alpha_j$ diverges, up to absolute comparison constants, since $|S_j|\asymp4^j$ and $x^2+y^2\asymp4^j$ there. Any square-free counterexample must have $\alpha_j\to0$ but $\sum_j\alpha_j=\infty$; the vanishing uses the finite positive-density square theorem, not the reciprocal comparison alone.
+
+Define $r_\square(N)$ to be the largest cardinality of a subset of $[N]^2$ containing no nondegenerate axis-aligned square. The aid's sufficient condition for Graham's square conclusion is
+\[
+ \sum_{j\geq1}\frac{r_\square(2^j)}{4^j}<\infty.
+\]
+Bounding shell pieces by a translated box changes only an absolute dyadic index. In particular, a bound
+\[
+ r_\square(N)=O\!\left(\frac{N^2}{(\log N)^{1+\varepsilon}}\right)
+ \qquad\text{for some fixed }\varepsilon>0
+\]
+would imply the conjecture. This bound is a needed sufficient input, not proved in the report.
+
+The aid reports an explicit zero-upper-density set with divergent reciprocal mass, demonstrating why a positive-density theorem alone does not settle the question. Its construction and upper-density convention are not printed in the summary; such an example is not asserted square-free. Natural centered-box density and upper Banach density must not be identified without checking that convention.
+
+\textbf{Reported down-set case.} Under the positive-quadrant convention, a coordinatewise down-set $A\subset\N^2$ satisfies $(x,y)\in A\Rightarrow[1,x]\times[1,y]\subset A$. The aid proves the full all-$k$ grid conclusion for such sets with divergent reciprocal mass. Indeed, absence of $(k,k)$ confines the set to the two strips $x<k$ or $y<k$, whose reciprocal mass is finite; hence every $(k,k)$ is present and so is every unit-step $k\times k$ grid. The original summary does not specify its down-set domain, so this convention is explicit. The general square and grid conjectures remain open in the supplied assessment.
+\subsection{Short English statement}
+Graham asks whether divergent reciprocal radial mass forces an axis-aligned square, and more generally every fixed square grid. The aid translates divergence into nonsummable shell densities and gives a sufficient summable finite-extremal bound. It resolves a coordinatewise down-set case, while zero density alone does not provide a counterexample or a general proof.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001091$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[215]}.
+\item AIM workshop ``Recent trends in additive combinatorics,'' PDF Problem 1.10, R. Graham, with source \$1000 note: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. Supplied verification says the PDF was checked; no independent source visit or present-day prize verification is asserted.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{open}, internal rigor \texttt{proved}, low novelty confidence; current registry partially solved. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. No complete positive-density theorem references or original literature entry supplied.
+\end{itemize}
+\end{document}

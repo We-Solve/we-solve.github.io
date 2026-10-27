@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800522}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks for sufficient conditions under which column selection using uniformly sampled rows approximates column selection using the full matrix. It does not specify the matrix construction from the kernel \(f\), the scalar domain, or several algorithmic and probabilistic conventions. The following notation makes the requested comparison explicit, subject to these unresolved qualifications.
+
+Under the usual, but unconfirmed, real or complex matrix interpretation, write \(A\in\mathbb K^{n\times m}\), where \(\mathbb K\in\{\R,\C\}\). For column indices \(S\subseteq\{1,\ldots,m\}\), let \(A(:,S)\) denote the selected columns. If \(\Pi_S\) means orthogonal projection onto their span, then
+\[
+\Pi_S:\mathbb K^n\longrightarrow\operatorname{span}\{A(:,j):j\in S\},
+\qquad
+\|B\|_F=\left(\sum_{i,j}|B_{ij}|^2\right)^{1/2}.
+\]
+The source does not explicitly define \(\Pi_S\); this projection interpretation requires confirmation. The assignment of \(n\) and \(m\) to the row and column dimensions is a presentation convention here.
+
+Select \(r=\mathcal O(k)\) uniformly random row indices \(I\), and choose column indices \(\widetilde J\) and a coefficient matrix \(\widetilde T\) so that
+\[
+A(I,:)\approx A(I,\widetilde J)\widetilde T.
+\]
+Here \(A(I,:)\) is the sampled row matrix, retaining multiplicities if sampling is with replacement. The source leaves the sampling convention and the meaning and accuracy of \(\approx\) unspecified. If \(\widetilde J\) contains \(s\) columns, the displayed product requires \(\widetilde T\in\mathbb K^{s\times m}\). The record does not specify \(s\), the number of columns in the full-matrix selection \(J\), or their relationship to \(k\).
+
+\textbf{Requested statement.} Determine sufficient conditions on the sample size \(r\) and on the kernel \(f\) that guarantee, with high probability,
+\[
+\bigl\|\Pi_{\widetilde J}A-A\bigr\|_F
+\leq c(n,m,k)\,\bigl\|\Pi_JA-A\bigr\|_F,
+\]
+where \(J\) denotes the column selection obtained from the full matrix and \(c(n,m,k)\) grows at most logarithmically in its arguments. The intended regime is \(r=\mathcal O(k)\); its constants and parameter dependence are not supplied. The full-matrix selection rule, the kernel domain and its relation to \(A\), the exact logarithmic growth requirement, and the failure probability implicit in ``with high probability'' must be specified before this becomes a fully quantified mathematical assertion. In particular, the source does not identify \(J\) as an optimal selection. If the comparator residual is zero, the displayed inequality requires the sampled selection to have zero residual as well; no exception for this case is stated.
+\subsection{Short English statement}
+When can columns chosen from only \(r=\mathcal O(k)\) uniformly sampled rows approximate the full matrix nearly as well as columns chosen using all rows, with at most a logarithmically growing factor in Frobenius norm? The supplied formulation leaves the kernel construction, selection rules, sample convention, and probability guarantee unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete source record: permanent ID \(800522\), exact source code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 31.'' The registry attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels it open. This is a supplied status label, not an independently verified mathematical or literature assessment.
+\item Supplied source list: Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 31. Supplied URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of independent source consultation.
+\end{itemize}
+\end{document}

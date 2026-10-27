@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000528}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(u:\R\to\R\) be measurable. For a test function \(f\in C_c^\infty(\R^2)\), define
+\[
+ M_uf(x,y)=\sup_{\epsilon>0}\left|
+ \frac{1}{2\epsilon}\int_{-\epsilon}^{\epsilon}f(x-t,y-u(x)t)\,\dd t\right|.
+\]
+The slope is evaluated at the output coordinate \(x\), not at \(x-t\), and the absolute value encloses the signed average. Thiele's source question asks whether this operator has an \(L^p(\R^2)\) bound for some finite \(p\). The uniform formulation addressed by the aid is whether, for some \(1<p<\infty\), there is \(C_p<\infty\) such that
+\[
+ \|M_uf\|_{L^p(\R^2)}\leq C_p\|f\|_{L^p(\R^2)}
+ \quad\text{for every measurable }u\text{ and every }f\in C_c^\infty(\R^2).
+\]
+For \(1<p<\infty\), define the extended-valued optimal constant
+\[
+ \mathcal C_p=\sup_{u:\R\to\R\,\mathrm{measurable}}
+ \sup_{0\neq f\in C_c^\infty(\R^2)}\frac{\|M_uf\|_p}{\|f\|_p}.
+\]
+The supplied reduction states that \(\mathcal C_p\) is unchanged if \(u\) is restricted to measurable functions with a finite image contained in \(\Q\). In particular the original uniform bound is equivalent to bounds for these fields with a constant independent of the number of slope values and their measurable partition; this equality does not assert that either supremum is finite.
+
+The separate partial theorem states that, for every \(1<p<\infty\), there is \(C_p<\infty\) such that for every integer \(N\geq1\), every measurable partition \(\R=\coprod_{j=1}^N E_j\), every \(a_j,b_j\in\R\), and
+\[
+ u(x)=a_jx+b_j\quad(x\in E_j),
+\]
+one has the full-scale estimate
+\[
+ \|M_uf\|_p\leq C_p N^{1/p}\|f\|_p.
+\]
+The constant is independent of the partition and of the affine coefficients. For one branch \(u(x)=ax+b\), the measure-preserving shear
+\[
+ S(x,y)=(x,y-ax^2/2-bx),\qquad g=f\circ S^{-1},
+\]
+gives the exact identity
+\[
+ (M_uf)(S^{-1}(x,v))=
+ \sup_{\epsilon>0}\left|\frac{1}{2\epsilon}
+ \int_{-\epsilon}^{\epsilon}g(x-t,v-at^2/2)\,\dd t\right|,
+\]
+which is the aid's reduction to polynomial parabolic maximal averages. Finally, for every \(0<p\leq1\), no finite strong \(L^p\) bound holds even for \(u=0\); here \(\|\cdot\|_p\) denotes the usual quasi-norm when \(p<1\). No endpoint weak-type assertion or bound uniform in arbitrary slope complexity is supplied.
+\subsection{Short English statement}
+Thiele asks for finite-\(p\) bounds for maximal averages along a merely measurable slope field depending on one coordinate. The supplied reduction makes finite rational-valued fields sufficient, provided their bounds are uniform in complexity. A separate theorem gives a bound growing as \(N^{1/p}\) for measurable patchings of \(N\) affine slopes; this does not settle the uniform problem.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000528\), exact public code \texttt{catalogue entry}; \texttt{aim-analysis-notes.json}, \texttt{notes[59]}.
+\item AIM workshop \emph{Carleson theorems and multilinear operators}, Question 1, attributed to Thiele, displayed formula (0.1): \url{https://aimath.org/pastworkshops/multilinopsproblems.pdf}. This URL is supplied as provenance; no PDF access is claimed here.
+\item The supplied statement-verification field reports checked OCR repairs: control characters restored as \(\epsilon\), the factor restored as \(1/(2\epsilon)\), limits restored as \(-\epsilon,\epsilon\), and absolute values retained outside the whole average.
+\item Supplied research summary, ``Finite-range reduction and measurable affine patching for a one-variable vector-field maximal operator,'' attempt 1. The original literature field is empty; no external citation for the parabolic maximal estimate or claimed partial results is supplied.
+\end{itemize}
+\end{document}

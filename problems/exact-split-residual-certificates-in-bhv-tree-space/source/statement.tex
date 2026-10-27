@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000873}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source is a statistical-discussion section, moderated by Ruth Charney, rather than one formal problem. Diaconis asks which noise sources affect tree estimation and which should be addressed first. The list includes alignment, sequencing error, model misspecification of mutation rates/site independence/composition, within-species variation (the transcript gives ``1 in 1000 genes'' without a specified measurement), distance-correction bias, DNA-fragment selection, spatially varying selection, gene duplication/loss and identification, hybridization/horizontal transfer incompatible with a tree, optimization error and insufficient sequence length or taxa. Epstein's remark about improving sequencing quality is historical context.
+
+Penny asks about composition effects, model-compatible distances, residuals/diagnostic plots and differing meanings of maximum likelihood. Vert asks for a noise-aware tree geometry with stability and useful averages; Diaconis suggests Fisher-information geometry, Evans mentions the hyperbolic geometry of univariate normal distributions, and Epstein cautions that an average does not summarize everything. Diaconis and Aldous discuss tree-walk mixing and biological relevance: the notes report an $n^2$ leaf-relocation scale and a conjectural $n^{3/2}$ subtree-relocation scale without complete chains, normalizations or convergence criteria, and ask about rotation walks and MCMC. The session asks for appropriate measures on tree space; Glenn asks about nonparametric likelihood and Diaconis mentions empirical likelihood/bootstrap. Su asks for distance bounds, including BHV bounds. These remain separate modeling/statistical questions, not answered universally by the aid's residual theorem.
+
+For that theorem, fix a labelled leaf set and a BHV tree-space convention. Each orthant parametrizes a compatible collection of splits by nonnegative lengths, with Euclidean orthant metrics and their intrinsic path metric $d_{\mathrm{BHV}}$; zero lengths permit unresolved trees. Include or exclude pendant-edge Euclidean factors consistently. For a declared set $A$ of allowed splits, let
+\[
+ \mathcal M_A=\{U:\operatorname{supp}_+(U)\subseteq A\}
+\]
+contain \emph{every} compatible tree using those splits, with arbitrary nonnegative lengths and no additional topology/length constraints. If $x_\sigma(T)$ denotes split length, the aid's exact result is
+\[
+ r_A(T)^2:=\operatorname{dist}_{\mathrm{BHV}}(T,\mathcal M_A)^2
+ =\sum_{\sigma\notin A}x_\sigma(T)^2.
+\]
+The unique nearest tree is obtained by deleting forbidden coordinates and preserving all allowed lengths. Each forbidden split contributes its squared length to the exact residual. Restricting $\mathcal M_A$ to fully resolved trees or imposing positive lower lengths would change the problem.
+
+The residual is $1$-Lipschitz. Hence if an estimate $\widehat T$ has certified BHV error $d_{\mathrm{BHV}}(T,\widehat T)\leq\varepsilon$, then
+\[
+ r_A(T)\geq\max\{0,r_A(\widehat T)-\varepsilon\}.
+\]
+For observations $T_1,\ldots,T_N$, the aid's dataset least-squares lower bound is
+\[
+ \inf_{U\in\mathcal M_A}\sum_{i=1}^N d_{\mathrm{BHV}}(T_i,U)^2
+ \geq\sum_{i=1}^N\sum_{\sigma\notin A}x_\sigma(T_i)^2.
+\]
+A common fitted tree need not attain the separate pointwise projections.
+
+The aid also recovers a known sharp two-tree bracket, without novelty claims. For trees $T,U$, let $C$ be their common positive splits and set
+\[
+ c^2=\sum_{\sigma\in C}(x_\sigma(T)-x_\sigma(U))^2,\quad
+ a^2=\sum_{\sigma\in\operatorname{supp}_+(T)\setminus C}x_\sigma(T)^2,\quad
+ b^2=\sum_{\sigma\in\operatorname{supp}_+(U)\setminus C}x_\sigma(U)^2.
+\]
+Then
+\[
+ \sqrt{c^2+a^2+b^2}\leq d_{\mathrm{BHV}}(T,U)
+ \leq\sqrt{c^2+(a+b)^2}\leq\sqrt2\sqrt{c^2+a^2+b^2}.
+\]
+These are geometric certificates for the declared split model. They do not validate a phylogenetic data-generating law, resolve hybridization, specify a sampling distribution or supply statistical error radii.
+\subsection{Short English statement}
+The discussion raises many distinct sources of uncertainty in phylogenetic trees. The aid addresses a specific geometric residual: forbidden split lengths give the exact BHV distance to the unrestricted allowed-split model. It also gives a robust residual certificate and known distance bounds, without solving the broader model-selection or mixing questions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000873$, source code \texttt{catalogue entry}, supplied full discussion section and research summary; canonical local record \texttt{aim-biology-notes.json}, \texttt{notes[37]}.
+\item American Institute of Mathematics, \emph{Geometric models of biological phenomena}, section A.4, ``Tuesday Discussion on Statistical Issues'', moderated by Ruth Charney; discussion notes credited at chapter level to Francis Su. Supplied PDF version string: ``Wed Jun 18 16:51:55 2003''; supplied page identification: PDF pages 8--10, printed pages 9--10. \url{https://aimath.org/WWN/geombio/geombio.pdf}. No PDF was retrieved.
+\item Discussion attributions: Diaconis, Epstein, Penny, Vert, Evans, Aldous and students, Glenn and Su. The original literature field is empty and supplies no full bibliographic references for the mixing claims, Fisher geometry, BHV bracket or residual theorem.
+\item Research attempt 1: partial result; problem partially solved at the recorded run; supplied rigor label ``proved'', novelty confidence ``low''. The machine-generated aid is not peer reviewed and requires independent verification before citation; the sharp BHV bracket is explicitly not claimed as new.
+\end{itemize}
+\end{document}

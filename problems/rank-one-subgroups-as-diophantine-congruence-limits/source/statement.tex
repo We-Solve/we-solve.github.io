@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002357}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(E/\Q\) be an elliptic curve and \(G=E(\Q)\). Its Mordell--Weil rank is \(\dim_\Q(G\otimes_\Z\Q)\); assume this rank is two, so \(G\cong\Z^2\oplus F\) for a finite abelian torsion group \(F\). A subgroup \(H\le G\) has rank one if \(\dim_\Q(H\otimes_\Z\Q)=1\). Interpreting definability in the field \(\Q\) with its ring language, rational parameters, and an algebraic coordinate coding of \(E(\Q)\), Shlapentokh's Question 20 asks
+\[
+ \forall E/\Q\text{ of rank }2\quad
+ \exists H\le E(\Q)\text{ of rank }1
+ \quad H\text{ is existentially definable over }\Q.
+\]
+Over \(\Q\), inequations can be converted to existential equations by inverses; finite coordinate charts and the identity point must be included when coding the projective curve. The short source does not itself specify a language or parameter convention; the ring-language interpretation is the one used by the aid.
+
+Fix an infinite-order \(P\in G\) and write \(H_P=\langle P\rangle\). For each fixed positive integer \(m\), define the congruence tube
+\[
+ T_m=H_P+[m]G
+ =\bigcup_{r=0}^{m-1}\bigl([r]P+[m]G\bigr).
+\]
+Thus membership in \(T_m\) is expressed by the finite disjunction
+\[
+ X\in G\quad\wedge\quad
+ \bigvee_{r=0}^{m-1}\exists Q\in G\ (X=[r]P+[m]Q).
+\]
+Using the algebraic group law, each fixed tube is positive-existentially definable over \(\Q\), with \(P\) fixed. This means one finite formula for each fixed \(m\), not an asserted single Diophantine formula with a variable integer multiplication index.
+
+The supplied aid asserts the exact limit description
+\[
+ H_P=\bigcap_{N\ge1}\bigl(H_P+[N!]G\bigr),\qquad
+ H_P+[(N+1)!]G\subseteq H_P+[N!]G.
+\]
+The finite-generation hypothesis matters here: \(G/H_P\) is finitely generated, and its intersection of factorial multiples is zero, including its finite torsion part. This infinite conjunction is not a first-order existential definition. Moreover, if a nonempty finite expression is built from tubes \(T_{m_1},\ldots,T_{m_s}\) using only intersections and unions, it contains \([L]G\), where \(L=\operatorname{lcm}(m_1,\ldots,m_s)\). Hence it contains a rank-two subgroup and cannot itself be a rank-one subgroup. This obstruction concerns those finite positive combinations, not arbitrary field-language formulas.
+
+The independent pure-group obstruction reported by the aid is: for \(G\cong\Z^2\oplus F\), no subgroup of rank one is definable in one free group variable by a positive-existential formula in \(\{0,+,-\}\), even with parameters from \(G\). Such formulas use existential quantifiers, conjunctions, and disjunctions of group equations, not arbitrary negations or field arithmetic. The assertion does not cover the intended ring-language problem, whose quantified witnesses can range over rational field coordinates. Thus the aid's negative pure-group result and factorial-limit description leave the original existential field-arithmetic question open.
+\subsection{Short English statement}
+Does every rank-two rational elliptic curve have an existentially definable rank-one subgroup? The aid describes a cyclic subgroup as an infinite intersection of individually Diophantine congruence tubes, while ruling out finite positive tube combinations and positive-existential definitions using only the abstract group language.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002357\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-logic-notes.json}, \texttt{notes[132]}.
+\item AIM, \emph{Extensions of Hilbert's tenth problem}, Question 20 attributed to Shlapentokh; supplied reference \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}. The verification field reports an undamaged official statement; no inspection was performed here. No proposer year, original remarks, or literature citation is supplied.
+\item Supplied research attempt 1: \texttt{partial\_result}, run status \texttt{open}, rigor label \texttt{proved}, low novelty confidence; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The tube and pure-group assertions have no additional primary bibliographic citation in the record.
+\item The aid explicitly states that it is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

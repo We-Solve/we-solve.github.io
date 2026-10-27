@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006084}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For the supplied family \(f_t:\R^d\to\R\), define, whenever these expressions are meaningful,
+\[
+Z_t:=\int_{\R^d}e^{-f_t(x)}\,\dd x,\qquad
+\rho_t(x):=Z_t^{-1}e^{-f_t(x)},\qquad
+\mu_t:=\rho_t(x)\,\dd x.
+\]
+The interpretation as probability densities requires measurability in \(x\) and \(0<Z_t<\infty\). The source does not specify the time interval, time regularity, moment assumptions, or the meaning of ``globally integrable.''
+
+\textbf{Problem as supplied.} Find general conditions on the prescribed family \((f_t)\) ensuring the existence of a measurable velocity field \(v(t,x)=v_t(x)\in\R^d\) satisfying
+\[
+\partial_t\rho_t+\nabla\!\cdot(\rho_t v_t)=0
+\]
+and the intended global integrability requirement. The supplied reconstruction also describes the target as absolute continuity of the associated Fisher--Rao curve in Wasserstein space. The exponent and regularity needed to make this equivalence precise are unresolved in the supplied record.
+
+For clarity, the following gives a conditional precise interpretation, without selecting the missing parameters. Fix a finite interval \(I=[a,b]\), \(a<b\), and an exponent \(1\le p<\infty\). Write
+\[
+\mathcal P_p(\R^d):=\left\{\mu:\mu\text{ is a Borel probability measure on }\R^d,\quad \int_{\R^d}|x|^p\,\dd\mu(x)<\infty\right\},
+\]
+and define
+\[
+W_p(\mu,\nu):=\left(\inf_{\pi\in\Pi(\mu,\nu)}\int_{\R^d\times\R^d}|x-y|^p\,\dd\pi(x,y)\right)^{1/p},
+\]
+where \(\Pi(\mu,\nu)\) is the set of Borel probability measures with marginals \(\mu\) and \(\nu\). A curve \(\mu:I\to\mathcal P_p(\R^d)\) is absolutely continuous in \(W_p\) if there is a nonnegative \(g\in L^1(I)\) such that
+\[
+W_p(\mu_s,\mu_t)\le\int_s^t g(r)\,\dd r\qquad(a\le s\le t\le b).
+\]
+One possible velocity requirement is
+\[
+\int_a^b\left(\int_{\R^d}|v_t(x)|^p\rho_t(x)\,\dd x\right)^{1/p}\,\dd t<\infty,
+\]
+together with the distributional continuity equation
+\[
+\int_a^b\int_{\R^d}\rho_t(x)\bigl(\partial_t\varphi(t,x)+v_t(x)\cdot\nabla_x\varphi(t,x)\bigr)\,\dd x\,\dd t=0
+\quad\text{for every }\varphi\in C_c^\infty((a,b)\times\R^d).
+\]
+Under this interpretation, the question asks for hypotheses on \((f_t)\) ensuring such a field and absolute continuity of the prescribed probability curve, with suitable time representatives and endpoint compatibility. The displayed weak equation alone does not prescribe endpoint values. The source does not determine whether this mixed integrability condition, a finite space--time \(p\)-action, or another condition is intended. It also does not supply hypotheses making \((\rho_t)\) a Fisher--Rao absolutely continuous curve. Consequently, the claimed equivalence and the definitive formulation require human review; no particular exponent, time horizon, or additional regularity assumption is asserted to be the source's intended choice.
+\subsection{Short English statement}
+Determine general conditions under which a prescribed family of normalized Boltzmann densities can be transported by an integrable velocity field satisfying the continuity equation, or has the intended absolute continuity in Wasserstein geometry. The supplied formulation leaves the time domain, Wasserstein exponent, integrability requirement, and Fisher--Rao regularity unspecified, so its asserted equivalence requires clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30006084\), title ``Wasserstein Velocities for Boltzmann Curves,'' source problem code \texttt{catalogue entry}. This draft uses the supplied complete registry record.
+\item Supplied report citation: \emph{Deep Learning for PDE-based Inverse Problems} (2025), Oberwolfach Reports, DOI 10.4171/owr/2024/48, pp. 2805--2900. Literature-source label: ``Oberwolfach Report 48/2024.'' \url{https://doi.org/10.4171/owr/2024/48}. The record assigns proposed year 2024; both year designations are retained as supplied.
+\item The original fragment includes the presentation title ``Neural sampling from Boltzmann densities: Fisher--Rao curves in the Wasserstein geometry'' and attributes it to Gabriele Steidl, joint work with Jannis Chemseddine, Christian Wald, and Richard Duong. The fragment's question is truncated after ``such velocity''; the record supplies no separately identified proposer.
+\item Chemseddine et al., \emph{Neural sampling from Boltzmann densities}. \url{https://proceedings.iclr.cc/paper_files/paper/2025/hash/1d1cea122b9ec9f78acc21510659e500-Abstract-Conference.html}.
+\item Supplied literature assessment, checked \texttt{2026-08-22}: the record labels the problem open and states that the cited primary paper provides sufficient conditions and specific well-behaved interpolations, rather than a general existence theorem for prescribed Boltzmann families. This is supplied dated curation derived from the Oberwolfach record, not an independently verified literature assessment. Time-sensitive status and the cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that it was reconstructed and checked against the official Oberwolfach report. These are supplied verification claims; no source visit or independent verification is asserted here.
+\end{itemize}
+\end{document}

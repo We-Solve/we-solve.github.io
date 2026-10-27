@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001038}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The extracted source is an implication from the preceding Seymour--Sullivan rainbow conjecture to the Caccetta--H\"aggkvist conjecture, not a new independent conjecture. Its broken ceiling expression is interpreted by the supplied aid as \(\lceil n/\delta_H^+\rceil\).
+
+Let \(H\) be a finite simple loopless digraph on \(n\ge2\) vertices, with minimum outdegree \(\delta=\delta_H^+\ge1\). Directed cycle length counts arcs. The Caccetta--H\"aggkvist assertion is that \(H\) has a directed cycle of length at most
+\[
+ \left\lceil n/\delta\right\rceil.
+\]
+For a list-labeled digraph \(G\), specify arc sets \(E_1,\ldots,E_k\), allowing overlap. An arc may receive label \(i\) when it lies in \(E_i\); a rainbow directed cycle admits distinct labels on all its arcs. Its total labeled outdegree at \(v\) is
+\[
+ \Lambda^+(v)=\sum_{i=1}^k d^+_{E_i}(v),
+\]
+counting repeated membership in different label sets.
+
+The load-threshold principle used in the supplied reduction is:
+\[
+ \Lambda^+(v)\ge n\quad\text{for every }v
+ \quad\Longrightarrow\quad G\text{ has a rainbow directed cycle}.
+\]
+The aid invokes the Seymour--Sullivan reachability conjecture to imply this principle when reachability uses positive-length rainbow paths. The full preceding conjecture is not supplied, so the principle is stated conditionally rather than treated as an established general theorem.
+
+For the complete-list lift, take \(G=H\), \(k=\lceil n/\delta\rceil\), and \(E_i=A(H)\) for every \(i\). Then \(\Lambda^+(v)=k d_H^+(v)\ge n\). A rainbow cycle uses at most \(k\) labels, hence gives the desired cycle in \(H\). The aid reports that the load-threshold principle restricted to complete-list lifts is exactly equivalent to the Caccetta--H\"aggkvist assertion: conversely a cycle of length at most \(\lceil n/\delta\rceil\le k\) can receive distinct labels whenever \(k\delta\ge n\).
+
+The aid highlights a reachability convention issue. Without a rainbow cycle, positive-length rainbow reachability from a vertex excludes the vertex itself and has size at most \(n-1\). If the trivial path is counted, that cardinality ceiling becomes \(n\); the same threshold argument then requires \(k\delta>n\). The resulting choice
+\[
+ k=\lfloor n/\delta\rfloor+1
+\]
+exceeds \(\lceil n/\delta\rceil\) by one exactly when \(\delta\) divides \(n\). This is a loss in the proof under that convention, not a disproof of the desired cycle bound.
+
+Separately, for functional digraphs, meaning exactly one outgoing arc per vertex, the aid reports that the threshold principle is unconditionally true for arbitrary arc-label lists and that \(n\) is sharp. A directed \(n\)-cycle with the same \(n-1\) labels available on every arc demonstrates why the smaller threshold \(n-1\) cannot suffice. This restricted theorem does not prove the general rainbow principle or the general Caccetta--H\"aggkvist conjecture.
+\subsection{Short English statement}
+The source explains a conditional rainbow-label reduction to the general short-directed-cycle conjecture. The supplied aid makes the ceiling and positive-length reachability conventions explicit and reports a sharp threshold theorem only for functional digraphs.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001038\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[162]}, tag \texttt{conjecture}.
+\item 2006 AIM workshop notes, ``The Caccetta--H\"aggkvist conjecture,'' Conjecture 6.3 and its note: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. Statement status \texttt{exact}; the supplied verification says the displayed passage is an implication from the preceding Seymour--Sullivan rainbow conjecture. No PDF was accessed for this draft.
+\item Seymour--Sullivan rainbow reachability conjecture and the Caccetta--H\"aggkvist conjecture are named without complete external bibliographic references. No original remarks or literature field are supplied.
+\item Research attempt 1: \texttt{reduction}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, suggested difficulty L4. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

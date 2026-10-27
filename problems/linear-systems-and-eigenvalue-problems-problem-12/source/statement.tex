@@ -1,0 +1,52 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800503}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a conventional finite-dimensional formulation, let \(\mathbb K\in\{\R,\C\}\), let \(n\geq 1\), and let \(A\in\mathbb K^{n\times n}\) be nonnormal, meaning \(A^*A\neq AA^*\), where \(A^*\) is the conjugate transpose. Let \(b,x_0\in\mathbb K^n\), and write \(r_0=b-Ax_0\). Under the usual unrestarted, exact-arithmetic, Euclidean-norm interpretation of GMRES, define
+\[
+\mathcal K_0(A,r_0)=\{0\},\qquad
+\mathcal K_k(A,r_0)=\operatorname{span}_{\mathbb K}\{r_0,Ar_0,\ldots,A^{k-1}r_0\}\quad(k\geq1).
+\]
+A GMRES iterate \(x_k\) minimizes the residual norm over the corresponding affine Krylov space:
+\[
+x_k\in\underset{x\in x_0+\mathcal K_k(A,r_0)}{\operatorname{argmin}}\|b-Ax\|_2,
+\qquad r_k=b-Ax_k.
+\]
+\textbf{Problem.} Develop a descriptive convergence bound for GMRES on nonnormal linear systems, with particular emphasis on the transient behavior during the early iterations. In the framework above, an upper-bound formulation would seek an informative estimate
+\[
+\|r_k\|_2\leq B(k;A,r_0)
+\]
+that describes this early behavior. The source explains that eigenvalue distributions alone may be insufficient: eigenvector conditioning, when applicable, \(\epsilon\)-pseudospectra, or the field of values may enter a convergence analysis. These are motivating quantities, not prescribed mandatory arguments of the bound.
+
+\textbf{Unresolved qualifications.} The source gives a research objective rather than a quantified conjecture. It does not specify a matrix class beyond nonnormality, whether nonsingularity or consistency is required, the scalar field, the norm, the treatment of restarts or finite precision, an iteration range defining ``early,'' or a quantitative criterion for a bound to be ``descriptive.'' The GMRES conventions above provide a standard interpretation, not additional source hypotheses. In particular, for a singular inconsistent system the residual need not converge to zero; no such convergence assertion is made here. Any precise theorem sought under this objective must state its hypotheses, quantifiers, and descriptive criterion explicitly.
+\subsection{Short English statement}
+Develop an informative convergence bound for GMRES on nonnormal linear systems, especially explaining residual behavior during the first iterations. The source motivates using information beyond eigenvalues, such as eigenvector conditioning, pseudospectra, or the field of values. Its intended matrix class and standard of a descriptive bound remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800503\), exact source problem code \texttt{catalogue entry}; title: \emph{Linear Systems and Eigenvalue Problems --- Problem 12}. The supplied record attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels it open. This status is supplied registry metadata, not an independently verified mathematical assessment.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 12. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of independent source access.
+\item The supplied statement cites [LieStr13, Section 5.7] as a survey of convergence results and also refers to [Emb22]. Full bibliographic entries and links for these two references are not included in the supplied record, so their identities are unresolved.
+\end{itemize}
+\end{document}

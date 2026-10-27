@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003478}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(X_n\) be a finite set of distinct leaf labels with \(|X_n|=n\). The source does not specify whether its binary \(X_n\)-trees are rooted or unrooted. Under the rooted convention, a binary tree has two children at every internal vertex; under the unrooted convention, every internal vertex has degree three. These are alternative conventions, and the intended one requires clarification. The following definition uses combinatorial tree topology, with no edge lengths or ordering of children; these choices also require confirmation from the source.
+
+For a nonempty subset \(Y\subseteq X_n\), write \(T|_Y\) for the induced restriction to \(Y\). In the unrooted convention, take the minimal connected subtree spanning \(Y\) and suppress vertices of degree two. In the rooted convention, for \(|Y|\geq2\), take the subtree consisting of the paths from the most recent common ancestor of \(Y\) to its leaves in \(Y\), root it at that ancestor, and suppress vertices with one parent and one child. A restriction to a singleton is the single labeled leaf. Define
+\[
+\operatorname{MAST}(T_1,T_2)
+=\max\bigl\{|Y|:\varnothing\ne Y\subseteq X_n,\ T_1|_Y\cong T_2|_Y\bigr\},
+\]
+where the isomorphism preserves every leaf label and, in the rooted convention, the root. Thus \(\operatorname{MAST}\) denotes the number of leaves in a maximum agreement subtree.
+
+Let \((T_{1,n},T_{2,n})\) be random binary trees on the same leaf set \(X_n\), and put \(M_n=\operatorname{MAST}(T_{1,n},T_{2,n})\). The supplied problem asks for the asymptotic distribution of \(M_n\) as \(n\to\infty\), for common random-tree distributions, specifically including the uniform and Yule--Harding models. Once the tree convention and joint sampling law are fixed, this asks for asymptotic information about
+\[
+F_n(k)=\Pr(M_n\leq k),\qquad k\in\Z.
+\]
+If a limiting-law formulation is intended, one should identify suitable deterministic centering and scaling sequences \(a_n\in\R\), \(b_n>0\), and a probability law \(L\), if they exist, such that
+\[
+\frac{M_n-a_n}{b_n}\xrightarrow{\mathrm d}L.
+\]
+The source supplies neither a normalization nor a proposed limiting law. It also does not explicitly specify independence, identical distribution, the precise uniform sample space, or the convention for the Yule--Harding model. Consequently, it does not determine a unique sequence of distributions \(F_n\); these qualifications remain unresolved rather than being additional assumptions of the problem.
+\subsection{Short English statement}
+Determine the asymptotic distribution of the largest number of labels on which two random binary leaf-labeled trees agree, particularly for uniform and Yule--Harding sampling. The tree convention, joint sampling law, and any normalization must be clarified. The supplied record labels the problem partially solved; this draft does not independently verify that assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003478\), title \emph{Asymptotic Distribution of Maximum Agreement Subtrees}, exact source problem code \texttt{catalogue entry}. The record belongs to the Oberwolfach Reports Open Problems collection, lists proposed year 2017, and names no individual proposer.
+\item Supplied report citation: \emph{Algebraic Statistics (2018)}, Oberwolfach Reports, DOI 10.4171/owr/2017/20, pp.\ 1207--1279. \url{https://doi.org/10.4171/owr/2017/20}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The citation's 2018 designation and the record's 2017 year are retained as supplied.
+\item Supplied literature reference, labeled ``Bernstein and collaborators on MAST bounds'': \url{https://doi.org/10.1137/140997750}.
+\item Supplied literature reference, labeled ``Aldous on the largest common subtree'': \url{https://arxiv.org/abs/2006.10545}.
+\item Supplied literature reference, labeled ``improved random-tree lower bound'': \url{https://arxiv.org/abs/2208.05148}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem partially solved and reports polynomial expectation bounds and improved lower exponents for uniform and Yule--Harding random trees, while describing the asymptotic distribution and tight order as unresolved. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. The record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry marks the statement \texttt{corrected\_verified}, with the supplied explanation that mathematical content was preserved while notation, typography, and sentence structure were repaired for publication. This records a source-side editorial qualification, not mathematical verification of this draft.
+\end{itemize}
+\end{document}

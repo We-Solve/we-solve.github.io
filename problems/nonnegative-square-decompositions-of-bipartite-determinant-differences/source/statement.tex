@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004233}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\), let \([n]=\{1,\ldots,n\}\), and put \(\mathcal I_n=\{S\subseteq[n]:S\neq\varnothing\}\). For a bipartite graph \(G\) with parts \(X=[n]\) and \(Y\), write \(N_G(y)\subseteq[n]\) for the neighborhood of \(y\in Y\), and define
+\[
+X_S=\bigl|\{y\in Y:N_G(y)=S\}\bigr|\qquad(S\in\mathcal I_n).
+\]
+These counts must be finite for the matrix below to have ordinary real entries. The supplied record does not explicitly impose finiteness of \(Y\) or of these counts. Vertices with empty neighborhood do not enter the displayed definitions.
+
+To formulate the requested polynomial identity, regard the symbols \(X_S\), \(S\in\mathcal I_n\), as independent indeterminates and work in \(\R[X_S:S\in\mathcal I_n]\). Define an \(n\times n\) matrix \(M\) by the formulas supplied in the record:
+\[
+M_{ii}=\sum_{\substack{S\in\mathcal I_n\\i\in S}}|S|,
+\qquad
+M_{ij}=\sum_{\substack{S\in\mathcal I_n\\i\in S,\ j\notin S}}\frac{X_S}{|S|}\quad(i\neq j).
+\]
+In particular, the displayed diagonal formula contains no factor \(X_S\); it is retained exactly as supplied. Whether a multiplicity factor or a restriction on the summation was intended is unresolved and materially affects the problem. Let \(\operatorname{diag}(M)\) denote the diagonal matrix with diagonal entries \(M_{11},\ldots,M_{nn}\), and put
+\[
+P_n(X)=\det(\operatorname{diag}(M))-\det(M).
+\]
+For an exponent vector \(\mu=(\mu_S)_{S\in\mathcal I_n}\in\Z_{\geq0}^{\mathcal I_n}\), define the monomial
+\[
+x^\mu=\prod_{S\in\mathcal I_n}X_S^{\mu_S}.
+\]
+Under the formal-polynomial interpretation of the supplied question, is it true that for every \(n\geq1\) there exist finite sets \(A\subseteq\Z_{\geq0}^{\mathcal I_n}\) and \(B\subseteq\Z_{\geq0}^{\mathcal I_n}\times\Z_{\geq0}^{\mathcal I_n}\), together with coefficients \(c_\mu,c_{\mu\nu}\in\R_{\geq0}\), such that
+\[
+P_n(X)=\sum_{\mu\in A}c_\mu x^\mu+
+\sum_{(\mu,\nu)\in B}c_{\mu\nu}(x^\mu-x^\nu)^2
+\]
+as an identity in \(\R[X_S:S\in\mathcal I_n]\)? The record does not specify a coefficient field, restrictions on the monomials, or an explicit quantifier over \(n\); the formulation above makes the usual unrestricted polynomial interpretation explicit, subject to review.
+
+The original statement additionally asks whether there is a natural symmetric-function basis for these invariant polynomials. The relevant relabeling sends \(X_S\) to \(X_{\sigma(S)}\) for \(\sigma\in\mathfrak S_n\). The record does not specify the intended symmetric-function space, the meaning of a natural basis, or whether compatibility as \(n\) varies is required. This additional target therefore remains a source-qualified question rather than a fully specified basis-existence assertion.
+\subsection{Short English statement}
+For a bipartite graph, group vertices on one side by their neighborhoods on the other side. The question asks whether the resulting determinant difference admits a polynomial expression with nonnegative coefficients using monomials and squares of differences of monomials. The supplied diagonal formula and the additional symmetric-function basis question require clarification. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004233\), source problem code \texttt{catalogue entry}, title: Nonnegative Square Decompositions of Bipartite Determinant Differences. Collection: Oberwolfach Reports Open Problems. The proposed year is recorded as 2019; no individual proposer is supplied.
+\item Supplied report citation: \emph{Geometric, Algebraic, and Topological Combinatorics} (2020), Oberwolfach Reports, pp.\ 2395--2472, DOI \texttt{10.4171/owr/2019/39}. Supplied source URL and literature-source link, labeled Oberwolfach report: \url{https://doi.org/10.4171/owr/2019/39}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and reports symmetry under relabeling, with no canonical symmetric-function basis found. This is supplied dated curation, not an independently verified literature assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and states that the official report was checked directly and that definitions were restored in the clean statement. These are supplied source-verification claims; this draft has not independently checked the report. The original statement also records experimental support for the proposed nonnegative decomposition, without supplying experimental details.
+\end{itemize}
+\end{document}

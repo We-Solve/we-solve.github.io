@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000552}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A finite matroid \(M\) on a ground set \(E\) may be specified by a nonempty family \(\mathcal B\) of equal-sized subsets, its bases, satisfying basis exchange: if \(B,C\in\mathcal B\) and \(e\in B\setminus C\), some \(f\in C\setminus B\) has \((B\setminus\{e\})\cup\{f\}\in\mathcal B\). Its closed base polytope is
+\[
+P(M)=\operatorname{conv}\{\mathbf1_B:B\in\mathcal B\}\subset\R^E.
+\]
+The original question asks what consequences the Marcus--Spielman--Srivastava theorem (MSS) has for matroid theory, and whether it can yield a ``continuous version'' of matroid theory. It does not define that phrase, select an MSS formulation, or state a particular matroid conclusion. Thus this is a research-program question, not a uniquely specified universal assertion. Polytope points and probability marginals provide one explicit interpretation from the attached aid.
+
+For that interpretation, a positive stable basis witness is
+\[
+p(z)=\sum_{B\in\mathcal B}w_B\prod_{e\in B}z_e,\qquad w_B>0,
+\]
+which is real stable: it does not vanish when every variable has strictly positive imaginary part. A matroid admitting such a witness has the weak half-plane property (WHPP). A probability law on bases is strongly Rayleigh if its multiaffine generating polynomial is real stable. Its marginal vector has coordinates \(\Pr(e\in B)\).
+
+The aid claims the following facewise marginal completion. Fix a WHPP witness \(p\). For every \(x\in P(M)\), let \(F_x\) be the minimal face containing \(x\). There exist positive numbers \(t_e\) such that the law
+\[
+\mu_x(B)=\begin{cases}
+Z^{-1}w_B\prod_{e\in B}t_e,&\mathbf1_B\in F_x,\\
+0,&\mathbf1_B\notin F_x,
+\end{cases}
+\qquad
+Z=\sum_{\mathbf1_B\in F_x}w_B\prod_{e\in B}t_e,
+\]
+is strongly Rayleigh and satisfies \(\sum_{B\ni e}\mu_x(B)=x_e\) for every \(e\). Crucially, the external field is applied after restricting the witness to the face; positive fields on the original full support alone need not realize boundary marginals. The aid attributes a construction to stable face restriction and relative-entropy projection.
+
+It further claims that Anari--Oveis Gharan spectral selection, when its additional vector and quantitative hypotheses hold, rounds such \(x\) to a basis in the same face. No exact spectral bound or complete hypotheses are supplied here. Its stated packing consequence is, for each integer \(k\geq1\),
+\[
+M\text{ has }k\text{ pairwise disjoint bases}
+\quad\Longleftrightarrow\quad
+\exists\text{ a strongly Rayleigh basis law }\mu
+\text{ with }\Pr_\mu(e\in B)\leq1/k\quad(e\in E),
+\]
+within the WHPP class under discussion. It describes the threshold as universally sharp, even for uniform strongly Rayleigh laws; in nontrivial packing cases this means a larger universal marginal threshold cannot guarantee \(k\) disjoint bases. The \(k=1\) existence assertion is trivial for a matroid with a base.
+
+Finally, the aid reports analogous marginal completion for every matroid with Lorentzian laws in place of strongly Rayleigh laws. In the homogeneous multiaffine matroid-support setting, the Lorentzian condition can be expressed by the requirement that every degree-two partial derivative of total order two less than the rank has a Hessian with at most one positive eigenvalue, with the usual degree-zero/one conventions. This weaker class must not be replaced by strongly Rayleigh for arbitrary matroids. The aid supplies no complete spectral consequence of that broader extension. All these are unreviewed supplied partial claims, not a definition or complete development of continuous matroid theory.
+\subsection{Short English statement}
+Ask for matroid consequences of MSS and a precise meaning of continuous matroid theory. The supplied aid interprets this through base polytopes, face-supported probability laws, spectral rounding, and disjoint-base packing, with strong-Rayleigh assertions restricted to WHPP matroids.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Beyond Kadison--Singer: paving and consequences}, item b11: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID \(20000552\), exact source code \texttt{catalogue entry}; canonical \texttt{aim-analysis-notes.json}, notes[83].
+\item The source names MSS, expanded as Marcus--Spielman--Srivastava; the attached aid invokes Anari--Oveis Gharan spectral selection. No full bibliographic citations are supplied. Attempt 1 is explicitly machine-generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001396}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether a limiting distribution and/or an escape rate can be found for ``eclipsing scatterers''. It does not specify the scatterers, phase space, initial distribution, loss mechanism, observable, or time convention. An eclipse suggests that one scatterer blocks visibility between others, but the exact geometric condition is not defined in this excerpt. The trailing ``Open Problems and Questions: Tuesday'' is a document heading rather than a mathematical hypothesis.
+
+One possible precise target, used by the supplied research aid, is an open billiard observed at collision times. For escape time $\tau$, survival probability $s_n=\Pr(\tau>n)$, and surviving state $X_n$, ask whether
+\[
+ \gamma=-\lim_{n\to\infty}\frac1n\log s_n
+ \quad\text{exists, and whether}\quad
+ \mathcal L(X_n\mid\tau>n)\longrightarrow\pi.
+\]
+This conditional-state interpretation is not the only possible meaning of the original ``limiting distribution'' and is stated as an interpretation. Collision-time and physical-time escape rates need not coincide.
+
+The supplied partial result assumes an \emph{exact} finite substochastic Markov reduction: a nonnegative matrix $Q$ with row sums at most one, initial row probability $\alpha$, and $s_n=\alpha Q^n\mathbf1$. If $Q$ is primitive and its spectral radius satisfies $0<\rho<1$, let $\pi Q=\rho\pi$, $Qh=\rho h$, $\pi\mathbf1=1$ and $\pi h=1$, with positive Perron vectors. The aid reports
+\[
+ s_n\sim(\alpha h)\rho^n,\qquad \gamma=-\log\rho,
+ \qquad\frac{\alpha Q^n}{\alpha Q^n\mathbf1}\longrightarrow\pi,
+\]
+and, for every fixed integer $k\geq0$,
+\[
+ \Pr(\tau>n+k\mid\tau>n)\longrightarrow\rho^k.
+\]
+The latter is an asymptotically geometric residual lifetime. These conclusions require the exact reduction and primitivity, not just a geometric visibility graph.
+
+The aid contrasts this with a completely eclipsing collinear three-disk example, described with strict radii $r<R$, whose visibility graph is bipartite. In its \emph{uniform visibility-pruning model}, rather than an asserted exact billiard transfer law, the survivor matrix is
+\[
+ Q=\frac12\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},
+ \qquad\rho=\frac1{\sqrt2}.
+\]
+The middle label is central and the first and third are outer labels. For initial law $\alpha=(1/2,0,1/2)$ on the outer class the reported behavior is
+\[
+ s_{2k}=2^{-k},\qquad s_{2k+1}=2^{-(k+1)}\quad(k\geq0),
+\]
+with conditional law uniform on the two outer labels at even times and concentrated on the central label at odd times. Hence the collision escape exponent exists and equals $\tfrac12\log2$, while the conditional label law and one-step survival probability alternate and do not converge. This demonstrates the aperiodicity issue in the selected finite-state model; it is not a proof of the same behavior for all physical eclipsing billiards. The general geometric problem remains incompletely specified.
+\subsection{Short English statement}
+The question asks about escape and limiting behavior when scatterers eclipse one another. In the supplied finite-state model, a primitive survivor matrix gives exponential survival and a limiting conditional distribution. A bipartite visibility-pruning example keeps an escape exponent but alternates between two conditional laws, showing why aperiodicity matters. The relation of that model to an exact billiard law remains a separate assumption.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001396, exact source code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[53]}, source item 11, tag ``problem'', workshop \emph{Stochastic methods for non-equilibrium dynamical systems}; \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item The original excerpt supplies no scatterer geometry, initial law, or references, and its verification only introduces the exact corpus field. No proposer is identified; original remarks and literature field are empty.
+\item Supplied metadata: PARTIAL-PROGRESS, registry status ``partially\_solved'', statement status ``exact''; attempt 1, result ``partial\_result'', problem status at run ``unknown'', recorded rigor ``proved'', novelty confidence ``low'', candidate type ``obstruction''. The machine aid is not peer reviewed and explicitly requires independent verification before citation. The Perron and collinear visibility-model assertions are attributed to that aid; no external source was visited.
+\end{itemize}
+\end{document}

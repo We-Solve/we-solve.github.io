@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005788}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A Coxeter system is a group \(W\) with a generating set \(S\) and presentation
+\[
+W=\left\langle S\;\middle|\;(st)^{m_{st}}=1\text{ whenever }m_{st}<\infty\right\rangle,
+\]
+where \(m_{ss}=1\) and \(m_{st}=m_{ts}\in\{2,3,\ldots\}\cup\{\infty\}\) for distinct \(s,t\in S\). Its rank is \(|S|\). The defining Coxeter graph encodes this matrix using the chosen graph convention.
+
+The supplied record refers to a \emph{Coxeter galaxy}, its layers, their dimensions, and its connected components, but does not define these objects. Write \(\mathcal G\) for that galaxy, \(L_r\) for its layer indexed by rank \(r\), and \(C(v)\) for the connected component containing a vertex \(v\). These are placeholders for the intended source definitions; the record does not specify the vertex equivalence relation, edge relation, layer structure, or meaning of dimension. In particular, a layer is not assumed here to have the usual dimension of a graph.
+
+\textbf{Primary questions (conditional on those definitions).} Determine the dependence on rank of
+\[
+d(r):=\dim L_r,
+\]
+and determine whether, from a defining Coxeter graph \(D\) representing a vertex \(v_D\), one can determine, for each admissible layer index \(r\), the cardinality
+\[
+N(D,r):=\left|V(L_r)\cap C(v_D)\right|.
+\]
+Here \(V(L_r)\) denotes the vertices belonging to the layer. Finiteness of \(d(r)\) or \(N(D,r)\) is not assumed. The source does not specify whether the desired growth description is an exact formula, bounds, or asymptotics. Likewise, ``determine from a graph'' is not specified as an effective algorithm, a formula, or a structural characterization; the question asks for such a determination, beyond merely naming the cardinality above. The allowed ranks, including whether rank zero is included, require clarification.
+
+\textbf{Additional question in the supplied original excerpt.} The excerpt also includes Question 3.1, called the \emph{Reachability and Coloring Problem}. It asks whether there exists a single finite list \(\mathcal M\) of vertical and horizontal move types such that
+\[
+\forall v\in V(\mathcal G)\quad
+\forall w\in C(v)\quad
+\exists k\in\Z_{\geq 0}\quad
+\exists v_0,\ldots,v_k\in V(\mathcal G)
+\]
+with \(v_0=v\), \(v_k=w\), and each transition \(v_{i-1}\to v_i\), for \(1\leq i\leq k\), an allowed application of a move from \(\mathcal M\). It further asks for an algorithm that, for vertices in the same connected component, produces a connecting path together with the kinds of moves used along it. The excerpt does not define the admissible move types, their directions or inverses, or the required coloring information beyond identifying kinds of moves. It is therefore insufficient to specify this algorithmic problem completely. The cleaned statement concerns layer growth and component--layer cardinalities; whether this additional navigation question is part of the intended target is unresolved.
+
+\textbf{Supplied qualifications.} The excerpt attributes blow-up moves to Howlett and Mühlherr, and states that results of Mihalik, Ratcliffe, and Tschantz imply that these moves suffice for vertical navigation. It relates the horizontal question to Mühlherr's twist conjecture. The supplied dated assessment also reports known low-rank cases and describes the general reachability and coloring problem, especially its horizontal part, as remaining open. These are supplied literature claims, not independently verified conclusions; their precise hypotheses and coverage are absent. The original excerpt ends mid-sentence during its discussion of the horizontal question.
+\subsection{Short English statement}
+The primary task is to describe how the dimensions of Coxeter-galaxy layers depend on rank and to determine, from a defining Coxeter graph, how many vertices of its connected component lie in each layer. The necessary definitions of the galaxy, layers, and dimension are missing. The original excerpt additionally asks for finitely many move types and an algorithm connecting vertices in the same component while identifying the moves used; its inclusion in this problem's intended scope is uncertain. The supplied partially solved status requires independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete source record, permanent ID \(30005788\), title \emph{Layer Growth in the Coxeter Galaxy}, exact source code \texttt{catalogue entry}. The record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year \(2024\); no individual proposer is supplied.
+\item Supplied report citation: \emph{Mini-Worskhop: Artin Groups meet Triangulated Categories} (2024), Oberwolfach Reports, pp.\ 203--234, DOI \texttt{10.4171/owr/2024/4}. \url{https://doi.org/10.4171/owr/2024/4}. The background describes Oberwolfach Reports as documenting workshops and their open-problem discussions. This reference is also listed as the ``original OWR report'' among the supplied literature sources; no exact page for this problem is supplied.
+\item Supplied literature reference: Santos Rego--Schwer, \emph{The galaxy of Coxeter groups}, DOI \texttt{10.1016/j.jalgebra.2023.12.006}. \url{https://doi.org/10.1016/j.jalgebra.2023.12.006}.
+\item Supplied literature assessment, checked \textbf{2026-08-22}: status ``partially solved.'' The assessment reports known vertical navigation and several low-rank cases, while describing the general reachability and coloring problem, especially the horizontal part, as open. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. Its time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and states that it was reconstructed and checked against the official Oberwolfach report. This is supplied verification metadata, not verification performed for this draft. The original excerpt attributes blow-ups to Howlett and Mühlherr, vertical-navigation results to Mihalik, Ratcliffe, and Tschantz, and the relevant twist conjecture to Mühlherr; it provides no separate bibliographic citations for those attributions.
+\end{itemize}
+\end{document}

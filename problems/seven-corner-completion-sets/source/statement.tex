@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001109}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For finite $A\subset\Z$, $|A|=n$, define its seven-corner completion set
+\[
+ S(A)=\{x+a+b+c:x,x+a,x+b,x+c,x+a+b,x+b+c,x+a+c\in A\},
+\]
+with integer $x,a,b,c$ and no original nonzero-step restriction.
+
+\textbf{Problem 2.9 (T. Gowers).} If $|S(A)|<cn$, what structure of $A$ follows? The constant range and proposed structural conclusion are unspecified. B. Green comments that the answer is ``no'' as written, that $S$ could be dissociated, and that he, Tim and Terry had not found a satisfactory reformulation.
+
+\textbf{Reported obstruction.} Taking all steps zero shows $A\subseteq S(A)$; thus the hypothesis is vacuous for nonempty $A$ if $c\leq1$. A Sidon set has no nontrivial additive quadruple, equivalently its unordered pair-sums are all distinct. The aid proves every Sidon $A$ satisfies $S(A)=A$. In particular
+\[
+ A_n=\{1,3,\ldots,3^{n-1}\},\qquad |S(A_n)|=n,\qquad
+ |A_n+A_n|=n(n+1)/2.
+\]
+These sets are dissociated (no nonzero relation with coefficients in $\{-1,0,1\}$). For every $c>1$ they satisfy the printed small-completion condition while having maximal pair-sum growth. This refutes a general small-doubling/standard additive-structure inference, rather than every logically possible statement called ``structure.''
+
+\textbf{Reported multiplicity repair.} Define $C^{\times}(A)$ to count all ordered quadruples $(x,a,b,c)$ satisfying the seven membership conditions with $abc\ne0$. Let $m_z(A)$ count those with missing vertex $z=x+a+b+c$, so $C^{\times}(A)=\sum_{z\in S(A)}m_z(A)$. These definitions disambiguate the summary's rendered $C_x$ notation. Put
+\[
+ E(A)=\#\{(u,v,w,t)\in A^4:u+v=w+t\}.
+\]
+The aid's corrected-energy bound is
+\[
+ C^{\times}(A)\leq n\big[E(A)-(2n^2-n)\big].
+\]
+The subtracted term counts trivial additive quadruples. The nonzero-step restriction is material; it is not part of the original definition of $S$.
+
+If, for a fixed $\kappa>0$,
+\[
+ \frac1{|S(A)|}\sum_{z\in S(A)}m_z(A)\geq\kappa n^3,
+\]
+then $|S(A)|\geq n$ and the bound forces additive energy at least $\kappa n^3$. The aid invokes Balog--Szemer\'edi--Gowers to obtain $A'\subset A$ of size at least $c_\kappa n$ with $|A'-A'|\leq C_\kappa|A'|$. This conclusion needs large nonzero-step multiplicity, not merely few distinct missing vertices; exact constants are absent.
+
+The report also computes, for integer $N\geq0$,
+\[
+ S(\{0,1,\ldots,N\})
+ =[-\lfloor N/2\rfloor,\,\lfloor3N/2\rfloor]\cap\Z.
+\]
+The counterexample and corrected criterion do not supply the universally preferred reformulation sought in Green's comment.
+\subsection{Short English statement}
+Few distinct seven-corner completions do not force small doubling: Sidon sets already have completion set equal to themselves. The aid gives an explicit powers-of-three example, then shows that a stronger hypothesis on nonzero-step completion multiplicities forces high additive energy and a large small-difference subset. It also computes the exact interval case.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001109$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[233]}.
+\item AIM workshop ``Recent Trends in Additive Combinatorics,'' PDF Problem 2.9, T. Gowers, with B. Green's accompanying negative comment and reformulation discussion: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. Supplied verification says the PDF was checked; no independent visit is asserted.
+\item Balog--Szemer\'edi--Gowers theorem, as named in the research summary; no full reference or parameter bounds supplied.
+\item Research attempt 1, \texttt{counterexample}, run status \texttt{refuted}, internal rigor \texttt{proved}, low novelty confidence; registry \texttt{SOLVED-IN-LITERATURE}. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. Original literature field empty.
+\end{itemize}
+\end{document}

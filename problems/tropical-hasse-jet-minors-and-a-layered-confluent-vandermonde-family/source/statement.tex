@@ -1,0 +1,52 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000226}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Ravi Vakil proposes a tropical approach to interpolation of plane curves with specified multiple points: add conditions until an expected one-dimensional system is reached, then seek an isolated, non-deforming tropical solution that lifts. The supplied verification identifies the trailing extracted ``7'' as the next problem heading, so it is not part of this question.
+
+For degree $d\ge0$, multiplicities $m_i\ge0$, and general distinct points $p_i\in\PP^2$, write
+\[
+V=H^0\bigl(\PP^2,\mathcal O(d)\otimes\bigcap_i\mathcal I_{p_i}^{m_i}\bigr),\quad
+N=\binom{d+2}{2},\quad M=\sum_i\binom{m_i+1}{2}.
+\]
+The naive expected vector-space dimension is $\max(0,N-M)$; projective dimension is one less when $V\ne0$. The source calls the intended statement SHGH and says positive expected dimension should give the right number of solutions, but does not state the exceptional-special-system qualifications of that conjecture. A blanket assertion that all positive-expected-dimension systems impose independent conditions is not a precise substitute for SHGH. The meaning of ``expected dimension 1'' must also distinguish vector dimension one, a single projective parameter point, from a projective pencil.
+
+The attached unreviewed aid proposes a sufficient tropical-linear certificate for independence. Use Hasse jets, the coefficient functionals in local Taylor expansions of orders below $m_i$, rather than characteristic-dependent ordinary derivatives. If $M\le N-1$, add $N-1-M$ disjoint simple point-evaluation rows to their coefficient matrix. A noncancelling initial determinant of an $(N-1)$-square minor certifies augmented rank $N-1$, hence one reduced projective parameter point and independence of the original rows. The valued field, valuation and noncancellation/lifting conventions require specification; this is not a stable-map correspondence theorem.
+
+For the explicit range $\sum_i m_i\le d+1$, the aid supplies a characteristic-free layered confluent-Vandermonde minor, with distinct parameters $a_i$, whose determinant is
+\[
+\pm\prod_{b\ge0}\prod_{i<j}(a_j-a_i)^{(m_i-b)_+(m_j-b)_+},\qquad (t)_+=\max(t,0).
+\]
+The product is finite. It reports a unit-initial certificate and extension of independent original rows by distinct disjoint simple evaluations to rank $N-1$ when the expected vector dimension is positive. This restricted family and criterion do not establish general SHGH or provide the missing tropical moduli-space and liftability theorem requested by the proposal.
+\subsection{Short English statement}
+Seek isolated liftable tropical certificates for plane interpolation with multiple points. The aid gives a matrix-rank certificate and a restricted characteristic-free determinant family; the original SHGH shorthand and dimension normalization need qualification.
+\subsection{Sources}
+\begin{itemize}
+\item Ravi Vakil, suggested Problem 6 in AIM \emph{Degenerations in algebraic geometry}: \url{https://aimath.org/pastworkshops/degenalggeomproblems.pdf}. Canonical location: \texttt{aim-algebraic-geometry-notes.json}, notes[225]. The supplied verification says the final ``7'' belongs to the next problem; the extracted source is used without consulting a PDF.
+\item The original invokes SHGH without a full statement or bibliographic citation. Original remarks and literature are empty.
+\item The attached machine-generated, non-peer-reviewed aid proposes the Hasse-jet minor and confluent-Vandermonde family with low novelty confidence, expressly as partial interpolation progress rather than a proof of SHGH. No complete authoritative references are supplied.
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent catalogue entry, exact source code \texttt{catalogue entry}.
+\end{itemize}
+\end{document}

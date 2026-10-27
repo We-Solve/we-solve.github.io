@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 163}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $p$ be a prime, identify $\F_p=\Z/p\Z$, and for $u\in\F_p\setminus\{0\}$ and $A\subseteq\F_p$ define the nonzero dilate $uA=\{ua:a\in A\}$. One possible precise convention for a cyclic empty interval of length $L\in\{0,1,\ldots,p\}$ is
+\[
+I_p(x,L)=\{x+j\pmod p:0\leq j<L\},\qquad I_p(x,L)\cap uA=\varnothing,
+\]
+where $x\in\F_p$. A different gap convention counts the cyclic distance between consecutive points of $uA$, which differs from the number of missing residues by one for a nonempty set. The source does not fix this convention.
+
+The literal supplied question assumes $|A|=\sqrt p$ and asks for a dilate with a gap of length $100\sqrt p$. No prime is a square, so its cardinality hypothesis cannot hold literally. A nonvacuous precise question requires a specified integer function $k(p)$ replacing $\sqrt p$, an integer gap threshold $L(p)$ replacing $100\sqrt p$, and a range of primes. Once these choices are fixed, the empty-interval version of the target is
+\[
+\forall p\text{ prime in the specified range}\ \forall A\subseteq\F_p,
+\quad |A|=k(p)\ \Longrightarrow\ 
+\exists u\in\F_p\setminus\{0\}\ \exists x\in\F_p:\ I_p(x,L(p))\cap uA=\varnothing.
+\]
+Possible cardinality repairs mentioned by the supplied triage include $k(p)=\lfloor\sqrt p\rfloor$, $k(p)=\lceil\sqrt p\rceil$, or an asymptotic condition $|A|\sim\sqrt p$. These are distinct formulations; none is selected here as the uniquely intended one. The last option also requires a quantified meaning for the asymptotic family of sets. Rounding the gap threshold and restricting to sufficiently large primes are likewise unresolved. For small primes the requested real threshold can exceed the length of the whole cyclic group.
+
+The supplied literature triage, checked 2026-08-17, reports Shakan's theorem that for every $A\subseteq\F_p$ with $|A|>1$, some nonzero dilate has a gap of size at least
+\[
+\frac{2p}{|A|}-2.
+\]
+This bound is quoted using the source's gap convention, whose precise relation to the empty-interval convention above requires source review. At square-root cardinality it gives leading constant $2$, whereas the intended question requests $100$. The triage reports that the polynomial method gives the $p/|A|$ scale, and that Green's December 2025 update says constant $2$ appears to be the limit of Shakan's method. The record's open classification concerns a repaired rounded or asymptotic interpretation and is a dated assessment, not a resolution of the literal cardinality defect.
+\subsection{Short English statement}
+Must some multiplicative dilate of every subset of a prime cyclic group of approximately square-root size leave a cyclic gap of length approximately $100\sqrt p$? The exact set size, integer gap threshold, cyclic gap convention, and range of primes need to be fixed before this becomes a unique nonvacuous statement.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath local registry, permanent ID 163, source code catalogue entry, ``Large Gaps in Dilates'', Ben Green's 100 Open Problems collection. Dataset attribution: Ulam AI and the UnsolvedMath Contributors; curation and metadata under CC BY 4.0.
+\item George Shakan, \emph{A large gap in a dilate of a set}, SIAM Journal on Discrete Mathematics 34 (2020), no. 4, 2553--2555; arXiv:2004.14828, \url{https://arxiv.org/abs/2004.14828}. The supplied assessment attributes the bound $2p/|A|-2$ to this work.
+\item Ben Green, \emph{100 Open Problems}, Problem 32, most recent update recorded as December 2025, \url{https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf}. The supplied assessment cites the constant-$100$ question and the stated limitation of Shakan's method.
+\item The local literature triage records its checks as 2026-08-17. No external source was independently consulted for this draft.
+\end{itemize}
+\end{document}

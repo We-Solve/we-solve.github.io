@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003464}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A finite simplicial complex is \emph{flag} if every set of pairwise adjacent vertices is a face. The coefficient convention for \emph{homology sphere} is not specified in the supplied record. To make the terminology explicit, for a fixed coefficient field \(k\), a \(d\)-dimensional homology sphere over \(k\) means a finite pure simplicial complex \(\Delta\) such that, for every face \(\sigma\), including the empty face,
+\[
+\widetilde H_j(\operatorname{lk}_{\Delta}\sigma;k)\cong
+\begin{cases}
+k,&j=d-|\sigma|,\\
+0,&j\ne d-|\sigma|.
+\end{cases}
+\]
+Here \(\operatorname{lk}_{\Delta}\sigma=\{\tau\in\Delta:\tau\cap\sigma=\varnothing,\ \tau\cup\sigma\in\Delta\}\), with the usual reduced homology convention in degree \(-1\). This is an explicit field-coefficient interpretation for the draft; whether the source intends this convention, integral homology spheres, or a specified coefficient field remains unresolved.
+
+For \(d\geq0\), let \(f_j(\Delta)\) count the \(j\)-dimensional faces and set \(f_{-1}(\Delta)=1\). Define
+\[
+h_{\Delta}(t)=\sum_{i=0}^{d+1}f_{i-1}(\Delta)t^i(1-t)^{d+1-i}.
+\]
+The symmetry of this polynomial for a homology sphere gives its unique expansion
+\[
+h_{\Delta}(t)=\sum_{i=0}^{r}\gamma_i(\Delta)t^i(1+t)^{d+1-2i},
+\qquad r=\left\lfloor\frac{d+1}{2}\right\rfloor.
+\]
+The tuple \((\gamma_0(\Delta),\ldots,\gamma_r(\Delta))\), with \(\gamma_0(\Delta)=1\), is its \emph{gamma-vector}.
+
+\textbf{Proposed statement.} For every finite flag homology sphere \(\Delta\), does there exist a finite flag simplicial complex \(K\) such that
+\[
+f_{i-1}(K)=\gamma_i(\Delta)\quad(0\leq i\leq r),
+\qquad f_j(K)=0\quad(j\geq r)?
+\]
+Thus ``face vector'' is interpreted as the augmented face vector, including the empty face and allowing trailing zeros. The complex \(\{\varnothing\}\), having no vertices, is allowed; it realizes the vector \((1)\) when \(r=0\).
+
+The supplied original statement also includes the proposed bounds
+\[
+0\leq\gamma_i(\Delta)\leq\binom{\ell}{i}\qquad(2\leq i\leq r),
+\qquad \ell=\gamma_1(\Delta).
+\]
+Here \(r\geq1\) is needed to define \(\ell\); the realization would identify \(\ell\) with the nonnegative integer \(f_0(K)\). The original wording \(i\geq2\) may be read by extending \(\gamma_i=0\) for \(i>r\), with \(\binom{\ell}{i}=0\) for \(i>\ell\). These bounds are retained as part of the supplied conjectural formulation, not asserted as established results. The clean statement emphasizes realization, while the supplied background reports a truncated extraction; the exact source formulation requires review.
+\subsection{Short English statement}
+The question asks whether the gamma-vector of every flag homology sphere counts the faces of some flag simplicial complex, including its empty face. The supplied original formulation also proposes bounds on the gamma entries in terms of \(\gamma_1\). The homology coefficient convention and the precise source wording remain unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, supplied record with permanent UnsolvedMath ID \(30003464\); source problem code \texttt{catalogue entry}. Title: \emph{Flag-Complex Realization of Gamma Vectors}. The record belongs to the Oberwolfach Reports Open Problems collection and supplies proposed year 2017; no individual proposer is supplied.
+\item Supplied report citation: \emph{Discrete Geometry (2018)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2017/19}, pp.~1135--1205. \url{https://doi.org/10.4171/owr/2017/19}. This is also the literature-source link labeled ``Original Oberwolfach report.'' The supplied title-year and proposed-year metadata differ and require checking.
+\item Supplied literature reference: \emph{Bounds for entries of gamma-vectors of flag homology spheres}. \url{https://doi.org/10.1137/17M1110298}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open, reports substantial partial bounds, and describes general nonnegativity and flag-complex realization assertions as unresolved. This is supplied dated curation, not an independently verified literature assessment; its time-sensitive status and cited claims require independent verification.
+\item The supplied record labels the statement \texttt{corrected\_verified} and reports that the official Oberwolfach report was checked directly. Separately, its background and literature assessment describe the extracted statement as truncated to ``conjecture.'' These are supplied provenance claims, not source checks performed for this draft.
+\end{itemize}
+\end{document}

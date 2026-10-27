@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002080}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $(M,\omega)$ be a closed symplectic manifold in a setting where Hamiltonian Floer theory, its filtered inclusion maps, the PSS identification and quantum product are defined over a chosen Novikov/coefficient field. For a nonzero quantum class $\alpha$ and a Hamiltonian path/lift $\widetilde f\in\widetilde{\operatorname{Ham}}(M)$, define
+\[
+ c(\widetilde f,\alpha)=\inf\{a:\operatorname{PSS}(\alpha)
+       \in\operatorname{im}(HF^{\le a}(\widetilde f)\to HF(\widetilde f))\}.
+\]
+The source says ``smallest''; using an infimum avoids adding an unstated attainment/spectrality hypothesis. A normalization of the Hamiltonian and a fixed capped-loop/action convention are part of the data. For instance with $\mathcal A_H([x,u])=\int_0^1H_t(x(t))\,\dd t-\int_u\omega$, adding a time-dependent constant $k(t)$ shifts $c$ by $\int_0^1k(t)\,\dd t$. One may impose zero spatial mean at every time and retain the universal-cover path class; descent to the time-one map requires its own theorem.
+
+\textbf{Question 1.22, raised by Polterovich.} Study the asymptotic behavior of $c(\widetilde f^{,n},\alpha)$ as $n\to\infty$, including existence and dependence of the slope $\lim_n c(\widetilde f^{,n},\alpha)/n$. The source writes $f\in\operatorname{Ham}(M)$ without these path/normalization qualifications and does not specify a particular universal asymptotic conjecture.
+
+\textbf{Supplied axiomatic partial result.} Write $Q$ for the quantum algebra. Assume the triangle inequality
+\[
+ c(\widetilde f\widetilde h,\alpha*\beta)
+       \le c(\widetilde f,\alpha)+c(\widetilde h,\beta),
+\]
+the non-Archimedean sum inequality $c(\widetilde f,\alpha+\beta)\le\max(c(\widetilde f,\alpha),c(\widetilde f,\beta))$ for nonzero sums, and Hofer/Lipschitz control giving finite linear bounds along powers for each nonzero fixed label. The aid asserts that every nonzero idempotent $e*e=e$ has a finite slope
+\[
+ \mu_e(\widetilde f)=\lim_{n\to\infty}\frac{c(\widetilde f^{,n},e)}n.
+\]
+Every nonzero element of a field factor $eQ$ has that same slope. More generally, if
+\[
+ Q=K_1\oplus\cdots\oplus K_s
+\]
+is a finite direct sum of fields with orthogonal units $e_i$, then every $\alpha\ne0$, with $\alpha_i=e_i*\alpha$, satisfies
+\[
+ \lim_{n\to\infty}\frac{c(\widetilde f^{,n},\alpha)}n
+   =\max_{i:\alpha_i\ne0}\mu_{e_i}(\widetilde f).
+\]
+Thus in this semisimple setting the slope depends on field-factor support. The maximum uses the stated action/filtration inequalities; an opposite spectral convention would need translation. The claim does not classify arbitrary nonsemisimple labels, give a bounded remainder in general, or imply a quasimorphism without further assumptions.
+
+\textbf{Normalization obstruction from the aid.} An unnormalized constant Hamiltonian $H\equiv a$ has the identity time-one map, while its $n$-fold path iteration shifts spectral values by $na$. Hence the corresponding unnormalized slopes can be arbitrary even for the identity map. This does not contradict a normalized path-class invariant; it shows why the source notation cannot discard normalization or assume time-one descent.
+\subsection{Short English statement}
+Polterovich asks about spectral invariants under iteration. The supplied aid proves slopes for nonzero idempotents and, in a finite direct sum of quantum field factors, identifies every nonzero label's slope with the largest active factor slope. A normalized Hamiltonian path/lift is essential; the unnormalized time-one map alone does not determine a slope.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002080, source code catalogue entry; canonical \texttt{aim-geometry-notes.json}, notes[417].
+\item AIM \emph{Holomorphic curves in contact geometry}, Question 1.22, spectral-invariant discussion attributed to Polterovich: \url{https://aimath.org/WWN/contactgeom2/contactgeom2.pdf}. The supplied verification attributes the document to Michael Hutchings with help from Yasha Eliashberg and John Etnyre.
+\item No separate authoritative proving citation for the semisimple support formula or full Floer hypotheses is supplied in this record.
+\item Registry research attempt 1, dated 2026-08-14: partial result, rigor ``proved'', novelty confidence low. The explicitly machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

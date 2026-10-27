@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000444}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(U\subseteq\R^d\) be the intended phase domain, \(H:U\to\R\) the Hamiltonian and \(J:U\to\R^{d\times d}\) a Poisson structure matrix. In the standard smooth convention, \(J^{\mathsf T}=-J\) and
+\[
+ \sum_\ell\bigl(J_{i\ell}\partial_\ell J_{jk}
+ +J_{j\ell}\partial_\ell J_{ki}+J_{k\ell}\partial_\ell J_{ij}\bigr)=0
+\]
+for all \(i,j,k\). These conditions make \(\{f,g\}=\nabla f^{\mathsf T}J\nabla g\) a Poisson bracket. The differential equation is
+\[
+ y'=J(y)\nabla H(y).
+\]
+No invertibility or constant-rank assumption on \(J\) is added.
+
+For comparison, the ordinary implicit midpoint step satisfies
+\[
+ y_+=y+h\,J\bigl((y+y_+)/2\bigr)
+                  \nabla H\bigl((y+y_+)/2\bigr).
+\]
+The source asks whether a nonstandard generalization of this rule exists which is conjugate to a Poisson map for a perturbed tensor. If \(\Phi_h\) denotes the sought numerical step and \(\chi_h\) an appropriate change of variables, a standard formulation would write
+\[
+ \Psi_h=\chi_h^{-1}\circ\Phi_h\circ\chi_h,
+\]
+and require a perturbed Poisson tensor \(J_h\) satisfying
+\[
+ D\Psi_h(y)\,J_h(y)\,D\Psi_h(y)^{\mathsf T}
+ =J_h(\Psi_h(y)).
+\]
+The tensor \(J_h\) must itself satisfy skew symmetry and Jacobi; an arbitrary perturbed skew matrix is insufficient. This scheme explains the requested conjugacy, but does not choose a method or a perturbation. In particular it does not claim that the ordinary midpoint map has the property for every variable \(J\).
+
+The source does not define the admissible generalizations, their order, dependence on \(H,J\), allowed evaluations or implicit stages, or whether they must reduce exactly to midpoint for constant \(J\). Without such constraints an existence claim for an arbitrary map would not specify the intended numerical construction. Likewise it gives no normalization of \(\chi_h\), order or topology of \(J_h-J\), step-size range or local/global domain. Whether conjugacy and preservation are exact, hold to a fixed order, or are identities of formal power series is unresolved in the wording. These assertions are distinct and no one is silently chosen.
+
+The literature assessment checked 2026-08-21 describes a general variable-Poisson-tensor question and says special constructions do not supply the requested general conjugacy theorem. Its open label and the verification field's notation-only edit are retained as dated source metadata, not independently checked status. No construction or theorem for a restricted Lie--Poisson case is substituted for the stated general task.
+\subsection{Short English statement}
+Seek a midpoint-type numerical method for variable Poisson systems that becomes Poisson after a change of variables for a nearby Poisson tensor. The tensor must satisfy Jacobi, and exact, finite-order and formal preservation are different targets. The source leaves the class of methods, perturbation size and conjugacy conventions unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000444, source code catalogue entry, ``Poisson Midpoint Methods for Nonconstant Structure Matrices,'' including original and cleaned existence question and verification metadata.
+\item \emph{Geometric Numerical Integration (2006)}, Oberwolfach Reports, pp.\ 805--882, DOI 10.4171/owr/2006/14: \url{https://doi.org/10.4171/owr/2006/14}.
+\item Supplied reference ``discrete Euler-Poincare and Lie-Poisson equations'': \url{https://arxiv.org/abs/math/9909099}.
+\item Literature triage checked 2026-08-21; local record updated 2026-09-16. No external source has been visited or independently checked here.
+\end{itemize}
+\end{document}

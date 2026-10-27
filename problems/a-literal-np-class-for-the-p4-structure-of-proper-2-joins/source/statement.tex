@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001160}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite simple graph \(G\), define its \(P_4\)-structure \(\mathcal P_4(G)\) as the \(4\)-uniform hypergraph on \(V(G)\) whose hyperedges are exactly the four-vertex sets inducing a chordless four-vertex path. The source asks for a class \(\mathcal C_1\) of \(4\)-uniform hypergraphs such that every graph with a \(2\)-join has its \(P_4\)-structure in \(\mathcal C_1\), no odd ring belongs to \(\mathcal C_1\), and membership in \(\mathcal C_1\) is in NP. The excerpt does not define \(2\)-join or odd ring; the aid reports a connected non-path convention in the surrounding source.
+
+An explicit working convention for this analysis is a partition \(X_1,X_2\), with \(|X_i|\ge3\), and disjoint nonempty attachment sets \(A_i,B_i\subset X_i\). Cross edges are exactly the complete pairs \(A_1\times A_2\) and \(B_1\times B_2\). Require each component of \(G[X_i]\) to meet both attachments, and exclude a side that is merely a path with singleton attachment endpoints. Exact compatibility of this convention with the source's proper \(2\)-join must be checked. Interpret an odd ring as \(\mathcal P_4(C_{2t+1})\), \(t\ge2\), up to hypergraph isomorphism. Complementing a graph preserves its \(P_4\)-structure.
+
+The aid proposes the witness language
+\[
+ \mathcal C_{\mathrm{real}}=
+ \{\mathcal H:\exists G\text{ on }V(\mathcal H),\
+ \mathcal P_4(G)=\mathcal H,\ G\text{ has a source-proper }2\text{-join}\}.
+\]
+A certificate consists of the graph adjacency matrix and its split/attachment data. The reported verifier checks the split, connectedness/non-path conditions, and every four-vertex set for exact equality of \(P_4\)-structures in \(O(n^4)\) time for \(n\) explicitly listed vertices. Thus membership is in NP, and the universal inclusion bullet follows directly under the same \(2\)-join convention.
+
+To exclude odd rings, the aid invokes Chv\'atal's classification of their graph realizations as odd holes or odd antiholes, together with direct arguments that neither has a source-proper connected non-path \(2\)-join. The full classification hypotheses and proofs are not supplied, so this essential exclusion gate requires reference verification. If they hold under the stated conventions, the proposed language satisfies all three literal bullets.
+
+The aid also points out the weaker semantic content of those literal bullets: the maximal class
+\[
+ \mathcal C_{\max}=\{\mathcal H:\mathcal H\text{ is not isomorphic to any odd ring}\}
+\]
+is reported to admit polynomial-time recognition and to satisfy them as well. No heredity or forbidden-induced-ring condition is requested. The aid says strengthening exact odd-ring exclusion to exclusion of every induced odd ring makes the first universal bullet inconsistent, because a graph with a proper \(2\)-join can still contain an odd hole. The supplied record does not include an explicit witness or recognition procedure, so those are reported semantic claims rather than silently added requirements. The solution label is limited to the literal formulation and its recovered definitions.
+\subsection{Short English statement}
+The source seeks an NP class separating \(P_4\)-structures of proper two-join graphs from odd rings. The supplied aid proposes a graph-realization certificate and notes that exact ring exclusion is much weaker than hereditary exclusion; all claims depend on the missing source conventions and realization theorem.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001160\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[284]}, tag \texttt{problem}.
+\item AIM workshop ``The Perfect Graph Conjecture,'' Problem 1: \url{https://aimath.org/WWN/perfectgraph/perfectgraph.pdf}. Statement status \texttt{exact}. No PDF was accessed for this draft.
+\item Chv\'atal's classification of odd-ring realizations, named by the aid without a full title, date, theorem number, or URL. The source-proper \(2\)-join convention is reported but not reproduced in the supplied verification. No original remarks or literature field are supplied.
+\item Research attempt 1: \texttt{full\_solution}, problem status at run \texttt{unknown}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{solved}, classification \texttt{SOLVED-BY-YOU}. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

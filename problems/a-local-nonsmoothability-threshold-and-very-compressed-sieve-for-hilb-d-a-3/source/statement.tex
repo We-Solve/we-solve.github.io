@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000829}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix an algebraically closed field \(k\) of characteristic zero and define
+\[
+ d_{\min}=\min\{d\ge1:\operatorname{Hilb}^d(\A_k^3)\text{ is reducible}\}.
+\]
+Reducibility refers to the underlying topological space, not to failure of reducedness. The source asks to determine \(d_{\min}\). Its original remark gives the historical bounds \(10<d_{\min}\le78\), explicitly requiring characteristic zero for the lower bound and attributing it to a then-recent paper of Sivic. The supplied later aid reports \(12\le d_{\min}\le78\); this is its dated literature assessment, not an independently checked current bound.
+
+Call a length-\(d\) quotient \(A=k[x,y,z]/I\) smoothable if its corresponding point belongs to the closure of the locus of \(d\) distinct reduced points. Call it local if \(\operatorname{Spec}A\) is supported at one point. The aid reports
+\[
+ d_{\min}=\min\{\dim_k A:A\text{ is a nonsmoothable local quotient of }k[x,y,z]\}.
+\]
+Its input is componentwise smoothability: a finite algebra, decomposed as a product of its local factors, is smoothable if and only if every local factor is smoothable, using lifting of idempotents in deformation families. It also reports that reducibility propagates upward: once \(\operatorname{Hilb}^d(\A^3)\) is reducible, so is \(\operatorname{Hilb}^{d+1}(\A^3)\). In particular a minimal-length nonsmoothable witness must be local; this does not mean that disconnected nonsmoothable algebras never exist.
+
+The reported exclusion sieve concerns very-compressed ternary local algebras. With support moved to the origin and \(\mathfrak m=(x,y,z)\), the relevant Hilbert function consists of the maximal values
+\(\binom{i+2}{2}\) in degrees \(0\le i<s\), followed by a final value \(a\) in degree \(s\), and zero thereafter, where
+\[
+ 1\le a\le\binom{s+2}{2},\qquad
+ d=\binom{s+2}{3}+a.
+\]
+Equivalently this graded family has \(\mathfrak m^{s+1}\subseteq I\subseteq\mathfrak m^s\), with the final degree-\(s\) quotient dimension \(a\). Its fixed-support parameter space is a Grassmannian of dimension
+\(a(\binom{s+2}{2}-a)\); allowing the support to vary adds \(3\). The aid reports that this locus has dimension less than \(3d\) for \(2\le d\le95\), first exceeding \(3d\) at \(d=96\). This parameter-count comparison alone is not a smoothability proof. Separately, the aid says very-compressed ternary algebras through length \(95\) are known to be smoothable.
+
+Accordingly, any local witness improving the reported upper bound \(78\) must have length at most \(77\) and a Hilbert function outside that very-compressed family. This reduction does not determine \(d_{\min}\), construct a smaller witness, or exclude arbitrary non-very-compressed local algebras.
+\subsection{Short English statement}
+What is the first length for which the Hilbert scheme of points in affine three-space is reducible? The supplied aid reduces the search to nonsmoothable local algebras, reports bounds from twelve to seventy-eight, and excludes very-compressed algebras from any smaller minimal witness.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000829\), source code \texttt{catalogue entry}; \texttt{aim-arithmetic-geometry-notes.json}, \texttt{notes[74]}, tag \texttt{problem}.
+\item AIM workshop ``Components of Hilbert Schemes,'' Problem 28: \url{https://aimath.org/WWN/hilbertschemes/hilbertschemes.pdf}. Statement status \texttt{exact}; no PDF was accessed for this draft.
+\item Original remark: \(10<d\le78\), with the characteristic-zero lower bound attributed to a recent paper of Sivic. No title, year, theorem number, or URL for that paper is supplied.
+\item Supplied research attempt 1: \texttt{reduction}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, suggested difficulty L4. Created and updated 14 August 2026. The later bounds and smoothability-through-95 assertion have no complete authoritative citations in the record. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

@@ -1,0 +1,44 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3800017}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+In the customary planar model, an input consists of starting points \(p_i\in\R^2\) and nonzero velocities \(v_i\in\R^2\), \(1\le i\le n\). All motorcycles start at time zero. Motorcycle \(i\) moves as \(p_i+tv_i\) until its first collision with a track previously laid by another motorcycle, then remains stopped; deposited tracks persist. If \(\tau_i\in[0,\infty]\) is its stopping time, its track is
+\[
+T_i=\{p_i+tv_i:0\le t\le\tau_i\},
+\]
+with an unbounded ray when \(\tau_i=\infty\). The motorcycle graph is the collection of these stopped tracks and rays, with their geometric incidences. A motorcycle survives when \(\tau_i=\infty\). Velocities, rather than rays alone, specify the relative arrival times needed for collisions.
+
+The source asks for (i) an algorithm computing this graph in near-linear time; (ii) a faster algorithm reporting the surviving motorcycles, or determining the fate of one designated motorcycle; and (iii) sharper computational lower bounds. It does not specify the collision rule for simultaneous arrivals or overlapping tracks, a computational model, randomization conventions, or whether a single motorcycle's fate means only survival or also its stopping point. General position must not be silently imposed to bypass these cases.
+
+A near-linear target requires an explicit convention, for example \(O(n(\log n)^C)\) for an absolute constant \(C\), or \(n^{1+o(1)}\); the extracted source does not choose one. The supplied research summary reports an \(O(n^{4/3+\varepsilon})\) algorithm for every fixed \(\varepsilon>0\), attributed to Vigneron--Yan (2014), improving a prior \(n^{17/11}\) exponent. That bound does not establish either displayed near-linear target. Accordingly, the stored solved label for the main algorithmic question does not certify the near-linear request as written. The summary separately says that the single-motorcycle and finer lower-bound questions remain open.
+\subsection{Short English statement}
+Compute the tracks left by mutually crashing motorcycles in near-linear time, decide survivors or one motorcycle's fate more quickly, and improve lower bounds. The supplied \(O(n^{4/3+\varepsilon})\) result addresses only part of these goals.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(3800017\), exact source code \texttt{catalogue entry}, ``Crashing motorcycles efficiently.'' Proposer field: Jeff Erickson and cited proposers.
+\item Erickson, \emph{Open Problems in Computational Geometry}, source item with that title; \url{https://jeffe.cs.illinois.edu/open/}. HTML extraction; recorded access 2026-07-29.
+\item Supplied research summary attributes the \(O(n^{4/3+\varepsilon})\) bound to Vigneron--Yan (2014) and compares it with a prior \(n^{17/11}\) bound. Complete bibliographic details and the algorithm's precise model are not supplied.
+\end{itemize}
+\end{document}

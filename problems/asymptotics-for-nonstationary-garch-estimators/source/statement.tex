@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000941}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source describes two nonlinear nonstationary GARCH specifications: an additive model obtained by adding a directly time-dependent component to a GARCH conditional-variance equation, and a multiplicative model in which the conditional variance is the product of stationary and nonstationary components. Determine the asymptotic properties of the maximum-likelihood estimators for both specifications.
+
+For notation only, write these structural descriptions schematically as
+\[
+h_{t,N}=a_{t,N}+g_{t,N}
+\quad\text{or}\quad
+h_{t,N}=s_{t,N}g_{t,N},
+\]
+where $h_{t,N}$ denotes a conditional variance. The summands and factors must be those of the actual report models; these displays do not specify a GARCH order, recurrence, parameterization, stationarity condition or time-rescaling regime. In the multiplicative description, the source calls one component stationary and the other nonstationary, but gives no equations ensuring those properties.
+
+Once a model and its conditional densities $f_{\theta,t,N}(\,\cdot\mid\mathcal F_{t-1})$ are specified, the conditional maximum-likelihood notation would be
+\[
+\widehat\theta_N\in\operatorname*{arg\,max}_{\theta\in\Theta}
+\sum_{t=1}^{N}\log f_{\theta,t,N}(X_{t,N}\mid\mathcal F_{t-1}).
+\]
+The task is then to establish the appropriate asymptotic behavior, including whatever consistency, convergence rates and limiting distributions hold under justified hypotheses, for each of the two stated models. Neither a $\sqrt N$ rate nor a normal limit is asserted in advance. If time-dependent parameters are estimated as functions rather than finite-dimensional coefficients, the estimand, smoothing scheme and convergence topology must first be fixed.
+
+The actual nonlinear variance equations, innovation distribution, likelihood versus quasi-likelihood convention, initial conditions, identifiability restrictions, positivity and dependence assumptions, parameter spaces, and asymptotic sampling regime are absent from the supplied record. Thus the schematic notation does not supply an otherwise missing universal asymptotic theorem.
+
+The supplied assessment checked 2026-08-21 labels the problem partially solved. It reports consistency and asymptotic normality for several time-varying ARCH and GARCH estimators, but says no single general theorem covers the full nonlinear models described by the report. These are dated attributed claims.
+\subsection{Short English statement}
+Determine maximum-likelihood asymptotics for both the additive time-dependent and multiplicatively decomposed nonstationary GARCH models. The source omits the actual equations and statistical assumptions, so consistency, rates and limit laws cannot be specified uniquely.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000941, source code catalogue entry; supplied complete record. The corrected-verified note reports checking the two-model estimator question against the official report.
+\item The Mathematics and Statistics of Quantitative Risk Management (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/15, pp. 759--796: \url{https://doi.org/10.4171/owr/2008/15}. Proposed-year metadata gives 2008.
+\item Kristensen and Lee, time-varying nonlinear models: \url{https://arxiv.org/abs/1904.05209}.
+\item Time-varying GARCH inference: \url{https://doi.org/10.1016/j.spl.2013.04.030}.
+\end{itemize}
+\end{document}

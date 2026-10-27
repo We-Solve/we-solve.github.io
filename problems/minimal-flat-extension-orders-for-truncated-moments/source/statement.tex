@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003445}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied problem asks: given a truncated moment sequence \(\beta^{(2d)}\), find a good estimate for the smallest integer \(k\geq 0\) such that a moment matrix \(M_{d+k}\) extending the given data admits a flat extension \(M_{d+k+1}\). The ambient domain, support restrictions, and admissibility assumptions on the initial data are not specified in the record.
+
+A precise conditional formulation under the real multivariate, positive semidefinite convention is as follows. Fix integers \(n\geq 1\) and \(d\geq 0\), and let
+\[
+\beta^{(2d)}=(\beta_\alpha)_{\alpha\in\Z_{\geq 0}^{n},\ |\alpha|\leq 2d},\qquad \beta_\alpha\in\R,\qquad |\alpha|=\alpha_1+\cdots+\alpha_n.
+\]
+For an array \(\gamma=(\gamma_\alpha)_{|\alpha|\leq 2t}\), define its moment matrix by
+\[
+M_t(\gamma)=\bigl(\gamma_{\alpha+\delta}\bigr)_{|\alpha|,|\delta|\leq t}.
+\]
+Under this convention, a flat extension of \(M_t(\gamma)\) is a moment matrix \(M_{t+1}(\widetilde\gamma)\) satisfying
+\[
+\widetilde\gamma_\alpha=\gamma_\alpha\quad(|\alpha|\leq 2t),\qquad
+M_{t+1}(\widetilde\gamma)\succeq 0,\qquad
+\operatorname{rank}M_{t+1}(\widetilde\gamma)=\operatorname{rank}M_t(\gamma).
+\]
+Thus define the set of feasible extension orders by
+\[
+\mathcal F(\beta)=\left\{k\in\Z_{\geq 0}:\begin{array}{l}
+\text{there exists a real array }\gamma=(\gamma_\alpha)_{|\alpha|\leq 2(d+k+1)}\text{ with}\\
+\gamma_\alpha=\beta_\alpha\quad(|\alpha|\leq 2d),\\
+M_{d+k+1}(\gamma)\succeq 0,\\
+\operatorname{rank}M_{d+k+1}(\gamma)=\operatorname{rank}M_{d+k}(\gamma)
+\end{array}\right\}.
+\]
+When \(\mathcal F(\beta)\neq\varnothing\), the target quantity is
+\[
+k_{\min}(\beta)=\min\mathcal F(\beta).
+\]
+The problem is to obtain a good estimate for this least order from the given truncated data. The intermediate matrix \(M_{d+k}\) must itself be chosen as an extension of the initial data; it is not determined by \(\beta^{(2d)}\) when \(k>0\).
+
+This conditional formulation does not resolve the source's missing hypotheses: it does not specify whether the intended setting is real or complex, whether a representing measure is assumed to exist, whether its support is restricted to a prescribed set, or whether positivity is included in the intended meaning of flat extension. If support constraints are intended, the displayed feasibility condition requires corresponding additional conditions. The record also does not define what qualifies as a good estimate or specify the parameters on which it may depend. If \(\mathcal F(\beta)=\varnothing\), no smallest finite order exists in this formulation; the source does not state how such inputs are to be treated.
+\subsection{Short English statement}
+Estimate how far a truncated moment sequence must be extended before one further moment-matrix extension can preserve rank. The displayed formulation makes the intermediate extensions existential choices under a stated real positive semidefinite convention. The intended domain, support conditions, existence assumptions, and meaning of a good estimate still require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30003445\), exact source problem code \texttt{catalogue entry}, title \emph{Minimal Flat Extension Orders for Truncated Moments}. This draft uses the supplied complete registry record; no independent inspection of the registry or external sources is asserted.
+\item Supplied report attribution: \emph{Real Algebraic Geometry With a View Toward Moment Problems and Optimization} (2018), Oberwolfach Reports, pp.\ 771--862, DOI \texttt{10.4171/owr/2017/14}. \url{https://doi.org/10.4171/owr/2017/14}. The collection describes these records as extracted from workshop open-problem discussions. The proposed year is recorded as 2017; no individual proposer is supplied. The citation's 2018 date and its 2017 DOI component are retained without reconciliation.
+\item Supplied literature reference: di Dio--Kummer, \emph{Caratheodory numbers and flat extensions}. \url{https://arxiv.org/abs/1903.00598}.
+\item Supplied literature reference: Helton--Nie, \emph{semidefinite truncated K-moments}. \url{https://arxiv.org/abs/1105.0410}.
+\item Supplied dated literature curation, checked \textbf{2026-08-21}, labels the problem partially solved. It reports that flat-extension theorems reduce the problem to finding a finite extension, that sharp worst-case extension-degree bounds are known in general moment spaces, and that a good instance-sensitive estimate for the smallest \(k\) remains unavailable. These are supplied dated assessments derived from the OWR curation, not independently verified mathematical or literature conclusions; the record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified}, explaining that notation, typography, and sentence structure were repaired while mathematical content was preserved. This supplied editorial label does not establish mathematical review of the conditional formulation above.
+\end{itemize}
+\end{document}

@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000860}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The original item is Chapter C, ``Breakthroughs in Brain Computing,'' a discussion after Steve Grossberg's talk, not a stated mathematical problem. Grossberg attributes his laminar architecture to robust grouping and analog coherence requiring an ordering of mechanisms, compactly reflected in anatomy, and reports ablation tests suggesting every part was necessary. He refers to a paper with ``Razada'' involving layer-6 stimulation and layer-4 observation. The exchange says lateral effects are ``not superlinearly but faster,'' notes that one inhibitory neuron may not provide every normalization effect and that circuit variants range from bipole to modulatory, and leaves a center/flank experimental-prediction question without a recorded answer.
+
+The transcript distinguishes models not requiring spikes from self-synchronizing networks and order-preserving limit cycles where they matter. Grossberg discusses nonattenuated long-distance transmission, axonal diameter and delays, developmental excitation--inhibition balance, instability and resynchronization; he mentions computer-vision applications without listing them in the record. A question about retaining spiking neurophysiology receives a rhetorical question about retaining all channels. Jeff offers a computer/quantum-mechanics abstraction analogy. Grossberg calls his equations mean values of stochastic differential equations and cites phonemic restoration as an example where spikes are not important, with a garbled speech/noise example. Pentti distinguishes synchronous from possibly asynchronous requirements. These are attributed discussion points, not established universal abstraction theorems.
+
+The attached aid supplies two explicitly separate surrogate results. Let $N_i$ be $N$ independent Poisson random measures with common deterministic intensity $\lambda(s)\,\dd s$, and let a causal linear filter $h$ have the required first and second integrability. For
+\[
+Y_N(t)=\frac1N\sum_{i=1}^N\int_{-\infty}^t h(t-s)\,\dd N_i(s),
+\]
+the stated exact formulas are
+\[
+\E Y_N(t)=\int_{-\infty}^t h(t-s)\lambda(s)\,\dd s,\qquad
+\operatorname{Var}Y_N(t)=\frac1N\int_{-\infty}^t h(t-s)^2\lambda(s)\,\dd s.
+\]
+For $h(u)=\tau_s^{-1}e^{-u/\tau_s}\mathbf1_{u\ge0}$, $\tau_s>0$, and $0\le\lambda\le R$, this variance is at most $R/(2N\tau_s)$. An $L$-Lipschitz readout obeys $\E|F(Y_N)-F(\E Y_N)|\le L\sqrt{\operatorname{Var}Y_N}$, while the square readout has exact bias $\E Y_N^2-(\E Y_N)^2=\operatorname{Var}Y_N$, strictly positive when that variance is nonzero. Independence, linear filtering and deterministic rates are essential to this exact model; it does not automatically close nonlinear or correlated circuits.
+
+Separately, for $T>0$, $D\ge0$ and $g\ge0$, consider the scalar delayed feedback equation
+\[
+Tz'(t)=-z(t)-gz(t-D).
+\]
+The aid asserts asymptotic stability for every finite $D$ when $0\le g\le1$. For $g>1$, put
+\[
+D_*=\frac{T\arccos(-1/g)}{\sqrt{g^2-1}}.
+\]
+It is asymptotically stable exactly for $0\le D<D_*$. At equality a conjugate pair has frequencies $\pm\sqrt{g^2-1}/T$, yielding nondecaying modes; as delay increases the pair crosses toward positive real part, and $D>D_*$ is unstable. Thus finite sampling, nonlinear-readout bias and delay instability are distinct potential failure modes of the chosen rate abstraction. They are not a full theorem about the original laminar circuit.
+\subsection{Short English statement}
+This is a 2003 discussion transcript about circuit abstraction, not an open conjecture. The attached aid gives conditional filtered-Poisson error formulas and a separate sharp scalar delay-stability margin, while leaving the full laminar architecture and experimental questions unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000860$, source code catalogue entry; canonical \texttt{aim-biology-notes.json}, \texttt{notes[24]}, tagged section.
+\item AIM workshop report, \emph{Inference and Prediction in Neocortical Circuits}, 21--24 September 2003, Chapter C, discussion following Steve Grossberg's talk, source label AIM2003: \url{https://aimath.org/WWN/brain/brain.pdf}. No PDF inspection is claimed here.
+\item The transcript refers to Grossberg's paper with ``Razada'' but supplies no title or identifier; Jeff and Pentti are named only by first names. The original remarks and literature fields are empty.
+\item Attached research attempt 1: context only, recorded run status not a problem, rigor label proved, novelty confidence low; registry status open, classification OPEN-TRIAGE, suggested difficulty L2. It is a machine-generated, non-peer-reviewed aid requiring independent verification before citation.
+\end{itemize}
+\end{document}

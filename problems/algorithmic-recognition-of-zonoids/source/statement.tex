@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005472}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(d\geq 1\) be an integer, and let \(p\in\R[x_1,\ldots,x_d]\). Set
+\[
+K_p=\{x\in\R^d:p(x)\geq 0\}.
+\]
+The input is promised to satisfy the following hypotheses: \(K_p\) is compact and convex, has nonempty interior in \(\R^d\), and is centrally symmetric, meaning that there exists \(c\in\R^d\) such that \(K_p=2c-K_p\). The source does not require the center to be the origin.
+
+For \(a,b\in\R^d\), write \([a,b]=\{(1-t)a+tb:0\leq t\leq 1\}\). A zonotope is a finite Minkowski sum of line segments,
+\[
+Z=[a_1,b_1]+\cdots+[a_m,b_m]
+ =\{z_1+\cdots+z_m:z_j\in[a_j,b_j]\},\qquad m\geq 1.
+\]
+For nonempty compact sets \(A,B\subseteq\R^d\), their Hausdorff distance is
+\[
+d_H(A,B)=\max\left\{\sup_{a\in A}\inf_{b\in B}\|a-b\|_2,\ \sup_{b\in B}\inf_{a\in A}\|b-a\|_2\right\}.
+\]
+A convex body \(K\) is a zonoid if there exists a sequence of zonotopes \((Z_n)_{n\geq1}\) in \(\R^d\) with \(d_H(Z_n,K)\to0\).
+
+The supplied recognition question asks for an algorithm which, given a polynomial \(p\) satisfying the promise above, terminates and correctly decides whether
+\[
+\exists (Z_n)_{n\geq1}\quad
+\bigl[\text{each }Z_n\text{ is a zonotope and }\lim_{n\to\infty}d_H(Z_n,K_p)=0\bigr].
+\]
+No behavior on inputs violating the promise is specified.
+
+The computational formulation remains unresolved: the source specifies neither the allowed polynomial coefficients nor their effective representation or the model of computation. Writing \(p\in\R[x_1,\ldots,x_d]\) describes the mathematical polynomial, without asserting that arbitrary real coefficients have finite algorithmic descriptions. The source also does not specify whether \(d\) is fixed or is part of the input. Thus the displayed predicate is precise, but the requested decision problem requires these additional specifications.
+
+The supplied original excerpt contains a separate, corrupted discussion of generic discotopes and a truncated conjecture. It does not provide a complete alternative formulation or additional usable hypotheses for this recognition question.
+\subsection{Short English statement}
+Given a polynomial whose nonnegative set is a centrally symmetric convex body, determine algorithmically whether that body is a Hausdorff limit of finite sums of line segments. The coefficient encoding, computation model, and treatment of dimension remain unspecified. The supplied record labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005472\), title \emph{Algorithmic Recognition of Zonoids}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2023 and identifies no individual proposer.
+\item \emph{New Directions in Real Algebraic Geometry} (2023), Oberwolfach Reports, pp.\ 813--881, DOI \texttt{10.4171/owr/2023/15}. Supplied report link: \url{https://doi.org/10.4171/owr/2023/15}. This is the report-level source attribution supplied by the registry; no precise problem page is supplied.
+\item Lerario--Mathis, \emph{On tameness of zonoids}. Supplied literature link: \url{https://doi.org/10.1016/j.jfa.2021.109341}.
+\item Supplied literature source labelled ``OWR report'': \url{https://doi.org/10.4171/owr/2023/15}.
+\item Literature assessment date: \texttt{2026-08-22}. This is supplied dated curation, not an independently verified assessment. It labels the problem open and states that zonoid membership is tame or definable in broad families, that substantial geometric necessary conditions are available, and that no general decision algorithm for polynomially described centrally symmetric convex bodies of the stated form is established. The supplied background describes this as dated literature triage derived from the OWR curation and calls for independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that it was reconstructed and checked against the official Oberwolfach report. These are supplied provenance claims; no independent source consultation or mathematical verification is asserted here.
+\end{itemize}
+\end{document}

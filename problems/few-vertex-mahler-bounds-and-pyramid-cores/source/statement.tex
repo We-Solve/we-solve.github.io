@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001285}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a full-dimensional convex body \(K\subset\R^n\) and \(z\in\operatorname{int}K\), define
+\[
+ K^z=\{y:\langle y,x-z\rangle\le1\ \forall x\in K\},\qquad
+ \mathcal P(K)=\min_{z\in\operatorname{int}K}|K|\,|K^z|.
+\]
+The minimizer is its Santal\'o point \(s(K)\). Put \(M_n=(n+1)^{n+1}/(n!)^2\), the simplex product. The source asks to extend the Meyer--Reisner theorem from polytopes with at most \(n+3\) vertices, or at most \(n+3\) facets, to a threshold \(N(n)>n+3\): every such full-dimensional polytope with at most \(N(n)\) vertices (respectively facets) should satisfy
+\[
+ \mathcal P(K)\ge M_n,
+\]
+with equality exactly for \(n\)-simplices. The supplied verification explicitly corrects the extracted strict inequality to a non-strict one and restores the powers and factorials. Nonempty interior is retained. The immediate next vertex threshold is \(n+4\); no general threshold beyond \(n+3\) is proved by the aid.
+
+Its partial reduction concerns pyramids. For a \((d-1)\)-dimensional body \(B\subset\R^{d-1}\) with \(s(B)=0\), \(d\ge2\), let
+\[
+ P=\operatorname{conv}((B,0)\cup\{(0,1)\})\subset\R^d.
+\]
+The aid reports
+\[
+ s(P)=(0,1/(d+1)),\qquad
+ \mathcal P(P)=\frac{(d+1)^{d+1}}{d^{d+2}}\mathcal P(B),
+\]
+and the multiplier is exactly \(M_d/M_{d-1}\). Hence the normalized ratio is unchanged:
+\[
+ \frac{\mathcal P(P)}{M_d}=\frac{\mathcal P(B)}{M_{d-1}}.
+\]
+For polytopes, adding a pyramid apex also increases both dimension and vertex count by one. Iteratively removing pyramid apices therefore preserves the excess \(\#\text{vertices}-\dim\) and this normalized ratio, reducing a pyramid chain to a nonpyramidal core.
+
+The aid concludes that the \(n+4\)-vertex pyramid-chain case reduces to cores with four excess vertices. Planar cores satisfy the requested bound unconditionally by the supplied planar result. Three-dimensional cores are said to satisfy it subject to the June 2026 preprint version \texttt{arXiv:2605.09334v3}. Conditional on that preprint's claimed dimension-three theorem, the remaining unresolved cores in this chain reduction have dimension at least four. Without accepting that input, the three-dimensional step remains conditional. The reduction does not cover all nonpyramidal \(n+4\)-vertex polytopes in arbitrary dimension or supply the requested general improved threshold; equality assertions from any external core theorem also require their full hypotheses.
+\subsection{Short English statement}
+The source asks to extend the few-vertex or few-facet Mahler bound beyond \(n+3\). The supplied aid shows that the normalized volume product is unchanged by pyramiding, reducing that part of the \(n+4\)-vertex problem to nonpyramidal cores, with the three-dimensional input explicitly conditional on a 2026 preprint.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001285\), source code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[16]}, tag \texttt{problem}.
+\item AIM workshop ``Mahler's conjecture and duality in convex geometry,'' S. Reisner's problem, identified by the supplied verification as Problem 21 despite the extracted leading ``1'': \url{https://aimath.org/WWN/mahlerduality/mahlerduality.pdf}. Statement status \texttt{exact}; the verification corrects strictness and superscript loss. No PDF was accessed for this draft.
+\item M. Meyer and S. Reisner, source theorem [MR], at most \(n+3\) vertices or facets; no full bibliographic entry is supplied.
+\item Dimension-three preprint, supplied as a June 2026 version: \url{https://arxiv.org/abs/2605.09334v3}. Its title, authors, exact theorem, and review status are not supplied; the aid's use is conditional. The planar input and pyramid formula have no full authoritative citation in the record.
+\item Research attempt 1: \texttt{partial\_result}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, rigor label \texttt{proved}, novelty confidence low. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

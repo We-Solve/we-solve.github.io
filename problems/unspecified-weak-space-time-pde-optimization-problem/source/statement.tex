@@ -1,0 +1,112 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005458}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record contains optimization models and reported necessary optimality conditions, but no identifiable unresolved mathematical assertion. Its supplied status is ``open'', while its statement status is ``unrecoverable''. The following is a qualified transcription of the mathematical content, not a newly formulated conjecture.
+
+Use the conventional cylinder notation
+\[
+Q=\Omega\times(0,T),\qquad \Sigma=\partial\Omega\times(0,T),\qquad T>0.
+\]
+The source does not specify the spatial domain, its regularity, or the hypotheses on the data needed below. This cylinder notation is an interpretation of the notation in the excerpt.
+
+The introductory example, attributed to Casas and Chrysafinos [1], concerns a velocity field \(y\), pressure \(p\), and control \(u\), subject to
+\[
+\begin{cases}
+\partial_t y-\nu\Delta y+(y\cdot\nabla)y+\nabla p=f+u &\text{in }Q,\\
+\operatorname{div}y=0 &\text{in }Q,\\
+y(0)=y_0 &\text{in }\Omega,\\
+y=0 &\text{on }\Sigma,
+\end{cases}
+\]
+and additional, unspecified box constraints on \(u\). The damaged objective formula contains a tracking term involving \(\|y-y_d\|_{L^4(\Omega)}^8\), a terminal term \(\|y(T)-y_\Omega\|_{L^2(\Omega)}^2\), and a control term \(\|u\|_{L^2(Q)}^2\), together with the symbols \(\gamma\) and \(\lambda\). Its exact coefficients and integration notation cannot be recovered unambiguously from the supplied text. The passage uses three-component velocities and the space
+\[
+L^8\bigl(0,T;L^4(\Omega)^3\bigr).
+\]
+It reports existence of a weak solution, asserts that the objective places the relevant solution in this space, and states that weak solutions in this space are strong and that strong solutions are unique. These are source assertions whose required hypotheses are not supplied. In particular, the inference from the objective requires finite objective value; the excerpt does not supply a complete feasibility or existence framework.
+
+The main example is a scalar semilinear parabolic control problem. For \(\mu>0\) and \(\nu>0\), its displayed optimization model is
+\[
+\min_{u\in L^\infty(Q)}J(u),\qquad J(u)=F(u)+\mu j(u),
+\]
+where
+\[
+F(u)=\frac12\int_Q\bigl(y_u(x,t)-y_d(x,t)\bigr)^2\,\mathrm{d}x\,\mathrm{d}t
++\frac\nu2\int_Q u(x,t)^2\,\mathrm{d}x\,\mathrm{d}t
+\]
+and
+\[
+j(u)=\|u\|_{L^1(\Omega;L^2(0,T))}
+=\int_\Omega\left(\int_0^T |u(x,t)|^2\,\mathrm{d}t\right)^{1/2}\,\mathrm{d}x.
+\]
+Here \(y_u\) denotes the state associated with \(u\), formally satisfying
+\[
+\begin{cases}
+\partial_t y+Ay+a(x,t,y)=u &\text{in }Q,\\
+y=0 &\text{on }\Sigma,\\
+y(0)=y_0 &\text{in }\Omega.
+\end{cases}
+\]
+The operator \(A\), nonlinearity \(a\), state space, data assumptions, and solution concept are unspecified. The symbol \(\nu\) here denotes the positive control-cost coefficient; no identification with the viscosity in the introductory example is asserted.
+
+The passage reports the following necessary condition: if \(\bar u\) is a local minimizer, then there exist \(\bar y,\bar\varphi\in Y\) and \(\bar\lambda\in\partial j(\bar u)\) such that
+\[
+\bar\varphi+\nu\bar u+\mu\bar\lambda=0.
+\]
+Neither \(Y\), the equation defining \(\bar\varphi\), the topology of local minimality, nor the ambient space and duality for the subdifferential \(\partial j\) are specified. The source further reports
+\[
+\bar u\in C(\overline Q)\cap H^1(Q)
+\]
+and directional sparsity:
+\[
+\|\bar u(x,\cdot)\|_{L^2(0,T)}=0
+\quad\Longleftrightarrow\quad
+\|\bar\varphi(x,\cdot)\|_{L^2(0,T)}\leq\mu.
+\]
+To interpret the otherwise undefined sets in its piecewise formula, write
+\[
+\Omega_{\bar u}^{0}:=\{x\in\Omega:\|\bar u(x,\cdot)\|_{L^2(0,T)}=0\},\qquad
+\Omega_{\bar u}:=\{x\in\Omega:\|\bar u(x,\cdot)\|_{L^2(0,T)}>0\}.
+\]
+This is an explicit interpretation of the source notation. Its reported formula then reads
+\[
+\bar\lambda(x,t)=
+\begin{cases}
+-\mu^{-1}\bar\varphi(x,t),&x\in\Omega_{\bar u}^{0},\\[2pt]
+\displaystyle\frac{\bar u(x,t)}{\|\bar u(x,\cdot)\|_{L^2(0,T)}},&x\in\Omega_{\bar u}.
+\end{cases}
+\]
+The source also states that \(\bar\lambda\) is unique. An almost-everywhere reading of these relations is natural for the displayed function spaces, but the excerpt does not specify their precise quantification or representatives. These reported conclusions cannot be promoted to a complete theorem without the missing hypotheses, and the record supplies no separate question to formalize as an open problem.
+\subsection{Short English statement}
+Permanent UnsolvedMath ID \(30005458\) records a Navier--Stokes control example and a semilinear parabolic control model promoting sparsity in the spatial variable. The excerpt reports necessary optimality conditions, regularity, and a sparsity criterion, but omits essential hypotheses and does not identify an unresolved question. Its supplied ``open'' label is a curation classification, not an independently verified mathematical conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record for permanent ID \(30005458\), exact source problem code \texttt{catalogue entry}, title ``Unspecified Weak Space-Time PDE Optimization Problem''. The supplied record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2023; no proposer is identified.
+\item Supplied report citation: \emph{Optimization Problems for PDEs in Weak Space-Time Form} (2023), Oberwolfach Reports, pp.\ 681--740, DOI \texttt{10.4171/owr/2023/13}. Supplied source URL and literature-source link, labelled ``original Oberwolfach report'': \url{https://doi.org/10.4171/owr/2023/13}. The extracted passage includes a page marker for p.\ 689. The report has not been independently consulted for this draft.
+\item The introductory example is attributed in the excerpt to Casas and Chrysafinos, reference [1]. The directional-sparsity discussion cites references [2, 3]. Their bibliographic entries are absent from the supplied record; no further author, title, or publication details can be assigned reliably.
+\item Literature assessment date: \texttt{2026-08-22}. This is supplied dated curation, not an independently verified assessment. It labels the record ``open'' because the passage presents an optimization example and first-order conditions without an identifiable unresolved claim. The supplied background says this triage derives from OWR curation and calls for independent verification of time-sensitive status and cited claims.
+\item The supplied statement-verification note says that the official report passage presents optimization models and proved first-order conditions, without stating an unresolved mathematical question. It records that no separate clean statement was promoted and that the original record remains visible for provenance. This description is preserved as supplied provenance, not as a claim of independent source verification.
+\end{itemize}
+\end{document}

@@ -1,0 +1,84 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005759}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer \(n\), let \(S_n\) be the set of permutations of \(\{1,\ldots,n\}\). A permutation \(\pi\in S_n\) contains a pattern \(\tau\in S_m\) if there are indices \(1\le i_1<\cdots<i_m\le n\) such that, for every \(a,b\in\{1,\ldots,m\}\),
+\[
+\pi(i_a)<\pi(i_b)\quad\Longleftrightarrow\quad\tau(a)<\tau(b).
+\]
+It avoids \(\tau\) if no such indices exist. For a set \(B\) of patterns, define
+\[
+\operatorname{Av}_n(B)=\{\pi\in S_n:\pi\text{ avoids every pattern in }B\},
+\qquad
+\operatorname{Av}(B)=\bigcup_{n\ge1}\operatorname{Av}_n(B).
+\]
+The inversion number of \(\pi\in S_n\) is
+\[
+\operatorname{inv}(\pi)=\bigl|\{(i,j):1\le i<j\le n,\ \pi(i)>\pi(j)\}\bigr|.
+\]
+For a nonnegative integer \(k\), put
+\[
+\operatorname{Av}_{n,k}(B)=\{\pi\in\operatorname{Av}_n(B):\operatorname{inv}(\pi)=k\}.
+\]
+Write \(\operatorname{Av}_{n,k}(1324)\) for \(B=\{1324\}\), and \(\operatorname{Av}_{n,k}(1324,231)\) for \(B=\{1324,231\}\). In particular, these sets are empty when \(k>\binom n2\).
+
+\textbf{Extracted questions, with unresolved indexing.} Using the conventional domains \(n\ge1\) and \(k\ge0\), the supplied clean statement literally asks whether
+\[
+\bigl|\operatorname{Av}_{n,k}(1324)\bigr|
+\le
+\bigl|\operatorname{Av}_{n,k+1}(1324)\bigr|
+\]
+and, separately, whether
+\[
+\bigl|\operatorname{Av}_{n,k}(1324,231)\bigr|
+\le
+\bigl|\operatorname{Av}_{n,k+1}(1324,231)\bigr|
+\]
+hold for all such \(n,k\). The record does not explicitly specify the integer domains, inclusion of size zero, or an admissible range for \(k\). The upper boundary of the inversion range therefore requires clarification.
+
+The supplied original passage has flattened notation of the form \(\text{Avkn+1}\), which does not reliably distinguish incrementing the size from incrementing the inversion number. A possible alternative reading of each question is
+\[
+\bigl|\operatorname{Av}_{n,k}(B)\bigr|
+\le
+\bigl|\operatorname{Av}_{n+1,k}(B)\bigr|
+\qquad(n\ge1,\ k\ge0),
+\]
+for \(B=\{1324\}\) and \(B=\{1324,231\}\), respectively. This alternative is recorded as an ambiguity, not adopted as a correction. The intended conjectures cannot be specified unambiguously from the supplied record alone.
+
+\textbf{Source context.} The original passage appears under Anders Claesson's name and discusses the growth rate of \(\operatorname{Av}(1324)\). It reports bounds \(10.27\le \operatorname{gr}(\operatorname{Av}(1324))\le13.5\) and a conditional improvement to approximately \(13.002\), accompanied by a \(2012\) annotation. The exact exponential expression for that improvement is corrupted in the supplied extraction and is not reconstructed here. These are source-reported contextual claims, not independently verified bounds. The passage also suggests that a bivariate generating function may help with the second question.
+
+The supplied dated curation labels the problem partially solved, reports inversion monotonicity for the subclass avoiding both \(1324\) and \(231\), mentions earlier work on further cases, and describes the full \(1324\) conjecture as remaining open. These supplied claims do not resolve the indexing ambiguity and require independent mathematical and bibliographic review.
+\subsection{Short English statement}
+The record asks about monotonicity of counts of pattern-avoiding permutations with a prescribed inversion number, both for avoidance of \(1324\) and for simultaneous avoidance of \(1324\) and \(231\). Its clean statement increments the inversion number, while the flattened original notation may increment the permutation size. The intended index and boundary conditions require clarification. The supplied partially solved label is dated curation, not an independently verified assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30005759\), title \emph{Inversion Monotonicity for 1324-Avoiding Permutations}, exact source problem code \texttt{catalogue entry}; supplied complete source record in the Oberwolfach Reports Open Problems collection.
+\item \emph{Mini-Workshop: Permutation Patterns} (2024), Oberwolfach Reports, pp.\ 273--308, DOI \texttt{10.4171/owr/2024/6}: \url{https://doi.org/10.4171/owr/2024/6}. Supplied literature-source label: original OWR report. The original passage is headed by Anders Claesson's name; the registry's separate proposer field is empty.
+\item Supplied literature-source label: 2026 inversion-monotonicity paper. \url{https://arxiv.org/abs/2604.01143}. No authors or full bibliographic title are supplied.
+\item Supplied literature-source label: few-inversions enumeration paper. \url{https://arxiv.org/abs/2408.15075}. No authors or full bibliographic title are supplied.
+\item Literature assessment dated exactly \texttt{2026-08-22}: supplied dated curation, not independently verified. It reports a proof for the subclass avoiding \(1324\) and \(231\), earlier results for further cases, and an open full \(1324\) conjecture. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official Oberwolfach report was checked directly. This is a supplied source-verification assertion; no independent source visit or verification is claimed in this draft.
+\end{itemize}
+\end{document}

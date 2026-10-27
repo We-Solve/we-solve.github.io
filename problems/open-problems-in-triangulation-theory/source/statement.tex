@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002053}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Scope and conventions.} The supplied record collects seven questions, some of whose intended domains are unspecified. The definitions below give standard reference formulations; where the record does not determine a convention, the qualification is stated explicitly.
+
+For a finite configuration \(A\subset\R^m\), put \(P=\operatorname{conv}(A)\) and \(r=\dim P\). A geometric triangulation of \(A\) is a finite simplicial complex with vertices in \(A\), underlying space \(P\), and intersections of simplices equal to common faces. One may additionally require every point of \(A\) to occur as a vertex; the supplied record does not specify this convention. A triangulation is regular if it is obtained by projecting the lower faces of \(\operatorname{conv}\{(a,h(a)):a\in A\}\) for some height function \(h:A\to\R\). The flip graph has the permitted triangulations as vertices, with edges corresponding to geometric bistellar flips: exchanges between the two triangulations supported on a minimally affinely dependent subset, with a common link. The permitted configurations, triangulations, and flips must be fixed before this graph is determined.
+
+For a full-dimensional finite configuration \(A\subset\R^r\), the secondary polytope is
+\[
+ \Sigma(A)=\operatorname{conv}\{\phi_T:T\text{ is a triangulation of }A\},\qquad
+ \phi_T(a)=\sum_{\substack{\sigma\in T,\ \dim\sigma=r\\a\text{ a vertex of }\sigma}}r!\operatorname{vol}_r(\sigma).
+\]
+A facet means a face of codimension one in the affine hull of this polytope.
+
+A lattice polytope is the convex hull of finitely many points of a lattice. For a polytope \(P\), let \(L_P\) be the ambient lattice intersected with \(\operatorname{aff}(P)\), and let \(\Lambda_P\) be its lattice of differences. A full-dimensional simplex in \(\operatorname{aff}(P)\) is unimodular if its edge vectors from one vertex form a basis of \(\Lambda_P\). A lattice triangulation is unimodular if all its maximal simplices are unimodular. A full-dimensional lattice polytope is smooth if, at every vertex, the primitive directions of the incident edges form a basis of the ambient lattice; the analogous definition applies in its affine lattice. For the lattice questions below, a regular unimodular triangulation conventionally uses lattice points of \(P\), with regularity tested on \(P\cap L_P\). The source does not explicitly specify the allowed vertex set or lattice convention.
+
+For a finite matroid \(M\) on a ground set \(E\), write \(\mathbf{1}_S\in\{0,1\}^E\) for the indicator of \(S\subseteq E\). Its base polytope and independence polytope are, respectively,
+\[
+ B(M)=\operatorname{conv}\{\mathbf{1}_B:B\text{ is a basis of }M\},\qquad
+ I(M)=\operatorname{conv}\{\mathbf{1}_I:I\text{ is independent in }M\}.
+\]
+These are distinct possible meanings of the source's phrase ``matroid polytope.'' For either, unimodularity is interpreted relative to its affine lattice induced by \(\Z^E\), if that convention is adopted.
+
+The dual graph \(D(T)\) of a pure three-dimensional triangulation \(T\) has its tetrahedra as vertices, and an edge between two tetrahedra when they share a triangular face. A Hamiltonian cycle visits every graph vertex exactly once before returning to its start; a Hamiltonian path visits every vertex exactly once without requiring this return. For a connected finite graph \(G\), its diameter is
+\[
+ \operatorname{diam}(G)=\max_{u,v\in V(G)}\operatorname{dist}_G(u,v).
+\]
+A disconnected graph requires a separate diameter convention, such as infinite diameter or componentwise diameters.
+
+\textbf{Questions retained from the record.}
+\begin{enumerate}
+\item For the cube vertex configuration \(A_d=\{0,1\}^d\), determine all facets of \(\Sigma(A_d)\), as a function of \(d\). The standard interpretation takes positive integers \(d\); the source gives no explicit range and does not specify whether a classification or an effective enumeration is sought.
+\item Under the interpretation that dimension refers to the affine dimension of a finite point configuration, determine, for each \(r\in\{3,4\}\), whether there exists a finite configuration \(A\) with \(\dim\operatorname{conv}(A)=r\) whose flip graph is disconnected. The source does not fix the configuration class, whether all points must be used, or whether all triangulations or only regular triangulations are included. Thus this is a conditional formulation of its question, not an assertion that these conventions were intended.
+\item Determine the computational complexity of counting the permitted triangulations of an input configuration \(A\), and give a method that samples them uniformly: if \(\mathcal{T}(A)\) is the specified nonempty finite family, the required exact distribution would satisfy
+\[
+ \Pr(T=\tau)=\frac{1}{|\mathcal{T}(A)|}\qquad(\tau\in\mathcal{T}(A)).
+\]
+The input encoding, fixed or variable dimension, triangulation family, efficiency requirement, and whether exact or approximate sampling is intended are not supplied. Consequently, no single complexity or sampling specification is determined.
+\item Does every smooth lattice polytope \(P\) admit a regular unimodular triangulation? With the lattice convention above, this asks whether for every such \(P\) there exists a regular triangulation of \(P\cap L_P\) all of whose maximal simplices are unimodular. The ambient dimension is unrestricted in the record; its vertex and lattice conventions require confirmation.
+\item Does every matroid polytope admit a regular unimodular triangulation? Under the base-polytope interpretation, the quantified question is whether, for every finite matroid \(M\), \(B(M)\) admits such a triangulation in its induced affine lattice. The supplied dated assessment specifically reports a construction for matroid base polytopes. It does not settle the intended meaning of ``matroid polytope'' in the original question or justify extending that assessment to another interpretation.
+\item Does every three-dimensional polyhedron \(P\) admit a triangulation \(T\) for which \(D(T)\) is Hamiltonian? If ``Hamiltonian'' means containing a Hamiltonian cycle, this asks for such a cycle in \(D(T)\); if a Hamiltonian path was intended, the target differs. The class of polyhedra, boundedness, convexity, admissible topology, and permission to add vertices are not specified, so the universal quantifier cannot be made unambiguous from the record.
+\item Determine optimal diameter bounds. The cleaned statement specifies graphs of triangulations, whereas the original wording asks for ``the diameter of a triangulation.'' For the flip-graph interpretation, the target is sharp bounds on \(\operatorname{diam}(G(A))\) in terms of specified input parameters, for a specified class of configurations and graphs. Neither those parameters nor the treatment of disconnected graphs is supplied. The original wording could instead refer to a graph associated with a single triangulation, including its dual graph; the record does not resolve this discrepancy.
+\end{enumerate}
+
+The registry labels this collection \emph{partially solved}. Its supplied assessment reports that regular unimodular triangulations of matroid base polytopes have been constructed, while the smooth-polytope, Hamiltonian-dual-graph, enumeration, and sharp-diameter questions remain open or only partly resolved. This is supplied dated curation, not an independently verified mathematical or literature conclusion; it does not give a separate status assessment for every question.
+\subsection{Short English statement}
+This record collects seven questions about secondary-polytope facets, connectivity of flip graphs, counting and random sampling, regular unimodular triangulations, Hamiltonian dual graphs, and diameter bounds. Several essential conventions are missing, so the formulations explicitly retain those uncertainties. The supplied dated assessment labels the collection partially solved and reports progress for matroid base polytopes; it has not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002053\), title ``Open Problems in Triangulation Theory,'' collection ``Oberwolfach Reports Open Problems,'' exact source problem code \texttt{catalogue entry}. The record supplies proposed year \(2012\), but no named proposer. Its \texttt{corrected\_verified} statement label and accompanying manual-review claim are supplied registry metadata, not independent verification of this draft.
+\item Supplied report citation: \emph{Triangulations (2013)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2012/24}, pp.\ 1405--1486. \url{https://doi.org/10.4171/owr/2012/24}. The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions. The citation's year \(2013\) differs from the proposed year \(2012\) and the year in the DOI; this discrepancy is retained without correction. No problem-specific page or speaker attribution is supplied.
+\item Supplied literature source: Liu--Backman, ``A regular unimodular triangulation of the matroid base polytope.'' \url{https://publications.mfo.de/bitstream/handle/mfo/4147/OWR_2023_58.pdf?isAllowed=y&sequence=6}.
+\item Supplied literature source: Haase--Paffenholz--Piechnik--Santos, ``Existence of unimodular triangulations.'' \url{https://arxiv.org/abs/1405.1687}.
+\item Supplied literature source: De Loera, ``triangulation open problems.'' \url{https://math.ucdavis.edu/~deloera/TEACHING/STJOHNS/stjlecture1.pdf}.
+\item The exact supplied literature-check date is \texttt{2026-08-21}. The partially-solved label and associated assessment are supplied dated curation derived from the OWR record, not independently verified here. The supplied background explicitly calls for independent verification of time-sensitive status and cited claims. No listed source was visited for this draft.
+\end{itemize}
+\end{document}

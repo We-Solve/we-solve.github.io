@@ -1,0 +1,32 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000421}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Random-flip mixing problem.} Determine the mixing rate of the Markov chain on triangulations that repeatedly flips a uniformly random flippable edge. The supplied assessment identifies the intended setting as triangulations of arbitrary planar point sets, rather than only convex-position sets or abstract planar maps.\par In a conventional straight-line formulation, fix a finite point set \(S\subset\R^2\) of size \(n\), with any required general-position hypotheses stated. A triangulation uses the points of \(S\) as vertices and partitions their convex hull by noncrossing edges. An interior edge is flippable when its two adjacent triangles form a convex quadrilateral, allowing replacement by the other diagonal. Let \(\mathcal T(S)\) be the state set and \(d(T)\) the number of flippable edges of \(T\). The literal transition rule is\[P(T,T')=\frac1{d(T)}\quad\text{if }T'\text{ is obtained by one flip},\] and zero otherwise, for \(d(T)>0\). A state with no flippable edge needs a separate holding convention. On a finite connected flip graph with positive degrees this walk has stationary law \(\pi(T)=d(T)/\sum_{U\in\mathcal T(S)}d(U)\), not generally the uniform law on triangulations. Choosing an edge from a larger fixed-size set and rejecting nonflippable choices defines another chain.\par For a specified aperiodic version, a standard target is the total-variation mixing time \(t_{\mathrm{mix}}(\varepsilon)=\min\{t:\max_T\|P^t(T,\cdot)-\pi\|_{\mathrm{TV}}\le\varepsilon\}\), and its dependence on \(n\), \(\varepsilon\), and any geometric parameters, including uniform bounds over the permitted \(S\). The source does not fix the metric of convergence or desired upper/lower-bound regime. Periodicity also requires attention: for four points in convex position there are two triangulations and the literal always-flip walk alternates deterministically, so it does not converge to stationarity. The common lazy modification \(\frac12I+\frac12P\) removes this issue but is not silently substituted for the stated chain. The point-set degeneracy rules, holding or laziness convention, and target stationary law must be recovered before a uniform mixing theorem is formulated.\par The supplied triage checked 2026-08-21 labels the general planar-point-set problem open and says known results for convex point sets, maps, and related models do not settle it. The rules and exact scope of those results are not reproduced. This dated assessment requires independent verification and does not resolve the transition-law distinctions above.
+\subsection{Short English statement}
+Quantify convergence of the stated random flip walk on planar-point-set triangulations. Uniform choice among currently flippable edges gives a degree-weighted stationary law, and the nonlazy chain can be periodic. Those details must be fixed before importing results about other flip chains.
+\subsection{Sources}
+\begin{itemize}\item Local UnsolvedMath registry, permanent ID 30000421, code catalogue entry; \emph{Mixing Rates for Random Edge Flips on Triangulations}, Oberwolfach Reports Open Problems.\item \emph{Algorithmic Graph Theory (2006)}, Oberwolfach Reports, DOI 10.4171/owr/2006/07, pp. 379--460. \url{https://doi.org/10.4171/owr/2006/07}. Proposed year 2006; no proposer named.\item Supplied literature label \emph{original OWR report}: \url{https://doi.org/10.4171/owr/2006/07}.\item Supplied literature label \emph{edge-flip mixing paper}: \url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol081-approx-random2017/LIPIcs.APPROX-RANDOM.2017.34/LIPIcs.APPROX-RANDOM.2017.34.pdf}. This is a supplied reference only; it was not downloaded.\item Literature triage checked 2026-08-21, status \texttt{open}; record updated 2026-09-16. Statement status \texttt{exact}, retained byte-for-byte according to its verification field. Verify dated claims independently.\end{itemize}
+\end{document}

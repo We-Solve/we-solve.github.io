@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800521}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a conditional interpretation of the question, let \(\mathbb K\in\{\R,\C\}\), let \(1\le k\le n\) be integers, and let \(Q\in\mathbb K^{n\times k}\) have orthonormal columns, so that \(Q^*Q=I_k\). Here \(Q^*\) denotes the conjugate transpose. For \(I\subseteq\{1,\ldots,n\}\) with \(|I|=k\), write \(Q(I,:)\) for the square matrix consisting of the rows indexed by \(I\), in increasing order. For a square matrix \(B\), define
+\[
+\gamma(B)=\begin{cases}
+\|B^{-1}\|_2,&B\text{ is invertible},\\
++\infty,&B\text{ is singular},
+\end{cases}
+\qquad
+\|A\|_2=\sup_{x\ne0}\frac{\|Ax\|_2}{\|x\|_2}.
+\]
+The dimensions, field, and orthonormality hypothesis above are a possible completion of the notation; they are not stated in the supplied record and require confirmation from the source context.
+
+The supplied statement reports that an index set \(I\) exists satisfying
+\[
+\|Q(I,:)^{-1}\|_2\le\sqrt{k(n-k+1)},
+\]
+and attributes this assertion to \texttt{hong1992rank}. It also reports an \(O(nk^2)\) algorithm attaining this bound, attributed to \texttt{Osinsky2025close}. The record does not supply the hypotheses or computational model for these assertions.
+
+\textbf{Question, conditional precise formulation.} Suppose that the intended procedure is QR factorization with column pivoting (QRCP) applied to \(Q^*\), and let \(I_{\mathrm{QRCP}}(Q)\) be the row indices of \(Q\) corresponding to its first \(k\) pivot columns. For a specified implementation and pivot tie rule, is it true that, for every admissible \(n,k,Q\),
+\[
+\gamma\bigl(Q(I_{\mathrm{QRCP}}(Q),:)\bigr)
+\le\sqrt{k(n-k+1)}?
+\]
+Alternatively, does that procedure satisfy a comparable bound? The source does not define ``similar,'' specify the matrix to which QRCP is applied, or identify an implementation. It also does not specify exact versus finite precision arithmetic. The wording ``typically used in practice'' describes the algorithm in the supplied question but does not establish a probabilistic model or a typical-case quantifier. Consequently, the displayed universal formulation is a candidate interpretation requiring review, and the alternative request for a similar bound has no uniquely specified mathematical target.
+\subsection{Short English statement}
+The supplied question asks whether practical QR factorization with column pivoting selects rows whose inverse has spectral norm at most \(\sqrt{k(n-k+1)}\), or satisfies a comparable bound. The matrix assumptions, pivoting procedure, arithmetic model, and meaning of a comparable bound require confirmation. The orthonormal-column formulation above is conditional.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(800521\), exact source problem code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 30.'' The registry attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels it \emph{open}; this is a supplied status label, not an independently verified mathematical assessment.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 30. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of independent source access.
+\item The supplied statement cites \texttt{hong1992rank} for the existence bound and \texttt{Osinsky2025close} for an \(O(nk^2)\) algorithm attaining it. Full bibliographic entries and the precise hypotheses of these references are absent from the supplied record.
+\end{itemize}
+\end{document}

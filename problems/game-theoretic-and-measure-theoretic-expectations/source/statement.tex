@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005865}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks for a comparison between game-theoretic expectations and supermartingales and their measure-theoretic counterparts, but does not specify the underlying game or probability model.
+
+For clarity, the standard measure-theoretic notions can be defined after choosing a probability space \((\Omega,\mathcal F,P)\). For an integrable real-valued random variable \(X\), its expectation is
+\[
+\mathbb E_P[X]=\int_\Omega X\,\dd P.
+\]
+Given a linearly ordered time index set \(T\) and a filtration \((\mathcal F_t)_{t\in T}\), a real-valued process \((M_t)_{t\in T}\) is a \(P\)-supermartingale if it is adapted, satisfies \(\mathbb E_P[|M_t|]<\infty\) for every \(t\in T\), and satisfies
+\[
+\mathbb E_P[M_t\mid\mathcal F_s]\leq M_s
+\quad P\text{-almost surely},\qquad s,t\in T,\ s\leq t.
+\]
+These definitions provide comparison terminology; the source does not prescribe this probability space, time index, or integrability class, and does not specify whether the intended measure-theoretic comparison uses one probability measure or a family of measures.
+
+The original excerpt additionally mentions a class \(\mathcal Z\) of admissible gambles and the optional assumption that it is scalable. The displayed text is corrupted, but its stated meaning is closure under nonnegative scaling:
+\[
+Z\in\mathcal Z,\quad c\in\R,\quad c\geq0
+\quad\Longrightarrow\quad cZ\in\mathcal Z.
+\]
+The domain and value range of these gambles are unspecified. No closure under addition or other structural property is supplied.
+
+\textbf{Source question.} Determine how the game-theoretic expectations and supermartingales arising from the intended gambling protocol relate to measure-theoretic expectations and supermartingales, identifying the hypotheses under which a correspondence holds and its limitations. The excerpt also asks about a simplification under the additional scalability assumption above, but refers to eliminating \(Z\) from an expression that is absent from the record. Consequently, neither that simplification nor a particular equality, inequality, or equivalence between the two frameworks can be stated precisely from the supplied evidence. The game-theoretic definitions, admissible strategies, timing, comparison measures, and relevant payoff classes remain unresolved.
+\subsection{Short English statement}
+The question asks when game-theoretic expectations and supermartingales correspond to measure-theoretic ones. The supplied excerpt gives an optional scaling condition on gambles, but omits the gambling protocol and a referenced formula, so a precise comparison theorem cannot yet be specified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005865\), title \emph{Game-Theoretic and Measure-Theoretic Expectations}, source problem code \texttt{catalogue entry}. The record assigns the year 2024 and names no individual proposer.
+\item Supplied source citation: \emph{Game-theoretic Statistical Inference: Optional Sampling, Universal Inference, and Multiple Testing Based on E-values} (2024), Oberwolfach Reports, pp.\ 1339--1386, DOI \texttt{10.4171/owr/2024/24}. Original OWR report: \url{https://doi.org/10.4171/owr/2024/24}. The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source labeled ``Frongillo minimax duality'': \url{https://arxiv.org/abs/2512.21026}.
+\item Supplied literature source labeled ``safe anytime-valid inference'': \url{https://doi.org/10.1214/23-STS894}.
+\item Literature assessment dated \texttt{2026-08-22}: this is supplied dated curation, not independently verified. The supplied status is \texttt{partially\_solved}. The supplied assessment says that minimax duality identifies conditions under which game-theoretic upper expectations and supermartingale constructions coincide with measure-theoretic counterparts, while warning that the correspondence is not universal without structural assumptions on the gamble space and timing. The background calls this a dated literature triage derived from the supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800511}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) be an integer, let \(A\in\C^{n\times n}\), and let \(\delta>0\). A perturbation is a matrix \(E\in\C^{n\times n}\). The supplied source uses a matrix norm \(\|\cdot\|\) and an eigenvalue condition quantity \(\kappa_{eig}\), but does not define either. Their precise conventions, including the treatment of defective matrices and repeated eigenvalues, remain unresolved.
+
+The requested task is to construct a deterministic algorithm, with a proof of correctness, and universal constants \(C,c\), independent of \(n,A,\delta\), that, for every such input, outputs \(E\) satisfying
+\[
+\|E\|\leq\delta,
+\qquad
+\kappa_{eig}(A+E)\leq C(\delta/n)^c.
+\]
+The source specifies an arithmetic-operation bound
+\[
+O\!\left(n^3\log^c(n/\delta)\right).
+\]
+It requests this either in exact arithmetic or, more ambitiously, in finite arithmetic using
+\[
+O\!\left(\log^c(n/\delta)\right)
+\]
+bits of precision.
+
+These expressions reproduce the supplied formulation without correction. The source does not specify the signs of \(C,c\), whether the occurrences of \(c\) must denote the same constant, or a restriction on \(\delta\) that makes the logarithmic bounds meaningful throughout the input domain. In particular, \(\log(n/\delta)\) vanishes at \(\delta=n\) and is negative for \(\delta>n\). The direction of the ratio in the condition bound and the intended exponent also require clarification. No normalization of \(A\), computational model for arbitrary complex inputs, or finite-precision input and output conventions are supplied. These omissions prevent a fully specified algorithmic statement.
+\subsection{Short English statement}
+Find a provably correct deterministic algorithm that slightly perturbs any complex square matrix to achieve the stated eigenvalue-conditioning bound within nearly cubic arithmetic cost, with a finite-precision version as a more ambitious target. The norm, condition quantity, exponent conventions, and parameter range require clarification. The registry labels this problem open; this is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(800511\), source code \texttt{catalogue entry}, titled ``Linear Systems and Eigenvalue Problems --- Problem 20 (Deterministic Pseudospectral Shattering).'' The record attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels its status as open. This label is supplied registry metadata, not an independently verified mathematical assessment.
+\item Supplied source citation: Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 20. Supplied URL: \url{https://arxiv.org/abs/2602.05394}. The background records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not a claim of independent source access or verification. Attribution/context: ``Deterministic Pseudospectral Shattering.''
+\item Registry provenance: upstream ID \(800511\), upstream revision \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}; creation and update timestamps both \texttt{2026-10-16T14:00:00Z}. No separate literature-verification date or additional literature references are supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002458}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix integers \(q>r\geq 1\) and \(\lambda\geq 1\). Let \(X\) be a finite set with \(|X|=n\), and write \(\binom{X}{q}\) for its set of \(q\)-element subsets. An \((n,q,r,\lambda)\)-design is a collection of blocks from \(\binom{X}{q}\) such that every \(R\in\binom{X}{r}\) is contained in exactly \(\lambda\) blocks.
+
+The word ``collection'' in the supplied record does not specify whether repeated blocks are permitted. Under the distinct-block interpretation, a design is a set \(\mathcal B\subseteq\binom{X}{q}\) satisfying
+\[
+\bigl|\{B\in\mathcal B:R\subseteq B\}\bigr|=\lambda
+\qquad\text{for every }R\in\binom{X}{r}.
+\]
+Under the interpretation allowing repetitions, it is a multiplicity function \(m:\binom{X}{q}\to\Z_{\geq0}\) satisfying
+\[
+\sum_{\substack{B\in\binom{X}{q}\\R\subseteq B}}m(B)=\lambda
+\qquad\text{for every }R\in\binom{X}{r}.
+\]
+The intended convention requires clarification; it can affect existence at small orders.
+
+For \(n\geq q\), call \(n\) admissible if
+\[
+\binom{q-i}{r-i}\mid\lambda\binom{n-i}{r-i}
+\qquad\text{for every integer }i\text{ with }0\leq i<r.
+\]
+These are the necessary divisibility conditions stated in the record. The source does not explicitly specify the domain of \(n\); the formulation here explicitly addresses \(n\geq q\), and leaves the treatment of smaller orders unresolved.
+
+\textbf{Historical question.} For every fixed integer triple \((q,r,\lambda)\) satisfying the hypotheses above, does there exist an integer \(N=N(q,r,\lambda)\geq q\) such that every admissible integer \(n\geq N\) admits an \((n,q,r,\lambda)\)-design?
+
+\textbf{Residual characterization requested by the curated statement.} For each fixed triple \((q,r,\lambda)\), characterize all orders admitting such a design; in the range \(n\geq q\), determine the exceptional set
+\[
+E_{q,r,\lambda}=\{n\in\Z:n\geq q,\ n\text{ is admissible, and no }(n,q,r,\lambda)\text{-design exists}\}.
+\]
+This set depends on the block-repetition convention. The supplied dated assessment attributes an affirmative answer to the historical asymptotic question to Keevash, and consequently describes this exceptional set as finite for fixed parameters. That assessment is supplied curation, not an independently verified claim in this draft. When \(\lambda=1\), these designs are Steiner systems.
+\subsection{Short English statement}
+Determine exactly which orders support a design with fixed block size \(q\), subset size \(r\), and multiplicity \(\lambda\). The supplied curation reports that divisibility suffices for all sufficiently large orders and asks for the remaining finite exceptions. Whether blocks may repeat, and how orders \(n<q\) are treated, require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002458\), title ``Existence of Combinatorial Designs at Admissible Orders,'' exact source problem code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. The record lists proposed year 2014 and supplies no individual proposer.
+\item Supplied report citation: \emph{Combinatorics} (2014), Oberwolfach Reports, pp.\ 5--90, DOI 10.4171/owr/2014/01. Source URL and literature-source link labeled ``Original OWR record'': \url{https://doi.org/10.4171/owr/2014/01}. The background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature-source link labeled ``Keevash existence theorem'': \url{https://arxiv.org/abs/1401.3665}. The supplied assessment attributes asymptotic existence for fixed parameters and sufficiently large admissible orders to Keevash, while describing exact finite-parameter existence as not completely classified.
+\item Literature checked at: \texttt{2026-08-21}. This exact date records supplied dated curation, not independent verification. The background calls the assessment dated literature triage derived from the supplied Oberwolfach curation and requests independent verification of time-sensitive status and cited claims.
+\item The registry supplies status \texttt{partially\_solved} and statement status \texttt{corrected\_verified}, with a verification note asserting comparison against the official report and preservation of hypotheses, notation, and open target. These are supplied labels and assertions; this draft does not independently verify them or claim to have consulted either linked source.
+\end{itemize}
+\end{document}

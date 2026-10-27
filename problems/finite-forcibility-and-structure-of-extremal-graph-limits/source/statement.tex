@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001430}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A standard dense, simple, undirected graph interpretation is described below. The supplied record does not explicitly specify this setting, the meaning of subgraph density, or the permitted objective functions; consequently, the displayed formulation is a conditional interpretation requiring review.
+
+A graphon is a symmetric measurable function \(W:[0,1]^2\to[0,1]\), where \([0,1]\) carries Lebesgue measure. For a finite simple graph \(F\), its homomorphism density in \(W\) is
+\[
+ t(F,W)=\int_{[0,1]^{V(F)}}\prod_{\{u,v\}\in E(F)}W(x_u,x_v)\prod_{v\in V(F)}\dd x_v.
+\]
+Two graphons \(U,W\) are weakly isomorphic if \(t(F,U)=t(F,W)\) for every finite simple graph \(F\). A graphon \(W\) is finitely forcible if there exist finitely many finite simple graphs \(H_1,\ldots,H_m\) such that, for every graphon \(U\),
+\[
+ \bigl(t(H_j,U)=t(H_j,W)\text{ for every }1\leq j\leq m\bigr)
+ \Longrightarrow
+ \bigl(t(F,U)=t(F,W)\text{ for every finite simple graph }F\bigr).
+\]
+The forcing graphs need not coincide with the graphs specifying an optimization problem.
+
+For a finite simple graph \(G\), put \(t(F,G)=\operatorname{hom}(F,G)/|V(G)|^{|V(F)|}\), where \(\operatorname{hom}(F,G)\) counts adjacency-preserving vertex maps. A sequence \((G_n)\) has graphon limit \(W\) if \(|V(G_n)|\to\infty\) and \(t(F,G_n)\to t(F,W)\) for every finite simple graph \(F\).
+
+Under the additional interpretation that there are finitely many equality constraints and that a single homomorphism density is optimized, a precise candidate question is the following. For every integer \(k\geq0\), every collection of finite simple graphs \(F_0,F_1,\ldots,F_k\), and every \(a=(a_1,\ldots,a_k)\in[0,1]^k\) for which
+\[
+ \mathcal S(a)=\{W:W\text{ is a graphon and }t(F_i,W)=a_i\text{ for }1\leq i\leq k\}\ne\varnothing,
+\]
+is there a finitely forcible graphon \(W_*\in\mathcal S(a)\) satisfying
+\[
+ t(F_0,W_*)=\sup_{W\in\mathcal S(a)}t(F_0,W)?
+\]
+The corresponding minimization question replaces the supremum by the infimum. Interpreting an extremal family asymptotically asks for a sequence \((G_n)\) with graphon limit \(W_*\), so that its constraint densities approach \(a_i\) and its objective density approaches the extremal value. Exact satisfaction of the constraints by each finite graph is a different requirement and is not specified in the record.
+
+The supplied question also asks for the possible structure and a complete characterization of extremal graphs or graph limits. It does not specify the scope or required form of such a characterization. Nor does it establish whether its universal question permits more general functions of densities, infinitely many constraints, induced densities, or other graph categories. The candidate formulation above therefore does not resolve the full source-level ambiguity. This is a statement-only draft, not an assertion that the proposed universal property holds.
+\subsection{Short English statement}
+The problem asks whether every density optimization problem has at least one extremal family converging to a graphon uniquely determined, up to weak isomorphism, by finitely many subgraph densities. It also seeks a structural characterization of extremal graphs. A conventional graphon formulation is provided, but the source leaves the allowed objectives, constraints, density convention, and meaning of complete characterization unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete source record for permanent ID \(30001430\), title \emph{Finite Forcibility and Structure of Extremal Graph Limits}, exact source problem code \texttt{catalogue entry}. The project registry is \texttt{data/unsolvedmath/problems.json}, with additional records in \texttt{catalog/problems.json}; the supplied record was used without inspecting those files.
+\item Supplied report citation: \emph{Graph Theory} (2010), Oberwolfach Reports, DOI 10.4171/owr/2010/11, pp.~521--580. \url{https://doi.org/10.4171/owr/2010/11}. The record describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. It gives proposed year 2010 and names no individual proposer.
+\item Supplied literature source: \emph{Oberwolfach Report 11/2010}. \url{https://doi.org/10.4171/owr/2010/11}.
+\item Literature assessment checked at \texttt{2026-08-21}: the supplied status is \texttt{partially\_solved}. The supplied assessment says that graphon methods give finite-forcibility results and arbitrarily close proofs for density inequalities, while a complete characterization of extremal graph limits remains open. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; its time-sensitive status and cited claims require independent verification.
+\item The record labels its statement \texttt{exact} and reports that its mathematical content was checked against the official report, with notation, context, and question form normalized without changing the source-level claim. This verification description is supplied provenance and was not independently checked for this draft. No narrower problem location within the cited page range is supplied.
+\end{itemize}
+\end{document}

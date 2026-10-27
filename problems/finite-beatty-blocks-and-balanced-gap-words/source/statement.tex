@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001095}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+R. Graham's source entry proposes studying weak \(k\)-term arithmetic progressions as a more flexible substitute for ordinary progressions, suggesting that standard problems might become easier. It does not state a particular extremal, density, Ramsey, or algorithmic conjecture. The stored delimiters appear as ``b'' and ``c''; the supplied aid reads them as floor brackets. Under that explicit interpretation a weak progression is
+\[
+ \{\lfloor i\alpha+\beta\rfloor:1\le i\le k\},
+ \qquad \alpha\in\R,\ \alpha\ge1,\quad\beta\in\R.
+\]
+The floor convention, rather than ceiling or nearest-integer rounding, matters for the strict endpoint conditions below. The parameter bound ensures distinct increasing terms.
+
+The aid's classification problem takes an increasing integer sequence \(a_1<\cdots<a_k\). It reports equivalence between being the displayed floor block and nonemptiness of
+\[
+ [1,\infty)\cap\bigcap_{1\le i<j\le k}
+ \left(\frac{a_j-a_i-1}{j-i},\frac{a_j-a_i+1}{j-i}\right).
+\]
+For any \(\alpha\) in this intersection, the parameter recovery is
+\[
+ \max_i(a_i-i\alpha)\le\beta<\min_i(a_i+1-i\alpha).
+\]
+The aid reports that these \(O(k^2)\) exact rational inequalities construct admissible parameters. For \(k=1\), the empty intersection places no additional restriction on \(\alpha\ge1\), and the beta interval is nonempty.
+
+Equivalently, its reported gap characterization is: there exists an integer \(q\ge1\) such that all gaps \(a_{i+1}-a_i\) lie in \(\{q,q+1\}\), and the binary word
+\[
+ w_i=a_{i+1}-a_i-q\quad(1\le i<k)
+\]
+is balanced. Here balanced means that any two contiguous subwords of equal length have numbers of ones differing by at most one. For \(k=1\), the gap condition is vacuous. The presence of two adjacent gap values alone is sufficient through \(k=4\), but not generally.
+
+The aid gives the sharp first failure at \(k=5\):
+\[
+ \{0,1,2,4,6\},\qquad\text{gaps }1,1,2,2,\qquad w=0011.
+\]
+Its subwords \(00\) and \(11\) violate balance, and the strict slope intervals require both \(\alpha<3/2\) and \(\alpha>3/2\). The aid calls it a smallest counterexample to the gap-only criterion, meaning smallest number of terms, not a specified minimal diameter or lexicographic order. These are finite-block structural results; they do not settle any unspecified version of the standard additive-combinatorial problems mentioned programmatically by the source.
+\subsection{Short English statement}
+The source proposes replacing arithmetic progressions by finite floor-sequence blocks. The supplied aid characterizes such blocks using strict slope intervals and balanced adjacent-gap words, with a five-term example showing why two possible gap sizes alone are insufficient.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001095\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[219]}, tag \texttt{problem}.
+\item AIM workshop ``Recent trends in additive combinatorics,'' Problem 1.14, R. Graham: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. Statement status \texttt{exact}, including the stored floor-delimiter artifacts. No PDF was accessed for this draft.
+\item No original remarks, literature field, proposer/year metadata, or authoritative external citation for the finite floor-block characterization is supplied beyond the in-text R. Graham attribution.
+\item Research attempt 1: \texttt{context\_only}, problem status at run \texttt{not\_a\_problem}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{open}, classification \texttt{OPEN-TRIAGE}, suggested difficulty L2. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

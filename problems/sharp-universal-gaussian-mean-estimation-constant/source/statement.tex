@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005251}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(d,N\geq 1\) be integers, let \(\mu^*\in\R^d\), and let \(\Sigma\) be a symmetric positive semidefinite \(d\times d\) matrix. Let \(S\subseteq\R^d\) be nonempty and symmetric, meaning \(S=-S\), and set
+\[
+ p_S(x)=\sup_{v\in S}\langle v,x\rangle.
+\]
+This expression can take the value \(+\infty\); when it is finite on all of \(\R^d\), it is the pseudonorm appearing in the source. Symmetry alone does not ensure this finiteness.
+
+Let \(G_1,\ldots,G_N\) be independent random vectors with distribution \(\mathcal N(\mu^*,\Sigma)\), and define
+\[
+ \overline G_N=\frac1N\sum_{i=1}^N G_i.
+\]
+For \(g\sim\mathcal N(0,I_d)\), define the Gaussian mean width and covariance radius by
+\[
+ w_\Sigma(S)=\E\sup_{v\in S}\langle g,\Sigma^{1/2}v\rangle,
+ \qquad
+ r_\Sigma(S)=\sup_{v\in S}\|\Sigma^{1/2}v\|_2.
+\]
+The weak variance of the empirical-mean process is
+\[
+ \sigma_S^2
+ =\sup_{v\in S}\E\bigl[\langle v,\overline G_N-\mu^*\rangle^2\bigr]
+ =\frac{r_\Sigma(S)^2}{N}.
+\]
+The supplied excerpt attributes to the Borell--TIS inequality the following bound, understood when the displayed width and radius are finite: for every \(0<\delta<1\),
+\[
+ \Pr\!\left\{
+ p_S(\overline G_N-\mu^*)
+ \leq \frac{w_\Sigma(S)}{\sqrt N}
+       +r_\Sigma(S)\sqrt{\frac{2\log(1/\delta)}{N}}
+ \right\}\geq 1-\delta.
+\]
+For \(S=B_2^d=\{v\in\R^d:\|v\|_2\leq1\}\), the excerpt describes the corresponding Euclidean rate using
+\[
+ \sqrt{\frac{\operatorname{Tr}(\Sigma)}{N}}
+ +\sqrt{\frac{\|\Sigma\|_{\mathrm{op}}\log(1/\delta)}{N}},
+\]
+where \(\|\Sigma\|_{\mathrm{op}}\) is the operator norm. This rate expression does not specify sharp numerical constants.
+
+\textbf{Requested target and unresolved formulation.} The registry asks to determine the sharp constant in the universal deviation-minimax rate for Gaussian mean estimation over all pseudonorms. The supplied excerpt, however, explicitly says that sharp optimal constants are not considered and ends before completing its discussion of optimality. It does not define a minimax criterion or specify an inequality whose constant is to be optimized. Thus the displayed empirical-mean bound supplies context, but the supplied evidence does not determine a unique sharp-constant problem. The admissible estimators, treatment of the covariance, parameter class, confidence range for minimax optimality, and normalization of the target rate remain unspecified.
+\subsection{Short English statement}
+The record requests a sharp universal constant for Gaussian mean estimation measured by arbitrary pseudonorms. Its excerpt supplies an empirical-mean deviation bound but explicitly leaves sharp constants untreated. A precise minimax optimization problem cannot be recovered without additional specifications.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005251\), title ``Sharp Universal Gaussian Mean-Estimation Constant,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the recorded proposed year is 2022.
+\item Supplied source citation: \emph{Mini-Workshop: Mathematical Foundations of Robust and Generalizable Learning} (2023), Oberwolfach Reports, pp.~2659--2686, DOI \texttt{10.4171/owr/2022/46}. Supplied source and literature link, labeled ``Oberwolfach Report 46/2022'': \url{https://doi.org/10.4171/owr/2022/46}. Oberwolfach Reports are described in the record as documenting mathematical workshops and their open-problem discussions. The report itself has not been independently consulted for this draft.
+\item The excerpt attributes its deviation bound to the Borell--TIS inequality, citing ``Theorem 7.1 in [2]'' or ``pages 56--57 in [3].'' The corresponding bibliography entries are not supplied, so these reference labels cannot be resolved here.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the record open because it is a methodological disclaimer omitting sharp optimal constants and specifying no resolved claim. It lists the report above as checked and requests independent verification of time-sensitive status and cited claims. This is supplied dated curation, not an independently verified literature assessment.
+\item The registry also supplies the label \texttt{corrected\_verified} and asserts that its clean statement was checked against the official report. Those are source-record assertions; they do not resolve the formulation gaps identified in this draft.
+\end{itemize}
+\end{document}

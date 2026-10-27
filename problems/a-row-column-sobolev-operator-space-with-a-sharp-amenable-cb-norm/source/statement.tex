@@ -1,0 +1,87 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001658}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The record merges the end of Section 3, Section 4 and the next heading. Its actual problem is: equip the rapid-decay Sobolev space naturally with operator-space matrix norms, and prove, for example, completely bounded rapid decay for polynomial-growth groups. The neighboring discussion of distorted subgroup lengths is context, not a replacement target.
+
+Let \(\Gamma\) be discrete and let \(L:\Gamma\to[0,\infty)\) satisfy \(L(e)=0\), \(L(g^{-1})=L(g)\), and \(L(gh)\leq L(g)+L(h)\). Let \(\lambda_g\) be the left regular unitaries and \(C_r^*(\Gamma)\) the reduced group \(C^*\)-algebra. The Fourier map on finitely supported functions is
+\[
+ \mathcal F(f)=\sum_g f(g)\lambda_g.
+\]
+Ordinary RD with a positive-weight Sobolev convention means bounded extension of this map for some Sobolev exponent. The source's displayed denominator-weighted norm is inconsistent with that inclusion for unbounded \(L\): point masses have norm tending to zero while their Fourier images have norm one. Whether the denominator is read as \(1+L^s\) or \((1+L)^s\) does not cure this sign problem.
+
+Use the aid's explicit positive-weight correction
+\[
+ H_t=\ell^2(\Gamma,(1+L)^t),\qquad
+ \|f\|_{H_t}^2=\sum_g|f(g)|^2(1+L(g))^t.
+\]
+An operator space has matrix norms satisfying the direct-sum maximum rule and scalar-matrix inequalities
+\[
+ \|V\oplus W\|=\max\{\|V\|,\|W\|\},\qquad
+ \|\alpha V\beta\|\leq\|\alpha\|\,\|V\|\,\|\beta\|.
+\]
+The multipliers \(\alpha,\beta\) are scalar rectangular complex matrices; the source's extracted coefficient-space notation for them needs this typing correction. A map is completely bounded if all entrywise matrix amplifications have uniformly bounded operator norm. The target \(C_r^*(\Gamma)\) has its natural concrete operator-space norms.
+
+The proposed domain is the row-column intersection
+\[
+ RC_t(\Gamma,L)=R(H_t)\cap C(H_t).
+\]
+For finitely supported matrix coefficients \(F_g\in M_m(\C)\), put \(w_g=(1+L(g))^t\). Its matrix norm is explicitly
+\[
+ \left\|\sum_gF_g\delta_g\right\|_{M_m(RC_t)}
+ =\max\left\{
+ \left\|\sum_gw_gF_gF_g^*\right\|^{1/2},
+ \left\|\sum_gw_gF_g^*F_g\right\|^{1/2}\right\}.
+\]
+This fixes the row-column structure and exponent normalization, including compatibility with the involution obtained by inversion and adjoint.
+
+The aid reports, for
+\[
+ Z_L(t)=\sum_{g\in\Gamma}(1+L(g))^{-t}<\infty,
+\]
+a completely bounded Fourier extension with
+\[
+ \|\mathcal F:RC_t\to C_r^*(\Gamma)\|_{\mathrm{cb}}
+ \leq Z_L(t)^{1/2}.
+\]
+If \(\Gamma\) is amenable, it reports necessity of the same summability condition and the exact constant
+\[
+ \|\mathcal F\|_{\mathrm{cb}}^2=Z_L(t).
+\]
+Thus in the amenable case boundedness already at scalar level, complete boundedness, and convergence of \(Z_L(t)\) are equivalent. Necessity is not asserted here for all nonamenable groups.
+
+In particular, if \(|\{g:L(g)\leq R\}|\leq C(1+R)^D\), every \(t>D\) gives the reported completely bounded RD property. For a finitely generated polynomial-growth group this applies to a word length, with \(D\) a ball-growth exponent. Under the alternative weight \((1+L)^{2s}\), the condition is \(s>D/2\). Polynomial word growth alone does not give the same conclusion for an arbitrary unrelated length.
+
+The neighboring source context says RD passes to subgroups with induced length, mentions polynomial distortion constraints for cyclic subgroups, and gives a free-fiber example \(F_2< F_2\rtimes\Z\) with exponentially distorted induced length. Its extracted presentation \(ac=a2b,bc=ab\) has lost exponent/conjugation typography; a coherent interpretation is an automorphism \(a\mapsto a^2b,b\mapsto ab\), with stable-letter convention needing verification. Those claims are retained as source context, not used to establish the operator-space theorem.
+\subsection{Short English statement}
+Repair the sign of the extracted Sobolev weight and ask for a natural operator-space form of rapid decay. The aid proposes the row-column Hilbert intersection, gives a summability bound for the completely bounded Fourier map, and reports an exact norm and necessity for amenable groups. Polynomial growth yields the result for the corresponding word-length growth bound.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001658\), code catalogue entry; canonical \texttt{aim-geometric-group-theory-notes.json}, \texttt{notes[166]}.
+\item AIM workshop note ``Property of rapid decay,'' 21 March 2006, Section 4 ``Completely bounded property RD,'' Definition 4.1, Remark 4.2 and its final problem paragraph, \url{https://aimath.org/WWN/rapiddecay/rapiddecay.pdf}. The registry's item ``1'' is part of the merged extraction; the supplied verification identifies Section 4 as the actual problem.
+\item The supplied record has no additional authoritative paper citation for the row-column construction, sharp amenable norm or distorted-fiber example. No PDF inspection is asserted here.
+\item Research attempt 1: ``partial\_result,'' ``partially\_solved,'' rigor label ``proved,'' novelty confidence ``low.'' The machine-generated aid is not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

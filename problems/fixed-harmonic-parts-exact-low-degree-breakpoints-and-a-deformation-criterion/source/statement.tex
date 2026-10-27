@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002869}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix integers \(n,d\ge1\). Interpret the stated types \((d,d)\) and \((d-1,d-1)\) as bihomogeneous degrees. Let \(S(z,\bar z)\) be a real-valued Hermitian bihomogeneous polynomial of degree \((d,d)\) on \(\C^n\), harmonic in the sense
+\[
+\sum_{i=1}^n\frac{\partial^2S}{\partial z_i\partial\bar z_i}=0.
+\]
+Put \(s=\sum_i|z_i|^2\). For \(k\in\Z_{\ge0}\), determine the number of Hermitian bihomogeneous polynomials \(A\) of degree \((d-1,d-1)\) for which
+\[
+S+sA=\sum_{j=1}^k|f_j(z)|^2
+\]
+with holomorphic homogeneous degree-\(d\) polynomials \(f_j\). Here zero components are allowed, so the condition is intrinsic SOS rank at most \(k\). If the intention is \emph{exactly} \(k\) linearly independent components, that is a different rank stratum and must be specified. Which properties of \(S\) determine emptiness, finiteness, and infinitude? In particular determine the finiteness breakpoint
+\[
+\kappa(S)=\min\{k:\text{infinitely many such }A\text{ exist}\},
+\]
+with \(+\infty\) if no such \(k\) exists.
+
+More explicitly, choose monomial column vectors \(v_d,v_{d-1}\) of lengths
+\[
+N=\binom{n+d-1}{d},\qquad q=\binom{n+d-2}{d-1}.
+\]
+Write \(S=v_d^*C_Sv_d\) and \(A=v_{d-1}^*Hv_{d-1}\), and let \(L:\operatorname{Herm}_q\to\operatorname{Herm}_N\) be the injective real-linear coefficient map for multiplication by \(s\). The set to count is the affine determinantal slice
+\[
+\{H\in\operatorname{Herm}_q:C_S+L(H)\succeq0,\ \operatorname{rank}(C_S+L(H))\le k\}.
+\]
+This counts multipliers \(A\), not their nonunique squared-norm representations.
+
+The supplied aid reports two exact special cases. For \(S=0\), Huang's lemma gives only \(A=0\) below \(k=n\); at and above \(n\), the family \(A=t|z_1|^{2(d-1)}\), \(t\ge0\), gives infinitely many solutions, so \(\kappa(0)=n\). For \(d=1\), write \(S=z^*Mz\) with \(\operatorname{tr}M=0\). If the least eigenvalue \(\lambda_{\min}\) has multiplicity \(\ell\), the multipliers are real constants \(a\), feasibility is \(a\ge-\lambda_{\min}\), the endpoint has rank \(n-\ell\), and every larger \(a\) has rank \(n\). Thus there are no solutions for \(k<n-\ell\), one for \(n-\ell\le k<n\), and infinitely many for \(k\ge n\).
+
+The aid also reports the following local deformation criterion. For feasible \(C_0=C_S+L(H_0)\succeq0\) of rank \(r\) and kernel \(K\), a nonconstant two-sided affine line \(C_0+tD\) of PSD matrices of the same rank exists for all sufficiently small positive and negative \(t\) precisely when
+\[
+\operatorname{im}L\cap\{D\in\operatorname{Herm}_N:Dv=0\text{ for every }v\in K\}\ne\{0\}.
+\]
+In particular \(q^2+r^2>N^2\) forces such a line and rules out isolation at that point. This criterion concerns affine constant-rank deformations; its failure does not by itself prove isolation against all nonlinear or rank-changing deformations. The original general-\(S\) remark contains a corrupted bound printed as \(k<n\) followed by a separated \(>2\); its intended uniqueness range cannot be recovered reliably from this record.
+\subsection{Short English statement}
+Count squared-norm completions with a fixed harmonic part by studying a positive semidefinite matrix slice with a rank bound. The supplied aid gives exact answers for zero harmonic part and degree one, plus a criterion for constant-rank affine deformations; a corrupted uniqueness bound in the source remains unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item P. Ebenfelt, Problem 3 and its remarks in the squared-norm portion of the AIM workshop \emph{Emerging applications of complexity for CR mappings}, \url{https://aimath.org/WWN/crmappings/crmappings.pdf}. The remark attributes the zero-harmonic-part restriction to a lemma of Huang, without a full citation. The trailing ``Plurisubharmonic polynomials'' is a subsequent heading.
+\item Local UnsolvedMath registry, permanent ID 20002869, exact code \texttt{catalogue entry}; canonical location \texttt{aim-several-complex-variables-notes.json}, notes[26], dated 14 August 2026; statement labeled exact despite the extracted remark corruption.
+\item Research attempt 1: partial result, problem open at the run, rigor label proved, novelty confidence low; registry status partially solved. The matrix criterion and special-case classifications are supplied machine-generated research aids, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

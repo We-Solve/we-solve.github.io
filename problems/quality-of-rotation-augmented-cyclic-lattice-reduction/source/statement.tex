@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800031}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A rank-$d$ Euclidean lattice is a discrete subgroup $L\subset\R^d$ generated over $\Z$ by a basis. A cyclic lattice is preserved by the intended cyclic coordinate rotation; a standard choice is
+\[
+ R(v_0,\ldots,v_{d-1})=(v_{d-1},v_0,\ldots,v_{d-2}),
+ \qquad R(L)=L.
+\]
+For block-structured lattices the relevant rotation may act simultaneously on several blocks, rather than rotate all coordinates as one block.
+
+One familiar cyclic NTRU lattice model uses coefficient vectors in $\Z[x]/(x^m-1)$ and
+\[
+ L_{h,q}=\{(u,v)\in\Z^m\times\Z^m:
+                v\equiv h u\pmod q\},
+\]
+where multiplication is in that quotient ring; simultaneous cyclic rotation preserves the congruence. This is an illustrative model, not a claim that the source fixes this modulus, quotient polynomial, dimension, or NTRU convention.
+
+The problem asks how effective rotation-augmented lattice reduction is on cyclic or NTRU lattices. The source does not define the algorithm: it may generate additional rotated lattice vectors, reduce with them, and select a new basis, but its update rules, reduction primitive, parameters, and termination condition are absent. Rotated vectors are valid lattice vectors only for the chosen invariant rotation; their inclusion alone does not specify a basis-reduction procedure.
+
+A quantitative analysis needs a quality measure and input regime. Examples of possible measures are the shortest-vector approximation ratio $\|b_1\|/\lambda_1(L)$ or the Hermite ratio $\|b_1\|/\det(L)^{1/d}$, together with running time, but none is prescribed. The task remains to analyze the specified rotation augmentation once recovered, not to assert a universal approximation guarantee for all algorithms on every structured lattice.
+\subsection{Short English statement}
+Determine whether exploiting cyclic rotations improves lattice-reduction quality on cyclic and NTRU lattices, and by how much for the intended algorithm and input class. The rotation action, augmentation procedure, and quality criterion are missing.
+
+The supplied summary mentions scattered NTRU/ideal-lattice and cyclic-SVP analyses but gives no exact paper or definitive resolution of this 2006 slide question. Its OPEN-TRIAGE label is retained with current primary-literature audit still required.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 8800031, source code catalogue entry, ``Quality of rotation-augmented cyclic-lattice reduction,'' proposed by Alexander May. Dataset curation and metadata: Ulam AI and UnsolvedMath Contributors, CC BY 4.0.
+\item IPAM, \emph{Workshop on Number Theory and Cryptography --- Open Problems} (2006), Attachment 6222, PDF page 29, printed slide 23, schedule locator \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}; pdf-and-legacy-ppt visual-audit extraction, accessed 2026-07-29.
+\item The supplied summary provides no complete references for the mentioned NTRU, ideal/cyclic-lattice, or SVP analyses.
+\item Source provenance reports inspection of 17 PDFs and two legacy PPT decks among 19 surviving attachments, excluding repetitions and solved definitions; this is supplied provenance, not a new inspection claimed here.
+\item Current primary-literature status audit and redistribution terms NEEDS\_REVIEW for the publicly accessible author/publisher copy, separately from the dataset licence.
+\end{itemize}
+\end{document}

@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002674}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Question 14 asks for boundary behavior of subordination functions appearing in free convolution of operator-valued random variables. It does not specify additive versus other convolution, base algebra, topology, approach region, atoms, or desired regularity. The aid treats additive convolution at a fixed matrix level over a finite-dimensional base.
+
+Let $\mathcal B$ be a finite-dimensional unital $C^*$-algebra, $E:\mathcal A\to\mathcal B$ a conditional expectation, and $x,y$ selfadjoint and free over $\mathcal B$. Fix a matricial level and use the amplified base and expectation throughout. For $\operatorname{Im}b>0$, set
+\[
+G_x(b)=E[(b-x)^{-1}],\qquad F_x(b)=G_x(b)^{-1},\qquad h_x(b)=F_x(b)-b,
+\]
+with analogous notation for $y$. In the standard additive fixed-point convention the first subordination map satisfies
+\[
+\omega(b)=b+h_y\bigl(b+h_x(\omega(b))\bigr).
+\]
+All inverse and holomorphic-continuation assumptions are understood at this fixed level.
+
+The aid's boundary criterion assumes $b_j\to b_0=b_0^*$ from the upper half-plane and $\omega(b_j)\to w_0$ in norm along one subsequence. Suppose $h_x$ continues holomorphically near $w_0$, $h_y$ near $v_0=b_0+h_x(w_0)$, and
+\[
+S=I-Dh_y(v_0)\circ Dh_x(w_0)
+\]
+is invertible as a linear map on the finite-dimensional base. Then the supplied theorem gives a unique local holomorphic branch $\widetilde\omega$ near $b_0$, agreeing with the global upper-half-plane subordination map near that point, with
+\[
+\widetilde\omega(b_0)=w_0,\qquad
+D\widetilde\omega(b_0)=S^{-1}\circ(I+Dh_y(v_0)).
+\]
+Thus one such cluster subsequence, together with the continuation and stability assumptions, gives full local continuation; existence of a cluster point and invertibility are not asserted for every boundary point.
+
+For $b,w$ sufficiently close to $b_0,w_0$, respectively, the aid also gives the local a posteriori estimate
+\[
+\|w-\widetilde\omega(b)\|
+\leq2\|S^{-1}\|\,
+\|w-b-h_y(b+h_x(w))\|.
+\]
+Norms on derivatives are induced operator norms. The neighborhood must be small enough that the derivative remains close to $S$; this is not a global residual bound or a uniform-in-matrix-level theorem.
+
+The sharpness example uses scalar freely independent symmetric Bernoulli variables with law $(\delta_{-1}+\delta_1)/2$. Here
+\[
+G(z)=\frac{z}{z^2-1},\qquad h(z)=-\frac1z,\qquad
+\omega(z)=\frac{z+\sqrt{z^2-4}}2,
+\]
+where the square root is the upper-half-plane-compatible branch asymptotic to $z$ at infinity. At $b_0=2$, $w_0=v_0=1$, both input $h$-transforms are analytic, but $S=1-h'(1)^2=0$ and $\omega$ has a square-root edge singularity. The example shows why analytic input transforms alone do not guarantee analytic boundary continuation. It does not classify all singular boundary behavior of operator-valued free convolution.
+\subsection{Short English statement}
+The source asks broadly about operator-valued subordination at the boundary. The aid gives a regular-point criterion at finite matrix level: an existing cluster point, analytic input transforms and an invertible linearized fixed-point map yield a holomorphic branch and a residual bound. A scalar Bernoulli edge shows the stability assumption cannot simply be removed.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002674$, \texttt{catalogue entry}; \texttt{aim-probability-notes.json}, \texttt{notes[115]}.
+\item American Institute of Mathematics, \emph{Free Analysis}, problem list dated 24 August 2006, Question 14, \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}.
+\item Research attempt 1: partial result, problem partially solved at run, rigor label ``proved,'' novelty confidence low. Registry classification partial progress, status partially solved, statement status exact. No proposer or authoritative separate references for the boundary criterion and Bernoulli example are supplied.
+\end{itemize}
+\end{document}

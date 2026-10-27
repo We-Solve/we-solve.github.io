@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001161}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite simple graph $G$, its $P_4$-structure $\mathcal P_4(G)$ is the $4$-uniform hypergraph on $V(G)$ whose edges are precisely the four-element sets inducing a chordless four-vertex path. For odd $k\geq5$, the odd ring $R_k$ has vertices $u_0,\ldots,u_{k-1}$ and exactly the hyperedges $\{u_i,u_{i+1},u_{i+2},u_{i+3}\}$, with indices modulo $k$.
+
+The source asks for an isomorphism-invariant class $\mathcal C_2$ of finite $4$-uniform hypergraphs such that
+\[
+ G\text{ has an $M$-join}\Longrightarrow\mathcal P_4(G)\in\mathcal C_2,
+ \qquad R_k\notin\mathcal C_2\quad(k\geq5\text{ odd}),
+ \qquad\mathcal C_2\in\mathrm{NP}.
+\]
+The ring condition is literal language exclusion, not exclusion of an induced ring inside every member.
+
+The aid uses a six-nonempty-set $M$-join convention. In the standard homogeneous-pair form, partition the vertices into nonempty $A,B,C,D,E,F$, require every vertex of $A$ to have a neighbor and a nonneighbor in $B$ and vice versa, require $A$ complete to $C\cup F$ and anticomplete to $D\cup E$, and require $B$ complete to $D\cup F$ and anticomplete to $C\cup E$. Other edges are unrestricted. The source extract does not restate this definition; in particular later conventions permitting empty parts must not silently replace the aid's six-nonempty-set interpretation.
+
+Under that convention the aid proposes the existential realization language
+\[
+ \mathcal C_2^{\exists}=\{\mathcal H:\exists G\text{ on }V(\mathcal H),\
+ \mathcal P_4(G)=\mathcal H,\quad G\text{ has an $M$-join}\}.
+\]
+A graph adjacency matrix and the six-part partition are a polynomial-size certificate; verifying all four-element subsets gives $O(n^4)$ verification for explicitly represented $n$-vertex inputs. The aid invokes Chv\'atal's uniqueness theorem that graph realizations of odd rings are odd holes or their complements. An odd hole cannot have this $M$-join, since a vertex in $A$ would have distinct neighbors in $B,C,F$ but has degree two; complement invariance of the six-part definition excludes antiholes as well. Thus it claims all three literal bullets hold.
+
+The aid also reports an $M$-join graph with an induced $C_5$ in $A$. Its $P_4$-structure belongs to $\mathcal C_2^{\exists}$ but contains an induced odd ring. This distinguishes literal membership exclusion from the stronger induced-ring exclusion used in the surrounding structural motivation. The proposed existential language may not provide the intended intrinsic hypergraph decomposition description; that interpretation remains unresolved.
+\subsection{Short English statement}
+Find an NP-recognizable hypergraph class containing every $P_4$-structure of an $M$-join graph but no whole odd ring. The supplied aid gives a literal existential-witness class under a six-nonempty-part convention and explains why this is weaker than excluding induced odd rings inside all members.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{The Perfect Graph Conjecture}, Chapter L, problem 2: \url{https://aimath.org/WWN/perfectgraph/perfectgraph.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001161, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[285]}. Companion ID 20001159 (\texttt{AIM-COMBINATORICS-0284}, \texttt{notes[283]}) contains Chapter L's $P_4$-structure and odd-ring definitions and cites MR 86j:05119 for their realization/Berge connection.
+\item The attached aid invokes Chv\'atal's odd-ring realization uniqueness theorem without a full bibliographic entry. Attempt 1, conditional result, problem status at run unknown, rigor proved, low novelty confidence; machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

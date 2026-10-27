@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001390}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The original question asks whether coupling can study statistical properties of a time-dependent nonstationary process. It specifies neither a process class, coupling, nor statistic, so it has no unique universal yes/no formulation. The aid considers the following time-inhomogeneous Markov model.
+
+Let \((X_t)_{t\geq0}\) have transition kernels \(P_t\) from time \(t\) to \(t+1\) on a standard Borel space. Choose integer block times \(0=t_0<t_1<\cdots\). Suppose each full block kernel satisfies
+\[
+ P_{t_\ell,t_{\ell+1}}(x,\cdot)\geq\varepsilon_\ell\nu_\ell(\cdot)
+ \quad\text{for every }x,\qquad0\leq\varepsilon_\ell\leq1,
+\]
+where \(\nu_\ell\) is a probability measure and \(P_{i,j}=P_i\cdots P_{j-1}\). For \(i<j\), define
+\[
+ q(i,j)=\prod_{\ell:\ i\leq t_\ell<t_{\ell+1}\leq j}(1-\varepsilon_\ell),
+\]
+with empty product one. Total variation is \(\|\mu-\nu\|_{\mathrm{TV}}=\sup_A|\mu(A)-\nu(A)|\).
+
+An explicit version of the aid's reported transfer principle is that the same product controls a block-based coalescing coupling and loss of memory:
+\[
+ \Pr(\text{the coupling has not coalesced by }j)\leq q(i,j),\qquad
+ \|\mu P_{i,j}-\eta P_{i,j}\|_{\mathrm{TV}}\leq q(i,j)
+\]
+for arbitrary starting laws \(\mu,\eta\) at time \(i\). After coalescence the two copies use the same future randomness. For bounded \(U\) measurable with respect to the history through \(i\), and bounded \(V\) measurable with respect to the future from \(j\), the corresponding covariance bound is
+\[
+ |\operatorname{Cov}(U,V)|\leq2\|U\|_\infty\|V\|_\infty q(i,j).
+\]
+For time-dependent centered observables \(\phi_i(X_i)\), with \(\E\phi_i(X_i)=0\) under the actual nonstationary law and \(\|\phi_i\|_\infty\leq M_i\), put \(S_n=\sum_{i=0}^{n-1}\phi_i(X_i)\). A compatible explicit variance bound is
+\[
+ \operatorname{Var}(S_n)\leq\sum_{i<n}M_i^2+
+ 4\sum_{0\leq i<j<n}M_iM_jq(i,j).
+\]
+In particular, if \(M_i\leq M\) and \(B=\sup_i\sum_{j>i}q(i,j)<\infty\), then
+\[
+ \operatorname{Var}(S_n)\leq M^2(1+4B)n,\qquad S_n/n\longrightarrow0\text{ in }L^2.
+\]
+No invariant probability measure is assumed. The record does not provide its own exact constants or block convention; these displayed conventions specify the transfer statement rather than claiming a verbatim theorem from the source.
+
+The aid also reports two-state sharpness and failure examples. Their mechanisms can be expressed by reset kernels on \(\{0,1\}\):
+\[
+ P_t(x,\cdot)=(1-\varepsilon_t)\delta_x+\varepsilon_t\nu.
+\]
+For a fixed common reset law \(\nu\), the total-variation distance between the two distinct-state evolutions is exactly \(\prod_{t=i}^{j-1}(1-\varepsilon_t)\), as is failure of the common-reset coupling. Thus \(0<\varepsilon_t<1\) at every time does not imply memory loss when \(\sum_t\varepsilon_t<\infty\).
+
+For a separate obstruction, kernels \(P_t(x,\cdot)=\nu_{t+1}\) have zero one-step Dobrushin coefficient and generate independent, nonidentically distributed states. Taking Bernoulli parameters alternating between two values with different variances on successive blocks dominating all previous lengths makes
+\(n^{-1}\operatorname{Var}(\sum_{i<n}(X_i-\E X_i))\)
+fail to converge. The two values can be \(1/4\) and \(1/2\), with variances \(3/16\) and \(1/4\). Hence even perfect one-step coupling does not force a limiting diffusion rate. These examples distinguish memory bounds and a law of large numbers from convergence of normalized variance or a central limit theorem.
+\subsection{Short English statement}
+The aid gives a precise Markov-chain setting where block coupling bounds control memory, covariance and additive-functional variance without stationarity. It also records that repeated positive contraction need not erase memory, and even perfect coupling need not yield a limiting normalized variance.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001390\), exact public code \texttt{catalogue entry}; \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[47]}.
+\item AIM workshop ``Stochastic methods for non-equilibrium dynamical systems'', Problem 5: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. The supplied verification says the wording, including ``time dependent'', is exact but lacks a model and target statistic. The registry marks the statement \texttt{reconstructed\_unverified}. No proposer or literature citation is supplied.
+\item Research attempt 1: \texttt{partial\_result}, status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It reports variable-block minorization, the common coupling-failure product, uniform-summability consequences, an exact reset-chain memory example and a second two-state normalized-variance obstruction. No authoritative separate bibliography or full theorem text is supplied. The current registry status is partially_solved.
+\end{itemize}
+\end{document}

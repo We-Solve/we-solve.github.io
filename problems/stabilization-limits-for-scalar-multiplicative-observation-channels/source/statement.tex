@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003744}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied model is the discrete-time scalar system
+\[
+X_{t+1}=aX_t+U_t,\qquad Y_t=C_tX_t,\qquad t=0,1,2,\ldots,
+\]
+where \(X_t\) is the state, \(Y_t\) is the observation, \(U_t\) is the control, and \(a\) is the system gain. The random variables \((C_t)_{t\geq0}\) are independent and identically distributed with a continuous distribution. A causal control policy is a sequence \(\pi=(f_t)_{t\geq0}\) satisfying
+\[
+U_t=f_t(Y_0,\ldots,Y_t).
+\]
+The functions must have sufficient measurability for the resulting random variables and expectations to be defined; the record supplies no further admissibility conditions. The scalar field, the allowed gain domain, and the common distribution of \(C_t\) are not specified. In particular, the record does not state whether ``continuous'' means an atomless law or a law possessing a density.
+
+\textbf{Requested problem.} Determine an optimal causal policy for second-moment stabilization of this system, determine the largest stabilizable gain \(a\), and establish a tight impossibility or converse bound that matches the achievable stabilization region.
+
+\textbf{Unresolved qualifications.} The record does not define second-moment stabilization. Two distinct possible criteria are
+\[
+\sup_{t\geq0}\mathbb E^{\pi}[|X_t|^2]<\infty
+\qquad\text{and}\qquad
+\lim_{t\to\infty}\mathbb E^{\pi}[|X_t|^2]=0.
+\]
+These are alternative interpretations, not equivalent conditions imposed by this draft. The expectation requires a specified joint law of the initial state and observation multipliers. Neither the law or admissible class of \(X_0\), its independence from \((C_t)_{t\geq0}\), nor relevant moment hypotheses are supplied. It is also unspecified whether stabilization must hold for a particular initial law, every deterministic initial state, or every initial law with finite second moment, and whether one policy must work uniformly over that class.
+
+Once a scalar domain, a gain domain \(D\), a noise law, an initial-state quantifier, and a stabilization criterion have been fixed, the requested stabilizable-gain set has the form
+\[
+\mathcal A=\{a\in D:\text{there exists an admissible causal policy stabilizing the system under those specifications}\}.
+\]
+Determining \(\sup\mathcal A\) does not by itself establish the existence of a largest element. The source also does not say whether the extremal gain is ordered by \(a\) or by \(|a|\). A matching converse would exclude every admissible causal policy at gains outside the resulting feasible region, with the behavior at any threshold resolved. No objective defining an ``optimal'' policy beyond stabilization feasibility is given. Thus the displayed request preserves the source target, but a unique fully quantified extremal problem cannot be recovered from the supplied record alone.
+\subsection{Short English statement}
+For a scalar system observed through independent, identically distributed multiplicative noise, determine which gains admit causal control that stabilizes the second moment, identify an optimal policy, and prove a matching impossibility bound. The noise law, initial-state assumptions, exact stabilization criterion, gain domain, and meaning of optimality remain unspecified. The supplied registry labels the problem partially solved; this draft does not independently verify that assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent numeric ID \(30003744\), title ``Stabilization Limits for Scalar Multiplicative Observation Channels,'' in the collection ``Oberwolfach Reports Open Problems.'' Exact source problem code: \texttt{catalogue entry}. No individual proposer is identified. The proposed year is recorded as 2018.
+\item Supplied report citation: \emph{Mini-Workshop: Entropy, Information and Control (2019)}, Oberwolfach Reports, pp.~531--558, DOI \texttt{10.4171/owr/2018/10}. Supplied source and background link: \url{https://doi.org/10.4171/owr/2018/10}. The title's 2019 date and the record's 2018 proposed year are retained without resolving their relationship.
+\item Supplied literature source, ``original OWR report'': \url{https://doi.org/10.4171/OWR/2018/10}.
+\item Supplied literature source, ``Ding et al., multiplicative noise and control'': \url{https://doi.org/10.1214/18-AAP1431}. No fuller bibliographic attribution is supplied.
+\item Supplied literature source, ``Won--Ranade, multiplicative observation noise'': \url{https://doi.org/10.1109/CDC49753.2023.10383396}. No fuller bibliographic attribution is supplied.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem ``partially solved'' and reports linear optimality within a restricted class, nonlinear achievable controllers, and converse bounds, while stating that a globally optimal controller and a matching impossibility bound for the stated scalar system remain unknown. This is supplied dated curation derived from the OWR collection, not an independently verified literature assessment. The record itself requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement-status label is \texttt{corrected\_verified}. Its accompanying verification note reports that the official Oberwolfach report was checked directly and that the clean statement restores definitions while removing source-dependent wording. This is a supplied provenance claim; no source consultation or mathematical verification is asserted by this draft.
+\end{itemize}
+\end{document}

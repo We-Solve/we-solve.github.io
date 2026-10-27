@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005025}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied target is to characterize invariant Markov random fields that are finitary factors of i.i.d. processes. The underlying graph, invariance group, spin space, and admissible i.i.d. input spaces are not specified. The following gives a parameterized formulation; these parameters require confirmation before a single classification problem is determined.
+
+Fix a countable connected locally finite graph \(G=(V,E)\), a transitive subgroup \(\Gamma\leq\operatorname{Aut}(G)\), and a standard Borel spin space \(S\). These are framework parameters, not hypotheses explicitly supplied by the record. For \(W\subseteq V\), write \(X_W=(X_v)_{v\in W}\), and for finite \(W\) define its external vertex boundary by
+\[
+\partial W=\{u\in V\setminus W:\text{ some }v\in W\text{ satisfies }\{u,v\}\in E\}.
+\]
+A random field \(X=(X_v)_{v\in V}\) with values in \(S^V\) is \(\Gamma\)-invariant if \((X_{\gamma v})_{v\in V}\) has the same law as \(X\) for every \(\gamma\in\Gamma\). Under the finite-region Markov convention used here, it is a Markov random field if, for every finite \(W\subseteq V\) and every measurable \(A\subseteq S^W\),
+\[
+\mathbb P\bigl(X_W\in A\mid\sigma(X_u:u\in V\setminus W)\bigr)
+=
+\mathbb P\bigl(X_W\in A\mid\sigma(X_u:u\in\partial W)\bigr)
+\quad\text{almost surely}.
+\]
+No positivity assumption or particular Gibbs specification is supplied.
+
+Let \(T\) be a standard Borel space, let \(\lambda\) be a probability measure on \(T\), and let \(Y=(Y_v)_{v\in V}\) have product law \(\lambda^V\). Write \((\gamma y)_v=y_{\gamma^{-1}v}\). A finitary factor representation of \(X\) is a measurable map \(\Phi:D\to S^V\), where \(D\subseteq T^V\) is a \(\Gamma\)-invariant set of full product measure, such that
+\[
+\Phi(\gamma y)=\gamma\Phi(y),\qquad
+\mathcal L(\Phi(Y))=\mathcal L(X),
+\]
+and, for almost every \(y\in D\) and every \(v\in V\), there is a finite radius \(R_v(y)\in\{0,1,2,\ldots\}\) such that
+\[
+y'\in D,\quad y'|_{B_G(v,R_v(y))}=y|_{B_G(v,R_v(y))}
+\quad\Longrightarrow\quad
+\Phi(y')_v=\Phi(y)_v.
+\]
+Here \(B_G(v,r)\) is the graph-distance ball. Such a field is called a finitary factor of i.i.d., abbreviated ffiid. The target imposes neither a deterministic bound on the coding radius nor a finite-expectation requirement.
+
+\textbf{Classification problem, conditional on the framework.} Give necessary and sufficient conditions on a \(\Gamma\)-invariant Markov random field law \(\mu\) on \(S^V\) for there to exist an admissible input space \((T,\lambda)\) and a finitary equivariant map \(\Phi\) as above with \(\mathcal L(\Phi(Y))=\mu\). The intended choices of \(G,\Gamma,S\), the input restrictions, and the precise Markov convention remain unresolved from the supplied record.
+
+The original extract also discusses a separate question about finite expected coding radius for finitely dependent invariant processes. That question is contextual and does not add an integrability hypothesis to the classification target.
+\subsection{Short English statement}
+Characterize the invariant Markov random fields that can be generated equivariantly from independent identically distributed vertex labels, with each output determined by labels within an almost surely finite radius. The source does not specify the graph, symmetry group, spin space, or input restrictions, so the displayed formulation is conditional on those choices. Finite expected coding radius is a separate contextual question. The supplied open label and verification claims are curation metadata, not independently verified conclusions.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, with \texttt{catalog/problems.json} as the supplementary registry; supplied permanent UnsolvedMath ID \(30005025\), exact source problem code \texttt{catalogue entry}, title ``Finitary-Factor Characterization of Markov Random Fields.'' The supplied record does not identify which registry file contains this entry.
+\item Supplied report citation: \emph{Mini-Workshop: Descriptive Combinatorics, LOCAL Algorithms and Random Processes} (2023), Oberwolfach Reports, pp.\ 429--455, DOI \texttt{10.4171/owr/2022/8}. \url{https://doi.org/10.4171/owr/2022/8}. The original extract ends with a page marker for p.\ 449. The record gives proposed year 2022 and supplies no proposer attribution.
+\item Supplied literature source: Spinka, ``finitary codings for spatially mixing MRFs'' (the supplied descriptive label). \url{https://arxiv.org/abs/1803.10578}.
+\item Supplied literature source: ``OWR finitary-process report.'' \url{https://doi.org/10.4171/owr/2022/8}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and states that ffiid characterizations are known for important classes, including spatially mixing models and selected Ising regimes, while a classification of all Markov random fields is unavailable. This is supplied dated curation, not an independently verified literature assessment; the record itself requests independent verification of time-sensitive status and cited claims.
+\item The source extract attributes the 1-dependent 4-coloring and 2-dependent 3-coloring of \(\Z\) to Holroyd and Liggett, reference [5], and a one-dimensional finitary coding result to Smorodinsky, reference [8]. It cites [9] for an extension by an unidentified ``author'' and [4] for discussion of possible finite-mean coding-radius obstructions. Bibliographic entries for [4], [5], [8], and [9] are not supplied.
+\item The supplied statement status is \texttt{corrected\_verified}, accompanied by the claim that the statement was reconstructed and checked against the official report. This draft records that claim without independently checking the report.
+\end{itemize}
+\end{document}

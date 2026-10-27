@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002355}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Rojas's Question 18 asks whether a computable function of a bivariate integer polynomial \(f\) bounds the size of every integer solution when only finitely many exist. To fix ``size'', put
+\[
+ Z_f=\{(x,y)\in\Z^2:f(x,y)=0\},\qquad
+ H(x,y)=\max(|x|,|y|).
+\]
+The source says genus-one curves are handled and that finiteness is decidable, but gives no precise class, theorem hypotheses, or proof for these statements. Its rational-point references are separate from the integral-point question.
+
+The aid's equivalence fixes an effectively encoded class \(\mathcal C\subseteq\Z[X,Y]\) and assumes a total algorithm deciding whether \(Z_f\) is finite for every \(f\in\mathcal C\). Under this assumption it reports computable equivalence, by terminating reductions, of the following tasks:
+\begin{enumerate}
+\item A promise bound: on every input with finite \(Z_f\), halt and return \(B\ge0\) with \(H(x,y)\le B\) for all solutions; no correctness or termination requirement is imposed on infinite inputs.
+\item A total conditional bound: halt on every input and return a bound that is valid whenever \(Z_f\) is finite.
+\item A finite-case exact lister: halt on every finite input with the entire finite set \(Z_f\), with no promise on infinite inputs.
+\item The total extended maximum: return \(\infty\) for infinite \(Z_f\), return \(-1\) for the empty set, and otherwise return \(\max_{Z_f}H\).
+\item The total extended cardinality: return \(\infty\) for infinite \(Z_f\) and \(|Z_f|\) for finite \(Z_f\), including zero for the empty set.
+\item Decide on all \((f,N)\), \(N\ge0\), the predicate
+\[
+ \operatorname{OUT}(f,N)\quad\Longleftrightarrow\quad
+ \exists(x,y)\in Z_f:\ H(x,y)>N.
+\]
+\end{enumerate}
+The empty-set maximum convention is explicit and is not claimed as source notation. Infinite integral zero sets are unbounded in max norm because every integer ball is finite, so OUT is then true for every \(N\). The finiteness decider is what permits the total procedures to distinguish those infinite inputs.
+
+Without assuming a finiteness decider, the aid still reports mutual computability of promise bounds, finite-case exact listing, and finite-case exact cardinality. Exact cardinality in this latter statement is required to halt and be correct only on finite inputs. Enumeration of integer pairs and testing \(f(x,y)=0\) supplies the search side; a promise must not silently be replaced by a guaranteed total algorithm.
+
+These are conditional reductions between tasks, not an existence theorem for all procedures on arbitrary plane curves. The original does not specify irreducibility, smoothness, or genus conventions for a general \(f\); the fixed-class formulation avoids inventing such a scope. Its printed claims about genus one and finiteness remain historical supplied assertions requiring their exact hypotheses to be checked.
+\subsection{Short English statement}
+The question asks for an effective bound on finite integral point sets. The aid shows that, given a finiteness decider for a fixed effective polynomial class, several bound, listing, maximum, cardinality, and outside-ball tasks are equivalent. It handles empty and infinite inputs explicitly and does not turn those reductions into a general existence proof.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002355, exact source code catalogue entry; canonical \texttt{aim-logic-notes.json}, \texttt{notes[130]}, tag \texttt{question}; AIM Workshop Problem Lists, Logic, \emph{Extensions of Hilbert's tenth problem}, Question 18 (Rojas). Created and updated 14 August 2026.
+\item Source URL \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}. The repeated workshop title and page number 5 are page-header contamination. The PDF was not accessed.
+\item Minhyong Kim, ``Relating decision and search algorithms for rational points on curves of higher genus'', \emph{Arch. Math. Logic} 42 (2003), no. 6, 563--568, as supplied.
+\item Minhyong Kim, ``On relative computability for curves'', supplied identifier \texttt{arXiv:math.NT/0502224}. The source describes him as from Arizona; no present affiliation is inferred. These references concern rational points and are not automatically integral bound theorems.
+\item Attempt 1: \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence \texttt{low}; classification \texttt{PARTIAL-PROGRESS}, registry status \texttt{partially\_solved}. Candidate: promise-to-total equivalence under a fixed-class finiteness decider. No separate authoritative reference is supplied for the equivalence or the source's genus-one/finiteness claims.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

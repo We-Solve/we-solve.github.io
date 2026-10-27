@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006548}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+An independent set in a hypergraph \(H=(V,E)\) is a set \(I\subseteq V\) such that no edge of \(H\) is contained in \(I\). Its independence number is
+\[
+\alpha(H)=\max\{\lvert I\rvert:I\subseteq V,\ e\nsubseteq I\text{ for every }e\in E\}.
+\]
+A hypergraph is \(r\)-uniform if every edge has exactly \(r\) vertices.
+
+To express the supplied question parametrically, adopt provisionally the convention of finite simple hypergraphs: edges are distinct subsets of the vertex set. For integers \(n\geq 0\), \(r\geq 1\), and \(0\leq m\leq\binom nr\), let
+\[
+\mathcal H_r(n,m)=\{(V,E):V=\{1,\ldots,n\},\ E\subseteq\tbinom Vr,\ |E|=m\},
+\]
+where \(V=\varnothing\) when \(n=0\), and \(\binom nr=0\) when \(r>n\). Here \(r\) is treated as a fixed parameter. The source does not explicitly specify simplicity, the permitted range of \(r\), or whether \(r\) is prescribed; these conventions require confirmation.
+
+\textbf{Literal formulation of the supplied cleaned statement.} Determine, for every admissible triple \((n,r,m)\),
+\[
+A_r(n,m)=\max_{H\in\mathcal H_r(n,m)}\alpha(H).
+\]
+Thus the optimization is over hypergraphs, and asks for the largest independence number attainable by one of them.
+
+\textbf{Unresolved intended quantifier.} The original excerpt asks for the largest size of an independent set in a uniform hypergraph with prescribed vertex and edge counts. Its surrounding discussion concerns lower bounds for independent sets, while the supplied literature assessment invokes the hypergraph Tur\'an problem. This context may instead intend the largest independent-set size guaranteed in every such hypergraph, namely
+\[
+a_r(n,m)=\min_{H\in\mathcal H_r(n,m)}\alpha(H)
+=\max\{t\in\{0,\ldots,n\}:\forall H\in\mathcal H_r(n,m),\ \exists I\subseteq V(H),\ |I|\geq t,\ I\text{ independent}\}.
+\]
+These are distinct optimization targets. The supplied evidence does not resolve which is intended, so neither is silently substituted for the other.
+
+The excerpt also discusses a random vertex ordering and the set of vertices that are not the smallest vertex of any incident edge. It refers to an earlier lower bound and to its specialization for an \(r\)-uniform, \(d\)-regular hypergraph, meaning that every vertex belongs to exactly \(d\) edges. The preceding bound is absent and the displayed specialization is corrupted in the supplied extraction; no numerical bound is adopted here. Regularity is background to that specialization, not an explicit hypothesis of the main question.
+\subsection{Short English statement}
+Determine the extremal independence number of a uniform hypergraph with prescribed vertex and edge counts. The cleaned statement asks for the maximum attainable independence number, whereas the lower-bound discussion may concern the minimum independence number, or equivalently the largest universally guaranteed independent set. The intended optimization and the hypergraph conventions require review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30006548\), title \emph{Independent Sets in Uniform Hypergraphs}, exact source problem code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. The supplied proposed year is 2026; no individual proposer is specified.
+\item Supplied report citation: \emph{Combinatorics} (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/1, pp.\ 5--79. \url{https://doi.org/10.4171/owr/2026/1}. The supplied excerpt attributes \emph{Independent sets in Hypergraphs} to Jacques Verstraete, joint work with Jiaxi Nie, Jeroen Schillewaert, and Chase Wilson; this is talk/work attribution, not an explicit designation of a problem proposer.
+\item Supplied literature source: Verstraete--Wilson, \emph{Independent Sets in Hypergraphs}. \url{https://doi.org/10.1017/9781009585835.024}.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem open and describes the general extremal question as the hypergraph Tur\'an problem. This is supplied dated curation, not an independently verified assessment; its applicability to the literal maximum formulation is unresolved. The supplied background explicitly calls for independent verification of time-sensitive status and cited claims.
+\item The registry supplies the statement status \texttt{corrected\_verified} and reports that the official report was checked and the statement isolated and repaired. These are supplied verification claims, not verification performed for this draft. The excerpt also cites Caro--Wei bounds through local reference numbers [3, 18], whose bibliography entries are not supplied.
+\end{itemize}
+\end{document}

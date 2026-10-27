@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005687}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(K\) be a number field, let \(\overline K\) be an algebraic closure, let \(f\in K[x]\) have degree \(d\geq 2\), and let \(\alpha\in K\). Write \(f^{\circ n}\) for the \(n\)-fold iterate, with \(f^{\circ 0}(x)=x\). The preimage tree has level
+\[
+V_n=\{(n,\beta):\beta\in\overline K,\ f^{\circ n}(\beta)=\alpha\},
+\]
+with an edge from \((n+1,\beta)\) to \((n,f(\beta))\). Level labels distinguish repeated algebraic values occurring at different depths.
+
+To identify this tree with the regular rooted \(d\)-ary tree \(T_d\), one needs every polynomial \(f^{\circ n}(x)-\alpha\), \(n\geq1\), to have \(d^n\) distinct roots. In characteristic zero this is equivalent to requiring
+\[
+\alpha\neq f^{\circ m}(c)
+\quad\text{for every }c\in\overline K\text{ with }f'(c)=0
+\text{ and every }m\geq1.
+\]
+This regularity hypothesis is absent from the supplied statement; it must be confirmed or an alternative tree construction specified.
+
+Assuming regularity, the action on preimages gives the arboreal representation
+\[
+\rho_{f,\alpha}:\operatorname{Gal}(\overline K/K)\longrightarrow\operatorname{Aut}(T_d),
+\qquad
+G_{f,\alpha}=\operatorname{im}(\rho_{f,\alpha}).
+\]
+Equip this group with the topology induced by its actions on finite levels. Equivalently, if \(K_n\) is the splitting field of \(f^{\circ n}(x)-\alpha\) and \(L=\bigcup_{n\geq1}K_n\), then \(G_{f,\alpha}\cong\operatorname{Gal}(L/K)\).
+
+For \(g\in\operatorname{Aut}(T_d)\), a cycle \(C\) of its permutation of \(V_n\) is called stable if, for every \(m>n\), all descendants of vertices in \(C\) at level \(m\) form one cycle of length \(|C|d^{m-n}\). Set
+\[
+s_n(g)=\frac{\#\{v\in V_n:v\text{ belongs to a stable cycle of }g\}}{d^n}.
+\]
+The automorphism \(g\) is settled if \(\lim_{n\to\infty}s_n(g)=1\). Write \(S(G)=\{g\in G:g\text{ is settled}\}\).
+
+At a finite prime \(\mathfrak p\) of \(K\) unramified in \(L/K\), arithmetic Frobenius is defined, up to conjugacy in \(G_{f,\alpha}\), by its compatible finite-level actions inducing \(x\mapsto x^{\mathrm N\mathfrak p}\) on residue fields. Here \(\mathrm N\mathfrak p=\#(\mathcal O_K/\mathfrak p)\). Settledness is invariant under conjugation. At a ramified prime, a Frobenius element in a decomposition group modulo inertia does not specify a unique element of \(G_{f,\alpha}\).
+
+\textbf{Supplied conjectural target, with unresolved qualifications.} The record requests settledness of all intended Frobenius images and density of settled elements. If \(\mathcal F_{f,\alpha}\subseteq G_{f,\alpha}\) denotes the intended collection of Frobenius images, these conclusions are
+\[
+\mathcal F_{f,\alpha}\subseteq S(G_{f,\alpha}),
+\qquad
+\overline{S(G_{f,\alpha})}=G_{f,\alpha}.
+\]
+The second conclusion means explicitly that
+\[
+\forall n\geq0\ \forall h\in G_{f,\alpha}\ \exists g\in S(G_{f,\alpha})
+\quad g|_{V_n}=h|_{V_n}.
+\]
+The supplied wording quantifies over all number fields \(K\), all polynomials \(f\in K[x]\) of degree at least two, and all \(\alpha\in K\), but does not supply the regularity restriction or specify the primes and ramification conventions defining \(\mathcal F_{f,\alpha}\). Thus it does not determine a complete quantified Frobenius conjecture. The asserted implication introduced by ``hence'' also requires justification that the intended Frobenius images are dense; that premise is not supplied. These qualifications remain unresolved, and the displayed target is a statement-only reconstruction requiring mathematical review.
+\subsection{Short English statement}
+The supplied conjecture asks whether Frobenius images in polynomial arboreal Galois groups are settled: at increasingly deep levels, almost every vertex should lie in a cycle that continues as one cycle through every deeper level. It also asks whether settled elements are dense. The regularity of the preimage tree and the intended primes and Frobenius conventions require clarification. The supplied status is partially solved, according to dated curation rather than independent verification.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005687\), title \emph{Settled Frobenius Elements in Arboreal Representations}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is identified.
+\item Supplied report citation: \emph{Aspects of Aperiodic Order (2024)}, Oberwolfach Reports, pp.\ 2107--2178, DOI \texttt{10.4171/owr/2023/37}. \url{https://doi.org/10.4171/owr/2023/37}. The registry separately records proposed year 2023; the differing year indications are retained without reconciliation.
+\item Supplied literature source labelled ``Cortez-Lukina'': \url{https://arxiv.org/abs/2106.00631}. No title or precise supporting theorem is supplied.
+\item Supplied literature source labelled ``Ejder-Kocak'': \url{https://arxiv.org/abs/2604.04524}. No title or precise supporting theorem is supplied.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem partially solved and reports settled Frobenius behavior for several large-image, postcritically finite, and specified quadratic cases, together with further 2026 results concerning periodic postcritical orbits; it describes the general number-field polynomial conjecture as open. This is supplied dated curation derived from the Oberwolfach report curation, not an independently verified assessment. Time-sensitive status and cited claims require independent verification.
+\item The registry labels its statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official report. Those are supplied provenance claims. The retained original passage is malformed and mentions a general question about Frobenius images without stating the full settledness conjecture. No source was independently consulted for this draft.
+\end{itemize}
+\end{document}

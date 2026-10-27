@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004232}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) be a positive integer and write \([n]=\{1,\ldots,n\}\); the source does not explicitly state the range of \(n\). Let \(G\) be a bipartite graph with parts \(X=[n]\) and \(Y\). For every nonempty \(S\subseteq[n]\), define
+\[
+X_S=\bigl|\{y\in Y:N_G(y)=S\}\bigr|,
+\]
+where \(N_G(y)\) is the neighborhood of \(y\). These counts must be finite for their numerical use below; the source does not explicitly impose this condition. Vertices with empty neighborhood do not enter the displayed definitions.
+
+For the polynomial formulation, regard the symbols \(X_S\) as independent indeterminates and work in
+\[
+R_n=\Q[X_S:\varnothing\ne S\subseteq[n]].
+\]
+This rational coefficient ring accommodates the displayed coefficients; the source does not specify the coefficient ring for its requested basis. Define \(M\in\operatorname{Mat}_{n\times n}(R_n)\) by the formulas exactly as supplied:
+\[
+M_{ii}=\sum_{\substack{\varnothing\ne S\subseteq[n]\\i\in S}}|S|,
+\qquad
+M_{ij}=\sum_{\substack{\varnothing\ne S\subseteq[n]\\i\in S,\ j\notin S}}\frac{X_S}{|S|}
+\quad(i\ne j).
+\]
+In particular, the supplied diagonal formula contains no factor \(X_S\). Whether this omission is intentional is unresolved; no such factor has been inserted here. Let
+\[
+D=\operatorname{diag}(M_{11},\ldots,M_{nn}),\qquad P_n=\det M,\qquad Q_n=\det D.
+\]
+The relabeling action is the action of \(\mathfrak S_n\) on \(R_n\) defined by \(\sigma\cdot X_S=X_{\sigma(S)}\). The source identifies \(P_n\) and \(Q_n\) as invariant under this action. This action permutes subset labels through permutations of \([n]\); it does not assert symmetry under arbitrary permutations of all the indeterminates.
+
+\textbf{Requested mathematical target.} Find a natural basis from symmetric-function theory in which to express \(P_n\) and \(Q_n\). The source does not specify the ambient space having this basis, the meaning of naturality, or whether a compatible construction for all \(n\) is required. Thus this is a basis-construction question whose intended precise formulation remains to be clarified.
+
+The original statement also asks whether a proposed sum-of-squares refinement of the difference of these determinants is valid. No formula for that refinement, order of subtraction, domain of validity, or allowed square terms is supplied. The background describes a stronger nonnegative-square decomposition, but supplies no additional defining expression. This additional target cannot be stated as a precise conjecture from the supplied record.
+\subsection{Short English statement}
+The problem asks for a natural symmetric-function basis for two determinant polynomials invariant under relabeling one part of a bipartite graph. The diagonal formula is retained exactly as supplied, although its lack of an \(X_S\) factor requires review. An additional sum-of-squares question is mentioned without its proposed formula. The supplied dated curation labels the remaining questions open and reports the determinant inequality proved; these assessments are not independently verified here.
+\subsection{Sources}
+\begin{itemize}
+\item Local problem registry \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30004232\), exact source problem code \texttt{catalogue entry}, title ``Symmetric Function Bases for Bipartite Determinant Inequalities.'' This draft uses the supplied complete source record. The recorded proposed year is 2019; no individual proposer is supplied.
+\item Supplied report citation: \emph{Geometric, Algebraic, and Topological Combinatorics} (2020), \emph{Oberwolfach Reports}, pp.~2395--2472, DOI 10.4171/owr/2019/39. \url{https://doi.org/10.4171/owr/2019/39}. The record attributes the problem to workshop open-problem discussions collected in this report.
+\item Supplied literature source: ``Ho, determinant inequality.'' \url{https://arxiv.org/abs/2603.17997}. No fuller author identification or bibliographic details are supplied.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem open and reports that the determinant inequality is proved, while the requested symmetric-function basis and stronger nonnegative-square decomposition are not established by the available literature. This is supplied dated curation, not an independently verified assessment; the record requests independent verification of time-sensitive status and cited claims.
+\item The registry assigns statement status \texttt{corrected\_verified} and reports that the official Oberwolfach report was checked directly and that definitions were restored in the clean statement. These are supplied verification claims, not verification performed for this draft.
+\end{itemize}
+\end{document}

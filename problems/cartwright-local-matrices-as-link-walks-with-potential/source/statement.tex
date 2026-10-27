@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001001}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Lionel Levine asks whether a simplicial-complex Laplacian generates a stochastic process; Matt Baker makes the question concrete for Dustin Cartwright's model. Caroline Klivans suggests Russell Lyons's work, which Levine says is interesting but does not answer his intended question; Andrea Sportiello points to Cartwright's weighting rule. The sign convention matters: a conservative continuous-time generator on functions is a matrix $Q$ with nonnegative off-diagonal entries and $Q\mathbf1=0$, whereas a positive graph Laplacian usually generates heat through $-L$.
+
+The aid supplies a local Cartwright interpretation. At a codimension-two face $q$, let $A$ be the adjacency matrix of its finite link, counting a loop twice on the diagonal, let $d_i=\sum_jA_{ij}$, and let $\alpha_i$ denote the corresponding tropical structure constants. In the conventions of the aid,
+\[
+ M_q=A-\operatorname{diag}(\alpha),\qquad
+ Q_{\mathrm{link}}=A-\operatorname{diag}(d),\qquad
+ M_q=Q_{\mathrm{link}}+\operatorname{diag}(d-\alpha).
+\]
+The source does not provide the full structure-constant conventions, so this identifies the stated local model rather than every possible higher Laplacian. Its precise conservation criterion is
+\[
+ M_q\text{ is a conservative Markov generator}\iff \alpha_i=d_i\text{ for every }i.
+\]
+A scalar normalization $e^{-ct}e^{tM_q}$ is a Markov semigroup exactly when $d_i-\alpha_i=c$ for all $i$. In general, if $X_t$ is the link walk with generator $Q_{\mathrm{link}}$ and $V_i=d_i-\alpha_i$, the local representation is
+\[
+ (e^{tM_q}f)(i)=\E_i\!\left[\exp\!\left(\int_0^tV_{X_s}\,\dd s\right)f(X_t)\right].
+\]
+This is a Feynman--Kac weighted expectation, not necessarily a probability-preserving evolution.
+
+For comparison, let $H=\partial_{k+1}\partial_{k+1}^{\mathsf T}+\partial_k^{\mathsf T}\partial_k$ be a finite unweighted simplicial Hodge Laplacian in an oriented-cell basis. The aid reports a conservative signed-state representation of $e^{-tH}$ rather than direct cell-to-cell Markov evolution. An explicit version uses $r_i=\sum_{j\ne i}|H_{ij}|$ and any $c\geq\max(0,\max_i(r_i-H_{ii}))$. On states $(i,\sigma)$ with $\sigma\in\{-1,1\}$, jump to $(j,-\operatorname{sgn}(H_{ij})\sigma)$ at rate $|H_{ij}|$ for nonzero off-diagonal entries, and flip the sign at $i$ at rate $(H_{ii}+c-r_i)/2$. Its conservative chain $(I_t,\sigma_t)$ satisfies
+\[
+ (e^{-tH}f)(i)=e^{ct}\E_{(i,+1)}[\sigma_t f(I_t)].
+\]
+The signs and scalar weight are essential. For the filled triangle the full edge Hodge Laplacian is $3I$, illustrating why its heat semigroup need not itself be a conservative walk moving among edges. These local and signed representations are supplied partial answers, not an identification of every simplicial Laplacian with an ordinary random walk.
+\subsection{Short English statement}
+Ask for stochastic interpretations of higher Laplacians, particularly Cartwright's model. The supplied aid represents local Cartwright matrices as link walks with a potential and gives the exact conservation criterion; general Hodge heat requires a signed or weighted representation rather than direct probability evolution on cells.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Generalizations of chip-firing and the critical group}, problem 36, Lionel Levine with comments by Caroline Klivans, Andrea Sportiello, and Matt Baker: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}.
+\item The source refers to Russell Lyons as [24] (spelled ``Russel'' in the extract) and Dustin Cartwright as [13]; full entries are absent. Levine explicitly says the suggested Lyons work is not what he seeks.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001001, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[125]}. Attached attempt 1, partial result, problem status at run partially solved, rigor proved, low novelty confidence; machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

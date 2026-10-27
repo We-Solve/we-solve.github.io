@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800867}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer \(n\geq 1\), write \([n]=\{1,\ldots,n\}\). Let \(\Sigma\) be a real symmetric positive semidefinite \(n\times n\) matrix, and let \(X=(X_1,\ldots,X_n)\) have Gaussian distribution \(N_n(\mu,\Sigma)\), where \(\mu\in\R^n\). For \(A\subseteq[n]\), write \(X_A=(X_i)_{i\in A}\). For pairwise disjoint subsets \(A,B,C\subseteq[n]\), with \(A,B\) nonempty, the conditional independence assertion \(X_A\perp\!\!\!\perp X_B\mid X_C\) means that, for every pair of bounded Borel functions \(f,g\),
+\[
+\E[f(X_A)g(X_B)\mid X_C]
+=
+\E[f(X_A)\mid X_C]\,\E[g(X_B)\mid X_C]
+\quad\text{almost surely}.
+\]
+When \(C=\varnothing\), this means ordinary independence.
+
+Given a collection \(\mathcal I\) of such triples \((A,B,C)\), define its Gaussian conditional independence model in covariance coordinates by
+\[
+\mathcal M_{\mathcal I}^{\mathrm{psd}}
+=
+\left\{\Sigma\in\R^{n\times n}:
+\Sigma=\Sigma^{\mathsf T},\ \Sigma\succeq0,\quad
+X_A\perp\!\!\!\perp X_B\mid X_C
+\text{ for every }(A,B,C)\in\mathcal I,
+\ X\sim N_n(0,\Sigma)
+\right\}.
+\]
+The nondegenerate version is
+\[
+\mathcal M_{\mathcal I}^{\mathrm{pd}}
+=\{\Sigma\in\mathcal M_{\mathcal I}^{\mathrm{psd}}:\Sigma\succ0\}.
+\]
+The zero mean is a coordinate convention: conditional independence is unchanged by deterministic translations, so unrestricted means can be restored as a factor \(\R^n\). The conditions indexed by \(\mathcal I\) are required to hold; additional conditional independences are allowed in these definitions.
+
+For positive definite \(\Sigma\), an assertion indexed by \((A,B,C)\) is equivalent to
+\[
+\Sigma_{A,B}-\Sigma_{A,C}\Sigma_{C,C}^{-1}\Sigma_{C,B}=0.
+\]
+For \(C=\varnothing\), this equation means \(\Sigma_{A,B}=0\). For nonempty \(C\), clearing the nonzero denominator \(\det(\Sigma_{C,C})\) gives polynomial equations. This formulation does not use an inverse on singular covariance matrices.
+
+\textbf{Source research problem.} Study the geometry of conditional independence models for multivariate Gaussian random variables, attributed to Sturmfels (2007), General Problem \#6. The families above provide explicit settings for this research direction. The supplied source record does not specify the dimension, the independence collections to consider, whether singular Gaussian distributions are included, whether models must have exactly a prescribed independence pattern, or which geometric properties are sought. It also does not specify whether the intended objects are real covariance models or their algebraic closures over a chosen field. These choices remain unresolved; the source supplies a research program rather than a single proposition with a prescribed conclusion.
+\subsection{Short English statement}
+Sturmfels asks for a study of the geometry of Gaussian conditional independence models. Such models consist of covariance matrices whose Gaussian distributions satisfy prescribed conditional independences. The source leaves the intended families, treatment of singular distributions, and geometric objectives unspecified. Its supplied status is open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800867\), exact source problem code \texttt{catalogue entry}, titled \emph{Open Problems in Algebraic Statistics --- General Problem 6}. The supplied record attributes the problem to Sturmfels, with proposed year 2007, and labels it open.
+\item Supplied source reference: Sturmfels, \emph{Open Problems in Algebraic Statistics} (2007), General Problem (\#6), \url{https://arxiv.org/abs/0707.4558}. The supplied statement is: ``Study the geometry of conditional independence models for multivariate Gaussian random variables.''
+\item Supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. These are supplied provenance claims; the source and current mathematical status have not been independently checked for this draft.
+\end{itemize}
+\end{document}

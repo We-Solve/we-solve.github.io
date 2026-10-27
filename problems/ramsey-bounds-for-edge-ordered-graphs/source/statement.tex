@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004138}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+An edge-ordered graph is a graph \(H\) together with a total order \(\prec_H\) on its edge set. The supplied record does not explicitly define the graph domain, the number of colours, or the host-order quantifier in \(r_{\mathrm{edge}}\). The following gives a precise conditional formulation using finite simple undirected graphs, two colours, and an existentially chosen host edge order; these conventions require confirmation against the source.
+
+An order-preserving copy of \((H,\prec_H)\) in an edge-ordered graph \((G,\prec_G)\) is an injection \(f:V(H)\to V(G)\) such that every edge \(uv\in E(H)\) maps to an edge \(f(u)f(v)\in E(G)\), and, for all \(e,e'\in E(H)\),
+\[
+e\prec_H e'\quad\Longleftrightarrow\quad f(e)\prec_G f(e').
+\]
+The copy need not be induced. Under the stated conventions, define \(r_{\mathrm{edge}}(H,\prec_H)\) to be the least positive integer \(N\) for which there exists a total order \(\prec\) on \(E(K_N)\) such that every colouring \(\chi:E(K_N)\to\{1,2\}\) contains an order-preserving copy of \((H,\prec_H)\) whose edges all have the same colour. Set this value to \(\infty\) if no such \(N\) exists. An underlying graph is \(d\)-degenerate if every nonempty subgraph has a vertex of degree at most \(d\).
+
+Under these conventions, the two questions are:
+\begin{enumerate}
+\item Does there exist an absolute constant \(A>0\) such that, for every integer \(n\geq1\), every graph \(H\) with \(|V(H)|=n\), and every total order \(\prec_H\) on \(E(H)\),
+\[
+r_{\mathrm{edge}}(H,\prec_H)\leq 2^{An}?
+\]
+\item Does there exist a function \(C:\Z_{\geq0}\to(0,\infty)\) such that, for every integer \(d\geq0\), every integer \(n\geq1\), every \(d\)-degenerate graph \(H\) with \(|V(H)|=n\), and every total order \(\prec_H\) on \(E(H)\),
+\[
+r_{\mathrm{edge}}(H,\prec_H)\leq C(d)n?
+\]
+\end{enumerate}
+Here the source notation \(2^{O(n)}\) is interpreted as a uniform exponential upper bound, and the absolute implied factor in \(O(C(d)n)\) is absorbed into \(C(d)\). The graph, colouring, copy, and host-order conventions above are explicit provisional interpretations, not definitions verified from the report.
+\subsection{Short English statement}
+The questions ask whether every \(n\)-vertex edge-ordered graph has an edge-ordered Ramsey number bounded exponentially in \(n\), and whether bounded degeneracy improves this to a bound linear in \(n\), with a constant depending only on the degeneracy. The precise formulation above is conditional on conventions missing from the supplied record. The supplied open status requires independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004138\), title \emph{Ramsey Bounds for Edge-Ordered Graphs}, Oberwolfach Reports Open Problems collection, exact source problem code \texttt{catalogue entry}. The recorded proposed year is 2019; no individual proposer is supplied.
+\item Supplied authoritative report citation: \emph{Combinatorics, Probability and Computing} (2020), Oberwolfach Reports, DOI \texttt{10.4171/owr/2019/19}, pp.\ 1113--1189. \url{https://doi.org/10.4171/owr/2019/19}. The background describes this collection as originating in workshop open-problem discussions.
+\item Supplied literature reference labelled Fox--Li: \url{https://arxiv.org/abs/1906.08234}.
+\item Supplied literature reference labelled Balko--Vizer: \url{https://arxiv.org/abs/1906.08698}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and states that known general edge-ordered Ramsey bounds and polynomial bounds for bounded-degeneracy graphs do not establish either requested bound, and that no proof or counterexample to these assertions is known. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; its status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official Oberwolfach report was checked directly and that the clean statement preserves the target while restoring definitions and removing source-dependent wording. These are supplied provenance claims; no source visit or independent verification is asserted here.
+\end{itemize}
+\end{document}

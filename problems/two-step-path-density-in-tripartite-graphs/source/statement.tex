@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004047}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record leaves the parameter domains, graph conventions, and universal quantifier in the definition of \(\phi\) implicit. The following is a conditional formalization using finite simple undirected graphs, real density parameters \(x,y\in(0,1]\), positive integers \(k\), and two-edge paths whose middle vertex lies in \(B\). These conventions require confirmation against the cited source.
+
+For such \(x,y\), let \(\mathcal G(x,y)\) consist of all tuples \((G,A,B,C)\), where \(G\) is a finite simple undirected graph and \(A,B,C\subseteq V(G)\) are pairwise disjoint nonempty sets satisfying
+\[
+ |N_G(a)\cap B|\ge x|B|\quad\text{for every }a\in A,
+ \qquad
+ |N_G(b)\cap C|\ge y|C|\quad\text{for every }b\in B.
+\]
+Here \(N_G(v)\) denotes the set of neighbors of \(v\). For \(c\in C\), define
+\[
+ R_{A,B}(c)=\{a\in A:\text{ there exists }b\in B\text{ with }ab,bc\in E(G)\}.
+\]
+Thus \(R_{A,B}(c)\) counts distinct vertices of \(A\), rather than paths. Interpret the universal guaranteed proportion as
+\[
+ \phi(x,y)=\inf_{(G,A,B,C)\in\mathcal G(x,y)}
+ \max_{c\in C}\frac{|R_{A,B}(c)|}{|A|}.
+\]
+Equivalently, \(\phi(x,y)\) is the largest \(z\in[0,1]\) such that every tuple in \(\mathcal G(x,y)\) has some \(c\in C\) with \(|R_{A,B}(c)|\ge z|A|\). The record does not explicitly state this quantification over all admissible graphs; without it, the largest proportion would depend on the particular graph.
+
+Under these conventions, the questions are whether
+\[
+ \forall x\in(1/3,1],\qquad \phi(x,x)\ge\frac12,
+\]
+and, more generally, whether
+\[
+ \forall k\in\mathbb Z_{\ge1}\ \forall x,y\in(0,1],\qquad
+ \bigl(x+ky>1\ \text{and}\ kx+y\ge1\bigr)
+ \Longrightarrow \phi(x,y)\ge\frac1k.
+\]
+The strict inequality in \(x+ky>1\) and the weak inequality in \(kx+y\ge1\) are retained exactly. The supplied record does not settle whether zero density parameters are intended to be included, or specify the intended range of \(k\).
+\subsection{Short English statement}
+Assume every vertex of \(A\) has neighbors in at least an \(x\)-fraction of \(B\), and every vertex of \(B\) has neighbors in at least a \(y\)-fraction of \(C\). Must some vertex of \(C\) reach at least half of \(A\) through \(B\) when \(x=y>1/3\)? More generally, do \(x+ky>1\) and \(kx+y\ge1\) guarantee reachability of at least a \(1/k\)-fraction? The displayed formalization uses explicitly provisional domain and path conventions.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004047\), exact source problem code \texttt{catalogue entry}, title ``Two-Step Path Density in Tripartite Graphs,'' in the Oberwolfach Reports Open Problems collection. Project registry references are \texttt{data/unsolvedmath/problems.json} and \texttt{catalog/problems.json}; the supplied record's file membership was not independently checked.
+\item Supplied report citation: \emph{Graph Theory (2020)}, Oberwolfach Reports, DOI 10.4171/owr/2019/1, pp.\ 5--63. \url{https://doi.org/10.4171/owr/2019/1}. The record gives proposed year 2019 and names no proposer. It describes the collection as drawn from mathematical workshop reports and their open-problem discussions.
+\item Chudnovsky et al., \emph{Concatenating bipartite graphs}, as attributed in the supplied literature sources. \url{https://doi.org/10.37236/8451}.
+\item \emph{Concatenating bipartite graphs}, preprint, as listed in the supplied literature sources. \url{https://arxiv.org/abs/1902.10878}.
+\item Supplied literature check date: \texttt{2026-08-22}. This is supplied dated curation, not an independently verified assessment. The record labels the problem open and reports that the published study leaves the \(x>1/3\) threshold question open while proving only a weaker lower bound. The weaker bound is not specified. The background expressly calls this a dated literature triage derived from the supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}; its accompanying description says mathematical content was preserved while notation, typography, duplicate clauses, or omitted definitions were repaired for self-contained publication. This supplied editorial label does not establish mathematical correctness of this draft.
+\end{itemize}
+\end{document}

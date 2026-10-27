@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005761}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer \(n\geq 0\), let \(S_n\) be the set of permutations of \(\{1,\ldots,n\}\), with \(S_0\) consisting of the empty permutation. A permutation \(\pi\in S_n\) contains a pattern \(\tau\in S_k\) if there are indices \(1\leq i_1<\cdots<i_k\leq n\) such that \(\pi(i_p)<\pi(i_q)\) if and only if \(\tau(p)<\tau(q)\) for every \(p,q\in\{1,\ldots,k\}\). Otherwise \(\pi\) avoids \(\tau\). Define the principal permutation class and its counting sequence by
+\[
+\operatorname{Av}(\tau)=\bigcup_{n\geq0}\{\pi\in S_n:\pi\text{ avoids }\tau\},\qquad c_n(\tau)=|\operatorname{Av}(\tau)\cap S_n|.
+\]
+Set
+\[
+A=\operatorname{Av}(132456),\qquad B=\operatorname{Av}(124356),\qquad a_n=c_n(132456),\qquad b_n=c_n(124356).
+\]
+The supplied question asks how different \((a_n)_{n\geq0}\) and \((b_n)_{n\geq0}\) are, and whether their ratio is constant or polynomial; in the polynomial case, it asks for that polynomial. With the orientation \(r_n=a_n/b_n\), chosen here only to name a ratio, determine the intended comparison between these sequences. The denominator is positive for every \(n\), since the decreasing permutation avoids \(124356\).
+
+The source does not specify whether ``constant'' and ``polynomial'' mean exact identities, eventual identities, or asymptotic equivalences. For example, the following are different possible formulations, and the supplied record does not select among them:
+\[
+\begin{gathered}
+\exists C>0\ \forall n\geq0:\ r_n=C,\qquad
+\exists P\in\R[x]\ \forall n\geq0:\ r_n=P(n),\\
+\exists C>0:\ \lim_{n\to\infty}r_n=C,\qquad
+\exists P\in\R[x]\text{ eventually positive}:\ \lim_{n\to\infty}\frac{r_n}{P(n)}=1.
+\end{gathered}
+\]
+These are interpretations requiring clarification, not additional conjectures asserted by this draft. The source also asks how close, and in the original excerpt how different, the counting sequences of distinct principal permutation classes can be. No distance, asymptotic comparison, restrictions on the forbidden patterns, or requirement that the counting sequences themselves be distinct is specified; consequently this general question has no uniquely determined quantified formulation in the supplied evidence.
+
+The original excerpt additionally mentions a domino subclass denoted \([\operatorname{Av}(132)\mid\operatorname{Av}(231)]\), with the additional requirement that the entire permutation avoid \(1324\). It describes this subclass as important in a proof of known bounds and asks whether an ``inversion conjecture'' can be proved on it. Neither that conjecture, the bounds, nor the precise gridding convention is supplied, so this auxiliary question cannot be stated precisely here.
+
+A neighboring passage headed with Natasha Blitvic and Andrew Elvey-Price defines a moment sequence by the existence of a measure \(\mu\) on \(\R\) satisfying \(m_n=\int_{\R}x^n\,\mathrm{d}\mu(x)\) for every \(n\geq0\), and calls it a Stieltjes moment sequence when the support is contained in \((0,\infty)\). Under the usual nonnegative-measure interpretation, all these moments must be finite. The passage gives \(n!=\int_0^\infty x^n e^{-x}\,\mathrm{d}x\), asks when permutation-class counting sequences are moment or Stieltjes moment sequences, and conjectures the latter for all principal classes. This is a supplied neighboring conjecture, not an established fact or an identified part of the ratio problem. Its strict support condition and the unrestricted phrase ``all principal classes'' require review. The passage attributes computational intuition to Elvey-Price and Tony Guttmann, structural intuition to Blitvic and Steingr\'{i}msson, and claims that the moment property yields strong growth-rate lower bounds, including an improved lower bound for \(1324\)-avoiders; no precise bound is supplied.
+
+That neighboring passage also defines a \(k\)-arrangement as a permutation whose fixed points receive colors from \(k\) colors, interpreting \(k=0\) as a derangement, and denotes its size-\(n\) count by \(A_n^k\). Its damaged integral display appears to assert
+\[
+A_n^k=\int_{k-1}^{\infty}x^n e^{-x+(k-1)}\,\mathrm{d}x.
+\]
+This is a tentative transcription of an ancillary source assertion, requiring verification against the report; it is not a conjecture added to the main problem.
+\subsection{Short English statement}
+Compare the numbers of length-\(n\) permutations avoiding \(132456\) and \(124356\), particularly their ratio and its possible constant or polynomial behavior. The source leaves exact versus asymptotic comparison unspecified. Its broader comparison question and ancillary extracted questions also require clarification before they have unique precise formulations.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005761\), source problem code \texttt{catalogue entry}, title ``Counting-Sequence Ratios for Length-Six Principal Classes.'' The record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2024; no proposer is identified for the main problem.
+\item Supplied authoritative reference: \emph{Mini-Workshop: Permutation Patterns} (2024), \emph{Oberwolfach Reports}, pp.~273--308, DOI \texttt{10.4171/owr/2024/6}. Supplied source URL and literature-source link labeled ``original OWR report'': \url{https://doi.org/10.4171/owr/2024/6}. No item-specific page is supplied.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and states that no primary resolution of the counting-sequence comparisons was located. This is supplied dated curation, not an independently verified literature assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels its statement \texttt{corrected\_verified} and reports that the official report was checked directly and the clean statement restored definitions while removing extraction artifacts. These are supplied verification claims; this draft does not claim to have visited or independently checked the report.
+\item The neighboring moment-sequence passage names Natasha Blitvic and Andrew Elvey-Price, credits computational intuition to Elvey-Price and Tony Guttmann, and structural intuition to Blitvic and Steingr\'{i}msson. These attributions concern that neighboring passage and do not identify a proposer for the main ratio question.
+\end{itemize}
+\end{document}

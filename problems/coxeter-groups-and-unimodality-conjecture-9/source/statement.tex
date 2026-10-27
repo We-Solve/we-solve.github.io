@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800371}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \((W,S)\) be a finite Coxeter system. Write \(\ell(w)\) for the minimum length of an expression for \(w\) in the generators \(S\). The Bruhat order \(u\leq v\) means that a reduced expression for \(u\) occurs as a subword of a reduced expression for \(v\). For \(u\leq v\), set \(\ell(u,v)=\ell(v)-\ell(u)\).
+
+Use the standard normalization of the polynomials \(\widetilde R_{x,y}(t)\), specified by \(\widetilde R_{x,x}(t)=1\), \(\widetilde R_{x,y}(t)=0\) when \(x\not\leq y\), and the following recurrence. If \(x<y\) and \(s\in S\) satisfies \(\ell(ys)<\ell(y)\), then
+\[
+\widetilde R_{x,y}(t)=
+\begin{cases}
+\widetilde R_{xs,ys}(t),&\ell(xs)<\ell(x),\\
+\widetilde R_{xs,ys}(t)+t\widetilde R_{x,ys}(t),&\ell(xs)>\ell(x).
+\end{cases}
+\]
+For \(u\leq v\), put \(d=\ell(u,v)\) and let \(\varepsilon\in\{0,1\}\) satisfy \(\varepsilon\equiv d\pmod 2\). As stated in the supplied source, \(\widetilde R_{u,v}\) has degree \(d\), has nonnegative integer coefficients, and contains only powers congruent to \(d\) modulo \(2\). Consequently there is a unique polynomial \(Q_{u,v}(t)\in\mathbb Z_{\geq0}[t]\) such that
+\[
+\widetilde R_{u,v}(t)=t^{\varepsilon}Q_{u,v}(t^2).
+\]
+Write
+\[
+Q_{u,v}(t)=\sum_{j=0}^{m}a_jt^j,
+\qquad m=\frac{d-\varepsilon}{2}.
+\]
+Here log-concavity means the coefficient inequalities \(a_j^2\geq a_{j-1}a_{j+1}\) for every \(1\leq j\leq m-1\); the condition is vacuous when \(m\leq1\).
+
+\textbf{Conjecture 9 (Brenti, 2024).} For every finite Coxeter system \((W,S)\) and every pair \(u,v\in W\) with \(u\leq v\), the polynomial \(Q_{u,v}(t)\) is log-concave. This includes \(u=v\), for which \(Q_{u,u}(t)=1\). The supplied source describes this conjecture as a generalization of [BreDM, Conjecture 7.1]; the bibliographic identity of [BreDM] is not supplied.
+\subsection{Short English statement}
+Brenti conjectures that, for every comparable pair in the Bruhat order of a finite Coxeter group, removing the parity restriction from the powers of its \(\widetilde R\)-polynomial yields a polynomial whose coefficients are log-concave. The registry labels the conjecture open; this status has not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800371\), exact source problem code \texttt{catalogue entry}, title ``Coxeter Groups and Unimodality --- Conjecture 9.'' The record attributes the conjecture to Brenti (2024) and labels its status \texttt{open}.
+\item Brenti, \emph{Some Open Problems on Coxeter Groups and Unimodality} (2024), Conjecture 9. Supplied source URL: \url{https://arxiv.org/abs/2410.09897}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not an independent verification or a claim of access in preparing this draft.
+\item The supplied excerpt credits combinatorial interpretations of the \(\widetilde R\)-polynomials to references labeled [DeoInv] and [Dye93], and points to [BB, Theorems 5.3.4 and 5.3.7]. It describes Conjecture 9 as a generalization of [BreDM, Conjecture 7.1]. Full bibliographic entries for these labels are absent from the supplied record.
+\end{itemize}
+\end{document}

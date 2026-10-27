@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004555}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\mathcal F\) denote the set of finite propositional formulas over Boolean variables, and let
+\[
+\mathrm{TAUT}=\{\varphi\in\mathcal F: v(\varphi)=1\text{ for every Boolean valuation }v\}.
+\]
+For terminology, fix an encoding of formulas and finite proof strings. A sound and complete propositional proof relation \(R_P(\varphi,\pi)\) satisfies
+\[
+\forall\varphi\in\mathcal F,\qquad
+\varphi\in\mathrm{TAUT}\ \Longleftrightarrow\ \exists\pi\;R_P(\varphi,\pi).
+\]
+Here \(\pi\) ranges over finite strings. This supplies terminology only: the record does not specify an encoding, an effective verification requirement, or the class of admissible proof systems. For \(\varphi\in\mathrm{TAUT}\), define its shortest proof length in \(P\) by
+\[
+\ell_P(\varphi)=\min\{\lvert\pi\rvert:R_P(\varphi,\pi)\}.
+\]
+A proof-search algorithm for \(P\), on every input \(\varphi\in\mathrm{TAUT}\), must terminate and output a string \(\pi\) satisfying \(R_P(\varphi,\pi)\). This convention imposes no behavior on inputs outside \(\mathrm{TAUT}\); whether the intended task instead requires deciding tautologicity, deciding satisfiability, or producing refutations is unresolved.
+
+The supplied problem asks:
+\begin{enumerate}
+\item How should proof-search algorithms be compared, and is there an optimal way to search for propositional proofs?
+\item Why is searching in stronger proof systems apparently unhelpful?
+\item How can practical satisfiability and automated-theorem-proving algorithms perform well on very long formulas despite exponential lower bounds for associated proof systems?
+\end{enumerate}
+
+The record supplies a research agenda rather than a uniquely quantified conjecture. In particular, if an admissible class \(\mathcal A\) of algorithms and a comparison preorder \(\preceq\) were specified, with \(A\preceq B\) meaning that \(A\) is at least as efficient as \(B\), an optimality question could take the form
+\[
+\exists A_*\in\mathcal A\;\forall A\in\mathcal A,\qquad A_*\preceq A.
+\]
+Neither \(\mathcal A\) nor \(\preceq\) is supplied, so this is a conditional template, not an attributed formal conjecture. It remains unspecified whether the comparison fixes one proof system or ranges across systems, and whether efficiency is measured in input length, output length, shortest proof length, or another parameter.
+
+The meaning of stronger proof systems, the sense in which their search is apparently unhelpful, the relevant exponential lower bounds and formula families, and the practical performance criterion are also unspecified. The record does not identify whether automated theorem proving here is restricted to propositional logic. These qualifications prevent replacing the questions by a single precise theorem or conjecture without additional source evidence.
+\subsection{Short English statement}
+The problem asks how to compare propositional proof-search methods, whether an optimal method exists, why stronger proof systems appear to offer little practical advantage, and how practical solver performance relates to proof-length lower bounds. The supplied record leaves the comparison criterion, proof systems, computational tasks, and practical input classes unspecified. The formal notation provides terminology and a conditional optimality template; it does not resolve those missing choices.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004555\), title ``Optimality and Practical Efficiency of Proof Search,'' source problem code \texttt{catalogue entry}, in the collection ``Oberwolfach Reports Open Problems.'' No individual proposer is identified in the record; the supplied proposed year is 2020.
+\item Supplied report citation: \emph{Mathematical Logic: Proof Theory, Constructive Mathematics} (2021), Oberwolfach Reports, pp.\ 1693--1757, DOI \texttt{10.4171/owr/2020/34}. \url{https://doi.org/10.4171/owr/2020/34}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The literature-source label for this same link is ``Oberwolfach Report 34/2020.''
+\item Supplied literature source: ``Krajicek, Proof Search Problem.'' \url{https://eccc.weizmann.ac.il/report/2021/053/}. The record does not supply a page or passage connecting this reference to each component of the problem.
+\item Supplied literature assessment, checked on \texttt{2026-08-22}: status ``open.'' The assessment states that comparison of proof-search algorithms, optimal search across proof systems, and the gap between practical SAT performance and proof-length lower bounds remain open research problems, with known results covering restricted notions and fixed systems. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The supplied background expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement status ``exact'' and says that it was retained byte-for-byte as clear, self-contained, and publication-ready. These are supplied registry qualifications, not independent verification of the wording against the report or of mathematical precision.
+\end{itemize}
+\end{document}

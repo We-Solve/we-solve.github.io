@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002489}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $(\Omega,\mathcal F,\mathbb P)$ carry a measurable measure-preserving action $(\tau_x)_{x\in\R^n}$ ergodic under the full translation group. The source considers
+\[
+ u_t+H(D_xu,\tau_x\omega)=0,
+\]
+with $H$ convex in momentum and suitable unspecified regularity, for example $H(p,\omega)=\tfrac12|p|^2-V(\omega)$. It asks for a large-deviation result in a stationary ergodic environment without independence or mixing assumptions. Ergodicity is not a substitute for all integrability, coercivity, spectral or nondegeneracy assumptions. The source does not specify the diffusion, killing convention, normalization, topology or rate function. Its claimed Brownian/homogenization connection also requires an explicit scaling convention: a Feynman--Kac logarithmic transform naturally gives a viscous Hamilton--Jacobi equation, so equivalence with the first-order display is not asserted without those missing details.
+
+One precise quenched endpoint template fixes an environment $\omega$ and asks for speed-$t$ large-deviation bounds for
+\[
+ \mu_t^\omega(A)=\mathbb E_0\left[
+ e^{-\int_0^tV(\tau_{B_s}\omega)\,\dd s}
+ \mathbf1_{\{B_t/t\in A\}}\right].
+\]
+For nonnegative killing this is a subprobability measure; a result would specify a deterministic rate $I$ and almost surely give the usual lower bound $-\inf_G I$ for open $G$ and upper bound $-\inf_F I$ for closed $F$. Normalizing by survival changes the rate by the corresponding normalization exponent. This is an explicit target convention, not a recovered unique formulation of the source request.
+
+The supplied assessment reports broad no-mixing results of Armstrong--Tran (2014) for diffusions with regular absorbing random potentials, and Boivin--Le (2020) removing spatial regularity under explicit moment, spectral and low-dimensional nondegeneracy hypotheses. Their complete assumptions are not supplied; no theorem for arbitrary stationary ergodic potentials is inferred.
+
+The aid's separate special case is one-dimensional standard Brownian motion, generator $\tfrac12\partial_x^2$, and a measurable potential $0\le V\le M<\infty$ stationary under an ergodic real-translation action. For $\lambda>0$ let $H_y$ be the first hitting time of $y$ and define
+\[
+ a_\lambda^\omega(x,y)=-\log\mathbb E_x\left[
+ e^{-\int_0^{H_y}(\lambda+V(\tau_{B_s}\omega))\,\dd s};\ H_y<\infty\right].
+\]
+For ordered triples these costs are exactly additive. The reported deterministic directional limits and cell formulas are
+\[
+ \lim_{R\to\infty}\frac{a_\lambda^\omega(0,\pm R)}R
+ =\alpha_\pm(\lambda),\qquad
+ \alpha_\pm(\lambda)=\mathbb E[a_\lambda^\omega(0,\pm1)].
+\]
+Birkhoff's theorem for the unit shift initially yields a conditional expectation; bounded endpoint-shift comparisons make the limit invariant under every real translation, and full-action ergodicity makes it deterministic. Ergodicity of $\tau_1$ itself is not assumed. The cost bounds are
+\[
+ \sqrt{2\lambda}\,|x-y|\le a_\lambda(x,y)
+ \le\sqrt{2(\lambda+M)}\,|x-y|.
+\]
+If $G_\lambda^\omega$ is the density of the killed resolvent, its hitting representation is
+\[
+ G_\lambda(x,y)=e^{-a_\lambda(x,y)}G_\lambda(y,y),
+ \qquad\frac1{\sqrt{2(\lambda+M)}}\le G_\lambda(y,y)
+       \le\frac1{\sqrt{2\lambda}},
+\]
+so its directional logarithmic decay rates are the same $\alpha_\pm(\lambda)$. Finally, for $v\ne0$ the ballistic hitting upper bound is
+\[
+ \limsup_{t\to\infty}\frac1t\log
+ \mathbb E_0\left[e^{-\int_0^{H_{vt}}V(\tau_{B_s}\omega)\,\dd s};\ H_{vt}\le t\right]
+ \le\lambda-|v|\alpha_{\operatorname{sgn}v}(\lambda).
+\]
+These hitting/resolvent statements are a special-case diagnostic, not by themselves the full endpoint large-deviation lower and upper bounds requested in general.
+\subsection{Short English statement}
+Seek quenched large deviations in stationary ergodic random environments without mixing. The supplied assessment reports results under additional hypotheses and gives one-dimensional bounded-potential hitting and resolvent exponents; these do not alone constitute a full endpoint large-deviation theorem.
+\subsection{Sources}
+\begin{itemize}
+\item Elena Kosygina, verified Problem 33, American Institute of Mathematics workshop \emph{New connections between dynamical systems and PDE's}, \url{https://aimath.org/WWN/dynpde/dynpde.pdf}. The extracted item 3 lost its tens digit and a trailing page number is an artifact.
+\item The source attributes homogenization to Lions and Souganidis and a Brownian-obstacle connection to ``Snitzman'' in the extraction, without complete references. The supplied assessment names Armstrong--Tran (2014) and Boivin--Le (2020), again without titles or full bibliographic details.
+\item Local UnsolvedMath registry, permanent ID 20002489, source code \texttt{catalogue entry}, canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[100]}, record dated 14 August 2026. The original literature field is empty.
+\item Supplied research attempt 1: partial result, problem status at run partially solved, rigor labelled proved, novelty confidence low. Its one-dimensional cell-formula lemma is machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

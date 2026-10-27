@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003440}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G=(V,E)\) be a finite simple graph. For \(n=|V|\geq 1\), identify \(V\) with \(\{1,\ldots,n\}\), and put
+\[
+I_G=\{(i,i):i\in V\}\cup\{(i,j):i<j,\ \{i,j\}\in E\}.
+\]
+For \(\mathbb K\in\{\R,\C\}\), let \(\operatorname{Sym}_n(\mathbb K)\) denote the symmetric \(n\times n\) matrices over \(\mathbb K\), and let
+\[
+\pi_G^{\mathbb K}:\operatorname{Sym}_n(\mathbb K)\longrightarrow\mathbb K^{I_G},
+\qquad M\longmapsto (M_{ij})_{(i,j)\in I_G}.
+\]
+Thus all diagonal entries and the entries corresponding to edges are specified in a partial matrix.
+
+The supplied record does not define its two invariants. The following are explicit conventional interpretations for this draft, whose agreement with the intended source definitions requires review. Define the generic completion rank by
+\[
+\operatorname{gcr}(G)=\min\left\{r\in\{1,\ldots,n\}:\overline{\pi_G^{\C}\bigl(\{M\in\operatorname{Sym}_n(\C):\operatorname{rank}M\leq r\}\bigr)}^{\mathrm{Zar}}=\C^{I_G}\right\},
+\]
+where the bar denotes Zariski closure. This uses complex symmetric completions without a positivity condition.
+
+For the maximum-likelihood threshold, use the rank-based real positive-definite completion interpretation
+\[
+\operatorname{mlt}(G)=\min\left\{r\in\{1,\ldots,n\}:\begin{array}{l}
+\text{for Lebesgue-almost every }X\in\R^{n\times r},\\
+\text{there exists }M\in\operatorname{Sym}_n(\R)\text{ with }M\succ0\\
+\text{and }\pi_G^{\R}(M)=\pi_G^{\R}(XX^{\mathsf T})
+\end{array}\right\}.
+\]
+Here \(M\succ0\) means \(u^{\mathsf T}Mu>0\) for every nonzero \(u\in\R^n\).
+
+The supplied question is whether a single function, independent of the graph and its number of vertices, satisfies
+\[
+\exists f:\N\longrightarrow\N\quad
+\forall\text{ finite simple graphs }G,\qquad
+\operatorname{gcr}(G)\leq f\bigl(\operatorname{mlt}(G)\bigr).
+\]
+No monotonicity or other restriction on \(f\) is stated. The displayed quantifier preserves the source wording. The definitions above cover nonempty vertex sets; the source does not specify conventions for the graph with no vertices or whether \(0\in\N\). Consequently, the literal inclusion of that graph remains unresolved and no values for its invariants are assigned here.
+\subsection{Short English statement}
+Does the maximum-likelihood threshold alone control the generic completion rank uniformly over all finite simple graphs? More precisely, is there one function \(f:\N\to\N\) such that \(\operatorname{gcr}(G)\leq f(\operatorname{mlt}(G))\) for every such graph? The invariant definitions are explicit working interpretations requiring source confirmation; the empty-graph convention is unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003440\), title ``Bounding Generic Completion Rank by Maximum-Likelihood Threshold,'' Oberwolfach Reports Open Problems collection; exact source problem code \texttt{catalogue entry}. The record lists proposed year \(2017\) and supplies no individual proposer.
+\item Supplied report citation: \emph{Real Algebraic Geometry With a View Toward Moment Problems and Optimization} (2018), Oberwolfach Reports, pp.~771--862, DOI \(10.4171/owr/2017/14\). \url{https://doi.org/10.4171/owr/2017/14}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature reference: Blekherman--Sinn, ``MLT and generic completion rank.'' \url{https://doi.org/10.1007/s00454-018-9990-3}.
+\item Supplied literature reference: Bernstein et al., ``maximum-likelihood thresholds via rigidity.'' \url{https://arxiv.org/abs/2108.02185}.
+\item Supplied dated literature curation, checked \texttt{2026-08-21}: the record labels the problem open and reports that the inequality \(\operatorname{mlt}(G)\leq\operatorname{gcr}(G)\) is established, many graph families are understood, and no function of the former invariant is known that uniformly bounds the latter over all finite simple graphs. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment. The supplied background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and explains that mathematical content was preserved while notation, typography, and sentence structure were repaired for publication. This is a supplied editorial label, not mathematical verification of this draft or of the problem's current status.
+\end{itemize}
+\end{document}

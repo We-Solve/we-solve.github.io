@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000632}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A centered proper complex Gaussian entire function $G$ is a random entire function whose finite evaluation vectors are centered complex Gaussian and satisfy $\E[G(z)G(w)]=0$. Its covariance kernel is $K(z,w)=\E[G(z)\overline{G(w)}]$. A kernel is Hermitian positive semidefinite if $K(w,z)=\overline{K(z,w)}$ and
+\[
+ \sum_{i,j=1}^m c_i\overline{c_j}K(z_i,z_j)\geq0
+\]
+for every finite choice of points and complex coefficients. It is sesquientire if it is entire in $z$ and anti-entire in $w$.
+
+\textbf{Question 7 (Steven Evans).} Is there a necessary-and-sufficient condition for a given correlation function to be the correlation function of an entire Gaussian function? The original prints ``enire''; the evident word correction is ``entire.'' ``Correlation'' is not defined: covariance values, normalized covariance, nonproper Gaussian data, and correlations of the zero point process are different targets.
+
+\textbf{Reported covariance criterion.} Under the centered proper covariance interpretation, the aid states
+\[
+ K\text{ is the covariance of a Gaussian entire function}
+ \quad\Longleftrightarrow\quad K\text{ is Hermitian positive semidefinite and sesquientire}.
+\]
+For a sesquientire expansion $K(z,w)=\sum_{m,n\geq0}a_{mn}z^m\overline w^{,n}$, positivity is equivalently positivity of every finite leading Taylor matrix $(a_{mn})_{0\leq m,n\leq M}$. The expansion and global analyticity remain required; positivity of formal matrices alone does not supply a globally entire kernel. The reported realization is an almost surely locally uniformly convergent series
+\[
+ G(z)=\sum_j\xi_j e_j(z),
+\]
+where $(e_j)$ is an orthonormal basis for the reproducing-kernel Hilbert space of $K$ and the $\xi_j$ are independent standard proper complex Gaussians.
+
+\textbf{Reported normalized-covariance criterion.} Suppose $R:\C\times\C\to\C$ is continuous, Hermitian positive semidefinite, and $R(z,z)=1$. Fix $z_0\in\C$ with $r(z)=R(z,z_0)\ne0$ for all $z$, and define
+\[
+ C(z,w)=\frac{R(z,w)}{r(z)\overline{r(w)}}.
+\]
+The aid asserts that $R$ is of the form
+\[
+ R(z,w)=\frac{K(z,w)}{\sqrt{K(z,z)K(w,w)}}
+\]
+for a centered proper Gaussian entire function with $K(z,z)>0$ everywhere if and only if $C$ is sesquientire and a continuous argument $\theta$ of $r$, meaning $r(z)=|r(z)|e^{i\theta(z)}$, is harmonic on $\C$. This harmonic-phase requirement is not replaced merely by positive semidefiniteness.
+
+The supplied explicit obstruction is the rank-one kernel
+\[
+ R_*(z,w)=\exp\big(i(|z|^2-|w|^2)\big).
+\]
+It is continuous, Hermitian positive semidefinite, and unit-diagonal, and its transformed $C$ is identically $1$. Nevertheless its base-section phase $|z|^2-|z_0|^2$ is not harmonic, so the report says it cannot be such a normalized covariance.
+
+The summary additionally reports exact diagonal and real-translation-stationary criteria without printing their statements; these cannot be reconstructed from the supplied data. For nonproper centered complex Gaussians, a covariance alone does not specify the pseudo-covariance $\E[G(z)G(w)]$. If the question concerns zero-process correlation functions, the preceding covariance criteria do not answer that distinct realizability question. The registry therefore records partial progress rather than a resolution of every reading.
+\subsection{Short English statement}
+The original correlation-function question is ambiguous. For ordinary proper Gaussian covariance, the reported answer is positivity plus holomorphic/antiholomorphic dependence. For normalized covariance with a nowhere-zero base section, the aid adds an exact harmonic-phase test and a rank-one example showing why positivity alone is insufficient. Zero-process and nonproper interpretations remain separate.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000632$, \texttt{catalogue entry}; canonical \texttt{aim-analysis-notes.json}, \texttt{notes[163]}.
+\item AIM workshop ``Random analytic functions,'' April 2006, Question 7 attributed to Steven Evans: \url{https://aimath.org/WWN/randomzeros/arcc1.pdf}. The supplied verification says the two-page PDF was inspected, while registry statement status remains \texttt{reconstructed\_unverified}; no independent PDF inspection is claimed here.
+\item Research attempt 1: \texttt{partial\_result}, run status \texttt{partially\_solved}, internal rigor \texttt{proved}, low novelty confidence. Explicitly a machine-generated research aid, not peer reviewed; independently verify before citation. No original literature entry or full external theorem references are supplied.
+\end{itemize}
+\end{document}

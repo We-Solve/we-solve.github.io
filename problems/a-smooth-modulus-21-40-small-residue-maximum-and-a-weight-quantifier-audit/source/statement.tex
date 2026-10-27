@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000751}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Lambda\) be the von Mangoldt function, \(\varphi\) Euler's totient, \(\mu\) the M\"obius function, and
+\[
+ \psi(x;q,a)=\sum_{\substack{n\leq x\\n\equiv a\ (\mathrm{mod}\ q)}}\Lambda(n),\qquad
+ E(x;q,a)=\psi(x;q,a)-x/\varphi(q).
+\]
+The source collects three questions of J. B. Friedlander about some fixed level \(\theta>1/2\), \(D=x^\theta\): obtain arbitrary logarithmic savings in the signed sum \(\sum_{d\leq D,(d,a)=1}\mu(d)E(x;d,a)\); improve Bombieri--Vinogradov for \(\sum_{d\leq D}\max_{(a,d)=1,\ |a|<(\log x)^{2005}}|E(x;d,a)|\); and obtain such signed savings for \(\sum_{d\leq D,(d,a)=1}\lambda_dE(x;d,\bar a)\) for ``reasonable'' weights. Here \(a\neq0\) is fixed in the first and third questions and \(a\bar a\equiv1\pmod d\). An arbitrary-logarithmic-saving formulation means \(O_A(x(\log x)^{-A})\) for each \(A>0\); the source does not completely specify residue uniformity, weight classes, or dependencies. Its damaged comparison glyph is reconstructed as a bound for the magnitude of each signed sum.
+
+The supplied partial theorem concerns restricted moduli. Let \(P(y)=\prod_{p\leq y}p\). For every fixed \(K,A>0\) and \(0<\epsilon<1/40\), the aid reports that there is \(\delta>0\) such that, for all sufficiently large \(x\),
+\[
+ \sum_{\substack{q\leq x^{21/40-\epsilon}\\q\mid P(x^\delta)}}
+ \max_{\substack{(a,q)=1\\0<|a|<(\log x)^K}}
+ |E(x;q,a)|\ll_{K,A,\epsilon}x(\log x)^{-A}.
+\]
+The exponent \(21/40-\epsilon\) is strictly greater than \(1/2\). Taking \(K=2005\) addresses the source's small-residue maximum, but only for squarefree \(x^\delta\)-smooth moduli: the condition \(q\mid P(x^\delta)\) does not allow arbitrary powers of small primes or every modulus up to the level. The maximum is inside the sum with one uniform bound over the allowed residues. The aid derives this psi-version from Stadlmann's residue-uniform prime-counting theorem using moving-scale partial summation and an aggregate prime-power divisor-switch estimate. The complete input theorem and its hypotheses are not supplied.
+
+The weight audit is exact: for any finite list of complex errors \(E_d\),
+\[
+ \sup_{|\lambda_d|\leq1}\left|\sum_d\lambda_dE_d\right|=\sum_d|E_d|.
+\]
+For real errors the supremum is attained by real sign weights. Thus a uniform estimate over unrestricted one-bounded weights is equivalent to an absolute-error estimate, not an automatic cancellation theorem for every vaguely ``reasonable'' family. This is a quantifier obstruction, not an unconditional disproof of an Elliott--Halberstam-type bound.
+
+For fixed nonzero \(a\), the inverse-residue sum also has the exact finite rewrite
+\[
+ \sum_{\substack{d\leq D\\(d,a)=1}}\lambda_d E(x;d,\bar a)
+ =\sum_{n\leq x}\Lambda(n)\sum_{\substack{d\leq D\\d\mid an-1}}\lambda_d
+ -x\sum_{\substack{d\leq D\\(d,a)=1}}\frac{\lambda_d}{\varphi(d)}.
+\]
+Divisibility by \(an-1\) forces \((d,a)=1\); if \(an-1=0\), the finite inner sum is harmless because the only relevant \(n=1\) has \(\Lambda(1)=0\).
+
+The source additionally asks for Bombieri--Vinogradov-type average distribution of other arithmetic functions, mentioning known divisor-function \(d_2,d_3\) results, and records A. Granville's request for a reasonable zero-distribution conjecture for \(L\)-functions implying \(\mathrm{EH}(\theta)\) at some fixed \(\theta>1/2\). A usual EH target is \(\sum_{q\leq x^\theta}\max_{(a,q)=1}|E(x;q,a)|\ll_Ax(\log x)^{-A}\); the original does not specify its optional maximum over lower cutoffs. The reported restricted-modulus theorem and exact audits do not settle these unrestricted questions or supply the requested zero conjecture.
+\subsection{Short English statement}
+The supplied theorem gives the source's small-residue maximum beyond level \(1/2\), at \(21/40-\epsilon\), for squarefree smooth moduli. The other partial results clarify that arbitrary bounded weights require absolute-error control and rewrite inverse residues as divisor correlations of \(an-1\). They do not resolve the full collection of unrestricted distribution questions.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000751\), exact public code \texttt{catalogue entry}; \texttt{aim-analytic-number-theory-notes.json}, \texttt{notes[114]}.
+\item AIM workshop list \emph{Gaps between primes} (2005), Problem 16, ``Possible improvements on the Bombieri-Vinogradov theorem'': \url{https://aimath.org/WWN/primegaps/WorkshopProblems.pdf}. This URL is supplied provenance; no PDF access is claimed.
+\item Original attributions: J. B. Friedlander for the three questions, limitations of the Bombieri--Friedlander--Iwaniec method as motivation, unnamed participants for other arithmetic functions, and A. Granville for the zero-distribution/EH question. No full paper citations are supplied.
+\item Supplied research summary, ``A smooth-modulus 21/40 small-residue maximum and a weight-quantifier audit,'' attempt 1, cites Stadlmann's residue-uniform prime-counting theorem without a title, date, publication details, or full statement. Original remarks and literature fields are empty.
+\end{itemize}
+\end{document}

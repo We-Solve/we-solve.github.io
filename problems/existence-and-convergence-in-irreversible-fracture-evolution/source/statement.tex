@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000066}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source poses two existence questions for time-discrete irreversible fracture: does each constrained minimization of a Mumford--Shah-type elastic energy attain its minimum, and do the resulting discrete evolutions have a limit as the time mesh tends to zero? The supplied assessment identifies the intended unresolved setting as full vector-valued linearized elasticity, while recording established results for important models and variants.
+
+To describe the objects without fixing the missing hypotheses, a conventional linearized-elastic energy on a domain $\Omega\subset\R^d$ has bulk strain
+\[
+ e(u)=\tfrac12(\nabla u+\nabla u^{\mathsf T})
+\]
+and a form such as
+\[
+ \mathcal E(t,u,K)=\int_\Omega W(x,e(u))\,dx
+           +\kappa\mathcal H^{d-1}(K)-\mathcal L_t(u),
+ \qquad J_u\subseteq K,
+\]
+where $u$ is vector-valued, $J_u$ is its measure-theoretic jump set, $K$ is a rectifiable crack, $\kappa>0$ is toughness, and admissible displacement spaces, loads and boundary conditions must be specified. The displayed quadratic-strain/crack framework is illustrative; it is not the report's fully recovered functional.
+
+For a partition $0=t_0<\cdots<t_N=T$, a history-variable version would seek
+\[
+ (u_j,K_j)\in\operatorname*{arg\,min}
+ \{\mathcal E(t_j,v,K):(v,K)\text{ admissible at }t_j,
+                            \ K\supseteq K_{j-1},\ J_v\subseteq K\}.
+\]
+The first question asks for nonemptiness at every step, given admissible initial data. The source literally says ``increasing jump set'', which could instead impose $J_{u_{j-1}}\subseteq J_{u_j}$, up to $\mathcal H^{d-1}$-null sets. This is not automatically equivalent to increasing accumulated cracks: an old crack may persist in $K_j$ while the current displacement has no jump there. The intended convention must be checked, not silently changed.
+
+For partitions with maximum step tending to zero, form the piecewise constant interpolants of the minimizers. The second question asks for a limiting evolution, at least along a subsequence in a specified topology, satisfying the intended irreversible-fracture notion. That notion may require global stability and an energy balance in addition to monotonicity of cracks, but neither the convergence topology nor the limit axioms are stated in the extracted question. Dimension, coercivity, treatment of rigid motions, admissible function spaces, load regularity and boundary fracture costs are also absent.
+
+The literature triage checked 21 August 2026 reports existence and quasistatic-evolution results for significant variants and says the report identifies unresolved issues for the full linearized-elasticity problem. It supplies only the original report as a reference; these dated source statements must not be promoted to a verified claim that all modern formulations remain unsolved.
+\subsection{Short English statement}
+Do irreversible elastic-fracture minimizations attain their minima at every time step, and do the discrete solutions converge to an evolution as the step size vanishes? The exact energy, function spaces, crack-history convention and meaning of the limiting evolution are missing. The supplied assessment records partial results for related fracture models.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000066, exact source code catalogue entry; \emph{Existence and Convergence in Irreversible Fracture Evolution}. Proposed year 2004, status partially\_solved; corrected\_verified extraction retains both existence questions.
+\item Supplied report citation: \emph{Calculus of Variations (2005)}, Oberwolfach Reports, DOI 10.4171/owr/2004/29, pp. 1541--1586, \url{https://doi.org/10.4171/owr/2004/29}. Its title year differs from the DOI/proposed year.
+\item Supplied literature assessment checked 2026-08-21, citing only ``original Oberwolfach Report 29/2004'', \url{https://doi.org/10.4171/owr/2004/29}. This dated OWR-derived triage requests independent verification of time-sensitive status and cited claims; it supplies no complete later-theorem references.
+\end{itemize}
+\end{document}

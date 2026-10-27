@@ -1,0 +1,47 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000002}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks: ``Can the accuracy of a discretization be enhanced by locally adapting diffusion parameters?'' This is a methodological question, not a fully specified universal estimate. It does not identify the diffusion equation, physical domain, boundary conditions, discretization, admissible coefficient changes, or accuracy measure.
+
+A parameterized formulation can expose the missing data without choosing them. Fix a target solution $u$ of the intended original problem, a discrete approximation $u_h(\theta)$ depending on diffusion parameters $\theta\in\Theta_h$, a baseline $\theta_0$, and an error measure $\mathcal E(u,u_h(\theta))$. Local adaptation means changing selected spatial components of $\theta$, with a specified admissible local-update set $\Theta_h^{\mathrm{loc}}(\theta_0)$. The improvement sought would be an admissible choice $\theta_1$ such that
+\[
+ \theta_1\in\Theta_h^{\mathrm{loc}}(\theta_0),\qquad
+ \mathcal E(u,u_h(\theta_1))<\mathcal E(u,u_h(\theta_0)).
+\]
+For a goal-oriented formulation the error could instead be $|J(u)-J(u_h(\theta))|$ for a specified output $J$; a norm error is another possible choice. Neither is selected by the source. An algorithmic version would require a computable adaptation rule and assumptions guaranteeing such improvement or an appropriate convergence result. The source does not say whether it asks for some useful examples, a class of equations, or an always-improving method.
+
+It is also essential to distinguish numerical diffusion or stabilization parameters from physical model coefficients: if the latter are changed, error must still be measured against the intended original target, with modeling error accounted for, rather than silently redefining $u$ to fit the changed model.
+
+The supplied literature triage, checked 21 August 2026, reports that goal-oriented a posteriori methods support simultaneous model and mesh adaptation, including heterogeneous and nonlinear diffusion models, but does not identify a general theorem guaranteeing that local diffusion-parameter changes always improve a requested output. This is dated supplied curation and does not establish a universal positive or negative answer.
+\subsection{Short English statement}
+The question asks whether local changes to diffusion parameters can improve a numerical discretization. A precise guarantee needs the original PDE, allowed parameter changes and an error or output criterion. The supplied August 2026 assessment reports model-and-mesh adaptation progress, with no general always-improving guarantee.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000002, exact source code catalogue entry, \emph{Adaptive Diffusion Parameters for Discretization Accuracy}; source question retained as supplied. Registry proposed year: 2004; status: partially\_solved.
+\item Supplied report citation: \emph{Self-Adaptive Methods for PDE (2005)}, Oberwolfach Reports, DOI 10.4171/owr/2004/16, pp. 829--872, \url{https://doi.org/10.4171/owr/2004/16}. The title year and DOI/proposed year differ in the supplied metadata; no silent correction is made.
+\item Supplied literature assessment checked 2026-08-21: ``duality-based model and mesh adaptivity'', \url{https://doi.org/10.1515/jnma-2014-0074}; ``a posteriori control of modeling and discretization errors'', \url{https://epubs.siam.org/doi/abs/10.1137/S1540345902410482}. This dated OWR-derived triage requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

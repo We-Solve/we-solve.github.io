@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000729}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\tau\in\mathbb H\), \(q=e^{2\pi i\tau}\), and \((a;q)_n=\prod_{j=0}^{n-1}(1-aq^j)\), with the convergent infinite-product convention for \(|q|<1\). Define from their unilateral sums
+\[
+ G(q)=\sum_{n\geq0}\frac{q^{n^2}}{(q;q)_n},\qquad
+ H(q)=\sum_{n\geq0}\frac{q^{n^2+n}}{(q;q)_n}.
+\]
+The original motivation is the Rogers--Ramanujan identities
+\[
+ G(q)=\frac1{(q;q^5)_\infty(q^4;q^5)_\infty},\qquad
+ H(q)=\frac1{(q^2;q^5)_\infty(q^3;q^5)_\infty}.
+\]
+It asks for a method proving modularity directly from the sum side, rather than taking these product evaluations as input. Normalize \(g(\tau)=q^{-1/60}G(q)\), \(h(\tau)=q^{11/60}H(q)\), with fractional powers interpreted through \(\tau\).
+
+The aid's reported product-free route uses Bressoud's terminating Gaussian-polynomial identities, recurrence certification, and compact-open convergence to unary theta differences, followed by Poisson summation. The exact terminating identities and recurrences are not supplied in the record. A precise theta target for the standard normalization is
+\[
+ \Theta_r(\tau)=\sum_{n\equiv r\ (\mathrm{mod}\ 20)}q^{n^2/40},\qquad
+ g=\frac{\Theta_1-\Theta_9}{\eta},\qquad
+ h=\frac{\Theta_3-\Theta_7}{\eta},
+\]
+where \(\eta(\tau)=q^{1/24}\prod_{j\geq1}(1-q^j)\). The supplied route does not invoke either Rogers--Ramanujan product identity or Jacobi's triple product as an input. In this normalization its reported exact transformation laws are
+\[
+ \begin{pmatrix}g(-1/\tau)\\h(-1/\tau)\end{pmatrix}
+ =\frac2{\sqrt5}\begin{pmatrix}
+ \sin(2\pi/5)&\sin(\pi/5)\\
+ \sin(\pi/5)&-\sin(2\pi/5)
+ \end{pmatrix}\begin{pmatrix}g(\tau)\\h(\tau)\end{pmatrix},
+\]
+\[
+ \begin{pmatrix}g(\tau+1)\\h(\tau+1)\end{pmatrix}
+ =\begin{pmatrix}e^{-2\pi i/60}&0\\0&e^{22\pi i/60}\end{pmatrix}
+ \begin{pmatrix}g(\tau)\\h(\tau)\end{pmatrix}.
+\]
+This specifies weight-zero vector-valued modularity, allowing the cusp pole indicated by \(q^{-1/60}\), rather than claiming both entries are holomorphic modular forms at every cusp.
+
+The more general sufficient certificate in the aid has the following explicit finite form. For an integer \(M\geq1\), put
+\[
+ \Theta_{M,r}(\tau)=\sum_{n\equiv r\ (\mathrm{mod}\ 2M)}q^{n^2/(4M)}.
+\]
+After division by \(\eta\), the residue vector has finite transformation matrices
+\[
+ \mathsf S_{r,s}=(2M)^{-1/2}e^{-2\pi i rs/(2M)},\qquad
+ \mathsf T_{r,s}=1_{r=s}e^{2\pi i(r^2/(4M)-1/24)}.
+\]
+If a finite coefficient space of linear combinations is preserved under the induced row actions of \(\mathsf S,\mathsf T\), and a recurrence-certified sum-side finitization converges compactly to those eta-denominated combinations, then it yields the corresponding vector-valued modular transformation laws. Relations such as \(\Theta_{M,r}=\Theta_{M,-r}\) must be respected, either by symmetric coefficient vectors or by taking the appropriate quotient. This is a sufficient certificate for sums admitting the required finite theta realization, not a universal algorithm deciding modularity of arbitrary q-hypergeometric series.
+\subsection{Short English statement}
+The source asks how to see modularity directly from q-hypergeometric sums. The supplied route passes through terminating Gaussian-polynomial identities and compact convergence to unary theta differences, then uses Poisson summation. For the Rogers--Ramanujan pair it gives explicit transformation matrices; finite theta-space closure is a sufficient certificate, not a general modularity decision procedure.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000729\), exact public code \texttt{catalogue entry}; \texttt{aim-analytic-number-theory-notes.json}, \texttt{notes[92]}.
+\item AIM workshop \emph{Mock modular forms in combinatorics and arithmetic geometry}, March 8--12, 2010, Problem 1.2: \url{https://aimath.org/WWN/mockmodular/mockmodular.pdf}. This URL is supplied provenance; no PDF access is claimed.
+\item Original motivation: the Rogers--Ramanujan identities for \(G,H\), without full bibliographic references.
+\item Supplied research summary, ``A finite-theta certificate for sum-side modularity,'' attempt 1, cites Bressoud's terminating Gaussian-polynomial identities, Poisson summation, and finite Weil-matrix closure without full theorem citations. Original remarks and literature fields are empty.
+\end{itemize}
+\end{document}

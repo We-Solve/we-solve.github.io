@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000559}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks to choose \(S\subseteq[m]=\{1,\ldots,m\}\), \(|S|\approx d\), with \(C\sum_{j\in S}x_jx_j^{\mathsf T}\approx I_d\) and a balancing bound \(\|\sum x_j\|\le B\). It gives no assumptions on the vectors, meaning of approximation, permitted \(C,B\), or index set for the final sum. The supplied report interprets the latter as the sum of selected vectors and uses the following John-decomposition setting rather than claiming an unconditional selection theorem for arbitrary input.
+
+Let \(x_i\in\R^d\), \(\|x_i\|_2=1\), and \(c_i>0\), satisfying
+\[
+ \sum_{i=1}^m c_ix_ix_i^{\mathsf T}=I_d,\qquad
+ \sum_{i=1}^m c_ix_i=0.
+\]
+For \(0<\epsilon<1\), spectral approximation means the positive-semidefinite inequalities \((1-\epsilon)I_d\preceq A\preceq(1+\epsilon)I_d\). The report applies Friedland--Youssef Corollary 3.1 to the lifted vectors \(\sqrt{c_i}(x_i,1/\sqrt d)\in\R^{d+1}\). It asserts a nonempty multiset \(\sigma\) of indices, of size \(k\) counting multiplicities, with
+\[
+ k\le\frac{d+1}{c_0\epsilon^2},\qquad
+ (1-\epsilon)I_d\preceq\frac d k\sum_{i\in\sigma}x_ix_i^{\mathsf T}
+ \preceq(1+\epsilon)I_d,
+\]
+\[
+ \left\|\sum_{i\in\sigma}x_i\right\|_2\le\frac{\epsilon k}{\sqrt d},
+\]
+where \(c_0>0\) is the theorem's unspecified absolute constant. Thus its simultaneous parameters are \(C=d/k\), \(B=\epsilon k/\sqrt d\). If all \(c_i\) are equal, the report says the selected indices can form a genuine subset. Without that additional hypothesis the multiset conclusion is not silently promoted to the subset requested in the source.
+
+The candidate obstruction uses the cross-polytope vectors \(\{\pm e_1,\ldots,\pm e_d\}\). Every full-rank subset \(S\) satisfies
+\[
+ \left\|\sum_{x\in S}x\right\|_2^2=2d-|S|.
+\]
+The report states that requiring a common-scalar covariance approximation with spectral error \(\epsilon<1/3\) forces the dichotomy: either \(|S|=d\), with imbalance \(\sqrt d\), or \(|S|=2d\), with imbalance zero. It identifies \(1/3\) as the sharp transition at which mixed single/paired coordinate selections can occur. This illustrates a size--balance restriction even for isotropic symmetric data; it is not a counterexample to the stated multiset sparsification bounds. The general source's desired dependence on dimension and balance remains underspecified despite its supplied solved label.
+\subsection{Short English statement}
+Choose few vectors whose unweighted covariance approximates the identity and whose sum is controlled. The supplied report obtains explicit simultaneous bounds for centered John decompositions, generally using a multiset, and gives a sharp cross-polytope size--balance obstruction. The original subset problem lacks the hypotheses and error parameters needed for a unique formulation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000559\), source code \texttt{catalogue entry}; AIM analysis corpus, \texttt{aim-analysis-notes.json}, notes[90]. Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0.
+\item AIM \emph{Beyond Kadison--Singer: paving and consequences}, source item b18: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. Original remarks and literature fields are empty; no proposer or additional hypotheses are supplied.
+\item The research summary cites Friedland--Youssef Corollary 3.1 without a full title, date, bibliographic reference or value of \(c_0\). It describes a one-coordinate lift and a cross-polytope calculation as the candidate contribution.
+\item Registry dated August 14, 2026: statement exact, status solved, classification \texttt{SOLVED-IN-LITERATURE}; attempt 1 records problem status solved, partial result, rigor proved, novelty confidence low. The uncentered block formulation and obstruction are machine-generated research aids, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

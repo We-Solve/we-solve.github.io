@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004678}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Use the conventional setting of computability-theoretic degrees of sets \(A\subseteq\N\). The supplied excerpt does not explicitly specify the underlying class of sets, so this setting requires confirmation against the source; in particular, no restriction to computably enumerable sets is supplied.
+
+For sets \(A,B\subseteq\N\), write \(A\leq_m B\) if there is a total computable function \(f:\N\to\N\) such that
+\[
+\forall n\in\N\quad(n\in A\iff f(n)\in B).
+\]
+Write \(A\leq_1 B\) if such an \(f\) can be chosen injective. Write \(A\leq_{\mathrm{tt}}B\) if membership in \(A\) is decided by a uniformly computable finite Boolean truth table applied to a computably specified finite list of membership queries to \(B\), with the queries chosen without access to the oracle answers. For any specified reducibility \(\leq_r\), let \(A\equiv_r B\) mean mutual reducibility, and let \([A]_r\) denote the corresponding degree.
+
+The excerpt does not define \emph{positive degrees}. A candidate conventional interpretation is positive truth-table reducibility: write \(A\leq_{\mathrm p}B\) when the truth-table reduction can be given uniformly by Boolean formulas using only conjunction, disjunction, and constants, with no negated oracle answers. The first formulation below is conditional on this being the intended meaning. The word \emph{positive} is therefore not being interpreted as merely excluding the recursive degree.
+
+For a truth-table degree \(\mathbf d\), under that interpretation put
+\[
+P(\mathbf d)=\{[A]_{\mathrm p}:[A]_{\mathrm{tt}}=\mathbf d\}.
+\]
+\textbf{Question 1.} Can a finite odd integer greater than \(1\) occur as \(|P(\mathbf d)|\)? Equivalently, is
+\[
+\exists k\in\Z\;\exists\mathbf d\quad
+\bigl(k\geq1\ \land\ \mathbf d\text{ is a truth-table degree}\ \land\ |P(\mathbf d)|=2k+1\bigr)
+\]
+true? This asks whether any such odd cardinality occurs; the excerpt does not assert that every odd integer greater than \(1\) should occur.
+
+For a many-one degree \(\mathbf e\), put
+\[
+I(\mathbf e)=\{[A]_1:[A]_m=\mathbf e\},
+\]
+ordered by \([A]_1\leq_1[B]_1\) if \(A\leq_1B\). Call \(\mathbf e\) nonrecursive if its representatives are nonrecursive sets.
+
+\textbf{Question 2.} Does every nonrecursive many-one degree \(\mathbf e\) satisfy either \(|I(\mathbf e)|=1\), or the existence of a sequence \((\mathbf a_i)_{i\in\N}\) in \(I(\mathbf e)\) such that
+\[
+\forall i,j\in\N\quad
+ i\ne j\Longrightarrow
+ \bigl(\mathbf a_i\not\leq_1\mathbf a_j\ \land\ \mathbf a_j\not\leq_1\mathbf a_i\bigr)?
+\]
+Thus the alternative is an infinite antichain under one-one reducibility within the fixed many-one degree.
+
+The supplied dated curation labels the combined problem partially solved, describes Question 1 as incomplete, and reports a positive resolution in 2026 of the many-one subquestion for every nonrecursive nonirreducible degree. This is a supplied literature assessment, not an independently verified theorem here. The excerpt does not define \emph{nonirreducible} or establish its relationship to the singleton alternative in Question 2.
+\subsection{Short English statement}
+The first question asks whether a truth-table degree can split into a finite odd number greater than one of positive degrees; the meaning of positive reducibility needs source confirmation. The second asks whether every nonrecursive many-one degree contains either exactly one one-one degree or an infinite family of pairwise incomparable one-one degrees. The supplied curation reports partial resolution, subject to independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004678\), titled \emph{Positive Degrees Within Truth Table and Many One Degrees}; exact source problem code \texttt{catalogue entry}. Collection: Oberwolfach Reports Open Problems. The record gives proposed year 2021 and names no proposer.
+\item Supplied report citation: \emph{Computability Theory (2022)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2021/21}, pp.\ 1149--1190. \url{https://doi.org/10.4171/owr/2021/21}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Stephan, \emph{On the structures inside truth-table degrees}. Supplied literature link: \url{https://www.cambridge.org/core/services/aop-cambridge-core/content/view/92D4726C02642E1CA649BE1B8AEDAB2C/S0022481200010987a.pdf}.
+\item Richter, Stephan and Zhang, \emph{Chains and antichains}. Supplied literature link: \url{https://arxiv.org/abs/2607.06218}.
+\item \emph{Oberwolfach Report 21/2021}. Supplied literature link: \url{https://ems.press/content/serial-article-files/46899}.
+\item Literature assessment date: \texttt{2026-08-22}. This is supplied dated curation derived from the supplied OWR curation, not an independently verified assessment. It labels the problem partially solved, says the finite odd-number phenomenon remains incomplete, and reports a positive 2026 resolution of the many-one subquestion for every nonrecursive nonirreducible degree. The record explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

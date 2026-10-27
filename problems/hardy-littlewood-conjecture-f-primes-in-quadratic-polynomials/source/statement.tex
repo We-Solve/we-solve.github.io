@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1519}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $a,b,c\in\Z$, let $f(t)=at^2+bt+c$, and suppose
+\[
+ a>0,\qquad \gcd(a,b,c)=1,\qquad
+ \Delta=b^2-4ac\notin\{m^2:m\in\Z\}.
+\]
+A prime value is a positive rational prime equal to $f(t)$ at an allowed integer argument. The literal source asserts infinitely many such prime values and an asymptotic
+\[
+ P(N)\sim A\frac{\sqrt N}{\log N},\qquad N\longrightarrow\infty,
+\]
+where the intended constant is positive and depends on $a,b,c$, not $N$, and $u(N)\sim v(N)$ means $u(N)/v(N)\to1$. The source defines $P(N)$ only as the number of primes of the form $f(t)\le N$. If all integer arguments and distinct output primes are intended, this would mean
+\[
+ P(N)=|\{p\le N:p\text{ prime},\ \exists t\in\Z,\ p=f(t)\}|.
+\]
+Counting arguments instead, or restricting $t$ to nonnegative or positive integers, gives different normalization conventions. No one of these alternatives, or explicit formula for $A$, is specified by the record.
+
+The supplied triage gives a counterexample to the literal hypotheses:
+\[
+ f(t)=t^2+t+2,\qquad a=1,\ b=1,\ c=2,\qquad \Delta=-7.
+\]
+Here the coefficients are primitive and the discriminant is nonsquare, but $t(t+1)$ is always even. Every value is even, and the only prime output is $2$, attained at $t=0,-1$ among all integer arguments. Thus the literal infinitude claim and its positive-constant asymptotic are refuted, independent of these usual argument-counting choices.
+
+The corrected standard Conjecture F adds the local condition that $a+b$ and $c$ are not both even. In this primitive quadratic setting it excludes the missing parity obstruction; the broader Bateman--Horn formulation requires no fixed prime divisor, expressed by
+\[
+ \forall p\text{ prime}\ \exists t\in\Z,\quad p\nmid f(t).
+\]
+The record treats the corrected locally admissible prime-value conjecture as unresolved, even for $f(t)=t^2+1$. It reports Iwaniec's theorem that $t^2+1$ is infinitely often a prime or a product of two primes, which is an almost-prime result rather than prime-value infinitude.
+
+The background presents this as a special case of Bateman--Horn, connects prime-rich quadratic patterns to the Ulam spiral, and quotes $A\approx6.6$ for $4t^2-2t+41$ as an enrichment example. That numerical constant and its ``nearly seven times'' interpretation cannot be normalized here without the omitted counting and local-factor conventions. The background's comparison with Dirichlet's linear-polynomial theorem concerns the unproved nonlinear univariate prime-value setting, not an asserted classification of every kind of polynomial.
+
+The registry's main label is open; its literature triage checked 17 August 2026 labels only the defective literal record solved in the literature by refutation. It explicitly warns that this classification must not be transferred to the corrected Hardy--Littlewood/Bateman--Horn problem.
+\subsection{Short English statement}
+The stated quadratic prime-value claim is missing a local parity condition and is refuted by $t^2+t+2$, which is always even. The corrected Conjecture F remains open according to the supplied assessment; its prime-counting convention and asymptotic constant also need specification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $1519$, exact source code \texttt{catalogue entry}, ``Hardy-Littlewood Conjecture F (Primes in Quadratic Polynomials),'' including its literature triage checked 17 August 2026.
+\item Stephan Baier and Liangyi Zhao, \emph{On primes represented by quadratic polynomials}, Anatomy of Integers, CRM Proceedings \& Lecture Notes \textbf{46} (2008), 159--174; arXiv:math/0703284, \url{https://arxiv.org/abs/math/0703284}; cited for the standard Conjecture F with the missing parity condition.
+\item Paul T. Bateman and Roger A. Horn, \emph{A heuristic asymptotic formula concerning the distribution of prime numbers}, Mathematics of Computation \textbf{16} (1962), 363--367, \url{https://doi.org/10.1090/S0025-5718-1962-0148632-7}.
+\item Henryk Iwaniec, \emph{Almost-primes represented by quadratic polynomials}, Inventiones Mathematicae \textbf{47} (1978), 171--188, \url{https://doi.org/10.1007/BF01578068}.
+\end{itemize}
+\end{document}

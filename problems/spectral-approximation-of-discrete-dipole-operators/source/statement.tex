@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005244}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(h>0\) denote the discretization parameter and let \(T_{\kappa h}\) denote the discrete-dipole approximation (DDA) matrices referred to in the supplied record. Write \(\sigma(T_{\kappa h})\) for their eigenvalue sets, and put \(I=[\Lambda_-,\Lambda_+]\subset\R\), the real accumulation interval mentioned in the source. The matrix entries, admissible discretizations, meaning and admissible values of \(\kappa\), and definitions of \(\Lambda_\pm\) are not supplied.
+
+For purposes of expressing the intended question, let \(V_\kappa\) be a placeholder for the volume integral operator underlying the source's volume integral equation, on a function space \(X\) that must still be specified. Once this operator and its spectral setting have been defined, put
+\[
+E_\kappa=\left\{z\in\sigma(V_\kappa)\setminus\R:\ z\text{ is an isolated spectral point and an eigenvalue of }V_\kappa\right\}.
+\]
+No finite algebraic multiplicity assumption is supplied. This notation does not assert that the missing operator or function space has been identified.
+
+The requested problem is to characterize precisely, and prove under the source's intended hypotheses, the numerically observed approximation of isolated nonreal eigenvalues of the volume integral equation by eigenvalues of \(T_{\kappa h}\) as \(h\to0\), away from \(I\). A minimal setwise formulation of the approximation of an individual eigenvalue, conditional on fixing the intended parameters and specifying the admissible meshes, is
+\[
+\forall z\in E_\kappa\setminus I\quad
+\forall\varepsilon>0\quad
+\exists\delta>0\quad
+\forall\text{ admissible }h\in(0,\delta):\qquad
+\sigma(T_{\kappa h})\cap B(z,\varepsilon)\ne\varnothing,
+\]
+where \(B(z,\varepsilon)=\{w\in\C:|w-z|<\varepsilon\}\). This expresses one aspect of the observation, rather than a complete reconstruction of the intended spectral convergence theorem. Since \(I\subset\R\), every nonreal \(z\) already lies outside \(I\).
+
+A complete characterization must also specify the possible limits of sequences
+\[
+h_j\to0,\qquad z_j\in\sigma(T_{\kappa h_j}),\qquad z_j\to z\in\C\setminus I.
+\]
+The supplied excerpt does not determine precisely which exclusion of spurious limits, multiplicity preservation, or uniformity is intended. It reports accumulation around \(I\), a discrete set of nonreal eigenvalues of the volume integral equation that appear well approximated, and failure of strict spectral correctness overall. Its further description of spectral correctness outside a small subset of \(\C\) is qualitative; that exceptional subset is not precisely identified.
+
+The adjoining discussion imposes important qualifications on any reconstruction. For \(\kappa\ne0\), the source says that the infinite Toeplitz matrix depends on \(\kappa h\), rather than being independent of \(h\). For nonreal \(\kappa\), it reports that Ewald's method yields explicit numerical-range bounds implying DDA stability for \(\lambda\) outside the subset of \(\C\) described by those bounds. It reports that the bounds become less sharp relative to computed spectra as \(\arg(\kappa^2)\) approaches zero. For real positive \(\kappa\), it states that the infinite Toeplitz matrix \(T\) no longer defines a bounded operator on \(\ell^2(\Z^3)\); only estimates of the imaginary part of the DDA system matrices had then been obtained, using a plane-wave representation of the Green function related to the Optical Theorem, giving stability for certain ranges of nonreal \(\varepsilon_r\). These are supplied source assertions, not independently verified results here. The excerpt supplies neither those bounds nor the stability ranges, and does not establish which frequency regime applies to the preceding open question. The infinite Toeplitz matrix must therefore not be silently identified with a bounded limiting operator for the finite DDA matrices.
+\subsection{Short English statement}
+Determine and prove the spectral convergence suggested by computations of discrete-dipole matrices as the mesh parameter tends to zero: isolated nonreal eigenvalues of the underlying volume integral equation appear to be approximated despite spectral accumulation near a real interval and failure of overall spectral correctness. The supplied record omits the operator, discretization, interval endpoints, and applicable frequency hypotheses, so a definitive theorem requires these to be recovered and reviewed.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005244\), title: Spectral Approximation of Discrete-Dipole Operators; source problem code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. No individual proposer is supplied. The record gives proposed year 2022.
+\item Supplied source citation: \emph{At the Interface between Semiclassical Analysis and Numerical Analysis of Wave Scattering Problems} (2023), Oberwolfach Reports, pp.~2511--2587, DOI \texttt{10.4171/owr/2022/43}. Supplied source and literature link, labeled Oberwolfach Report 43/2022: \url{https://doi.org/10.4171/owr/2022/43}. The record describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and says the source explicitly identifies characterization and proof of the limiting nonreal DDA eigenvalue behavior as an open problem. This is supplied dated curation, not an independently verified literature assessment; time-sensitive status and cited claims require independent checking.
+\item The registry labels the statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official report. These are supplied provenance claims; no source visit or independent verification is claimed in this draft.
+\end{itemize}
+\end{document}

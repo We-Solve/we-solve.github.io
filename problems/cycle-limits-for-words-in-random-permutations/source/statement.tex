@@ -1,0 +1,92 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006530}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each integer \(n\geq 1\), let \(S_n\) be the symmetric group on \(\{1,\ldots,n\}\), and let \(\sigma_n,\tau_n\) be independent random permutations, each uniformly distributed on \(S_n\). Set
+\[
+\pi_n=\sigma_n\tau_n\sigma_n^2\tau_n^2.
+\]
+For \(\rho\in S_n\), let \(L_1(\rho)\) be the length of its cycle containing \(1\). Let \(M_k(\rho)\) be its \(k\)-th largest cycle length, counting multiplicities and setting \(M_k(\rho)=0\) when \(\rho\) has fewer than \(k\) cycles.
+
+The supplied record asks the following two conjectures:
+\[
+\frac{L_1(\pi_n)}{n}\xrightarrow[n\to\infty]{\mathrm d}\operatorname{Unif}[0,1],
+\qquad
+\left(\frac{M_k(\pi_n)}{n}\right)_{k\geq1}
+\xrightarrow[n\to\infty]{\mathrm d}\operatorname{PD}(1).
+\]
+Here \(\operatorname{PD}(1)\) denotes the law of the decreasing rearrangement of
+\[
+P_j=V_j\prod_{i<j}(1-V_i),\qquad j\geq1,
+\]
+where the \(V_j\) are independent and uniformly distributed on \([0,1]\). A precise conventional formulation of the second convergence uses the space
+\[
+\mathcal S^{\downarrow}
+=\left\{(x_k)_{k\geq1}\in\ell^1:
+ x_1\geq x_2\geq\cdots\geq0,\quad \sum_{k\geq1}x_k=1\right\}
+\]
+with the \(\ell^1\) metric. The supplied source does not specify a topology; this explicit choice requires review against the intended formulation.
+
+For the generalization, let \(w\) be a fixed nonempty finite word in the two formal letters \(a,b\), independent of \(n\). The source calls \(w\) \emph{primitive} when there do not exist a nonempty shorter word \(v\) and an integer \(r\geq2\) such that \(w=v^r\), where powers mean concatenation. This is the source's word-combinatorial definition, not the definition of a primitive element of a free group. Evaluate \(w\) at \(a=\sigma_n\), \(b=\tau_n\) to obtain \(\pi_{n,w}=w(\sigma_n,\tau_n)\). The generalized cycle conjectures ask whether, for every such primitive word \(w\),
+\[
+\frac{L_1(\pi_{n,w})}{n}\xrightarrow[n\to\infty]{\mathrm d}\operatorname{Unif}[0,1],
+\qquad
+\left(\frac{M_k(\pi_{n,w})}{n}\right)_{k\geq1}
+\xrightarrow[n\to\infty]{\mathrm d}\operatorname{PD}(1).
+\]
+The original excerpt mentions allowing inverses as a possible extension but explicitly does not discuss that extension; words containing inverses are therefore outside this stated domain.
+
+For probability measures \(\mu,\nu\) on \(S_n\), define
+\[
+d_{\mathrm{TV}}(\mu,\nu)=\frac12\sum_{\rho\in S_n}|\mu(\{\rho\})-\nu(\{\rho\})|.
+\]
+A stronger question explicitly posed in the original excerpt for the displayed permutation is whether
+\[
+d_{\mathrm{TV}}\bigl(\mathcal L(\pi_n),\operatorname{Unif}(S_n)\bigr)\longrightarrow0.
+\]
+The cleaned statement additionally asks about this convergence for general primitive words, namely whether the same limit holds with \(\pi_n\) replaced by \(\pi_{n,w}\). Its scope is unresolved: the original excerpt explicitly generalizes the two cycle conjectures, without explicitly generalizing the total-variation conjecture. The latter generalized question is retained as a question from the registry, not asserted as a valid conjecture for every primitive word.
+
+As supplied background, if \(C_k(\rho)\) is the number of \(k\)-cycles of \(\rho\), the excerpt attributes to Kammoun and Maida the assertion that, for every fixed positive integer \(m\) and every fixed primitive word in the stated sense,
+\[
+\bigl(C_1(\pi_{n,w}),\ldots,C_m(\pi_{n,w})\bigr)
+\xrightarrow[n\to\infty]{\mathrm d}(Z_1,\ldots,Z_m),
+\qquad Z_k\sim\operatorname{Poisson}(1/k),
+\]
+with the \(Z_k\) independent. This is a supplied attribution, not an independently verified theorem statement. The excerpt also states that the two cycle limits hold for uniform random permutations and that their cycle containing \(1\) has length uniform on \(\{1,\ldots,n\}\).
+
+\emph{Unresolved additional source material.} The original excerpt abruptly turns to random functions and undefined \(w\)-trees. It requests an exact counting formula, recurrence, or functional equation for \(w\)-trees of size \(n\), including the case \(W=AB\). It also asserts that \(w\) and \(w^d\), for \(d>0\), have the same cyclic points and hence the same number of associated trees, and calls a primitive-word hypothesis necessary and harmless in an unspecified preceding statement. Finally, it asks when random functions associated with distinct words \(W,W'\) have total-variation distance tending to \(0\), to \(1\), or to neither, and mentions partial answers in reference \([3]\). The definitions, random-function model, preceding statement, and identity of reference \([3]\) are absent. These passages cannot be formulated precisely from the supplied record and are not identified with the permutation questions above.
+\subsection{Short English statement}
+For two independent uniform permutations of \(n\) elements, ask whether the word \(\sigma\tau\sigma^2\tau^2\) has the same limiting cycle containing \(1\) and ranked cycle lengths as a uniform permutation. The source extends these cycle questions to every fixed word that is not a concatenation power and poses a stronger total-variation question. The scope of that stronger generalization and the appended, undefined random-function questions require review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30006530\), title ``Cycle Limits for Words in Random Permutations,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record supplies proposed year \(2026\) but names no proposer.
+\item Supplied report citation: \emph{Enumerative Combinatorics} (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/2, pp. 81--156. \url{https://doi.org/10.4171/owr/2026/2}. No specific page or named contributor for this problem is supplied.
+\item Supplied literature source: Kammoun--Maida, \emph{Random Structures and Algorithms}. \url{https://doi.org/10.1002/rsa.21203}. The record supplies no article title or precise theorem locator.
+\item Supplied literature source: Kammoun--Maida, \emph{Electronic Communications in Probability}. \url{https://doi.org/10.1214/20-ECP334}. The record supplies no article title or precise theorem locator.
+\item Supplied literature source: Oberwolfach Report 2026/2. \url{https://doi.org/10.4171/owr/2026/2}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem ``partially solved,'' attributes universal short-cycle Poisson limits to primary work and several low-occurrence cases to the report, and says that the uniform and Poisson--Dirichlet limits for all primitive words remain unproved. This is supplied dated curation, not an independently verified literature assessment. The record itself requests independent verification of time-sensitive status and cited claims.
+\item The original excerpt cites Kammoun and Maida as reference \([7]\), without an explicit mapping to the two supplied articles. Its appended random-function passage cites reference \([3]\), whose bibliographic identity is not supplied.
+\end{itemize}
+\end{document}

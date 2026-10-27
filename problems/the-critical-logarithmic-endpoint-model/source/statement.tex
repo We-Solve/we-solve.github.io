@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000539}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For $0<\eps<1/2$, real $\lambda$ and initially smooth compactly supported $f:\R\to\C$, use the reconstructed symmetric principal value
+\[T_{\eps,\lambda}f(x)=\operatorname{p.v.}\int_\R f(x-t)e^{i\lambda|t|^\eps}\frac{\dd t}{t},\qquad M_\eps f(x)=\sup_{\lambda\in\R}|T_{\eps,\lambda}f(x)|.\]
+\textbf{Original Question 12 (Guo).} Is there a universal constant $C>0$, independent of $\eps$, such that
+\[\|M_\eps f\|_{L^2(\R)}\le C\|f\|_{L^2(\R)}\quad\text{for every }0<\eps<1/2?\]
+This is a uniform family of maximal-in-$\lambda$ bounds, not a single maximal operator also taking a supremum in $\eps$. The exponent and principal-value/absolute-value symbols are reconstructed from damaged extraction; the registry marks the statement \texttt{reconstructed\_unverified}.
+
+\textbf{Attached unreviewed endpoint reduction.} For fixed real $\mu$, choose the allowed scaling $\lambda=\mu/\eps$ and remove the scalar phase. The aid claims pointwise convergence on $C_c^1(\R)$,
+\[e^{-i\mu/\eps}T_{\eps,\mu/\eps}f(x)\longrightarrow S_\mu f(x):=\operatorname{p.v.}\int_\R f(x-t)|t|^{i\mu}\frac{\dd t}{t}.\]
+Consequently the universal bound would imply, with the same constant,
+\[\left\|\sup_{\mu\in\R}|S_\mu f|\right\|_2\le C\|f\|_2.\]
+The aid obtains this through finite parameter maxima and Fatou's lemma, then the appropriate parameter-continuity/density argument; it does not exchange an unproved infinite supremum with a limit. The logarithmic model is necessary, not claimed sufficient for the original estimate.
+
+With Fourier convention $\widehat f(\xi)=\int e^{-ix\xi}f(x)\dd x$, the reported exact multiplier for $\xi\ne0$ is
+\[\widehat{S_\mu f}(\xi)=2\Gamma(i\mu)\sinh(\pi\mu/2)\operatorname{sgn}(\xi)|\xi|^{-i\mu}\widehat f(\xi).\]
+At $\mu=0$ its removable value is $-i\pi\operatorname{sgn}\xi$, the unnormalized Hilbert-transform multiplier. The gamma expression is interpreted by continuation at that parameter.
+
+For every fixed $0<a<b<\infty$ and $M<\infty$, define annular convolution kernels
+\[K_{\eps,\mu}(t)=\mathbf1_{\{a\le|t|\le b\}}\frac{\exp\bigl(i\mu(|t|^\eps-1)/\eps\bigr)}t,\qquad K_{0,\mu}(t)=\mathbf1_{\{a\le|t|\le b\}}\frac{|t|^{i\mu}}t.\]
+The aid asserts $\sup_{|\mu|\le M}\|K_{\eps,\mu}*-K_{0,\mu}*\|_{L^2\to L^2}=O_{a,b,M}(\eps)$. This is fixed-annulus, bounded-$\mu$ control, not full-kernel operator-norm convergence uniformly over all parameters. The aid reports the universal AIM estimate as open; all reduction and multiplier assertions require independent review.
+\subsection{Short English statement}
+Guo asks for an $L^2$ bound uniform as the power exponent tends to zero. The aid identifies a necessary logarithmic-modulation maximal problem by scaling the phase coefficient like $1/\eps$, gives its exact multiplier, and quantifies convergence only on fixed annuli with bounded logarithmic parameter. It does not prove the requested universal bound.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20000539, source code catalogue entry; \texttt{aim-analysis-notes.json}, notes[70], tag \texttt{question}.
+\item AIM workshop \emph{Carleson theorems and multilinear operators}, Question 12 (Guo), equation (0.17): \url{https://aimath.org/pastworkshops/multilinopsproblems.pdf}. Supplied verification describes comparison with the PDF and Guo's operator definition, but gives no separate bibliographic locator. No PDF was consulted here.
+\item Attached machine-generated research attempt 1: result \texttt{reduction}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low. It is not peer reviewed and requires independent verification before citation. Original literature field empty.
+\end{itemize}
+\end{document}

@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001903}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source fragment asks whether \(d(\alpha(t),\beta(t))\to\infty\) when \(\alpha(0)=\beta(0)\). Its surrounding section is reported to concern manifolds without conjugate points, but the actual preceding hypotheses are absent. The literal fragment must require distinct unit-speed rays and a suitable noncompact covering space: identical rays give zero distance, and distances in a closed manifold itself are bounded. A standard intended setting is the universal cover \(X\) of a closed manifold without conjugate points, with \(\alpha,\beta\) distinct rays from the same point. This interpretation requires source confirmation rather than expanding the statement to all possible manifolds.
+
+The aid's precise reduction works on a complete Riemannian manifold \(X\) with a pole \(p\), meaning \(\exp_p:T_pX\to X\) is a diffeomorphism. For \(u\in S_pX\) put \(E_r(u)=\exp_p(ru)\). For a unit vector \(\xi\in T_uS_pX=u^\perp\),
+\[
+ (\dd E_r)_u\xi=J_{u,\xi}(r),\qquad
+ J_{u,\xi}(0)=0,\quad D_rJ_{u,\xi}(0)=\xi.
+\]
+Define the angular conorm and its tail infimum by
+\[
+ m_p(r)=\inf_{\substack{u\in S_pX\\\xi\perp u,\ |\xi|=1}}
+             |J_{u,\xi}(r)|,\qquad
+ \Lambda_p(R)=\inf_{r\geq R}m_p(r)\quad(R>0).
+\]
+For rays \(\alpha(t)=\exp_p(tu)\), \(\beta(t)=\exp_p(tv)\), with \(\theta=\angle(u,v)>0\), the aid states the angular barrier
+\[
+ d(\alpha(t),\beta(t))\geq
+ \min\{2(t-R),\ \theta\Lambda_p(R)\}
+ \qquad(0<R<t).
+\]
+Its two terms distinguish connecting paths entering the radius-\(R\) ball from those remaining outside it. Consequently \(\Lambda_p(R)\to\infty\) implies divergence, uniformly for all such pairs with \(\theta\geq\theta_0>0\) at the fixed pole. If \(\Lambda_p(R)\geq cR\) for \(R\geq R_0\), \(c>0\), choosing \(R=2t/(2+c\theta)\) gives
+\[
+ d(\alpha(t),\beta(t))\geq
+ \frac{2c\theta}{2+c\theta}\,t
+ \quad\text{whenever }\frac{2t}{2+c\theta}\geq R_0.
+\]
+These are sufficient uniform angular-control conditions, not established consequences of no conjugate points in general.
+
+Conversely, suppose a fixed distinct ray pair has \(t_j\to\infty\) and \(d(\alpha(t_j),\beta(t_j))\leq C_0\). The barrier with \(R_j=t_j-(C_0+1)>0\) forces \(\Lambda_p(R_j)\leq C_0/\theta\). Hence there exist radii \(r_j\geq R_j\to\infty\), directions \(u_j\) and unit \(\xi_j\perp u_j\) for which
+\[
+ |J_{u_j,\xi_j}(r_j)|\leq C_0/\theta+1.
+\]
+The added one permits approximate minimizers of the tail infimum. The radial and Jacobi directions may vary with \(j\). This does not produce one fixed Jacobi field with bounded values, so pointwise divergence of individual fields cannot be substituted for the required uniform conorm control.
+
+The original background reports an affirmative dimension-two result [Green1954], says that the proof in [Green1956] for higher dimensions is incorrect, and introduces a related question whose statement is not included. The aid reports that the general higher-dimensional no-conjugate-points question remained open through its 2026 literature check; the quantitative reduction does not solve it.
+\subsection{Short English statement}
+The intended question concerns distinct rays in the noncompact no-conjugate-points setting, not distances on a closed base manifold. The aid gives a lower bound using uniform angular Jacobi expansion. Failure of divergence forces bounded Jacobi values along directions that may drift, leaving the general higher-dimensional problem unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Permanent UnsolvedMath ID \(20001903\), exact public code catalogue entry; local registry \texttt{aim-geometry-notes.json}, \texttt{notes[240]}, canonical tag question.
+\item AIM workshop ``Geodesics,'' Geometry, Section 7 ``Manifolds without conjugate points (rigidity conjectures),'' extracted item 7.1, Question 7.1.1: \url{https://aimath.org/pastworkshops/geodesicsproblems.pdf}. The section context is reported by the supplied verification note, which cuts off before quoting the preceding hypotheses. No PDF was accessed.
+\item Original explicit reference labels [Green1954] and [Green1956], with the latter proof reported incorrect. Full titles and publication details are absent, and the original literature field is empty.
+\item Research attempt 1, ``An angular Jacobi barrier for divergence of geodesic rays,'' labelled partial\_result, open at its run, proved and low novelty confidence; registry partially\_solved. Its supplied summary dates the general open-status assessment through a 2026 literature check.
+\end{itemize}
+\end{document}

@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001102}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For finite $A,B\subseteq\Z$, define the representation count
+\[
+\nu(n)=\#\{(a,b)\in A\times B:a+b=n\}=(\mathbf1_A*\mathbf1_B)(n).
+\]
+It has total mass $|A||B|$. Sort its positive values as $r_1\ge r_2\ge\cdots$, extending by zeros. These are the column heights of its Ferrers diagram. The corrected source condition is
+\[
+r_k^2\le\sum_{j\ge k}r_j\qquad(k\ge1).
+\]
+V. Lev's question asks for other general constraints on integer-set representation functions, beyond that sorted-spectrum condition. For row lengths $N_t=\#\{n:\nu(n)\ge t\}$, the source also attributes to Pollard
+\[
+\sum_{i=1}^tN_i\ge t(|A|+|B|-t),\qquad1\le t\le\min(|A|,|B|),
+\]
+and says it follows as well from the column condition. Missing cardinality signs and the split square in the extraction are corrected explicitly.
+
+The attached aid gives a location-sensitive condition. For each $n$ let $R_n=A\cap(n-B)$ and, for $d\ge1$, let
+\[
+q_n(d)=\#\{a\in R_n:a+d\in R_n\}.
+\]
+Its stronger fiberwise bounds and their sum are
+\[
+\nu(n-d)\ge q_n(d),\qquad\nu(n+d)\ge q_n(d),
+\]
+\[
+\sum_{d\ge1}\min\{\nu(n-d),\nu(n+d)\}\ge\binom{\nu(n)}2.
+\]
+All sums are finite. Each positive-difference fiber pair produces a distinct crossed representation at both reflected locations.
+
+For every finite $R\subset\Z$, the choice $A=R$, $B=n-R$ realizes equality with the full difference profile: $\nu(n)=|R|$ and $\nu(n-d)=\nu(n+d)=\#\{a\in R:a+d\in R\}$. Thus the condition is sharp for all fiber sizes and realized positive-difference profiles. It contains information lost by sorting. For example the finitely supported proposed function with values $\nu(0)=2$, $\nu(1)=\nu(2)=1$ has sorted profile $(2,1,1)$ satisfying every column inequality, but violates the mirrored inequality at $0$. The aid provides a new necessary condition, not a complete characterization of all realizable representation functions.
+\subsection{Short English statement}
+Find constraints on additive representation functions beyond their sorted Ferrers diagrams. The supplied aid gives sharp reflected-location inequalities from each central representation fiber, retaining positional information that sorting discards.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001102$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[226]}.
+\item American Institute of Mathematics, \emph{Recent trends in additive combinatorics}, collected by Ernie Croot and Vsevolod F. Lev, problem 2.2 attributed to V. Lev: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. The source names Pollard without a complete citation. The page header and corrupted display are extraction artifacts; no PDF inspection is claimed here.
+\item Attached research attempt 1: partial result, recorded run status open, rigor proved, novelty confidence low; registry status partially solved, classification PARTIAL-PROGRESS. Its mirrored-shadow law is machine generated and not peer reviewed; independently verify before citation. No authoritative bibliography for the candidate inequality is supplied.
+\end{itemize}
+\end{document}

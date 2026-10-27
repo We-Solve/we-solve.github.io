@@ -1,0 +1,87 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003778}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks two questions. Its terminology leaves several conventions unspecified. The formulation below uses explicit conventional readings that require confirmation against the cited report: Hilbert space means separable infinite-dimensional Hilbert space; the Banach space sought in the first question is infinite-dimensional; and expanders have uniformly bounded degrees. The scalar field is also unspecified. Fix \(\mathbb K\in\{\R,\C\}\) for either reading, and put \(H=\ell_2(\N;\mathbb K)\).
+
+A map \(f:M\to N\) between metric spaces is a \emph{coarse embedding} if there exist nondecreasing functions \(\rho_-,\rho_+:[0,\infty)\to[0,\infty)\), with \(\lim_{t\to\infty}\rho_-(t)=\infty\), such that
+\[
+ \rho_-(d_M(u,v))\le d_N(f(u),f(v))\le\rho_+(d_M(u,v))
+ \qquad(u,v\in M).
+\]
+Banach spaces carry their norm metrics. Saying that \(X\) \emph{coarsely contains} \(H\) means that a coarse embedding \(H\to X\) exists; no linearity is required. A Banach space is \emph{superreflexive} if it admits an equivalent uniformly convex norm. A norm \(|\cdot|\) is uniformly convex if for every \(\varepsilon\in(0,2]\) there is \(\delta>0\) such that
+\[
+ |x|=|y|=1,\quad |x-y|\ge\varepsilon
+ \quad\Longrightarrow\quad
+ \left|\frac{x+y}{2}\right|\le 1-\delta.
+\]
+
+For a \(k\)-dimensional normed space \(E\) over \(\mathbb K\), write
+\[
+ d_{\mathrm{BM}}(E,\ell_2^k(\mathbb K))
+ =\inf_T\|T\|\,\|T^{-1}\|,
+\]
+where the infimum ranges over linear isomorphisms \(T:E\to\ell_2^k(\mathbb K)\). Use the following conventional definitions for the second question. A Banach space \(Y\) is \emph{weak Hilbert} if there exist \(\delta\in(0,1]\) and \(C\ge1\) such that every nonzero finite-dimensional subspace \(E\subseteq Y\) contains a subspace \(F\) satisfying
+\[
+ \dim F\ge\delta\dim E,\qquad
+ d_{\mathrm{BM}}(F,\ell_2^{\dim F}(\mathbb K))\le C,
+\]
+and there is a bounded linear projection \(P:Y\to F\), with \(P|_F=\operatorname{id}_F\) and \(\|P\|\le C\). Use \emph{asymptotically Hilbertian} to mean that there exists \(C\ge1\) such that for every integer \(n\ge1\) there is a closed finite-codimensional subspace \(Z_n\subseteq Y\) for which
+\[
+ d_{\mathrm{BM}}(E,\ell_2^{\dim E}(\mathbb K))\le C
+ \quad\text{whenever }E\subseteq Z_n\text{ and }1\le\dim E\le n.
+\]
+The record does not specify these definitions; in particular, this finite-codimensional interpretation of asymptotic Hilbertianity must be checked against the intended source terminology.
+
+An \emph{expander sequence}, under the convention used here, is a sequence \((G_n)_{n\ge1}\) of finite connected simple undirected graphs \(G_n=(V_n,E_n)\), with \(|V_n|\ge2\), such that \(|V_n|\to\infty\), the vertex degrees are bounded by a common finite constant, and
+\[
+ \inf_{n\ge1}h(G_n)>0,\qquad
+ h(G_n)=\min_{\substack{A\subseteq V_n\\0<|A|\le |V_n|/2}}
+ \frac{|\partial_{E_n}A|}{|A|},
+\]
+where \(\partial_{E_n}A\) consists of edges with exactly one endpoint in \(A\). Equip \(V_n\) with the unscaled shortest-path metric \(d_{G_n}\). The sequence \emph{equi-coarsely embeds} into \(Y\) if there are maps \(f_n:V_n\to Y\) and a single pair of control functions \(\rho_-,\rho_+\) as above such that
+\[
+ \rho_-(d_{G_n}(u,v))\le\|f_n(u)-f_n(v)\|_Y
+ \le\rho_+(d_{G_n}(u,v))
+ \qquad(n\ge1,\ u,v\in V_n).
+\]
+Thus the controls are independent of \(n\).
+
+\begin{enumerate}
+\item Does there exist an infinite-dimensional superreflexive Banach space \(X\) over \(\mathbb K\) such that no coarse embedding \(H\to X\) exists?
+\item Is it true that, for every Banach space \(Y\) over \(\mathbb K\) which is weak Hilbert or asymptotically Hilbertian, and for every expander sequence \((G_n)_{n\ge1}\), the sequence \((V_n,d_{G_n})_{n\ge1}\) does not equi-coarsely embed into \(Y\)?
+\end{enumerate}
+These are separate questions, preserving the existential quantifier in the first and the universal quantifiers in the second. The infinite-dimensional restriction in the first question is inferred from the background context and is not explicit in the recorded statement. The Hilbert-space density, scalar field, expander convention, and meanings of the two classes of target spaces remain source-verification qualifications.
+\subsection{Short English statement}
+The first question asks whether an infinite-dimensional superreflexive Banach space can fail to contain a coarse image of \(\ell_2\). The second asks whether every expander sequence fails to admit coarse embeddings with common control functions into every weak Hilbert or asymptotically Hilbertian space. These formulations use the stated provisional conventions and require human mathematical and source review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30003778\), title \emph{Coarse Hilbert Containment and Expander Embeddings}; exact source problem code \texttt{catalogue entry}. The supplied collection is \emph{Oberwolfach Reports Open Problems}. No individual proposer is supplied; the proposed year is recorded as 2018.
+\item Supplied report citation: \emph{Mini-Workshop: Superexpanders and Their Coarse Geometry (2019)}, Oberwolfach Reports, pp.\ 1117--1160, DOI \texttt{10.4171/owr/2018/19}. \url{https://doi.org/10.4171/owr/2018/19}. This same link is supplied under the literature-source label ``OWR 2018 report.'' The differing year labels are retained pending verification.
+\item Supplied literature reference: Baudier--Lancien--Schlumprecht, ``Tsirelson space'' (the supplied reference label). \url{https://arxiv.org/abs/1705.06797}.
+\item The literature assessment is supplied dated curation, checked at the exact recorded date \texttt{2026-08-21}, and has not been independently verified here. It labels the questions open and states that Tsirelson-type spaces show that Hilbert space need not coarsely embed into every infinite-dimensional Banach space, while the recorded superreflexive and weak-Hilbert/asymptotically-Hilbertian expander questions remain open. The background explicitly describes this as dated literature triage derived from supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item The registry supplies status \texttt{open} and statement status \texttt{corrected\_verified}, with the explanation that mathematical content was preserved while notation, typography, and omitted definitions were repaired. These are supplied registry assessments, not independent mathematical or bibliographic verification of this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000340}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Use finite-dimensional notation \(\lambda\in\R^d\) for the source's coefficient parameter. Let \(\mathcal R(\lambda)\) be its population loss risk, \(\mathcal R_n(\lambda)\) the empirical risk, and \(J(\lambda)\) the penalty. For \(\varepsilon>0\), write
+\[
+\lambda_\varepsilon\in\operatorname*{argmin}_{\lambda}
+\{\mathcal R(\lambda)+\varepsilon J(\lambda)\},\qquad
+\widehat\lambda_\varepsilon\in\operatorname*{argmin}_{\lambda}
+\{\mathcal R_n(\lambda)+\varepsilon J(\lambda)\},
+\]
+and let \(\lambda_0\in\operatorname*{argmin}_\lambda\mathcal R(\lambda)\) be an unpenalized population minimizer. In a usual sample model \(\mathcal R_n\) averages sample losses, but the distribution, dependence assumptions, loss, parameter constraints, and exact penalty are absent. The \(\ell^1\) penalty \(J(\lambda)=\|\lambda\|_1\) is a natural Lasso-type case mentioned by the assessment, not an explicit formula supplied in the statement.
+
+For exact coefficient sparsity put \(s(\lambda)=|\{j:\lambda_j\ne0\}|\). The source asks: under what hypotheses does small \(s(\lambda_\varepsilon)\) imply suitably controlled \(s(\widehat\lambda_\varepsilon)\); how does that sparsity govern
+\[
+\mathcal R(\widehat\lambda_\varepsilon)-\mathcal R(\lambda_0)
+\qquad\text{and}\qquad
+\|\widehat\lambda_\varepsilon-\lambda_0\|_1;
+\]
+and how should \(\varepsilon\) be chosen? The error reference in the last expression is the unpenalized population minimizer, not silently the penalized one. Exact support recovery, a support-size bound, and approximate sparsity are distinct possible targets, and the extract does not specify which strength is sought. Nor does it specify expectation versus high-probability bounds, desired sharp rates, or whether the choice of \(\varepsilon\) must be data driven.
+
+The questions ask for conditions and quantitative control, not an unconditional implication for arbitrary losses, designs, penalties, and samples. Existence and selection of minimizers, identifiability, and any design or curvature hypotheses must be fixed first. The supplied literature assessment checked 2026-08-21 reports established oracle inequalities and sparsity bounds for Lasso-type estimators, while describing the requested sharp dependence on penalty and sparsity regime as broader than those results.
+\subsection{Short English statement}
+Determine when sparsity of the penalized population optimum transfers to the empirical optimum, how it bounds excess risk and \(\ell^1\) error from the unpenalized optimum, and how to select the penalty. The loss, model, and quantitative targets are unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000340, catalogue entry, \emph{Sparsity Transfer in Penalized Empirical Risk Minimization}.
+\item \emph{Statistische und Probabilistische Methoden der Modellwahl} (2006), Oberwolfach Reports, pp. 2611--2704, DOI \url{https://doi.org/10.4171/owr/2005/47}.
+\item Supplied reference labeled ``Lasso sparsity oracle inequalities'': \url{https://doi.org/10.1214/009053606000000281}.
+\item Supplied literature triage checked 2026-08-21; exact loss, penalty, model, and oracle-inequality hypotheses are not reproduced.
+\end{itemize}
+\end{document}

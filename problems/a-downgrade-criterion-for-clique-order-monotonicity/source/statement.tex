@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000933}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For finite simple graphs, $G\xrightarrow r K_k$ means that every $r$-edge-coloring of $G$ contains a monochromatic $K_k$. Under the standard Ramsey-minimal convention, no proper subgraph has this property. Let $\mathcal M_r(k)$ be those graphs and
+\[
+ s_r(k)=\min\{\delta(G):G\in\mathcal M_r(k)\}.
+\]
+The source's minimality line instead prints $G-e\not\xrightarrow r K_3$, inconsistent with its $K_k$ target. The aid explicitly corrects $K_3$ to $K_k$. Moreover edge-minimality alone must exclude isolated vertices: otherwise adding one makes the displayed minimum zero. The proper-subgraph convention, or equivalent edge-minimality without isolates, is essential to the intended nontrivial parameter.
+
+The conjecture, attributed to Fox--Grinshpun--Liebenau--Person--Szab\'o and presented by Tibor Szab\'o, is
+\[
+ s_r(k)\leq s_r(k+1)
+\]
+for clique orders $k$ and fixed number of colors $r$. The source reports $s_2(k)=(k-1)^2$, attributed there to Erd\H os--Burr--Lov\'asz (1976), and, asymptotically in large $r$,
+\[
+ \Omega(r^2\log r)\leq s_r(3)\leq O(r^2(\log r)^2),
+\]
+\[
+ \Omega\left(\frac{r^2\log r}{\log\log r}\right)\leq s_r(k)
+ \leq O\left(r^2(\log r)^{8(k-1)^2}\right)\quad(k\geq4).
+\]
+Dependence of constants on a fixed clique order must be retained; these displays are not small-$r$ numerical bounds.
+
+For the aid's packing reduction, let $P_r(j)$ be the least size of a common vertex set supporting edge-disjoint $K_{j+1}$-free graphs $G_1,\ldots,G_r$ such that every vertex $r$-coloring produces a $K_j$ in $G_i$ all of whose vertices have color $i$, for some $i$. The invoked packing identity is $s_r(k)=P_r(k-1)$. Hence the adjacent conjecture is equivalent to $P_r(k-1)\leq P_r(k)$.
+
+The reported sufficient local downgrade certificate is this: take an optimal $P_r(k)$ witness and, in every $G_i$, find a spanning $K_k$-free subgraph retaining a $K_{k-1}$ inside every original $K_k$. These subgraphs form a $P_r(k-1)$ witness on the same vertex set. A concrete sufficient condition is an exact vertex $K_k$-transversal in each color graph, meaning a set meeting every $K_k$ in exactly one vertex; deleting incident edges at those vertices preserves the required $(k-1)$-cliques. The aid does not prove that every optimal packing has such a certificate.
+
+Independently, the summary invokes monotonicity in the number of colors and explicit bounds to compare sufficiently separated clique sizes. For example, any valid upper bound $s_r(k)\leq B(r,k)$ gives
+\[
+ (\ell-1)^2\geq B(r,k)\quad\Longrightarrow\quad
+ s_r(k)\leq B(r,k)\leq s_2(\ell)\leq s_r(\ell),\qquad r\geq2.
+\]
+This is a separated-size comparison, not the adjacent inequality; the record supplies no fully numerical universal separation threshold. The general adjacent conjecture for $r\geq3$ remains open in the aid's checked-literature assessment, which is not independently updated here.
+\subsection{Short English statement}
+The intended parameter uses true Ramsey-minimal graphs; the source has a clique-index typo and also needs an isolated-vertex convention. The aid gives a packing-witness condition sufficient for adjacent monotonicity and a separate comparison for widely separated clique sizes. It does not settle the general adjacent conjecture.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000933$, source code \texttt{catalogue entry}, complete supplied source snapshot and research summary.
+\item AIM workshop \emph{Graph Ramsey theory}, Ramsey minimal graphs, Problem 11, presented by Tibor Szab\'o, supplied Overleaf source \url{https://www.overleaf.com/read/mnvcscjjysvg}; canonical local record \texttt{aim-combinatorics-notes.json}, \texttt{notes[57]}.
+\item Conjecture attributed to Fox--Grinshpun--Liebenau--Person--Szab\'o; two-color formula attributed in the source to Erd\H os--Burr--Lov\'asz, 1976. No full bibliographic entries for these, the packing identity or the asymptotic bounds are supplied; the original literature field is empty.
+\item Research attempt 1: partial result; problem open at the recorded run, registry status partially solved; supplied rigor label ``proved'', novelty confidence ``low''. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

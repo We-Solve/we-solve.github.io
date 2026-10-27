@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002684}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The missing display in the source is recovered from companion records as the real logarithmic determinant identity for a bounded commuting tuple:
+\[
+ \log\Delta\left(1-\sum_{i=1}^n\alpha_iT_i\right)
+  =\int_{\C^n}\log\left|1-\sum_{i=1}^n\alpha_i\zeta_i\right|
+                    \,\mu(\dd\zeta).
+\]
+The absolute-value bars are essential; a single branch of the complex logarithm cannot replace this real extended-valued expression globally. The question asks which functions $F$ on $\C^n$ have such an integral representation. The aid treats compactly supported probability measures and gives the following precise slice-compatibility criterion.
+
+Let $F:\C^n\to[-\infty,\infty)$, require $F(0)=0$, and use the complex bilinear pairing $a\cdot\zeta=\sum_i a_i\zeta_i$. For each $a\in\C^n$, define on $\lambda\ne0$
+\[
+ U_a(\lambda)=\log|\lambda|+F(a/\lambda).
+\]
+Require that $U_a$ extend to a nontrivial subharmonic function on $\C$, with normalized behavior $U_a(\lambda)-\log|\lambda|\to0$ at infinity, whose Riesz measure
+\[
+ \nu_a=(2\pi)^{-1}\Delta_{\R^2}U_a
+\]
+is a compactly supported probability measure. These conditions identify $U_a$ with its logarithmic potential $\int\log|\lambda-w|\,\nu_a(\dd w)$. At $a=0$, $U_0=\log|\lambda|$ and $\nu_0=\delta_0$.
+
+Impose two additional compatibility conditions. First, for one finite $R$, uniformly over all $a$,
+\[
+ \operatorname{supp}\nu_a\subseteq\{w:|w|\le R\|a\|_2\}.
+\]
+Second, the function
+\[
+ \Phi(a)=\int_\C e^{i\operatorname{Re}w}\,\nu_a(\dd w)
+\]
+is continuous and positive definite on the real additive group $\C^n$: for every finite choice $a_1,\ldots,a_k$ and $z_1,\ldots,z_k\in\C$,
+\[
+ \sum_{r,s=1}^k z_r\overline{z_s}\Phi(a_r-a_s)\ge0.
+\]
+The inequality means that this sum is real and nonnegative. The slice formula automatically gives the scaling consistency $\nu_{ca}=(w\mapsto cw)_*\nu_a$ for $c\in\C$, with the stated convention at $c=0$.
+
+The aid reports that these conditions are necessary and sufficient for a unique probability measure supported in the closed Euclidean ball of radius $R$ to satisfy
+\[
+ F(\alpha)=\int_{\C^n}\log|1-\alpha\cdot\zeta|\,\mu(\dd\zeta)
+ \quad(\alpha\in\C^n).
+\]
+Indeed Bochner's theorem reconstructs a joint measure from $\Phi$ using the real pairing $\operatorname{Re}(a\cdot\zeta)$; scaling consistency supplies all complex frequencies of each slice, so $(a\cdot\zeta)_*\mu=\nu_a$. The uniform all-direction support estimate gives the ball bound, not merely coordinatewise bounds. Conversely a compact joint measure produces exactly those slices and a continuous positive-definite characteristic function.
+
+Every such measure is reported realizable as the joint spectral distribution of a commuting normal tuple in a $\mathrm{II}_1$ factor, by representing its bounded coordinate functions in an abelian subalgebra. For that tuple the determinant identity follows from normal functional calculus. This is a range criterion for the stated compact-probability transform; it is not a characterization of arbitrary multivariable subharmonic functions without joint slice compatibility.
+\subsection{Short English statement}
+Characterize logarithmic determinant transforms on $\C^n$. The aid reconstructs each one-dimensional slice by its Riesz measure and tests whether those slices come from one compact joint probability law through a continuous positive-definite characteristic function and a uniform directional support bound.
+\subsection{Sources}
+\begin{itemize}
+\item American Institute of Mathematics, \emph{Free Analysis} problem list, physical page 6, subsection 0.9, ``Focus Group on Invariant Subspaces (day 4),'' \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}.
+\item Local UnsolvedMath registry, permanent ID 20002684, source code \texttt{catalogue entry}, canonical location \texttt{aim-probability-notes.json}, \texttt{notes[125]}, record dated 14 August 2026. Its original question refers only to the omitted display, and the literature field is empty.
+\item Companion permanent ID 20002682, \texttt{AIM-PROBABILITY-0124}, \texttt{notes[123]}, contains the display. Companion permanent ID 20002683, \texttt{AIM-PROBABILITY-0125}, \texttt{notes[124]}, identifies missing modulus signs by reference to Schultz's primary theorem and Charlesworth--Dykema--Sukochev--Zanin; full bibliographic entries are not supplied.
+\item Supplied research attempt 1: partial result, problem status at run unknown, rigor labelled proved, novelty confidence low. Its slice--Bochner theorem is machine-generated research aid, not peer reviewed; independently verify before citation. Bochner's theorem is invoked without a particular bibliographic edition.
+\end{itemize}
+\end{document}

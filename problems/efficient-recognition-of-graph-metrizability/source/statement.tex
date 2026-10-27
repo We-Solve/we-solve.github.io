@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006555}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record does not define graph metrizability or consistent path systems. The following gives a conventional interpretation for review; the source's intended graph class and weight conventions remain unconfirmed.
+
+Let \(G=(V,E)\) be a finite simple undirected graph. Under a componentwise convention, a path system \(\mathcal P\) assigns a simple path \(P_{uv}\) to every unordered pair of distinct vertices \(u,v\) in the same connected component. It is consistent if, whenever distinct vertices \(x,y\) lie on \(P_{uv}\), the subpath of \(P_{uv}\) between \(x\) and \(y\) is \(P_{xy}\). For positive edge weights \(w:E\to\R_{>0}\), put
+\[
+\ell_w(Q)=\sum_{e\in E(Q)}w(e).
+\]
+Call \(\mathcal P\) metrizable if
+\[
+\exists w:E\to\R_{>0}\quad
+\forall \{u,v\}\subseteq V\text{ in one component}\quad
+\forall\text{ simple }u\text{--}v\text{ paths }Q,
+\qquad \ell_w(P_{uv})\leq\ell_w(Q).
+\]
+Call it strictly metrizable if such weights can be chosen with strict inequality whenever \(Q\ne P_{uv}\). Under this interpretation, \(G\) is metrizable if every consistent path system on \(G\) is metrizable; it is strictly metrizable if every such system is strictly metrizable. In particular, the weights may depend on the path system:
+\[
+\forall\mathcal P\text{ consistent on }G\quad\exists w:E\to\R_{>0}
+\quad\text{realizing the specified shortest paths.}
+\]
+These conventions are provisional definitions, not definitions verified from the cited report. The record does not say whether graphs must be connected, simple, or undirected, or whether the edge weights must be positive.
+
+\textbf{Recognition problem, conditional on these conventions.} Construct an algorithm \(A\) which, for every input graph \(G\), decides whether \(G\) is metrizable and has running time polynomial in the length \(L(G)\) of a standard explicit graph encoding:
+\[
+A(G)=\mathrm{YES}\ \Longleftrightarrow\ G\text{ is metrizable},
+\qquad T_A(G)\leq p(L(G))
+\]
+for some fixed polynomial \(p\). The requested additional goal is practical complexity, described in the original excerpt as a truly efficient algorithm. No running-time bound, computational model, or practical performance criterion is supplied. Thus the intended improvement over existing polynomial-time recognition cannot be expressed as a precise performance requirement from this record alone.
+
+\textbf{Surrounding source qualifications.} The original excerpt states that all outerplanar graphs are metrizable and that every \(2\)-connected metrizable graph with at least \(11\) vertices can be made outerplanar by deleting at most one vertex. Here outerplanar means admitting a plane embedding with every vertex on the boundary of the unbounded face; \(2\)-connected means having at least three vertices and remaining connected after deletion of any one vertex. These are supplied background assertions, not conclusions established in this draft.
+
+The excerpt also conjectures the existence of a specified family \(\mathcal F\) of six graphs, each with at most eight vertices, such that
+\[
+G\text{ is not strictly metrizable}
+\quad\Longleftrightarrow\quad
+\exists H\in\mathcal F\text{ such that }H\text{ is a minor of }G.
+\]
+A graph minor is obtained by vertex deletions, edge deletions, and edge contractions. The six graphs are not supplied, so this conjecture cannot be fully instantiated here. It concerns strict metrizability, which must be distinguished from metrizability.
+
+Finally, the excerpt asks how large \(\Delta(\mathcal P)\) can be for a consistent \(n\)-point path system \(\mathcal P\). Neither \(\Delta\) nor the underlying notion of an \(n\)-point path system is defined in the supplied record, so no precise extremal statement is asserted. The excerpt's caption refers to an example of a non-metric consistent path system, but the figure is not supplied.
+\subsection{Short English statement}
+The main request is a practically efficient algorithm deciding whether a finite graph is metrizable. Under the explicitly provisional definitions above, this means that every consistent choice of paths can be realized as shortest paths by suitable positive edge weights. The supplied dated assessment says polynomial-time recognition already exists, so the requested practical improvement remains unspecified. The source also includes a strict-metrizability minor conjecture and a question about an undefined quantity \(\Delta(\mathcal P)\); both require further source information.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30006555\), title \emph{Efficient Recognition of Graph Metrizability}, source problem code \texttt{catalogue entry}. The record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year \(2026\); no individual proposer is supplied.
+\item Supplied report citation: \emph{Combinatorics} (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/1, pp.~5--79. Source URL and literature-source label \emph{Oberwolfach Report 1/2026}: \url{https://doi.org/10.4171/owr/2026/1}. No contribution title, individual speaker attribution, or precise problem page is supplied.
+\item Supplied literature source: Cizma--Linial, \emph{Metric Approximations of Consistent Path Systems}, \url{https://arxiv.org/abs/2601.21982}.
+\item Supplied literature source: Chudnovsky--Cizma--Linial, \emph{The Structure of Metrizable Graphs}, \url{https://doi.org/10.1007/s00454-024-00685-3}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem partially solved and reports that metrizability is decidable in polynomial time, that \(\Delta\) can be computed efficiently with strong lower-bound constructions, and that a truly efficient practical recognition algorithm and the extremal order of \(\Delta\) remain open. This is supplied dated curation, not an independently verified assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official Oberwolfach report was checked, the question isolated from exposition, and notation repaired for self-contained publication. These are supplied verification claims; this draft does not claim to have visited or checked any reference.
+\end{itemize}
+\end{document}

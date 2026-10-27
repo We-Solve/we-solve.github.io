@@ -1,0 +1,89 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20003295}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+H. Oh's Question 23 asks for the asymptotic number of compact flats with volume less than \(T\). The supplied source context is a finite-volume locally symmetric space \(X=\Gamma\backslash G/K\) of noncompact type. It also considers compact maximal-split-Cartan \(A\)-orbits in \(\Gamma\backslash G\), with Lebesgue orbital measure \(\mu_F\), volume \(v_F=\mu_F(F)>0\), and probability \(\overline\mu_F=\mu_F/v_F\). The exact counting equivalence, multiplicities, and compact-centralizer conventions are not specified; the reduction assumes a chosen family with finitely many members below every positive volume bound.
+
+With the source's strict cutoff, define
+\[
+ N(T)=\#\{F:v_F<T\},\quad S(T)=\sum_{v_F<T}v_F,
+\]
+\[
+ \nu_T=\frac{\sum_{v_F<T}\mu_F}{S(T)},\qquad
+ \overline\nu_T=\frac{\sum_{v_F<T}\overline\mu_F}{N(T)},
+\]
+whenever the denominators are nonzero. These are volume-weighted and uniform-by-flat probabilities, respectively.
+
+The aid's exact partial-summation identities are
+\[
+ S(T)=TN(T)-\int_0^T N(t)\,\dd t,
+ \qquad
+ N(T)=\frac{S(T)}T+\int_0^T\frac{S(t)}{t^2}\,\dd t.
+\]
+Finite counts below every bound ensure these integrals have no accumulation-at-zero problem. Values at jump endpoints are treated with the same strict cutoff throughout.
+
+If \(N\) is regularly varying with positive index \(\rho\), meaning \(N(cT)/N(T)\to c^\rho\) for every \(c>0\), the reported consequence is
+\[
+ S(T)\sim\frac{\rho}{\rho+1}TN(T).
+\]
+Conversely, regular variation of \(S\) with index \(\beta>1\) gives \(N(T)\sim\frac{\beta}{\beta-1}S(T)/T\). For a power error in the usual integrable range,
+\[
+ N(T)=CT^\rho+O(T^{\rho-\delta}),\quad C>0,\quad\rho>0,\quad0<\delta<\rho+1,
+\]
+the aid's displayed transfer is
+\[
+ S(T)=\frac{C\rho}{\rho+1}T^{\rho+1}+O(T^{\rho+1-\delta}).
+\]
+The summary does not state a range for \(\delta\); at the integration threshold \(\delta=\rho+1\), direct use of the identity instead allows an \(O(\log T)\) error, and beyond it an \(O(1)\) error without further cancellation. A negative-power error must not be inferred by ignoring the fixed lower-range contribution.
+
+The same identities hold after inserting the probability weights. If
+\[
+ A(T)=\sum_{v_F<T}\overline\mu_F=N(T)\overline\nu_T,\qquad
+ B(T)=\sum_{v_F<T}v_F\overline\mu_F=S(T)\nu_T,
+\]
+then \(B(T)=TA(T)-\int_0^TA(t)\,\dd t\) and \(A(T)=B(T)/T+\int_0^TB(t)t^{-2}\,\dd t\), tested against bounded continuous functions. Under positive-index regular variation of \(N\), the aid concludes, for any proposed probability limit \(\mu\),
+\[
+ \overline\nu_T\Longrightarrow\mu\quad\Longleftrightarrow\quad\nu_T\Longrightarrow\mu.
+\]
+This transfers convergence, not existence of a Haar limit.
+
+The aid supplies an abstract superexponential counterexample without growth control: locally finite positive weights can make the unweighted probabilities converge while the weighted ones fail. For example, weights growing so fast that each dominates the sum of all predecessors, with alternating point-mass labels on a two-point space, have this behavior. This is a formal weighted-family obstruction, not a construction of compact flats with those volumes and orbital measures.
+
+The original historical context records rank-one counting asymptotics and rates [128,79,67,68,205,114,156,112], with optimal rates then open [88,126,125,31]. It separately mentions, for compact \(X\), the systole-cutoff sum
+\[
+ \sum_{\substack{F\text{ regular}\\\operatorname{systol}(F)<T}}\operatorname{Vol}(F)
+\]
+using [183], and a higher-rank prime-geodesic analogue [40]. Regularity is described by the shortest closed geodesic having regular direction; tied shortest geodesics need a convention. This systole cutoff is not the volume cutoff in \(N,S\). The discussion of distribution on \(T^1X\) motivates the Cartan-orbit formulation; its transitivity wording and exact homogeneous-space convention require source checking. These dated claims and the transfer principles do not supply the original higher-rank volume-counting asymptotic.
+\subsection{Short English statement}
+The supplied reduction relates strict volume counts to volume sums by exact partial summation and compares uniform and volume-weighted averages under positive-index regular variation. It gives no new flat-counting asymptotic. Systole cutoffs, volume cutoffs, and growth-dependent convergence claims remain distinct.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20003295\), exact source code \texttt{catalogue entry}; canonical \texttt{aim-other-notes.json}, \texttt{notes[101]}, AIM domain Other, registry category Miscellaneous, tag \texttt{question}.
+\item AIM 2004 workshop ``Emerging applications of measure rigidity,'' section 4.6, Question 23 by H. Oh: \url{https://aimath.org/WWN/measrigid/measrigid.pdf}. The supplied verification reports bounded-volume finiteness proved by Oh in the intended flat-counting convention. No PDF was fetched.
+\item Source-local rank-one references [128], [79], [67], [68], [205], [114], [156], [112]; optimal-rate references [88], [126], [125], [31]; compact systole-sum reference [183]; and higher-rank analogue [40]. Full bibliographic entries are absent. The original literature field is empty.
+\item Research attempt 1: result \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence \texttt{low}; classification \texttt{PARTIAL-PROGRESS}, registry status \texttt{partially\_solved}. Created and updated 14 August 2026. These are supplied assessments requiring review.
+\item Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0. The machine-generated research aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

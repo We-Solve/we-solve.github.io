@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001867}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The record concatenates two questions. Problem 18 is attributed to Boumediene Et-Taoui. Let \(v(n,r,\mathbb K)\) be the largest size of a family of distinct equi-isoclinic \(n\)-planes in \(\mathbb K^r\), \(\mathbb K=\R,\C,\mathbb H\). A standard projection formulation is \(P_iP_jP_i=\lambda P_i\) for every \(i\ne j\), with one common \(0\leq\lambda<1\). It asks:
+\begin{enumerate}
+\item Find \(v(2,2r,\R)\) for every \(r\geq4\).
+\item Find \(v(2,7,\R)\).
+\item Find \(v(3,3r,\R)\) for every \(r\geq3\).
+\item List all regular \(v\)-tuples in the source's \(G(4,4v)\) whose symmetry groups are isomorphic to \(S_v\). The Grassmannian, regularity and effective-symmetry conventions are not supplied.
+\item Find \(v(3,3r,\mathbb K)\) for \(\mathbb K=\C,\mathbb H\); the range of \(r\) is not repeated explicitly.
+\item Find all complex \((2M,M)\) equiangular tight frames.
+\end{enumerate}
+Problem 19, attributed to Emily King, asks to minimize coherence among complex unit-norm tight frames when no equiangular tight frame exists. The aid addresses only 18(f) and 19, not the remaining isoclinic classification questions.
+
+For \(N\geq M\geq1\), a complex UNTF is a matrix \(F=[f_1\cdots f_N]\in\C^{M\times N}\) with \(\|f_i\|=1\) and \(FF^*=(N/M)I\). It is an ETF if all \(|\langle f_i,f_j\rangle|\), \(i\ne j\), are equal. Let \(G=F^*F\). The reported exact conference reduction for \(N=2M\) is
+\[
+ Q=\sqrt{2M-1}(G-I).
+\]
+Then \(F\) is an ETF if and only if \(Q\) is a Hermitian complex conference matrix: zero diagonal, unit-modulus off-diagonal entries and \(Q^2=(2M-1)I\). Conversely \(G=I+Q/\sqrt{2M-1}\) is a positive semidefinite Gram matrix of rank \(M\). Unitary frame equivalence, column phases and permutations correspond to the associated Gram/conference monomial-conjugacy equivalences. This translates the classification, rather than enumerating all conference matrices.
+
+For Problem 19 define \(\mu(F)=\max_{i<j}|\langle f_i,f_j\rangle|\). The UNTF space is compact, so \(\mu_*\) is attained. In the nontrivial range \(N>M\), \(N\geq3\), set
+\[
+ \beta=\frac{N-M}{M(N-1)},\qquad K=\binom N2,\qquad
+ V(F)=\frac1K\sum_{i<j}(|\langle f_i,f_j\rangle|^2-\beta)^2.
+\]
+The unordered squared correlations have mean \(\beta\). The aid reports
+\[
+ \mu(F)^2-\beta\geq
+ \max\left\{\frac{V(F)}\beta,
+ \sqrt{\frac{V(F)}{K-1}}\right\}.
+\]
+If no ETF exists, \(\nu=\min_{F\ \mathrm{UNTF}}V(F)>0\), hence
+\[
+ \mu_*^2\geq\beta+
+ \max\left\{\frac\nu\beta,\sqrt{\frac\nu{K-1}}\right\}>\beta.
+\]
+This is a strict gap above Welch, but a numerical optimum still requires evaluation of \(\nu\) or stronger information.
+
+The aid's row identity is \(\sum_{j\ne i}|\langle f_i,f_j\rangle|^2=(N-1)\beta\). For \(0\leq\tau<\beta\), it yields the active-correlation count
+\[
+ \#\{j\ne i:|\langle f_i,f_j\rangle|^2>\tau\}
+ \geq\left\lceil\frac{(N-1)(\beta-\tau)}{\mu(F)^2-\tau}\right\rceil.
+\]
+These constraints do not determine the best coherence for every pair \((N,M)\), and the displayed denominators require the stated range rather than degenerate orthonormal cases.
+\subsection{Short English statement}
+The merged record asks several isoclinic classification questions and a non-ETF coherence optimization. The aid reduces the \((2M,M)\) complex ETF case to Hermitian conference matrices and proves a strict variance-based Welch gap plus rowwise correlation counts for UNTFs. It does not resolve all the concatenated questions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001867\), code catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[204]}.
+\item AIM, ``Open Problems in Frame Theory/Phase Retrieval,'' after the August 2013 workshop ``Frame theory intersects geometry,'' Problems18 and19, attributed to Boumediene Et-Taoui and Emily King, \url{https://aimath.org/pastworkshops/frametheorygeomproblems.pdf}. The supplied verification reports the OCR concatenation and PDF checks; no PDF inspection is claimed here.
+\item No additional authoritative reference is supplied for the conference reduction, variance bound or active-set criterion. The verification's reference label [1] is not expanded in this extract.
+\item Research attempt 1: ``partial\_result,'' problem status at run ``open,'' registry status ``partially\_solved,'' rigor label ``proved,'' novelty confidence ``low.'' The machine-generated aid is not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

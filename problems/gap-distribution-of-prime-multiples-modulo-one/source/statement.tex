@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005531}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix an irrational number \(\alpha\in\R\setminus\Q\), and write \(\{u\}=u-\lfloor u\rfloor\). The reconstructed source asks for the limiting distribution and possible sizes of gaps between the points \(\{p\alpha\}\), with \(p\) prime. A finite truncation, an ordering convention, and a normalization are needed to make this request precise; these are not explicitly specified in the supplied record.
+
+One natural candidate formulation is the following. For \(x\geq 3\), let \(N_x=\#\{p\leq x:p\text{ is prime}\}\), and arrange the distinct points in increasing order:
+\[
+0\leq y_{1,x}<\cdots<y_{N_x,x}<1,\qquad
+\{y_{1,x},\ldots,y_{N_x,x}\}=\{\{p\alpha\}:p\leq x,\ p\text{ prime}\}.
+\]
+Define the circular gaps by
+\[
+g_{j,x}=y_{j+1,x}-y_{j,x}\quad(1\leq j<N_x),\qquad
+g_{N_x,x}=1+y_{1,x}-y_{N_x,x}.
+\]
+Thus \(g_{j,x}>0\) and \(\sum_{j=1}^{N_x}g_{j,x}=1\). Their empirical distribution after normalization by the mean gap is
+\[
+\mu_{\alpha,x}=\frac{1}{N_x}\sum_{j=1}^{N_x}\delta_{N_xg_{j,x}},
+\]
+where \(\delta_u\) denotes unit point mass at \(u\). Weak convergence to a probability measure \(\mu_\alpha\) on \([0,\infty)\) means that
+\[
+\lim_{x\to\infty}\frac{1}{N_x}\sum_{j=1}^{N_x}f(N_xg_{j,x})
+=\int_{[0,\infty)}f(u)\,\mathrm d\mu_\alpha(u)
+\]
+for every bounded continuous function \(f:[0,\infty)\to\R\).
+
+Under this candidate convention, the problem is to determine, for a fixed irrational \(\alpha\), whether such a limit exists and, when it does, to describe it and its dependence on \(\alpha\). The request concerning possible gap sizes could concern the values or asymptotic behavior of the raw gaps, their normalized values, or the extrema
+\[
+\min_{1\leq j\leq N_x}g_{j,x},\qquad
+\max_{1\leq j\leq N_x}g_{j,x}.
+\]
+The supplied record does not distinguish these targets. It also does not specify whether the intended conclusions concern every irrational \(\alpha\), Lebesgue-almost every irrational \(\alpha\), or an explicitly restricted class. The circular convention and normalization above are explicit candidate choices, not verified source conventions; convergence is a question, not an asserted fact.
+
+The discussion attributed to Maksym Radziwill additionally asks whether primes may be replaced by squares. An analogous candidate problem uses the finite sets \(\{\{n^2\alpha\}:1\leq n\leq N\}\), their ordered circular gaps, and normalization by \(N\). The intended scope and hypotheses of this square variant are likewise unspecified.
+
+The supplied original excerpt also mentions an undefined barrier rendered as ``k2 \(-\) 12'', permission to assume standard conjectures, and a comparison with bounding a holomorphic cusp form at a Heegner point. Their connection to the gap question cannot be reconstructed reliably from the record. The excerpt then runs into a separate discussion headed ``Hakan Hedenmalm, Zeros of Dirichlet series'' and a definition of a Dirichlet polynomial; these fragments do not supply a precise additional gap-distribution target.
+\subsection{Short English statement}
+For a fixed irrational \(\alpha\), study the gaps formed by prime multiples of \(\alpha\) modulo one, asking whether a suitably normalized empirical gap distribution converges and what gap sizes can occur. The source also raises the analogous question for squares. Truncation, boundary convention, normalization, the intended meaning of possible sizes, and the scope of the quantifier on \(\alpha\) require clarification; the displayed formulation makes candidate conventions explicit.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: \texttt{data/unsolvedmath/problems.json}, permanent ID \(30005531\), title ``Gap Distribution of Prime Multiples Modulo One'', source problem code \texttt{catalogue entry}. The supplied record gives proposed year 2023 and no named proposer.
+\item Supplied report citation: \emph{Group Actions and Harmonic Analysis in Number Theory} (2023), Oberwolfach Reports, pp.\ 1195--1262, DOI 10.4171/owr/2023/22. Source URL and literature-source link labeled ``Oberwolfach problem report'': \url{https://doi.org/10.4171/owr/2023/22}. The supplied record says that the reconstructed statement was checked against the official report and labels it \texttt{corrected\_verified}; that verification has not been independently performed for this draft.
+\item Supplied literature-source link labeled ``Walker theorem'': \url{https://doi.org/10.1112/S002557931700050X}. The discussion attributes a reference to Aled Walker's theorem to Jens Marklof. It attributes the suggestion to consider squares, and the Heegner-point comparison, to Maksym Radziwill.
+\item Literature assessment dated exactly \texttt{2026-08-22}: supplied dated curation, not independently verified. The registry labels the problem \texttt{partially\_solved} and reports that Walker proved that the primes fail metric Poissonian pair correlation, while the requested complete gap-length laws for prime and square subsequences remain unresolved. This is the supplied assessment, not a new literature determination or a claimed consequence about nearest-neighbor gaps.
+\end{itemize}
+\end{document}

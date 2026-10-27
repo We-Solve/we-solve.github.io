@@ -1,0 +1,48 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001069}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite digraph $G$ with $n\geq1$ vertices and positive arc weights $f(e)$, define reciprocal cycle cost $\operatorname{cost}_f(C)=\sum_{e\in C}1/f(e)$. Zhang's proposed implication in the source is that, for a positive parameter $k$,
+\[
+ \sum_{e\in E^+(v)}f(e)\geq n/k\quad\text{for every }v
+ \quad\Longrightarrow\quad
+ \exists\text{ directed cycle }C:\operatorname{cost}_f(C)\leq k.
+\]
+The printed weight range includes zero, for which $1/f(e)$ is undefined without a convention. The positive-integer subcase already suffices for the supplied refutation; zeros are not silently assigned a reciprocal.
+
+Charbit's source example has vertex set $\Z/8\Z$, arcs $x\to x+1$ of weight $2$ and $x\to x+2$ of weight $1$, and $k=3$. The outgoing-weight sum is $2+1=3$, not the printed $4$, and still satisfies $3\geq8/3$. The supplied aid records that every simple directed cycle has reciprocal cost $4$, so the claimed conclusion fails.
+
+More generally the aid gives, for each integer $k\geq2$, the simple digraph on $\Z/[2(k+1)]\Z$ with the same two generators and weights. Every vertex has outgoing-weight sum $3\geq2(k+1)/k$, while every simple directed cycle has cost $k+1>k$. Its broader winding statement is: if $S\subseteq\{1,\ldots,n-1\}$ and a positive integer $a$ is divisible by every $s\in S$, assign weight $a/s$ to the $s$-arcs of the directed Cayley graph on $\Z/n\Z$. Every nonempty closed directed walk then has cost $qn/a$, where its positive generator sum is $qn$ for an integer $q\geq1$.
+
+For the two-generator graph on $\Z/2t\Z$, $t\geq2$, with weights $2$ and $1$, the aid reports every simple directed cycle has cost exactly $t$; the failure interval for a real positive threshold parameter is precisely $2t/3\leq k<t$. This distinguishes simple cycles from repeated closed walks, whose winding cost can be a larger multiple. Finally, it records an affirmative restricted case when every vertex has exactly one outgoing arc: under the displayed outgoing-weight condition that functional digraph contains a cycle of reciprocal cost at most $k$. These are supplied counterexample/generalization claims, not a repaired universal conjecture.
+\subsection{Short English statement}
+The weighted cycle proposal is false even with positive integer weights. Charbit's cyclic two-generator example has outgoing sum three, correcting a source arithmetic error, but all simple cycles cost four. The aid extends this obstruction to every integer threshold at least two.
+\subsection{Sources}
+\begin{itemize}
+\item AIM summary \emph{The Caccetta--H\"aggkvist conjecture}, Conjecture 6.24 attributed to Zhang, followed by Charbit's counterexample: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. No separate complete references for these attributions are supplied.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001069, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[193]}.
+\item Attached attempt 1, counterexample, problem status at run refuted, rigor proved, low novelty confidence. Its winding theorem and functional-digraph case are machine-generated research aid, not peer reviewed, requiring independent verification before citation. The source verification reports a primary-PDF check; this draft did not consult that PDF.
+\end{itemize}
+\end{document}

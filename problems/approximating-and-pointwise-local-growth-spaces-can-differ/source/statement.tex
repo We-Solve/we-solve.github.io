@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002685}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Question 25 asks whether two local-growth spaces $K(T,r)$ and $E(T,r)$ agree for $T$ in a $\mathrm{II}_1$ factor, suggesting a DT quasinilpotent operator as a possible counterexample. The supplied aid says the rendered source itself has malformed definitions: $r$ is unused, a limsup is followed by an extra arrow to zero, and the second set contains an unquantified approximating sequence. Thus there is no fully coherent literal statement.
+
+The aid explicitly reconstructs the following Haagerup--Schultz-type comparison, not a verified verbatim recovery. Let $M$ act faithfully and normally on a Hilbert space $H$ (for example $L^2(M,\operatorname{tr})$), $T\in M$, and $r\geq0$. Define
+\[
+K_{\mathrm{app}}(T,r)=\{\xi\in H:\exists\xi_n\to\xi\text{ in norm},\ \limsup_{n\to\infty}\|T^n\xi_n\|^{1/n}\leq r\},
+\]
+\[
+E_{\mathrm{pt}}(T,r)=\{\xi\in H:\limsup_{n\to\infty}\|T^n\xi\|^{1/n}\leq r\}.
+\]
+The approximation is exponent dependent in the first definition; the vector in the second is fixed. Always $E_{\mathrm{pt}}\subseteq K_{\mathrm{app}}$. The aid reports a negative answer to universal equality under this reconstruction.
+
+Its counterexample exists inside every $\mathrm{II}_1$ factor. Choose nonzero mutually orthogonal projections $p_m$ summing strongly to $I$, and in each corner $p_mMp_m$ choose an $m$-step nilpotent shift $S_m$ of norm at most one from a unital matrix-unit system. Put $T=\sum_mS_m$ in the strong sense. The aid asserts
+\[
+\|T\|=1,\qquad\sigma(T)=\{z:|z|\leq1\},\qquad
+\mu_T=\delta_0,\qquad |T^n|^{1/n}\to0\text{ strongly},
+\]
+where $\mu_T$ denotes Brown measure. For every vector, its finite-block approximants $\xi_n=\sum_{m\leq n}p_m\xi$ satisfy $T^n\xi_n=0$, so $K_{\mathrm{app}}(T,r)=H$ for all $r\geq0$. Choose orthogonal unit vectors $\eta_m\in p_mH$ with $\|S_m^j\eta_m\|=1$ for $0\leq j<m$, and let $\xi=\sum_m m^{-1}\eta_m$. Then
+\[
+\|T^n\xi\|^2=\sum_{m>n}m^{-2},\qquad
+\lim_{n\to\infty}\|T^n\xi\|^{1/n}=1.
+\]
+Consequently $E_{\mathrm{pt}}(T,r)$ is proper for every $0\leq r<1$, whereas both spaces equal $H$ for $r\geq1$. Brown measure concentrated at zero and strong convergence of the root moduli must not be confused with spectral quasinilpotence, since this example has spectral radius one.
+
+The aid also reports the exact criterion
+\[
+K_{\mathrm{app}}(T,r)=E_{\mathrm{pt}}(T,r)
+\quad\Longleftrightarrow\quad
+r\bigl(T|_{K_{\mathrm{app}}(T,r)}\bigr)\leq r,
+\]
+using that $K_{\mathrm{app}}$ is a closed invariant subspace, and with the zero-subspace case interpreted trivially. The radius on the left of the inequality is operator spectral radius; the scalar on the right is the growth threshold. In particular a genuinely spectrally quasinilpotent operator has $E_{\mathrm{pt}}(T,0)=H$, so the original DT suggestion requires checking which meaning of quasinilpotence and which definitions were intended. It is not needed for the displayed block-shift counterexample.
+\subsection{Short English statement}
+The source's two definitions are malformed. Under the aid's explicit reconstruction, exponent-dependent approximants can remove growth that a fixed vector retains. A block sum of nilpotent shifts gives full approximating space but a proper fixed-vector space below threshold one, despite Brown measure concentrated at zero.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002685$, \texttt{catalogue entry}; \texttt{aim-probability-notes.json}, \texttt{notes[126]}.
+\item American Institute of Mathematics, \emph{Free analysis}, Question 25, \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}. The source suggests a DT quasinilpotent operator, and the aid reports that the malformed definitions occur in the rendered PDF itself.
+\item Haagerup--Schultz is the supplied attribution for the coherent local-growth-space reconstruction; no title, theorem number, or authoritative full citation is supplied. The block-shift construction and spectral-radius criterion are supplied through the research aid.
+\item Research attempt 1: counterexample, problem refuted at run, rigor label ``proved,'' novelty confidence low. Registry classification solved in literature, status solved, statement status reconstructed/unverified. The refutation concerns the explicitly reconstructed universal equality.
+\end{itemize}
+\end{document}

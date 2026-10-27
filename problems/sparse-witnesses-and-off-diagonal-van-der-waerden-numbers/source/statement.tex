@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000964}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For \(n\ge2\), interpret \(W(n)\) as the least \(N\) such that every two-coloring of \([N]\) contains a monochromatic nonconstant \(n\)-term arithmetic progression. The supplied record does not define \(W^*(n)\); the aid's cardinality-witness analysis uses the interpretation
+\[
+ W^*(n)=\min\{|S|:S\subset\Z\text{ finite and every two-coloring of }S
+ \text{ contains a monochromatic }n\text{-term progression}\}.
+\]
+There is no diameter restriction on \(S\). Under this explicit interpretation, the first source question is
+\[
+ W(n)-W^*(n)\longrightarrow\infty\quad(n\to\infty),
+\]
+meaning that for every \(M>0\), the difference is at least \(M\) for every sufficiently large \(n\). The aid calls this apparently open and does not settle it.
+
+For a cardinality-minimal witness \(S\) with \(|S|=W^*(n)\), the aid reports that every \(v\in S\) belongs to two \(n\)-term progressions whose intersection is exactly \(\{v\}\), arising from the two extensions of an avoiding coloring of \(S\setminus\{v\}\). It also reports that \(S\) contains at least \(2^{n-1}\) distinct \(n\)-term progressions. Together with the fact that a nonconstant \(n\)-term progression is determined by its minimum and maximum, the reported necessary bound is
+\[
+ W^*(n)\ge\max\left\{2n-1,
+ \left\lceil\frac{1+\sqrt{1+2^{n+2}}}{2}\right\rceil\right\}.
+\]
+These constraints give local pruning certificates for witnesses, not a sufficient test of the Ramsey property or a solution of the difference-limit question.
+
+The record then turns to off-diagonal numbers. Define \(W(a,b)\) as the least \(N\) such that every red--blue coloring of \([N]\) has a red \(a\)-term progression or a blue \(b\)-term progression; color exchange gives \(W(a,b)=W(b,a)\). It suggests quadratic growth of \(W(k,3)\) from computed values and prints
+\[
+ k^{2-o(1)}<W(k)<\exp(O(k\log^5k)).
+\]
+The supplied verification reconstructs \(W(k)\) in this display as \(W(k,3)\), using the heading, the Brown--Landman--Robertson lower bound, and the next record's separate diagonal-growth question. This remains \texttt{reconstructed\_unverified}; the diagonal notation is not silently equated with the off-diagonal number. The aid says Green and Hunter have refuted the quadratic-growth speculation, without stating their quantitative lower bound.
+
+Let \(r_3(N)\) be the largest size of a subset of \([N]\) with no nonconstant three-term progression. The aid reports the implication
+\[
+ N\ge2k,\quad r_3(N)<N/(2k)
+ \quad\Longrightarrow\quad W(3,k)\le N.
+\]
+It then reports the transferred published-density estimate
+\[
+ W(3,k)\le\exp(O((\log k)^{12})),
+\]
+and, conditionally on the claimed March 2026 Raghavan preprint estimate, the improvement
+\[
+ W(3,k)\le\exp(O((\log k)^6(\log\log k)^6)).
+\]
+These statements concern sufficiently large \(k\), with constants and hypotheses needing reference verification. They address the off-diagonal problem separately and do not answer the first source question.
+\subsection{Short English statement}
+The source combines a limit question comparing interval and sparse-set van der Waerden witnesses with off-diagonal growth estimates. The supplied aid gives necessary structural bounds for minimal sparse witnesses and transfers progression-free density bounds to off-diagonal numbers, while keeping the notation reconstruction and preprint qualification explicit.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000964\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[88]}, tag \texttt{question}.
+\item AIM workshop ``Graph Ramsey theory,'' ``van der Waerden numbers,'' source item 42, Overleaf source: \url{https://www.overleaf.com/read/mnvcscjjysvg}. Statement status \texttt{reconstructed\_unverified}; the supplied verification explains the proposed off-diagonal correction using the adjacent record.
+\item Brown--Landman--Robertson, attributed historical \(k^{2-o(1)}\) off-diagonal lower bound; Green and Hunter, attributed refutation of quadratic growth; Raghavan, March 2026 preprint, attributed improved density estimate. No full paper titles, theorem numbers, or URLs are supplied, and the published density inputs are not identified further.
+\item Research attempt 1: \texttt{partial\_result}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, rigor label \texttt{proved}, novelty confidence low. Registry created and updated 14 August 2026. No original remarks or literature field are supplied. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

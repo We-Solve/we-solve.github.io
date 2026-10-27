@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002082}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \((S^2,\omega)\) have total area \(A>0\), and let \(\mathcal L\) be the space of embedded simple closed curves that split it into two regions of area \(A/2\). For a Hamiltonian isotopy \(L_t=\phi_F^t(L_0)\), \(0\le t\le1\), set
+\[
+ \ell(L_t)=\int_0^1\left(\max_{L_t}F_t-\min_{L_t}F_t\right)\dd t,
+ \qquad
+ d(L_0,L_1)=\inf_{L_t:L_0\leadsto L_1}\ell(L_t).
+\]
+The infimum uses Hamiltonian paths of curves, not arbitrary paths without a generating Hamiltonian. Question 1.24, prompted by Polterovich, asks for
+\[
+ \operatorname{diam}(\mathcal L,d)=\sup_{L_0,L_1\in\mathcal L}d(L_0,L_1),
+\]
+in particular whether it is finite. The area scale is retained rather than normalized away.
+
+The source reports infinite diameter of \(\operatorname{Ham}(S^2)\), but does not infer infinite diameter of this Lagrangian orbit. It mentions spinning a neighborhood of the equator to stretch a vertical great circle, while recording skepticism about that candidate. Infinite length of one chosen path would itself not prove unbounded endpoint distance, which is an infimum. It also suggests pair-dependent combinatorial upper bounds using meanders without giving a formula.
+
+The aid's quantitative special case uses action--angle coordinates on the complement of two poles,
+\[
+ (q,p)\in\R/\Z\times(-A/2,A/2),\qquad \omega=\dd p\wedge\dd q,
+\]
+with standard equator \(p=0\). For smooth functions \(u,v:\R/\Z\to(-A/2,A/2)\) of mean zero, their graphs \(L_u,L_v\) are equal-area equators. The reported bound is
+\[
+ d(L_u,L_v)\le\tfrac12\int_0^1|u(q)-v(q)|\dd q\le A/2.
+\]
+Thus the entire fixed graphical chamber has diameter at most \(A/2\). For fixed \(0<a<A/2\) and integers \(N\ge1\), the aid supplies
+\[
+ u_N(q)=a\sin(2\pi Nq),\qquad
+ \#(L_{u_N}\cap L_0)=2N\text{ transversely},\qquad
+ d(L_{u_N},L_0)\le\frac{a}{\pi N}\longrightarrow0.
+\]
+Raw intersection count therefore gives no divergent lower bound. A family whose distance from a fixed equator tends to infinity must eventually leave this fixed graphical chamber; no statement says the whole orbit is graphical.
+
+The source proposes the analogous diameter for a general symplectic pair \((M,L)\), particularly complex projective two-space with its real projective Lagrangian locus. It also records the graph map
+\[
+ \operatorname{Ham}(M,\omega)\longrightarrow
+ \mathcal L(M\times M,\omega\oplus(-\omega)),\qquad
+ \phi\longmapsto\operatorname{graph}(\phi).
+\]
+The natural target is the Hamiltonian orbit of the diagonal. The source says this preserves lengths of smooth graph paths but is not an isometry and attributes strong distortion to Ostrover. Length preservation along those paths does not identify the infimum among graph paths with the infimum among all Lagrangian paths. No precise distortion theorem or general-pair diameter is supplied. The aid describes the sphere-equator diameter question as open through primary literature checked in August 2026; that is a dated supplied assessment.
+\subsection{Short English statement}
+The problem asks for the Hofer diameter of equal-area equators on a symplectic sphere. The aid bounds a fixed graphical chamber and gives curves with arbitrarily many intersections but distance tending to zero. Neither Hamiltonian-group diameter nor length preservation of graph paths answers the full Lagrangian-orbit diameter question.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002082, exact source code catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[419]}, tag \texttt{question}; AIM Workshop Problem Lists, Geometry, Question 1.24. Created and updated 14 August 2026.
+\item Michael Hutchings's AIM outline \emph{Holomorphic curves in contact geometry}, written with help from Yasha Eliashberg and John Etnyre, according to supplied verification; \url{https://aimath.org/WWN/contactgeom2/contactgeom2.pdf}. The verification reports agreement with official HTML and repaired OCR, without supplying a separate HTML URL. External sources were not accessed.
+\item The source attributes the discussion to Polterovich and graph-map distortion to Ostrover, without full bibliographic entries or a quantitative distortion statement.
+\item Attempt 1: \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence \texttt{low}; classification \texttt{PARTIAL-PROGRESS}, registry status \texttt{partially\_solved}. Candidate: graphical-chamber bound and oscillating-graph family. The August 2026 open-status statement is an aid assessment, not a fresh literature verification.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001412}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether function spaces can provide martingale decompositions and concatenations for a class of hyperbolic maps. It leaves the class, measures, function spaces and meaning of concatenation unspecified. The attached aid treats a finite-state, time-inhomogeneous Markov coding as a restricted interpretation.
+
+Let \(X_n\) be a Markov chain on a finite set \(E\), with transition kernels \(P_n\), laws \(\mu_{n+1}=\mu_nP_n\), and observables \(f_n:E\to\R\) satisfying \(\mu_nf_n=0\) and \(\sup_n\|f_n\|_\infty<\infty\). Suppose the Dobrushin coefficients obey
+\[
+ \sup_n\frac12\max_{x,x'\in E}\sum_{y\in E}|P_n(x,y)-P_n(x',y)|\le\rho<1.
+\]
+On functions modulo constants this contracts the oscillation seminorm. The aid reports a uniformly bounded future Poisson corrector
+\[
+ h_n=\sum_{j=n}^{\infty}P_n\cdots P_{j-1}f_j,
+ \qquad h_n=f_n+P_nh_{n+1},
+\]
+where the empty product is the identity. With \(\mathcal F_n=\sigma(X_0,\ldots,X_n)\), the increments
+\[
+ D_{n+1}=h_{n+1}(X_{n+1})-(P_nh_{n+1})(X_n)
+\]
+have conditional mean zero and give the exact forward decomposition
+\[
+ \sum_{n=0}^{N-1}f_n(X_n)
+ =\sum_{n=0}^{N-1}D_{n+1}+h_0(X_0)-h_N(X_N).
+\]
+The endpoint is uniformly bounded, and truncating the future series gives an exponentially small lookahead error under the uniform contraction assumption.
+
+For the explicit binary model \(E=\{-1,1\}\), take
+\[
+ P_n(x,y)=\frac{1+a_nxy}{2},\qquad |a_n|\le\rho<1,\qquad f_n(x)=b_nx,\quad |b_n|\le B,
+\]
+with \(X_0\) uniform, so all marginal laws remain uniform. Then the reported formulas specialize to
+\[
+ H_n=\sum_{j=n}^{\infty}b_j\prod_{k=n}^{j-1}a_k,\quad
+ h_n(x)=H_nx,\quad
+ D_{n+1}=H_{n+1}(X_{n+1}-a_nX_n).
+\]
+In particular \(|H_n|\le B/(1-\rho)\), and the truncation at \(j=n+K\) has error at most \(B\rho^{K+1}/(1-\rho)\). The predictable variance is deterministic:
+\[
+ V_N=\sum_{n=0}^{N-1}\E(D_{n+1}^2\mid\mathcal F_n)
+     =\sum_{n=0}^{N-1}H_{n+1}^2(1-a_n^2).
+\]
+The aid reports that \(V_N\to\infty\) gives a standard Gaussian limit for \(V_N^{-1/2}\sum_{n<N}b_nX_n\), using the bounded martingale increments and bounded endpoint. Loss of contraction at the boundary \(a_n=1\) can invalidate the bounded-corrector argument; no conclusion for that boundary is inferred from the contracting case.
+
+The aid also reports a moving-conjugate two-leg horseshoe realization as a sequential uniformly hyperbolic example. The supplied summary gives neither the conjugacies nor the invariant sets or coding measure. Consequently the symbolic formulas above are precise conditional statements; they are not a construction of that realization or a theorem for arbitrary concatenated hyperbolic maps or their physical measures.
+\subsection{Short English statement}
+Seek function-space methods for martingale decompositions along sequential hyperbolic dynamics. The supplied partial result uses uniformly contracting finite-state Markov codings, with an explicit binary corrector, variance formula and conditional CLT; a hyperbolic realization is reported without its construction.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Stochastic methods for non-equilibrium dynamical systems}, Problem 27: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001412, source code \texttt{catalogue entry}; canonical source \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[69]}.
+\item Attached machine-generated attempt 1: partial result, internal rigor label ``proved'', low novelty confidence; not peer reviewed and requiring independent verification before citation. No separate literature reference is supplied.
+\end{itemize}
+\end{document}

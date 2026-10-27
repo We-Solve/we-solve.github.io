@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000557}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For \(1\leq p\leq\infty\), let
+\[
+ \|A\|_{p\to p}=\sup_{x\neq0}\frac{\|Ax\|_{\ell_p^n}}{\|x\|_{\ell_p^n}}
+\]
+be the induced operator norm, not a Schatten norm. For \(\sigma\subset\{1,\ldots,n\}\), let \(P_\sigma\) be coordinate projection. If \(\mathcal P=(\sigma_1,\ldots,\sigma_k)\) is a partition, with empty blocks allowed, put \(A_{\mathcal P}=\sum_jP_{\sigma_j}AP_{\sigma_j}\). Then \(\|A_{\mathcal P}\|_{p\to p}=\max_j\|P_{\sigma_j}AP_{\sigma_j}\|_{p\to p}\).
+
+Bill Johnson's source question asks, for every fixed \(1\leq p<\infty\), whether
+\[
+ \forall\epsilon>0\ \exists k=k(\epsilon,p)<\infty\ \forall n\geq1\ \forall A\in M_n(\C),\quad
+ \left[ A_{ii}=0,\ \|A\|_{p\to p}=1\right]
+ \Longrightarrow\exists\mathcal P\text{ with at most }k\text{ blocks}:\
+ \|A_{\mathcal P}\|_{p\to p}\leq\epsilon.
+\]
+The source does not specify real versus complex scalars; the displayed convention uses complex matrices. Let \(R_p(\epsilon)\) be the least such number, or \(\infty\) if none exists, extending the definition to \(p=\infty\) for the supplied duality statement. For \(0<\epsilon<1\), the aid reports
+\[
+ R_1(\epsilon)\leq\lceil2/\epsilon\rceil,\qquad
+ R_2(\epsilon)=\Theta(\epsilon^{-2})\quad(\epsilon\downarrow0),\qquad
+ R_p(\epsilon)=R_{p'}(\epsilon),\quad \frac1p+\frac1{p'}=1,
+\]
+with \(1'=\infty\), \(\infty'=1\). Its literature search located no general settlement for \(1<p<\infty\), \(p\neq2\); this is a supplied search qualification rather than a verified current nonexistence of a theorem.
+
+The separate simultaneous-paving theorem concerns a real symmetric conference matrix \(C\) of order \(n\geq2\): \(C_{ii}=0\), \(C_{ij}\in\{-1,1\}\) for \(i\neq j\), and \(C^2=(n-1)I_n\). The aid states that, for every \(0<\epsilon<1\), there is a single partition \(\mathcal P\) into at most \(\lceil54\epsilon^{-2}\rceil\) blocks such that
+\[
+ \|C_{\mathcal P}\|_{p\to p}\leq\epsilon\|C\|_{p\to p}
+ \qquad\text{simultaneously for every }1\leq p\leq\infty.
+\]
+It obtains this from one Ravichandran--Srivastava multi-paving applied to the three Hermitian contractions
+\[
+ C/\sqrt{n-1},\qquad -C/\sqrt{n-1},\qquad (J-I_n)/(n-1),
+\]
+where \(J\) is the all-ones matrix. The statement does not assert such simultaneous partitions for arbitrary matrices. The aid further reports that the infinite Paley conference family forces every fixed-\(p\) uniform paving number to satisfy
+\[
+ R_p(\epsilon)\geq\epsilon^{-\min(p,p')}\qquad(0<\epsilon<1),
+\]
+including the endpoint convention above. This is a necessary bound for a uniform number valid over the family, not a claim that every individual finite matrix requires that many blocks.
+
+Finally the aid reports an explicit rank-one direct-sum family which is exactly two-pavable while naive endpoint interpolation has unbounded dimension-dependent defect. Its matrices and the precise defect quantity are not supplied here, so no more detailed interpolation theorem is inferred. The original comments report \(\mathrm{Pav}_1\) as long known, tentatively attributed to Bourgain, compare it informally with nonnegative-entry \(\mathrm{Pav}_2\), and recall Bourgain--Tzafriri restricted invertibility with optimal estimates only at \(p=2\) in their original work.
+\subsection{Short English statement}
+The question asks for a dimension-independent coordinate paving bound in induced \(\ell_p\) operator norm. The supplied report gives the endpoint results and duality, while describing the general intermediate case as unlocated in its search. A separate theorem gives one partition that paves each real symmetric conference matrix in every \(\ell_p\) norm, with a Paley-family lower bound.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000557\), exact public code \texttt{catalogue entry}; \texttt{aim-analysis-notes.json}, \texttt{notes[88]}.
+\item AIM workshop \emph{Beyond Kadison--Singer: paving and consequences}, item b16, attributed in the supplied verification field to Bill Johnson: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}.
+\item Kenneth Berman, Herbert Halpern, Victor Kaftal, Gary Weiss, ``Matrix norm inequalities and the relative Dixmier property,'' \emph{Integral Equations Operator Theory} 11 (1988), no. 1, 28--48. The source relates this to nonnegative-matrix paving.
+\item The original text tentatively attributes \(\mathrm{Pav}_1\) to Bourgain using ``IIRC,'' and mentions the original Bourgain--Tzafriri restricted-invertibility paper without a complete citation.
+\item Supplied research summary, ``Induced ell-p paving endpoints and simultaneous all-p conference paving,'' attempt 2, cites Ravichandran--Srivastava multi-paving and the Paley family without full bibliographic entries. The original literature field is empty.
+\end{itemize}
+\end{document}

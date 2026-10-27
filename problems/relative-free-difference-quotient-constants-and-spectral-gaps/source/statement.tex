@@ -1,0 +1,83 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002661}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \((M,\tau)\) be a von Neumann algebra with faithful normal tracial state, let \(1\in B\subset M\) be an infinite-dimensional von Neumann subalgebra, and let \(X=X^*\in M\) with \(M=W^*(B,X)\). The source assumes \(B\) and \(X\) are free in the algebraic sense, meaning that the polynomial algebra \(B\langle X\rangle\) has no extra algebraic relations obstructing the derivation below. This does not by itself assert scalar freeness with respect to \(\tau\).
+
+The coarse free difference quotient \(\partial_{X:B}\) is the derivation on \(B\langle X\rangle\) satisfying
+\[
+ \partial_{X:B}b=0\ (b\in B),\qquad
+ \partial_{X:B}X=1\otimes1,
+\]
+with the Leibniz rule and target the coarse Hilbert bimodule \(L^2(M,\tau)\otimes L^2(M,\tau)\), equivalently the product-trace \(L^2\) space with the right factor represented oppositely. The tensor product is not balanced over \(B\). Assume this densely defined operator is closable and denote its closure by \(D\). Let \(E_B:M\to B\) be the trace-preserving conditional expectation, also the orthogonal projection from \(L^2(M)\) to \(L^2(B)\).
+
+\textbf{Questions, attributed to Voiculescu.} Under what additional conditions does
+\[
+ \ker D=L^2(B,\tau)
+\]
+hold? Equivalently, when must every \(u\in\operatorname{Dom}D\) with \(Du=0\) belong to \(L^2(B)\)? Under what stronger conditions is there \(C<\infty\), independent of \(\xi\), such that
+\[
+ \|\xi-E_B\xi\|_2\le C\|\partial_{X:B}\xi\|_2
+       \qquad(\xi\in B\langle X\rangle)?
+\]
+By closure the same estimate then applies on \(\operatorname{Dom}D\). The source gives as a closability example \(X=X_0+\varepsilon S\), \(\varepsilon\ne0\), with a semicircular \(S\) scalar-free from \(W^*(X_0,B)\); it does not assert the desired kernel or inequality merely from that example.
+
+The supplied aid records the operator-theoretic distinction: for the nonnegative self-adjoint operator \(A=D^*D\), the inequality is the form estimate
+\[
+ \langle A\xi,\xi\rangle\ge C^{-2}\|\xi-E_B\xi\|_2^2
+\]
+on its appropriate form domain, or equivalently a spectral lower bound \(C^{-2}>0\) on \(L^2(B)^\perp\) with no additional zero modes. Kernel equality alone does not provide this bound; positive spectrum could accumulate at zero. This is a structural distinction, not a supplied counterexample within every free-quotient class.
+
+\textbf{Semicircular special case reported in the aid.} Let \(S\) be a variance-one centered semicircular element scalar-free from an arbitrary tracial \(B\), and take
+\[
+ X=a+\sigma S,\qquad a=a^*\in B,\quad\sigma>0.
+\]
+Here \(a\) need not be scalar, so \(X\) need not be scalar-free from \(B\); algebraic freeness and the quotient remain meaningful. In the orthogonal reduced-word Chebyshev decomposition
+\[
+ L^2(W^*(B,S))=\bigoplus_{d\ge0}K_d,\qquad K_0=L^2(B),
+\]
+\(d\) is total semicircular polynomial degree in reduced free-product words, using the orthogonal Chebyshev polynomials for variance-one \(S\). In particular \(K_1\) is the \(L^2\)-closed span of \(BSB\). For \(\xi=\sum_d\xi_d\), \(\xi_d\in K_d\), the aid reports
+\[
+ \operatorname{Dom}D=\left\{\xi:\sum_{d\ge1}d\|\xi_d\|_2^2<\infty\right\},\qquad
+ \|D\xi\|_2^2=\sigma^{-2}\sum_{d\ge1}d\|\xi_d\|_2^2.
+\]
+Consequently its kernel is exactly \(L^2(B)\), the optimal constant in the unsquared-norm inequality is \(C=\sigma\), and
+\[
+ \operatorname{spec}(D^*D)=\{d/\sigma^2:d\in\Z_{\ge0}\},
+ \qquad (D^*D)|_{K_d}=d/\sigma^2.
+\]
+Equality in the optimal inequality occurs precisely for \(\xi\in K_0\oplus K_1\), including the trivial zero-energy equality cases in \(L^2(B)\). This special exact decomposition is not asserted for a general perturbation \(X_0+\varepsilon S\) with \(X_0\notin B\).
+
+The trailing heading ``Large Deviations'', with Guionnet, Hiai and Cabanal-Duvillard, is adjacent workshop context and supplies no further mathematical question in this record.
+\subsection{Short English statement}
+The question asks when the closed relative free difference quotient has only \(B\)-valued constants, and when a quantitative Poincar\'e inequality holds. The aid distinguishes kernel equality from a spectral gap and reports an exact semicircular translate-and-scale model with optimal constant \(\sigma\). Algebraic freeness, trace freeness, and general semicircular perturbations have different scopes.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002661, catalogue entry; canonical \texttt{aim-probability-notes.json}, notes[102].
+\item AIM \emph{Free Analysis}, 24 August 2006, first item under ``X-constants and free Poincare inequality'', attributed in the supplied verification to Voiculescu; \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}. This identification is reported, not independently checked here.
+\item Adjacent heading: ``Large Deviations'', Guionnet, Hiai, Cabanal-Duvillard. It is preserved as context without inventing a theorem or bibliographic entry.
+\item Supplied machine-generated research attempt 1, partial result, attempt status open, reported rigor proved and low novelty confidence; registry status partially solved. No authoritative separate citation for the exact spectral refinement is supplied; the aid is not peer reviewed.
+\end{itemize}
+\end{document}

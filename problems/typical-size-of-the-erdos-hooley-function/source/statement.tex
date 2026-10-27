@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004290}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer \(n\), a divisor means a positive integer \(d\) satisfying \(d\mid n\), and \(\log\) denotes the natural logarithm. The supplied record asks for the typical asymptotic size of
+\[
+\Delta(n)=\max_i\#\{d\in\N:d\mid n,\ e^i\leq d\leq e^{i+1}\}.
+\]
+Both endpoints are included, as in the source record. The range of \(i\) is not specified. To expose this unresolved parameter, define, for \(I\in\{\Z,\R\}\),
+\[
+\Delta_I(n)=\max_{i\in I}\#\{d\in\N:d\mid n,\ e^i\leq d\leq e^{i+1}\}.
+\]
+Here \(I=\Z\) uses fixed intervals, whereas \(I=\R\) allows the interval to slide. These are distinct definitions; the supplied record does not determine which is intended.
+
+A set \(A\subseteq\N\) has natural density one if
+\[
+\lim_{x\to\infty}\frac{\#\{n\in A:n\leq x\}}{\lfloor x\rfloor}=1.
+\]
+This gives a conventional interpretation of ``almost all integers.'' The record does not explicitly specify the probability or density convention underlying ``typical.''
+
+\textbf{Question, subject to these qualifications.} Determine the asymptotic size of the source's \(\Delta(n)\) for a typical positive integer \(n\). The supplied curation additionally reports an almost-all lower bound
+\[
+\Delta(n)\gg(\log\log n)^{\eta+o(1)},
+\qquad \eta\approx0.353,
+\]
+and asks whether its exponent is optimal. No exact definition of \(\eta\), range of the maximizing index, or precise quantification of the error term is supplied.
+
+Under a natural-density interpretation, one possible precise reading of the reported lower bound is: for every \(\varepsilon>0\), there exists \(c_\varepsilon>0\) such that
+\[
+\lim_{x\to\infty}\frac{1}{\lfloor x\rfloor}
+\#\left\{n\in\N:3\leq n\leq x,\ 
+\Delta_I(n)\geq c_\varepsilon(\log\log n)^{\eta-\varepsilon}\right\}=1.
+\]
+This is an interpretation of the supplied claim, not an independently verified theorem. Under that interpretation, optimality could mean that no larger constant exponent satisfies the same almost-all lower-bound property. The stronger assertion that, for every \(\varepsilon>0\),
+\[
+\lim_{x\to\infty}\frac{1}{\lfloor x\rfloor}
+\#\left\{n\in\N:3\leq n\leq x,\ 
+(\log\log n)^{\eta-\varepsilon}\leq\Delta_I(n)
+\leq(\log\log n)^{\eta+\varepsilon}\right\}=1
+\]
+would specify a typical exponent. The record does not distinguish these targets. The intended index domain, exact exponent, and meaning of optimality require clarification before a unique fully quantified formulation can be fixed.
+\subsection{Short English statement}
+The problem asks how many positive divisors of a typical integer can lie in a multiplicative interval of ratio \(e\), and whether the supplied almost-all lower-bound exponent \(\eta\approx0.353\) is optimal. The interval endpoints are inclusive. The maximizing index domain, exact value of \(\eta\), and intended meaning of optimality remain unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004290\), title ``Typical Size of the Erdős--Hooley Function,'' exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record lists proposed year 2019 and supplies no individual proposer.
+\item Supplied report citation: \emph{Analytic Number Theory} (2020), Oberwolfach Reports, pp.~3141--3205, DOI \texttt{10.4171/owr/2019/50}. Original report link: \url{https://doi.org/10.4171/owr/2019/50}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source: Ford--Green--Koukoulopoulos, ``equal sums and divisor concentration'' (descriptive label supplied by the registry): \url{https://arxiv.org/abs/1908.00378}.
+\item Supplied literature source: Koukoulopoulos--Tao, ``upper mean-value bound'' (descriptive label supplied by the registry): \url{https://doi.org/10.1112/plms.12572}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem \texttt{partially\_solved} and reports substantial progress on the general distribution question, sharp-looking lower bounds and extensive structural analysis of the Erdős--Hooley function, while stating that no complete description of the divisors of a typical integer is known. This is supplied dated curation derived from the OWR record, not an independently verified assessment; its time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official Oberwolfach report was checked, the question was isolated from surrounding exposition, and notation was repaired. These are supplied provenance claims; no source was independently consulted for this draft.
+\end{itemize}
+\end{document}

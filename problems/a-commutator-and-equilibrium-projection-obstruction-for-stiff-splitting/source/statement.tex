@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002461}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The original item is Margot Gerritsen's participant contribution, jointly with Rami Younis, about efficient reservoir flow and transport simulation. It discusses miscible gas injection, in-situ combustion or fire-flooding, multiscale flow and energy equations, strongly nonlinear weakly hyperbolic component transport, stiff reaction, Euler--Lagrangian methods, and splitting. It poses no explicit mathematical conjecture. The phrase ``which either parabolic in character'' is incomplete already in the primary document according to the aid; no missing equation or adjective is guessed here.
+
+The supplied auxiliary diagnostic concerns the linear periodic system
+\[
+ U_t+A U_x=\varepsilon^{-1}RU,\qquad\varepsilon>0,
+\]
+where \(A\) is a constant real symmetric matrix and \(R\) is constant real symmetric negative semidefinite. On \(L^2\), transport \(T_h=e^{-hA\partial_x}\) is unitary and reaction \(E_h=e^{hR/\varepsilon}\) is contractive. For \(U_0\in H^1\), the aid's reaction-last Lie local-error bound is
+\[
+ \|E_hT_hU_0-e^{h(-A\partial_x+R/\varepsilon)}U_0\|_2
+ \le\frac{h^2}{2\varepsilon}\|[R,A]\|\,\|\partial_xU_0\|_2,
+ \qquad[R,A]=RA-AR.
+\]
+For a fixed Fourier wavenumber \(\kappa\), the split generators are \(B=-i\kappa A\), \(C=R/\varepsilon\). Lie and Strang local expansions involve \([C,B]\), and respectively the nested commutators \([B,[B,C]]\) and \([C,[C,B]]\), exposing \(\varepsilon^{-1}\) and \(\varepsilon^{-2}\) factors. Fixed-\(\varepsilon\) formal order therefore does not establish stiff-uniform order.
+
+Let \(P\) be the orthogonal projection onto \(\ker R\). The equilibrium-projection criterion asserted by the aid is
+\[
+ P e^{-izA}P=e^{-izPAP}P\quad\text{for every sufficiently small real }z
+ \quad\Longleftrightarrow\quad[P,A]=0.
+\]
+The left side is transport followed by equilibrium projection on already equilibrated data; the right side is the exact reduced transport. Symmetry of \(A\) is essential for the stated equivalence: the second-order defect contains \(PA(I-P)AP=((I-P)AP)^*((I-P)AP)\).
+
+An exact two-component witness is
+\[
+ A=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+ R=\begin{pmatrix}0&0\\0&-1\end{pmatrix},\qquad
+ P=\begin{pmatrix}1&0\\0&0\end{pmatrix}.
+\]
+On the Fourier mode \(\kappa=1\), take equilibrated initial amplitude \(e_1\). The reaction-half/transport/reaction-half Strang matrix is
+\[
+ S_{h,\varepsilon}=e^{hR/(2\varepsilon)}e^{-ihA}e^{hR/(2\varepsilon)}.
+\]
+For fixed \(h>0\), its stiff limit is \(P e^{-ihA}P=(\cos h)P\), while \(PAP=0\), so the exact reduced slow amplitude remains \(e_1\). After \(N=T/h\) steps, with \(N\) an integer and \(h\downarrow0\), the limiting error amplitude is
+\[
+ 1-(\cos h)^{T/h}=\frac T2h+O(h^2).
+\]
+The limit order is \(\varepsilon\to0\) at fixed \(h,N\), followed by \(h\to0\) at fixed \(T\). It displays first-order global slow error in that stiff limit despite the nominal fixed-\(\varepsilon\) second order of Strang splitting. It is not a claim that every splitting method or reservoir system has this error, nor a solution of the participant's nonlinear multiphase modelling programme.
+\subsection{Short English statement}
+The source is a joint research-interest statement. The aid supplies a linear stiff-splitting diagnostic: transport must preserve the reaction-equilibrium subspace for the projected step to match exact reduced transport. An explicit two-component example otherwise has first-order global slow error in the stiff limit.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002461\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[72]}.
+\item Margot Gerritsen, joint contribution with Rami Younis, A.8, AIM \emph{Stiff Sources and Numerical Methods for Conservation Laws}, version 1 April 2005; supplied reference \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}. The aid reports the incomplete parabolic-character phrase is already in the primary PDF. No PDF was accessed here.
+\item Supplied research attempt 1: \texttt{context\_only}, run status \texttt{not\_a\_problem}, rigor label \texttt{proved}, low novelty confidence; registry status \texttt{open}, classification \texttt{OPEN-TRIAGE}, created and updated 14 August 2026. No original remarks, literature entry, or primary reference for the auxiliary commutator and projection results is supplied.
+\item The research aid explicitly says it is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

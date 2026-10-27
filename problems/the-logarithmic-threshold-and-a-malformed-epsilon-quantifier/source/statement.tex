@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20003302}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Write $\|x\|=\min_{p\in\Z}|x-p|$ and take integral denominators $q\to\infty$. The literal Question 27, attributed to A. Pollington, asks for $\alpha,\beta\in\R$ such that
+\[
+ \text{for every }\eps>0,\qquad
+ \liminf_{q\to\infty}q(\log q)^{2-\eps}
+                  \|q\alpha\|\|q\beta\|>0.
+\]
+The aid reports that the official statement really has this quantifier. It is false literally because it includes $\eps>2$. If a coordinate is rational, its denominator multiples give zero. Otherwise its continued-fraction denominators satisfy $q_n\|q_n\alpha\|<1$; since $\|q_n\beta\|\leq1/2$, any exponent $s=2-\eps<0$ gives a subsequence bounded by $\frac12(\log q_n)^s\to0$. The nonnegative liminf is therefore zero for every pair at each negative exponent.
+
+Two repaired scopes must be distinguished. A near-$2$ reading asks only for all sufficiently small positive $\eps$, hence exponents $s$ in some interval immediately below $2$. The stronger reading restricts the original quantifier to $0<\eps<2$, equivalently asks for every fixed $s>0$ after using monotonicity for larger logarithmic powers. The aid credits Badziahin with a full-Hausdorff-dimensional family having an eventual bound
+\[
+ q\log q\log\log q\,\|q\alpha\|\|q\beta\|\geq c>0
+\]
+for sufficiently large $q$. For those same pairs every fixed $s>1$ gives a positive, in fact infinite, liminf with weight $q(\log q)^s$. Thus the near-$2$ version is covered by the reported theorem, whereas the all-$s>0$ version is beyond the supplied known results. No claim of existence at every $0<s\leq1$ is inferred.
+
+The aid gives a necessary continued-fraction constraint for the strong version. If, for one $s>0$, there are $c_s>0,Q_s$ such that
+\[
+ q(\log q)^s\|q\alpha\|\|q\beta\|\geq c_s
+                 \quad(q\geq Q_s),
+\]
+then both coordinates are irrational. At consecutive convergent denominators of either coordinate, denoted here by $q_n,q_{n+1}$, one has eventually
+\[
+ \frac{q_{n+1}}{q_n}<\frac{(\log q_n)^s}{2c_s},\qquad
+ a_{n+1}<\frac{(\log q_n)^s}{2c_s},
+\]
+where $a_{n+1}$ is the next partial quotient. This uses $\|q_n\alpha\|<1/q_{n+1}$ and the other coordinate's bound $1/2$, with the roles exchanged for the other convergent sequence. If a pair satisfies every $s>0$, these inequalities force $a_{n+1}=(\log q_n)^{o(1)}$ for each coordinate separately. Constants and thresholds may depend on $s$; the condition is necessary, not sufficient for the pairwise multiplicative lower bound.
+
+The source additionally cites [65] for the almost-everywhere identity
+\[
+ \liminf_{q\to\infty}q(\log q)^2\|q\alpha\|\|q\beta\|=0.
+\]
+Its next sentence is truncated. The literal refutation, the near-$2$ repaired result, and the stronger unresolved interpretation have different quantifiers and are not combined into one status.
+\subsection{Short English statement}
+The printed ``every $\eps>0$'' condition is impossible, since it includes negative logarithmic powers. The supplied aid distinguishes a near-$2$ repair, covered by Badziahin's reported bound, from the stronger demand for every positive logarithmic power. It also gives a necessary sub-power-of-log partial-quotient condition for that stronger demand.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20003302$, source code catalogue entry; canonical location \texttt{aim-other-notes.json}, \texttt{notes[108]}.
+\item AIM \emph{Emerging applications of measure rigidity}, Question 27 (A. Pollington), \url{https://aimath.org/WWN/measrigid/measrigid.pdf}. The supplied verification says the official mathematics is unambiguous while the assigned extraction ends mid-sentence after ``Thus, the set of $(\alpha,\beta)$ in''; its registry statement is reconstructed/unverified.
+\item Source label [65] for the exponent-$2$ almost-everywhere zero liminf; no full entry is supplied. Badziahin's full-dimensional $q\log q\log\log q$ lower-bound theorem is named in the attached summary without a full citation.
+\item Research attempt 1 is marked invalid statement/refuted, proved, and low novelty confidence, despite the registry open label. Its explicit caveat says the aid is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

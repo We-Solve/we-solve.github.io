@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001105}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+T. Tao's source question takes finite $A,B\subset\Z$ with $|A|=m>|B|=n$ and $|A+B|<Km$, and asks whether there is a generalized arithmetic progression $P$ containing $B$, of rank bounded only by $K$, and a set $X$ such that
+\[
+ A\subseteq P+X,\qquad |P+X|\leq c(K)|A|.
+\]
+A rank-at-most-$d$ GAP means a finite set of the form $a_0+\{\sum_{j=1}^d u_ja_j:0\leq u_j<L_j,\ u_j\in\Z\}$; no properness assumption is needed for the aid's obstruction.
+
+The aid reports a counterexample for every fixed $K>1$, every proposed integer rank bound $d\geq0$, and every proposed size multiplier $C>0$. Choose parameters in this order: an integer $r>d$; an integer $k\geq2$ with $1+r/(k+1)<K$; an integer $h$ with
+\[
+ \binom{h+r}{r}>C h^d\binom{k+r}{r};
+\]
+and then an integer base $N>\max\{h,k+1\}$. Set
+\[
+ B=\{0,1,N,\ldots,N^{r-1}\},\qquad A=kB,
+\]
+where $kB$ is an iterated sumset, not a scalar dilation. No carries occur in the relevant base-$N$ expansions, so
+\[
+ |B|=r+1,\quad |A|=\binom{k+r}{r}>|B|,\quad
+ \frac{|A+B|}{|A|}=1+\frac r{k+1}<K,\quad
+ |hB|=\binom{h+r}{r}.
+\]
+For any GAP $P$ of rank at most $d$, its iterated sumset can be covered by at most $h^d$ translates of $P$, hence $|hP|\leq h^d|P|$, even for a nonproper parameterization. If $B\subseteq P$, the displayed choice of $h$ therefore forces $|P|>C|A|$. Since any $X$ satisfying the nonempty covering condition must itself be nonempty, $|P+X|\geq|P|$, contradicting the desired container bound. Thus no choices of rank and size constants depending only on $K$ can satisfy the literal question.
+
+The original remark says a weaker version follows from Pl\"unnecke's inequality when $P$ is merely a set with somewhat small sumset rather than a progression, and notes that the balanced case $m=n$ is Freiman's theorem. Its printed weakened numerical inequality is OCR-corrupted (including the parameter and power of $m$), so an exact replacement bound is not invented. The reported asymmetric counterexample does not refute those distinct statements.
+\subsection{Short English statement}
+Small asymmetric growth does not force the smaller set into a bounded-rank progression of size comparable to the larger set. The aid's high-base example has small one-step growth but much higher iterated-sum growth than any such progression could support. The balanced Freiman case and a weaker small-doubling-container remark remain distinct.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001105$, source code \texttt{catalogue entry}, supplied full source record, original remark and research summary.
+\item American Institute of Mathematics, \emph{Recent trends in additive combinatorics}, Problem 2.5, T. Tao, supplied URL \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}; canonical local record \texttt{aim-combinatorics-notes.json}, \texttt{notes[229]}. No PDF was retrieved.
+\item Original remark references Pl\"unnecke's inequality and Freiman's theorem without full bibliographic entries; the original literature field is empty. No authoritative publication reference for the reported high-base counterexample is supplied.
+\item Research attempt 1: counterexample; problem refuted at the recorded run, registry status solved and classification \texttt{SOLVED-IN-LITERATURE}; supplied rigor label ``proved'', novelty confidence ``low''. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

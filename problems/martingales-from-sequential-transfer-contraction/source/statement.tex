@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001400}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether generalized function spaces can yield martingales for concatenations of random hyperbolic maps. The random law, hyperbolicity assumptions, function spaces, observables and filtration are unspecified. The aid supplies a conditional transfer-operator formulation on an effective noninvertible model.
+
+For a fixed realization, let \((X_n,\mathcal B_n,\mu_n)\) be probability spaces and \(T_{n+1}:X_n\to X_{n+1}\) measurable with \((T_{n+1})_*\mu_n=\mu_{n+1}\). Set \(F_0=\operatorname{id}\), \(F_n=T_n\circ\cdots\circ T_1\). Define the normalized transfer operator by
+\[
+ \int(P_{n+1}u)v\,\dd\mu_{n+1}
+   =\int u(v\circ T_{n+1})\,\dd\mu_n.
+\]
+Suppose there are moving normed cores \(\mathcal H_n\subseteq L^2(\mu_n)\), preserved by the transfer cocycle, with uniform embedding bound \(\|u\|_2\leq E\|u\|_{\mathcal H_n}\). Assume a nonnegative summable sequence \((a_\ell)_{\ell\geq1}\) and a constant \(C\) such that every centered \(u\in\mathcal H_j\) satisfies
+\[
+ \|P_{j+\ell}\cdots P_{j+1}u\|_{\mathcal H_{j+\ell}}
+   \leq C a_\ell\|u\|_{\mathcal H_j}.
+\]
+Let \(f_n\in\mathcal H_n\) be centered observables with \(\sup_n\|f_n\|_{\mathcal H_n}\leq K\). This is an explicit sufficient interpretation of the aid's ``summable centered memory'' hypothesis; no concrete anisotropic spaces are supplied.
+
+Define
+\[
+ h_0=0,\qquad h_{n+1}=P_{n+1}(f_n+h_n),\qquad
+ D_n=(f_n+h_n-h_{n+1}\circ T_{n+1})\circ F_n.
+\]
+With the decreasing pullback filtration \(\mathcal G_n=F_n^{-1}\mathcal B_n\), the aid reports that \(D_n\) is \(\mathcal G_n\)-measurable and
+\[
+ \E_{\mu_0}[D_n\mid\mathcal G_{n+1}]=0.
+\]
+Thus these are reverse martingale differences. For
+\[
+ S_N=\sum_{n=0}^{N-1}f_n\circ F_n,\qquad
+ M_N=\sum_{n=0}^{N-1}D_n,
+\]
+the reported exact decomposition and bound are
+\[
+ S_N=M_N+h_N\circ F_N,\qquad
+ \|S_N-M_N\|_{L^2(\mu_0)}\leq B,
+ \qquad B=ECK\sum_{\ell\geq1}a_\ell.
+\]
+In particular the normalized remainder is at most \(B/\sqrt N\). One corresponding variance comparison is
+\[
+ \bigl|\operatorname{Var}_{\mu_0}(S_N)-\operatorname{Var}_{\mu_0}(M_N)\bigr|
+ \leq2B\|M_N\|_2+B^2,
+ \qquad \operatorname{Var}_{\mu_0}(M_N)=\sum_{n<N}\|D_n\|_2^2.
+\]
+This is a conditional martingale approximation, not a choice of generalized function space valid for all hyperbolic concatenations.
+
+The aid also gives an obstruction: take a hyperbolic toral automorphism \(A:\mathbb T^d\to\mathbb T^d\), meaning an invertible integer matrix with no eigenvalue of modulus \(1\), preserving Haar measure, and alternate \(A,A^{-1},A,A^{-1},\ldots\). Each map is hyperbolic, but \(F_{2k}=\operatorname{id}\). The aid uses this to rule out a general memory-loss or bounded-remainder criterion based solely on individual hyperbolicity. An effective noninvertible factor, compatible filtration and verified uniform contraction assumptions remain additional requirements.
+\subsection{Short English statement}
+A summable contraction estimate for centered transfer operators on suitable moving function spaces gives an exact reverse-martingale decomposition with a uniformly bounded \(L^2\) remainder. The original random-hyperbolic-map question remains broader: individual hyperbolicity does not ensure the needed memory loss, as alternating a toral automorphism with its inverse shows.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001400\), code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[57]}.
+\item AIM, ``Stochastic Methods for Non-Equilibrium Dynamical Systems,'' Problem 15, \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}; the record supplies the exact extracted question. No additional authoritative citation, proposer or specific generalized function space is supplied. No PDF inspection is asserted.
+\item Research attempt 1: result ``partial\_result,'' status ``partially\_solved,'' rigor label ``proved,'' novelty confidence ``low.'' The supplied machine-generated aid is not peer reviewed and must be independently verified before citation.
+\end{itemize}
+\end{document}

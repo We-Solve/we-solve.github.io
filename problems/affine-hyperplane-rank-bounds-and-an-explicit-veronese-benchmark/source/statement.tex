@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002867}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a real-valued polynomial $p(z,\overline z)$ on $\C^n$, its Hermitian rank is the smallest $N\geq0$ for which
+\[
+p(z,\overline z)=\sum_{j=1}^N\eps_j|p_j(z)|^2,\qquad \eps_j\in\{1,-1\},
+\]
+with holomorphic polynomials $p_j$; equivalently it is the rank of the Hermitian coefficient matrix in the monomial expansion. For real-analytic Hermitian functions, the analogous local analytic rank uses holomorphic germs, or the rank, possibly infinite, of the convergent Hermitian coefficient matrix. The original question moves from polynomial to real-analytic $p$ without explicitly specifying this extension or the global analytic conventions.
+
+D. Grundmeier and J. Lebl ask: for every $n\geq2$ and nonnegative integer $k$, is there a finite constant $c(n,k)$ such that every real-analytic $p:\C^n\to\R$ satisfying
+\[
+\operatorname{rank}(p|_H)\leq k\quad\text{for every affine complex hyperplane }H\subset\C^n
+\]
+satisfies $\operatorname{rank}(p)\leq c(n,k)$? An affine hyperplane has the form $H=\{z:a\cdot z=b\}$ with $a\ne0$. The word ``affine'' is the intended interpretation reported by the aid, and is essential. The original remark emphasizes that the question is worthwhile even when $p$ is a polynomial and a sum of squares, meaning all signs can be positive.
+
+The aid attributes an affirmative result, without a positivity hypothesis, to Grundmeier--Lebl--Vivas: the rank in this intended affine real-analytic Hermitian setting is bounded by a function denoted $R_{n-1,n}(k)$. Its exact formula, theorem domains and local-to-global conventions are not supplied; this notation records the reported bound rather than an independently specified numerical function.
+
+Its quantitative benchmark is fully explicit. For $d\geq0$ and a multi-index $\alpha\in\{0,1,\ldots\}^n$, put $z^\alpha=\prod_jz_j^{\alpha_j}$ and $|\alpha|=\sum_j\alpha_j$, and set
+\[
+P_{n,d}(z,\overline z)=\sum_{|\alpha|\leq d}|z^\alpha|^2.
+\]
+The stated ranks are
+\[
+\operatorname{rank}P_{n,d}=\binom{n+d}{d},\qquad
+\operatorname{rank}(P_{n,d}|_H)=\binom{n-1+d}{d}
+\quad\text{for every affine complex hyperplane }H.
+\]
+Consequently any admissible bound satisfies
+\[
+c\left(n,\binom{n-1+d}{d}\right)\geq\binom{n+d}{d},
+\qquad c(2,k)\geq\frac{k(k+1)}2\quad(k\geq1).
+\]
+
+The aid also reports that replacing affine hyperplanes by only central hyperplanes makes the assertion false already for $n=2$, $k=1$. A concrete homogeneous formulation of that obstruction is
+\[
+Q_d(z_1,z_2)=\sum_{j=0}^d|z_1^jz_2^{d-j}|^2,\qquad\operatorname{rank}Q_d=d+1.
+\]
+On each complex line through the origin, parametrized by $z=tv$ with $v\ne0$, its restriction is $Q_d(v)|t|^{2d}$, of rank $1$. This explains why the affine and central formulations cannot be interchanged.
+\subsection{Short English statement}
+Bound the Hermitian rank of a real-analytic function from uniform rank bounds on every affine complex hyperplane. The supplied aid reports an affirmative theorem without positivity and gives a polynomial lower-bound family; restricting only to hyperplanes through the origin changes the problem and permits unbounded rank.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002867$, source code \texttt{catalogue entry}; canonical \texttt{aim-several-complex-variables-notes.json}, \texttt{notes[24]}.
+\item AIM workshop \emph{Emerging applications of complexity for CR mappings}, Problem 1, attributed to D. Grundmeier and J. Lebl, including its polynomial sum-of-squares remark: \url{https://aimath.org/WWN/crmappings/crmappings.pdf}. The original literature field is empty. The supplied verification reports normalization of OCR spacing and notation without mathematical change.
+\item The supplied research aid attributes the affine rank-bound theorem to Grundmeier, Lebl and Vivas, but provides no title, publication date or complete authoritative reference, and no formula for $R_{n-1,n}(k)$.
+\item Research attempt 1: \texttt{partial\_result}, status \texttt{solved}, classification \texttt{SOLVED-IN-LITERATURE}, rigor \texttt{proved}, novelty confidence low. This machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

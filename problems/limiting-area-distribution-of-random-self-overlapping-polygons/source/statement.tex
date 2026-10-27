@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006017}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each integer \(n\geq 3\), let \(Z_n\subset\R^2\setminus\{0\}\) be a set of exactly \(n\) vectors satisfying
+\[
+\sum_{z\in Z_n}z=0.
+\]
+Following the supplied excerpt, call \(Z_n\) \emph{generic} if, for every pair of nonempty disjoint subsets \(U,V\subset Z_n\) with \(U\cup V\neq Z_n\), the vectors
+\[
+\sum_{u\in U}u\quad\text{and}\quad\sum_{v\in V}v
+\]
+are linearly independent. The side set is described as the set of vectors corresponding to boundary segments oriented counterclockwise.
+
+The excerpt reports a theorem, attributed there to reference [2], asserting that the number of self-overlapping polygons with a fixed generic side set \(Z_n\) is \((n-2)!\). However, the supplied record does not define precisely which self-overlapping polygons or immersed disks are counted, their equivalence relation, or the meaning of their area. Thus this count is preserved as a supplied assertion and does not by itself specify a probability space.
+
+Once those definitions are supplied, write \(\mathcal P(Z_n)\) for the intended finite collection, let \(P_n\) be uniform on \(\mathcal P(Z_n)\), and let \(A_n\) be its intended area. If the reported counting convention applies, uniformity means
+\[
+\Pr(P_n=P)=\frac{1}{(n-2)!}\qquad(P\in\mathcal P(Z_n)).
+\]
+The requested limiting assertion has the formal shape: there exists a Borel probability measure \(\mu\) on \(\R\) such that
+\[
+A_n-\frac{1}{2\pi}\log n\ \xrightarrow[n\to\infty]{\mathrm d}\ \mu,
+\]
+where \(\log\) is the natural logarithm. Equivalently, for every bounded continuous function \(f:\R\to\R\),
+\[
+\lim_{n\to\infty}\E\!\left[f\!\left(A_n-\frac{1}{2\pi}\log n\right)\right]
+=\int_{\R}f(x)\,\mu(\mathrm dx).
+\]
+The cleaned statement additionally asks to identify \(\mu\).
+
+\emph{Unresolved qualifications.} This is a conditional statement template, not a fully specified conjecture. A limiting problem requires a sequence \((Z_n)_{n\geq3}\), together with its normalization and any asymptotic hypotheses. Genericity alone fixes no geometric scale: multiplying every side vector by a positive constant preserves genericity, while ordinary geometric area scales quadratically. Consequently, the stated centering cannot be assigned an unrestricted scope over arbitrary generic side sets without further information. It is also unspecified whether area means signed area, area counted with multiplicity, or area of the planar image. The excerpt's phrase ``this random area'' has an incomplete antecedent, so its connection to the fixed-side-set polygon family must be checked. Neither dependence of \(\mu\) on the side-set sequence nor universality is specified reliably by the supplied material.
+\subsection{Short English statement}
+The supplied conjecture asks whether the area of a uniformly sampled self-overlapping polygon, after subtracting \(\frac{1}{2\pi}\log n\), converges in distribution; the cleaned statement also asks for the limiting law. A precise formulation still requires the polygon model, area convention, and a normalized sequence of generic side sets. The supplied open label and logarithmic expectation assessment are dated curation, not independently verified mathematical conclusions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30006017\), title: \emph{Limiting Area Distribution of Random Self-Overlapping Polygons}; exact source problem code: \texttt{catalogue entry}. This draft uses the supplied complete source record.
+\item Supplied report citation: \emph{Riemann Surfaces: Random, Flat, and Hyperbolic Geometry} (2025), Oberwolfach Reports, pp.\ 2369--2424, DOI \texttt{10.4171/owr/2024/41}. Source URL and supplied literature-source link, labeled ``OWR report'': \url{https://doi.org/10.4171/owr/2024/41}. The excerpt includes the printed page marker 2383. This report is supplied as the authoritative source; it has not been independently consulted for this draft.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem open, states that the expectation has an established logarithmic asymptotic, and reports that centered distributional convergence remains open and that no proof was found. This is supplied dated curation, not an independently verified literature assessment. The background expressly requests independent verification of time-sensitive status and cited claims.
+\item The excerpt attributes its counting theorem to reference [2], whose bibliographic identity is absent. No individual proposer is supplied. The registry gives proposed year 2024, while its report citation gives publication year 2025; these supplied dates are retained without resolving their relationship.
+\item The registry labels the statement \texttt{corrected\_verified}, with a qualification that only formula delimiters, notation, grammar, and typography were repaired. That supplied editorial label does not establish mathematical correctness or resolve the formulation gaps described here.
+\end{itemize}
+\end{document}

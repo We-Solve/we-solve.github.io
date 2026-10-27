@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001669}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(D=(V,E)\) be a finite directed graph, with vertex set \(V\) and arc relation \(E\subseteq V\times V\). For a nonnegative integer \(s\), call \(D\) \(s\)-dominating if
+\[
+\forall U\subseteq V,\quad |U|\le s\ \Longrightarrow\ \exists v\in V\ \forall u\in U,\ (v,u)\in E.
+\]
+The witnessing vertex \(v\) is not explicitly required to lie outside \(U\). The quantifier includes \(U=\varnothing\), so this definition requires \(V\ne\varnothing\).
+
+A directed cycle of length \(k\) consists of pairwise distinct vertices \(x_1,\ldots,x_k\) such that \((x_i,x_{i+1})\in E\) for \(1\le i\le k\), where \(x_{k+1}=x_1\).
+
+The question is whether every finite \(100\)-dominating directed graph contains a directed cycle of length at most \(100\). With loops counted as directed cycles of length \(1\), this asks whether
+\[
+\begin{gathered}
+\left[\forall U\subseteq V,\ |U|\le100\ \Longrightarrow\ \exists v\in V\ \forall u\in U,\ (v,u)\in E\right]\\
+\Longrightarrow\quad
+\exists k\in\{1,\ldots,100\}\ \exists x_1,\ldots,x_k\in V:\quad
+\left\{
+\begin{aligned}
+&x_i\ne x_j &&(1\le i<j\le k),\\
+&(x_i,x_{i+1})\in E &&(1\le i\le k),\qquad x_{k+1}=x_1.
+\end{aligned}
+\right.
+\end{gathered}
+\]
+The supplied statement does not explicitly specify whether loops are permitted or counted as cycles. Under the loopless convention, impose \((v,v)\notin E\) for every \(v\in V\) and use \(2\le k\le100\). These conventions are stated explicitly for review; the intended source convention has not been independently established.
+\subsection{Short English statement}
+Suppose every set of at most \(100\) vertices in a finite directed graph has a vertex sending an arc to every member of that set. Must the graph contain a directed cycle of length at most \(100\)? The supplied record labels this problem open; loop and cycle conventions require confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, permanent ID \(30001669\), title ``Short Cycles in Highly Dominating Digraphs,'' source problem code \texttt{catalogue entry}. The record gives proposed year \(2011\) and supplies no individual proposer.
+\item Supplied report citation: \emph{Combinatorics} (2011), Oberwolfach Reports, pp.\ 5--83, DOI \texttt{10.4171/owr/2011/01}. Supplied literature-source label: ``Oberwolfach problem statement.'' \url{https://doi.org/10.4171/owr/2011/01}. The collection describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source: ``directed graphs without short cycles.'' \url{https://arxiv.org/abs/0809.4690}.
+\item Literature assessment dated \texttt{2026-08-21}: the supplied curation labels the problem open and states that the exact assertion for \(100\)-dominating directed graphs remains unsettled and that available short-cycle results do not resolve the stated bound. This is supplied dated curation, described as literature triage derived from the supplied OWR curation, and has not been independently verified here. Time-sensitive status and cited claims require independent verification.
+\item The registry marks the statement \texttt{corrected\_verified} and reports that the official report was checked and the statement repaired to match its source passage. This is a supplied verification claim, not an independent verification performed for this draft.
+\end{itemize}
+\end{document}

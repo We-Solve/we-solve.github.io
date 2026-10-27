@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002253}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record concerns the discrete evolution equation
+\[
+\dot u_n(t)=\frac{u_{n-1}(t)-2u_n(t)+u_{n+1}(t)}{h^2}+\mathcal H(u_n)(t),
+\qquad
+u_n(0)=-c(hn)^2,
+\]
+with \(c>0\) and constants \(H_1>0>H_{-1}\). Here \(\dot u_n\) denotes the time derivative, and \(h\) denotes the spatial mesh parameter, conventionally taken positive. The notation \(\mathcal H(u_n)(t)\) represents the unspecified hysteresis term appearing as \(\mathcal H(u_n)\) in the supplied statement; it does not specify a memory rule. The record calls \(H_1,H_{-1}\) thresholds but does not define how they enter this term.
+
+The source question asks whether the proportion of switched points relative to nonswitched points satisfies
+\[
+\frac{\#\{\text{switched points}\}}{\#\{\text{nonswitched points}\}}
+\approx
+\left|\frac{H_1}{H_{-1}}\right|.
+\]
+The absolute value is part of the corrected supplied formulation. Since \(H_1>0>H_{-1}\), its right-hand side is positive; the signed ratio in the original extraction is negative.
+
+To expose the missing counting conventions, suppose an observation time \(t\) and a finite set \(A\) of lattice indices have been specified, together with a precise switching rule. Let \(S(A,t)\) be the indices in \(A\) classified as switched under that rule, and let \(N(A,t)=A\setminus S(A,t)\). The corresponding count ratio would be
+\[
+R(A,t)=\frac{\#S(A,t)}{\#N(A,t)},
+\qquad \#N(A,t)>0.
+\]
+This notation is conditional bookkeeping, not an assertion that this observation convention is the intended one. The record does not specify whether switching means ever having switched by time \(t\), occupying a particular hysteresis state at time \(t\), or some other condition. It also does not specify the lattice domain, boundary conditions, observation sets, observation times, or a limiting regime or error bound interpreting \(\approx\). Thus it does not determine a precise quantified assertion relating \(R(A,t)\) to \(\lvert H_1/H_{-1}\rvert\).
+
+The hysteresis law, its initial memory state, its behavior at switching thresholds, any additional parameter restrictions, and the quantifiers over parameters must be recovered before the question becomes a fully specified mathematical conjecture. The supplied background also mentions a multidimensional extension, but provides no equation or precise conjecture for it.
+\subsection{Short English statement}
+The question concerns whether a discretized hysteresis evolution with negative quadratic initial data produces switched and nonswitched points in a ratio approximately equal to \(\lvert H_1/H_{-1}\rvert\). The supplied record leaves the switching law, counting region, and meaning of approximation unspecified, so a precise quantified conjecture still requires clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002253\), title ``Switching Ratios in Discretized Hysteresis Dynamics,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2012 and names no proposer.
+\item Supplied report citation: \emph{Dynamics of Patterns} (2013), Oberwolfach Reports, pp.\ 3549--3633, DOI 10.4171/owr/2012/60. \url{https://doi.org/10.4171/owr/2012/60}. The supplied background describes Oberwolfach Reports as records of mathematical workshops and their open-problem discussions.
+\item Supplied literature source, labeled ``rattling primary paper'': \url{https://doi.org/10.1137/16M106039X}.
+\item Supplied literature source, labeled ``spatially discrete hysteresis paper'': \url{https://www.numdam.org/articles/10.1016/j.anihpc.2017.09.006/}.
+\item Supplied literature source, labeled ``Oberwolfach report'': \url{https://ems.press/content/serial-article-files/46431}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem partially solved and reports later results on the rattling mechanism, propagation behavior, and detailed one-dimensional microstructure, while describing the exact switched-point ratio conjecture and its multidimensional extension as not fully resolved. This is supplied dated curation, not an independently verified literature assessment. The background expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels its statement \texttt{corrected\_verified} and supplies the verification claim that the official report states the switching-ratio conjecture and that the original extraction omitted an essential absolute value. This attribution and verification claim are supplied metadata; the report has not been independently inspected for this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002356}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Question 19 (Jarden) asks whether there is an algorithm deciding if $f(x,y)=0$ has infinitely many $\Q$-rational solutions. Adopt the supplied aid's input convention $f\in\Q[x,y]$ with exact rational coefficients. The source emphasizes the difficulty for genus one, says other cases have been handled, and gives a conditional positive answer if the group extracted as ``$X$'' is finite for all elliptic curves over $\Q$. The aid interprets that symbol as the Tate--Shafarevich group $\operatorname{Sha}(E/\Q)$; since no shorthand for it is assumed here, write it as $\operatorname{Sha}(E/\Q)$ below. This interpretation comes from the aid, not a supplied recovered glyph.
+
+For nonconstant $f$, discard multiplicities and factor over $\Q$ as $f=c\prod_i f_i^{e_i}$. For each absolutely irreducible factor $f_i$, let $C_i$ be the smooth projective normalization of its projective plane closure, let $g_i$ be its genus, and, when $g_i=1$, let $J_i=\operatorname{Jac}(C_i)$. The supplied criterion is
+\[
+\begin{split}
+|\{(x,y)\in\Q^2:f(x,y)=0\}|=\infty
+\quad\Longleftrightarrow\quad
+\exists i\ \bigl[&f_i\text{ absolutely irreducible},\ C_i(\Q)\ne\varnothing,\\
+&g_i=0\ \text{ or }\ (g_i=1\text{ and }\operatorname{rank}J_i(\Q)>0)\bigr].
+\end{split}
+\]
+The index condition on absolute irreducibility may equivalently be enforced by forming only those $C_i$. A $\Q$-irreducible but geometrically reducible factor contributes at most finitely many rational points, lying in intersections of conjugate components. Genus at least two contributes only finitely many. Removing points over infinity and accounting for singular fibers changes only finitely many rational points. A rational singular point on the original plane curve therefore must not be substituted for the condition $C_i(\Q)\ne\varnothing$. For a genus-one normalization, existence of a rational point and positivity of Jacobian rank are separate tests. If constant inputs are allowed, $f=0$ has infinitely many solutions and a nonzero constant has none.
+
+The aid's conditional algorithm assumes
+\[
+\forall E/\Q\text{ elliptic},\qquad |\operatorname{Sha}(E/\Q)|<\infty,
+\qquad
+\operatorname{Sha}(E/\Q)=\ker\left(H^1(\Q,E)\to\prod_v H^1(\Q_v,E)\right),
+\]
+where $v$ runs over all places of $\Q$. Under that assumption it reports terminating descent procedures for both genus-one torsor solubility and Jacobian rank, together with effective factorization, normalization, and genus-zero solubility tests, yielding a decision algorithm for the original infinitude question. Neither finiteness of all these groups nor an unconditional general algorithm is asserted as proved here. The supplied research run labels the problem open and the result conditional.
+\subsection{Short English statement}
+The infinitude question reduces to smooth projective components: a genus-zero component needs a rational point, while a genus-one component needs a rational point and a positive-rank Jacobian. The supplied conditional algorithm uses finiteness of all elliptic Tate--Shafarevich groups to terminate the genus-one tests. Singular points, reducible factors, and the affine boundary do not alter the infinitude criterion.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002356$, \texttt{catalogue entry}; \texttt{aim-logic-notes.json}, \texttt{notes[131]}.
+\item American Institute of Mathematics, 2005 workshop \emph{Extensions of Hilbert's tenth problem}, Question 19 (Jarden), \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}. The source's extracted group symbol is ``$X$''; the supplied aid identifies the intended finiteness assumption with Tate--Shafarevich groups.
+\item Research attempt 1: conditional result; problem open at run; rigor conditional; novelty confidence low. Registry classification partial progress, status partially solved, statement status exact. No authoritative external citation or explicit algorithm reference is supplied for the normalization criterion or descent termination.
+\end{itemize}
+\end{document}

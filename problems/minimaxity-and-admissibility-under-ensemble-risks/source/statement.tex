@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000863}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Estimate a $p$-dimensional normal mean $\theta$ from data $X$ using an estimator $\delta$, with squared-error risk
+\[
+ R(\theta,\delta)=\E_\theta\|\delta(X)-\theta\|^2.
+\]
+The data covariance, dimension range, and admissible estimator class are not supplied. Let $\Pi_{\gamma^2}$ denote the centered $p$-dimensional normal distribution for $\theta$ intended by the source and define
+\[
+ R_{\gamma^2}(\delta)=\int_{\R^p}R(\theta,\delta)\,\Pi_{\gamma^2}(\dd\theta).
+\]
+The notation suggests a variance parameter, but its covariance matrix and allowed range are not explicitly specified.
+
+If $\theta_{(\cdot)}$ denotes the ordered coordinate vector, the permutation-averaged risk has the usual form
+\[
+ R_{\mathrm{order}}(\theta_{(\cdot)},\delta)
+ =\frac1{p!}\sum_{\pi\in S_p}R(\pi\theta,\delta).
+\]
+This averages over the same coordinate-permutation orbit rather than over a new normal distribution. Repeated coordinates may be counted through permutations or uniformly over distinct vectors, which yield the same orbit average.
+
+The source conjectures that many standard shrinkage estimators are minimax and nearly admissible for both ensemble-risk families, and that a suitably chosen hierarchical Bayes estimator is minimax and admissible. The original says many, not every possible shrinkage rule. For a risk family $r_a(\delta)$ on a specified parameter set, minimax ordinarily means attaining $\inf_\delta\sup_a r_a(\delta)$; admissible means no allowed competitor has risk everywhere no larger and somewhere strictly smaller. The relevant parameters and competitor class must be identified for each of the two criteria. A single averaged risk at one fixed variance is not silently turned into a minimax family.
+
+The shrinkage rules, meaning of nearly admissible, index sets for the two risk families, hyperprior construction, and whether one hierarchical estimator must work simultaneously for both are missing. No numerical minimax benchmark or quantitative approximation notion is invented. This is a bundle of conjectural statistical directions rather than one fully stated optimality theorem.
+\subsection{Short English statement}
+The source asks for minimaxity and approximate admissibility of selected shrinkage rules under normal-prior and coordinate-permutation risk averages, plus an admissible minimax hierarchical Bayes rule. The estimator classes, ensemble parameters, and meaning of near admissibility are missing.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000863, code catalogue entry, ``Minimaxity and Admissibility Under Ensemble Risks.'' Proposed year 2007; proposer unspecified.
+\item \emph{Reassessing the Paradigms of Statistical Model-Building} (2008), Oberwolfach Reports, pp.\ 2943--3012, DOI 10.4171/owr/2007/50; \url{https://doi.org/10.4171/owr/2007/50}. The displayed report year 2008 differs from the DOI and proposed year 2007. This is the sole supplied literature reference.
+\item Statement status corrected\_verified; the supplied note says complete conjectural content was retained while risk, expectation, norm, and ensemble notation was restored.
+\item Literature triage checked 2026-08-21: open. It calls the broad shrinkage minimaxity/near-admissibility proposal under two ensemble criteria a collection rather than a single theorem and reports no general resolution in the supplied check. Created 2026-08-25; updated 2026-09-16. Exact statistical model and current status require independent verification.
+\item Registry curation by Ulam AI / UnsolvedMath Contributors, CC BY 4.0; the underlying report retains its supplied provenance. Unreviewed statement-only draft.
+\end{itemize}
+\end{document}

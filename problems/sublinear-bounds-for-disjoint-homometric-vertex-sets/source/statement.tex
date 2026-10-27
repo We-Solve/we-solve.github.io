@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002326}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite connected graph \(G\), let \(V(G)\) be its vertex set and let \(d_G(u,v)\) denote the length of a shortest path between \(u\) and \(v\) in \(G\). For \(S\subseteq V(G)\), define its multiset of pairwise distances by
+\[
+D_G(S)=\bigl\{\!\bigl\{d_G(u,v):\{u,v\}\subseteq S,\ u\ne v\bigr\}\!\bigr\},
+\]
+where each unordered pair of distinct vertices contributes once, and equal distances retain their multiplicities. Two subsets \(A,B\subseteq V(G)\) are \emph{homometric} if \(D_G(A)=D_G(B)\); they are disjoint if \(A\cap B=\varnothing\).
+
+The supplied statement calls \(h(n)\) the largest integer with a universal existence property, but does not explicitly connect that integer to the cardinalities of the subsets. The following precise formulation is therefore conditional on the intended requirement being \(|A|=|B|=h(n)\). It also explicitly adopts finite simple undirected unweighted graphs and distances measured in the ambient graph \(G\); these conventions are not expressly specified in the supplied statement.
+
+Under these conventions, for each integer \(n\ge 2\), define
+\[
+\begin{aligned}
+h(n)=\max\bigl\{k\in\{1,\ldots,\lfloor n/2\rfloor\}:{}&\text{ for every connected graph }G\text{ with }|V(G)|=n,\\
+&\text{ there exist }A,B\subseteq V(G)\text{ with }A\cap B=\varnothing,\\
+&|A|=|B|=k\text{ and }D_G(A)=D_G(B)\bigr\}.
+\end{aligned}
+\]
+The question is whether
+\[
+h(n)=o(n)\qquad(n\to\infty),
+\]
+that is, whether
+\[
+\forall\varepsilon>0\ \exists N\ge 2\ \forall n\in\Z,\qquad n\ge N\Longrightarrow h(n)<\varepsilon n.
+\]
+Restricting this formulation to \(n\ge2\) avoids imposing an unspecified convention concerning empty subsets at \(n=1\) and suffices for the asymptotic question. The missing cardinality requirement and the graph and distance conventions require confirmation against the cited source before this conditional formulation is accepted.
+\subsection{Short English statement}
+Does the largest size of two disjoint homometric vertex subsets guaranteed in every connected \(n\)-vertex graph grow sublinearly in \(n\)? Here homometric means having identical multisets of pairwise distances. This draft makes the intended subset size and graph conventions explicit, subject to source confirmation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete source record: permanent ID \(30002326\), title \emph{Sublinear Bounds for Disjoint Homometric Vertex Sets}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2013 and does not name a proposer.
+\item Supplied report citation: \emph{Combinatorics and Probability (2014)}, Oberwolfach Reports, DOI 10.4171/owr/2013/18, pp.\ 1087--1152. \url{https://doi.org/10.4171/owr/2013/18}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The citation's year 2014 differs from the record's proposed year 2013 and the year appearing in the DOI; these supplied details are retained without reconciliation.
+\item Supplied literature source: Axenovich--Özkahya, homometric sets. \url{https://arxiv.org/abs/1203.1158}.
+\item Supplied literature source: Oberwolfach combinatorics report. \url{https://doi.org/10.4171/owr/2013/18}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and states that known bounds for the homometric-set parameter remain far from proving \(h(n)=o(n)\). This is supplied dated curation derived from the OWR record, not an independently verified assessment; time-sensitive status and cited claims require independent verification.
+\item The supplied record labels the statement \texttt{corrected\_verified} and reports that its mathematical content was checked against the official Oberwolfach report, with notation, context, and question form normalized without changing the source-level claim. This is a supplied verification assertion; no independent source verification was performed for this draft.
+\end{itemize}
+\end{document}

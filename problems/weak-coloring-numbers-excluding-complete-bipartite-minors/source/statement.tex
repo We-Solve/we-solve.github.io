@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004042}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a conventional formulation, let \(G\) be a nonempty finite simple undirected graph, let \(r\in\Z_{\geq 0}\), and let \(t\in\Z_{\geq 1}\). These domain conventions are not explicitly specified in the supplied source. Let \(K_{3,t}\) denote the complete bipartite graph with parts of sizes \(3\) and \(t\). A graph is a minor of \(G\) if it can be obtained by deleting vertices, deleting edges, and contracting edges, with loops removed and parallel edges identified. Say that \(G\) excludes \(K_{3,t}\) as a minor if no minor of \(G\) is isomorphic to \(K_{3,t}\).
+
+For a linear order \(\preceq\) on \(V(G)\), define
+\[
+\operatorname{WReach}_r(G,\preceq,v)
+=\left\{u\in V(G):\begin{array}{l}\text{there is a path }P\text{ from }v\text{ to }u\text{ of length at most }r,\\ u\preceq x\text{ for every }x\in V(P)\end{array}\right\}.
+\]
+Paths of length zero are allowed, so \(v\in\operatorname{WReach}_r(G,\preceq,v)\). The \(r\)-th weak coloring number is
+\[
+\operatorname{wcol}_r(G)
+=\min_{\preceq}\max_{v\in V(G)}
+\bigl|\operatorname{WReach}_r(G,\preceq,v)\bigr|,
+\]
+where the minimum is over all linear orders on \(V(G)\). Define the extremal function, with its supremum understood in the extended nonnegative reals, by
+\[
+F_t(r)=\sup\left\{\operatorname{wcol}_r(G):G\text{ is a nonempty finite simple undirected graph excluding }K_{3,t}\text{ as a minor}\right\}.
+\]
+\textbf{Problem.} Determine an asymptotically sharp bound for \(F_t(r)\). Under the interpretation that \(t\) is fixed and \(r\to\infty\), this asks for an explicit positive function \(f_t\) and constants \(c_t,C_t>0\) and \(r_t\geq 0\) such that, for every integer \(r\geq r_t\),
+\[
+c_t f_t(r)\leq F_t(r)\leq C_t f_t(r).
+\]
+The upper bound must hold for every graph in the indicated class, and the lower bound describes extremal growth over that class; the witnessing graphs may depend on \(r\). The source does not specify the intended range of \(t\), whether \(t\) is fixed, or whether sharp dependence on both \(t\) and \(r\) is required. Thus the fixed-\(t\) formulation above is an explicitly qualified interpretation requiring review, rather than a resolved choice of asymptotic regime.
+\subsection{Short English statement}
+Determine the largest possible \(r\)-th weak coloring number among graphs with no \(K_{3,t}\) minor, up to asymptotically matching upper and lower bounds. The intended range of \(t\) and the dependence required on \(t\) remain unspecified. The supplied record labels the problem partially solved; that label is not independently verified here.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004042\), title ``Weak Coloring Numbers Excluding Complete Bipartite Minors,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2019 and names no individual proposer.
+\item Supplied report citation: \emph{Graph Theory (2020)}, Oberwolfach Reports, DOI 10.4171/owr/2019/1, pp.\ 5--63. \url{https://doi.org/10.4171/owr/2019/1}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The report title year, proposed year, and DOI year component are retained as supplied; their relationship has not been verified.
+\item Supplied literature reference: ``Weak coloring numbers of minor-closed graph classes.'' \url{https://arxiv.org/abs/2407.04588}.
+\item Supplied literature reference: ``SODA 2025 weak coloring numbers.'' \url{https://doi.org/10.1137/1.9781611978322.107}.
+\item Supplied literature reference: ``Centered colorings and weak coloring numbers.'' \url{https://arxiv.org/abs/2603.13097}.
+\item Literature assessment dated \texttt{2026-08-22}: the supplied curation labels the problem partially solved and reports polynomial upper and lower bounds with a remaining exponent or logarithmic gap. This is supplied dated curation derived from the OWR record, not independently verified literature assessment. The supplied background explicitly calls for independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

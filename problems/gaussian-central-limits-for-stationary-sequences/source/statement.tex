@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001326}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \((X_i)_{i\geq 1}\) be a stationary, jointly Gaussian sequence such that \(\E[X_i]=0\) and \(\E[X_i^2]=1\). Define its covariance sequence by
+\[
+r_k=\operatorname{Cov}(X_i,X_{i+k}),\qquad k\geq 0,
+\]
+which is independent of \(i\) by stationarity. Let \(\gamma\) be the standard Gaussian probability measure on \(\R\), and let \(g:\R\to\R\) be measurable with \(g\in L^2(\gamma)\). Write
+\[
+\mu_g=\int_{\R}g(x)\,\gamma(\dd x),\qquad
+S_n=\frac{1}{\sqrt n}\sum_{i=1}^n g(X_i).
+\]
+The primary question in the supplied normalized statement is to characterize the pairs \(((r_k),g)\) for which \(S_n\) converges in distribution to a normal law. In notation, the requested convergence has the form
+\[
+S_n\xrightarrow{\mathrm d}\mathcal N(m,v)
+\]
+for some finite \(m\in\R\) and variance \(v\). The source does not specify the limiting mean or whether a degenerate normal law with \(v=0\) is allowed; a nondegenerate interpretation would require \(v>0\).
+
+\textit{Unresolved centering qualification.} The displayed source sum is uncentered, and the source does not assume \(\mu_g=0\). Indeed, its notation distinguishes
+\[
+S_n=\frac{1}{\sqrt n}\sum_{i=1}^n\bigl(g(X_i)-\mu_g\bigr)+\sqrt n\,\mu_g.
+\]
+The draft retains the uncentered target. Whether the intended question instead assumes \(\mu_g=0\) or concerns the centered sum requires clarification.
+
+The supplied original statement also contains two additional targets that are absent from the normalized statement:
+\begin{enumerate}
+\item Determine the weak limit of normalized power variations of a Gaussian process with centered stationary increments. Here centered increments have mean zero, and stationary increments have joint laws invariant under simultaneous admissible shifts of their time arguments. Power variation refers to sums of powers of absolute increments over a sampling partition. The source does not specify the time domain, power, partitions, normalization, centering of the variation statistic, asymptotic regime, or mode of process convergence. Consequently, it does not determine a unique limit problem.
+\item Derive asymptotic behavior, including a central limit theorem, for power variations of the process formally given by
+\[
+Z_t=\int_{-\infty}^{t}g(t-s)\sigma_s\,\dd W_s.
+\]
+Here \(Z\) denotes the process called \(X\) in the original statement. The kernel is denoted by \(g\) in that statement, but no identification with the Gaussian test function above is supplied. The source leaves the meanings and assumptions on \(W\), \(\sigma\), and the kernel, the interpretation and existence of the stochastic integral, and the power-variation sampling and normalization unspecified. These hypotheses must be supplied before a precise asymptotic assertion can be formulated.
+\end{enumerate}
+Whether the intended scope comprises only the Gaussian-sequence question or all three original targets remains unresolved.
+\subsection{Short English statement}
+Characterize when the stated uncentered sums of a square-integrable function of a stationary standard Gaussian sequence converge to a normal law. The intended centering and allowance of a degenerate limit are unspecified. The original record also asks for two Gaussian-related power-variation limits, but lacks the hypotheses and normalization needed to state those targets precisely.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied record with permanent ID \(30001326\), title \emph{Gaussian Central Limits for Stationary Sequences}, source problem code \texttt{catalogue entry}, in the \emph{Oberwolfach Reports Open Problems} collection. The supplied proposed year is 2009; no individual proposer is identified.
+\item Supplied source citation: \emph{Challenges in Statistical Theory: Complex Data Structures and Algorithmic Optimization} (2010), Oberwolfach Reports, pp.~2179--2234, DOI \texttt{10.4171/owr/2009/39}. \url{https://doi.org/10.4171/owr/2009/39}. The literature-source list labels this reference ``original Oberwolfach report 4082.'' The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature reference, labeled ``Breuer-Major central limit theorem'': \url{https://doi.org/10.1016/0047-259X(83)90019-2}.
+\item Supplied literature reference, labeled ``functional Breuer-Major theorem'': \url{https://arxiv.org/abs/1808.02378}.
+\item Supplied literature assessment dated \texttt{2026-08-21}: the record labels the problem \texttt{partially\_solved} and states that Breuer--Major theory and later functional extensions give strong sufficient conditions for the listed Gaussian-sequence and power-variation limits, while the multi-problem formulation seeks conditions beyond those theorems. This is supplied dated curation derived from the OWR collection, not an independently verified literature assessment; its status and cited claims require independent verification.
+\item The record labels its normalized statement \texttt{corrected\_verified} and reports that its mathematical content was checked against the official report, with notation, context, and question form normalized without changing the source-level claim. This is a supplied verification claim; no independent source inspection is asserted here.
+\end{itemize}
+\end{document}

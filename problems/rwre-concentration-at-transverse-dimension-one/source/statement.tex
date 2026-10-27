@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001321}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\mathbb P\) denote the law of the i.i.d. space-time environment \(\omega\) in the supplied \(1+1\)-dimensional nearest-neighbor random-walk model. Let \(X_N\in\Z\) denote the transverse position at time \(N\). Write \(P_\omega\) for the quenched path law, with the environment fixed, and define the averaged path law by
+\[
+P(A)=\int P_\omega(A)\,\mathbb P(\mathrm d\omega).
+\]
+Both path laws must use the same starting condition. The supplied record does not specify that condition, the precise transition convention, or the environment distribution beyond the stated i.i.d. and ellipticity assumptions.
+
+For an explicit formulation of the partition condition, interpret an interval of length \(m\in\N\) as \(\{a,a+1,\ldots,a+m-1\}\), where \(a\in\Z\). This cardinality convention is an interpretation requiring confirmation. Let \((M_N)_{N\geq1}\) be a sequence of positive integers with \(M_N\to\infty\). For each \(N\), let
+\[
+\mathcal Q_N=\{Q_i^{(N)}:i\geq1\}
+\]
+be a deterministic partition of \(\Z\) into pairwise disjoint intervals of cardinality \(M_N\). Set
+\[
+D_N(\omega;\mathcal Q_N)
+=\sum_{i\geq1}\left|
+P(X_N\in Q_i^{(N)})-P_\omega(X_N\in Q_i^{(N)})
+\right|.
+\]
+Here the sum is the displayed discrepancy in the supplied statement, without a factor of \(1/2\).
+
+For a fixed environment law and common starting condition, the concentration assertion under discussion is
+\[
+\begin{gathered}
+\text{for every }(M_N)_{N\geq1}\subset\N\text{ with }M_N\to\infty,
+\text{ every }\epsilon>0,\\
+\text{every admissible partition family }(\mathcal Q_N)_{N\geq1},
+\text{ and every }r>0,\\
+\lim_{N\to\infty}N^r\,
+\mathbb P\bigl(D_N(\omega;\mathcal Q_N)>\epsilon\bigr)=0.
+\end{gathered}
+\tag{C}
+\]
+Thus ``decays faster than every power of \(N\)'' means \(o(N^{-r})\) for each \(r>0\), for each fixed choice of the preceding data; no uniformity over those choices is asserted.
+
+The proposed problem is to prove or disprove the conjecture that \((\mathrm C)\) fails in transverse dimension one. For a fixed model, this failure is equivalently the existence of a sequence \(M_N\to\infty\), an admissible partition family \((\mathcal Q_N)_{N\geq1}\), and numbers \(\epsilon>0\) and \(r>0\) such that
+\[
+\limsup_{N\to\infty}N^r\,
+\mathbb P\bigl(D_N(\omega;\mathcal Q_N)>\epsilon\bigr)>0.
+\]
+The supplied original formulation refers to a concentration result for a \emph{uniformly elliptic} model in dimension \(1+d\), \(d\geq2\), and asks whether its analogue fails for \(d=1\). The cleaned formulation instead says only \emph{elliptic}. Ellipticity requires positivity of every allowed transition probability almost surely; uniform ellipticity additionally requires a deterministic positive lower bound for all allowed transition probabilities. These hypotheses cannot silently be identified. The intended hypothesis and the quantifier over environment laws remain unresolved, so the display above formalizes the failure assertion conditionally on those choices.
+\subsection{Short English statement}
+The problem asks whether the stated superpolynomial concentration of quenched endpoint probabilities around their averaged values fails in one transverse dimension, after grouping endpoints into intervals whose lengths tend to infinity. Failure means that some interval scales, partitions, tolerance, and polynomial exponent violate the displayed decay assertion. The ellipticity hypothesis, starting condition, and scope over environment laws require clarification.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30001321\), title \emph{RWRE Concentration at Transverse Dimension One}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2009 and identifies no proposer.
+\item Supplied report citation: \emph{Scaling Limits in Models of Statistical Mechanics} (2010), Oberwolfach Reports, pp.\ 2115--2178, DOI \texttt{10.4171/owr/2009/38}. Supplied source URL and literature-source link labeled ``original Oberwolfach report 4081'': \url{https://doi.org/10.4171/owr/2009/38}.
+\item Supplied literature-source link labeled ``Yilmaz-Zeitouni quenched-averaged rates'': \url{https://doi.org/10.1007/s00220-010-1119-3}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and states that later work proves related dimension-dependent contrasts without establishing the exact conjecture in the stated form. This is supplied dated curation, not an independently verified assessment; the record requests independent verification of time-sensitive status and cited claims.
+\item The registry supplies statement status \texttt{corrected\_verified} and reports that the cleaned statement was checked against the official Oberwolfach report. This is a supplied source-verification claim, not verification performed for this draft. The original formulation, cleaned formulation, background, and literature metadata were all supplied as evidence.
+\end{itemize}
+\end{document}

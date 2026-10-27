@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002883}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Problem 1 (John D'Angelo), with equality locus distinguished.} Let \(\Omega\subseteq\C^n\) be strongly pseudoconvex with compact algebraic boundary, and let \(R(z,\bar z)\) be a real polynomial positive on \(b\Omega\). Does it equal a finite Hermitian sum \(\sum_j|p_j(z)|^2\) of holomorphic polynomials? The literal source says equality ``on \(\Omega\)'', yet cites a positive unit-ball result [CD]. The aid separates that open-domain wording from the likely intended boundary equality, rather than silently changing the question.
+
+\textbf{Reported literal obstruction.} On the unit ball, for every \(c>1\),
+\[
+ R(z,\bar z)=c-\|z\|^2
+\]
+is positive even on the closed ball. Equality with a polynomial Hermitian sum on the open ball would be a polynomial identity everywhere. Its Hermitian coefficient matrix \(\operatorname{diag}(c,-1,\ldots,-1)\) is not positive semidefinite; equivalently its negative Levi form is incompatible with a holomorphic sum of squares. Thus the literal statement is false even in the case described as affirmative by the source.
+
+\textbf{Reported negative answer to the boundary interpretation.} The aid attributes to Putinar and Scheiderer (2010) smooth strongly pseudoconvex counterexamples and gives the following explicit family in \(\C^2\):
+\[
+ G_\epsilon=\left\{(z,u):
+ \tfrac12|z^2-1|^2+|u|^2+
+ \epsilon|z(z^2-1)|^2<1\right\}.
+\]
+For every sufficiently small \(\epsilon>0\), it reports that this is a bounded strongly pseudoconvex domain with smooth compact algebraic boundary. The exact admissible epsilon threshold is not supplied. The fixed polynomial
+\[
+ R_*(z,u)=4-|z|^2-|u|^2
+\]
+satisfies \(R_*\geq2-\sqrt2>0\) on the closure, uniformly in that range.
+
+The aid's boundary obstruction uses \(a=(1,1)\), \(b=(-1,1)\), which lie on \(bG_\epsilon\). Let \(r\) be the displayed defining polynomial minus one, and polarize by replacing conjugate coordinates with independent ones. Its polarization vanishes at all pairs from \(\{a,b\}\). The boundary-ideal divisibility argument for this defining equation therefore forces any identity \(R_*|_{bG_\epsilon}=\sum_j|p_j|^2|_{bG_\epsilon}\) to yield the Gram matrix
+\[
+ \left(R_*(x,\bar y)\right)_{x,y\in\{a,b\}}
+ =\begin{pmatrix}2&4\\4&2\end{pmatrix}.
+\]
+Its determinant is \(-12\), contradicting positive semidefiniteness. The divisibility/polarized-boundary step is essential: positivity of an arbitrary polarized matrix at arbitrary boundary pairs is not a general consequence of boundary equality without that step.
+
+Thus the aid reports failure both of literal open-domain equality and of the intended general boundary version, while preserving the separate unit-ball boundary result cited as [CD]. The family and its ideal argument require primary-source verification; no rational-function, weighted-sum or other modified positivity theorem is inferred.
+\subsection{Short English statement}
+Open-domain equality is already false on the ball for \(c-\|z\|^2\). The aid also reports a boundary counterexample on strongly pseudoconvex algebraic domains: one fixed positive polynomial forces a non-positive polarized Gram matrix. The intended boundary interpretation and the source's unit-ball citation are kept separate.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002883\), catalogue entry, \texttt{aim-several-complex-variables-notes.json}, \texttt{notes[40]}, \emph{Complexity of mappings in CR geometry}, Problem 1, John D'Angelo: \url{https://aimath.org/WWN/complexitycrmap/complexitycrmap.pdf}.
+\item Original [CD] reference for the unit-ball assertion, without its full bibliography in the supplied record. Supplied research attribution: Putinar and Scheiderer (2010), negative boundary answer; no title/publication details are supplied.
+\item Supplied explicit \(G_\epsilon,R_*\) sharpening: attempt 1, counterexample, status at run ``refuted'', rigor ``proved'', low novelty confidence; registry solved/SOLVED-IN-LITERATURE and reconstructed\_unverified. The machine-generated aid is not peer reviewed and requires independent verification before citation. The supplied verification reports PDF/bibliography inspection; this draft has not visited it.
+\end{itemize}
+\end{document}

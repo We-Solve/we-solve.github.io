@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001398}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Suppose a planar autonomous ODE \(\dot x=f(x,y),\ \dot y=g(x,y)\) has an equilibrium whose real Jacobian \(A\) has eigenvalues \(-\lambda\pm i\omega\), with \(\lambda>0\) and \(\omega\ne0\). Its noisy linearization, after translating the equilibrium to zero, is
+\[
+ dZ_t=A Z_t\,dt+\operatorname{diag}(\sigma_1,\sigma_2)\,dW_t,
+\]
+where the two coordinates of \(W\) are independent standard Brownian motions. The source describes an approximation by a constant transformation, a rotation, and two independent standard Ornstein--Uhlenbeck processes. It asks for a discrete-time reaction--diffusion analogue and its relation to more general fast/slow systems. The approximation parameter, noise restrictions, error topology and reaction--diffusion model are not specified; stable complex eigenvalues alone do not state a quantitative approximation theorem.
+
+The attached aid treats a linear finite-graph interpretation. For a finite undirected graph with symmetric Laplacian \(L\), a representative coupled map is
+\[
+ U_{n+1}=(I\otimes A_0-L\otimes D)U_n+\xi_{n+1}.
+\]
+In a graph eigenbasis, a mode of eigenvalue \(\nu\) has multiplier \(M=A_0-\nu D\). For independent Gaussian innovations of mode covariance \(Q\), a stable mode \(Z_{n+1}=MZ_n+\eta_{n+1}\), \(\rho(M)<1\), has stationary covariance
+\[
+ C=\sum_{j\ge0}M^jQ(M^T)^j,
+ \qquad C=MCM^T+Q,
+\]
+and spectral density \((2\pi)^{-1}(I-Me^{-i\alpha})^{-1}Q(I-M^Te^{i\alpha})^{-1}\). Spatially independent, identically distributed vertex noise makes the graph-mode innovations independent; without a corresponding noise assumption this independence is not automatic.
+
+For a real two-dimensional oscillatory mode with eigenvalues \(re^{\pm i\theta}\), \(0<r<1\), \(\sin\theta\ne0\), and \(Q>0\), the aid reports the exact noise-metric criterion
+\[
+ MQM^T=r^2Q.
+\]
+Precisely, this is the criterion for a stationary representation in law
+\[
+ Z_n=H R_{n\theta}V_n,\qquad
+ V_{n+1}=rV_n+\sqrt{1-r^2}\,\zeta_{n+1},
+\]
+where \(R_\theta\) is planar rotation, \(H\) is a fixed invertible matrix with \(HH^T=Q/(1-r^2)\), and \(V\) has two independent standard stationary scalar AR(1) coordinates; the \(\zeta_n\) are independent standard Gaussian vectors. A fixed matrix transformation, rather than necessarily a scalar multiple, is allowed here.
+
+For the fast/slow connection the aid uses an explicitly scaled linear embedding, which can be written
+\[
+ X_{n+1}=X_n+\epsilon(A_sX_n+B_fY_n),\qquad
+ Y_{n+1}=RY_n+CX_n+\xi_{n+1},\quad \rho(R)<1,
+\]
+with centered independent innovations of covariance \(Q_f\), a fixed uniform fast spectral gap, and suitable bounded second-moment initial data. Exact elimination of \(Y\) produces a memory term with coefficients \(B_fR^\ell C\) and colored noise. The reported averaged drift matrix and slow diffusion covariance are
+\[
+ \bar A=A_s+B_f(I-R)^{-1}C,\qquad
+ \Sigma=B_f(I-R)^{-1}Q_f(I-R^T)^{-1}B_f^T.
+\]
+The aid reports a pointwise \(L^2\) averaging error \(O(\sqrt\epsilon)\), uniformly over \(n\le H/\epsilon\) for fixed \(H\), and a diffusion limit for the normalized fluctuation under its scaling and initial-data hypotheses. This is not a bound on the \(L^2\) norm of a time supremum. In the isotropic case \(R=rR_\theta\), \(Q_f=qI\), \(B_f=bI\), its formula becomes
+\[
+ \Sigma=\frac{qb^2}{1-2r\cos\theta+r^2}I.
+\]
+The supplied summary does not give the complete hypotheses or convergence formulation of the fluctuation theorem. These conditional linear results do not specify a general nonlinear or infinite-dimensional reaction--diffusion analogue.
+\subsection{Short English statement}
+Find a discrete reaction--diffusion counterpart of rotating noisy stable-focus dynamics and relate it to fast/slow averaging. The supplied aid gives a finite-graph linear mode analysis, an exact covariance criterion for rotating AR(1) modes, and conditional memory and diffusion formulas for a specified linear fast/slow scaling.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Stochastic methods for non-equilibrium dynamical systems}, Problem 13: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001398, source code \texttt{catalogue entry}; canonical source \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[55]}.
+\item The record labels the statement exact and says a prior source inspection recovered the damaged extraction from page 2; this draft does not independently repeat that inspection.
+\item Attached machine-generated attempt 1: partial result, internal rigor label ``proved'', low novelty confidence. It is not peer reviewed and requires independent verification before citation; no separate literature reference is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002291}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks for an extension of a compound-Poisson variation limit to a suitably general pure-jump semimartingale. It does not specify the class of semimartingales or the additional hypotheses, so the following records the proposed limit and its unresolved qualifications rather than a fully quantified conjecture.
+
+The starting moving-average representation is
+\[
+X_t=X_0+\int_{-\infty}^{t}g(t-s)\,\mathrm dL_s,
+\qquad g(x)=x^\alpha f(x),\qquad 0<\alpha<\tfrac12,
+\]
+where initially \(L\) is a pure-jump L\'evy process and \(f\) is smooth, has exponential decay, and satisfies \(f(0)\ne0\). The kernel is used for nonnegative arguments. The proposed extension replaces \(L\) by a pure-jump semimartingale. The stochastic integral, its existence, and the required negative-time extension of the driver remain to be specified.
+
+For positive mesh sizes \(\Delta_n\), define the realized quadratic variation statistic
+\[
+V_t^n(X)=\sum_{i=1}^{\lfloor t/\Delta_n\rfloor}
+\left|X_{i\Delta_n}-X_{(i-1)\Delta_n}\right|^2,
+\qquad t\ge0,
+\]
+with an empty sum equal to zero. The intended asymptotic regime appears to be \(\Delta_n\to0\); this is not explicitly stated in the supplied formula.
+
+Write \(x_+=\max\{x,0\}\), let \(T_k\) denote jump times of the driver, and write \(\Delta L_{T_k}=L_{T_k}-L_{T_k-}\). Set
+\[
+H_\alpha(u)=\sum_{l=1}^{\infty}
+\left|(l-u)_+^\alpha-(l-1-u)_+^\alpha\right|^2.
+\]
+The source displays auxiliary variables \(U_k\) without defining their law or independence properties. Under the conventional interpretation, which requires confirmation, these are independent \(\operatorname{Uniform}(0,1)\) marks, independent of the original probability space, constructed on an extension of that space. With this interpretation, the displayed target is
+\[
+W_t=f(0)^2\sum_{k:T_k\in[0,t]}
+|\Delta L_{T_k}|^2H_\alpha(U_k).
+\]
+The source asserts that, in the compound-Poisson case,
+\[
+\Delta_n^{-2\alpha}V_t^n(X)
+\xrightarrow{d_{\mathrm{st}}}W_t.
+\]
+For a fixed \(t\), stable convergence relative to an original sigma-field \(\mathcal F\) means that
+\[
+\lim_{n\to\infty}\E\!\left[Z\,\varphi\!\left(\Delta_n^{-2\alpha}V_t^n(X)\right)\right]
+=\widetilde{\E}\!\left[Z\,\varphi(W_t)\right]
+\]
+for every bounded \(\mathcal F\)-measurable random variable \(Z\) and every bounded continuous \(\varphi:\R\to\R\), where \(\widetilde{\E}\) denotes expectation on the extension. The source does not identify \(\mathcal F\) or specify whether a stronger process-level assertion is intended.
+
+\textbf{Requested extension.} Determine and state suitable hypotheses on a sufficiently general pure-jump semimartingale driver and on the moving-average construction under which the same displayed stable limit holds. Neither the intended breadth of this class nor its required hypotheses are supplied; no particular replacement theorem is asserted here.
+
+There are additional unresolved qualifications. The scalar domains of \(L\), \(X\), and \(f\), and the exact meaning of smoothness and exponential decay, are unspecified. In particular, the factor \(f(0)^2\) is retained exactly as supplied; a complex-valued formulation would require clarification. Also, if \(X_0\) in the moving-average formula literally denotes the value of \(X\) at zero, substituting \(t=0\) forces the integral there to vanish, a condition absent from the record. The notation may instead intend an additive offset. Finally, the target includes jumps at time zero, while the statistic uses increments after zero; this endpoint convention requires confirmation.
+\subsection{Short English statement}
+The supplied problem asks when a stated compound-Poisson limit for rescaled squared increments of a moving average extends to general pure-jump semimartingales. The intended driver class and hypotheses are missing, and the auxiliary marks, convergence mode, initial-value notation, and time-zero convention need clarification. The supplied open status is dated curation, not an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}; permanent UnsolvedMath ID \(30002291\), title \emph{Variation Limits for Pure-Jump Semimartingales}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is 2013.
+\item Supplied primary reference: \emph{Mini-Workshop: Stochastic Analysis for Poisson Point Processes: Malliavin Calculus, Wiener-Ito Chaos Expansions and Stochastic Geometry} (2013), Oberwolfach Reports, pp.\ 483--520, DOI \texttt{10.4171/owr/2013/09}. \url{https://doi.org/10.4171/owr/2013/09}. This is also the literature-source entry labeled ``Oberwolfach Report 2013.''
+\item Supplied literature-source entry: Basse-O'Connor--Lachieze-Rey--Podolskij, ``Levy-driven moving averages.'' \url{https://arxiv.org/abs/1506.06679}.
+\item Literature assessment checked at \texttt{2026-08-21}: the supplied curation labels the problem open and states that subsequent work proves limit theorems for broad L\'evy-driven moving-average classes but does not establish the stated result for a general pure-jump semimartingale driver. This is supplied dated curation, not independently verified; the record itself requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official report supplies the variation statistic, moving-average hypotheses, and compound-Poisson stable limit preceding the proposed extension, with the full formula restored. These are supplied verification claims, not verification performed for this draft. No precise problem page or individual attribution is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002345}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Question 8 (Pheidas) asks for an algorithm which, given $P\in\Z[X_1,\ldots,X_m]$, decides whether
+\[
+\exists(n_1,\ldots,n_m)\in\N^m\qquad P(2^{n_1},\ldots,2^{n_m})=0.
+\]
+The supplied source answers yes and relates this to Mordell--Lang for tori. The extracted superscripts have been lost; the supplied verification identifies the intended inputs as powers of two. Since the convention for $\N$ is unspecified, distinguish $\N_0=\{0,1,\ldots\}$ from $\N_{>0}=\{1,2,\ldots\}$; the aid asserts decidability for either convention.
+
+The stronger supplied claim is that
+\[
+S_P=\{\bar n\in\N_0^m:P(2^{n_1},\ldots,2^{n_m})=0\}
+\]
+is effectively semilinear: one can compute a finite union of sets $\bar a+\N_0\bar b_1+\cdots+\N_0\bar b_r$ with vectors in $\N_0^m$, equivalently a Presburger definition of $S_P$. This in particular decides emptiness. For positive exponents one restricts the same description by $n_i\geq1$, or shifts the variables.
+
+The aid describes the following finite valuation-pair elimination scheme. Write the nonzero monomial contributions as
+\[
+P(2^{n_1},\ldots,2^{n_m})=\sum_{j=1}^s u_j2^{L_j(\bar n)},
+\]
+where $u_j$ is an odd signed integer and $L_j$ is an integer affine expression obtained from the monomial exponent and the $2$-adic valuation of its coefficient. At each branch choose two terms with a common minimum exponent, adding the linear conditions
+\[
+L_i=L_j\leq L_k\qquad\text{for every current term }k.
+\]
+If $u_i+u_j=0$, delete the pair. Otherwise write $u_i+u_j=2^v u$ with $u$ odd and replace the pair by $u2^{L_i+v}$. Every step strictly reduces the number of current terms; branch constraints retain all previous linear equalities and inequalities. Accept a zero-term leaf, reject a nonzero one-term leaf, and take the union of accepting branch constraints over $\N_0^m$. The supplied claim is that this produces exactly $S_P$, including complete cancellations and the identically zero polynomial. This is a reported algorithmic argument, requiring independent mathematical review.
+
+The source's abstract toric Mordell--Lang connection and the aid's effective construction are distinct forms of support: an abstract coset description alone does not provide an algorithm unless its effectiveness is established. The aid additionally cites Semenov's theorem and a 2023/2026 existential Presburger-with-power algorithm, without giving precise theorem statements or bibliographic data.
+\subsection{Short English statement}
+The question asks whether an integer polynomial vanishes when all its arguments are powers of two. The source reports a positive answer. The aid strengthens this to an effective semilinear description of all exponent tuples, using finite branching on minimal $2$-adic valuations; both zero-based and positive exponent conventions are covered.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002345$, \texttt{catalogue entry}; \texttt{aim-logic-notes.json}, \texttt{notes[120]}.
+\item American Institute of Mathematics, \emph{Extensions of Hilbert's tenth problem}, Question 8 (Pheidas), \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}. Supplied verification describes the official 2005 problem list, page 3 (PDF index 2), and restoration of exponent superscripts.
+\item Supplied research summary names Semenov's theorem, Laurent's toric Mordell--Lang theorem, and an existential Presburger-with-power algorithm dated 2023/2026. No titles, authors for the latter algorithm, publication details, or authoritative full citations are supplied.
+\item Research attempt 1: full solution; problem solved at run; rigor label ``proved''; novelty confidence low. Registry status solved, classification solved in literature, statement status exact: these are supplied metadata, not independent certification.
+\end{itemize}
+\end{document}

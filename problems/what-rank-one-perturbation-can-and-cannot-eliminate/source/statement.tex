@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000568}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The AIM fragment asks whether polynomial machinery in Kadison--Singer-related proofs can be replaced by rank-one perturbation methods, recalling Bourgain--Tzafriri, or reproduced at a multivariate-polynomial level. It does not specify a theorem to reprove or what elimination means. The trailing ``Adam Marcus'' may be the next speaker heading, so attribution of this fragment is not fixed from that alone.
+
+The report treats a Hermitian determinant pencil $M(z)=M_0+\sum_jz_jA_j$ in a region where $M(z)>0$, with $D(z)=\det M(z)$ and $R=M(z)^{-1}$. For a set $S$ of distinct derivative indices it claims the exact cycle expansion
+\[
+ \frac{\partial_S D}{D}=\sum_{\pi\in\operatorname{Sym}(S)}
+ (-1)^{|S|-\#\operatorname{cycles}(\pi)}
+ \prod_{(i_1\cdots i_a)\in\operatorname{cycles}(\pi)}
+ \operatorname{tr}(RA_{i_1}\cdots RA_{i_a}).
+\]
+If every operated slot is rank one, $A_i=u_iu_i^*$, these derivatives become $D\det G_S$ for the resolvent Gram matrix $G_{ij}=u_i^*Ru_j$. The full mixed operator has the deterministic-shift identity
+\[
+ \prod_{i\in S}(1-t_i\partial_i)\det M(z)
+ =\det\left(M(z)-\sum_{i\in S}t_iA_i\right).
+\]
+This is a polynomial identity even when intermediate shifted matrices are singular; resolvent evaluations then need adjugates or regularization. Slots outside $S$ need not be rank one.
+
+The report's sharp fixed-base statement is: for fixed $M>0$ and Hermitian $A$,
+\[
+ \det(M-tA)=\det M\,(1-t\operatorname{tr}(M^{-1}A))\ \text{for every }t
+ \quad\Longleftrightarrow\quad\operatorname{rank}A\leq1.
+\]
+The all-parameter and Hermitian hypotheses matter; no such equivalence is inferred from equality at a single shift.
+
+For its determinant-tilted formulation, let $M_\xi(z)=H_\xi+\sum_jz_jA_j$ be a finite or suitably integrable random Hermitian pencil, positive definite for every ensemble member in a common region, with differentiation under expectation valid. Put $q(z)=\E\det M_\xi(z)>0$ and tilt the probability by $\det M_\xi/q$. With $R_\xi=M_\xi^{-1}$ and $\Phi_q^j=\partial_j\log q$, the report claims
+\[
+ \partial_k\Phi_q^j=-\E_{\mathrm{tilt}}\operatorname{tr}(R_\xi A_kR_\xi A_j)
+ +\operatorname{Cov}_{\mathrm{tilt}}(\operatorname{tr}(R_\xi A_j),\operatorname{tr}(R_\xi A_k)).
+\]
+Thus barrier monotonicity $\partial_k\Phi_q^j\leq0$ is equivalent there to domination of this covariance by the expected resolvent trace term. The identity does not prove that domination for every ensemble.
+
+These formulas remove explicit mixed-polynomial computation in rank-one settings. The report expressly retains the real-stability, root-region, convexity and interlacing arguments required for the MSS Kadison--Singer bound; it does not supply a polynomial-free proof of that result.
+\subsection{Short English statement}
+Ask what rank-one perturbation methods can replace in polynomial-based Kadison--Singer arguments. The report gives exact resolvent and deterministic-shift identities, a sharp rank-one boundary, and a tilted-covariance test for barrier monotonicity. It distinguishes computational elimination of polynomials from eliminating the stability and interlacing logic of the proof.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent ID $20000568$, source code \texttt{catalogue entry}; original fragment and supplied research summary.
+\item AIM workshop ``Beyond Kadison-Singer: paving and consequences'', source item b27, Google document: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. Canonical location \texttt{aim-analysis-notes.json}, \texttt{notes[99]}; original remarks and literature field empty. No document was visited here.
+\item The fragment refers to Bourgain--Tzafriri (spelled ``Borgain'' in extraction) and the summary to MSS, but no full bibliographic citations or precise original theorem are supplied. The appended Adam Marcus line is not independently assigned as authorship.
+\item Supplied machine-generated research attempt 1: partial result; problem partially solved at the run and in the registry; rigor metadata ``proved'', novelty confidence low. The non-peer-reviewed identities and equivalences require independent verification before citation.
+\end{itemize}
+\end{document}

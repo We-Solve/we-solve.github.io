@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002418}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each integer \(n\geq 0\), write its finite binary expansion as \(n=\sum_{j\geq 0}a_j(n)2^j\), where \(a_j(n)\in\{0,1\}\) and all but finitely many digits vanish. Define the base-\(2\) radical inverse by
+\[
+\phi_2(n)=\sum_{j\geq 0}a_j(n)2^{-j-1},
+\]
+so that \(\phi_2(0)=0\). For \(x\in\R\), let \(\{x\}=x-\lfloor x\rfloor\). The sequence in question is
+\[
+z_n=\bigl(\phi_2(n),\{n\sqrt{2}\}\bigr)\in[0,1)^2,\qquad n\geq 0.
+\]
+For a positive integer \(N\), consider its first \(N\) points, indexed by \(0\leq n<N\). One standard normalized discrepancy convention is
+\[
+D_N=\sup_{\substack{0\leq u_i\leq v_i\leq 1\\i=1,2}}
+\left|\frac{1}{N}\#\left\{0\leq n<N:z_n\in[u_1,v_1)\times[u_2,v_2)\right\}-(v_1-u_1)(v_2-u_2)\right|.
+\]
+The corresponding star discrepancy is
+\[
+D_N^*=\sup_{0\leq t_1,t_2\leq 1}
+\left|\frac{1}{N}\#\left\{0\leq n<N:z_n\in[0,t_1)\times[0,t_2)\right\}-t_1t_2\right|.
+\]
+The supplied record does not specify which discrepancy convention is intended. These two conventions satisfy \(D_N^*\leq D_N\leq 4D_N^*\), so they give equivalent versions of the requested asymptotic bound. The displayed definition of \(D_N\) makes a standard interpretation explicit; its agreement with the report's notation remains to be checked.
+
+The question is whether, for every real \(\varepsilon>0\), there exist constants \(C_\varepsilon>0\) and an integer \(N_\varepsilon\geq 2\) such that, for every integer \(N\geq N_\varepsilon\),
+\[
+D_N\leq C_\varepsilon\frac{(\log N)^{2+\varepsilon}}{N}.
+\]
+Here \(\log\) denotes the natural logarithm, and the constants may depend on \(\varepsilon\). This is the question supplied by the record, not an assertion that the bound holds.
+\subsection{Short English statement}
+Does the discrepancy of the first \(N\) points \((\phi_2(n),\{n\sqrt{2}\})\), starting at \(n=0\), have order at most \((\log N)^{2+\varepsilon}/N\) for every \(\varepsilon>0\)? The supplied discrepancy convention is unspecified; normalized box discrepancy and star discrepancy yield equivalent bounds here. The supplied open label is dated curation, not independently verified status.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local registry record: permanent UnsolvedMath ID \(30002418\), source problem code \texttt{catalogue entry}, collection \emph{Oberwolfach Reports Open Problems}. The record supplies no individual proposer.
+\item Supplied report citation: \emph{Uniform Distribution Theory and Applications} (2014), \emph{Oberwolfach Reports}, pp.\ 2837--2917, DOI \texttt{10.4171/owr/2013/49}; \url{https://doi.org/10.4171/owr/2013/49}. This is also the supplied literature source labeled ``original OWR report.'' The record gives proposed year 2013 and an \texttt{owr-year:2013} tag; these dates are retained without independently reconciling the bibliographic dating.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and reports that no proof or counterexample establishing the explicit bound for the base-\(2\) Halton--Kronecker sequence with \(\sqrt{2}\) was found in the checked literature. The only listed checked source is the original OWR report linked above. This is supplied dated curation, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The supplied record labels its statement \texttt{corrected\_verified} and says its mathematical content was checked against the official report, with notation, context, and question form normalized without changing the source-level claim. This draft preserves that attribution as supplied metadata and does not claim to have visited or verified the report.
+\end{itemize}
+\end{document}

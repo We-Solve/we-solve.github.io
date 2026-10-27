@@ -1,0 +1,98 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005774}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Work over \(\C\). A Hopf algebra \(H\) is pointed if every simple subcoalgebra is one-dimensional. Its group of group-like elements is
+\[
+G=G(H)=\{g\in H:\Delta(g)=g\otimes g,\ \varepsilon(g)=1\}.
+\]
+For finite-dimensional pointed \(H\), the group \(G\) is finite and the coradical is \(H_0=\C G\). Let
+\[
+\operatorname{gr}H=\bigoplus_{n\geq0}H_n/H_{n-1},\qquad H_{-1}=0,
+\]
+be the associated graded Hopf algebra for the coradical filtration. Write \(\pi:\operatorname{gr}H\to\C G\) for its degree-zero projection and define its diagram by
+\[
+R=(\operatorname{gr}H)^{\operatorname{co}\pi}
+ =\{x\in\operatorname{gr}H:(\operatorname{id}\otimes\pi)\Delta(x)=x\otimes1\}.
+\]
+Then \(R\) is a graded braided Hopf algebra in the category of left Yetter--Drinfeld modules over \(\C G\), and \(\operatorname{gr}H\cong R\#\C G\). The infinitesimal braiding of \(H\) is \(V=R_1\).
+
+A left Yetter--Drinfeld module over \(\C G\) is a \(G\)-graded vector space \(V=\bigoplus_{g\in G}V_g\), equipped with a left \(G\)-action satisfying \(h\cdot V_g\subseteq V_{hgh^{-1}}\). Its braiding is
+\[
+c(v\otimes w)=g\cdot w\otimes v\qquad(v\in V_g).
+\]
+The Nichols algebra \(\mathcal B(V)\) is the quotient of the braided tensor Hopf algebra \(T(V)\), with \(V\) primitive, by the largest homogeneous braided Hopf ideal contained in \(\bigoplus_{n\geq2}T^n(V)\).
+
+The bosonization \(A=\mathcal B(V)\#\C G\) has vector space \(\mathcal B(V)\otimes\C G\). Writing \(r\#g\) for \(r\otimes g\), its multiplication and coproduct are
+\[
+(r\#g)(s\#h)=r(g\cdot s)\#gh,
+\]
+\[
+\Delta_A(r\#g)=\sum
+\bigl(r_{(1)}\#(r_{(2)})_{(-1)}g\bigr)
+\otimes\bigl((r_{(2)})_{(0)}\#g\bigr),
+\]
+where \(\Delta_{\mathcal B(V)}(r)=\sum r_{(1)}\otimes r_{(2)}\) is the braided coproduct and \(\delta(s)=\sum s_{(-1)}\otimes s_{(0)}\) is the \(\C G\)-coaction.
+
+A normalized convolution-invertible Hopf \(2\)-cocycle on \(A\) is a linear map \(\sigma:A\otimes A\to\C\) such that, for all \(a,b,c\in A\),
+\[
+\sigma(1,a)=\sigma(a,1)=\varepsilon(a),
+\]
+\[
+\sum\sigma(a_{(1)},b_{(1)})\sigma(a_{(2)}b_{(2)},c)
+=\sum\sigma(b_{(1)},c_{(1)})\sigma(a,b_{(2)}c_{(2)}).
+\]
+Convolution is defined by \((f*g)(a,b)=\sum f(a_{(1)},b_{(1)})g(a_{(2)},b_{(2)})\), with unit \((a,b)\mapsto\varepsilon(a)\varepsilon(b)\). The cocycle deformation \(A_\sigma\) has the coalgebra of \(A\) and multiplication
+\[
+a\cdot_\sigma b=\sum\sigma(a_{(1)},b_{(1)})a_{(2)}b_{(2)}\sigma^{-1}(a_{(3)},b_{(3)}).
+\]
+Thus ``cocycle twist'' here means this multiplication deformation by a functional cocycle.
+
+\textbf{Conjecture 1 (supplied source).} For every finite-dimensional pointed Hopf algebra \(H\) over \(\C\), with \(G=G(H)\) and infinitesimal braiding \(V\), there exists a normalized convolution-invertible Hopf \(2\)-cocycle \(\sigma\) on \(\mathcal B(V)\#\C G\) and an isomorphism of Hopf algebras
+\[
+H\cong\bigl(\mathcal B(V)\#\C G\bigr)_\sigma.
+\]
+In particular, \(\operatorname{gr}H\cong\mathcal B(V)\#\C G\) is not an additional hypothesis of this conjecture; the source separates that issue from the deformation question below.
+
+\textbf{Two constituent questions in the source.} Independently, let \(G\) be a group and let \(V\) be a Yetter--Drinfeld module over \(\C G\) with \(\dim\mathcal B(V)<\infty\).
+\begin{enumerate}
+\item Is \(\mathcal B(V)\) the only finite-dimensional post-Nichols algebra of \(V\)? Using the usual coradically graded convention, a post-Nichols algebra here is a connected graded braided Hopf algebra \(S\) in this Yetter--Drinfeld category, with \(S_1\cong V\), whose grading is its coradical grading. The question asks whether every such finite-dimensional \(S\) is isomorphic to \(\mathcal B(V)\), compatibly with its specified degree-one part; equivalently, whether it is generated in degree one. The supplied excerpt does not itself define ``post-Nichols algebra'', so this convention requires source review.
+\item For every finite-dimensional pointed Hopf algebra \(H\) satisfying \(\operatorname{gr}H\cong\mathcal B(V)\#\C G\), is \(H\) a cocycle deformation of this bosonization as above? Such an \(H\) is called a lifting. The finite-dimensional lifting setting forces the relevant group \(G\) to be finite.
+\end{enumerate}
+
+\textbf{Supplied qualifications.} The excerpt reports affirmative answers to both questions when \(G\) is abelian and for every \(V\) then known to the source; the latter phrase does not specify a quantified class. It reports a negative answer to the first question in positive characteristic, which lies outside the present ground field \(\C\). For the first question, it cites report reference [7] for the abelian case and a strategy in [5, Proposition 5.4] requiring defining relations of \(\mathcal B(V)\); it says alternative proofs [13] and [10] still require some relations and asks whether a proof avoiding this information exists. For the second question, it cites [8] for the abelian case, says known proofs again depend on defining relations, and requests a more abstract proof. It also reports that when \(G\) is finite abelian and \(\gcd(|G|,210)=1\), relations of every lifting can be described explicitly [6]; beyond this case, several liftings had been computed but their relations were described as complicated. These are supplied source qualifications, not independently verified results or a new literature assessment.
+\subsection{Short English statement}
+The conjecture asks whether every finite-dimensional pointed Hopf algebra over \(\C\) is obtained from the Nichols algebra of its infinitesimal braiding, combined with its group algebra, by a convolution-invertible Hopf \(2\)-cocycle deformation. The source separates generation in degree one from deformation of liftings and also asks for proofs avoiding explicit defining relations. Its open-status label and reported special cases are supplied assessments requiring human review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005774\), source problem code \texttt{catalogue entry}, title ``Cocycle-Twist Classification of Pointed Hopf Algebras'', in the Oberwolfach Reports Open Problems collection.
+\item \emph{Mini-Workshop: Bridging Number Theory and Nichols Algebras via Deformations} (2024), \emph{Oberwolfach Reports}, pp.\ 235--272, DOI \texttt{10.4171/owr/2024/5}. Supplied primary-source link, also listed as ``original OWR report'' among the literature sources: \url{https://doi.org/10.4171/owr/2024/5}.
+\item The supplied excerpt places Conjecture 1 and Questions 1--2 in material headed ``Some applications of Nichols algebras'' with the name Nicol\'as Andruskiewitsch. The registry does not supply a separate proposer; this attribution does not establish sole authorship of the conjecture.
+\item Andruskiewitsch--Angiono--Garc\'ia Iglesias--Masuoka--Vay, \emph{Lifting via cocycle deformation}. Supplied literature-source link: \url{https://arxiv.org/abs/1212.5279}.
+\item Internal reference labels retained from the supplied report excerpt: [7], [5, Proposition 5.4], [13], [10], [8], and [6]. Their bibliographic entries were not supplied, and no identification with the separately listed paper is assumed.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the general conjecture open and unresolved, with established cases for abelian groups and several known Nichols-algebra families. This is supplied dated curation, not an independently verified literature assessment. The record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry gives statement status \texttt{corrected\_verified} and says the statement was reconstructed and checked against the official report. This is a supplied verification claim; the present statement-only draft does not independently verify that claim or establish mathematical correctness.
+\end{itemize}
+\end{document}

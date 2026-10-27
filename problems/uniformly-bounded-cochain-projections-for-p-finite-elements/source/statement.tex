@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001420}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks about cochain projections for the \(p\)-version finite-element method and reports the conjecture that such projections do not exist in general. It does not specify the domain, boundary conditions, or admissible finite-element subcomplexes. The following gives a precise template for the requested property; these unspecified data must be fixed before it becomes a fully determined problem.
+
+For a chosen domain \(\Omega\subseteq\R^n\), let \(H^k\) be the relevant \(L^2\) space of differential \(k\)-forms, and let
+\[
+ d^k:D^k\subseteq H^k\longrightarrow H^{k+1},\qquad 0\leq k<n,
+\]
+be the exterior derivative with the chosen operator domains and boundary conditions. Assume these spaces form a de Rham complex: \(d^k(D^k)\subseteq D^{k+1}\) and \(d^{k+1}d^k=0\) wherever applicable. Set \(D^n=H^n\). For polynomial-degree indices \(p\in\N_{\geq1}\), a conforming finite-dimensional subcomplex consists of spaces \(V_p^k\subseteq D^k\) satisfying
+\[
+ d^k(V_p^k)\subseteq V_p^{k+1}\qquad(0\leq k<n).
+\]
+Here \(p\) indexes increasing polynomial degree in the \(p\)-version; the precise polynomial spaces and mesh are not supplied.
+
+A cochain projection onto this subcomplex is a collection of linear maps
+\[
+ \pi_p^k:D^k\longrightarrow V_p^k\qquad(0\leq k\leq n)
+\]
+such that
+\[
+ \pi_p^k v=v\quad(v\in V_p^k),\qquad
+ d^k\pi_p^k u=\pi_p^{k+1}d^k u\quad(u\in D^k,\ 0\leq k<n).
+\]
+The requested \(p\)-uniform \(L^2\) boundedness means that, for the chosen family of subcomplexes, there exist such maps and a constant \(C<\infty\), independent of \(p\), with
+\[
+ \|\pi_p^k u\|_{L^2(\Omega)}\leq C\|u\|_{L^2(\Omega)}
+ \qquad
+ (p\geq1,\ 0\leq k\leq n,\ u\in D^k).
+\]
+For fixed finite \(n\), using one constant for all degrees is equivalent to allowing a separate \(p\)-independent constant in each degree. If the operator domains are dense in their respective \(L^2\) spaces, these bounds also give bounded extensions to those spaces.
+
+\textbf{Question and supplied conjecture.} For the intended suitable \(p\)-version finite-element subcomplexes, do cochain projections satisfying the displayed identities and bound exist? The original statement reports the conjecture that they do not exist in general. Interpreted as failure of a general existence assertion, this would require an admissible family for which no such uniformly bounded collection exists; it does not assert failure for every family. Because the admissible class and analytic setting are absent, this interpretation remains a formulation template requiring review.
+\subsection{Short English statement}
+Can one project onto the intended finite-element de Rham subcomplexes while commuting with the exterior derivative and keeping the \(L^2\) operator norms bounded independently of polynomial degree \(p\)? The supplied record reports a conjecture of nonexistence in general, but leaves the domain, boundary conditions, and admissible families unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30001420\), source problem code \texttt{catalogue entry}, entitled \emph{Uniformly Bounded Cochain Projections for p-Finite Elements}, in the Oberwolfach Reports Open Problems collection. The record assigns proposed year 2010 and names no individual proposer.
+\item \emph{Computational Electromagnetism and Acoustics} (2010), Oberwolfach Reports, pp.\ 415--519, DOI 10.4171/owr/2010/10. Supplied report reference: \url{https://doi.org/10.4171/owr/2010/10}. The supplied background describes Oberwolfach Reports as records of mathematical workshops and their open-problem discussions.
+\item Boffi--Costabel--Dauge--Demkowicz--Hiptmair, 2011, as identified in the supplied literature sources: \url{https://costabel.perso.math.cnrs.fr/publis/BoCoDaDeHi_pub.pdf}. No full bibliographic title or precise supporting passage is supplied.
+\item Supplied literature assessment, checked on \texttt{2026-08-21}: the record labels the problem open, reports substantial progress on \(p\)-version discrete compactness, and states that the cited primary analysis still describes the existence of \(p\)-uniformly \(L^2\)-bounded cochain projections on suitable de Rham subcomplexes as open. This is supplied dated curation, not independently verified literature assessment; the background expressly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports comparison with the official Oberwolfach report, with notation, context, and question form normalized without changing the source-level claim. This is supplied verification metadata, not verification performed for this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003537}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) denote the fixed Euclidean dimension, and let \(S^{n-1}\subset\R^n\) carry surface measure \(\sigma\). The supplied record does not specify the intended range of dimensions. Let \(\Omega\in L^\infty(S^{n-1})\) satisfy
+\[
+\int_{S^{n-1}}\Omega(\theta)\,\dd\sigma(\theta)=0.
+\]
+Using the usual radial truncation convention, define
+\[
+T_{\Omega,\varepsilon}f(x)
+=\int_{|y|>\varepsilon}\frac{\Omega(y/|y|)}{|y|^n}f(x-y)\,\dd y,
+\qquad \varepsilon>0,
+\]
+and
+\[
+T_\Omega f(x)=\lim_{\varepsilon\downarrow0}T_{\Omega,\varepsilon}f(x),
+\qquad
+T_\Omega^\star f(x)=\sup_{\varepsilon>0}|T_{\Omega,\varepsilon}f(x)|.
+\]
+The principal-value formula is initially interpreted on smooth compactly supported functions wherever the limit exists; the weighted operator norm refers to the corresponding bounded extension. The record names these operators without specifying their truncation convention.
+
+A weight \(w\) is a measurable function positive and finite almost everywhere, with \(w,w^{-1}\in L^1_{\mathrm{loc}}(\R^n)\). Define
+\[
+[w]_{A_2}=\sup_Q
+\left(\frac{1}{|Q|}\int_Qw(x)\,\dd x\right)
+\left(\frac{1}{|Q|}\int_Qw(x)^{-1}\,\dd x\right),
+\]
+where the supremum is over cubes with sides parallel to the coordinate axes. Write \(w\in A_2\) when this quantity is finite, and set
+\[
+\|f\|_{L^2(w)}=\left(\int_{\R^n}|f(x)|^2w(x)\,\dd x\right)^{1/2}.
+\]
+
+\begin{enumerate}
+\item For each admissible fixed \(n\) and \(\Omega\), does there exist a finite constant \(C_{n,\Omega}\), independent of \(w\), such that for every \(w\in A_2\),
+\[
+\|T_\Omega\|_{L^2(w)\to L^2(w)}\le C_{n,\Omega}[w]_{A_2}?
+\]
+The supplied statement asks to replace the quadratic dependence \([w]_{A_2}^2\) by linear dependence. It does not specify the dependence of the implicit constant on \(\Omega\). In particular, the stronger uniform formulation \(C_{n,\Omega}=C_n\|\Omega\|_{L^\infty(S^{n-1})}\) should be distinguished from the fixed-kernel formulation displayed here.
+\item Is \(T_\Omega^\star\) of weak type \((1,1)\) with respect to Lebesgue measure? Explicitly, for each admissible fixed \(n\) and \(\Omega\), does there exist a finite constant \(A_{n,\Omega}\) such that for every \(f\in L^1(\R^n)\) and every \(\lambda>0\),
+\[
+\bigl|\{x\in\R^n:T_\Omega^\star f(x)>\lambda\}\bigr|
+\le \frac{A_{n,\Omega}}{\lambda}\|f\|_{L^1(\R^n)}?
+\]
+\end{enumerate}
+The supplied dated curation labels the combined record partially solved, attributes resolution of the second question to Lai, and describes the first question as remaining open with quadratic bounds as the general benchmark. These are supplied literature assessments, not independently verified conclusions of this draft.
+\subsection{Short English statement}
+For a bounded mean-zero angular kernel, ask whether its rough homogeneous singular integral has a weighted \(L^2\) bound linear in the \(A_2\) characteristic, and whether its maximal truncation satisfies an unweighted weak \((1,1)\) estimate. The supplied curation attributes a solution of the endpoint question to Lai and leaves the linear weighted bound open; that assessment requires independent verification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30003537\), source problem code \texttt{catalogue entry}, title: \emph{Sharp Weighted Bounds for Rough Singular Integrals}; collection: Oberwolfach Reports Open Problems. The record supplies no individual proposer.
+\item Supplied report citation: \emph{Real Analysis, Harmonic Analysis, and Applications} (2018), Oberwolfach Reports, pp.~2101--2164, DOI \texttt{10.4171/owr/2017/34}. \url{https://doi.org/10.4171/owr/2017/34}. The record gives proposed year 2017; the relationship between that year and the citation's 2018 date is not explained.
+\item Supplied literature reference: Hyt\"onen--Roncal--Tapiola, ``quantitative rough bounds.'' \url{https://arxiv.org/abs/1510.05789}.
+\item Supplied literature reference: Lai, ``maximal rough singular integral endpoint.'' \url{https://arxiv.org/abs/2508.17737}.
+\item Literature assessment checked at \texttt{2026-08-21}: supplied dated curation, not independently verified. It labels the record partially solved, states that Lai resolved the maximal weak-type \((1,1)\) question, and states that linear \(A_2\) dependence remains open while quadratic bounds remain the general benchmark. The background expressly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

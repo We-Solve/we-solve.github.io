@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005230}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer \(d\), let \(\Z^d\) denote the integer lattice, with nearest-neighbour edges between vertices whose difference has \(\ell^1\)-norm one. Define its Bernoulli site-percolation threshold by
+\[
+p_c^{\mathrm{site}}(d)=\inf\bigl\{q\in[0,1]:\mathbb P_q(\text{the origin belongs to an infinite open cluster})>0\bigr\},
+\]
+where under \(\mathbb P_q\), vertices are independently open with probability \(q\).
+
+The supplied record concerns hostile-environment first-passage percolation (FPPHE) on \(\Z^d\), with type 1 growing from the origin, type 2 seeds of density \(p\), and a type 2 growth parameter \(\lambda\). The excerpt uses a rate-one normalization for comparison with type 1 growth. It does not supply the full stochastic construction: the seed law, passage-time distributions and dependence, activation mechanism, competition rules, and admissible parameter endpoints are absent. Consequently, a uniquely specified probability law cannot be reconstructed from this record alone.
+
+To express the intended question conditionally, fix a completion \(\mathcal M\) of these missing model specifications, let \(\mathbb P^{\mathcal M}_{d,p,\lambda}\) be its law, and let \(I_i(t)\subseteq\Z^d\) be the vertices occupied by type \(i\) at time \(t\). A candidate definition of coexistence is
+\[
+\mathcal C=\left\{\left|\bigcup_{t\geq0}I_1(t)\right|=\infty\right\}\cap
+\left\{\left|\bigcup_{t\geq0}I_2(t)\right|=\infty\right\}.
+\]
+Here inactive seeds must be distinguished from occupied type 2 vertices if the intended model requires that distinction. The source does not define coexistence or survival, so this candidate must be checked against the original model before acceptance.
+
+\textbf{Requested statement, conditional on those specifications.} Determine whether admissible parameters \(p,\lambda\) exist such that
+\[
+\mathbb P^{\mathcal M}_{2,p,\lambda}(\mathcal C)>0.
+\]
+Also determine a coexistence regime satisfying
+\[
+p<p_c^{\mathrm{site}}(d),\qquad
+\mathbb P^{\mathcal M}_{d,p,\lambda}(\mathcal C)>0.
+\]
+The source does not specify whether the second request is for every \(p\) below the threshold, for some subinterval, or for some parameters, nor whether ``in any dimension'' means each dimension in an intended range or some dimension. These quantifiers remain unresolved; the displayed conditions do not settle them.
+
+\textbf{Supplied contextual qualifications.} The excerpt reports type 1 extinction when \(p>1-p_c^{\mathrm{site}}(d)\), on the stated ground that the origin is almost surely confined to a finite cluster of vertices without type 2 seeds. It also reports extinction for \(\lambda\geq1\) for all \(p\), and more strongly asserts that, for some \(\varepsilon=\varepsilon(d,p)>0\), type 1 growth is contained in first-passage percolation of rate \(1-\varepsilon\), yielding extinction for \(\lambda>1-\varepsilon\). It attributes the comparison to van den Berg and Kesten, reference [1]. These are supplied contextual assertions, not independently verified facts; their seed-density restrictions and endpoint conventions are missing. In particular, the literal phrase ``for all \(p\)'' requires clarification at \(p=0\).
+
+The excerpt says that its Theorem 2 treats small \(p\), that monotonicity is not known, and that survival of type 1 when \(\lambda\) is made small is naturally expected. Its subsequent purported confirmation is truncated. It additionally reports substantially different behaviour on hyperbolic and non-amenable graphs: positive-probability type 2 survival for any \(p\) and \(\lambda\), and an analogue of Theorem 2, citing reference [3]. No graph hypotheses, parameter restrictions, theorem statement, or full reference [3] are supplied. These remarks are background and do not specify the lattice coexistence problem.
+\subsection{Short English statement}
+The problem asks whether both types can grow indefinitely with positive probability in planar hostile-environment first-passage percolation, and seeks a coexistence regime with seed density \(p<p_c^{\mathrm{site}}(d)\). The supplied record leaves the model construction, the exact coexistence definition, and the second question's quantifiers incomplete. Its open-status label and higher-dimensional results are supplied dated curation, requiring independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005230\), source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is identified; the supplied proposed year is 2022. The record labels the problem open and its statement \texttt{corrected\_verified}; its verification note says only formula delimiters, notation, grammar, and typography were repaired while preserving mathematical content and scope. This is supplied registry metadata, not independent mathematical verification.
+\item Supplied report citation: \emph{Large Scale Stochastic Dynamics (2023)}, Oberwolfach Reports, DOI 10.4171/owr/2022/41, pp. 2399--2466. \url{https://doi.org/10.4171/owr/2022/41}. The supplied background describes Oberwolfach Reports as records of mathematical workshops and their open-problem discussions. The citation's 2023 title date and the record's proposed year 2022 are retained as supplied.
+\item Finn--Stauffer, hostile-environment first-passage percolation, supplied literature reference: \url{https://ems.press/journals/jems/articles/8736482}.
+\item Finn--Stauffer, published PDF, supplied literature reference: \url{https://content.ems.press/assets/public/full-texts/serials/jems/no-issue/8736482/online-first/10.4171-jems-1309-online-first.pdf}.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem open and reports coexistence proved in dimensions at least three, while the planar case and the full low-density coexistence regime requested here remain unresolved. This assessment is supplied dated curation derived from the OWR record, not independently verified; its time-sensitive status and cited claims require independent checking.
+\item The original excerpt attributes a growth comparison to van den Berg and Kesten, reference [1], and statements about hyperbolic and non-amenable graphs to reference [3]. It also invokes Theorem 2. Their complete bibliographic details and theorem statements are not supplied, so these references cannot be resolved from this record alone.
+\end{itemize}
+\end{document}

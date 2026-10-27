@@ -1,0 +1,109 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003788}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record poses four questions. Several parameters and technical conventions are missing; the formulations below expose these omissions rather than resolve them by assumption.
+
+\begin{enumerate}
+\item \textbf{Coarse embedding of function spaces.} For a specified exponent \(1\leq p<\infty\) and scalar field \(\mathbb K\in\{\R,\C\}\), let \(L_p([0,1];\mathbb K)\) be the space of Lebesgue-measurable functions modulo equality almost everywhere with norm
+\[
+\|f\|_p=\left(\int_0^1 |f(t)|^p\,\dd t\right)^{1/p},
+\]
+and let \(\ell_p(\mathbb K)\) be the space of sequences \(a=(a_j)_{j\geq1}\) with \(\|a\|_p=(\sum_{j\geq1}|a_j|^p)^{1/p}<\infty\). A map \(F:X\to Y\) between metric spaces is a coarse embedding if there are nondecreasing functions \(\rho_-,\rho_+:[0,\infty)\to[0,\infty)\), with \(\rho_-(r)\to\infty\) as \(r\to\infty\), such that
+\[
+\rho_-(d_X(x,x'))\leq d_Y(F(x),F(x'))\leq\rho_+(d_X(x,x'))
+\quad(x,x'\in X).
+\]
+The question is whether such a map
+\[
+F:L_p([0,1])\longrightarrow\ell_p
+\]
+exists. The source does not specify the range or quantifier for \(p\), the scalar field, or whether endpoint or quasi-Banach cases are intended. The displayed definitions cover the stated conventional finite Banach-exponent setting only; they do not supply a missing restriction on the source question.
+
+\item \textbf{Warped cones and walls.} The source asks whether there exist a free group \(\Gamma\), a manifold \(M\), a measure \(\mu\) on \(M\), and a free measure-preserving action \(\Gamma\curvearrowright(M,\mu)\) whose warped cone admits a wall structure. Measure preservation means \(\mu(gA)=\mu(A)\) for every measurable \(A\subseteq M\) and every \(g\in\Gamma\). Pointwise freeness means that \(gx=x\) implies \(g=e\); essential freeness would require this only for almost every \(x\).
+
+For orientation, given a metric \(d_M\), a finite symmetric generating set \(S\) of \(\Gamma\), and suitable action regularity, the usual warped metric on a level \(t\geq1\) is the largest metric \(d_t\) satisfying
+\[
+d_t(x,y)\leq t\,d_M(x,y),\qquad d_t(x,sx)\leq1
+\quad(x,y\in M,\ s\in S).
+\]
+A wall on a set \(X\) is an unordered partition \(\{H,X\setminus H\}\) into two nonempty parts. In a measured wall structure, a measure on an appropriate measurable collection of walls gives a wall pseudometric by measuring the walls that separate two points. Merely possessing walls does not state any compatibility with the warped metric.
+
+The source leaves unspecified the rank of \(\Gamma\), pointwise versus essential freeness, the dimension and compactness of \(M\), the metric, the measure, action regularity, the full-cone versus level-family convention, and the required meaning and metric compatibility of a wall structure. Thus these definitions explain the question but do not determine a unique precise existence assertion.
+
+\item \textbf{Slow growth of a box space.} Under the usual normal-filtration convention, take a finitely generated residually finite group \(\Gamma\), a finite symmetric generating set \(S\), and finite-index normal subgroups
+\[
+\Gamma\geq N_1\geq N_2\geq\cdots,
+\qquad \bigcap_{m\geq1}N_m=\{e\}.
+\]
+Its box space is the coarse disjoint union of the finite Cayley graphs \(\operatorname{Cay}(\Gamma/N_m,\overline S)\), each with its graph metric, with distinct components separated by distances tending to infinity. Bounded successive indices would mean
+\[
+\exists C<\infty\ \forall m\geq1:\quad [N_m:N_{m+1}]\leq C.
+\]
+The source asks for a slowly growing box space with bounded successive indices. It does not define ``slowly growing,'' identify the quantity whose growth is controlled, or prescribe a comparison rate. It also does not specify the underlying group or whether additional filtration conditions are required. Consequently, the bounded-index condition can be written explicitly, but the requested growth condition cannot be supplied from this record.
+
+\item \textbf{Superexpanders from special linear groups.} Write
+\[
+G_m=\operatorname{SL}(n_m,\mathbb F_{p_m})
+=\{A\in M_{n_m}(\mathbb F_{p_m}):\det A=1\},
+\]
+where \(p_m\) is prime and \(n_m\) is a positive integer. For a symmetric generating set \(S_m\subseteq G_m\setminus\{e\}\), the undirected Cayley graph has vertex set \(G_m\) and edges \(\{g,gs\}\) for \(g\in G_m\), \(s\in S_m\). The requested fixed-cardinality condition is
+\[
+\exists k<\infty\ \forall m:\quad |S_m|=k,
+\qquad \langle S_m\rangle=G_m.
+\]
+The question asks whether generating sets of fixed cardinality can be chosen so that these Cayley graphs form a superexpander family.
+
+To describe the terminology, a family of finite graphs \((X_m)\) is an expander family if its vertex counts tend to infinity, its degrees are uniformly bounded, and there exists \(h>0\) such that
+\[
+|\partial_E A|\geq h|A|
+\quad\text{whenever }A\subseteq V(X_m),\quad
+0<|A|\leq |V(X_m)|/2,
+\]
+uniformly in \(m\), where \(\partial_E A\) consists of edges with exactly one endpoint in \(A\). The usual coarse-geometric superexpander requirement adds failure of uniform coarse embedding into every uniformly convex Banach space. Here a Banach space \(B\) is uniformly convex if, for every \(0<\varepsilon\leq2\), there exists \(\delta>0\) such that
+\[
+\|u\|,\|v\|\leq1,\quad\|u-v\|\geq\varepsilon
+\quad\Longrightarrow\quad
+\left\|\frac{u+v}{2}\right\|\leq1-\delta.
+\]
+A uniform coarse embedding of \((X_m)\) into \(B\) means maps \(f_m:V(X_m)\to B\) satisfying the coarse-embedding inequalities with the same control functions \(\rho_-,\rho_+\) for every \(m\).
+
+The supplied source does not state its precise superexpander convention; in particular, a uniform nonlinear Poincar\'e-inequality requirement must not be silently substituted for the coarse nonembedding requirement. Nor does it specify whether \((n_m,p_m)\) is prescribed or chosen, whether the assertion is universal over such sequences, which parameters grow, or explicitly require \(|G_m|\to\infty\). Symmetry of the generating sets is likewise a convention used here to explain undirected Cayley graphs, not an additional verified source hypothesis.
+\end{enumerate}
+
+All four items are statement-only drafts. The supplied record labels the compound problem partially solved, but it does not supply precise statements of the asserted affirmative subcases.
+\subsection{Short English statement}
+The record collects four questions: whether \(L_p([0,1])\) coarsely embeds into \(\ell_p\); whether a free measure-preserving free-group action on a manifold has a warped cone with suitable walls; whether a slowly growing box space can have bounded successive subgroup indices; and whether special linear groups over prime fields admit generating sets of fixed cardinality producing superexpanders. Missing exponent restrictions, growth conditions, geometric conventions, and sequence quantifiers prevent a single fully specified formulation. The supplied partially solved label and literature assessment require independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003788\), title ``Collected Coarse-Geometric Embedding Problems,'' source code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year \(2018\) and names no individual proposer.
+\item Supplied report citation: \emph{Mini-Workshop: Superexpanders and Their Coarse Geometry (2019)}, Oberwolfach Reports, pp.\ 1117--1160, DOI \texttt{10.4171/owr/2018/19}. Supplied source link: \url{https://doi.org/10.4171/owr/2018/19}. The citation's \(2019\) year and the record's \(2018\) proposed year are retained without resolving their relationship.
+\item Supplied literature source, ``workshop report'': \url{https://ems.press/content/serial-article-files/46739}.
+\item Supplied literature source, ``straightening warped cones'': \url{https://arxiv.org/abs/1705.06725}.
+\item Supplied literature source, ``coarse embeddings into \(\ell_q\)'': \url{https://arxiv.org/abs/1210.0588}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: this is supplied dated curation, not independently verified. It labels the compound problem partially solved, reports affirmative subcases involving selected prime-power quotients and profinite-completion warped cones, and describes the manifold wall-structure, slowly-growing-box-space, general prime-field superexpander, and \(L_p\)-to-\(\ell_p\) questions as remaining open. The supplied background explicitly calls this a literature triage and requests independent verification of time-sensitive status and cited claims. It does not specify the hypotheses or conclusions of the reported affirmative subcases.
+\item The registry labels its statement \texttt{corrected\_verified} and states that mathematical content was preserved while notation, typography, and omitted definitions were repaired. This is a supplied registry qualification, not independent mathematical or bibliographic verification of this draft. No external source was visited in preparing it.
+\end{itemize}
+\end{document}

@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20003333}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source is not a standalone Conjecture 41. It says numerical experiments [81,82] support that conjecture and begins a sentence predicting a random-wave central limit theorem. The supplied verification says the latter concerns convergence in Conjecture 38 and continues in AIM-OTHER-0141. Neither conjecture's full statement, random variable, probability law or normalization is supplied here. The line-break hyphen in ``convergence'' is editorial noise, not mathematical content.
+
+The aid supplies a probabilistic diagnostic rather than an eigenfunction theorem. Let $(Y_1,\ldots,Y_N)$ be jointly real Gaussian, centered with unit variances, and let $R_{k\ell}=\E(Y_kY_\ell)$. For real deterministic weights $w_k$, its exact identity is
+\[
+ \operatorname{Var}\left(\sum_kw_k(Y_k^2-1)\right)
+ =2\sum_{k,\ell}w_kw_\ell R_{k\ell}^2.
+\]
+For equal weights $1/N$, define
+\[
+ N_{\mathrm{eff}}=\frac{N^2}{\sum_{k,\ell}R_{k\ell}^2},
+ \qquad
+ \operatorname{Var}\left(\frac1N\sum_k(Y_k^2-1)\right)
+ =\frac2{N_{\mathrm{eff}}}.
+\]
+This is a variance-based correlation-cell diagnostic, not by itself a CLT criterion or a claim that every dependence structure is Gaussian.
+
+The aid's explicit block construction uses one fixed infinite iid sequence $Z_1,Z_2,\ldots$ of standard real Gaussians. For $M$ blocks of a common positive integer size $b=b_M$, put $N=Mb$ and
+\[
+ Y_{(j-1)b+r}=Z_j\quad(1\leq j\leq M,\ 1\leq r\leq b).
+\]
+The empirical one-point distribution is exactly that of $Z_1,\ldots,Z_M$ and converges to the Gaussian law. The quadratic average is
+\[
+ Q_{M,b}=\frac1N\sum_{k=1}^N(Y_k^2-1)
+ =\frac1M\sum_{j=1}^M(Z_j^2-1),
+\]
+so it tends to zero almost surely and $\sqrt M\,Q_{M,b}$ converges in distribution to a centered normal of variance two. Here $R_{k\ell}$ is one within a block and zero between blocks, giving $N_{\mathrm{eff}}=M$.
+
+The nominal $\sqrt N$ scaling instead has variance $2b$: for fixed $b$ its limit has that inflated variance, and for $b_M\to\infty$,
+\[
+ \Pr\{|\sqrt{Mb_M}\,Q_{M,b_M}|\leq C\}\longrightarrow0
+ \quad\text{for every fixed }C>0.
+\]
+Thus the nominal statistics are not tight, despite Gaussian one-point empirical laws and qualitative quadratic convergence. General weighted versions require the actual weights: in this model their effective coefficients are the sums of weights within each block, so no arbitrary-weight convergence is asserted from the unweighted calculation alone.
+
+This demonstrates that one-point histograms and qualitative convergence do not determine fluctuation scale or variance without correlation information. It neither constructs actual Laplace eigenfunctions with these block correlations nor refutes the unstated random-wave or arithmetic CLT. The original numerical evidence and unfinished prediction remain attributed context.
+\subsection{Short English statement}
+The record is an evidence sentence and a truncated CLT prediction. The aid’s Gaussian block model shows why matching one-point statistics and qualitative averages is insufficient to identify a fluctuation scale. Its conclusion concerns a correlation model, not a proved or disproved eigenfunction conjecture.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20003333, source code catalogue entry; \texttt{aim-other-notes.json}, notes[139], tagged conjecture despite being context.
+\item AIM, \emph{Emerging applications of measure rigidity}, numerical-evidence sentence for Conjecture 41 and beginning of the Conjecture 38 CLT discussion: \url{https://aimath.org/WWN/measrigid/measrigid.pdf}. The supplied verification places the continuation in AIM-OTHER-0141.
+\item Original references [81,82] for numerical experiments have no full bibliographic entries in this record. The Gaussian identity and block construction appear in the research summary without a separate full citation.
+\item Machine-generated research attempt 1: context only, not a problem at the run, rigor labelled ``proved,'' low novelty confidence; registry open/open-triage. Not peer reviewed; independently verify before citation. Registry updated 14 August 2026.
+\end{itemize}
+\end{document}

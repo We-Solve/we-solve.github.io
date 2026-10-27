@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002809}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(I=\{1,2,3,4\}\) and \(p=(p_1,p_2,p_3,p_4)\in(\R^2)^4\). The desired distances \(\bar d_{ij}=\bar d_{ji}\), for \(1\leq i<j\leq4\), are the pairwise Euclidean distances of a desired planar configuration \(q=(q_1,q_2,q_3,q_4)\). The source describes this configuration as either a general quadrilateral or a triangle with the fourth agent in its interior. In the latter case, after relabelling, \(q_1,q_2,q_3\) are noncollinear and \(q_4\in\operatorname{int}\operatorname{conv}\{q_1,q_2,q_3\}\). The meaning of ``general quadrilateral,'' including any convexity or genericity requirements, is not specified.
+
+For distinct indices define
+\[
+e_{ij}(p)=\lVert p_i-p_j\rVert^2-\bar d_{ij}^{\,2},\qquad
+F_i(p)=\sum_{j\in I\setminus\{i\}}e_{ij}(p)(p_j-p_i).
+\]
+Consider the system \(\dot p_i=F_i(p)\) for every \(i\in I\). An equilibrium is a configuration \(p^*\) satisfying \(F_i(p^*)=0\) for all \(i\); it is incorrect if \(e_{ij}(p^*)\neq0\) for at least one pair \(i<j\). No restriction excluding collisions or collinear configurations is supplied for the actual equilibrium \(p^*\).
+
+\textbf{Source question.} For every desired configuration of either stated type, and every incorrect equilibrium \(p^*\) of the associated system, is \(p^*\) a saddle point?
+
+The term ``saddle point'' needs clarification. The system has the gradient representation
+\[
+V(p)=\frac14\sum_{1\leq i<j\leq4}e_{ij}(p)^2,
+\qquad F(p)=-\nabla V(p).
+\]
+One possible precise interpretation of the requested conclusion is
+\[
+\forall p^*\in(\R^2)^4,\quad
+\left[F(p^*)=0\ \text{and}\ \exists i<j:\ e_{ij}(p^*)\neq0\right]
+\Longrightarrow
+\exists v\in\R^8\setminus\{0\}:\
+v^{\mathsf T}\nabla^2V(p^*)v<0.
+\]
+This is the negative-curvature interpretation, equivalently a positive eigenvalue of \(DF(p^*)\). It is presented conditionally, not as a resolved interpretation of the source: requiring both positive and negative Hessian directions, or a nonlinear saddle property, can give different statements. Translations and rotations preserve the distance errors, so the treatment of symmetry directions also needs to be specified; hyperbolicity in the full configuration space must not be silently assumed.
+\subsection{Short English statement}
+Four agents in the plane move according to errors in all six desired pairwise distances. The question asks whether every equilibrium that fails to realize those distances is a saddle when the desired formation is a general quadrilateral or a triangle containing the fourth agent. The source leaves the precise quadrilateral class and the meaning of saddle unresolved. Its open status and literature assessment are supplied curation, not independently verified conclusions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record for permanent ID \(30002809\), source problem code \texttt{catalogue entry}, titled ``Saddle Structure of Incorrect Formation Equilibria,'' in the Oberwolfach Reports Open Problems collection. The supplied proposed year is 2015; no individual proposer is identified.
+\item Supplied primary provenance: \emph{Control Theory: A Mathematical Perspective on Cyber-Physical Systems} (2015), Oberwolfach Reports, pp.~597--659, DOI \texttt{10.4171/owr/2015/12}. \url{https://doi.org/10.4171/owr/2015/12}. The record describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions; no problem-specific page is supplied.
+\item Supplied literature reference labelled ``Summers, Yu, Dasgupta and Anderson'': \url{https://arxiv.org/abs/1307.2089}.
+\item Supplied literature reference labelled ``Later K4 formation analysis'': \url{https://openresearch-repository.anu.edu.au/bitstream/1885/198778/6/201704\%20Kn\%20formation\%20TAC.pdf}.
+\item Supplied literature check date: \texttt{2026-08-21}. The supplied status is ``open.'' The supplied assessment says that known analyses show incorrect rectangular equilibria are saddles, but that no general proof covers every incorrect equilibrium for the quadrilateral and triangle-with-interior-agent shapes in this record. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; the record explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

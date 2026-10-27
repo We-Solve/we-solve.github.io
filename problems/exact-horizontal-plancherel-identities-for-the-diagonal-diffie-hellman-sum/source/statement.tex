@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001130}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $p$ be prime, $\theta$ a generator of $\F_p^*$, $a,b\in\F_p$, and $e_p(z)=\exp(2\pi i z/p)$. J. Bourgain's source asks for a good upper bound on a sum extracted as $\sum_{x\in\F_p}e_p(a\theta^x+b\theta^{x^2})$. Exponents of $\theta$ naturally live modulo $p-1$, so an index $x\in\F_p$ is not canonical without integer representatives. The coefficient restrictions and desired saving are also unspecified; $(a,b)=(0,0)$ precludes a nontrivial bound valid for all coefficients.
+
+The attached aid distinguishes the periodic and representative conventions:
+\[
+T(a,b)=\sum_{x=0}^{p-2}e_p(a\theta^x+b\theta^{x^2}),\qquad
+S(a,b)=\sum_{x=0}^{p-1}e_p(a\theta^x+b\theta^{x^2}).
+\]
+The first is a sum over $\Z/(p-1)\Z$, and the second fixes the usual representatives of $\F_p$. Their exact endpoint relation is
+\[
+S(a,b)=T(a,b)+e_p(a+b).
+\]
+For every fixed $b$, the aid gives the exact horizontal second moments
+\[
+\sum_{a\in\F_p}|T(a,b)|^2=p(p-1),\qquad
+\sum_{a\in\F_p}|S(a,b)|^2=p(p+2).
+\]
+Consequently, for every $H>0$,
+\[
+\#\{a:|T(a,b)|>H\sqrt p\}\le\frac{p-1}{H^2},\qquad
+\#\{a:|S(a,b)|>H\sqrt p\}\le\frac{p+2}{H^2}.
+\]
+These bounds are uniform in the fixed second coefficient but average over the first; they do not give a square-root bound for every coefficient pair or identify the exceptional coefficients.
+
+The coefficient line $b=0$ is evaluated exactly:
+\[
+T(0,0)=p-1,\quad S(0,0)=p,\qquad
+T(a,0)=-1,\quad S(a,0)=e_p(a)-1\quad(a\ne0).
+\]
+The general worst-case pointwise cancellation requested by the source remains outside these moment and endpoint identities.
+\subsection{Short English statement}
+Bound the mixed exponent sum after fixing its index convention. The supplied aid gives exact second moments and exceptional-set estimates in one coefficient, plus the zero-second-coefficient line, rather than a worst-case pointwise theorem.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001130$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[254]}.
+\item American Institute of Mathematics, \emph{Recent trends in additive combinatorics}, problem 3.18 attributed to J. Bourgain: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. The index and superscripts are extraction damaged; no original remarks or literature references are supplied. No PDF inspection is claimed here.
+\item Attached research attempt 1: partial result, recorded run status unknown, rigor proved, novelty confidence low; registry status partially solved, classification PARTIAL-PROGRESS. Its endpoint-aware identities are machine generated and not peer reviewed; independently verify before citation. No authoritative pointwise-bound reference is supplied.
+\end{itemize}
+\end{document}

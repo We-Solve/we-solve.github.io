@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002287}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix the canonical computable presentation of $R_p=\F_p[t]$ by finite coefficient strings for each prime $p$. Use $\mathcal L_t=\{0,1,+,-,\cdot,t\}$ and positive-existential formulas, equivalently finite polynomial-equation presentations with existential witnesses and finite positive logical combinations. Fix a uniform effective enumeration $W_{p,k,e}$ of computably enumerable subsets of $R_p^k$, for $k\ge1$ and machine index $e\in\omega$.
+
+\textbf{Question 3, Demeyer.} How should one precisely formulate a uniform version of the theorem that recursively enumerable sets over $\F_p[t]$ are Diophantine? The source asks for the formulation itself and does not fix which meaning of uniformity is intended.
+
+\textbf{Supplied hierarchy.} The aid separates:
+\begin{enumerate}
+\item $U_0$: for each fixed prime $p$, every computably enumerable relation on $R_p^k$ has some positive-existential $\mathcal L_t$ definition. This is reported as the established pointwise theorem; it does not itself choose definitions effectively from a characteristic and program.
+\item $U_1$: there is a single total recursive compiler $C(p,k,e)$ returning the syntax of a formula $\varphi_{p,k,e}(x_1,\ldots,x_k)$ such that
+\[
+ x\in W_{p,k,e}\quad\Longleftrightarrow\quad
+ R_p\models\varphi_{p,k,e}(x)
+\]
+for every prime $p$, arity $k\ge1$, index $e$ and tuple $x$. Invalid prime/arity inputs can have a fixed default output. This is effective cross-characteristic uniformity, not asserted to follow merely from $U_0$.
+\item $U_2$: a characteristic-independent formula or polynomial presentation, with specified index and input coding, works across all primes. For a concrete unary universal version one would require a single positive-existential $\Psi(U,X)$ with $\Psi(t^e,x)$ defining $W_{p,1,e}$ in every $R_p$. The source does not choose an exact $U_2$ convention. A single fixed formula gives a compiler, but the reverse implication is not supplied; ``syntactically stronger'' is not a proved strict separation of consistency or truth.
+\end{enumerate}
+
+\textbf{Supplied universal-fiber equivalence for $U_1$.} The aid asserts that $U_1$ is equivalent to an effective choice, from $p$, of one positive-existential universal relation $\Psi_p(U,X)$ whose machine-index fibers satisfy
+\[
+ R_p\models\Psi_p(t^e,x)\quad\Longleftrightarrow\quad x\in W_{p,1,e}.
+\]
+The index is encoded by the \emph{polynomial} $t^e$, not the residue of the integer $e$ in characteristic $p$. Computable selection of $\Psi_p$ is essential; separate existence for each $p$ would not give this equivalence. A universal c.e. relation and a compiler give the forward selection, while the fiber relation and effective arity coding give the reverse compiler. The aid states the equivalence but does not prove existence of the required computable family, so $U_1$ remains a reduction target.
+
+The supplied arity code is the injective polynomial pairing
+\[
+ \pi_p(A,B)=tA^p+B^p.
+\]
+Its two monomial exponent classes are $1$ and $0$ modulo $p$, and iteration reduces finite arities to one. The pairing and the translated program index may depend computably on $p$ and $k$; they are not a fixed characteristic-free exponent formula.
+
+Finally the named coordinate matters to a theorem covering \emph{all} c.e. relations in this canonical presentation: the singleton $\{t\}$ is computable, but without coordinate-fixing parameters it is not invariant under the $\F_p$-automorphism $t\mapsto t+1$, and so is not definable in the pure parameter-free ring language. This identifies a language requirement, not a claim that no other equivalent choice of coordinate parameter could work. The aid reports both the effective and one-formula cross-characteristic goals unproved in the record.
+\subsection{Short English statement}
+Demeyer asks what a uniform Diophantine-representation theorem should mean. The aid distinguishes pointwise representability, a recursive compiler across primes, and a single characteristic-independent formula. It reduces the compiler goal to an effectively selected universal relation with index $t^e$, while keeping that existence goal unproved and the named-coordinate convention explicit.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002287, source code catalogue entry; canonical \texttt{aim-logic-notes.json}, notes[62].
+\item AIM \emph{Problems related to ``Definability and Decidability Problems in Number Theory''}, Question 3 (Demeyer), moderated by T.~Scanlon, notes by J.~Demeyer, September 9--13, 2013, p.~1: \url{https://aimath.org/pastworkshops/definabilityinntproblems.pdf}.
+\item No separate proving citation for the pointwise theorem, compiler equivalence or cross-characteristic status is supplied. DPRM terminology is the aid's description, not an invented publication reference.
+\item Registry research attempt 1, dated 2026-08-14: reduction, rigor ``proved'', novelty confidence low. The explicitly machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000274}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Given a modulus $N$ and prescribed degrees $d_f,d_g$, construct irreducible coprime polynomials
+\[
+ f(x)=\sum_{i=0}^{d_f}a_ix^i,\qquad
+ g(x)=\sum_{j=0}^{d_g}b_jx^j\quad\text{in }\Z[x],
+ \qquad a_{d_f}b_{d_g}\ne0,
+\]
+with a common root modulo $N$ and coefficients of minimal possible absolute size. In the usual nontrivial setting, $N$ is an integer greater than one and the degrees are positive integers; the source does not explicitly specify their admissible ranges or impose compositeness of $N$.
+
+Having a common root means
+\[
+ \exists r\in\Z/N\Z:\qquad f(r)=g(r)=0\quad\text{in }\Z/N\Z.
+\]
+The source does not prescribe $r$, so it is a variable of the construction rather than fixed input. The standard polynomial-selection interpretation of coprime is $\gcd_{\Q[x]}(f,g)=1$. It cannot mean $(f,g)=\Z[x]$ for $N>1$, since a polynomial identity $Af+Bg=1$ with $A,B\in\Z[x]$ would contradict the common-root condition upon evaluation modulo $N$. The intended irreducibility convention and any primitive or content normalization should be checked against the report.
+
+The optimization objective is unresolved. For example, one possible scalar objective would minimize
+\[
+ H(f,g)=\max\bigl(\{|a_i|:0\le i\le d_f\}\cup\{|b_j|:0\le j\le d_g\}\bigr)
+\]
+over all admissible pairs, but the record does not select this objective rather than separate heights, weighted or skewed norms, or another comparison of coefficients. Nor does it supply a conjectural minimum, asymptotic rate in $N$, or computational complexity requirement. Thus the requested construction must retain the prescribed degrees, irreducibility, coprimality, common modular root, and a genuinely optimal coefficient criterion once that criterion is recovered; the example height above is not silently adopted as the source's definition.
+\subsection{Short English statement}
+The problem asks for optimally small integer polynomials of prescribed degrees that are irreducible, coprime over the rationals, and share a root modulo the input modulus. The exact meaning of optimal coefficient size and the admissible input conventions still need specification.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000274, code catalogue entry, ``Minimal-Coefficient Polynomial Selection for the Number Field Sieve.'' Proposed year 2005; proposer unspecified.
+\item \emph{Explicit Methods in Number Theory} (2006), Oberwolfach Reports, pp.\ 1799--1866, DOI 10.4171/owr/2005/32; \url{https://doi.org/10.4171/owr/2005/32}. The displayed report year 2006 differs from the DOI and proposed year 2005.
+\item Supplied reference ``On nonlinear polynomial selection'': \url{https://eprint.iacr.org/2011/292.pdf}.
+\item Supplied reference ``Montgomery polynomial selection'': \url{https://arxiv.org/abs/1412.6011}.
+\item Statement status corrected\_verified; the supplied verification only says TeX commands and variables were enclosed in balanced inline math.
+\item Literature triage checked 2026-08-21: partially solved. It reports effective number-field-sieve constructions and improved bounds for many degree choices, but no complete solution of generally smallest coefficients. This is a dated supplied assessment requiring independent verification. Created 2026-08-25; updated 2026-09-16.
+\item Registry curation by Ulam AI / UnsolvedMath Contributors, CC BY 4.0; underlying report and literature provenance remain as supplied. Unreviewed statement-only draft.
+\end{itemize}
+\end{document}

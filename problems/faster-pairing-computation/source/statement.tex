@@ -1,0 +1,45 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800052}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A standard cryptographic pairing is an efficiently computable nondegenerate bilinear map \(e:G_1\times G_2\to G_T\), often with cyclic source groups of prime order \(r\) and \(G_T\) a subgroup of a finite-field multiplicative group. In additive source notation, bilinearity means
+\[
+ e(aP,bQ)=e(P,Q)^{ab}.
+\]
+Nondegeneracy means neither source factor pairs trivially with every element of the other. Elliptic-curve Tate, Weil, ate and related constructions provide the intended context, but the source names no fixed pairing or parameter family.
+
+The task is to speed up pairing evaluation. A precise algorithmic comparison must fix whether the same pairing value is required or an application-equivalent alternative is permitted, the curve/field parameters and embedding degree, the arithmetic and cost model, preprocessing, and benchmark. Shorter Miller loops, final-exponentiation changes, twist arithmetic and field-tower choices optimize different parts of the computation; no one objective or optimal running-time threshold is supplied.
+
+The registry labels the problem solved in the sense of substantial performance advances, not a proof of a best possible algorithm. Its summary credits Miller's base loop, ate/R-ate/optimal pairings, trace-based loop shortening, and implementations including efficient final exponentiation and Barreto--Naehrig-related arithmetic. It also reports modern microsecond timings without hardware, parameter or security-level data, so no universal timing guarantee is inferred. The broad optimization request and its historical solved-status attribution are retained separately from an exact complexity theorem, which is absent.
+\subsection{Short English statement}
+Make cryptographic pairings faster. The source reports major algorithmic and implementation improvements, but does not specify a fixed pairing, parameter set, benchmark or optimality criterion, so its solved label means substantial progress rather than a final complexity bound.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(8800052\), source code catalogue entry; supplied statement, background, and research summary, updated 2026-08-06. Attributed to Tanja Lange.
+\item IPAM, \emph{Workshop on Number Theory and Cryptography---Open Problems} (2006), attachment 6239, PDF page 41, printed slide 39: \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}. Supplied PDF/legacy-PPT visual audit accessed 2026-07-29; it reports 19 inspected surviving attachments.
+\item Miller (1985); Hess--Smart--Vercauteren (2006) on ate pairings; Vercauteren (2010) on optimal pairings; R-ate and trace-loop methods, as named in the summary, without full citations.
+\item Barreto--Naehrig-related work; Granger--Page--Smart, Cryptology ePrint Archive 2006/059; and Devegili and collaborators, as supplied for implementation progress. Exact benchmark data and full publication details are not included.
+\end{itemize}
+\end{document}

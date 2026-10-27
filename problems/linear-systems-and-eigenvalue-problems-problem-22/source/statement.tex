@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800513}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) denote the matrix dimension and let \(\delta\) denote the requested backward-error tolerance. The supplied source does not specify the input field, the admissible matrix class, the range of \(\delta\), or the norm and normalization used to measure backward error. These choices must be supplied before the problem becomes a fully quantified algorithmic statement.
+
+Backward-error diagonalization ordinarily means computing an invertible matrix \(V\) and a diagonal matrix \(D\) such that
+\[
+A+E=VDV^{-1}
+\]
+for a perturbation \(E\) satisfying the prescribed backward-error bound. Backward-error Schur decomposition ordinarily means computing factors satisfying
+\[
+A+E=QTQ^*,\qquad Q^*Q=I,
+\]
+where \(Q^*\) denotes the conjugate transpose. In a complex Schur formulation, \(T\) is upper triangular; in a real Schur formulation, \(Q\) is real orthogonal and \(T\) is upper quasi-triangular, with diagonal blocks of sizes \(1\) and \(2\). The source does not select between these formulations or specify the output field for diagonalization. These identities describe the usual intended factorizations; the source does not specify how rounding of the output factors is incorporated into the backward-error guarantee. It also does not say whether the perturbation bound is absolute, such as \(\lVert E\rVert\leq\delta\), or relative, such as \(\lVert E\rVert\leq\delta\lVert A\rVert\).
+
+\textbf{Requested algorithmic statement (with unresolved specifications).} Give a provable randomized algorithm for backward-error diagonalization or Schur form with running time
+\[
+O\!\left(n^3\log^c(n/\delta)\right)
+\]
+for some fixed constant \(c\), using only
+\[
+O\!\left(\log(n/\delta)\right)
+\]
+bits of precision. The admissible inputs, backward-error guarantee, success probability, computational cost model, and meaning of precision remain unspecified in the supplied formulation; the displayed bounds must therefore be read as the requested targets rather than as a complete formal specification.
+
+The source presents this problem as seeking an improvement over [Banks-et-al-23] for diagonalization and [banks2022global] for Schur form. Its stated motivation is that the best provable algorithms then known require substantially more precision than the numerical-analysis target of \(\log(1/\delta)+c\log n\) bits. The source states that this target has been achieved for Hermitian diagonalization in [shah2025hermitian]. These are supplied literature assessments, not independently verified claims here.
+\subsection{Short English statement}
+Find a provably correct randomized algorithm for backward-error diagonalization or Schur form with \(O(n^3\log^c(n/\delta))\) running time and \(O(\log(n/\delta))\) bits of precision. The source leaves the input domain, error convention, probability guarantee, and computational model unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800513\), exact source problem code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 22.'' The supplied registry attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels it open; this status is supplied metadata, not an independently verified conclusion.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 22. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of access or verification in this draft.
+\item [Banks-et-al-23]: supplied reference label for the diagonalization result that the requested algorithm is intended to improve. No full bibliographic entry or separate URL is supplied.
+\item [banks2022global]: supplied reference label for the Schur-form result that the requested algorithm is intended to improve. No full bibliographic entry or separate URL is supplied.
+\item [shah2025hermitian]: supplied reference label for the claimed attainment of the stated precision target in Hermitian diagonalization. No full bibliographic entry or separate URL is supplied.
+\end{itemize}
+\end{document}

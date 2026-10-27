@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000629}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for connections between ``random sparse polygons'' and Newton polytopes, extended to random Viro diagrams. It gives no random ensemble, statistic or precise meaning of sparse polygons. In the supplied report's interpretation, a finite exponent set \(A\subset\Z^d\) has a Bernoulli-selected support \(S\); the Newton polytope of a polynomial supported on \(S\) is \(P=\operatorname{conv}S\). Independent lift heights induce a regular subdivision, and independent fair signs decorate selected vertices. This model is additional to the literal source, not its unique recovered interpretation.
+
+Condition on a pure \(d\)-dimensional regular triangulation \(T\), with \(N\) top-dimensional simplices. For each top simplex \(\sigma\), its local Viro chart is active when its \(d+1\) vertex signs are not all equal. Put \(Y=\sum_\sigma I_\sigma\), and let \(n_r(T)\) count unordered pairs of distinct top simplices sharing exactly \(r\) vertices. The supplied candidate moment formulas are
+\[
+ \mathbb E[Y\mid T]=(1-2^{-d})N,
+\]
+\[
+ \operatorname{Var}(Y\mid T)=N(1-2^{-d})2^{-d}
+ +2^{1-2d}\sum_{r=2}^dn_r(T)(2^{r-1}-1).
+\]
+Distinct charts sharing zero or one vertex have zero covariance; for \(r\ge2\) the reported covariance is \(2^{-2d}(2^{r-1}-1)\). The sum is empty for \(d=1\). These count active local charts, not connected components or Betti numbers of a global real zero set.
+
+If \(b_v\) is the number of top simplices incident to vertex \(v\), the report's vertex-incidence McDiarmid estimate has the bounded-differences form
+\[
+ \mathbb P(|Y-\mathbb E[Y\mid T]|\ge t\mid T)
+ \le2\exp\left(-\frac{2t^2}{\sum_vb_v^2}\right)\qquad(t>0),
+\]
+for a nonempty triangulation. Its exact transfer to random \(T\) is the law of total variance,
+\[
+ \operatorname{Var}(Y)=\mathbb E[\operatorname{Var}(Y\mid T)]
+ +(1-2^{-d})^2\operatorname{Var}(N(T)).
+\]
+This uses a distribution supported on the specified pure full-dimensional triangulations; empty or lower-dimensional support outcomes require separate conventions.
+
+The report also claims an exact directional support-function law for the Bernoulli Newton polytope. With independent inclusion probabilities \(p_a\), \(h_P(u)=\max_{a\in S}\langle u,a\rangle\), and \(h_\varnothing=-\infty\), its standard expression is
+\[
+ \mathbb P(h_P(u)\le s)=\prod_{\substack{a\in A\\\langle u,a\rangle>s}}(1-p_a).
+\]
+Conditioning on nonempty support changes this distribution. The record does not give the lifting distribution, patchworking hypotheses or a global-topology theorem, so these local and directional results are not promoted to a complete random-Viro classification.
+\subsection{Short English statement}
+Relate sparse random supports and their Newton polytopes to signed Viro diagrams. Under the supplied independent-support/lifting/sign model, the report gives exact local-chart moments and a directional polytope law. The original ensemble and any global topological conclusion remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000629\), source code \texttt{catalogue entry}; AIM analysis corpus, \texttt{aim-analysis-notes.json}, notes[160]. Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0.
+\item AIM \emph{Random analytic functions}, April 2006, Question 4 attributed to Maurice Rojas: \url{https://aimath.org/WWN/randomzeros/arcc1.pdf}. The literal wording is ``random sparse polygons'', followed by an extracted control-character artifact. It is not silently rewritten as polynomials. Original remarks and literature fields are empty.
+\item Registry dated August 14, 2026: statement \texttt{reconstructed\_unverified}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}; attempt 1 labelled partial result, rigor proved, novelty confidence low. The Bernoulli/polytope and Viro moment results are machine-generated research aids, not peer reviewed, requiring independent verification before citation. No authoritative external reference is supplied.
+\end{itemize}
+\end{document}

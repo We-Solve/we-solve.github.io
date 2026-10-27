@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001097}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Put \([N]=\{1,\ldots,N\}\). For integer coefficients \(a_1,\ldots,a_s\), not all zero, with \(\sum_i a_i=0\) and \(|a_i|<A\), the source asks whether a Behrend-type construction gives large \(S\subseteq[N]\) avoiding solutions to \(\sum_i a_ix_i=0\), \(x_i\in S\), and asks the analogous question for \(\sum_{i=1}^t a_ix_i^2=0\). Taken literally, avoidance of all solutions is impossible for nonempty \(S\), because constant tuples solve every invariant equation. A convention for nontrivial solutions is therefore necessary.
+
+The aid uses Ruzsa's equality-class convention: a solution \((x_i)\) is trivial when, for each value \(u\) occurring in the tuple,
+\[
+ \sum_{i:x_i=u}a_i=0.
+\]
+This convention is stated explicitly here; the extracted question itself does not define it. Nor does the source specify a unique quantitative meaning of ``large'' or whether a single set must work for every coefficient vector.
+
+For integers \(h,d,N\geq1\), the aid treats
+\[
+ x_1^d+\cdots+x_h^d=x_{h+1}^d+\cdots+x_{2h}^d,\qquad x_i\in S\subseteq[N].
+\]
+Under the equality-class convention, triviality is precisely equality of the two multisets \(\{x_1,\ldots,x_h\}\) and \(\{x_{h+1},\ldots,x_{2h}\}\), with multiplicities. Its reported lemma is that avoiding nontrivial solutions is equivalent to \(S^{(d)}=\{x^d:x\in S\}\) being a strong \(B_h\) set: any equality between two sums of \(h\) elements of \(S^{(d)}\), with repetitions allowed, has the same summand multiset on each side. It reports the explicit bound
+\[
+ \binom{|S|+h-1}{h}\leq h(N^d-1)+1,
+ \qquad |S|=O_h(N^{d/h}).
+\]
+In particular, \(h=50,d=2\) gives the source's \(O(N^{1/25})\) obstruction for fifty \(+1\) and fifty \(-1\) coefficients.
+
+The source's comments by N. Alon also give the linear obstruction \((a_1,a_2,a_3,a_4)=(1,1,-1,-1)\): under the Sidon interpretation, \(|S|\leq(1+o(1))\sqrt N\) as \(N\to\infty\). Thus there is no general near-linear Behrend-scale answer for all bounded invariant coefficient vectors.
+
+For the positive linear family, the source says that Behrend's construction generalizes when exactly one coefficient has one sign and all other nonzero coefficients have the opposite sign, even simultaneously for all such bounded vectors. One precise Behrend-scale reading of the aid's reported carry-free sphere construction is: for each fixed \(A>1\), there are constants \(c_A,C_A>0\) such that, for all \(N\geq2\), one can choose \(S\subseteq[N]\) with
+\[
+ |S|\geq c_A N\exp(-C_A\sqrt{\log N})
+\]
+for which every solution to every linear equation
+\[
+ b_1x_1+\cdots+b_mx_m=Bx_0,\quad
+ b_j\in\Z_{>0},\quad B=\sum_jb_j<A,\quad x_j\in S,
+\]
+is constant. Sign reversal and permutation give the one-sign family; zero coefficients are ignored. The quantitative constants and the exact uniform formulation are not supplied in the original excerpt and require checking against the attempt. This positive assertion is for the linear equations, not a claim that the same construction settles the quadratic question. The source additionally points to Ruzsa's papers for extensions to other cases without specifying those cases.
+\subsection{Short English statement}
+A nontrivial-solution convention is essential. With the aid's equality-class convention, balanced power-sum avoidance is exactly a strong \(B_h\) condition and yields a polynomial-size obstruction. The source separately records simultaneous Behrend-scale constructions for the linear one-sign coefficient family.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001097\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[221]}.
+\item AIM workshop ``Recent trends in additive combinatorics'', Problem 1.16, attributed to T. Wooley: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. The source records comments by N. Alon giving the Sidon and fifty-against-fifty quadratic obstructions, and the positive one-sign linear family.
+\item The original text refers to Behrend's construction and to Ruzsa's \emph{Acta Arithmetica} papers ``in 93 or so''. No precise Ruzsa title, year, volume or pages are supplied; no authoritative separate bibliography is given in the empty literature field.
+\item Supplied research attempt 1: \texttt{partial\_result}, problem status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It supplies the equality-class convention, strong \(B_h\) equivalence, finite binomial bound and a carry-free sphere formulation of the known simultaneous linear construction.
+\end{itemize}
+\end{document}

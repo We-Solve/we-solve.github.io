@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800852}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Equip $\C^6$ with the Hermitian inner product $\langle u,v\rangle=\sum_{r=1}^6\overline{u_r}v_r$. Two orthonormal bases $B_a=(u_{a,1},\ldots,u_{a,6})$ and $B_b=(u_{b,1},\ldots,u_{b,6})$ are mutually unbiased if
+\[
+|\langle u_{a,j},u_{b,k}\rangle|^2=\frac16
+\qquad(1\le j,k\le6).
+\]
+A family of seven mutually unbiased bases consists of bases $B_1,\ldots,B_7$ satisfying this condition for every $1\le a<b\le7$.
+
+The supplied question asks whether nonexistence of such a family has a degree-$4$ Sum-of-Squares proof. The polynomial encoding and degree convention are not specified in the source record, so the intended proof system is unresolved. The following describes one explicit coordinate interpretation, without asserting that it is the intended encoding.
+
+Write $u_{a,j,r}=x_{a,j,r}+\mathrm{i}y_{a,j,r}$ with real variables, where $1\le a\le7$ and $1\le j,r\le6$, and put
+\[
+\begin{aligned}
+A_{aj,bk}&=\sum_{r=1}^6(x_{a,j,r}x_{b,k,r}+y_{a,j,r}y_{b,k,r}),\\
+C_{aj,bk}&=\sum_{r=1}^6(x_{a,j,r}y_{b,k,r}-y_{a,j,r}x_{b,k,r}).
+\end{aligned}
+\]
+Let $F$ be the finite family of real polynomials consisting of
+\[
+\begin{gathered}
+A_{aj,ak}-\delta_{jk},\quad C_{aj,ak}
+\qquad(1\le a\le7,\ 1\le j,k\le6),\\
+A_{aj,bk}^{\,2}+C_{aj,bk}^{\,2}-\frac16
+\qquad(1\le a<b\le7,\ 1\le j,k\le6),
+\end{gathered}
+\]
+where $\delta_{jk}$ is the Kronecker delta. The equations $f=0$ for all $f\in F$ describe exactly seven mutually unbiased orthonormal bases in $\C^6$.
+
+For this encoding, define a Sum-of-Squares refutation of degree at most $4$ to be a polynomial identity
+\[
+-1=\sum_{\ell=1}^{L}q_\ell^2+\sum_{f\in F}h_f f,
+\]
+where $L$ is finite, $q_\ell,h_f\in\R[x,y]$, $\deg q_\ell\le2$, and every nonzero product $h_f f$ has degree at most $4$. Under this explicitly stated interpretation, the question is whether such an identity exists. Whether this interpretation matches the source's intended degree-$4$ question requires clarification.
+
+The supplied background reports that a certain relaxation related to degree-$2$ Sum-of-Squares cannot prove the bound written there as $M(6)<7$, and asks whether higher degrees can help. This is a supplied literature claim about that particular relaxation, not an independently verified assertion about all degree-$2$ proof systems.
+\subsection{Short English statement}
+Can the impossibility of seven mutually unbiased orthonormal bases in $\C^6$ be certified by a degree-$4$ Sum-of-Squares proof? The source does not specify the polynomial encoding or degree convention; the coordinate certificate above is an explicit interpretation requiring review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID $800852$, exact source problem code \texttt{catalogue entry}. The registry attributes the problem to Bandeira et al., with proposed year $2026$, and labels it \emph{open}; this status label is supplied metadata, not independently verified.
+\item Bandeira et al., \emph{Randomstrasse101: Open Problems of 2025} (2026), Problem 2. Supplied source URL: \url{https://arxiv.org/abs/2603.29571}. The record gives an access date of 2026-10-16 and extraction method \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of independent access or verification.
+\item The supplied statement cites \texttt{[BDK-2022-DualBoundsMUB]} for the limitation of a certain relaxation related to degree-$2$ Sum-of-Squares. No full bibliographic entry, URL, or definition of that relaxation is supplied.
+\end{itemize}
+\end{document}

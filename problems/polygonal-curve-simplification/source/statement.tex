@@ -1,0 +1,49 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 5500024}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+An $n$-vertex polygonal curve is a piecewise-linear path through an ordered list $p_1,\ldots,p_n$ in an ambient Euclidean space. A simplification is a path represented by fewer segments or vertices, subject to a specified approximation or preservation requirement. The source does not state the ambient dimension or that requirement.
+
+\textbf{Problem.} Can an $n$-vertex polygonal curve be simplified in time nearly linear in $n$?
+
+A standard precise version would supply an error tolerance $\varepsilon$, a curve-distance measure $\operatorname{dist}$, and an admissible output class, then minimize the number of vertices of $Q$ subject to $\operatorname{dist}(P,Q)\leq\varepsilon$. If vertex-restricted output is intended, one would require
+\[
+ Q=(p_{i_1},\ldots,p_{i_k}),\qquad1=i_1<\cdots<i_k=n.
+\]
+Other versions allow new vertices, fix $k$ and minimize error, or request approximation rather than exact optimization. These are distinct problems; none is selected on behalf of the source. Without a quality condition the path can simply be replaced by a chord, so the omitted condition is essential.
+
+The term nearly linear also needs a bound, for example $O(n\log^c n)$ for a fixed $c$, or $n^{1+o(1)}$, together with a cost model and parameter dependence. The source supplies no such definition, no bit/arithmetic model, and no deterministic or randomized requirement.
+
+The supplied summary reports quadratic classic methods, naming Douglas--Peucker and Imai--Iri, and near-linear algorithms in restricted settings such as 1.5-dimensional terrains or in approximation models. It says the general exact problem under standard metrics remains open, without defining those metrics or giving precise algorithm/optimality guarantees. The quadratic-method statement is not an unconditional quadratic lower bound and does not identify all those methods with one exact optimization task.
+\subsection{Short English statement}
+Seek a nearly linear-time algorithm for simplifying a polygonal curve. The distance measure, error budget, optimization objective, allowed output vertices, dimension, and meaning of nearly linear are missing, so the exact task must be recovered. Reported fast restricted or approximate algorithms do not specify a solution to the general version.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 5500024, source code catalogue entry, ``Polygonal Curve Simplification''; supplied status open, classification OPEN-TRIAGE, updated 2026-08-06.
+\item The Open Problems Project, Computational Geometry, Problem 24, \url{https://topp.openproblem.net/p24}. The record reports source-TeX extraction and access on 2026-07-29, and says the maintained entry lists the problem as Open.
+\item Supplied public-source repository: \url{https://github.com/edemaine/topp}. The record says its LICENSE expressly covers software, so reuse of problem text remains NEEDS\_REVIEW.
+\item The summary names Douglas--Peucker and Imai--Iri and mentions restricted terrain/approximation results, without full citations or matching theorem statements.
+\end{itemize}
+\end{document}

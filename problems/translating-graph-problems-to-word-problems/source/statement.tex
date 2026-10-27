@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1437}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $V$ be a finite alphabet and let $w$ be a finite word in which every letter of $V$ occurs. For distinct $x,y\in V$, let $w|_{\{x,y\}}$ be the subword obtained by deleting all letters other than $x,y$. Say $x$ and $y$ alternate in $w$ if this subword has no two consecutive equal letters. The represented finite simple graph $G_w$ has vertex set $V$ and
+\[
+\{x,y\}\in E(G_w)\quad\Longleftrightarrow\quad
+x\text{ and }y\text{ alternate in }w.
+\]
+A graph is word-representable if it equals $G_w$ for some representing word, after any specified relabeling of vertices.
+
+The source asks which computationally hard graph problems become efficiently solvable by translating graphs into word representations. This is a research program, not a specified decision or optimization problem. For a particular graph problem $\Pi$ and supplied-word input model, one possible precise target would be to find an algorithm $A$ and a polynomial $q$ such that
+\[
+\forall w:\quad A(w)=\Pi(G_w),\qquad
+\operatorname{time}_A(w)\leq q(|w|),
+\]
+with the output convention for $\Pi$ fixed. For a decision problem, the output would be its yes/no answer; for an optimization problem, an optimum value or witness must be specified. No particular $\Pi$, family of problems, or target bound is selected by the source.
+
+If the input is instead a graph encoded by adjacency data, a claim of efficient solution by translation must also include the cost of finding a representing word, its length relative to the graph encoding, and the promise or test that the input is word-representable. Polynomial time in $|w|$ alone does not establish polynomial time in the original graph input length without those provisions. The intended graph subclass and whether auxiliary data such as a representation are supplied are therefore material missing hypotheses.
+
+The supplied literature triage, checked 2026-08-17, labels the item partially solved but explicitly says the sentence has no single solved/open status. It reports polynomial-time maximum clique on word-representable graphs via neighborhood comparability structure, NP-hardness of vertex coloring, NP-completeness of recognizing word-representability, and efficient processing of rotations and represented graphs when a representing word is given. These are reported individual complexity results; the supplied summary does not give exact algorithmic input promises or versions for every example. The background motivates possible use of string algorithms and automata theory. The source's stated remaining task is to choose specific graph problems, classes, input encodings and complexity targets rather than treat all ``hard graph problems'' as a formally defined universe.
+\subsection{Short English statement}
+Study which specified difficult graph problems become tractable when the graph is given by a word whose alternating letter pairs encode its edges. The source records both positive and negative complexity examples, but omits the particular problem, graph class, cost of translation and required running time needed for a unique theorem.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath local registry, permanent ID 1437, source code catalogue entry, ``Translating Graph Problems to Word Problems''. Dataset attribution: Ulam AI and the UnsolvedMath Contributors; curation and metadata under CC BY 4.0.
+\item Sergey Kitaev, \emph{A Comprehensive Introduction to the Theory of Word-Representable Graphs}, arXiv:1705.05924 (2017), \url{https://arxiv.org/abs/1705.05924}. The supplied triage cites the item as a broad research direction.
+\item Pamela Fleischmann, Lukas Haschke, Tim Löck and Dirk Nowotka, \emph{Word-representable graphs from a word's perspective}, Acta Informatica 61 (2024), 383--400, \url{https://doi.org/10.1007/s00236-024-00462-y}. The supplied triage cites known complexity examples and efficient algorithms on supplied words.
+\item The local literature triage records a check on 2026-08-17; no external source was independently consulted for this draft.
+\end{itemize}
+\end{document}

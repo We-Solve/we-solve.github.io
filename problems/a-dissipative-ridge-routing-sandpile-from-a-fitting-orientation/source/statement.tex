@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000987}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Caroline Klivans asks for a higher-dimensional chip-firing model for directed rooted forests, referring to Olivier Bernardi [10]. The supplied aid uses Bernardi--Klivans fitting orientations as the directed-forest notion and proposes an auxiliary ridge-routing sandpile.
+
+Fix dimension $d\geq1$ and a finite simplicial complex. Let $F$ be a simplicial $d$-forest, meaning that its facet boundary columns are linearly independent over $\Q$. Choose root ridges $R$ so the relative boundary matrix on nonroot ridges $N$ and facets $F$ is square and nonsingular. A fitting orientation is a bijection $\phi:N\to F$ with $\sigma\subset\phi(\sigma)$ for every $\sigma\in N$. Thus $|N|=|F|$. The root/relative-boundary convention is part of the model and must match the intended rooted-forest definition.
+
+At a nonroot $(d-1)$-ridge $\sigma$, the proposed firing removes $d$ chips and sends one chip to each of the other $d$ ridges of its matched $d$-simplex $\phi(\sigma)$. Chips arriving at root ridges are absorbed. With configurations as column vectors, the reduced toppling matrix has
+\[
+ L_{\sigma\sigma}=d,\qquad
+ L_{\tau\sigma}=-1\ \text{if }\tau\neq\sigma\text{ is a nonroot ridge of }\phi(\sigma),
+\]
+and other entries zero. A legal firing at $\sigma$ requires at least $d$ chips there and subtracts $L e_\sigma$.
+
+The aid reports that every nonroot ridge reaches a root by the routing arrows. Its argument uses forest independence and the chain identity $\partial^2=0$, and applies even when the fitting orientation has closed V-paths. Consequently $L$ is a nonsingular M-matrix, every finite nonnegative chip configuration has a finite legal stabilization, and the final stable configuration is independent of legal firing order.
+
+For the resulting finite group
+\[
+ K_{\mathrm{route}}=\Z^N/L\Z^N,
+\]
+the reported determinant formula is
+\[
+ |K_{\mathrm{route}}|=\det L
+ =\#\{\text{routing arborescences toward the roots}\},\qquad
+ 1\leq\det L\leq d^{|F|}.
+\]
+When root ridges are collapsed to one sink, routing edges to different roots retain their multiplicities. These are arborescences of the auxiliary directed routing graph, not an asserted count of the original simplicial forests.
+
+The upper bound is attained exactly when the fitting orientation has no closed V-path, equivalently when it is a discrete gradient orientation in this two-level matching convention. Such a path alternates from a ridge to its matched facet and then to a different ridge, repeatedly, and a closed one produces a nonroot routing cycle. Existence of a route to a sink does not exclude these cycles. In dimension one, firing sends one chip along the matched forest edge toward the roots, and the construction reduces to ordinary rooted-forest routing. This supplies a model under the stated fitting-orientation assumptions; no identification with every other higher-dimensional critical-group definition is asserted.
+\subsection{Short English statement}
+The aid turns a fitting orientation into an unsigned routing sandpile on ridges, with roots absorbing chips. Every ridge can reach a root, so stabilization terminates and is order independent even if alternating cycles exist. The auxiliary critical-group order counts routing arborescences and is maximal exactly for acyclic discrete-gradient orientations.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000987$, source code \texttt{catalogue entry}, supplied complete source record and research summary.
+\item 2013 AIM workshop \emph{Generalizations of chip-firing and the critical group}, Problem (22), Caroline Klivans, supplied URL \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}; canonical local record \texttt{aim-combinatorics-notes.json}, \texttt{notes[111]}. No PDF was retrieved.
+\item Olivier Bernardi [10] is named by the source for directed rooted forests; the aid names Bernardi--Klivans fitting orientations. No full title, year or bibliographic entry is supplied for these or the proposed ridge-routing theorem; the original literature field is empty.
+\item Research attempt 1: partial result; problem partially solved at the recorded run; supplied rigor label ``proved'', novelty confidence ``low''. The machine-generated aid is not peer reviewed and requires independent verification before citation.
+\end{itemize}
+\end{document}

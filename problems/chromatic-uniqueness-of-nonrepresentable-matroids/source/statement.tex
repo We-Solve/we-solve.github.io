@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002471}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks three questions about matroid chromatic polynomials but does not specify the polynomial convention or the class of matroids used for comparison. The following formalization therefore retains these choices as parameters; they must be resolved before it can be regarded as a definitive statement of the intended problem.
+
+For this conditional formulation, let \(\mathcal{C}\) be a specified class of finite matroids, and let \(p_M(t)\) denote the chosen chromatic polynomial of \(M\in\mathcal{C}\). Finiteness is a conventional interpretation here, not an explicit hypothesis in the supplied statement. Write \(E(M)\) for the ground set and \(r_M(A)\) for the rank of \(A\subseteq E(M)\). The background refers to characteristic polynomials; one possible convention is
+\[
+ p_M(t)=\chi_M(t):=\sum_{A\subseteq E(M)}(-1)^{|A|}t^{r_M(E(M))-r_M(A)}.
+\]
+This convention is not confirmed by the supplied record, and it must not be silently substituted for another intended meaning of chromatic polynomial.
+
+A finite matroid \(M\) is representable over a field \(K\) if there are a \(K\)-vector space \(V\) and vectors \((v_e)_{e\in E(M)}\) such that a subset \(A\subseteq E(M)\) is independent in \(M\) if and only if \((v_e)_{e\in A}\) is linearly independent over \(K\). Two matroids are isomorphic if there is a bijection between their ground sets preserving independent sets. Relative to \(\mathcal{C}\) and the chosen polynomial, call \(M\) chromatically unique if
+\[
+ \forall N\in\mathcal{C},\qquad p_N(t)=p_M(t)\ \Longrightarrow\ N\cong M.
+\]
+The use of isomorphism, and the comparison class in this definition, require confirmation from the source.
+
+With these parameters fixed, the existence questions are:
+\begin{enumerate}
+\item Does there exist \(M\in\mathcal{C}\) such that
+\[
+ \forall N\in\mathcal{C},\qquad
+ \bigl(\text{there exists a field }K\text{ over which }N\text{ is representable}\bigr)
+ \ \Longrightarrow\ p_N(t)\ne p_M(t)?
+\]
+The field is allowed to depend on \(N\); no common field or characteristic is specified.
+\item Does there exist \(M\in\mathcal{C}\) such that \(M\) is not representable over any field and
+\[
+ \forall N\in\mathcal{C},\qquad p_N(t)=p_M(t)\ \Longrightarrow\ N\cong M?
+\]
+\item How small can such a matroid be? If size means ground-set cardinality, the corresponding quantities would be the minimum of \(|E(M)|\) over the witnesses to the first question and the minimum over the witnesses to the second question, whenever the respective witness class is nonempty. The record does not specify whether this final question concerns one or both witness classes, or whether size instead refers to rank or another invariant.
+\end{enumerate}
+The record does not state whether \(\mathcal{C}\) consists of all finite matroids, simple matroids, loopless matroids, or another restricted class. Restrictions on loops and parallel elements materially affect the meaning of polynomial uniqueness and must be supplied explicitly.
+\subsection{Short English statement}
+The problem asks whether some matroid has a chromatic polynomial unattainable by every matroid representable over any field, whether a matroid representable over no field can be determined up to isomorphism by that polynomial, and how small such examples can be. The polynomial convention, comparison class, and meaning of size remain unresolved. The supplied record labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002471\), title: \emph{Chromatic Uniqueness of Nonrepresentable Matroids}; exact source problem code: \texttt{catalogue entry}. The record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2014. No individual proposer is supplied.
+\item Supplied source citation: \emph{Combinatorics (2014)}, Oberwolfach Reports, pp.~5--90, DOI 10.4171/owr/2014/01. \url{https://doi.org/10.4171/owr/2014/01}. The supplied record attributes the problem to workshop open-problem discussions documented in this report; no problem-specific page is supplied.
+\item Supplied literature source: Oberwolfach combinatorics report. \url{https://ems.press/content/serial-article-files/46491}.
+\item Supplied literature source: Baker, \emph{Hodge theory in combinatorics}. \url{https://arxiv.org/abs/1705.07960}.
+\item Literature assessment date: \texttt{2026-08-21}. This is supplied dated curation, not an independently verified literature assessment. The supplied assessment labels the questions open and states that modern Hodge results address log-concavity rather than these existence and minimality questions. Its accompanying qualification calls for independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and reports a manual semantic, typographic, and LaTeX review of a meaning-preserving cleanup. These are supplied curation claims and do not resolve the formulation issues identified here or establish mathematical correctness.
+\end{itemize}
+\end{document}

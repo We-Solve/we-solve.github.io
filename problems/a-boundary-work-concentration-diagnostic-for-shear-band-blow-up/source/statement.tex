@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002464}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source is Theodoros Katsaounis's research contribution on relaxation methods for balance laws. It discusses linear hyperbolic relaxation systems with stiff lower-order terms, avoiding Riemann solvers and characteristic decompositions at the cost of additional unknowns. Its numerical topics include first- and second-order finite-volume shallow-water schemes in one and two dimensions, two source-term treatments, dry beds, steady-state preservation to relaxation-parameter accuracy, passive pollutant transport/diffusion, and finite-element/Runge--Kutta methods with adaptive shock resolution and low-, high- and mixed-order $h$--$p$ variants. The printed relaxation-parameter symbol is damaged, and no exact error inequality is supplied.
+
+The final paragraph asks a genuine additional question: in thermomechanical shear-band formation, do temperature and strain rate become unbounded in finite or only infinite time, and how can the singular regime be simulated accurately? The source describes a delta-like velocity, whereas the aid says the cited [BKT] account instead has delta-like strain rate $v_x$ and a step-like velocity $v$. These distinct statements must not be conflated. The complete constitutive law, initial and boundary data, parameter regime and solution class are absent from the original contribution.
+
+The aid's energy diagnostic can be expressed for the explicitly normalized model on $0<x<1$:
+\[
+ v_t=\sigma_x,\qquad \gamma_t=v_x,
+ \qquad\theta_t=\sigma v_x,\qquad
+ \sigma=\theta^{-\alpha}\gamma^m(v_x)^n,
+\]
+with positive temperature $\theta$, positive strain $\gamma$, positive strain rate $v_x$, and specified exponents. This power-law system is an illustrative research-aid setting, not a recovered equation from the original paragraph. For a classical solution its exact boundary-work identity is
+\[
+ \frac{\dd}{\dd t}\int_0^1\left(\tfrac12v^2+\theta\right)\,\dd x
+       =[v\sigma]_{x=0}^{x=1}.
+\]
+If the cumulative positive boundary work up to a finite time $T$ is bounded by $W_*$, then for $0\le t<T$,
+\[
+ \tfrac12\|v(t)\|_2^2+\|\theta(t)\|_1\le C,
+ \qquad C=\int_0^1(\tfrac12v_0^2+\theta_0)\,\dd x+W_*.
+\]
+Consequently no nonzero Dirac mass can be a distributional velocity limit along that interval, because the velocity remains bounded in $L^2$. A step limit for $v$, with an atomic derivative $v_x$, is not excluded. Also
+\[
+ |\{x:\theta(t,x)\ge H\}|\le C/H\qquad(H>0),
+\]
+so any arbitrarily high temperature values must occupy shrinking superlevel sets. These bounds do not exclude finite-time $L^\infty$ concentration of temperature or strain rate.
+
+For an exact benchmark choose $\alpha>0$, $m\ge0$, $n>0$, and positive constants $\gamma_0,\theta_0$. Uniform shear has
+\[
+ v=x,\qquad\gamma=t+\gamma_0,\qquad
+ \theta(t)=\left[\theta_0^{\alpha+1}
+ +\frac{\alpha+1}{m+1}
+  \bigl((t+\gamma_0)^{m+1}-\gamma_0^{m+1}\bigr)\right]^{1/(\alpha+1)}.
+\]
+It exists for all finite times and its temperature grows only as $t\to\infty$. Its tangent momentum diffusivity is
+\[
+ \partial_{v_x}\sigma
+   =n\theta(t)^{-\alpha}(t+\gamma_0)^m
+   \asymp t^{(m-\alpha)/(\alpha+1)}
+ \quad(t\to\infty),
+\]
+which collapses when thermal softening dominates hardening, $\alpha>m$. Thus diffusion collapse is compatible with infinite-time rather than finite-time growth in this exact family. The benchmark and finite-work constraints do not settle the original shear-band blow-up question for general data.
+\subsection{Short English statement}
+Preserve the relaxation-method agenda and its shear-band question about finite- versus infinite-time blow-up. The supplied aid distinguishes a strain-rate delta from a velocity delta, gives a finite-boundary-work concentration constraint and an exact uniform-shear benchmark, and leaves general blow-up unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Theodoros Katsaounis, contribution A.11, American Institute of Mathematics workshop document \emph{Stiff Sources and Numerical Methods for Conservation Laws}, version 1 April 2005, \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}.
+\item Source reference labels [JX], [DK1], [DK2], [DK3], [AKM], [KM], [GM], [AMT] and [BKT]. Their full bibliographic entries are not included in the supplied record; [BKT] is the shear-band reference whose strain-rate/velocity description is compared in the aid.
+\item Local UnsolvedMath registry, permanent ID 20002464, source code \texttt{catalogue entry}, canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[75]}, record dated 14 August 2026. Statement status is reconstructed unverified, clean statement null, and original literature field empty.
+\item Supplied research attempt 1: partial result, problem status at run partially solved, rigor labelled proved, novelty confidence low. The boundary-work obstruction and uniform-shear diagnostic are machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

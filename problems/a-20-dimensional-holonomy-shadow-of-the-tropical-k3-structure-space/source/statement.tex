@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001999}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Margaret Symington's A.17 describes a tropical Calabi--Yau sphere as a singular integral-affine structure \(\mathcal A\) on \(B=S^2\setminus\{p_1,\ldots,p_{24}\}\). Around each singular point it requires (A) monodromy conjugate to the positive shear
+\[
+ T=\begin{pmatrix}1&1\\0&1\end{pmatrix},
+\]
+and (B) an injective local affine isomorphism \(\Phi:(U\setminus R,\mathcal A)\to(\R^2,\mathcal A_0)\), where \(R\) is a ray from the point. The matrix is the contextual reading of damaged extracted typography. The source asks for the geometry or topology of the set of such structures on \(S^2\), without specifying a topology on that set, markings, or an equivalence relation.
+
+It reports the closed-surface possibilities under its local conditions: a torus or Klein bottle with no singularities, a sphere with 24, or \(\R\PP^2\) with 12. It says each occurs as the base of a singular Lagrangian fibration, whose singular fibers have genus-one Lefschetz nodal topology, described as spheres with one positive self-intersection. This wording concerns a positive node, not an asserted homological self-intersection number \(+1\). It attributes injectivity in (B) to a three-dimensional contact-geometric argument without giving its proof or citation.
+
+The aid's reduction fixes substantially more data: label the 24 punctures, choose peripheral generators
+\[
+ \pi_1(B)=\langle\gamma_1,\ldots,\gamma_{24}\mid\gamma_1\cdots\gamma_{24}=1\rangle,
+\]
+and fix a positive factorization \(M_1\cdots M_{24}=I\) in \(SL(2,\Z)\), with each \(M_i\) conjugate to \(T\). Let \(\rho(\gamma_i)=M_i\) and \(V=\R^2\) with this action. An affine lift has the form
+\[
+ \widehat\rho(\gamma)(x)=\rho(\gamma)x+c(\gamma),\qquad
+ c(\gamma\delta)=c(\gamma)+\rho(\gamma)c(\delta).
+\]
+The peripheral transformation has a fixed point exactly when
+\(c(\gamma_i)\in\operatorname{im}(I-M_i)\). Modulo global translations, these lifts are the parabolic cohomology space
+\[
+ H^1_{\mathrm{par}}(B;V_\rho)=
+ \ker\left(H^1(\pi_1(B);V_\rho)\longrightarrow
+ \bigoplus_{i=1}^{24}H^1(\langle\gamma_i\rangle;V_\rho)\right).
+\]
+In coordinates \(b_i=c(\gamma_i)\), this is
+\[
+ \frac{\{(b_i): b_i\in\operatorname{im}(I-M_i),\quad
+ \sum_{i=1}^{24}(M_1\cdots M_{i-1})b_i=0\}}
+ {\{((I-M_i)v)_{i=1}^{24}:v\in\R^2\}}.
+\]
+The aid reports real dimension \(24-2-2=20\) for the fixed positive 24-node factorization. This is a translation-holonomy quotient with the linear representation fixed, not a quotient by all changes of marking, braid actions, or arbitrary linear affine conjugacy.
+
+It further reports that this is only a holonomy shadow. If a node in affine coordinates has fixed-point parameter \(p\), its translational term is \((I-M)p\). Moving it to \(p+tv\) along an eigenline with \(Mv=v\) leaves this term unchanged. The aid interprets such nodal slides as geometric/developing-map data invisible to affine holonomy. Local fixed-point conditions alone do not establish global realizability or the injective cut-chart condition (B), so dimension 20 is not the dimension of the full unspecified structure space.
+
+The original remark says that removing (B) but keeping monodromy condition (A) allows \(12k\) singularities on \(S^2\) for every integer \(k\ge2\). It also proposes more general tropical manifolds built from tropical Calabi--Yau strata with boundary and suitable compatibility, giving an affine cylinder with affine boundary as an example. It records Zharkov's question about tropical Gromov--Witten calculations on a Calabi--Yau and asks whether they extend to Lagrangian fibrations over these more general bases, specifically \(S^2\times T^2\) over the cylinder. No invariant, boundary conditions, fibration data, or compatibility axioms for that additional request are supplied. The aid reports modern polarized, triangulated, metric, and almost-toric moduli constructions, without claiming one unqualified moduli space answers all interpretations.
+\subsection{Short English statement}
+The question concerns the space of singular affine structures on a sphere with 24 positive nodes and injective cut charts. The aid identifies a 20-dimensional space of translation holonomies after fixing a labeled linear monodromy factorization, but node slides show that holonomy omits geometric data. The broader moduli and tropical Gromov--Witten requests remain underspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001999, exact source code catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[336]}, tag \texttt{section}; AIM Workshop Problem Lists, Geometry, \emph{Amoebas and tropical geometry}, A.17, contributed by Margaret Symington. Created and updated 14 August 2026; statement status \texttt{reconstructed\_unverified}.
+\item Supplied source URLs: \url{https://aimath.org/WWN/amoebas/amoebas.pdf} and \url{https://www.aimath.org/WWN/amoebas/articles/html/43a/}. The supplied verification reports checking both; neither was accessed here. The remark attributes a tropical Gromov--Witten question to Zharkov.
+\item Attempt 1: \texttt{reduction}, problem status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence \texttt{low}; classification \texttt{PARTIAL-PROGRESS}, suggested difficulty L4, registry status \texttt{partially\_solved}. Candidate: parabolic-cohomology translation-holonomy reduction and invisible nodal-slide direction.
+\item No complete authoritative references are supplied for the contact-geometric argument, surface classification and realizations, or the modern moduli constructions mentioned by the aid. All require source checking.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

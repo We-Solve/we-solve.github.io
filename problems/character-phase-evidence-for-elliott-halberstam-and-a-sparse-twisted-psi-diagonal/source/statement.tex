@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000739}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\Lambda$ be the von Mangoldt function and define
+\[
+ \psi(x;q,a)=\sum_{n\leq x,\ n\equiv a\ (q)}\Lambda(n),\qquad
+ \psi(x,\chi)=\sum_{n\leq x}\Lambda(n)\chi(n).
+\]
+For $(a,q)=1$, character orthogonality gives the exact source identity
+\[
+ \psi(x;q,a)=\frac1{\varphi(q)}\sum_{\chi\bmod q}\overline{\chi(a)}\psi(x,\chi).\tag{1}
+\]
+One usual Elliott--Halberstam (EH) formulation asks, for every fixed $\delta>0$ and $A>0$,
+\[
+ \sum_{q\leq x^{1-\delta}}\max_{(a,q)=1}
+ \left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|
+ \ll_{A,\delta}\frac{x}{(\log x)^A}.
+\]
+
+\textbf{Workshop Problem 1: evidence for EH.} J.B. Conrey asks what evidence supports EH and whether finding an ``easy'' case could yield bounded prime gaps through GPY; G. Harcos makes similar comments. R.C. Vaughan observes consistency with Barban--Davenport--Halberstam, and A. Granville notes support from the Cram\'er model. These are the December 2005 workshop's assessments and motivation.
+
+Vaughan proposes exploiting cancellation among the phases $\overline{\chi(a)}$ in (1). Conrey asks whether asymptotics for
+\[
+ \sum_{\chi\bmod q}^{*}\chi(a)|L(1/2,\chi)|^2
+\]
+cast doubt on such cancellation. K. Soundararajan replies that the central-$L$ phenomenon is explained by its Euler product and need not occur for $\psi(x,\chi)$; the source therefore leaves Vaughan's proposal viable. The star denotes primitive characters.
+
+\textbf{Reported random-phase evidence.} The attached aid states that Barban--Davenport--Halberstam character energy yields an EH-strength bound with high probability after independent randomization of nonprincipal character phases. A model expression is
+\[
+ \frac1{\varphi(q)}\sum_{\chi\ne\chi_0}\xi_{q,\chi}\overline{\chi(a)}\psi(x,\chi),
+\]
+where $\xi_{q,\chi}$ are independent uniform unit-circle phases. The summary does not supply the concentration inequality, probability or parameter ranges, so a precise quantitative theorem cannot be recovered here. Randomized phase cancellation is evidence about a model; it is not cancellation of the actual deterministic phases.
+
+\textbf{Reported exact twisted-$\psi$ diagonal.} Put $\varphi^*(q)=\#\{\text{primitive characters modulo }q\}$. For $2\leq a<q$, $(a,q)=1$, expand
+\[
+ \sum_{\chi\bmod q}^{*}\chi(a)|\psi(x,\chi)|^2
+ =\sum_{\substack{m,n\leq x\\(mn,q)=1}}\Lambda(m)\Lambda(n)
+ \sum_{d\mid q,\ d\mid(am-n)}\mu(q/d)\varphi(d),
+\]
+where $\mu$ is the M\"obius function. The ordinary equality line $n=am$, not merely the congruence class, contributes exactly
+\[
+ \begin{cases}
+ \varphi^*(q)(\log p)^2\max\{0,\lfloor\log_p x\rfloor-k\},&a=p^k\text{ is a prime power},\\
+ 0,&a\text{ is not a prime power}.
+ \end{cases}
+\]
+Here $k\geq1$ and $(a,q)=1$ ensures $p\nmid q$. The aid describes this sparse von-Mangoldt diagonal as an explanation of why the long Euler-product diagonal in central-$L$ moments does not transfer to $\psi$. It does not estimate the remaining shifted terms or prove EH. The unrestricted EH conjecture remains open in the supplied research assessment; the historical bounded-gap motivation is not being restated as a current unknown.
+\subsection{Short English statement}
+The source asks for evidence that character-phase cancellation can support Elliott--Halberstam. The aid reports a random-phase model and an exact primitive-character calculation showing that the unshifted twisted-$\psi$ diagonal vanishes except for prime-power twists. Neither result controls the actual remaining correlations or establishes EH.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000739$, \texttt{catalogue entry}; canonical \texttt{aim-analytic-number-theory-notes.json}, \texttt{notes[102]}.
+\item Angel Kumchev's notes from the December 2005 ARCC workshop ``Gaps Between Primes,'' Problem 1: \url{https://aimath.org/WWN/primegaps/WorkshopProblems.pdf}. Supplied verification says the original PDF was inspected and only ligatures and vertically split sums need repair; no independent inspection is claimed here.
+\item Source discussion attributes comments to J.B. Conrey, G. Harcos, R.C. Vaughan, A. Granville and K. Soundararajan, and names GPY, Bombieri--Vinogradov, the large sieve, Barban--Davenport--Halberstam and the Cram\'er model. No complete references are supplied.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{open}, internal rigor \texttt{proved}, low novelty confidence; current registry partially solved. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. Original literature field empty.
+\end{itemize}
+\end{document}

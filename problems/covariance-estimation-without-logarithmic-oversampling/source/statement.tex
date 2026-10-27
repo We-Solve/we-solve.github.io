@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001779}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) and let \(X\) be an \(\R^n\)-valued random vector with \(\E X=0\) and \(\E\|X\|_2^2<\infty\). Define its covariance matrix by
+\[
+\Sigma=\E[XX^{\mathsf T}].
+\]
+For independent copies \(X_1,\ldots,X_N\) of \(X\), use the known-mean empirical covariance convention
+\[
+\Sigma_N=\frac{1}{N}\sum_{i=1}^N X_iX_i^{\mathsf T},\qquad N\geq 1.
+\]
+For a matrix \(A\), write \(\|A\|_{\mathrm{op}}=\sup_{\|u\|_2=1}\|Au\|_2\). The source does not explicitly define the matrix norm or specify whether empirical centering is used; the displayed definitions make the operator-norm, known-mean interpretation explicit.
+
+The supplied problem asks for a characterization of distributions for which, at prescribed accuracy \(\eta>0\),
+\[
+\E\|\Sigma_N-\Sigma\|_{\mathrm{op}}
+\leq \eta\|\Sigma\|_{\mathrm{op}}
+\]
+can be achieved with sample size linear in the dimension, \(N=O(n)\), without logarithmic oversampling. The expectation is over the independent sample. If \(\Sigma=0\), then \(X=0\) almost surely and the displayed criterion holds for every \(N\geq1\).
+
+A precise dimension-uniform formulation requires a specified family \(\mathcal P=(\mathcal P_n)_{n\geq1}\), where \(\mathcal P_n\) consists of mean-zero laws on \(\R^n\) with finite second moments. One possible explicit formulation of the requested property is
+\[
+\forall\eta>0\ \exists C_{\eta,\mathcal P}\in[1,\infty)\ \forall n\geq1\ \forall P\in\mathcal P_n:\quad
+\E_P\left\|\Sigma_{\lceil C_{\eta,\mathcal P}n\rceil}-\Sigma_P\right\|_{\mathrm{op}}
+\leq\eta\|\Sigma_P\|_{\mathrm{op}},
+\]
+where \(\Sigma_P\) is the covariance of \(P\) and the empirical matrix uses independent samples from \(P\). This is a formulation template: the supplied record does not specify the family or the permitted dependence of the constant on distributional parameters, so it does not uniquely determine this uniform assertion.
+
+The particular question in the source is whether having \(2+\delta\) moments, for some \(\delta>0\), suffices for linear sample size. Mere moment finiteness can be expressed, in each fixed dimension, as
+\[
+\E\|X\|_2^{2+\delta}<\infty.
+\]
+The source does not specify a uniform moment bound, normalization, marginal or projection regularity condition, or whether \(\delta\) is fixed across dimensions. These missing qualifications are part of the unresolved formulation. The symbols \(\eta\) and \(\delta\) distinguish approximation accuracy from excess moment order; the source uses \(\varepsilon\) for both without stating whether they are linked.
+\subsection{Short English statement}
+Characterize mean-zero random-vector distributions whose covariance can be estimated in expected operator norm, to prescribed relative accuracy, using a number of independent samples proportional to the dimension. The source particularly asks whether \(2+\delta\) moments suffice. A precise uniform claim requires clarification of the moment assumptions and the allowed dependence of the sample-size constant.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30001779\), source problem code \texttt{catalogue entry}, titled \emph{Covariance Estimation Without Logarithmic Oversampling}; collection: Oberwolfach Reports Open Problems. The record gives the proposed year as 2011 and names no individual proposer.
+\item Supplied report citation: \emph{Random Matrices, Geometric Functional Analysis and Algorithms} (2011), Oberwolfach Reports, pp.\ 1287--1360, DOI \texttt{10.4171/owr/2011/24}. Original report link: \url{https://doi.org/10.4171/owr/2011/24}. No problem-specific page is supplied.
+\item Supplied literature source labeled ``covariance estimation theorem'': \url{https://doi.org/10.1214/12-AOP760}. The supplied assessment attributes to Srivastava--Vershynin a linear-sample-size result under uniform \(2+\varepsilon\) marginal regularity, describing it as resolving an important regime while leaving an ``unrestricted almost-never conjecture'' unresolved. The record supplies neither the exact regularity hypothesis nor a definition of that conjecture phrase.
+\item Literature assessment date: \texttt{2026-08-21}. The supplied status is \texttt{partially\_solved}. This is supplied dated curation, not an independently verified literature assessment; the record itself requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}. Its verification note reports that the official report was checked and that the random-vector setup, empirical covariance criterion, and linear-sample-size question were restored. This draft preserves that supplied provenance claim without claiming an independent source visit or verification.
+\end{itemize}
+\end{document}

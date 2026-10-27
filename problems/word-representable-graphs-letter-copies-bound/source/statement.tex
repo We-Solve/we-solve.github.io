@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1430}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G=(V,E)$ be a finite simple undirected graph with $|V|=n\ge1$. A $k$-uniform word on $V$, for $k\in\Z_{\ge1}$, is a finite sequence of letters from $V$ in which each vertex appears exactly $k$ times. For distinct $x,y\in V$, let $w|_{\{x,y\}}$ be the word obtained by deleting every other letter. The two letters alternate if this restricted word is $(xy)^k$ or $(yx)^k$. The word represents $G$ when
+\[
+ \forall x\ne y\in V,\qquad
+ \{x,y\}\in E\ \Longleftrightarrow\ x,y\text{ alternate in }w.
+\]
+A graph admitting such a word for some $k$ is word-representable, and its representation number is
+\[
+ \mathcal R(G)=\min\{k\ge1:\text{a $k$-uniform word represents }G\}.
+\]
+The supplied question asks whether there is an $n$-vertex word-representable graph with
+\[
+ \mathcal R(G)>\lfloor n/2\rfloor.
+\]
+Equivalently, for such a graph every uniform representation uses more than $\lfloor n/2\rfloor$ copies of every vertex letter. Non-word-representable graphs must be excluded rather than assigned an infinite representation number to give a spurious affirmative answer.
+
+There is an unresolved small-order qualification in the source. It gives no range for $n$, although the literal existential question permits trivial small orders: for instance a one-vertex graph has representation number $1>\lfloor1/2\rfloor$. Thus the triage's claim that no example is known cannot apply literally to every $n\ge1$. The intended nontrivial range must be specified from the cited source; a restriction such as $n\ge4$ would be an additional choice, not a correction adopted here. The substantive intended question is whether a graph in that as-yet-unspecified range can exceed the half-order threshold, or whether a corresponding universal upper bound holds.
+
+The supplied literature triage checked 17 August 2026 reports an upper bound $\mathcal R(G)\le2n-4$ for non-complete word-representable graphs, constructions attaining $\lfloor n/2\rfloor$, further linear lower bounds from crown-graph families, and newer representation-length lower bounds, including probabilistic bounds for bipartite graphs. The stated upper bound itself requires small-order qualification, since its right side is not a valid bound for a non-complete two-vertex graph; the record does not give that qualification. The triage says no example beyond the intended threshold and no matching universal half-order bound were verified. It explicitly corrects an earlier preliminary $n$ upper bound based on a false lemma: the corrected published bound is $2n-4$. The registry and triage label the intended problem open, as a dated assessment rather than a newly checked status.
+\subsection{Short English statement}
+Can a word-representable graph require more than half its number of vertices as occurrences of each letter in every uniform representation? The source omits the intended nontrivial range of graph orders; tiny graphs prevent interpreting its reported open status literally for every $n$.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $1430$, source code \texttt{catalogue entry}, ``Word-Representable Graphs: Letter Copies Bound,'' including the literature triage checked 17 August 2026.
+\item Magnus M. Halldorsson, Sergey Kitaev and Artem Pyatkin, \emph{Semi-transitive orientations and word-representable graphs}, Discrete Applied Mathematics \textbf{201} (2016), 164--171, \url{https://arxiv.org/abs/1501.07108}; cited for the corrected $2n-4$ upper bound and half-order constructions.
+\item Zion Hefty, Paul Horn, Colby Muir and Andrew Owens, \emph{Word-Representable Graphs: Orientations, Posets, and Bounds}, Electronic Journal of Combinatorics \textbf{31} (2024), \#P4.2, \url{https://doi.org/10.37236/12806}.
+\item Sergey Kitaev, \emph{A Comprehensive Introduction to the Theory of Word-Representable Graphs}, author-hosted survey as supplied, \url{https://personal.strath.ac.uk/sergey.kitaev/Papers/wrg-kitaev.pdf}; cited for the exact threshold question, whose graph-order qualification needs source review.
+\end{itemize}
+\end{document}

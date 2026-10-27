@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001132}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(p\) be prime and, for \(z=(z_1,z_2)\in\F_p^2\), write \(Q(z)=z_1^2+z_2^2\). For \(S\subset\F_p^2\) with \(|S|=p\), define the ordered unit-pair count
+\[
+ U(S)=|\{(u,v)\in S^2:Q(u-v)=1\}|.
+\]
+T. Tao's source problem asks for the largest possible \(U(S)\). This notation resolves the extracted coordinate ambiguity without treating a quadratic form over a finite field as a positive real metric. Self-pairs never contribute; unordered pair counts are half the ordered count. The original remark gives an upper bound of order \(p^{3/2}\) and a lower example of order \(p\); constants and pair convention are not specified, so these are retained as asymptotic orders.
+
+The supplied aid's structural theorem assumes \(p\) odd. If \(S\) is contained in a geometrically irreducible plane curve \(C\), defined over \(\F_p\), of degree \(d\ge1\), it reports
+\[
+ U(S)\le2dp,
+\]
+or at most \(dp\) unordered unit pairs. The stated input is a uniform B\'ezout intersection argument with unit circles. Geometric irreducibility is a hypothesis, not merely irreducibility over \(\F_p\). Consequently a family with \(U(S)/p\to\infty\) cannot be contained in geometrically irreducible curves of any uniformly bounded degree. This is not an improved bound for arbitrary sets or all reducible algebraic supports.
+
+For a full affine line \(S=a+\F_pv\), \(v\ne0\), the aid reports the exact classification
+\[
+ U(S)=\begin{cases}
+ 2p,&Q(v)\text{ is a nonzero square in }\F_p,\\
+ 0,&Q(v)=0\text{ or is a nonsquare}.
+ \end{cases}
+\]
+The line contains exactly \(p\) points, so this is a sharp instance of the degree-one structural bound.
+
+For the ambient unit-distance graph on \(\F_p^2\), let \(\chi\) be the quadratic character with \(\chi(0)=0\). The aid reports degree \(p-\chi(-1)\). For distinct vertices \(u,v\), set \(t=Q(u-v)\). Their number of common unit neighbors is reported as
+\[
+ \begin{cases}
+ 0,&t=0,\\
+ 1+\chi(t(4-t)),&t\ne0.
+ \end{cases}
+\]
+The \(t=0\) case includes distinct isotropically separated vertices when such vectors exist. These formulas and the algebraic-support theorem use odd characteristic; the source does not exclude \(p=2\), which remains outside the aid's stated partial results. The aid explicitly does not improve the \(O(p^{3/2})\) general bound.
+\subsection{Short English statement}
+The source asks for the maximum number of unit-distance pairs among \(p\) points in \(\F_p^2\). The supplied aid gives exact line and common-neighbor formulas and a linear bound for points on a geometrically irreducible bounded-degree curve, while leaving arbitrary configurations unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001132\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[256]}, tag \texttt{problem}.
+\item AIM workshop ``Recent trends in additive combinatorics,'' Problem 4.1, T. Tao: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. Statement status \texttt{exact}; the original remark records orders \(p^{3/2}\) above and \(p\) below. The supplied verification reports inspection of the original PDF; no PDF was accessed for this draft.
+\item B\'ezout's theorem is the named input for the aid's algebraic-support bound. No original literature field or authoritative external reference for the candidate formulas and theorem is supplied.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run \texttt{unknown}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

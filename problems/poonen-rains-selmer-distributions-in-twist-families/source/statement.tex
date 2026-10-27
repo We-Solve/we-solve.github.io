@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006473}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record describes a distribution problem but does not specify enough hypotheses to determine a unique conjecture. The following is a precise template for its number-field interpretation, suggested by the norms to \(\Q\) appearing in the excerpt; the record does not explicitly specify the intended domain of \(K\).
+
+Let \(K\) be a number field, let \(E/K\) be an elliptic curve, and let \(p\) be a prime. For each place \(v\) of \(K\), write \(K_v\) for the completion. Write \(E[p]\) for the kernel of multiplication by \(p\), and define
+\[
+\operatorname{Sel}_p(E/K)
+:=\ker\!\left(
+H^1(K,E[p])\longrightarrow
+\prod_{v\text{ a place of }K}H^1(K_v,E)[p]
+\right),
+\]
+where the maps are localization followed by the maps induced by \(E[p]\hookrightarrow E\), and \([p]\) denotes the subgroup killed by \(p\). This is a finite-dimensional \(\F_p\)-vector space. Its dimension bounds above the Mordell--Weil rank of \(E(K)\).
+
+In the quadratic-twist setting explicitly discussed in the excerpt, a nontrivial square class \(d\in K^\times/(K^\times)^2\) determines a quadratic extension \(K(\sqrt d)/K\) and a quadratic twist \(E_d/K\). Let \(\mathcal F(X)\) denote the intended finite family of such extensions with bound \(X\). Its defining restrictions and ordering are absent from the supplied record. Once these data and the necessary hypotheses on \(E,K,p\) have been specified, the stated distribution target is that, for every integer \(j\geq 0\),
+\[
+\lim_{X\to\infty}
+\frac{\#\{K(\sqrt d)\in\mathcal F(X):
+\dim_{\F_p}\operatorname{Sel}_p(E_d/K)=j\}}
+{\#\mathcal F(X)}
+=\operatorname{PR}_p(j),
+\qquad
+\operatorname{PR}_p(j)
+=\left(\prod_{k=0}^{\infty}\frac{1}{1+p^{-k}}\right)
+\left(\prod_{k=1}^{j}\frac{p}{p^k-1}\right),
+\]
+with the second product equal to \(1\) when \(j=0\). The probability formula is a reconstruction of the damaged formula in the supplied excerpt and requires source verification. The intended ordering must make the denominator nonzero for sufficiently large \(X\) and permit the limiting question. This template does not assert the formula for every elliptic curve or every choice of twist family or ordering. The cleaned statement asks for the full natural family beyond currently proved primes, fields, and conditional regimes, but does not identify that family or those regimes; its scope may also extend beyond quadratic twists.
+
+The excerpt supplies the following separate conditional background assertion. For an odd prime \(p\), define
+\[
+\mathcal F(p,X)=\{L/K:\operatorname{Gal}(L/K)\cong\Z/p\Z,
+\ N_{K/\Q}(\operatorname{rad}(\Delta_{L/K}))\leq X\},
+\]
+where \(\Delta_{L/K}\) is the relative discriminant ideal and the radical of a nonzero integral ideal is the product of its distinct prime ideal divisors. Under the extended Riemann hypothesis and the condition
+\(\operatorname{Gal}(K(E[p])/K)\supseteq\operatorname{SL}_2(\F_p)\), interpreted through the action on \(E[p]\), the excerpt reports that for every integer \(j\geq0\),
+\[
+\liminf_{X\to\infty}
+\frac{\#\{L\in\mathcal F(p,X):
+\operatorname{rank}E(L)-\operatorname{rank}E(K)\leq(p-1)j\}}
+{\#\mathcal F(p,X)}
+\geq\sum_{i=0}^{j}\operatorname{PR}_p(i).
+\]
+This is supplied background attributed to joint work with Daniel Keliher, not an independently verified theorem here and not the requested full Selmer distribution. The excerpt also introduces superelliptic equations \(C_d:dy^p=f(x)\), with \(p\) odd, \(f\in K[x]\) of degree \(3\), and bound \(N_{K/\Q}(\operatorname{rad}((d)))\leq X\); it supplies no corresponding conclusion and leaves the parameter conventions and smoothness hypotheses unspecified.
+\subsection{Short English statement}
+The intended problem asks for the Poonen--Rains probabilities for every possible \(p\)-Selmer dimension in the full intended twist family. The family, ordering, field domain, and necessary hypotheses are missing, so the displayed limit is a formulation template requiring review. The supplied conditional cyclic-extension rank bound is separate background. The supplied partially solved label is dated curation, not an independently verified assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(30006473\), source problem code \texttt{catalogue entry}, title \emph{Poonen-Rains Selmer Distributions in Twist Families}. The supplied record belongs to the Oberwolfach Reports Open Problems collection. Project registry locations are \texttt{data/unsolvedmath/problems.json} and the supplementary \texttt{catalog/problems.json}; these files were not independently inspected for this draft.
+\item Supplied source citation: \emph{Arithmetic Statistics for Algebraic Objects (2026)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2025/52}, pp.~2765--2842. \url{https://doi.org/10.4171/owr/2025/52}. The literature-source label is ``Oberwolfach report 52/2025.'' The record gives proposed year \(2025\), leaves the proposer unspecified, and attributes the reported generalizations to joint work with Daniel Keliher; the speaker is not identified in the supplied excerpt.
+\item Supplied literature source: Keliher--Park, \emph{Selmer ranks in prime cyclic extensions}. \url{https://arxiv.org/abs/2607.01126}. The excerpt refers to joint work as reference [1], but no complete numbered bibliography is supplied.
+\item Supplied literature source: Poonen--Rains, \emph{random maximal isotropic subspaces}. \url{https://doi.org/10.1090/S0894-0347-2011-00710-8}. The excerpt labels the Poonen--Rains heuristics as reference [6]; the complete numbered bibliography is absent.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem partially solved, reports Poonen--Rains-type distributions in important twist and function-field settings and conditional rank bounds from the 2026 cyclic-extension work, and states that the broad full-family distribution remains unproved. This is supplied dated curation, not independently verified literature status. The source explicitly requests independent verification of time-sensitive status and cited claims.
+\item The excerpt mentions Smith's distributions of \(2^\infty\)-Selmer groups and work of Ellenberg, Landesman, and Levy on \(m\)-Selmer distributions for integers \(m\) coprime to \(6\operatorname{char}(K)\). No precise citations, family hypotheses, or field conventions for these assertions are supplied.
+\end{itemize}
+\end{document}

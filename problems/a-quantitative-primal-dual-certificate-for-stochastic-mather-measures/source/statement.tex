@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002490}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Diogo Gomes's source question asks for extensions of Aubry--Mather and Monge--Kantorovich techniques to infinite-dimensional linear programming, citing stochastic Mather measures for second-order Hamilton--Jacobi equations as an example. It specifies no single class of linear programs. The aid supplies the following restricted smooth, uniformly diffusive, quadratic model on $\mathbb T^d$.
+
+Fix $\nu>0$, smooth $b:\mathbb T^d\to\R^d$ and $U:\mathbb T^d\to\R$, and set $L(x,v)=\tfrac12|v-b(x)|^2+U(x)$. A stochastic-holonomic occupation measure is a Borel probability $\mu$ on $\mathbb T^d\times\R^d$ with finite second velocity moment satisfying
+\[
+ \int(\nu\Delta\phi(x)+v\cdot D\phi(x))\,\dd\mu(x,v)=0
+ \quad(\phi\in C^\infty(\mathbb T^d)).
+\]
+Let $J(\mu)=\int L\,\dd\mu$ and $\beta=\inf_{\mu\text{ feasible}}J(\mu)$. With these explicit sign and diffusion conventions, the aid's attained Hamilton--Jacobi dual is
+\[
+ \nu\Delta u+b\cdot Du-\tfrac12|Du|^2+U=\beta,
+ \qquad
+ \beta=\sup_{w\in C^2(\mathbb T^d)}\min_x
+ \bigl(\nu\Delta w+b\cdot Dw-\tfrac12|Dw|^2+U\bigr).
+\]
+It reports a smooth corrector $u$, obtained from a principal positive eigenfunction, and no duality gap. The corrector is understood modulo constants.
+
+Set $a(x)=b(x)-Du(x)$, and let $m>0$ be the normalized invariant density
+\[
+ \nu\Delta m-\operatorname{div}(a m)=0,\qquad\int_{\mathbb T^d}m\,\dd x=1.
+\]
+The reported unique primal optimizer is $\mu_*=m(x)\,\dd x\,\delta_{a(x)}(\dd v)$. For every feasible finite-cost $\mu$ the exact certificate is
+\[
+ J(\mu)-\beta=\tfrac12\int|v-a(x)|^2\,\dd\mu(x,v).
+\]
+This measures velocity deviation from the feedback graph, not an unspecified distance between probability measures. The aid also reports, for a fixed admissible H\"older exponent $0<\alpha<1$ and the corresponding elliptic Poisson estimate,
+\[
+ \|\pi_{x\#}\mu-m\,\dd x\|_{(C^\alpha)^*}
+ \le C\,[J(\mu)-\beta]^{1/2},
+\]
+where $\pi_x$ is spatial projection and the dual norm is the supremum of absolute integration against test functions of $C^\alpha$ norm at most one. The constant depends on the fixed model and exponent, not on $\mu$; the supplied summary does not state its quantitative dependence or the exact regularity range. This model-specific certificate does not resolve the source's general infinite-dimensional-programming agenda.
+\subsection{Short English statement}
+The broad question seeks variational and transport tools for infinite-dimensional linear programs. The supplied result handles a positive-diffusion quadratic stochastic-Mather model: its primal and dual attain the same value, and objective excess exactly measures departure from the optimal feedback graph and controls the spatial marginal.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002490, source code catalogue entry; created and updated 14 August 2026. Canonical \texttt{aim-pdes-notes.json}, zero-based \texttt{notes[101]}, tag \texttt{problem}; background/extracted item 4 attributed to Diogo Gomes.
+\item AIM ``New connections between dynamical systems and PDE's,'' version dated 15 August 2003: \url{https://aimath.org/WWN/dynpde/dynpde.pdf}. The supplied verification identifies the official item as Problem 34, rather than the truncated extracted 4. Wording is marked exact; original remarks and literature field are empty.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low. No complete authoritative paper citation or full theorem statement for the quantitative model is supplied.
+\item Ulam AI / UnsolvedMath Contributors, CC BY 4.0. Machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

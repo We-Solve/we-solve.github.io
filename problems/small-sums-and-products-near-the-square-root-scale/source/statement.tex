@@ -1,0 +1,51 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001123}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a prime $p$, write $A+B=\{a+b:a\in A,b\in B\}$ and $AC=\{ac:a\in A,c\in C\}$ in $\F_p$. J. Solymosi's question asks for sets with $|A|,|B|,|C|\asymp\sqrt p$ and $|A+B|+|AC|<p$, with the comparability and inequality understood asymptotically for sufficiently large primes.
+
+The original remarks already give affirmative examples. Tao suggests the interval $[1,\lfloor\sqrt p/100\rfloor]$. Alon uses $A=B=C=[1,k]$, $k=\lfloor\sqrt p\rfloor$, with $|A+B|=2k-1$ and $|AC|=M(k)$, the number of distinct integers in the $k$ by $k$ multiplication table. There is no product wraparound, and the cited classical fact $M(k)=o(k^2)$ gives a total $o(p)$. The remark sketches a prime-factor-count explanation but supplies no theorem citation. Tao then proposes larger cardinalities $\asymp p^{1-\epsilon}$, $0<\epsilon<1/2$, or the stronger sum $o(p)$ as nontrivial variants.
+
+The attached aid reports an exact common-container construction handling both variants. Let $1\le N\le p-1$ and $m=\lceil\sqrt{pN}\rceil\le p-1$. There exists $X\subseteq\F_p^*$ of size $N$ such that every $A,B,C\subseteq X$ satisfies
+\[
+|A+B|+|AC|\le4m-2.
+\]
+A precise realization takes $I=\{1,\ldots,m\}$ and a multiplicative progression $J=\{g^0,\ldots,g^{m-1}\}$ for a primitive root $g$. Choose $\lambda\in\F_p^*$ with $|I\cap\lambda J|\ge N$, possible since the average intersection size is $m^2/(p-1)\ge N$, and take any $N$ points of that intersection. Sum and product containers each have at most $2m-1$ elements. This also realizes any three independently specified cardinalities at most $N$ inside the same container.
+
+For fixed $0<\epsilon<1$, $N=\lfloor p^{1-\epsilon}\rfloor$ satisfies the construction conditions for sufficiently large $p$, and gives
+\[
+|X+X|+|XX|\le4\lceil\sqrt{pN}\rceil-2
+=O(p^{1-\epsilon/2})=o(p).
+\]
+In particular $0<\epsilon<1/2$ answers the printed larger-set variant. The restriction $N\ge1$ prevents treating the aid's informal all-positive-epsilon phrase as a negative bound for an empty set.
+\subsection{Short English statement}
+The original square-root-scale existence question already has interval examples. The supplied aid gives a common additive and multiplicative container that also yields larger power-size sets with both sum and product sets sublinear in $p$.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001123$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[247]}.
+\item American Institute of Mathematics, \emph{Problems Presented at the Workshop on Recent Trend in Additive Combinatorics}, problem 3.11 attributed to J. Solymosi: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}. Original remarks attribute the small-interval suggestion and variants to T. Tao and the full square-root interval/multiplication-table observation to N. Alon. No PDF inspection is claimed here.
+\item Attached research attempt 1: full solution, recorded run and registry status solved, rigor proved, novelty confidence low, classification SOLVED-IN-LITERATURE. The multiplication-table theorem and common-container claim lack full bibliographic citations. This machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

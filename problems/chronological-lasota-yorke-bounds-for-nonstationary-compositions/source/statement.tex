@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001391}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for Lasota--Yorke-type inequalities for compositions of operators, but does not specify the operator class, spaces, norms or desired uniformity. The supplied research aid gives this abstract strong/weak formulation. Let $\mathcal B$ be continuously embedded in a weaker normed space, with strong norm $\|\cdot\|_s$ and weak norm $|\cdot|_w$. Suppose a sequence of linear operators $L_j$ acts on these spaces and, for all $v\in\mathcal B$, satisfies
+\[
+ \|L_jv\|_s\leq a_j\|v\|_s+b_j|v|_w,
+ \qquad |L_jv|_w\leq c_j|v|_w,
+ \qquad a_j,b_j,c_j\geq0.
+\]
+Put $L^{(n)}=L_n\cdots L_1$, so time runs from right to left. The reported chronological composition inequality is
+\[
+ \|L^{(n)}v\|_s\leq
+ \left(\prod_{i=1}^n a_i\right)\|v\|_s
+ +\left(\sum_{j=1}^n b_j
+      \prod_{i=j+1}^n a_i\prod_{i=1}^{j-1}c_i\right)|v|_w,
+\]
+with empty products equal to $1$. Thus the defect introduced at step $j$ is multiplied by earlier weak factors and later strong factors; interchanging those chronological roles would give a different assertion.
+
+The aid's uniform sufficient condition is: $c_j\leq1$, $b_j\leq B$, $a_j\leq A$ for fixed nonnegative $A,B$, and there are $r\geq1$ and $0<\rho<1$ such that
+\[
+ \prod_{i=k+1}^{k+r}a_i\leq\rho\qquad\text{for every }k\geq0.
+\]
+Then the strong initial coefficient decays exponentially; explicitly, writing $n=qr+s$ with $0\leq s<r$, the reported bound has the form
+\[
+ \|L^{(n)}v\|_s\leq A^s\rho^q\|v\|_s
+ +\frac{B(1+A+\cdots+A^{r-1})}{1-\rho}|v|_w.
+\]
+The block condition is sliding and uniform in the starting time, and permits individual $a_j$ to exceed one. The summary also reports a scalar counterexample showing that the weaker assertion $a_j<1$ at every step alone need not give decaying products. No specific dynamical transfer operators or application-dependent strong/weak spaces are supplied, so this abstract criterion is retained as partial progress rather than a universal answer for arbitrary operator compositions.
+\subsection{Short English statement}
+The question asks how a strong/weak regularity estimate behaves under successive operators. The supplied partial result keeps track of the order in which defects are introduced and gives a uniform bound when each fixed-length sliding block contracts. Individual contraction factors below one do not by themselves guarantee decay without uniform control.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001391, exact source code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[48]}, source item 6, tag ``problem'', workshop \emph{Stochastic methods for non-equilibrium dynamical systems}; \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item The original spells the term ``Lasota-York'' and contains a line-break hyphen in ``operators''; the conventional Lasota--Yorke spelling is used here without changing the question. No proposer or separate authoritative bibliographic reference is supplied. Original remarks and literature field are empty; the verification only introduces the canonical quotation.
+\item Supplied metadata: PARTIAL-PROGRESS, registry status ``partially\_solved'', statement status ``reconstructed\_unverified''; attempt 1, result ``partial\_result'', problem status at run ``partially\_solved'', recorded rigor ``proved'', novelty confidence ``low'', candidate type ``explicit criterion''. The machine aid is not peer reviewed and explicitly requires independent verification before citation. No external source was visited.
+\end{itemize}
+\end{document}

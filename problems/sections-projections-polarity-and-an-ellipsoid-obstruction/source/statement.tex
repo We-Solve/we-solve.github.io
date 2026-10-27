@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001279}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This extraction merges twelve distinct questions. Use $\operatorname{vol}_n$ for Lebesgue volume, $B_p^n$ for the usual $\ell_p$ unit ball when $p>0$, and, for a convex body containing the origin in its interior,
+\[
+ K^*=\{y:\langle x,y\rangle\leq1\text{ for every }x\in K\},\qquad
+ P(K)=\operatorname{vol}_n(K)\operatorname{vol}_n(K^*).
+\]
+The standard origin-symmetric interpretation is used where symmetry is intended, but several questions do not state it explicitly. For $n\geq2$, the intersection body $IK$ has radial function $\rho_{IK}(u)=\operatorname{vol}_{n-1}(K\cap u^\perp)$, while the projection body $\Pi K$ has support function $h_{\Pi K}(u)=\operatorname{vol}_{n-1}(K|u^\perp)$. These different functions must not be interchanged. Let $\operatorname{St}_u(K)$ denote Steiner symmetrization along $u$, centering each chord parallel to $u$ about $u^\perp$.
+\begin{enumerate}
+\item Does $IK\subseteq IL$ together with $\Pi K\subseteq\Pi L$ imply $K\subseteq L$?
+\item Under the same assumptions, does $\operatorname{vol}_n(K)\leq\operatorname{vol}_n(L)$? The source reports this true for $n\leq4$; its precise body assumptions are not restated.
+\item For every convex body $K$, in particular in the symmetric version, does there exist $u\in S^{n-1}$ with $\operatorname{vol}_n(\operatorname{St}_u(K)^*)\leq C\operatorname{vol}_n(K^*)$? An absolute, dimension-independent $C$ is the natural intended reading but is not explicitly quantified in the extract.
+\item Does the corresponding average bound hold? With probability surface measure $\sigma$, this reads $\int_{S^{n-1}}\operatorname{vol}_n(\operatorname{St}_u(K)^*)\,\dd\sigma(u)\leq C\operatorname{vol}_n(K^*)$. The source writes $\dd u$ without normalization, which must be fixed.
+\item Is the average volume product of random symmetric polytopes at least $P(B_\infty^n)=4^n/n!$? The source first says at least, then writes a strict $\E P(K)>P(B_\infty^n)$. A natural Gaussian model is $K=\operatorname{conv}\{\pm g_1,\ldots,\pm g_N\}$ for independent standard Gaussian $g_i$ and $N\geq n$, but this fixes generators, not necessarily the actual number of vertices. It also does not make all antipodal vertices independent. Those distinctions and strictness remain unresolved.
+\item For an even log-concave probability measure $\mu$, bound $\mu(K)\mu(K^*)$ from above. Even means invariant under $x\mapsto-x$; in a density interpretation log-concavity means a density $e^{-\phi}$ with $\phi$ convex. The source parenthesis literally reports $\mu(K)\mu(K^*)\leq\mu(B_2^n)$ when $\mu$ is unconditional, meaning invariant under coordinate sign changes. The unsquared right side is preserved, and the intended assumptions on $K$ need checking.
+\item Characterize equality in the previous question and find lower bounds in the unconditional case; whether unconditionality concerns only $\mu$ or also $K$ is not specified.
+\item Consider the dual measure $\mu^*$ in the sense of Artstein--Milman and ask the analogous questions for the expression literally written $\mu(K)\mu^*(K)$. Both arguments are $K$ in the source. The duality and normalization are not defined; a Legendre-dual density convention would need to be specified before numerical bounds or equality can be formulated. It is not silently changed to $\mu(K)\mu^*(K^*)$.
+\item For symmetric convex bodies define $N(K,L)=\min\{m:K\subseteq\bigcup_{i=1}^m(x_i+L)\}$. Are there absolute $c,\delta>0$, uniform in dimension and bodies, such that $N(K,L)\leq N(L^*,cK^*)^\delta$? The damaged bracket is repaired without changing the direction of this covering-duality question.
+\item For uniform random vectors $X\in K$, $Y\in K^*$, are the first roughly one hundred moments of $\langle X,Y\rangle$ within a factor $1+\epsilon$ of an appropriate Gaussian comparison? Independence, normalization, the Gaussian reference (scalar or inner product), the meaning of roughly one hundred, and an asymptotic regime for $\epsilon$ are unspecified; no precise universal moment assertion is inferred.
+\item Prove the symmetric Mahler lower bound $P(B_X)\geq4^n/n!$ for $n$-dimensional normed spaces embedding in $L_p$, $p<1$, especially convex intersection bodies, which the source associates with $p=-1$. For $0<p<1$ one may mean a linear isometric embedding into a quasi-normed $L_p$ space. Negative-$p$ embedding is a different generalized notion, not an ordinary $L_p$ norm, and its definition is absent.
+\item For $1<p<2$, the source asks whether $P(B_X)>P(B_p^n)$ when $X$ embeds in $L_p$ and $\dim X=n$. Under the usual isometric meaning, $X=\ell_p^n$ already gives equality, so the literal strict sign needs qualification or replacement; no non-strict repair is silently adopted.
+\end{enumerate}
+
+The attached aid addresses only the first two questions, under origin symmetry. It reports that question 1 is affirmative for $n=2$, using $IK=\Pi K=2RK$ with $R$ a quarter-turn, and false for every $n\geq3$: take $L=B_2^n$ and $K=\operatorname{diag}(R_0,s,\ldots,s)B_2^n$, with $R_0>1$ and $s=R_0^{-1/(n-2)}$. More generally, for origin-centered ellipsoids $E,F$, it records
+\[
+ IE\subseteq IF\ \Longleftrightarrow\ \Pi E\subseteq\Pi F
+ \ \Longleftrightarrow\ (\operatorname{vol}_n(E)/\operatorname{vol}_n(F))F\subseteq E.
+\]
+These equivalent conditions force $\operatorname{vol}_n(E)\leq\operatorname{vol}_n(F)$, settling question 2 for ellipsoid pairs in all $n\geq2$. They do not settle question 2 for all bodies or questions 3--12. All reported results remain supplied claims requiring independent verification.
+\subsection{Short English statement}
+The record contains twelve questions about sections, projections, symmetrization, random volume products, measure duality, covering, moments, and Mahler inequalities. All are retained. The supplied aid resolves section/projection containment under origin symmetry and proves only the ellipsoid case of volume comparison; other formulations retain their source ambiguities.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Mahler's conjecture and duality in convex geometry}, August 9--13, 2010, notes by Jaegil Kim, questions 1--12 merged from the first two pages: \url{https://aimath.org/WWN/mahlerduality/mahlerduality.pdf}.
+\item The source names Artstein--Milman for measure duality but gives no full reference or dual-measure definition. No separate citations support its low-dimensional or unconditional parenthetical claims in this record.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001279, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-convex-geometry-notes.json notes[10]}. Attached attempt 2, partial result, problem status at run partially solved, rigor proved, low novelty confidence; machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

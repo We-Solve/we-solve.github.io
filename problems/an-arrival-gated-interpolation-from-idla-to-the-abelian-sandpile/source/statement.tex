@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000999}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Jordan Ellenberg's source question asks for a stochastic sandpile interpolation between ``DLA [16]'' and the sandpile model. The supplied reference identification is Diaconis--Fulton \emph{internal} DLA (IDLA), not external diffusion-limited aggregation. The original does not specify graph, boundary, interpolation parameter, or scaling objective.
+
+The reported construction is on a finite directed multigraph with a sink \(s\), a directed path from every nonsink vertex to \(s\), and nonsink outdegree \(d_v\geq2\), counted with multiplicity. Start with empty heights \(h_v=0\). At each vertex fix independent arrival-indexed gate instructions: with probability \(1-\theta\) use an explorer gate, and with probability \(\theta\) use a degree-threshold sandpile gate, \(0\leq\theta\leq1\). Explorer instructions also include an independent uniform outgoing-arc choice. Each incoming chip is processed by one instruction in order at its vertex:
+\begin{itemize}
+\item Explorer gate: if \(h_v=0\), retain the chip and set \(h_v=1\); otherwise keep the height and send one chip along its instructed outgoing arc.
+\item Sandpile gate: if \(h_v<d_v-1\), retain the chip and increase height by one; if \(h_v=d_v-1\), set height to zero and send one chip along every outgoing arc.
+\end{itemize}
+Chips arriving at \(s\) disappear. Input is any fixed finite multiset of chips at nonsink vertices, and legal executions process available incoming chips. The heights remain in \(\{0,\ldots,d_v-1\}\).
+
+The aid reports pathwise abelianness: after the instruction stacks are fixed, the terminal state on the almost-sure terminating event is independent of legal processing order. It also reports almost-sure finite-volume termination and conservation of input mass as final retained mass plus sink loss. At \(\theta=0\) the law from the empty state is exactly graph IDLA, with first vacancy retaining a walker and later arrivals continuing it; at \(\theta=1\) stabilization is the classical abelian sandpile. For each fixed finite input, the terminal-height law \(\mathcal L_\theta\) satisfies
+\[
+ \|\mathcal L_\theta-\mathcal L_{\theta_0}\|_{\mathrm{TV}}\longrightarrow0
+ \qquad(\theta\to\theta_0,\ \theta_0\in[0,1]).
+\]
+The empty or initially singly occupied convention matters for the literal IDLA endpoint; arbitrary larger initial heights are not silently called ordinary IDLA.
+
+The separate stationary example has one nonsink vertex with \(d\geq2\) arcs, all ending at the sink, and successive single-chip inputs. On heights \(0,\ldots,d-1\), zero always moves to one; a positive height stays put with probability \(1-\theta\), and with probability \(\theta\) increases by one, with \(d-1\) returning to zero. For \(0<\theta\leq1\), the unique stationary law is
+\[
+ \pi_\theta(0)=\frac\theta{\theta+d-1},\qquad
+ \pi_\theta(h)=\frac1{\theta+d-1}\quad(1\leq h\leq d-1).
+\]
+For \(0<\theta<1\) it is also the limiting law from the empty state. At \(\theta=1\) the chain is periodic, so stationarity must not be confused with convergence of every iterate. At \(\theta=0\), starting empty gives height one forever after the first input, although other positive heights are also absorbing states.
+
+Consequently for \(d\geq3\),
+\[
+ \lim_{\theta\downarrow0}\lim_{N\to\infty}\mathcal L(H_N^\theta)
+ =\operatorname{Uniform}\{1,\ldots,d-1\}
+ \neq\delta_1
+ =\lim_{N\to\infty}\lim_{\theta\downarrow0}\mathcal L(H_N^\theta).
+\]
+The noncommutation is compatible with fixed-finite-input total-variation continuity. No infinite-volume aggregation limit, external-DLA endpoint, or universality classification is supplied.
+\subsection{Short English statement}
+The supplied model mixes arrival-by-arrival explorer and sandpile gates on a finite graph with a sink. It has exact internal-DLA and abelian-sandpile endpoints, order-independent stabilization, and finite-input continuity. A one-vertex example shows that this continuity does not make the long-time limit commute with the IDLA endpoint.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000999\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[123]}.
+\item AIM workshop \emph{Generalizations of chip-firing and the critical group}, Problem 34, attributed to Jordan Ellenberg: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. This URL is supplied provenance; no PDF access is claimed.
+\item The source cites DLA [16]; the supplied research summary identifies that reference as Diaconis--Fulton internal DLA but provides no complete bibliography entry.
+\item Supplied research summary, ``An arrival-gated interpolation from IDLA to the abelian sandpile,'' attempt 1. Original remarks and literature fields are empty; no additional authoritative external theorem citations are supplied.
+\end{itemize}
+\end{document}

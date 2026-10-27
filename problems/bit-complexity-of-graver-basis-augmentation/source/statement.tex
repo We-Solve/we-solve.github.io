@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003933}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(m,n\) be positive integers and let \(E\in\Z^{m\times n}\). Its integer kernel is
+\[
+\ker_{\Z}(E)=\{z\in\Z^n:Ez=0\}.
+\]
+For \(u,v\in\Z^n\), write \(u\sqsubseteq v\) if \(u_i v_i\geq 0\) and \(|u_i|\leq |v_i|\) for every \(i\). The Graver basis \(\mathcal G(E)\) is the set of \(\sqsubseteq\)-minimal elements of \(\ker_{\Z}(E)\setminus\{0\}\).
+
+To describe the augmentation question without supplying missing hypotheses, write the optimization problem schematically as
+\[
+\min\{f(x):x\in D,\ Ex=b\},
+\]
+where \(b\in\Z^m\), \(D\subseteq\Z^n\) represents the permitted variable domains and any additional restrictions, and \(f:D\to\R\) represents the objective. The supplied record does not specify \(D\), the objective class, or their representations; this notation does not assert that arbitrary such data admit an efficient algorithm.
+
+Given a feasible point \(x\), a scaled improving Graver augmentation is a point \(x+\lambda g\) satisfying
+\[
+g\in\mathcal G(E),\qquad \lambda\in\Z_{>0},\qquad
+x+\lambda g\in D,\qquad f(x+\lambda g)<f(x).
+\]
+The equality constraints remain satisfied because \(Eg=0\). A rule allowing only \(\lambda=1\) is a more restrictive variant; the record does not specify the allowed step lengths or the rule for selecting an improving augmentation.
+
+The supplied question is: is Graver-basis augmentation efficient in bit complexity, even when oracle access to \(\mathcal G(E)\) is available? Once an input model and an oracle interface are specified, the intended polynomial-efficiency question would ask whether the chosen augmentation algorithm, on every admissible instance, reaches an optimum using polynomially many bit operations and oracle calls in the encoded input length, with an explicit accounting for query and answer lengths. This is a schematic formulation: the record does not determine a single algorithm or complexity claim. It leaves unspecified the objective class, variable bounds, provision or construction of an initial feasible point, treatment of infeasibility and unboundedness, the augmentation selection rule, and the information returned by the oracle. In particular, access to a basis element and access to a best feasible improving step are different possible interfaces.
+
+The supplied dated curation labels the problem partially solved and reports that a basic single-Graver-step algorithm can require exponentially many iterations, while Graver-best and structured-block algorithms have polynomial or fixed-parameter results in important classes. It also states that no general efficient implementation follows. These are supplied literature assessments, not independently verified conclusions, and they do not identify the missing hypotheses needed for a precise target theorem.
+\subsection{Short English statement}
+Can an integer program be optimized in polynomial bit complexity by repeatedly taking improving moves from the Graver basis of its equality-constraint matrix, assuming access to a suitable oracle? The source leaves the objective, variable restrictions, step-selection rule, oracle interface, and initialization unspecified, so a unique precise complexity claim cannot yet be extracted. Its partially solved label is supplied dated curation.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, with \texttt{catalog/problems.json} as the project supplementary registry; supplied permanent UnsolvedMath ID \(30003933\), title \emph{Bit Complexity of Graver-Basis Augmentation}, exact source problem code \texttt{catalogue entry}. Collection: \emph{Oberwolfach Reports Open Problems}. The supplied proposed year is 2018; no individual proposer is named.
+\item Supplied report citation: \emph{New Directions in Stochastic Optimisation} (2019), \emph{Oberwolfach Reports}, pp.\ 2303--2384, DOI \texttt{10.4171/owr/2018/38}. \url{https://doi.org/10.4171/owr/2018/38}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions; the literature-source label is \emph{Oberwolfach Report 38/2018}.
+\item Supplied literature source: \emph{A polynomial oracle-time algorithm for convex integer minimization}. \url{https://doi.org/10.1007/s10107-009-0276-7}.
+\item Supplied literature source: \emph{An Algorithmic Theory of Integer Programming}. \url{https://arxiv.org/abs/1904.01361}.
+\item Literature assessment date: \texttt{2026-08-21}. The partially solved status and the claims concerning exponential iteration counts, Graver-best algorithms, structured-block algorithms, and the absence of a general efficient implementation are supplied dated curation derived from the supplied OWR curation, not independently verified here. The source expressly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

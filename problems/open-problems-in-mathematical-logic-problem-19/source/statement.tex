@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 801007}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Work in Cantor space $2^{\N}$ with the fair-coin product measure $\mu$. Under the usual convention, a real $X\in 2^{\N}$ is Martin--L\"of random relative to an oracle $A$ if, for every uniformly $A$-effectively open sequence $(U_n)_{n\in\N}$ satisfying $\mu(U_n)\leq 2^{-n}$, one has $X\notin\bigcap_{n\in\N}U_n$. Write $\operatorname{MLR}^{A}$ for this class and $\operatorname{MLR}$ for randomness relative to a computable oracle. The unqualified randomness in the supplied question is interpreted as this unrelativized randomness.
+
+For reals $A,B$, write $A\leq_T B$ when $A$ is computable from $B$, and use the standard LR-reducibility convention
+\[
+A\leq_{\mathrm{LR}}B
+\quad\Longleftrightarrow\quad
+\operatorname{MLR}^{B}\subseteq\operatorname{MLR}^{A}.
+\]
+For $D\in\{T,\mathrm{LR}\}$, define $A\equiv_D B$ by mutual $D$-reducibility, and let $\deg_D(A)$ be the resulting equivalence class. The induced order on degrees is denoted by $\leq_D$, with $\mathbf a<_D\mathbf b$ meaning $\mathbf a\leq_D\mathbf b$ and $\mathbf a\ne\mathbf b$. A degree contains a Martin--L\"of random real if some representative belongs to $\operatorname{MLR}$.
+
+Consider the following interval property $P_D$:
+\[
+\begin{aligned}
+\forall\mathbf a,\mathbf b,\mathbf c\in\mathcal D_D,\quad
+&\bigl[\mathbf a<_D\mathbf b<_D\mathbf c
+\ \land\ \exists X,Y\in\operatorname{MLR}\,
+ (X\ne Y\ \land\ \deg_D(X)=\mathbf a
+                 \ \land\ \deg_D(Y)=\mathbf c)\bigr]\\
+&\qquad\Longrightarrow
+\exists Z\in\operatorname{MLR}\;(\deg_D(Z)=\mathbf b),
+\end{aligned}
+\]
+where $\mathcal D_D$ is the set of $D$-degrees of reals in $2^{\N}$. The source phrase ``different Martin--L\"of randoms'' is interpreted here as distinct random representatives; distinct endpoint degrees already force those representatives to differ.
+
+The supplied source asserts that $P_T$ is false. Its follow-up asks whether ``this'' holds for a larger degree notion, specifically LR-degrees. Under the definitions above, the mathematical issue is to determine whether $P_{\mathrm{LR}}$ holds. Equivalently, determine whether there exist LR-degrees $\mathbf a,\mathbf b,\mathbf c$ such that
+\[
+\mathbf a<_{\mathrm{LR}}\mathbf b<_{\mathrm{LR}}\mathbf c,
+\qquad
+\mathbf a\cap\operatorname{MLR}\ne\varnothing,
+\qquad
+\mathbf c\cap\operatorname{MLR}\ne\varnothing,
+\qquad
+\mathbf b\cap\operatorname{MLR}=\varnothing.
+\]
+Existence of such a triple would extend the source's negative answer for Turing degrees to LR-degrees; nonexistence would establish $P_{\mathrm{LR}}$. The antecedent of ``this'' is unresolved in the supplied wording, so no intended affirmative or negative answer is imposed. The source does not specify a formal claim for degree notions other than the LR example.
+\subsection{Short English statement}
+The source states that two comparable Turing degrees containing distinct Martin--L\"of random reals can have an intermediate degree containing no such real. It then asks about LR-degrees. The draft makes the LR question explicit as deciding whether such an intermediate LR-degree can exist, while preserving the ambiguity in what the source means by ``this.'' The supplied open label and the asserted Turing-degree answer have not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record, permanent ID \(801007\), exact source code \texttt{catalogue entry}, title ``Open Problems in Mathematical Logic --- Problem 19.'' The registry attributes the record to Barmpalias, Gao et al., with proposed year 2026, and labels it open. These are supplied registry metadata, not independently verified mathematical or bibliographic conclusions.
+\item Supplied source-list attribution: Barmpalias, Gao et al., \emph{Open Problems in Mathematical Logic} (2026), Problem 19, \url{https://arxiv.org/abs/2608.26628}. The background records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not a claim of access or verification for this draft.
+\item The supplied excerpt asserts a negative answer to the Turing-degree question and asks about larger degree notions, giving LR-degrees as an example. No separate reference, proof, or counterexample for that negative answer is supplied.
+\end{itemize}
+\end{document}

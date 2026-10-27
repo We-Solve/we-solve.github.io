@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000942}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(P\subset\R^2\) be a finite set of \(n\) points in general position, here meaning no three collinear, and draw all edges of \(K_n\) as straight segments. A crossing family is a set of edges whose distinct members intersect properly in their relative interiors. Let \(T(P)\) be its maximum cardinality. Such edges have disjoint endpoints, so \(T(P)\leq\lfloor n/2\rfloor\). The source asks whether absolute \(c>0,n_0\) exist such that \(T(P)\geq cn\) for every such \(P\) with \(n\geq n_0\). General-position and proper-crossing conventions are needed; if all vertices may be collinear, the literal unrestricted formulation fails.
+
+For disjoint nonempty blocks \(A,B\subset P\), define the defect graph \(D_A(B)\) on \(A\): join \(a,a'\) when the full line through them meets \(\operatorname{conv}(B)\). Define \(D_B(A)\) symmetrically. The aid's exact reduction is
+\[
+ T(P)\geq\min\{\alpha(D_A(B)),\alpha(D_B(A))\},
+\]
+where \(\alpha\) is independence number. Independent subsets in the two defect graphs are mutually avoiding, and the reported geometric lemma gives a pairwise-crossing matching between equal-sized subsets. The condition concerns full lines, not merely the segments joining the two vertices.
+
+Writing \(a=|A|\), \(b=|B|\), \(e_A=|E(D_A(B))|\), and \(e_B=|E(D_B(A))|\), the Caro--Wei consequence is
+\[
+ T(P)\geq\min\left\{\sum_{v\in A}\frac1{1+\deg_{D_A(B)}v},
+ \sum_{v\in B}\frac1{1+\deg_{D_B(A)}v}\right\}
+ \geq\min\left\{\frac{a^2}{a+2e_A},\frac{b^2}{b+2e_B}\right\}.
+\]
+In particular, if both block sizes are at least \(\eta n\) and both average defect degrees are at most \(D\), then \(T(P)\geq\eta n/(D+1)\). Existence of such blocks with fixed positive \(\eta\) and bounded \(D\) for every point set is not supplied; this is a certificate for sets admitting them, not a proof of the general linear bound.
+
+The secondary sufficient condition is bounded convex-hull onion depth. Repeatedly remove the vertices of the convex hull, counting the possible final one- or two-point layer. If this takes at most \(L\) layers, one layer has at least \(n/L\) points in convex position, giving the explicit bound \(T(P)\geq\lfloor n/(2L)\rfloor\). Thus fixed depth yields a linear family, without asserting a uniform bound on depth for arbitrary sets.
+
+The original background attributes an \(\Omega(\sqrt n)\) bound to Aronov--Erd\H{o}s--Kleitman--Pach. It also reports a Csaba--Fox--Pach positive-power bound for curve drawings with a bounded number of crossings per edge pair. The crossing-bound dependence and full drawing hypotheses are not supplied. These are source-time reports, not an independently verified list of current best bounds.
+\subsection{Short English statement}
+The source asks for a linear-size pairwise-crossing family in every straight-line complete graph. The supplied reduction gives a checkable lower bound from two defect graphs measuring failures of mutual avoidance. It proves linear size for bounded defect degree or bounded onion depth, without showing those conditions for every point set.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000942\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[66]}.
+\item AIM workshop \emph{Graph Ramsey theory}, item 20, ``Large cliques in straight edge intersection graphs,'' attributed to J\'anos Pach: \url{https://www.overleaf.com/read/mnvcscjjysvg}.
+\item Original background names Aronov--Erd\H{o}s--Kleitman--Pach and Csaba--Fox--Pach but supplies no complete references.
+\item Supplied research summary, ``A defect-graph certificate for large crossing families,'' attempt 1, uses Caro--Wei and mutual avoidance without full theorem citations. Original remarks and literature fields are empty.
+\end{itemize}
+\end{document}

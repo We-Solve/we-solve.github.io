@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000006}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied question asks how entropy-conservative subpaths between approximate Riemann states should be chosen to obtain entropy-stable numerical schemes. However, its verification field says the original report presents this as an expository design question and answers it in the same abstract: choose subpaths along approximate Riemann solutions and derive entropy-stable viscosity. The record is marked statement\_status unrecoverable. It therefore does not supply an independently recoverable open conjecture or the detailed construction and hypotheses of that answer.
+
+The mathematical objects involved can be described conditionally. For a one-dimensional nonconservative system $u_t+A(u)u_x=0$ on a state domain $\mathcal U\subset\R^m$, an admissible path family joins $u_L$ to $u_R$ by a piecewise Lipschitz path $\Phi:[0,1]\to\mathcal U$. Given approximate intermediate Riemann states $u_0=u_L,u_1,\ldots,u_s=u_R$, the chosen subpaths concatenate paths from $u_{r-1}$ to $u_r$. They determine the nonconservative jump integral
+\[
+ \mathcal I(u_L,u_R)=\int_0^1 A(\Phi(t))\Phi'(t)\,dt.
+\]
+Thus specifying endpoints alone need not specify the weak jump relation. An entropy pair consists of a convex $\eta$ and flux $q$ satisfying $\nabla q=(\nabla\eta)^{\mathsf T}A$ wherever smooth.
+
+For example, in a semidiscrete finite-volume fluctuation formulation, let $D^-+D^+=\mathcal I$, set $v=\nabla\eta$, and use the convention
+\[
+ \dot u_j=-\frac{D^-(u_j,u_{j+1})+D^+(u_{j-1},u_j)}{\Delta x}.
+\]
+An interface entropy-conservation criterion is
+\[
+ v_L^{\mathsf T}D^-+v_R^{\mathsf T}D^+=q_R-q_L;
+\]
+the corresponding entropy-stability inequality has $\geq$ in place of equality and yields nonincreasing total discrete entropy on a periodic grid. This convention illustrates what a subpath-and-viscosity construction must verify; it does not specify the missing approximate solver, admissibility conditions, or a time-discrete CFL theorem.
+
+The dated supplied literature assessment, checked 21 August 2026, says that path-conservative theory supports entropy-stable schemes but that a canonical physical or mathematical path and robust general path selection remain model-dependent and open. That broader assessment must be distinguished from the report's already-answered expository question.
+\subsection{Short English statement}
+The report's design question is said to be answered there by using approximate-Riemann subpaths and suitable entropy-stable viscosity. Its precise construction is not recoverable from this record. The separate August 2026 assessment concerns the broader, model-dependent problem of selecting canonical paths for general nonconservative systems.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000006, exact source code catalogue entry; \emph{Entropy-Stable Paths for Approximate Riemann States}. Proposed year 2004; registry status open, but supplied verification calls the question expository and answered in the source, with statement\_status unrecoverable.
+\item Supplied report citation: \emph{Hyperbolic Conservation Laws (2005)}, Oberwolfach Reports, DOI 10.4171/owr/2004/18, pp. 915--962, \url{https://doi.org/10.4171/owr/2004/18}. Title year and DOI/proposed year differ in the metadata.
+\item Supplied literature assessment checked 2026-08-21: ``path-conservative numerical methods'', \url{https://epubs.siam.org/doi/10.1137/050628052}; ``convergence error for path-consistent schemes'', \url{https://www.sciencedirect.com/science/article/abs/pii/S0021999108002842}; ``entropy-stable nonconservative schemes'', \url{https://epubs.siam.org/doi/10.1137/110845379}. The OWR-derived triage explicitly requires independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

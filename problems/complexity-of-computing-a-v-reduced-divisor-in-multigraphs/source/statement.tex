@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3000014}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Use the standard finite connected graph-divisor setting, whose connectedness is not explicit in the source. Let $G=(V,E)$ be an undirected multigraph, let $v_0\in V$, and write $m_{vw}=m_{wv}\in\Z_{\ge0}$ for edge multiplicities between distinct vertices. In the usual loop-ignored chip-firing convention, the Laplacian is
+\[
+L_{vv}=\sum_{w\ne v}m_{vw},\qquad L_{vw}=-m_{vw}\quad(v\ne w).
+\]
+A divisor is $D\in\Z^V$. Divisors $D,D'$ are equivalent if $D-D'=Ls$ for some $s\in\Z^V$. A divisor $D'$ is $v_0$-reduced when
+\[
+D'(v)\ge0\quad(v\ne v_0),
+\]
+and every nonempty $S\subseteq V\setminus\{v_0\}$ contains a vertex $v$ such that
+\[
+D'(v)<\operatorname{outdeg}_S(v),\qquad
+\operatorname{outdeg}_S(v)=\sum_{w\notin S}m_{vw}.
+\]
+The root coefficient need not be nonnegative. Connectedness is material: a component disjoint from the root prevents this condition for that component as $S$. Thus an unrestricted disconnected-graph reading cannot simply be assumed to have the requested output.
+
+The source asks for a polynomial-time algorithm that, given $G,v_0,D$, outputs an equivalent $v_0$-reduced divisor $D'$. The intended issue is the complexity for multigraphs, not merely an algorithm that eventually terminates or a test of whether a supplied divisor is already reduced.
+
+The input representation is unspecified. If multiplicities and signed divisor entries are written in binary, a natural target is time polynomial in their total bit length together with the graph-size data; repeatedly processing every individual parallel edge can be exponential in a multiplicity's bit length. If all edges are listed explicitly, their number is itself part of the input length. A bound polynomial in numerical chip counts or edge multiplicities is therefore not automatically the desired bit-complexity bound. No strongly polynomial requirement, randomized model, or firing-vector certificate is imposed by the extract.
+
+The supplied summary reports a polynomial burning/firing method for simple graphs and labels the multigraph question open as far as verified in the source assessment. It gives no precise complexity bound, encoding, or theorem citation for that comparison. The archived Egres index is explicitly not a current resolution authority, so the reported open label is retained as source metadata rather than independently verified status.
+\subsection{Short English statement}
+Can one compute an equivalent root-reduced chip-firing divisor in polynomial time on a multigraph? The reducedness inequalities and unrestricted integer divisor are explicit. The encoding of parallel-edge counts and chip counts is essential: a polynomial bound in those numbers may be only pseudopolynomial for binary input. The source omits this model and the usual connectedness hypothesis.
+\subsection{Sources}
+\begin{itemize}
+\item Local source registry: \url{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID $3000014$, source code catalogue entry, including the supplied OPEN-TRIAGE assessment. Dataset attribution: Ulam AI and UnsolvedMath Contributors; original-source attribution and rights are retained.
+\item Egres Open, page title ``Complexity of computing a v-reduced divisor in multigraphs'', as listed at \url{https://oldlemon.cs.elte.hu/egres/open/List_of_open_problems}. The supplied metadata reports HTML access on July 29, 2026, warns that the archived index is not a current resolution authority, and says the redistribution license was not displayed in the archived footer.
+\item The supplied summary names Baker--Norine graph-divisor theory and standard burning/firing algorithms but provides no full citation or exact simple-graph bit-complexity theorem. No separate problem-page URL or author attribution is supplied. No linked source was inspected for this draft.
+\end{itemize}
+\end{document}

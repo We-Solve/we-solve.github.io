@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800137}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer modulus \(q\geq 2\), an integer \(a\), and real \(x\geq 2\), define
+\[
+\pi(x;q,a)=\#\{p\leq x:p\text{ is a rational prime and }p\equiv a\pmod q\},
+\qquad D_{q;a,b}(x)=\pi(x;q,a)-\pi(x;q,b).
+\]
+One precise convention for the first strict sign change is
+\[
+T(q;a,b)=\inf\{X\geq 2:\text{there exist }2\leq u<v\leq X\text{ with }D_{q;a,b}(u)D_{q;a,b}(v)<0\},
+\]
+with \(\inf\varnothing=+\infty\). This convention requires opposite strict signs and does not count a return to zero as a sign change. The supplied source does not specify its convention.
+
+The principal request is to obtain an upper bound for the first sign change of \(D_{q;a,b}\) in terms of \(q\), with growth as slow as possible. Under the convention above, the desired form is
+\[
+T(q;a,b)\leq B(q)
+\]
+for the intended class of triples \((q,a,b)\). That class is not specified in the supplied record: in particular, the source does not explicitly require distinct reduced residue classes, state whether the bound must be uniform in \(a,b\), or state analytic hypotheses. Thus a fully quantified bound cannot be extracted without further qualification. The usual setting of distinct reduced residue classes would require \(a\not\equiv b\pmod q\) and \(\gcd(a,q)=\gcd(b,q)=1\), but these requirements are not explicitly supplied. If \(a\equiv b\pmod q\), then \(D_{q;a,b}\equiv0\) and the displayed convention gives \(T(q;a,b)=+\infty\).
+
+For a measurable set \(E\subseteq[2,\infty)\), its logarithmic density, when the limit exists, is
+\[
+\delta(E)=\lim_{X\to\infty}\frac{1}{\log X}\int_2^X\mathbf{1}_E(t)\,\frac{\dd t}{t}.
+\]
+As motivation, the source discusses the race between primes congruent to \(2\pmod3\) and primes congruent to \(1\pmod3\). It attributes to Rubinstein and Sarnak [RS] a corresponding logarithmic density written \(\delta_{q;1,2}\approx1.0\times10^{-3}\), and attributes to Bays and Hudson the first sign change of \(\pi(x;3,2)-\pi(x;3,1)\) at
+\[
+x=608{,}981{,}813{,}029.
+\]
+These are supplied background reports. The notation \(\delta_{q;1,2}\) is not defined in the record, including its event and the intended specialization of \(q\) to \(3\). The source suggests a correlation between race bias and the size of the associated ``Skewes's number.'' It also states that classical race densities tend to \(1/2\) as \(q\to\infty\), and suggests that their first sign changes should become less extreme, while being bounded below by \(q\). The families, hypotheses, and first-sign-change convention needed for these assertions are not supplied; they are retained as motivation rather than imposed as established properties of \(T\).
+
+The record additionally contains a number-field discussion. Let \(\mathbb K\) be a number field, let \(\mathcal O_{\mathbb K}\) be its ring of integers, and write
+\[
+\kappa_{\mathbb K}=\operatorname*{Res}_{s=1}\zeta_{\mathbb K}(s),
+\qquad N(\mathfrak p)=\#(\mathcal O_{\mathbb K}/\mathfrak p),
+\]
+where \(\zeta_{\mathbb K}\) is the Dedekind zeta-function and \(\mathfrak p\) ranges over nonzero prime ideals. For real \(x>1\), define
+\[
+\Delta_{\mathbb K}(x)=
+\prod_{N(\mathfrak p)\leq x}\left(1-\frac{1}{N(\mathfrak p)}\right)^{-1}
+-e^{\gamma}\kappa_{\mathbb K}\log x,
+\]
+where \(\gamma\) is the Euler--Mascheroni constant and an empty product is \(1\). A precise threshold for a first negative value is
+\[
+M_{\mathbb K}=\inf\{x>1:\Delta_{\mathbb K}(x)<0\},
+\qquad \inf\varnothing=+\infty.
+\]
+The source connects this difference with Mertens's third theorem for number fields, describes a tendency toward positivity, and attributes to B\"uthe [buthe2015first] a first negative value for \(\Delta_{\Q}\) before \(2\cdot10^{215}\). It attributes to [hathi2021mertens, Table 1] a weaker positivity bias, measured by logarithmic density, for \(\Q(\sqrt5)\) and \(\Q(\sqrt{13})\) than for \(\Q\). It explicitly leaves unclear whether their first negative values should occur earlier than those for \(\Q\). The record gives no definite inequality to prove here and does not identify this paragraph as a separate problem or as part of the principal request. No comparison among the \(M_{\mathbb K}\) is therefore asserted.
+\subsection{Short English statement}
+Seek a slowly growing upper bound, depending on the modulus, for the first sign change in a race between two prime-counting functions. The allowed residue classes, uniformity, hypotheses, and sign-change convention need clarification. An appended number-field discussion raises an unresolved comparison of first negative values without specifying a formal second target.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(800137\), exact source code \texttt{catalogue entry}, title ``Comparative Prime Number Theory --- Problem 6.'' The supplied registry labels the problem \texttt{open}; this label is not an independently verified mathematical assessment.
+\item Hamieh, Kadiri, Martin, and Ng, \emph{Comparative Prime Number Theory Problem List} (2024), Problem (\#6), \url{https://arxiv.org/abs/2407.03530}. This is the supplied primary source reference. The supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; this access metadata is supplied, not independently verified here.
+\item The principal question is attributed in the source to Daniel R. Johnston, University of New South Wales--Canberra at ADFA, and is said to have been posed during Ethan Lee's talk at the CPNTS. The registry's proposer field lists Hamieh, Kadiri, Martin, and Ng.
+\item Rubinstein and Sarnak [RS], cited in the supplied text for the logarithmic-density calculation; Bays and Hudson, cited for the reported first sign change modulo \(3\). Full bibliographic details and individual links are not supplied.
+\item B\"uthe [buthe2015first], cited for the reported bound on a first negative value of \(\Delta_{\Q}\); [hathi2021mertens, Table 1], cited for number-field positivity-bias comparisons. Full bibliographic details, individual links, and relevant hypotheses are not supplied.
+\end{itemize}
+\end{document}

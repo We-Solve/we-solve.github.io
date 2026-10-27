@@ -1,0 +1,69 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001897}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \((M,g)\) be a smooth closed connected oriented surface of genus at least two with Gaussian curvature \(K\leq0\). Let \(g_t:SM\to SM\) be its unit-speed geodesic flow and let \(\mu_L\) be normalized Liouville measure. The source asks whether \(g_t\) is ergodic for \(\mu_L\). Define the invariant all-flat set and its complement by
+\[
+ \operatorname{Sing}=\{v\in SM:K(\pi(g_tv))=0\text{ for all }t\in\R\},
+ \qquad\operatorname{Reg}=SM\setminus\operatorname{Sing}.
+\]
+The source reports known ergodicity on \(\operatorname{Reg}\), the vectors whose geodesics encounter negative curvature. Since genus at least two ensures a nonempty open negative-curvature region, \(\mu_L(\operatorname{Reg})>0\). Under this known regular-set result, full Liouville ergodicity is equivalent to \(\mu_L(\operatorname{Sing})=0\). This is not a claim that every basepoint with \(K=0\) belongs to a wholly flat geodesic.
+
+For \(x\in M\) and \(T\geq0\), let
+\[
+ A_T(x)=\{v\in S_xM:K(\gamma_v(t))=0\text{ for every }|t|\leq T\},
+ \qquad a_T(x)=\frac{\operatorname{angle}(A_T(x))}{2\pi}.
+\]
+Here \(\operatorname{angle}\) is circle length in the unit tangent fibre and \(\gamma_v\) is the complete geodesic with initial vector \(v\). The closed measurable sets decrease as \(T\) grows. Liouville disintegration and continuity from above give the aid's exact screening identity
+\[
+ \mu_L(\operatorname{Sing})
+ =\lim_{T\to\infty}\frac1{\operatorname{Area}(M)}
+      \int_M a_T(x)\,\dd A(x)
+ =\frac1{\operatorname{Area}(M)}\int_M a_\infty(x)\,\dd A(x),
+\]
+where \(A_\infty(x)=\bigcap_{T\geq0}A_T(x)\) and
+\(a_\infty(x)=\operatorname{angle}(A_\infty(x))/(2\pi)\).
+Thus positive singular Liouville measure requires a positive-area set of footpoints with positive angular measure of complete two-sided all-flat directions. Merely having infinitely many such directions is insufficient.
+
+A quantitative sufficient screening condition is the following explicit form of angular escape. If there are times \(T_j\to\infty\), measurable sets \(B_j\subset M\), and numbers \(\eta_j,\epsilon_j\to0\) with
+\[
+ \operatorname{Area}(B_j)/\operatorname{Area}(M)\leq\epsilon_j,
+ \qquad a_{T_j}(x)\leq\eta_j\quad(x\notin B_j)
+\]
+almost everywhere, then the screening integral is at most \(\epsilon_j+\eta_j\), so \(\mu_L(\operatorname{Sing})=0\). The aid does not establish such estimates for every nonpositively curved surface.
+
+Another sufficient criterion is countable ruling: outside a base set of area zero, suppose every element of \(A_\infty(x)\) is among values of countably many measurable unit-direction fields, defined on measurable subsets of \(M\). Then each such fibre is countable and has zero angular measure, hence the singular set is Liouville-null and the known regular-set ergodicity yields full ergodicity. Covering by countably many unoriented directions also suffices after taking both signs. This is a conditional criterion, not a proof that all all-flat sets have such a covering.
+
+The source also asks the higher-dimensional analogue for a closed rank-one nonpositively curved manifold. A geodesic has rank one when it has no nonzero orthogonal parallel Jacobi field along its complete trajectory; the full rank includes the velocity field. It reports ergodicity on rank-one vectors but an unresolved null-measure problem for higher-rank vectors. It warns that several 1980s claims of a solution relied on an incorrect proof that this complement has measure zero. Separately, the source attributes to Knieper a unique ergodic measure of maximal entropy for rank-one geodesic flow. This distinct measure does not settle ergodicity for Liouville measure. The final heading ``6.2. Zero curvature geodesics and flat strips'' is a boundary fragment, not an additional supplied question.
+\subsection{Short English statement}
+The remaining obstruction to Liouville ergodicity is the measure of complete all-flat geodesics. The aid expresses that measure as a limit of finite-time angular averages. Countably many flat direction fields, or quantitative angular escape, would force it to vanish, but those conditions are not established in general.
+\subsection{Sources}
+\begin{itemize}
+\item Permanent UnsolvedMath ID \(20001897\), exact public code catalogue entry; local registry \texttt{aim-geometry-notes.json}, \texttt{notes[234]}, canonical tag question.
+\item Keith Burns and Vladimir S. Matveev, \emph{Open problems and questions about geodesics}, Section 6.1, Question 6.1.1, AIM workshop ``Geodesics'': \url{https://aimath.org/pastworkshops/geodesicsproblems.pdf}. No PDF was accessed for this draft.
+\item Supplied original labels: [Pesin1977] for surface regular-set ergodicity; [Bal-Bri1982] and [Burns1983] for rank-one regular vectors; [Burns1983], [Bal-Bri1982] and [Ba-Br-Eb1985] in the warning about erroneous higher-rank-nullity claims; [Knieper1998] for the unique ergodic maximal-entropy measure. Full bibliography is not supplied, and the separate original literature field is empty.
+\item Research attempt 1, ``Finite-time angular screening for the all-flat set,'' labelled reduction, open at the run, proved and low novelty confidence; registry partially\_solved. The exact-statement verification identifies the authors and question; no further external verification evidence is included.
+\end{itemize}
+\end{document}

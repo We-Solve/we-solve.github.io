@@ -1,0 +1,105 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006542}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Omega\) be a finite set and let \(G\leq\operatorname{Sym}(\Omega)\). For \(A\subseteq G\), define its normalized counting density by
+\[
+\mu_G(A)=\frac{|A|}{|G|}.
+\]
+For a positive integer \(k\), call \(A\) \(k\)-product-free if there are no elements \(a_0,a_1,\ldots,a_k\in A\) satisfying
+\[
+a_1a_2\cdots a_k=a_0.
+\]
+The elements in this equation need not be distinct. Equivalently, writing \(A^k=\{a_1\cdots a_k:a_1,\ldots,a_k\in A\}\), the condition is \(A^k\cap A=\varnothing\). Define
+\[
+m_k(G)=\max\left\{\mu_G(A):A\subseteq G,\ A^k\cap A=\varnothing\right\}.
+\]
+This definition adopts the equation convention explicitly supplied for the cross problem. Finite groups and positive \(k\) give a precise counting formulation; the source's phrase ``a permutation group and an integer \(k\)'' does not explicitly specify these restrictions. Its examples concern \(k\geq2\), and it supplies no density convention for infinite groups or product convention for nonpositive \(k\).
+
+\textbf{Problem.} Determine \(m_k(G)\) for finite permutation groups \(G\), in the intended range of \(k\). In particular, with \([n]=\{1,\ldots,n\}\), determine
+\[
+m_k(\operatorname{Sym}(n))\quad\text{and}\quad m_k(\operatorname{Alt}(n))
+\]
+in the ranges that remain unresolved. The record does not give an exhaustive specification of those ranges or say whether ``determine'' requires exact values, sharp asymptotic constants, or orders of magnitude. Its distinction between order results and the general problem must be retained.
+
+\textbf{Supplied results and qualifications.} The following contextual assertions are reported by the supplied excerpt; they are not independently verified here. The excerpt introduces a construction analogous to one attributed to Calkin--Erd\H{o}s in the integers:
+\[
+C_{n,\rho(k)}=
+\left\{\sigma\in\operatorname{Sym}(n):
+\sigma(i)\equiv i+1\pmod{\rho(k)}\text{ for }i\in[\rho(k)]\right\}.
+\]
+The intended construction appears to prescribe the cycle \(1\mapsto2\mapsto\cdots\mapsto\rho(k)\mapsto1\), with residues represented in \([\rho(k)]\). The literal congruence alone would not require images to lie in that set. More importantly, \(\rho(k)\) is not defined anywhere in the supplied record. The excerpt asserts that the construction is \(k\)-product-free and yields
+\[
+m_k(G)\geq n^{-\rho(k)}
+\qquad\bigl(G=\operatorname{Sym}(n)\text{ or }\operatorname{Alt}(n)\bigr).
+\]
+Its definition of \(\rho\), restrictions on \(n\), and interpretation within the alternating group require clarification before this construction can be used as a precise assertion.
+
+The excerpt's Theorem 1 reports, for each fixed integer \(k\geq8\),
+\[
+m_k(\operatorname{Alt}(n))=\Theta_k\bigl(n^{-\rho(k)}\bigr),
+\]
+and additionally, for odd integers \(k\geq8\),
+\[
+m_k(\operatorname{Sym}(n))=\Theta_k\bigl(n^{-\rho(k)}\bigr).
+\]
+Here \(\Theta_k\) denotes upper and lower bounds by positive constant multiples for all sufficiently large \(n\), with the constants and threshold allowed to depend on \(k\). These reported order statements remain dependent on the missing definition of \(\rho(k)\). The excerpt says that for \(k\leq5\) there are constructions substantially larger than the standard construction, and refers to an earlier discussion of \(k=2\) that is not supplied.
+
+For \(G=\operatorname{Sym}(n)\) or \(\operatorname{Alt}(n)\) and \(x,y\in[n]\), put
+\[
+G_{xy}=\{\pi\in G:\pi(x)=y,\ \pi(y)\ne x\}.
+\]
+The excerpt reports that these sets are \(3\)-product-free, with density \((1-o(1))n^{-1}\), compared with a standard-construction density of order \(n^{-3}\). The positive density assertion requires \(x\ne y\), since \(G_{xx}=\varnothing\); that restriction is missing from the excerpt. It also reports that, for sufficiently large \(n\), the largest \(3\)-product-free sets have this form. Its Theorem 2 states that for \(G=\operatorname{Sym}(n)\) or \(\operatorname{Alt}(n)\), and all sufficiently large \(n\), every \(3\)-product-free \(A\subseteq G\) satisfying
+\[
+\mu_G(A)\geq(1-2^{-18})n^{-1}
+\]
+is contained in some \(G_{xy}\).
+
+For completeness, the supplied cross-problem context defines a tuple \((A_0,\ldots,A_k)\) of subsets of \(\operatorname{Alt}(n)\) to be \(k\)-product-free when there is no solution of
+\[
+a_1\cdots a_k=a_0,\qquad a_i\in A_i\quad(0\leq i\leq k),
+\]
+and defines
+\[
+f_k(n)=\max\left\{\min_{0\leq i\leq k}\mu_{\operatorname{Alt}(n)}(A_i):
+(A_0,\ldots,A_k)\text{ is }k\text{-product-free}\right\}.
+\]
+The excerpt attributes an estimate for \(f_2(n)\), described as tight up to an implicit constant, to Eberhard~[2], and labels an estimate for \(f_3(n)\) as Theorem 3. Both estimates and the subsequent displayed bound for \(f_k(n)\) have corrupted mathematical formatting, so no precise rates can be recovered safely. It also asserts that \(f_k(n)\) decreases monotonically with \(k\), and begins a further construction using
+\[
+U_{i\to j}=\{\sigma\in\operatorname{Alt}(n):\sigma(i)=j\},
+\]
+but ends before giving its conclusion. These incomplete cross-problem statements do not specify an additional precise target.
+\subsection{Short English statement}
+For a finite permutation group, find the largest proportion of elements forming a set in which a product of \(k\) members never belongs to the set; repetitions are allowed. The principal families are the symmetric and alternating groups. The supplied record labels the problem partially solved and reports several order and stability results, but leaves the general target, the parameter \(\rho(k)\), and the precise unresolved ranges insufficiently specified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(30006542\), title ``Product-Free Sets in Symmetric and Alternating Groups,'' exact source problem code \texttt{catalogue entry}, collection ``Oberwolfach Reports Open Problems.'' The supplied record gives proposed year 2026 and no named proposer.
+\item Supplied report citation: \emph{Combinatorics} (2026), \emph{Oberwolfach Reports}, DOI 10.4171/owr/2026/1, pp.~5--79. \url{https://doi.org/10.4171/owr/2026/1}. The record describes these reports as documenting mathematical workshops and their open-problem discussions. It supplies no narrower page locator for this problem.
+\item Supplied literature-source label: ``Ghosal--Keevash primary-work abstract.'' \url{https://www.maths.ox.ac.uk/node/71359}. No full bibliographic citation or identification of the proposer is supplied by this label.
+\item The excerpt refers to ``Problem 7.1,'' to a Calkin--Erd\H{o}s construction, and to Eberhard~[2], but does not supply the corresponding bibliographic entries. These references cannot be identified precisely from the record alone.
+\item Literature assessment dated exactly \texttt{2026-08-22}: supplied dated curation, not independently verified. It labels the status ``partially solved'' and reports sharp order results in several ranges and stability for \(k=3\), while saying that the general \(m_k(G)\) problem is not determined for all permutation groups or all \(k\). Its listed sources are the report and abstract linked above. The background explicitly calls this a dated literature triage derived from supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement-status label is \texttt{corrected\_verified}; its verification note says that the official report was checked and the question isolated with repaired notation. This is a supplied provenance claim, not a source visit or verification performed for this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005114}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) be a positive integer and let \(K_n\) be the complete simple graph on vertex set \(\{1,\ldots,n\}\). A triangle is a three-element vertex set whose three edges are present. The random triangle-removal process starts from \(K_n\); at each step, it chooses uniformly at random one of the triangles in the current graph, records that triangle, and deletes its three edges.
+
+The supplied stopping duration is \(n^2/6-n^{1.99}\), without an integer-rounding convention or a rule for trajectories that become triangle-free before that duration. To display a fully defined candidate formulation, take, for sufficiently large \(n\),
+\[
+ m_n=\left\lfloor \frac{n^2}{6}-n^{1.99}\right\rfloor,
+\]
+and stop after \(m_n\) selections or when no triangle remains, whichever occurs first. Let \(\mathcal T_n\) be the set of recorded triangles. These rounding and early-termination conventions require source confirmation; they are explicit draft conventions rather than verified details of the supplied report.
+
+Under these conventions, the question is whether there exist a constant \(C>0\), independent of \(n\), and events \(E_n\) in the probability spaces of these processes such that
+\[
+ \lim_{n\to\infty}\Pr(E_n)=1
+\]
+and, for every sufficiently large \(n\), every integer \(1\le k\le\binom n3\), and every choice of pairwise distinct triangles \(T_1,\ldots,T_k\) of \(K_n\),
+\[
+ \Pr\!\left(\{T_1,\ldots,T_k\}\subseteq\mathcal T_n\,\middle|\,E_n\right)
+ \le \left(\frac Cn\right)^k.
+\]
+The same event \(E_n\) must work simultaneously for all these choices of \(k\) and triangles; in particular, \(k\) may grow with \(n\).
+
+The original extracted text includes a remark describing this as the first open case of polynomial density Hales--Jewett. This is preserved as supplied source commentary, without asserting a verified equivalence. The extraction then contains the name David Conlon and a separately numbered Problem 7 about a constant \(c=c_0\): for each fixed \(\varepsilon>0\), sufficiently large \((n,d,\lambda)\)-graphs with \(\lambda<(c_0-\varepsilon)d^2/n\) should contain a triangle, while arbitrarily large such graphs with \(\lambda<(c_0+\varepsilon)d^2/n\) should exist without triangles. That adjacent fragment has a different mathematical target and is not incorporated into the spread-bound question. Its attribution boundary and the convention for \((n,d,\lambda)\)-graphs are not resolved by the supplied record.
+\subsection{Short English statement}
+Does the set of triangles selected by the random triangle-removal process, run for approximately \(n^2/6-n^{1.99}\) steps, satisfy a uniform conditional spread bound on an event whose probability tends to one? Specifically, any prescribed \(k\) distinct triangles should all be selected with conditional probability at most \((C/n)^k\), for one constant \(C\) and all \(k\), including growing \(k\). Integer rounding and early termination require confirmation. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record: permanent ID \(30005114\), title \emph{Spread Bounds for the Random Triangle-Removal Process}, exact source code \texttt{catalogue entry}. The record lists proposed year 2022, status \texttt{open}, and statement status \texttt{corrected\_verified}. These are supplied registry labels, not independent verification.
+\item Supplied report citation: \emph{Combinatorics, Probability and Computing} (2023), Oberwolfach Reports, pp.\ 1165--1237, DOI \texttt{10.4171/owr/2022/22}. \url{https://doi.org/10.4171/owr/2022/22}. The record attributes the collection to workshop open-problem discussions; its proposer field is empty.
+\item Supplied literature source, labeled ``official OWR report'': \url{https://publications.mfo.de/bitstream/handle/mfo/3964/OWR_2022_22.pdf?isAllowed=y&sequence=4}. The supplied statement-verification field says this report was checked directly and that definitions and extraction artifacts were corrected. That verification history is reported from the registry and was not independently repeated here.
+\item Supplied literature source: Bohman, Frieze, and Lubetzky, \emph{Random triangle removal}. \url{https://doi.org/10.1016/j.aim.2015.04.015}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open, describes the final-edge exponent as settled, and describes the stronger conditional spread estimate for the stopped output and large \(k\) as unresolved. This is supplied dated curation, not an independently verified literature assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

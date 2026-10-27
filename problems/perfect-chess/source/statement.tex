@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1362}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $R$ be a fixed standard-chess ruleset specifying legal moves, terminal wins, stalemate and other draws, repetition rules, move-count rules, and any draw-claim actions. Let $p_0$ be the ordinary initial position with White to move. A history records every state variable needed by $R$, including whose turn it is, castling and en-passant rights, and the past information relevant to repetition and move-count rules. A pure strategy for a player assigns a legal action to every nonterminal legal history at which that player moves.
+
+For a ruleset under which every legal play terminates, let $\Sigma_W$ and $\Sigma_B$ be the sets of White and Black strategies and define the payoff of the resulting play by
+\[
+ u_R(p_0,\sigma,\tau)=
+ \begin{cases}
+ 1,&\text{White wins},\\
+ 0,&\text{the game is drawn},\\
+ -1,&\text{Black wins}.
+ \end{cases}
+\]
+The game-theoretic value from White's perspective is
+\[
+ v_R(p_0)=\max_{\sigma\in\Sigma_W}\min_{\tau\in\Sigma_B}
+             u_R(p_0,\sigma,\tau)\in\{-1,0,1\}.
+\]
+The requested determination is which of these three values standard chess has. Value $1$ means White has a strategy winning against every Black strategy; value $-1$ means Black has a strategy winning against every White strategy; and value $0$ means each player has a strategy avoiding defeat against every opponent strategy. This concerns play from the initial position, not merely the evaluation of selected endgames.
+
+The source describes chess as a finite deterministic game, but supplies no dated official ruleset. A fully fixed proposition requires the exact $R$, including automatic versus claimable draws and clock conventions. If a chosen ruleset permits infinite plays, their payoff must instead be specified explicitly before using the displayed value; it cannot be inferred just from a finite set of board configurations.
+
+The literature triage checked 17 August 2026 labels the full-game value unknown and reports that complete tablebases solve positions with at most seven pieces. The supplied source does not specify the exact tablebase class, exceptional state rights, distance metric, or treatment of move-count rules; that broad partial-progress description is retained as attributed information, not as a claim that every possible seven-piece rule-history is covered. The background gives an approximate $10^{47}$ position estimate, expresses evidence favoring a draw, and discusses exhaustive search and endgame methods. Neither that heuristic preference nor the estimate determines $v_R(p_0)$. No full-game perfect-play result was verified by the supplied triage.
+\subsection{Short English statement}
+Determine whether optimal play from the standard initial chess position gives White a forced win, Black a forced win, or a draw. This is a strategy-level game value; the rules for draws and game termination must be fixed, and solved small endgames do not by themselves determine it.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $1362$, source code \texttt{catalogue entry}, ``Perfect Chess,'' including its background and literature triage checked 17 August 2026.
+\item \emph{Combinatorial game theory}, Wikipedia overview, accessed 17 August 2026 according to the supplied record: \url{https://en.wikipedia.org/wiki/Combinatorial_game_theory}. The record cites it for chess being unsolved and seven-piece tablebases; no official chess rulebook or primary tablebase citation is supplied.
+\end{itemize}
+\end{document}

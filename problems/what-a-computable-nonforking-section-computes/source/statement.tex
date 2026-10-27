@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002310}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The question to be formalized is: does a computable section selecting nonforking extensions supply effective information about other characterizations of stability? The source-verification field identifies all material beginning ``1.4. \(\kappa^+\)-computable categoricity (Knight)'' as contamination from the following section. It is not included in Question 8.
+
+Here is the explicit restricted setup of the supplied partial result. Let \(T\) be a stable complete theory in a computable language and \(M\preccurlyeq N\) countable models. Fix a finite tuple of variables \(x\). Let \(B_M^x\) and \(B_N^x\) be the Boolean algebras of formulas in \(x\) with parameters in the indicated model, modulo equivalence there. Assume computable presentations of these Boolean algebras, decidable equality, and a computable Boolean embedding \(i:B_M^x\to B_N^x\) induced by elementarity. A type is named by the characteristic function of its ultrafilter on the corresponding Boolean algebra. Write \(S_x(M)\) and \(S_x(N)\) for these Stone spaces and
+\[
+ r:S_x(N)\to S_x(M),\qquad r(q)(a)=q(i(a)).
+\]
+Assume a Type-2 computable map \(s:S_x(M)\to S_x(N)\) satisfying \(r\circ s=\operatorname{id}\), such that \(s(p)\) is the unique nonforking extension of \(p\) to \(N\). Type-2 computability means that each requested output bit is produced with finitely many oracle queries to the input type name. Nonforking is meant in the ordinary stable-theory sense, over the model \(M\); the excerpt does not give this setup explicitly.
+
+For \(a\) in a Boolean algebra, let \([a]\) denote its clopen set of ultrafilters containing \(a\). The aid's effective Stone-duality assertion yields a computable Boolean homomorphism
+\[
+ \rho:B_N^x\to B_M^x,\qquad
+ s^{-1}([b])=[\rho(b)],\qquad \rho\circ i=\operatorname{id}.
+\]
+The induced computable map \(P=s\circ r:S_x(N)\to S_x(N)\) is idempotent, and its fixed points are exactly the types nonforking over \(M\). With Boolean symmetric difference denoted by \(\triangle\), the explicit mismatch description is
+\[
+ \operatorname{Fork}_{M,N}
+ =\bigcup_{b\in B_N^x}[\,b\triangle i(\rho(b))\,],\qquad
+ \operatorname{NF}_{M,N}
+ =\bigcap_{b\in B_N^x}\bigl(S_x(N)\setminus[b\triangle i(\rho(b))]\bigr).
+\]
+Thus forking is effectively open and nonforking is effectively closed in these presentations. For a computable type name \(q\), a forking witness is one formula class \(b\) such that \(q(b)\ne q(i(\rho(b)))\); searching these witnesses semidecides forking. It does not give a decision procedure for nonforking.
+
+For a formula \(\varphi(x;y)\) and \(p\in S_x(M)\), a definition \(d_p\varphi(y)\) is an \(M\)-formula such that
+\[
+ \varphi(x;b)\in p\quad\Longleftrightarrow\quad
+ M\models d_p\varphi(b)\qquad(b\in M^{|y|});
+\]
+its interpretation in an elementary extension similarly describes the unique nonforking extension. The aid additionally claims effective computation of these definitions under a uniformly computable coherent family of sections in all arities. It explicitly does not infer this from one section for one pair \(M\preccurlyeq N\). The record does not specify the required coherence, range of model pairs, or output representation of definitions. In particular, computing individual membership bits with a type oracle and outputting a finite formula code are different tasks. The additional claim is retained as a qualified assertion requiring those hypotheses and a proof, not as an unconditional corollary of the displayed fixed-pair construction.
+
+For source preservation, the excluded following-section text introduces \(\kappa^+\)-recursive enumerability as \(\Sigma_1\) definability on \(L_{\kappa^+}\), describes relative \(\kappa^+\)-categoricity using isomorphisms in a displayed \(L_{\kappa^+}(M,N)\), and recalls uncountable categoricity of quasiminimal excellent AECs. Its coding conventions and hypotheses are not supplied here, and those statements are not hypotheses or conclusions of Question 8.
+\subsection{Short English statement}
+Under explicit effective Stone-space coding, a computable nonforking section gives a Boolean retraction and semidecides forking by a formula mismatch. The stronger claim about computing definitions needs a separately specified coherent family of sections. The following categoricity section is documented extraction contamination.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002310\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-logic-notes.json}, \texttt{notes[85]}.
+\item AIM, \emph{Computable Stability Theory}, Question 8; supplied reference \url{https://aimath.org/pastworkshops/computestabproblems.pdf}. The record reports that inspection of page 2 identifies the Knight categoricity material as the next section. That inspection is a supplied verification report, not an inspection performed here. No original remarks, literature entry, proposer, or year is supplied for Question 8.
+\item Supplied research attempt 1: \texttt{partial\_result}, problem status at run \texttt{unknown}, rigor label \texttt{proved}, low novelty confidence; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. No primary citation for the effective retraction or all-arity strengthening is supplied.
+\item The research aid explicitly states that it is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

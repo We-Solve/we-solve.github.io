@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002446}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The intended question is S. Malham's cubic-autocatalysis front problem. Its setup appears in the preceding companion record:
+\[
+ u_t=\delta\Delta u-uv^2,\qquad
+ v_t=\Delta v+uv^2,\qquad\delta>0.
+\]
+Let $U(\xi)=(u(\xi),v(\xi))$, $\xi=x-ct$, be a planar front joining prescribed reaction equilibria. The source asks for its stability properties and an Evans-function description of the secondary instability of the cellular front produced after the primary planar instability. The subsequent M. Haragus KP-I material belongs to a separate problem. The companion source describes complex fronts around $\delta\sim8$ and the suggested occurrence of spatiotemporal chaos with two length scales, called biscale chaos. These are descriptions and questions, not rigorous stability conclusions.
+
+The aid reports a numerical primary threshold near $\delta=2.300$ and subsequent numerical multidimensional Evans calculations for secondary cellular-front instability, while leaving rigorous biscale-chaos stability open. No numerical values here are promoted to exact thresholds or a nonlinear theorem.
+
+For a conditional analytic diagnostic put $D=\operatorname{diag}(\delta,1)$ and $F(u,v)=(-uv^2,uv^2)$. The longitudinal linearization in the traveling frame is
+\[
+ L_0=D\partial_\xi^2+c\partial_\xi+DF(U(\xi)),
+ \qquad L(k)=L_0-k^2D,
+\]
+where $DF$ is the reaction Jacobian and $k$ a real transverse frequency. Assume a specified closed Fredholm realization of $L_0$ has an isolated algebraically simple eigenvalue zero, with right eigenvector $U'$ and an admissible dual eigenvector $\psi$ satisfying $p=\langle\psi,U'\rangle\ne0$. These assumptions are additional and may fail in an unweighted space. Define
+\[
+ P w=U'\frac{\langle\psi,w\rangle}{p},\quad Q=I-P,
+ \quad S=(L_0|_{\operatorname{Ran}Q})^{-1}
+ \text{ on }\operatorname{Ran}Q.
+\]
+The reported translation eigenvalue expansion is
+\[
+ \lambda(k)=-d_{\mathrm{eff}}k^2+\lambda_4k^4+O(k^6),
+ \quad d_{\mathrm{eff}}=\frac{\langle\psi,DU'\rangle}{p},
+ \quad\lambda_4=-\frac{\langle\psi,DSQDU'\rangle}{p}.
+\]
+If an analytic Evans function $E(\lambda,\rho)$ represents this simple branch with $\rho=k^2$, $E(0,0)=0$ and $E_\lambda(0,0)\ne0$, the corresponding derivatives at $(0,0)$ give
+\[
+ d_{\mathrm{eff}}=\frac{E_\rho}{E_\lambda},\qquad
+ \lambda_4=-\frac{E_{\rho\rho}-2d_{\mathrm{eff}}E_{\lambda\rho}
+                  +d_{\mathrm{eff}}^2E_{\lambda\lambda}}
+                    {2E_\lambda}.
+\]
+For equal diffusion $\delta=1$ the exact shift is $L(k)=L_0-k^2I$ and $\lambda(k)=-k^2$, so $d_{\mathrm{eff}}=1$ and $\lambda_4=0$.
+
+The reaction conserves $u+v$, so the constant vector $(1,1)$ solves the formal adjoint zero equation. For matching total end states, however,
+\[
+ \langle(1,1),U'\rangle
+  =[u+v]_{-\infty}^{+\infty}=0.
+\]
+It therefore cannot serve as the normalized dual translation vector in the preceding formulas; its membership in an actual adjoint domain also requires checking.
+
+For a front periodic in $y$ with period $L$, a Bloch--Evans analysis must examine all exponents $\theta\in[-\pi/L,\pi/L]$, using perturbations $e^{i\theta y}w(\xi,y)$ with periodic $w$, and account separately for essential spectrum and neutral symmetries. A small-$\theta$ spectral scale is not by itself a proof of nonlinear mode mixing or biscale chaos. The aid supplies this conditional framework, not the required full rigorous stability analysis.
+\subsection{Short English statement}
+Study primary and secondary stability of cubic-autocatalysis fronts and construct the appropriate multidimensional Evans function. The aid gives conditional translation-branch formulas, an equal-diffusion check and an adjoint-pairing warning; it does not prove nonlinear biscale chaos.
+\subsection{Sources}
+\begin{itemize}
+\item S. Malham, ``Biscale chaos,'' American Institute of Mathematics workshop \emph{Stability criteria for multi-dimensional waves and patterns}, pages 4--5 as identified in the supplied verification, \url{https://aimath.org/WWN/multidimwaves/multidimwaves.pdf}.
+\item Local UnsolvedMath registry, permanent ID 20002446, source code \texttt{catalogue entry}, canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[57]}, record dated 14 August 2026. The verification identifies the appended KP-I item as a separate speaker's contribution; the original literature field is empty.
+\item Companion permanent ID 20002445, \texttt{AIM-PDES-0057}, \texttt{notes[56]}, supplies the autocatalysis equations, $\delta\sim8$ context and the reference ``Biscale chaos in propagating fronts,'' \emph{Phys. Rev. E} 52 (1995), 4724--4735. Authors are not specified in that extract.
+\item Supplied research attempt 1: conditional result, problem status at run partially solved, rigor conditional, novelty confidence low. Its numerical-status account has no separate full citations; its analytic diagnostics are machine-generated research aid, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800566}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an integer \(n\geq 3\), let a simple polygon with \(n\) vertices mean a closed polygonal region \(P\subset\R^2\) whose boundary is a simple closed polygonal curve with distinct designated vertices \(p_1,\ldots,p_n\) in cyclic order. Adopt the closed-region visibility convention: two distinct vertices \(p_i,p_j\) are visible precisely when their closed line segment satisfies \([p_i,p_j]\subseteq P\). The vertex visibility graph \(G(P)\) is the finite simple undirected graph with vertex set \(\{p_1,\ldots,p_n\}\) and an edge for each visible pair.
+
+Two finite simple graphs \(G_1=(V_1,E_1)\) and \(G_2=(V_2,E_2)\) are isomorphic if there is a bijection \(f:V_1\to V_2\) such that, for all distinct \(v,w\in V_1\),
+\[
+\{v,w\}\in E_1\quad\Longleftrightarrow\quad\{f(v),f(w)\}\in E_2.
+\]
+Let
+\[
+N(n)=\left|\left\{[G(P)]_{\cong}:P\text{ is a simple polygon with }n\text{ vertices}\right\}\right|.
+\]
+Thus graphs are counted up to abstract graph isomorphism; neither geometric coordinates nor a chosen cyclic boundary order are retained as additional graph data.
+
+The supplied source reports the lower bound \(N(n)\geq 2^{n-4}\), attributed to Ghosh [g-vap-07], and the upper bound \(N(n)\leq 2^{O(n\log n)}\), attributed to an application of Warren's theorem [w-lbanm-68], with reference [s-grep-03]. The upper-bound notation means that there exist constants \(C>0\) and \(n_0\geq 3\) such that
+\[
+N(n)\leq 2^{C n\log_2 n}\qquad\text{for every integer }n\geq n_0.
+\]
+The extract supplies no explicit range of validity for the reported lower bound.
+
+\textbf{Problem (Ghosh--Goswami survey, Problem 40).} Improve the reported lower and upper bounds on \(N(n)\) as a function of \(n\). No specific target asymptotic rate or required size of improvement is supplied.
+
+\textbf{Unresolved conventions.} The extract does not define polygon visibility or state whether consecutive collinear vertices or other geometric degeneracies are permitted. The closed-region visibility convention above is an explicit working interpretation requiring confirmation against the source. Likewise, whether a straight boundary point may count as a designated polygon vertex remains unspecified. These conventions must be settled before this draft determines a unique counting function.
+\subsection{Short English statement}
+Count, up to graph isomorphism, the vertex visibility graphs realizable by simple polygons with \(n\) vertices. Improve the supplied lower bound \(2^{n-4}\) and upper bound \(2^{O(n\log n)}\). The extract leaves visibility and degeneracy conventions unspecified; the definitions above therefore require source confirmation. The registry labels the problem open, but that status is supplied metadata rather than an independently verified assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800566\), source problem code \texttt{catalogue entry}, title ``Visibility Graphs of Points, Segments and Polygons --- Problem 40.'' Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}. The record attributes the problem to Ghosh and Goswami, with proposed year 2010, and labels it open.
+\item Ghosh and Goswami, \emph{Unsolved Problems in Visibility Graphs of Points, Segments and Polygons} (2010), Problem 40. Supplied source URL: \url{https://arxiv.org/abs/1012.5187}. The source record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of independent access or verification.
+\item Reference label [g-vap-07]: the supplied statement attributes the lower bound \(2^{n-4}\) to Ghosh. Its full bibliographic entry is not included in the supplied record.
+\item Reference label [w-lbanm-68]: Warren's theorem, identified in the supplied statement as the tool yielding the upper bound. Its full bibliographic entry is not included in the supplied record.
+\item Reference label [s-grep-03]: cited in the supplied statement for the upper bound \(2^{O(n\log n)}\). Its full bibliographic entry is not included in the supplied record.
+\end{itemize}
+\end{document}

@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000547}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether communication complexity could yield an impossibility result for a cooperative two-player partition game that ``Chuck'' had begun to describe. It supplies no input distribution, private information, communication rules, winning relation, error tolerance, or resource bound. The attached report says the trailing ``Greg Knese'' is the next speaker heading, not a recovered game definition or attribution of this prompt. Thus the original game remains unrecovered.
+
+The report instead studies an explicitly defined surrogate. Let \(r\geq2\) be even, \(d\geq1\), and \(N=dr\). Alice knows a perfect \(r\)-uniform hypermatching \(\mathcal M\), a partition of \(\{1,\ldots,N\}\) into \(d\) unordered blocks of size \(r\). Bob knows only the public parameters and must output a signing \(\sigma\in\{\pm1\}^N\) satisfying
+\[
+\sum_{i\in B}\sigma_i=0\quad\text{for every block }B\in\mathcal M.
+\]
+Alice sends one deterministic message, and the cost is the worst-case fixed-length number of bits. This remote exact-balance model is not claimed to be the original Kadison--Singer game.
+
+Let \(\tau_{d,r}\) be the smallest public signing codebook such that every hypermatching is balanced by some codebook member. In the unordered-block convention, the total input count is
+\[
+H_{d,r}=\frac{(dr)!}{(r!)^d d!},
+\]
+and the protocol cost is \(\lceil\log_2\tau_{d,r}\rceil\). The report's exact incidence and probabilistic-cover bounds are
+\[
+\frac{\binom{dr}{dr/2}}{\binom r{r/2}^{\,d}}
+\leq\tau_{d,r}
+\leq\left\lceil(\ln H_{d,r}+1)
+\left(\frac{2^r}{\binom r{r/2}}\right)^d\right\rceil.
+\]
+It consequently asserts
+\[
+\operatorname{CC}_{\mathrm{one\mbox{-}way}}(d,r)
+=d\log_2\left(\frac{2^r}{\binom r{r/2}}\right)+O(\log(dr)).
+\]
+The logarithm bases in the finite-cover and bit formulas are different as displayed. The summary does not define \(H_{d,r}\), so its unordered-hypermatching interpretation is explicit here.
+
+The report emphasizes that this communication lower bound does not establish centralized Kadison--Singer hardness: once the full matching is given centrally, balancing half the signs in each block takes \(O(dr)\) time. No conclusion about randomized protocols, other information models, or the unspecified original game is supplied.
+\subsection{Short English statement}
+The original cooperative game is not defined. The report proves bounds for a separate one-way remote hypermatching-balancing surrogate, with explicit codebook bounds, and distinguishes communication cost from easy centralized construction.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop ``Beyond Kadison--Singer: paving and consequences,'' 2014, item b6: \url{https://docs.google.com/document/d/1XRw0WyG5PshqboCp99tovCRD1GCK0jXZiNLH_nw618c/edit}. The source document was not accessed here.
+\item Local canonical registry \texttt{aim-analysis-notes.json}, \texttt{notes[78]}, tag \texttt{question}; permanent UnsolvedMath ID \(20000547\), source code \texttt{catalogue entry}. Original refers only to ``Chuck'' and appends a Greg Knese heading; the report identifies the latter as the next speaker. Original remarks and literature field are empty.
+\item Supplied research attempt 1 proposing the surrogate game and exact communication bounds. No authoritative full references or original game rules are supplied. The report is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

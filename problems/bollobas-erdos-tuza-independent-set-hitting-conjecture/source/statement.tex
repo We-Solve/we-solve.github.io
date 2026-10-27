@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004981}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For the intended graph-theoretic formulation, interpret a graph as a finite simple undirected graph; this convention is not explicitly specified in the supplied record and requires confirmation. For a nonempty graph \(G=(V,E)\), put \(n=|V|\). A set \(I\subseteq V\) is independent if no two distinct vertices of \(I\) are adjacent. Define
+\[
+\alpha(G)=\max\{|I|:I\subseteq V\text{ is independent}\},
+\qquad
+\mathcal I_{\max}(G)=\{I\subseteq V:I\text{ is independent and }|I|=\alpha(G)\}.
+\]
+The minimum size of a vertex set meeting every maximum independent set is
+\[
+h(G)=\min\{|S|:S\subseteq V,\ S\cap I\ne\varnothing\text{ for every }I\in\mathcal I_{\max}(G)\}.
+\]
+Equivalently, \(h(G)=\min\{|S|:\alpha(G-S)<\alpha(G)\}\), where \(G-S\) is the induced graph on \(V\setminus S\) and \(\alpha(\varnothing)=0\). Let \(\chi(G)\) denote the minimum number of colors in a proper vertex coloring.
+
+\textbf{Conjecture attributed in the supplied record to Bollob\'{a}s, Erd\H{o}s and Tuza (1991).} For every sequence \((G_j)_{j\ge1}\) with \(n_j=|V(G_j)|\to\infty\), if there exist constants \(c>0\) and \(j_0\) such that
+\[
+\alpha(G_j)\ge c n_j\qquad(j\ge j_0),
+\]
+then
+\[
+\lim_{j\to\infty}\frac{h(G_j)}{n_j}=0.
+\]
+Thus the implicit constant in \(\alpha(G_j)=\Omega(n_j)\) is independent of \(j\). The condition \(n_j\to\infty\) makes explicit the asymptotic interpretation of the supplied statement.
+
+\textbf{Supplied relaxed conjecture.} For every fixed positive integer \(k\), every sequence \((G_j)\) with \(n_j\to\infty\) and \(\chi(G_j)\le k\) for all sufficiently large \(j\) satisfies \(h(G_j)/n_j\to0\). The supplied report text describes this as open even for \(\chi(G)=3\); this is a source assertion, not an independently verified current status.
+
+\textbf{Qualifications concerning the supplied remarks.} The source attributes to Hajnal (1965) the assertion that \(\alpha(G)>n/2\) implies \(h(G)=1\). It also transcribes the existence of a family \(G_n\) with
+\[
+\alpha(G_n)>n/4,\qquad \chi(G_n)\le8,\qquad h(G_n)>n/2.
+\]
+If this refers to unbounded orders, it contradicts both conjectures above. Detached square-root symbols occur in the extracted text, so this displayed transcription must not be accepted as a reliable bound or silently repaired.
+
+A further supplied assertion describes graphs of unbounded order with
+\[
+\alpha(G_n)=\bigl(\tfrac12-o(1)\bigr)n,
+\qquad h(G_n)>(\log n)^{0.999}.
+\]
+The source says that its constructions settle questions of Friedgut, Kalai and Kindler, and of Dong and Wu; the questions and the assignment of these conclusions to individual constructions are not specified.
+
+For regular graphs, the source transcribes the hypothesis \(\alpha(G)>0.250001n\) and the bound \(h(G)\le O(n\log n)\), followed by the statement that this applies in particular to regular \(3\)-colorable graphs. A detached square-root symbol makes the intended upper bound uncertain. Neither its placement nor a corrected bound is determined here. These background claims require checking against the report before mathematical use.
+
+The record also contains an interleaved passage entitled ``Beyond Hadwiger in \(F\)-free graphs.'' Its clique-minor questions are distinct from the independent-set hitting target and are not incorporated into this conjecture.
+\subsection{Short English statement}
+The conjecture asks whether every graph sequence whose maximum independent sets contain a fixed positive proportion of the vertices admits a set of \(o(n)\) vertices meeting every maximum independent set. The supplied weaker version assumes bounded chromatic number. Some extracted background bounds are corrupted or incompatible with the stated conjectures, so this is a statement-only draft requiring mathematical and source review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}: permanent ID \(30004981\), source problem code \texttt{catalogue entry}, title ``Bollob\'{a}s--Erd\H{o}s--Tuza Independent-Set Hitting Conjecture,'' in the Oberwolfach Reports Open Problems collection. This draft uses the supplied complete record.
+\item Supplied source citation: \emph{Graph Theory (2023)}, Oberwolfach Reports, pp.\ 5--78, DOI \texttt{10.4171/owr/2022/1}, \url{https://doi.org/10.4171/owr/2022/1}. The record assigns proposed year 2022 and also labels this source ``Oberwolfach Report 1/2022''; the discrepancy with the citation year 2023 is unresolved. The relevant extracted discussion is headed ``5. Hitting all maximum independent sets (Noga Alon).'' The conjecture is attributed there to Bollob\'{a}s, Erd\H{o}s and Tuza (1991), and the majority-size remark to Hajnal (1965). No separate original citations for those attributions are supplied.
+\item Supplied literature source: Bai, Chang, and Yan, ``hitting maximum independent sets,'' \url{https://arxiv.org/abs/2608.18963}.
+\item Supplied literature source: Cheng and Xu, ``Bollob\'{a}s--Erd\H{o}s--Tuza for forbidden subgraphs,'' \url{https://doi.org/10.1002/jgt.23246}.
+\item Supplied literature source: ``Oberwolfach Report 1/2022,'' \url{https://doi.org/10.4171/owr/2022/1}.
+\item Literature assessment date, exactly as supplied: \texttt{2026-08-22}. This is supplied dated curation, not independently verified. The record labels the problem ``partially solved'' and states that the conjecture remains open, with substantial bounds, structural cases, recent reductions, and results for dense or restricted graph classes. It expressly requests independent verification of time-sensitive status and cited claims.
+\item The record labels the statement \texttt{corrected\_verified} and says it was checked against the official report. This records the supplied verification claim only; no independent source visit or mathematical verification is asserted here.
+\end{itemize}
+\end{document}

@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000377}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Wooley's AIM problem considers, for positive integers \(k,s\), the forms
+\[
+\mathcal Q_{k,s}=\{F(y)=Q(y_1^k,\ldots,y_s^k):Q\in\Q[x_1,\ldots,x_s]\text{ a quadratic form}\},
+\]
+of degree \(2k\). In the nontrivial-zero interpretation, the Hasse implication means that a nonzero zero over every completion \(\Q_v\) forces one over \(\Q\). The printed definition is
+\[
+h(k)=\inf\{s\in\N:\text{the Hasse principle holds for every }F\in\mathcal Q_{k,s}\},
+\]
+and the challenge is \(\log h(k)=o(k)\) as \(k\to\infty\).
+
+The report points out that this literal infimum is \(1\) for every \(k\): one-variable forms satisfy the implication, vacuously when they have no nontrivial local zero. A substantive threshold formulation would instead quantify over every variable count \(s\geq s_0\), with all intended smoothness and local-solubility hypotheses specified. This repair is separate from the printed definition and is not silently substituted for it. The source does not distinguish ordinary from nonsingular local zeros, a distinction material to use of Birch's theorem.
+
+The raw source attributes to Birch a bound written, after restoring its displaced exponent, as \(h(k)\leq2k\cdot2^{2k}\), and compares the diagonal degree-\(k\) case, obtained by taking \(Q\) linear, with an expression \(2k\log k\). Its OCR prints an asymptotic comparison symbol which the verification says was lost; no actual recovered symbol is supplied. Thus that comparison is not asserted here as a precise asymptotic equivalence for the same literal \(h\).
+
+The candidate structural theorem is independent of that defect. Let \(k\geq2\), and let \(A\ne0\) be a symmetric \(s\)-by-\(s\) matrix over an algebraically closed field of characteristic zero. Write
+\[
+Q_A(x)=x^{\mathsf T}Ax,\qquad F_A(y)=Q_A(y_1^k,\ldots,y_s^k),\qquad
+\mu(A)=\max_{\varnothing\ne I\subseteq\{1,\ldots,s\}}\operatorname{nullity}(A_I),
+\]
+where \(A_I\) is the principal submatrix indexed by \(I\). The report asserts
+\[
+\dim\{y\in\A^s:\nabla F_A(y)=0\}=\mu(A),
+\]
+so the projective singular locus has dimension \(\mu(A)-1\), with the empty-locus convention \(\dim\varnothing=-1\). Equivalently the projective hypersurface is geometrically smooth exactly when every nonempty principal submatrix is nonsingular, or every nonempty principal minor is nonzero. The restriction \(k\geq2\) and nonzero \(A\) are retained.
+
+For rational \(A\), under nonsingular real and \(p\)-adic solubility at every prime, the report invokes Birch to give a nonsingular rational zero when
+\[
+s-\mu(A)>(2k-1)2^{2k}.
+\]
+This is an explicit singular-locus-dependent sufficient condition, not a proof of the intended subexponential uniform threshold. Browning's appended suggestion is to replace \(k\)-th powers by norm forms from fixed extensions of degree \(k\); its precise block-variable formulation is not supplied.
+\subsection{Short English statement}
+Seek a subexponential variable threshold for quadratic forms evaluated at \(k\)-th powers. The report flags a defective printed infimum and proposes an exact principal-submatrix formula for the singular locus, yielding a conditional Birch bound.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop ``Rational and integral points on higher-dimensional varieties,'' Problem 9, attributed to Wooley, with Browning's norm-form suggestion: \url{https://aimath.org/pastworkshops/ratlhigherdimvarproblems.pdf}. No PDF was accessed here.
+\item Local canonical registry \texttt{aim-algebraic-number-theory-notes.json}, \texttt{notes[28]}, tag \texttt{problem}; permanent UnsolvedMath ID \(20000377\), source code \texttt{catalogue entry}. The verification says OCR lost superscripts, a power on \(2\), and an asymptotic comparison symbol, but does not include the purported restored statement. Original remarks and literature field are empty; a running page header is extraction context.
+\item Supplied research attempt 1 proposes the singular-locus calculation and invokes Birch's theorem. No full authoritative bibliographic reference or complete original threshold hypotheses are supplied. The report is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

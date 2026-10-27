@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000871}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Scope of Section A.2.} The Sunday discussion is a multi-question research agenda, moderated by John Luecke and opened by Susan Holmes, rather than one conjecture. Its questions are retained below before the aid's narrower decision-theoretic result.
+\begin{enumerate}
+\item What distinguishes biological phylogenetic trees and their distributions from random branching trees? Which tree metrics have biological meaning, sound theory and practical computation? The discussion contrasts similarity with metric distance, BHV geodesics, edge contraction/expansion, branch-length and squared-length distances, Robinson--Foulds and Kuhner--Felsenstein methods. Holmes connects metric geometry to MCMC convergence; Huelsenbeck asks that the uses be made accessible to biologists, and Evans links meaningful distributions to confidence sets.
+\item Which features should a statistical summary preserve: branching topology, lengths or ancestral states? Felsenstein emphasizes dependence on the biological question, including rapid mammal divergences and morphological versus molecular change. Sober adds internal-node character states and integrating over them; Felsenstein warns that inferred states are estimates. Penny and Huelsenbeck note that the tree may serve a further investigation, such as sexual selection, rather than be the final target. Alignment-related branch-length restrictions are also raised.
+\item How should one select or average a cloud of trees? Epstein describes $22$ bacterial-fragment trees and wonders how metric choice changes the answer; Evans suggests a Mallows-like central-tree distribution. Penny suggests taxon deletion as a stability diagnostic. Are differences among estimation methods smaller than differences among genes, as Huelsenbeck reports?
+\item How should non-tree-like residuals and thresholds for concern be defined? Holmes discusses a reference DNA tree and eight plumage trees; the scribe suggests an ambient data space beyond tree space. Epstein asks what paths in tree space follow single-nucleotide changes, with the scribe noting variable leaf numbers. Felsenstein distinguishes statistical error, coalescence and horizontal gene transfer as sources of discordance. Diaconis's Roger Shepard/rotation-group anecdote is an analogy for interpretable distances, not evidence for a particular tree metric.
+\item Is concatenating sequences before inference better than aggregating inferred gene trees? Holmes reports empirical preference for averaging and attributes it to CAT$(0)$ geometry; Felsenstein records disagreement. St. John's $20$-sequence simulation and hybridization/sunflower comments illustrate data-dependent discrepancies. The discussion names Cunningham (1997), Amit, boosting and bagging. Billera distinguishes topological equivalence of metrics from curvature-sensitive geometry and cautions that averaging has no automatic guarantee.
+\item What is an average, and which properties should it satisfy? Vert discusses variance reduction and leaving the space, Holmes raises nonassociativity, Penny proposes medians and prefers binary resolution with acknowledged tradeoffs, and Felsenstein mentions consensus and majority-rule trees. Holmes asks for a distribution whose expected-value notion yields majority consensus. These are different possible loss and target choices.
+\item In Felsenstein's example, a split occurs in $2/3$ of gene trees and has conditional mean length $1$: should its summary length be about $0.66$ or $1$?
+\end{enumerate}
+
+\textbf{Reported fixed-leaf RF median.} Take a random unrooted tree $T$ on a fixed labeled taxon set, allowing unresolved trees, and let $S(T)$ be its nontrivial splits. For a candidate compatible split set $S$, define unnormalized Robinson--Foulds loss $d_{\mathrm{RF}}(S,S(T))=|S\mathbin{\triangle}S(T)|$, and put $p_s=\Pr(s\in S(T))$. The aid proves
+\[
+ \E d_{\mathrm{RF}}(S,S(T))=\E|S(T)|+\sum_{s\in S}(1-2p_s).
+\]
+Strict-majority splits $p_s>1/2$ are automatically compatible. Every minimizing topology contains them, contains no split of frequency below $1/2$, and may add a mutually compatible subset of half-frequency splits. Thus majority consensus is an RF median with explicit ties; it is not thereby the squared-BHV-distance mean or necessarily a fully resolved binary tree. Requiring binary resolution changes the admissible decision set.
+
+\textbf{Reported absence-penalty length family.} For a selected split let $I$ indicate its presence, $p=\Pr(I=1)>0$, and let its present length $L\geq0$ have finite conditional second moment and $\mu=\E[L\mid I=1]$. For $\lambda\geq0$, minimize over $x\geq0$
+\[
+ \E\big[I(x-L)^2+\lambda(1-I)x^2\big].
+\]
+The unique minimizer is
+\[
+ x_\lambda=\frac{p\mu}{p+\lambda(1-p)}.
+\]
+For the exact workshop example $p=2/3$, $\mu=1$, absence coded as zero has $\lambda=1$ and gives $x=2/3$; ignoring absence has $\lambda=0$ and gives $x=1$. The answer is determined by the declared loss, not a universal meaning of average. This is a topology/length decision specification, not a claim that every tree-averaging method agrees with it.
+
+The aid also reports a real-line counterexample showing that CAT$(0)$ geometry alone cannot establish biological consistency or decide concatenation versus aggregation. A unique geometric average does not ensure that the observations or estimators target the correct biological object. The broad distribution, confidence-set, residual, evolutionary-path and study-comparison questions above remain outside the supplied RF/length result.
+\subsection{Short English statement}
+The section asks many questions about biologically useful tree metrics and summaries. The aid resolves one precise choice: majority splits minimize expected unnormalized RF loss, with half-frequency ties, while the disputed $2/3$ versus $1$ branch length follows from how absence is penalized. Geometry alone does not settle biological consistency or concatenation versus aggregation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000871$, \texttt{catalogue entry}; canonical \texttt{aim-biology-notes.json}, \texttt{notes[35]}, tagged section.
+\item AIM workshop ``Geometric Models of Biological Phenomena,'' version dated 18 June 2003, A.2 ``Sunday Discussion on Biological Issues'': \url{https://aimath.org/WWN/geombio/geombio.pdf}. Moderator John Luecke; opening Susan Holmes; discussion attributions include Epstein, Huelsenbeck, Sober, Felsenstein, Evans, Diaconis, Penny, St. John, Billera and Vert. The page numerals are extraction artifacts.
+\item Supplied discussion names Billera--Holmes--Vogtmann (BHV), Robinson--Foulds, weighted RF, Kuhner--Felsenstein, a Mallows-model analogy, Roger Shepard's rotation example, Cunningham (1997), Amit, boosting and bagging. No full paper titles or bibliographic entries are supplied for these references.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{partially\_solved}, internal rigor \texttt{proved}, low novelty confidence. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. Original literature field empty; no independent PDF inspection is asserted.
+\end{itemize}
+\end{document}

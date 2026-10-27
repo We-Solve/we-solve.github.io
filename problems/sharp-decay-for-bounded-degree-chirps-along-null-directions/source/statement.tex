@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000530}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied reconstruction uses the Euclidean unit ball \(B\subset\R^3\), the quadratic phase \(x_3^2\), and distinct lines \(V_j\) spanned by nonzero null vectors for
+\(v_1^2+v_2^2-v_3^2=0\). For \(v_j\in V_j\setminus\{0\}\), define
+\[
+ I_\lambda(f_1,\ldots,f_N)=\int_B e^{i\lambda x_3^2}
+ \prod_{j=1}^N f_j(x\cdot v_j)\,dx.
+\]
+Christ's intended question is whether, for arbitrary bounded measurable \(f_j:\R\to\C\), an estimate
+\[
+ |I_\lambda(f_1,\ldots,f_N)|\le C|\lambda|^{-\epsilon}
+ \prod_{j=1}^N\|f_j\|_\infty\qquad(|\lambda|\ge1)
+\]
+holds for some \(\epsilon>0\), and what the optimal exponent is. The precise allowable dependence of \(C,\epsilon\) on \(N\) and the directions is not supplied. The extraction instead says ``different light cones'' and corrupts the phase, estimate symbol and epsilon; the verification stops after announcing the phase repair. Thus the displayed null-line/\(x_3^2\) formulation is the supplied research interpretation, not independently verified recovered text.
+
+The reported partial theorem restricts the input class. For every fixed integer degree bound \(D\ge0\), every finite collection of nonzero null directions, and arbitrary real polynomials \(P_j\) of degree at most \(D\), it asserts
+\[
+ \left|\int_B e^{i\lambda x_3^2}\prod_{j=1}^N e^{iP_j(x\cdot v_j)}\,dx\right|
+ \le C_D|\lambda|^{-1/2}\qquad(|\lambda|\ge1),
+\]
+uniformly in \(N\), placement of directions and all polynomial coefficients. Repeated directions are not excluded in this partial theorem. For finite complex measures \(\mu_j\) on the real degree-\(D\) polynomial coefficient space and mixtures
+\(f_j(t)=\int e^{iP(t)}\,d\mu_j(P)\), the claimed bound becomes
+\[
+ |I_\lambda(f_1,\ldots,f_N)|\le C_D|\lambda|^{-1/2}
+ \prod_j\|\mu_j\|_{\mathrm{TV}}.
+\]
+This is a product total-variation bound, not the original product \(L^\infty\)-norm estimate for arbitrary inputs. The report gives exponent \(1/2\) as sharp in this class because taking all inputs equal to one leaves a stationary-phase term of order \(|\lambda|^{-1/2}\).
+
+The report also states an exact tensor criterion for quadratic cancellation. With \(e_3=(0,0,1)\), cancellation by quadratic ridge phases \(a_j(x\cdot v_j)^2\) is the matrix identity
+\[
+ \lambda e_3e_3^{\mathsf T}+\sum_j a_jv_jv_j^{\mathsf T}=0.
+\]
+This describes cancellation of the quadratic part, not a decay theorem for all bounded functions. The source's statement that estimate (0.2) had only been proved for \(N\le5\), with reference [4], is a historical qualification; no current verification or full bibliographic reference is supplied.
+\subsection{Short English statement}
+Seek oscillatory decay with arbitrary bounded ridge inputs along light-cone directions. The supplied reconstructed partial result proves sharp half-power decay for bounded-degree polynomial chirps and their finite-measure mixtures, a restricted class whose total-variation estimate does not resolve the original \(L^\infty\) question.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000530\), source code \texttt{catalogue entry}; AIM analysis corpus, \texttt{aim-analysis-notes.json}, notes[61]. Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0.
+\item AIM \emph{Carleson theorems and multilinear operators}, Question 3, attributed to Michael Christ, equation (0.2): \url{https://aimath.org/pastworkshops/multilinopsproblems.pdf}. The source retains reference [4] for its \(N\le5\) claim; no bibliographic entry for [4] is supplied. Original literature and remarks fields are empty.
+\item The verification says official PDF and TeX can repair the extraction but ends after ``the phase is''. The report reconstructs distinct null lines from ``different light cones''; this draft claims no new inspection.
+\item Registry dated August 14, 2026: statement \texttt{reconstructed\_unverified}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}; attempt 1 records problem status open, partial result, rigor proved, novelty confidence low. The tensor/chirp/mixture contribution is a machine-generated research aid, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

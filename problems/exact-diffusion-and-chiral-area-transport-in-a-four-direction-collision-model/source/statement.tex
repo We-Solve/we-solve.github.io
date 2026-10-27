@@ -1,0 +1,82 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001405}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The original problem asks to calculate transport coefficients or related physical quantities for a variety of billiard systems. It specifies neither a billiard table nor a coefficient, equilibrium measure, normalization or limiting regime. The supplied aid treats the following stationary collision surrogate, not a deterministic billiard realization.
+
+Fix a step length \(\ell>0\), time per step \(\tau>0\), and probabilities \(p_0,p_L,p_2,p_R\geq0\) with sum \(1\). Let \(\theta_0\) be uniform on \(\{0,\pi/2,\pi,3\pi/2\}\), and let the independent relative turns have angles \(0,\pi/2,\pi,-\pi/2\) with those probabilities, respectively. Set
+\[
+ \theta_{j+1}=\theta_j+\Delta_j\pmod{2\pi},\quad
+ V_j=\ell(\cos\theta_j,\sin\theta_j),\quad
+ X_n=\sum_{j=0}^{n-1}V_j,\quad
+ \lambda=p_0-p_2+i(p_L-p_R).
+\]
+For \(h\geq0\), the aid's explicit lag correlation, with the indicated ordering of the vectors, is
+\[
+ C_h=\E[V_hV_0^{\mathsf T}]
+ =\frac{\ell^2}{2}
+ \begin{pmatrix}\operatorname{Re}\lambda^h&-\operatorname{Im}\lambda^h\\
+ \operatorname{Im}\lambda^h&\operatorname{Re}\lambda^h\end{pmatrix}.
+\]
+Define the signed polygonal area, closing the path by the segment to the origin, and the normalized coefficients by
+\[
+ A_n=\frac12\sum_{0\leq j<k<n}(V_j\wedge V_k),\qquad
+ d_n=\frac{\E|X_n|^2}{4n\tau},\qquad
+ a_n=\frac{\E A_n}{n\tau},
+\]
+where \(u\wedge v=u_1v_2-u_2v_1\), so counterclockwise area is positive. The aid reports the joint formula
+\[
+ d_n+ia_n=\frac{\ell^2}{4\tau}
+ \left[1+2\sum_{h=1}^{n-1}\left(1-\frac hn\right)\lambda^h\right].
+\]
+For \(\lambda\ne1\), it gives
+\[
+ d_n+ia_n
+ =\frac{\ell^2}{4\tau}\frac{1+\lambda}{1-\lambda}
+ -\frac{\ell^2\lambda(1-\lambda^n)}{2\tau n(1-\lambda)^2},
+ \qquad
+ d+ia=\lim_{n\to\infty}(d_n+ia_n)
+ =\frac{\ell^2}{4\tau}\frac{1+\lambda}{1-\lambda}.
+\]
+Thus the exact finite-window bias is the second term and is \(O(n^{-1})\) for each fixed \(\lambda\ne1\). The diffusion component is
+\[
+ d=\frac{\ell^2}{4\tau}\frac{1-|\lambda|^2}{|1-\lambda|^2},
+\]
+and with \(\zeta=(4\tau/\ell^2)(d+ia)\), the aid reports first-mode identification
+\[
+ \lambda=\frac{\zeta-1}{\zeta+1}.
+\]
+This identifies the first Fourier mode, not all four turn probabilities.
+
+The aid states that both the full correlation series and its symmetrized version converge absolutely exactly when scattering is nondeterministic, equivalently \(|\lambda|<1\) in this four-direction model. If one turn has probability \(1\), then \(\lambda\in\{1,-1,i,-i\}\), and ordinary correlation summation fails. For \(\lambda=-1,i,-i\), the finite-window transport limit above nevertheless exists; it must not be identified with a convergent ordinary Green--Kubo series. Straight deterministic motion, \(\lambda=1\), is excluded from the rational formula and is ballistic, with \(d_n=n\ell^2/(4\tau)\) and \(a_n=0\). Applying the surrogate coefficients to a genuine billiard would require a justified reduction to these stationary turn statistics, which is not supplied.
+\subsection{Short English statement}
+The broad billiard transport problem is represented by a precisely defined four-direction random collision model. Its supplied exact formulas combine diffusion and signed area drift, include the finite-time bias, and distinguish ordinary Green--Kubo summability from finite-window limits at deterministic periodic endpoints.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001405\), code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[62]}.
+\item AIM workshop list ``Stochastic methods for non-equilibrium dynamical systems,'' Problem 20, \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. The registry quotes the PDF question; this draft does not claim to have read the PDF. No additional authoritative literature citation or proposer is supplied.
+\item Supplied research attempt 1: result ``partial\_result,'' status ``partially\_solved,'' rigor label ``proved,'' novelty confidence ``low.'' The research aid is machine generated, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

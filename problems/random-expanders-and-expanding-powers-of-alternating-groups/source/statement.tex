@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005889}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\operatorname{Alt}(n)\) denote the group of even permutations of \(\{1,\ldots,n\}\). For a positive integer \(m\), write \(\operatorname{Alt}(n)^m\) for the direct product of \(m\) copies of \(\operatorname{Alt}(n)\). Interpreting the source's unformatted expression \(\operatorname{Alt}(n)f(n)\) as this direct power is natural but requires confirmation.
+
+The following fixes one standard convention for stating the expansion questions. For a finite nontrivial group \(G\) and an ordered tuple \(S=(s_1,\ldots,s_r)\in G^r\), define the lazy symmetric averaging operator on functions \(u:G\to\C\) by
+\[
+ (P_Su)(x)=\frac12u(x)+\frac{1}{4r}\sum_{i=1}^r\bigl(u(xs_i)+u(xs_i^{-1})\bigr).
+\]
+Use the inner product \(\langle u,v\rangle=|G|^{-1}\sum_{x\in G}u(x)\overline{v(x)}\), and define
+\[
+ \gamma(G,S)=\inf_{\substack{u\ne0\\\sum_{x\in G}u(x)=0}}
+ \frac{\langle (I-P_S)u,u\rangle}{\langle u,u\rangle}.
+\]
+Thus \(\gamma(G,S)>0\) implies that \(S\) generates \(G\). Under this convention, a uniform expander family has a uniformly bounded tuple length and a constant \(\delta>0\) such that \(\gamma(G,S)\ge\delta\) throughout the family. The tuple and its inverses specify a Cayley multigraph; repetitions are retained. This convention supplies precise terminology, but the source does not specify its sampling or graph conventions.
+
+\textbf{Random generators.} The supplied question asks whether random bounded generating sets of alternating groups give expanders. One conventional precise formulation is: do there exist an integer \(r\ge2\) and a real number \(\delta>0\), both independent of \(n\), such that, for independent uniformly distributed elements \(s_1,\ldots,s_r\in\operatorname{Alt}(n)\),
+\[
+ \lim_{n\to\infty}\Pr\!\left(\gamma\bigl(\operatorname{Alt}(n),(s_1,\ldots,s_r)\bigr)\ge\delta\right)=1?
+\]
+The supplied wording does not determine whether this is the intended quantification over \(r\), whether tuples or subsets are sampled, whether sampling is conditioned on generation, or whether probability tending to one is required. Consequently, the displayed formulation is an explicitly qualified interpretation, not an established transcription of all intended quantifiers.
+
+\textbf{Direct powers.} Under the direct-product interpretation, characterize the functions \(f:\N_{\ge1}\to\N_{\ge1}\) for which there exist constants \(r\ge1\), \(\delta>0\), and \(n_0\ge5\), and tuples
+\[
+ S_n\in\bigl(\operatorname{Alt}(n)^{f(n)}\bigr)^r\qquad(n\ge n_0),
+\]
+such that
+\[
+ \left\langle S_n\right\rangle=\operatorname{Alt}(n)^{f(n)}
+ \quad\text{and}\quad
+ \gamma\bigl(\operatorname{Alt}(n)^{f(n)},S_n\bigr)\ge\delta
+ \qquad(n\ge n_0).
+\]
+Here the constants may depend on \(f\), but not on \(n\). This expresses the uniform bounded-degree interpretation of the supplied clean statement. The original wording does not explicitly prescribe these dependencies, an asymptotic versus all-\(n\) requirement, a constructive algorithm, or the sense in which an optimal \(f\) is sought. Restricting to sufficiently large \(n\) avoids imposing unsupported requirements on the small alternating groups.
+
+The original-statement field also appends distinct questions about diameters of special linear groups and permutation-group product sets. Their notation is damaged and their relationship to this entry is unresolved; they are not silently incorporated into the two expansion questions.
+\subsection{Short English statement}
+The intended questions concern whether a bounded number of random permutations gives alternating groups a spectral gap bounded away from zero, and how large direct powers of alternating groups can admit uniformly bounded generating sets with such a gap. Precise sampling, quantifiers, and direct-power conventions remain unconfirmed. The supplied label is \emph{partially solved}; its dated literature assessment and its \texttt{corrected\_verified} statement label are registry metadata, not independent mathematical verification.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005889\), exact source problem code \texttt{catalogue entry}, title \emph{Random Expanders and Expanding Powers of Alternating Groups}; collection: \emph{Oberwolfach Reports Open Problems}; recorded proposed year: 2024.
+\item Supplied source citation: \emph{Mini-Workshop: Growth and Expansion in Groups} (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/17, pp. 1005--1040. \url{https://doi.org/10.4171/owr/2024/17}. The supplied background describes these reports as documenting workshops and their open-problem discussions.
+\item Supplied literature source, labelled ``random generators'': \url{https://arxiv.org/abs/1311.6742}.
+\item Supplied literature source, labelled ``explicit expanders'': \url{https://arxiv.org/abs/math/0505624}.
+\item Supplied literature source, labelled ``OWR report'': \url{https://oa.tib.eu/renate/server/api/core/bitstreams/5c03f705-7680-4cb6-b7cd-653d4b29494d/content}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem partially solved and reports that bounded explicit expanders are known, that random pairs have nonconstant spectral-gap and mixing results, and that the bounded-random-generator question and optimal \(f(n)\) remain unresolved. This is supplied dated curation derived from the OWR material, not independently verified literature assessment. The source itself requests independent verification of time-sensitive status and cited claims.
+\item Attribution qualification: the original-statement field includes ``Questions by H. Helfgott'' immediately before two further questions. The structured proposer field is null. Whether that attribution also applies to the opening alternating-group questions requires source review.
+\end{itemize}
+\end{document}

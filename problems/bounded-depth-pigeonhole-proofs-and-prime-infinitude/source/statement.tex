@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000619}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This record contains two distinct proof-theoretic questions.
+
+For part (i), \(\mathrm{PHP}_n^m\) denotes a propositional pigeonhole tautology for \(m\) pigeons and \(n\) holes. One standard encoding, with variables \(p_{ij}\), is
+\[
+ \left(\bigwedge_{i=1}^m\bigvee_{j=1}^n p_{ij}\right)
+ \ \longrightarrow\
+ \bigvee_{1\leq i<i'\leq m}\bigvee_{j=1}^n(p_{ij}\wedge p_{i'j}).
+\]
+This expresses a collision when each pigeon occupies at least one hole and is a tautology for \(m>n\). Functional encodings with uniqueness clauses and other conventions must not be silently conflated with it. The requested families are \(m=2n\) and \(m=n^2\), with the latter in its nontrivial asymptotic range \(n\geq2\).
+
+The question asks whether each family has classical LK proofs of polynomial size and constant depth: schematically, whether there exist constants \(C,c,D\), independent of \(n\), and proofs \(\Pi_n\) with \(|\Pi_n|\leq Cn^c\) and the intended depth bound \(D\). In the customary bounded-depth proof-complexity reading, depth constrains formulas or cuts, not merely a bound on the height of the whole derivation. The source does not specify the exact encoding, formula-depth/cut restriction, tree versus directed-acyclic proof representation or size convention. These choices must be recovered; no claim for a different LK variant is substituted. The two growth rates of the number of pigeons are retained separately.
+
+For part (ii), \(\mathrm I\Delta_0\) is arithmetic with induction for bounded formulas in its base language. The source augments it by a prime-counting function \(\pi\) and its natural recursive definition. A usual reading of those equations is \(\pi(0)=0\) and
+\[
+ \pi(x+1)=\begin{cases}\pi(x)+1,&\operatorname{Prime}(x+1),\\
+ \pi(x),&\neg\operatorname{Prime}(x+1),\end{cases}
+\]
+where \(\operatorname{Prime}(t)\) means \(t>1\) with no nontrivial positive factorization, expressible by bounded quantifiers. The exact base axioms and whether bounded induction is extended to formulas containing \(\pi\) are not specified. No exponentiation or stronger induction axiom is added.
+
+The second question, explicitly conjectural in the original, is whether
+\[
+ \mathrm I\Delta_0(\pi)\ \vdash\
+ \forall x\ \exists q\,[q>x\ \wedge\ \operatorname{Prime}(q)].
+\]
+This asks for formal provability in that weak theory, not the ordinary truth of infinitude of primes. No equivalence or implication between parts (i) and (ii) is asserted merely because they occur in one record.
+
+The literature triage checked 2026-08-21 reports no authoritative complete resolution of the extracted claim located in its search. Its open label and reported source verification remain dated metadata, not independently checked proof-complexity or arithmetic results.
+\subsection{Short English statement}
+Ask separately for polynomial-size bounded-depth LK proofs of the two pigeonhole families, and for a proof of arbitrarily large primes in bounded arithmetic augmented by prime counting. The proof-depth convention, PHP encoding and induction scope for the new function are essential missing specifications. Prime infinitude itself is not being questioned.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000619, source code catalogue entry, ``Bounded-Depth Pigeonhole Proofs and Prime Infinitude,'' including both original questions, the second conjecture label and cleaned statements.
+\item \emph{Mini-workshop: Logic, Combinatorics and Independence Results (2007)}, Oberwolfach Reports, pp.\ 3087--3130, DOI 10.4171/owr/2006/52: \url{https://doi.org/10.4171/owr/2006/52}. This is also the sole supplied literature reference. The citation uses 2007, while the DOI and proposed-year metadata use 2006.
+\item Literature triage checked 2026-08-21; record updated 2026-09-16. No external source has been visited or independently checked here.
+\end{itemize}
+\end{document}

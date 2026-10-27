@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2552}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite group $G$, the order $o(g)$ of an element is the least positive integer $t$ with $g^t=1_G$. Write
+\[
+ a_k(G)=|\{g\in G:o(g)=k\}|\qquad(k\in\Z_{\ge1}).
+\]
+A group is solvable if its derived series, obtained by repeatedly taking commutator subgroups starting with $G$, eventually reaches the trivial subgroup. The source conjecture is
+\[
+ \forall k\ge1\ \forall G\text{ finite group},\qquad
+ 2a_k(G)\ge|G|\Longrightarrow G\text{ is solvable}.
+\]
+The order is exactly $k$, not merely a divisor of $k$, and the hypothesis includes equality at one half.
+
+The supplied Notebook records a counterexample family using the one fixed value $k=30$. Let $G_N=A_5^N$ for $N\ge1$, the direct product of $N$ copies of the alternating group on five letters. Its order is $60^N$, and it is nonsolvable since it has a quotient isomorphic to the nonsolvable group $A_5$. The factors have $1,15,20,24$ elements of orders $1,2,3,5$, respectively. The order of a tuple is the least common multiple of its coordinate orders, so it equals $30$ precisely when its coordinates include orders $2$, $3$ and $5$.
+
+The source's exact inclusion-exclusion count is
+\[
+ a_{30}(G_N)=60^N-45^N-40^N-36^N
+                   +25^N+21^N+16^N-1.
+\]
+For example, avoiding coordinates of order $2$ gives $45^N$ possibilities, and avoiding both orders $2$ and $3$ gives $25^N$; the analogous restrictions yield the other terms. Dividing by $60^N$ gives
+\[
+ \lim_{N\to\infty}\frac{a_{30}(G_N)}{|G_N|}=1.
+\]
+Consequently sufficiently large $N$ satisfy the at-least-half hypothesis while $G_N$ remains nonsolvable, refuting the stated conjecture. No changing order parameter $k$ is used in this family.
+
+The source attributes the problem to M. Deaconescu and the counterexample communication to L. Tae Young, letter dated 9 January 2026, recorded in Kourovka Notebook, issue 21, Problem 21.43. The literature triage checked 17 August 2026 and main registry both classify it solved by refutation. The source says exact thresholds in $N$ or classification of exceptional groups would be separate questions, and reports a symbolic inclusion-exclusion check with no computation run in that triage. This draft does not claim independent mathematical review.
+\subsection{Short English statement}
+Does having at least half a finite group's elements of one exact order force solvability? The supplied counterexamples are nonsolvable direct powers of $A_5$: the proportion of elements of the fixed order $30$ tends to $1$.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $2552$, exact source code \texttt{catalogue entry}, ``Kourovka Notebook Problem 21.43,'' including the literature triage checked 17 August 2026.
+\item \emph{Kourovka Notebook}, New Problems, 21st issue (2026), Problem 21.43, attributed to M. Deaconescu, recording L. Tae Young's letter of 9 January 2026 and the exact $A_5^N$ counterexample formula, \url{https://alglog.org/21tkt.pdf}.
+\end{itemize}
+\end{document}

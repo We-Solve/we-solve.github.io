@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005043}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For each integer \(n\geq 1\), let \(p_n\) satisfy \(0\leq p_n/n\leq 1\), and let \(G_n\sim G(n,p_n/n)\) be the Erd\H{o}s--R\'enyi graph on \(V_n=\{1,\ldots,n\}\), with each unordered pair of distinct vertices independently joined with probability \(p_n/n\). The source does not specify a further regime for \(p_n\).
+
+Let \(X_t(v)\) denote the opinion at vertex \(v\). Following the supplied reconstructed statement, take the initial opinions to be pairwise distinct, represented by \(X_0(v)=v\). A voter update replaces the opinion at a vertex by the opinion at a neighboring vertex. The rule for selecting updates, the clock rates, and the treatment of isolated vertices must be specified to determine the stochastic process; these are absent from the supplied extract.
+
+For a specified discrete-time voter dynamics \(X^{\mathrm d}\), define
+\[
+T_n^{\mathrm d}=\inf\bigl\{k\in\Z_{\geq0}:\exists i\in V_n\ \forall v\in V_n,\ X_k^{\mathrm d}(v)=i\bigr\}.
+\]
+For a specified continuous-time voter dynamics \(X^{\mathrm c}\), define
+\[
+T_n^{\mathrm c}=\inf\bigl\{t\in[0,\infty):\exists i\in V_n\ \forall v\in V_n,\ X_t^{\mathrm c}(v)=i\bigr\}.
+\]
+In both definitions, \(\inf\varnothing=+\infty\). Equivalently, if \(V_i(t)=\{v\in V_n:X_t(v)=i\}\), consensus means that \(V_i(t)=V_n\) for some \(i\). This gives a precise reading of the consensus event in the original extract.
+
+\textbf{Requested asymptotic problem.} Determine, as \(n\to\infty\), the asymptotic consensus times \(T_n^{\mathrm d}\) and \(T_n^{\mathrm c}\) as functions of the sequence \(p_n\), with pairwise distinct initial opinions.
+
+\textbf{Unresolved qualifications.} This request is a family of incompletely specified asymptotic questions. The source does not identify the update conventions, time normalization, density regimes, or whether the desired result concerns expectations, typical orders, limiting distributions, or another asymptotic criterion. It also does not specify whether graph randomness is averaged over or conditioned upon. With neighbor-copying dynamics and distinct initial opinions, disconnected components cannot exchange opinions, so consensus on all of \(V_n\) is impossible on a disconnected graph. The source does not state whether to retain this infinite consensus time, condition on connectivity, or study a specified component. No such choice is made here.
+\subsection{Short English statement}
+Starting with a different opinion at every vertex of \(G(n,p_n/n)\), determine how the time until every vertex has the same opinion scales with \(n\) and \(p_n\), in discrete and continuous time. A precise asymptotic target requires additional choices about update rules, clock normalization, disconnected graphs, and the probabilistic meaning of the asymptotics. The supplied record labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005043\), title ``Consensus Times on Erd\H{o}s--R\'enyi Random Graphs,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection.
+\item Supplied report citation: \emph{Population Dynamics and Statistical Physics in Synergy} (2023), Oberwolfach Reports, pp.~577--656, DOI \texttt{10.4171/owr/2022/12}. \url{https://doi.org/10.4171/owr/2022/12}. The original extract identifies p.~617 and the contribution ``Consensus time in the voter model on the Erd\H{o}s--R\'enyi random graph: A spectral approach,'' by Anton Klimovsky, joint work with Thomas van Belle. The registry separately supplies proposed year 2022 and no named proposer.
+\item Supplied literature source: ``Oberwolfach report.'' \url{https://doi.org/10.4171/owr/2022/12}.
+\item Supplied literature source: ``Meeting and coalescence times on Erdos Renyi components.'' \url{https://arxiv.org/abs/2607.13183}.
+\item Literature assessment checked at \texttt{2026-08-22}: supplied dated curation, not independently verified. It labels the problem open and states that consensus times are known in several dense and random graph regimes, while no single general asymptotic answer covers the stated question. It also says that the extract specifies neither graph density nor initial condition. The reconstructed statement does specify distinct initial opinions; this difference is retained as a source qualification.
+\item The registry labels the statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official report. These are supplied provenance claims; no source visit or independent verification is asserted here.
+\end{itemize}
+\end{document}

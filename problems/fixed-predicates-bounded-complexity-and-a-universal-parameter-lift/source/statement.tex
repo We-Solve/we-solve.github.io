@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000940}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks, attributed to Conlon--Fox--Pach--Sudakov--Suk, whether \(R_f^{(3)}(4,n)\) is polynomial in \(n\). It does not reproduce the definition of \(f\), the ambient dimension, ordering conventions, or the allowed point configurations. The aid distinguishes a literal fixed planar single-polynomial predicate from the broader class of bounded-complexity semialgebraic predicates; these are different quantifier regimes.
+
+For an explicit working definition, fix a real polynomial \(f\) on \((\R^d)^r\), an ordering of distinct vertices, and a sign convention, say an \(r\)-tuple in increasing vertex order is an edge when \(f>0\). Let \(R_f^{(r)}(s,n)\) be the least \(N\) such that every admissible ordered \(N\)-point configuration contains a complete \(r\)-uniform subhypergraph on \(s\) vertices or an independent set of size \(n\). General-position restrictions, if any, must be specified separately. In this language polynomial growth means
+\[
+ \exists C_f,K_f<\infty\ \ \forall n\ge1,\qquad
+ R_f^{(3)}(4,n)\le K_fn^{C_f},
+\]
+for each fixed predicate in the intended class; the source leaves that class insufficiently defined.
+
+The source reports Suk's upper bound in the notation
+\(R_f^{(3)}(4,n)=\exp(\exp(O(\sqrt{\log n})))\), and the classical Ramsey upper bound \(2^{O(n^2\log n)}\). The big-\(O\) equalities are interpreted as reported upper bounds, not matching asymptotics.
+
+The supplied aid reports a Jin--Tomon lower bound
+\[
+ R_3^t(4,n)>n^{(\log n)^{1/3-o(1)}}
+\]
+for a fixed bounded-complexity class, refuting polynomial growth in that broader sense. The definition and threshold for \(t\) are not supplied. The aid explicitly says this does not settle the literal question for one fixed planar polynomial.
+
+Its proposed parameter-elimination lemma fixes \((r,d,D,m)\), where a predicate is a Boolean function of the signs of \(m\) real polynomials of degree at most \(D\) in \(rd\) coordinate variables. It asserts one fixed universal description \(\Lambda_{\mathrm{univ}}\) in dimension
+\[
+ d+m\binom{rd+D}{D}+3^m,
+\]
+using \(m+3^m\) fixed polynomials of degree at most \(D+1\), such that every ordered hypergraph of this complexity is realized on a constant-parameter slice of the universal description. The added coordinates encode polynomial coefficients and a sign-pattern truth table and are held constant across vertices within a slice. Thus, writing \(R_r^{d,D,m}\) for the Ramsey number uniform over that complexity class, the reported comparison is
+\[
+ R_r^{\Lambda_{\mathrm{univ}}}(s,n)\ge R_r^{d,D,m}(s,n).
+\]
+The description is fixed independently of \(n\). Applied to the reported lower-bound class, this transfers superpolynomial growth to a single fixed higher-dimensional multi-polynomial Boolean description. It neither reduces the dimension to two nor replaces the Boolean description by one planar polynomial inequality.
+
+The original motivation links \(R_f^{(4)}(5,n)\) to the Erd\H{o}s--Szekeres number \(\operatorname{ES}(n)\), the least number of planar points in general position forcing \(n\) in convex position. The aid asserts an explicit degree-eight predicate whose corresponding \((5,n)\) Ramsey number, on general-position configurations, equals \(\operatorname{ES}(n)\). Its polynomial and sign convention are not included in the record, so this identity is retained as a reported realization rather than inventing the missing \(f\).
+\subsection{Short English statement}
+The source asks for polynomial semialgebraic Ramsey growth. The supplied aid separates fixed planar polynomial predicates from all bounded-complexity predicates: a reported lower bound and universal higher-dimensional lift refute the broader version while leaving the literal planar version unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000940\), source code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[64]}, tag \texttt{problem}.
+\item AIM workshop ``Graph Ramsey theory,'' ``Semi-algebraic Ramsey numbers,'' source item 18, Overleaf source: \url{https://www.overleaf.com/read/mnvcscjjysvg}. Statement status \texttt{exact}.
+\item Conlon--Fox--Pach--Sudakov--Suk, attributed question; Suk, attributed double-exponential upper bound; Jin--Tomon, attributed superpolynomial lower bound; Erd\H{o}s--Szekeres convex-position motivation. No full paper titles, dates, theorem numbers, or further URLs are supplied.
+\item Research attempt 1: \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

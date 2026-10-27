@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004987}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a graph \(H\). The supplied clean statement concerns adaptive queries in a hidden countably infinite Erd\H{o}s--R\'enyi graph. Under the conventional interpretation that \(H\) is a finite simple undirected graph and that copies are not required to be induced, the model and question can be formulated as follows. These conventions require confirmation from the cited report, since the supplied record does not explicitly specify them.
+
+For \(0<p<1\), let \(G(\N,p)\) be the random simple graph with vertex set \(\N\), in which each unordered pair of distinct vertices is an edge independently with probability \(p\). An adjacency query selects such a pair and reveals whether it is an edge. A strategy may choose each query using the answers to earlier queries. A copy of \(H\) is revealed when there is an injective map \(\phi:V(H)\to\N\) such that, for every \(uv\in E(H)\), the pair \(\{\phi(u),\phi(v)\}\) has been queried and answered positively. No condition is imposed on pairs corresponding to nonedges of \(H\).
+
+Interpreting the number of queries as a fixed upper bound on the queries used, define
+\[
+f(H,p)=\min\Bigl\{q\in\Z_{\geq0}:\text{some adaptive strategy using at most }q\text{ queries reveals a copy of }H\text{ with probability at least }\tfrac12\Bigr\}.
+\]
+The strategy may depend on \(H\) and \(p\). If strategies use internal randomness, the probability includes that randomness as well as the random graph. The supplied record does not explicitly distinguish a fixed query budget from an expected query cost; the displayed definition uses a fixed budget.
+
+\textbf{Question.} Determine the asymptotic growth of \(f(H,p)\) as \(p\to0^+\), for each fixed \(H\). The supplied clean statement additionally asks which graphs \(H\) admit a constant \(c=c(H)\) for which
+\[
+f(H,p)=\Theta\!\left(p^{-c}\right)\qquad(p\to0^+).
+\]
+Here the latter condition means that there exist \(a_H,b_H,p_H>0\), independent of \(p\), such that
+\[
+a_Hp^{-c}\leq f(H,p)\leq b_Hp^{-c}\qquad(0<p<p_H).
+\]
+Any treatment of edgeless targets must specify the convention for revealing vertices without querying edges; under the convention above they can be revealed with zero queries.
+
+\textbf{Unresolved source qualifications.} The original extracted text contains only the growth-rate question for \(f(H,p)\), followed by an apparently separate question attributed to Robertson (2010) and Plummer and Zha (2012), asking for a structural characterization of graphs in an undefined class \(\mathcal G\). It also records a conjecture attributed to Plummer and Zha (2012) that all graphs in \(\mathcal G\) are \(3\)-colorable, and reports that Maria Chudnovsky and Paul Seymour proved that conjecture during the workshop. The supplied record does not define \(\mathcal G\) or establish a connection to the query problem. These fragments therefore cannot be incorporated into its hypotheses or treated as a solution of it. The definition of the query model and the pure-power classification request come from the supplied clean statement; their agreement with the report is asserted by the registry but is not independently verified here.
+\subsection{Short English statement}
+For a fixed graph \(H\), determine how many adaptive adjacency queries are needed to reveal a copy of \(H\) in \(G(\N,p)\) with probability at least \(1/2\) as \(p\to0^+\), and identify when this number has pure-power order. The draft uses explicitly stated conventional graph and query-budget interpretations. The registry labels the problem open, but the source extraction contains unrelated-looking material and requires human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(30004987\), title \emph{Subgraph Query Complexity for Fixed Pattern Graphs}, exact source code \texttt{catalogue entry}, in the supplied Oberwolfach Reports Open Problems collection. The record gives proposed year 2022 and no named proposer. Its supplied labels are \texttt{open} and \texttt{corrected\_verified}; its verification note asserts that the clean statement was checked against the official report. These are registry assertions, not independent verification by this draft.
+\item Supplied report citation: \emph{Graph Theory (2023)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2022/1}, pp.\ 5--78. \url{https://doi.org/10.4171/owr/2022/1}. The record describes these reports as documenting workshops and their open-problem discussions. The supplied title year 2023 and the 2022 provenance have not been reconciled.
+\item Alweiss--Ben Hamida--He--Moreira, \emph{On the subgraph query problem}. \url{https://arxiv.org/abs/1911.04413}.
+\item Conlon--Fox--Grinshpun--He, \emph{Online Ramsey Numbers and the Subgraph Query Problem}. \url{https://arxiv.org/abs/1806.09726}.
+\item Supplied literature assessment, checked on exactly \texttt{2026-08-22}: the problem is labeled open; the assessment reports general upper and lower bounds and exact results for some targets, but no general asymptotic growth formula for arbitrary fixed \(H\). This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The original extraction attributes a separate structural-characterization question to Robertson (2010) and Plummer and Zha (2012), and a \(3\)-colorability conjecture to Plummer and Zha (2012). It reports a workshop proof by Maria Chudnovsky and Paul Seymour and supplies \url{https://arxiv.org/pdf/2201.11505.pdf}. No full references or definition of the associated graph class \(\mathcal G\) are supplied. This attribution is retained without assigning it to the subgraph-query question.
+\end{itemize}
+\end{document}

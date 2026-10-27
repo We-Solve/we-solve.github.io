@@ -1,0 +1,81 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002907}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source considers the level-\(k\) fusion product of rectangular type A factors
+\[
+ B=B^{r_\ell,s_\ell}\otimes_k\cdots\otimes_k B^{r_1,s_1}
+\]
+and asks for a two-variable \((q,t)\) generalization of its grading. It reports type A combinatorial/fermionic fusion formulas through rigged configurations (Schilling et al.) and conjectural other-type formulas (Hatayama et al.). The target multiplicity, energy normalization and meaning of a second grading are not fixed; a positive generating polynomial alone is weaker than a module bigrading.
+
+The aid uses type \(A_n^{(1)}\) rectangular crystals, \(1\le r_j\le n\), \(s_j\ge1\), and fixes a dominant classical weight \(\lambda\). Let \(L_i^{(a)}\) count factors \(B^{a,i}\). A configuration consists of partitions \(\nu^{(a)}\), with \(m_i^{(a)}\) parts of size \(i\), satisfying
+\[
+ \sum_{a,i}i m_i^{(a)}\alpha_a
+       =\sum_{a,i}iL_i^{(a)}\omega_a-\lambda.
+\]
+For the type A Cartan matrix \(C\), define vacancy numbers and configuration cocharge by
+\[
+ p_i^{(a)}=\sum_j\min(i,j)L_j^{(a)}
+      -\sum_b C_{ab}\sum_j\min(i,j)m_j^{(b)},
+\]
+\[
+ \operatorname{cc}(\nu)=\tfrac12\sum_{a,b,i,j}
+          C_{ab}\min(i,j)m_i^{(a)}m_j^{(b)}.
+\]
+For an admissible configuration, each rigging \(J_i^{(a)}\) is a partition fitting an \(m_i^{(a)}\times p_i^{(a)}\) rectangle. Put \(R(\nu,J)=\sum_{a,i}|J_i^{(a)}|\).
+
+Fix the aid's energy-compatible rigged-configuration bijection \(\Psi\), obtained from the chosen standard bijection by the appropriate corigging complement, and normalize the path energy by
+\[
+ D(b)=\operatorname{cc}(\nu)+R(\nu,J),\qquad (\nu,J)=\Psi(b).
+\]
+This convention must be matched to the one-variable fusion polynomial; a change of additive energy normalization changes the prefactor.
+
+At stable level \(k\ge\sum_j s_j\), the aid reports the positive refinement
+\[
+ F_{B,\lambda}(q,t)=\sum_{b\text{ highest weight }\lambda}
+                     q^{D(b)}t^{R(\Psi(b))}
+ =\sum_{\nu\text{ admissible}}q^{\operatorname{cc}(\nu)}
+       \prod_{a,i}
+       \begin{bmatrix}p_i^{(a)}+m_i^{(a)}\\m_i^{(a)}\end{bmatrix}_{qt}.
+\]
+The Gaussian binomial at \(u\) counts partitions in the indicated rectangle by \(u^{|J|}\). Thus the expression has nonnegative coefficients. In the reported normalization, \(t=1\) gives the usual one-dimensional \(X=M\) polynomial, and \(q=t=1\) gives the corresponding fusion coefficient. The second degree is invariant under changing factor order through the combinatorial \(R\)-matrix and the compatible rigged-configuration identification, not through arbitrary unrelated bijections.
+
+For a fixed configuration put \(A_\nu=\sum_{a,i}m_i^{(a)}p_i^{(a)}\). Complementing each rectangle sends \(R\) to \(A_\nu-R\). If \(P_\nu(u)\) is the product of Gaussian binomials, the exact fiber reciprocity is
+\[
+ u^{A_\nu}P_\nu(u^{-1})=P_\nu(u).
+\]
+Equivalently the fiber \(q^{\operatorname{cc}(\nu)}P_\nu(qt)\) is reciprocal with factor \(q^{2\operatorname{cc}(\nu)+A_\nu}t^{A_\nu}\) under \((q,t)\mapsto(q^{-1},t^{-1})\). The factor depends on \(\nu\); no global single-degree reciprocity is asserted.
+
+For arbitrary fusion level, let \(\mathrm{RC}_k\) be the established level-restricted set in the standard bijection convention, and let \(\theta\) complement riggings. The aid's energy-side set is \(\theta(\mathrm{RC}_k)\), not automatically \(\mathrm{RC}_k\) itself. Summing \(q^{\operatorname{cc}(\nu)+R}t^R\) over this image gives its finite-level positive candidate. Level restrictions can couple riggings, so the stable Gaussian product and complement reciprocity do not automatically persist. The summary does not supply the exact finite-level inequalities, a closed product formula, a representation-theoretic bigrading, or identification with a canonical Macdonald \((q,t)\) theory. Those remain additional parts of the original request.
+\subsection{Short English statement}
+The aid proposes total energy-side rigging size as a second statistic. At stable fusion level this gives a positive Gaussian-binomial formula with the correct one-variable and ungraded specializations. Finite-level restrictions require the complemented restricted set and need not factor. The construction is a combinatorial refinement, not a supplied module bigrading or canonical Macdonald deformation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002907, catalogue entry; canonical \texttt{aim-special-functions-notes.json}, notes[11], reconstructed-unverified statement status.
+\item AIM \emph{Generalized Kostka polynomials}, Problem 12, \url{https://aimath.org/WWN/kostka/prob2.pdf}. No individual proposer is supplied.
+\item Source attributions: Schilling et al. for type A rigged-configuration interpretations and fermionic fusion formulas; Hatayama et al. for conjectural other-type formulas. No full bibliographic entries are supplied, and the source's conjectural wording is a historical report rather than an independently updated status.
+\item Machine-generated research attempt 1, partial-result/partially-solved labels, reported rigor proved and low novelty confidence. Its second statistic and stable-level formula are not peer reviewed and require independent verification.
+\end{itemize}
+\end{document}

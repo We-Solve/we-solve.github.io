@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001248}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a real number \(p\in(0,1)\), independent of \(n\). Let \(G_n\sim G(n,p)\) be the random simple graph on \(\{1,\ldots,n\}\), with each unordered pair of distinct vertices independently present as an edge with probability \(p\). Define its triangle count by
+\[
+X_n=\sum_{1\le i<j<k\le n}\mathbf 1_{\{\{i,j\},\{i,k\},\{j,k\}\in E(G_n)\}}.
+\]
+Let \(q=q(n)\) be a positive integer, and take all asymptotic limits as \(n\to\infty\).
+
+The supplied problem asks how far asymptotic equidistribution of \(X_n\) modulo \(q(n)\), and a local limit theorem for \(X_n\), extend beyond the stated range
+\[
+q(n)=o\!\left(\frac{n^2}{\log n}\right).
+\]
+The record describes this range as known, but does not supply the precise theorem or its error bounds. This description is retained as a source qualification, not independently verified here.
+
+A precise target requires specifying the meaning of equidistribution when \(q\) grows. For example, uniform relative error would mean
+\[
+\max_{0\le a<q(n)}\left|q(n)\,\mathbb P\bigl(X_n\equiv a\pmod{q(n)}\bigr)-1\right|\longrightarrow0,
+\]
+whereas convergence in total variation to the uniform distribution would mean
+\[
+\frac12\sum_{a=0}^{q(n)-1}\left|\mathbb P\bigl(X_n\equiv a\pmod{q(n)}\bigr)-\frac1{q(n)}\right|\longrightarrow0.
+\]
+These are distinct requirements for varying \(q\); the supplied record does not select one.
+
+Likewise, put \(\mu_n=\mathbb E X_n\) and \(\sigma_n^2=\operatorname{Var}(X_n)\). One possible uniform Gaussian local limit formulation, for \(n\ge3\), is
+\[
+\sup_{k\in\mathbb Z}\left|\sigma_n\,\mathbb P(X_n=k)-\frac1{\sqrt{2\pi}}\exp\!\left(-\frac{(k-\mu_n)^2}{2\sigma_n^2}\right)\right|\longrightarrow0.
+\]
+This is an illustrative interpretation, not an asserted theorem or a confirmed reconstruction of the source's intended local limit statement. The record does not specify the approximation, error scale, uniformity range in \(k\), or how the modulus threshold is intended to constrain the local limit question.
+
+Thus the source-supported research request is to determine the scope and limitations of extensions beyond the displayed modulus range, for every fixed \(p\in(0,1)\), after resolving these formulation choices. The supplied literature discussion also concerns extensions from triangles to counts of fixed subgraphs, but does not specify a corresponding general-subgraph problem with sufficient hypotheses to replace this triangle-count question.
+\subsection{Short English statement}
+For a fixed edge probability \(p\in(0,1)\), investigate the range of moduli for which the triangle count in \(G(n,p)\) becomes asymptotically uniform, beyond the supplied threshold \(q=o(n^2/\log n)\), and clarify the associated local limit question. The intended error criterion and the connection between the modulus range and the local limit theorem remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied record with permanent ID \(30001248\), title \emph{Triangle-Count Equidistribution and Local Limits}, exact source problem code \texttt{catalogue entry}. The supplied proposed year is 2009; no individual proposer is identified.
+\item \emph{Combinatorics and Probability} (2009), Oberwolfach Reports, Report 23, pp.~1225--1302, DOI 10.4171/owr/2009/23. Supplied primary report reference: \url{https://doi.org/10.4171/owr/2009/23}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature reference labeled ``DeMarco-Kahn-Redlich modular subgraph statistics'': \url{https://doi.org/10.37236/4094}.
+\item Supplied literature reference labeled ``Sah-Sawhney-Zhu joint local limit theorem'': \url{https://arxiv.org/abs/2412.09535}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem \texttt{partially\_solved} and reports substantial positive results for extensions from triangle counts to fixed-subgraph counts, including modular equidistribution in sparse regimes and local limit theorems in broad connected-subgraph regimes, while saying that the full original analogue is not established. This is supplied dated curation, not independently verified. The background expressly calls for independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}, with a recorded qualification that the changes were meaning-preserving semantic, typographic, and LaTeX cleanup and added no unsupported source-dependent content. This metadata is not independent mathematical verification of the formulation or literature status.
+\end{itemize}
+\end{document}

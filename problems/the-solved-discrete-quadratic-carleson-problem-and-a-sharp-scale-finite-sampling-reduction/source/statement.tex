@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000535}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For finitely supported \(f:\Z\to\C\), define the discrete quadratic Carleson operator in the source's phase convention by
+\[
+ \mathcal C f(n)=\sup_{\lambda\in\R}
+ \left|\sum_{m\in\Z\setminus\{0\}}\frac{f(n-m)}m e^{i\lambda m^2}\right|.
+\]
+The zero term must be omitted, although that omission is absent from the extracted summation. For general \(\ell^2\) input, symmetric truncation and extension conventions are needed. Anderson and Pierce ask for \(\|\mathcal C f\|_{\ell^2}\le C\|f\|_{\ell^2}\), their equation (0.9), as a discrete analogue of Stein--Wainger's polynomial Carleson theorem. The related (0.10) restricts the supremum to \(\lambda\in\Lambda\subset[0,1]\). The source notes a sufficient condition of Krause and Lacey [9] for that restricted operator but does not state the condition.
+
+The supplied assessment says the full question is solved in published literature by a stronger theorem bounding the supremum also over symmetric truncation radii on \(\ell^p(\Z)\) for every \(1<p<\infty\). The authors and precise reference of this stronger theorem are not supplied. This is a reported solution status, not a new proof from the finite-radius results below.
+
+The candidate finite-dimensional reduction switches explicitly to the normalized phase \(\theta=\lambda/(2\pi)\in\R/\Z\). For integers \(d,N\ge1\), set
+\[
+ T_{N,\theta}^{(d)}f(n)=\sum_{1\le|m|\le N}\frac{f(n-m)}m e^{2\pi i\theta m^d},
+ \qquad \mathcal M_{N,\Lambda}^{(d)}f=\sup_{\theta\in\Lambda}|T_{N,\theta}^{(d)}f|.
+\]
+The report asserts a pointwise sampling bound by \(AN^d\) equally spaced rational phases, up to fixed multiplicative constants; equivalently a grid of size \(\lceil AN^d\rceil\) controls the continuum supremum. The numerical sampling/control constants are not given.
+
+For nonempty phase sets with torus Hausdorff distance at most \(\delta\), its stated stability loss is
+\[
+ \|\mathcal M_{N,\Lambda}^{(d)}f-\mathcal M_{N,\Lambda'}^{(d)}f\|_{\ell^p}
+ \le4\pi\delta\left(\sum_{m=1}^Nm^{d-1}\right)\|f\|_{\ell^p},
+\]
+in the norm setting of the finite-radius theorem. The report does not specify its full \(p\)-range. It additionally claims that the operator-family parameter Lipschitz constant has sharp order \(N^d\), with an exact odd-degree formula, but that formula and the relevant operator norm are not displayed in this record.
+
+For a rational phase \(\theta=a/q\), the asserted finite-Fourier model expands the periodic multiplier \(e^{2\pi i a m^d/q}\) into its \(q\) discrete Fourier modes. Consequently \(T_{N,a/q}^{(d)}\) is exactly a finite linear combination of linearly modulated truncated discrete Hilbert transforms \(\sum_{1\le|m|\le N}f(n-m)e^{2\pi i b m/q}/m\). The report supplies no coefficient bounds here. All of these candidate conclusions keep the radius \(N\) finite; they alone do not establish the uniform infinite-radius Carleson theorem.
+\subsection{Short English statement}
+The source asks for a discrete quadratic Carleson bound and discusses restricted phase sets. The supplied report records a published stronger solution and separately studies finite-radius rational sampling, phase-set stability and sharp parameter sensitivity. These finite-radius reductions are not a replacement proof of the full theorem.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20000535\), source code \texttt{catalogue entry}; AIM analysis corpus, \texttt{aim-analysis-notes.json}, notes[66]. Attribution: Ulam AI / UnsolvedMath Contributors, CC BY 4.0.
+\item AIM \emph{Carleson theorems and multilinear operators: Open problems}, Question 8 attributed to Anderson and Pierce, page 3, equations (0.9)--(0.10): \url{https://aimath.org/pastworkshops/multilinopsproblems.pdf}. The source names Stein and Wainger and Krause and Lacey [9], without supplying the entry for [9] or its phase-set condition. Original literature field is empty.
+\item The report calls the stronger maximally truncated \(1<p<\infty\) theorem published, but gives no authors, title or full reference for that resolution.
+\item Registry dated August 14, 2026: statement exact, status solved, classification \texttt{SOLVED-IN-LITERATURE}; attempt 1 records problem status solved, partial result, rigor proved, novelty confidence low. The finite-sampling/sensitivity contribution is a machine-generated research aid, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

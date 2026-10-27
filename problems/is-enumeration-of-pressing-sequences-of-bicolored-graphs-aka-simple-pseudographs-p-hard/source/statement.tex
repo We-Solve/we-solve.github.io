@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3100046}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A bicolored simple graph has black/white vertices; equivalently, a simple pseudograph can encode black vertices by loops and white vertices by no loop, with no parallel edges. Under the usual pressing-game convention, one may press a black vertex $v$: toggle every edge and loop in its closed neighborhood, leaving all other incidences unchanged. The pressed vertex becomes isolated and white. In the symmetric adjacency matrix over $\F_2$, a legal press has $A_{vv}=1$ and gives
+\[
+ A'_{ij}=A_{ij}+A_{iv}A_{vj}\quad\text{in }\F_2.
+\]
+A successful pressing sequence is an ordered list of legal presses whose final graph is edgeless and all white. These conventional definitions are not provided in the source and should be confirmed; ``pressing sequences'' could otherwise mean all legal, maximal, or successful sequences.
+
+\textbf{Questions.} Is enumeration of pressing sequences of bicolored graphs (simple pseudographs) $\#\mathrm P$-hard? Is there an FPRAS for sampling them?
+
+Under a labeled-successful-sequence counting interpretation, define
+\[
+ P(G)=\#\{(v_1,\ldots,v_t):\text{the list is a successful pressing sequence of }G\}.
+\]
+The first question asks for $\#\mathrm P$-hardness of computing $P(G)$, with the reduction convention still to be specified. Counting ordered lists differs from printing all lists or counting modulo graph automorphisms; no quotient by automorphisms is imposed.
+
+The second question has a terminology mismatch. An FPRAS conventionally approximates a nonnegative counting value: on input $G$ and $0<\varepsilon<1$, it runs in time polynomial in input size and $1/\varepsilon$ and outputs $Z$ with
+\[
+ \Pr\{(1-\varepsilon)P(G)\leq Z\leq(1+\varepsilon)P(G)\}\geq\tfrac34.
+\]
+Sampling instead requires a target distribution, usually uniform on successful sequences, and an error notion such as total-variation distance. The source does not specify whether it asks for approximate counting, efficient exact uniform sampling, or an almost-uniform sampler; no equivalence is asserted without the required hypotheses.
+
+The supplied summary connects the question to Cooper's pressing-game work, Cooper--Demaine and others, and terms ``posture'' and ``gamma.'' It reports that no definitive complexity classification or hardness/FPRAS result was verified in the available time. These are tentative supplied literature claims, not a new complexity assessment.
+\subsection{Short English statement}
+Determine the counting complexity of pressing sequences in bicolored graphs and whether they admit efficient randomized approximation or sampling. The sequence convention and hardness reduction are unspecified, and ``FPRAS for sampling'' conflates a counting scheme with a distribution-sampling task.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 3100046, source code catalogue entry, ``Is enumeration of pressing sequences of bicolored graphs (aka simple pseudographs) \#P-hard''; supplied status open, classification OPEN-TRIAGE, updated 2026-08-06.
+\item Cooper, \emph{Combinatorial Problems I Like}, October 2020 snapshot, section ``Matroids, Lattices, and Posets,'' source-order bullet 46, \url{https://people.math.sc.edu/cooper/combprob.html}. The record reports HTML extraction and access on 2026-07-29; later resolution was not checked item by item. Rights: NEEDS\_REVIEW; public access verified but redistribution permission not established.
+\item The summary mentions Cooper--Demaine and others and the graph-pressing literature, but gives no paper titles or precise counting/sampling results. Its verification was expressly time limited.
+\end{itemize}
+\end{document}

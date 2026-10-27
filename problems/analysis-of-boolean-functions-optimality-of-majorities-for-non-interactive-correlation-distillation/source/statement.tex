@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800441}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) be a positive odd integer, let \(r\) be a positive integer, and let \(0<\varepsilon<\tfrac12\). Choose \(\mathbf{x}\) uniformly from \(\{-1,1\}^n\). Independently of \(\mathbf{x}\), choose mutually independent random signs \(\xi_j^{(i)}\), for \(1\le i\le r\) and \(1\le j\le n\), with
+\[
+\Pr[\xi_j^{(i)}=-1]=\varepsilon,\qquad \Pr[\xi_j^{(i)}=1]=1-\varepsilon,
+\]
+and put \(y_j^{(i)}=x_j\xi_j^{(i)}\). Thus the noisy copies \(\mathbf{y}^{(1)},\ldots,\mathbf{y}^{(r)}\) are independent conditional on \(\mathbf{x}\). For a Boolean function \(f:\{-1,1\}^n\to\{-1,1\}\), define
+\[
+P_{r,\varepsilon}(f)=\Pr\!\left[f(\mathbf{y}^{(1)})=\cdots=f(\mathbf{y}^{(r)})\right].
+\]
+Call \(f\) odd if \(f(-x)=-f(x)\) for every \(x\in\{-1,1\}^n\). For an odd integer \(k\) with \(1\le k\le n\), define the embedded majority function
+\[
+\operatorname{Maj}_{k}^{(n)}(x)=\operatorname{sgn}\!\left(\sum_{j=1}^{k}x_j\right).
+\]
+The sum is nonzero because \(k\) is odd; the remaining coordinates are ignored. Any other choice of \(k\) coordinates gives the same agreement probability by permutation symmetry.
+
+The supplied question asks whether, for every such \(r,n,\varepsilon\), there exists an odd \(k\in\{1,\ldots,n\}\) such that
+\[
+\forall f:\{-1,1\}^n\to\{-1,1\},\qquad
+\bigl(\forall x,\ f(-x)=-f(x)\bigr)
+\ \Longrightarrow\ 
+P_{r,\varepsilon}(f)\le P_{r,\varepsilon}\!\left(\operatorname{Maj}_{k}^{(n)}\right).
+\]
+Here \(k\) may depend on \(r,n,\varepsilon\), but must work simultaneously for all odd \(f\).
+
+The supplied source remark states that neither the dictator \(\operatorname{Maj}_{1}^{(n)}\) nor full majority \(\operatorname{Maj}_{n}^{(n)}\) need maximize this probability; its example is \(r=10\), \(n=5\), and \(\varepsilon=0.26\). This remark is retained as a supplied assertion, not independently verified.
+
+The formulation interprets an \(\varepsilon\)-noisy copy using independent coordinate flips and interprets majority on \(k\) inputs as a function of \(k\) of the \(n\) coordinates. The source does not explicitly spell out these conventions or the bound \(k\le n\). It writes \(r\in\mathbb{N}\); positive \(r\) is used here because the displayed agreement event otherwise requires an additional convention for zero copies.
+\subsection{Short English statement}
+For every positive number of noisy copies, every positive odd dimension, and every noise rate strictly between \(0\) and \(1/2\), does some majority on an odd subset of coordinates maximize the probability that all copies produce the same output, among all odd Boolean functions? The subset size may depend on the parameters. The supplied record labels this question open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800441\), source code \texttt{catalogue entry}, in the supplied AMR Open Problem Lists record. Title: ``Analysis of Boolean Functions --- Optimality of Majorities for Non-Interactive Correlation Distillation.'' The registry lists O'Donnell as proposer and \(2012\) as the proposed year, and supplies the status label ``open.''
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 11, ``Optimality of Majorities for Non-Interactive Correlation Distillation.'' Supplied source URL: \url{https://arxiv.org/abs/1204.6447}. The record reports access on \texttt{2026-10-16} and extraction method \texttt{arxiv\_latex}. These are supplied provenance details; no source visit or independent verification is claimed here.
+\item The supplied background attributes the proposal/source to the reference label [MO05], with the qualification ``originally from 2002.'' No bibliographic expansion or link for [MO05] is supplied, so its identity and relationship to the registry's O'Donnell/2012 attribution remain unresolved.
+\end{itemize}
+\end{document}

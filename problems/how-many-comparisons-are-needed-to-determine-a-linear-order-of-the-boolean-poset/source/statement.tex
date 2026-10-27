@@ -1,0 +1,48 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3100041}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For \(n\ge1\), let \(B_n=(\mathcal P(\{1,\ldots,n\}),\subseteq)\) be the Boolean poset. A linear extension is a total order \(<_L\) of all \(2^n\) subsets such that \(S\subsetneq T\) implies \(S<_L T\). The source asks for the fewest questions of the form ``Is \(S<T\)?'' needed to determine a linear ordering and states the conjectural answer \(n-1\).
+
+The comparison model is missing. If the task is to construct any linear extension from the known inclusion relation, no external comparisons are needed. If instead an unknown extension \(L\) is given only through answers to pair-comparison queries, a conventional worst-case formulation is
+\[
+ Q(n)=\min_{\text{correct adaptive decision trees}}\ 
+ \max_{L\text{ a linear extension of }B_n}
+ \{\text{number of queries used to identify }L\}.
+\]
+Under that interpretation the source would propose \(Q(n)=n-1\). However each binary decision tree must distinguish all possible extensions, so its worst-case cost is at least \(\lceil\log_2 e(B_n)\rceil\), where \(e(B_n)\) is their number. The stated small bound therefore requires reconciliation with the intended input/oracle restrictions rather than being accepted as a conventional unrestricted sorting conjecture.
+
+The excerpt does not specify whether the hidden orders belong to a special class, whether cost is worst-case, best-case or average, or whether ``determine'' means identify a prescribed unknown order or select one. No additional weight representation, greedy rule or special comparison oracle is inserted. The supplied summary's sorting-with-poset-constraints and greedy-decision-tree descriptions do not provide those definitions.
+
+The source page's open label is from its October 2020 snapshot and was not checked item by item against later literature. The summary reports no verified definitive resolution, with an uncertain journal/year attribution. These are source reports, not an independently verified status for a fully specified problem.
+\subsection{Short English statement}
+How many comparisons are needed to determine an ordering of all subsets consistent with inclusion? The source conjectures \(n-1\), but does not specify the unknown order, comparison model or cost criterion; finding any extension and identifying a hidden one are different tasks.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(3100041\), source code catalogue entry; supplied statement, background, and research summary, updated 2026-08-06. Attributed to Fishburn, Pekec, and Reeds.
+\item Cooper, \emph{Combinatorial Problems I Like}, October 2020 snapshot, Matroids, Lattices, and Posets, source-order bullet 41: \url{https://people.math.sc.edu/cooper/combprob.html}. HTML extraction accessed 2026-07-29; later item-level resolution was not checked.
+\item Fishburn--Pekec--Reeds, tentatively described in the summary as \emph{Journal of Algorithms}, 2004, with a question mark. No title or confirmed bibliographic details are supplied.
+\end{itemize}
+\end{document}

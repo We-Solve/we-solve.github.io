@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 801192}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) be an integer. A partition \(\alpha\) is a weakly decreasing finite sequence of positive integers; write \(|\alpha|\) for its size and \(\ell(\alpha)\) for its length, and append zero parts when needed. For partitions \(\nu,\mu\), write \(\nu\subseteq\mu\) when \(\nu_i\leq\mu_i\) for every \(i\).
+
+Work in the ring of symmetric functions over \(\Q\) in the variables \(x_1,x_2,\ldots\). Let \(h_r\) be the complete homogeneous symmetric function of degree \(r\), with \(h_0=1\) and \(h_r=0\) for \(r<0\). Let \(m_\alpha\), \(s_\alpha\), and \(p_\alpha\) denote the monomial, Schur, and power-sum symmetric functions, respectively.
+
+To specify the monomial immanant, use the Frobenius characteristic convention
+\[
+\operatorname{ch}(f)=\sum_{\rho\vdash n}\frac{f(\rho)}{z_\rho}p_\rho,
+\qquad
+z_\rho=\prod_{r\geq1}r^{a_r}a_r!,
+\]
+where \(f\) is a class function on the symmetric group \(S_n\), \(f(\rho)\) is its value on permutations of cycle type \(\rho\), and \(a_r\) is the multiplicity of \(r\) in \(\rho\). Define \(\phi^\lambda=\operatorname{ch}^{-1}(m_\lambda)\) for \(\lambda\vdash n\). For an \(n\times n\) matrix \(A\) over a commutative ring, define
+\[
+\operatorname{Imm}_{\phi^\lambda}(A)
+=\sum_{\sigma\in S_n}\phi^\lambda(\sigma)
+\prod_{i=1}^{n}A_{i,\sigma(i)}.
+\]
+The supplied record does not explicitly define \(\phi^\lambda\); this is the standard Frobenius-characteristic interpretation of its monomial-immanant notation and requires confirmation against the cited sources.
+
+For every pair of partitions \(\nu\subseteq\mu\) with \(\ell(\mu)\leq n\), form the Jacobi--Trudi matrix
+\[
+H_{\mu/\nu}=\bigl[h_{\mu_i-\nu_j+j-i}\bigr]_{i,j=1}^{n}.
+\]
+The conjecture asks whether, for every such \(n,\mu,\nu\) and every \(\lambda\vdash n\), there exist coefficients \(c_\theta\in\Z_{\geq0}\) such that
+\[
+\operatorname{Imm}_{\phi^\lambda}(H_{\mu/\nu})
+=\sum_{\theta\vdash |\mu|-|\nu|}c_\theta s_\theta.
+\]
+Here the empty partition is allowed in degree zero, with \(s_{\varnothing}=1\). This nonnegative Schur expansion is the meaning of Schur-positivity. The supplied registry labels the conjecture open; that label is not an independently verified assessment.
+\subsection{Short English statement}
+Stembridge's conjecture, listed as Stanley's Problem 18, asks whether every monomial immanant of every skew Jacobi--Trudi matrix has nonnegative integer coefficients in its Schur expansion. The draft makes the usual Frobenius-characteristic convention explicit; the supplied record does not specify that convention.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record: permanent ID \(801192\), source code \texttt{catalogue entry}, collection ``AMR Open Problem Lists.'' Upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}. The record supplies the status ``open'' and was updated on 2026-10-16; this status is not independently verified here.
+\item Richard P. Stanley, \emph{Positivity Problems and Conjectures in Algebraic Combinatorics} (1999), Problem 18. Supplied source URL: \url{https://math.mit.edu/~rstan/papers/problems.pdf}. The record reports access on 2026-10-16 and extraction by \texttt{pdf+html\_verified}; these are supplied provenance claims, not verification performed for this draft.
+\item The supplied background attributes the conjecture to John R. Stembridge, \emph{Canadian Journal of Mathematics} \textbf{44} (1992), 1079--1099, Conjecture 4.1. No article title or separate URL is supplied. The registry's proposer fields list Stanley and 1999, reflecting its Stanley source listing; the background gives the earlier Stembridge attribution.
+\end{itemize}
+\end{document}

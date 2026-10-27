@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002954}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source poses a methodological research question rather than a specified conjecture. The following notation provides a framework for expressing it; the distribution class, tail convention, and backtesting criterion are not specified by the source.
+
+For an upper-tail loss convention, let \(\alpha\in(0,1)\), and let \(\mathcal F\) be a class of probability distributions on \(\R\) satisfying \(\int_{\R}|x|\,\dd F(x)<\infty\). Define
+\[
+q_u(F)=\inf\{x\in\R:F(x)\geq u\},\qquad
+\operatorname{VaR}_{\alpha}(F)=q_{\alpha}(F),\qquad
+\operatorname{ES}_{\alpha}(F)=\frac{1}{1-\alpha}\int_{\alpha}^{1}q_u(F)\,\dd u.
+\]
+These conventions specify illustrative notation; the source does not select a confidence level or resolve loss versus return conventions.
+
+For an action domain \(A\subseteq\R^k\), a single-valued functional \(T:\mathcal F\to A\) is elicitable on \(\mathcal F\) if there exists a measurable scoring function \(S:A\times\R\to\R\), with finite expected scores, such that
+\[
+\operatorname*{arg\,min}_{a\in A}\int_{\R}S(a,x)\,\dd F(x)=\{T(F)\}
+\quad\text{for every }F\in\mathcal F.
+\]
+Scalar elicitability concerns \(k=1\); joint elicitability of Value at Risk and Expected Shortfall concerns the vector functional
+\[
+T_{\alpha}(F)=\bigl(\operatorname{VaR}_{\alpha}(F),\operatorname{ES}_{\alpha}(F)\bigr).
+\]
+The admissible distribution and action classes, including any quantile-uniqueness conditions needed for a particular strict scoring formulation, must be specified before applying these definitions to the supplied literature claims.
+
+\textbf{Source question.} What role does elicitability play in backtesting risk measures, particularly Expected Shortfall, in light of the supplied literature assessment that Expected Shortfall is not singly elicitable but is jointly elicitable with Value at Risk on appropriate classes? Here backtesting refers broadly to assessing risk forecasts using subsequently observed losses. The source does not specify whether the intended assessment is forecast comparison, calibration, hypothesis testing, or another criterion, nor does it specify a sampling model or a mathematical property to prove. Consequently, no unique theorem or conjecture can be extracted without additional hypotheses and a precise backtesting objective. The non-elicitability and joint-elicitability claims are retained as supplied background with unresolved domain qualifications, not asserted universally over \(\mathcal F\).
+\subsection{Short English statement}
+The question asks how elicitability informs the assessment of risk forecasts, especially forecasts of Expected Shortfall and of its pair with Value at Risk. The supplied record labels the question open, but leaves the distribution class, statistical assumptions, and meaning of backtesting unspecified. This is therefore a statement-only research-question draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002954\), title \emph{Elicitability and Backtesting of Expected Shortfall}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2015 and names no individual proposer.
+\item Supplied report citation: \emph{The Mathematics and Statistics of Quantitative Risk Management} (2016), Oberwolfach Reports, pp.\ 2481--2532, DOI \texttt{10.4171/owr/2015/42}. \url{https://doi.org/10.4171/owr/2015/42}. The literature-source list also labels this reference ``Oberwolfach Report 42, 2015''; both year descriptions are preserved without resolving their relationship.
+\item Gneiting, \emph{Making and Evaluating Point Forecasts}. Supplied literature reference: \url{https://doi.org/10.1111/j.1467-9965.2011.00486.x}.
+\item Fissler--Ziegel, \emph{Higher-order Elicitability}. Supplied literature reference: \url{https://doi.org/10.1214/15-AOS1339}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: supplied dated curation, not independently verified. It labels the question open and reports that the primary literature establishes non-elicitability of Expected Shortfall and joint elicitability with Value at Risk, while providing no single definitive answer to the broad relevance question. The supplied background requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

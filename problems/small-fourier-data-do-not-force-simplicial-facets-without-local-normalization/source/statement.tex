@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001307}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied verification identifies this as S. Robins's problem 11, despite the extracted leading ``1.'' For a full-dimensional polytope $K\subseteq\R^n$, its support function is $h_K(u)=\sup_{x\in K}\langle x,u\rangle$, $u\in S^{n-1}$. Relative to a fixed orthonormal spherical-harmonic basis $Y_{\ell,j}$ for probability surface measure $\sigma$, write $a_{\ell,j}(K)=\int h_KY_{\ell,j}\,\dd\sigma$. Also set
+\[
+ \widehat{\mathbf1_K}(\xi)=\int_K e^{-2\pi i\langle\xi,x\rangle}\,\dd x.
+\]
+The two questions ask whether small absolute harmonic coefficients of $h_K$, or small Fourier values at all integer frequencies, force every facet to be a simplex or close to a simplex. The source motivates this by an analogy with pseudorandom sequences. It gives no quantitative smallness threshold, normalization, frequency exclusions, or metric for facet closeness.
+
+The aid notes the literal scaling obstruction for $n\geq3$: replacing a nonsimplicial polytope by a small homothetic copy makes every harmonic coefficient small and makes every Fourier value at most its small volume, without changing normalized facet shape.
+
+Its stronger part-(a) counterexample uses Steiner centering $s(K)=n\int u h_K(u)\,\dd\sigma(u)=0$ and mean-support normalization $\int h_K\,\dd\sigma=1$. It reports polytopes $K_m$ with $\|h_{K_m}-1\|_\infty\to0$, hence $\sup_{\ell\geq1,j}|a_{\ell,j}(K_m)|\to0$, but with shrinking facets of a fixed nonsimplicial diameter-normalized shape. One explicit notion of shape defect is
+\[
+ \delta_\Delta(F)=\inf_{T\text{ simplex in }\operatorname{aff}F}
+ \frac{d_H(F,T)}{\operatorname{diam}F}.
+\]
+The reported facets have $\delta_\Delta(F_m)\geq\eta>0$ despite $\operatorname{diam}F_m\to0$. This tests nonconstant coefficients; the degree-zero coefficient is fixed by mean-support normalization and cannot also tend to zero.
+
+For part (b), under the explicit nonzero integer-lattice convention, the aid uses $K=[-1/2,1/2]^n$. It has volume one, centroid zero, covariance $I/12$, and nonsimplicial facets when $n\geq3$, but
+\[
+ \widehat{\mathbf1_K}(\xi)=\prod_{i=1}^n\frac{\sin(\pi\xi_i)}{\pi\xi_i},\qquad
+ \widehat{\mathbf1_K}(z)=0\quad(z\in\Z^n\setminus\{0\}),
+\]
+with a factor interpreted as one at zero. This is scalar isotropy, not covariance exactly $I$. At frequency zero the transform equals volume, so zero frequency cannot be silently included in a normalized vanishing hypothesis. These counterexamples concern the literal and stated normalized readings, not every possible local or frequency-adjusted formulation of the intended question.
+\subsection{Short English statement}
+Ask whether small support harmonics or integer-frequency Fourier data force simplicial facets. The supplied aid gives scaling obstructions, near-ball polytopes retaining locally nonsimplicial shrinking facets, and a volume-one cube with all nonzero integer Fourier samples zero. Exact intended normalizations remain unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Fourier analytic methods in convex geometry}, problem 11 attributed to S. Robins: \url{https://aimath.org/WWN/fourierconvex/fourierconvex.pdf}. The supplied verification says the leading digit of 11 was lost, the trailing 4 is a page number, and the final 1 is extraction debris.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001307, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-convex-geometry-notes.json notes[38]}.
+\item Attached attempt 1, partial result, problem status at run unknown, rigor proved, low novelty confidence. No separate full references are supplied for the normalization audit and counterexamples. The aid is machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

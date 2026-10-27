@@ -1,0 +1,83 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800435}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\geq 1\) be an integer, and write \(x^{\oplus i}\) for the point obtained from \(x\in\{-1,1\}^n\) by reversing its \(i\)-th coordinate. The total influence of \(f:\{-1,1\}^n\to\{-1,1\}\) is
+\[
+\operatorname{Inf}(f)=\sum_{i=1}^n\Pr_{x\sim\mathrm{Unif}(\{-1,1\}^n)}\bigl[f(x)\ne f(x^{\oplus i})\bigr].
+\]
+For this draft, a polynomial threshold function of degree at most \(k\) means a function \(f(x)=\operatorname{sgn}(q(x))\), where \(q\in\R[x_1,\ldots,x_n]\) has total degree at most \(k\) and is nonzero at every cube vertex; here \(\operatorname{sgn}(t)=1\) for \(t>0\) and \(-1\) for \(t<0\). The source says ``degree-\(k\)'' without specifying whether this means exactly \(k\) or at most \(k\), and does not specify a convention at zero. These conventions require review.
+
+\textbf{Gotsman--Linial conjecture, as supplied.} In the range \(1\leq k\leq n\), let
+\[
+S_n=\{-n,-n+2,\ldots,n-2,n\}.
+\]
+Choose \(k+1\) distinct levels \(s_0<\cdots<s_k\) from \(S_n\) closest to zero, in the sense that every selected level has absolute value no greater than every unselected level. Let \(p\in\R[t]\) have degree \(k\), be nonzero on \(S_n\), and satisfy
+\[
+p(s_j)p(s_{j+1})<0\qquad(0\leq j<k).
+\]
+Set
+\[
+f_{\mathrm{sym}}(x)=\operatorname{sgn}\!\left(p\!\left(\sum_{i=1}^n x_i\right)\right).
+\]
+The asserted extremal inequality is
+\[
+\operatorname{Inf}(f)\leq\operatorname{Inf}(f_{\mathrm{sym}})
+\qquad\text{for every degree-at-most-\(k\) polynomial threshold function }f:\{-1,1\}^n\to\{-1,1\}.
+\]
+This is a qualified draft of the supplied assertion: the source gives no explicit range for \(n,k\), no rule for ties among levels closest to zero, and no explicit quantifier over the admissible choices of \(p\). The displayed range is the natural range in which \(k+1\) distinct cube levels exist; it does not resolve what the source intends outside that range. No uniqueness of an extremizer is asserted here.
+
+\textbf{Related assertions and historical qualifications supplied with the record.} The source describes the case \(k=1\) as easy. It also gives the successively weaker proposed bounds
+\[
+\operatorname{Inf}(f)\leq Ck\sqrt n,
+\qquad
+\operatorname{Inf}(f)\leq C_k\sqrt n,
+\]
+where the first constant is independent of \(k,n,f\), and the second may depend on \(k\) but not on \(n,f\). The source reports that these weaker versions were open even for \(k=2\).
+
+The source suggests a possible relation, for \(k=2\), to an old conjecture attributed to Holzman: for even positive \(n\), a real-valued function \(g:\{-1,1\}^n\to\R\) of degree \(2\) has at most
+\[
+\binom{n}{n/2}
+\]
+strict local minima. Here a strict local minimum means a vertex \(x\) such that \(g(x)<g(x^{\oplus i})\) for every \(i\). For a function on the cube, degree is understood as the degree of its unique multilinear polynomial representation; this interpretation and the exact-versus-at-most degree wording require review.
+
+For completeness, define \(\operatorname{NS}_{\delta}(f)=\Pr[f(x)\ne f(y)]\), where \(x\) is uniform and each coordinate is independently reversed with probability \(\delta\in[0,1]\) to obtain \(y\). The source states that a bound \(c(k)\sqrt n\) on total influence is equivalent to a bound \(O(c(k))\sqrt\delta\) on noise sensitivity. It does not supply the precise uniformity, noise range, or constants in that equivalence.
+
+The source reports that Kane [Kan09] solved the ``Gaussian special case,'' without defining that case here, and lists
+\[
+2n^{1-1/2^k}\quad\text{and}\quad 2^{O(k)}n^{1-1/O(k)}
+\]
+as the best upper bounds known to that source, citing [DHK+10]. These are supplied historical assessments, not independently verified present-day claims.
+\subsection{Short English statement}
+The supplied Gotsman--Linial conjecture says that a degree-\(k\) polynomial threshold function on the Boolean cube has no greater total influence than a symmetric threshold function whose signs alternate across the \(k+1\) central Hamming levels. The draft defines influence and records the related weaker bounds and historical remarks. Degree conventions, central-level ties, and the intended choice of extremizer remain unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json} and the supplied complete source record, permanent UnsolvedMath ID \(800435\), exact source problem code \texttt{catalogue entry}. Title: ``Analysis of Boolean Functions --- Gotsman--Linial Conjecture.'' The registry labels the problem open; this label is supplied metadata, not an independently verified mathematical status.
+\item Ryan O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 5, ``Gotsman--Linial Conjecture'': \url{https://arxiv.org/abs/1204.6447}. The supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; no independent source visit is claimed.
+\item The registry records O'Donnell as \texttt{proposed\_by} and 2012 as \texttt{proposed\_year}; the background separately attributes the proposal/source to [GL94]. These roles are preserved without treating the registry fields as proof of original authorship.
+\item Supplied reference labels: [GL94] for the conjecture; [Kan09] for Kane's reported Gaussian result; [DHK+10] for the reported influence bounds. Full bibliographic entries and additional links for these labels were not supplied. The related conjecture is attributed to Holzman without a separate citation.
+\item The weaker-version status, Gaussian-case status, and descriptions of best known bounds are supplied historical source assessments associated with the 2012 list. The 2026-10-16 access date does not establish that those assessments were updated or independently verified on that date.
+\end{itemize}
+\end{document}

@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002460}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+\textbf{Participant context.} Item A.7 records Anne Gelb's interests in shallow-water equations for environmental fluid dynamics, global and local methods on spheres, and long-term simulations. It is not a posed problem: no PDE variant, discretization, assumptions or desired theorem are given. The aid develops a supplementary mass-balance diagnostic, which is not attributed as a theorem requested by the participant.
+
+\textbf{Reported space--time flux-register identity.} Let a closed sphere have a nonoverlapping finite-volume partition into cells \(K\) of areas \(|K|\). Let \(h_K^n\) be the cell-average water depth and
+\[
+ M^n=\sum_K|K|h_K^n.
+\]
+Assume no water-mass sources, no external boundary, and updates over a common synchronization interval of the form
+\[
+ |K|(h_K^{n+1}-h_K^n)=-\sum_{f\subseteq\partial K}\mathcal F_{K,f}^n,
+\]
+where \(\mathcal F_{K,f}^n\) is the outward time-integrated mass-flux register, including face measure, all Runge--Kutta weights and all local substeps. Decompose nonconforming coarse/fine faces into common interface pieces and sum their registers over the same interval. For every paired interface \(f=K|L\), put
+\[
+ \delta_f^n=\mathcal F_{K,f}^n+\mathcal F_{L,f}^n.
+\]
+The aid's exact algebraic identity is
+\[
+ M^{n+1}-M^n=-\sum_f\delta_f^n,
+ \qquad
+ M^N-M^0=-\sum_{n=0}^{N-1}\sum_f\delta_f^n.
+\]
+Matched interfaces have zero defect; the sum can therefore be restricted to global/local or coarse/fine interfaces at which registers are mismatched. In particular,
+\[
+ |M^N-M^0|\leq\sum_{n=0}^{N-1}\sum_f|\delta_f^n|.
+\]
+The triangle bound is sharp without cancellation information. Refluxing, meaning replacement/correction of a coarse register by the negative sum of the matching fine-side outward registers, makes each paired defect zero. It therefore gives exact mass conservation in algebraic arithmetic even under subcycling and Runge--Kutta stages, provided those same corrected integrated registers are used in the actual updates. Roundoff or other changes to the update are not silently excluded from a real implementation's measured error.
+
+\textbf{Reported hydrostatic interface calibration.} At a face with bed values \(b_L,b_R\), use the shared value \(b_*=\max\{b_L,b_R\}\). For a possibly dry lake at rest with level \(H\), define
+\[
+ h_i=(H-b_i)_+,\quad q_i=0,\quad \eta_i=h_i+b_i,\quad
+ h_i^*=(\eta_i-b_*)_+\qquad(i=L,R).
+\]
+Then the two nonnegative reconstructed depths agree:
+\[
+ h_L^*=h_R^*=(H-b_*)_+.
+\]
+For a consistent numerical mass flux evaluated on these identical zero-velocity states, the face mass flux is zero, including wet/dry interfaces. Thus a stage at this reconstructed lake-at-rest state contributes zero mass register and zero interface defect. This statement alone is not a full momentum/source well-balancing proof: preservation of the complete lake state through every stage requires the rest of the scheme to preserve it as well.
+
+This is a conservation and drift certificate for a specified class of updates. It does not certify accuracy, positivity of all evolved cell depths, momentum conservation, energy behavior or general long-time stability, and no numerical mesh or simulation is supplied.
+\subsection{Short English statement}
+Gelb's source item is research context. The aid's separate diagnostic identifies mass drift on a closed spherical finite-volume mesh exactly with accumulated interface-register mismatch. Shared refluxing cancels that drift, while a common max-bed reconstruction gives zero mass flux at a possibly dry lake-at-rest interface.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20002460\), catalogue entry, \texttt{aim-pdes-notes.json}, \texttt{notes[71]}, workshop \emph{Stiff Sources and Numerical Methods for Conservation Laws}, participant item A.7, Anne Gelb: \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}.
+\item Supplied research summary on finite-volume flux registers, synchronization drift, refluxing and shared max-bed reconstruction. No independent authoritative numerical-analysis citation or specific scheme is supplied.
+\item Attempt 1: context\_only, not\_a\_problem, rigor ``proved'', low novelty confidence; the registry separately says open/OPEN-TRIAGE. These labels do not make the participant paragraph a posed question. The machine-generated aid is not peer reviewed and must be independently verified before citation; no source visit is claimed.
+\end{itemize}
+\end{document}

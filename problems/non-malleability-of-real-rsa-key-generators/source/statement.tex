@@ -1,0 +1,40 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800080}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+An RSA key generator uses randomness and a size parameter to choose primes \(p,q\), form a modulus \(N=pq\), and produce the associated public data and secret factorization/trapdoor. Concrete generators impose particular prime-sampling, congruence, rejection and randomness rules, so they define distributions on keys rather than merely the set of all semiprimes.
+
+The source asks for number-theoretic proofs of non-malleability properties for real-world RSA key-generation algorithms. It does not define non-malleability, identify a specific algorithm/version, or give the intended adversarial experiment. A formal target must state which generated data the adversary sees, what related output it may produce, which relations and witnesses count, the treatment of trivial copying, and the independent-generation or simulation benchmark. Computational versus statistical guarantees and any hardness assumptions must also be specified. Factoring hardness, high entropy, and absence of shared prime factors are not automatically the same property as this missing non-malleability notion.
+
+Thus the task is to establish the intended property for explicitly specified real-generator distributions, not to prove a universal assertion for every RSA generator. The summary mentions OpenSSL and FIPS generation but provides neither versions nor full algorithms, and mentions Heninger--Shacham/common-factor work without a precise citation or theorem connecting it to non-malleability. It reports no complete rigorous resolution. Those are source descriptions pending current primary-literature review, not independent certification of any implementation's security.
+\subsection{Short English statement}
+Prove the intended non-malleability property of specified practical RSA key generators using number theory. The generator distributions and security experiment are missing, so factoring hardness or prime-quality claims cannot be substituted for the requested result.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(8800080\), source code catalogue entry; supplied statement, background, and research summary, updated 2026-08-06. Attributed to Pascal Paillier.
+\item IPAM, \emph{Workshop on Number Theory and Cryptography---Open Problems} (2006), attachment 6242, PDF pages 191--193, printed slide 27: \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}. Supplied PDF/legacy-PPT visual audit accessed 2026-07-29; it reports 19 inspected surviving attachments.
+\item OpenSSL, FIPS generation and Heninger--Shacham/common-factor discussions are mentioned by the summary without specific algorithm versions, full references or a non-malleability theorem.
+\end{itemize}
+\end{document}

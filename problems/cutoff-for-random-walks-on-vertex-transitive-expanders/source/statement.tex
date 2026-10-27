@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001246}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite connected undirected regular graph \(G=(V,E)\) of degree \(d\), write \(P_G\) for the transition matrix of discrete-time simple random walk: from its current vertex the walk chooses a neighbor uniformly. Its stationary distribution is \(\pi_G(v)=1/|V|\). These graph and time conventions provide a framework for defining the terms; the supplied record does not fully specify the intended graph class or time convention.
+
+For probability measures \(\mu,\nu\) on a finite set \(\Omega\), define
+\[
+ \|\mu-\nu\|_{\mathrm{TV}}=\frac12\sum_{x\in\Omega}|\mu(x)-\nu(x)|.
+\]
+For \(0<\varepsilon<1\), set
+\[
+ D_G(t)=\max_{v\in V}\|P_G^t(v,\cdot)-\pi_G\|_{\mathrm{TV}},\qquad
+ t_{\mathrm{mix}}^G(\varepsilon)=\inf\{t\in\Z_{\geq0}:D_G(t)\leq\varepsilon\},
+\]
+with \(\inf\varnothing=+\infty\). For a sequence \((G_n)_{n\geq1}\) with \(|V(G_n)|\to\infty\), whose walks converge to stationarity, total-variation cutoff means that, for every fixed \(0<\varepsilon<1/2\),
+\[
+ \lim_{n\to\infty}
+ \frac{t_{\mathrm{mix}}^{G_n}(\varepsilon)}
+ {t_{\mathrm{mix}}^{G_n}(1-\varepsilon)}=1.
+\]
+A graph is vertex-transitive if its automorphism group acts transitively on its vertex set. One standard expansion convention for regular graphs is a uniform positive lower bound on
+\[
+ h(G)=\min_{\substack{S\subseteq V\\0<|S|\leq |V|/2}}
+ \frac{|E(S,V\setminus S)|}{d|S|}.
+\]
+The record does not specify this convention, whether the degrees are fixed or uniformly bounded, or whether an absolute spectral-gap condition is intended.
+
+For a simple graph of degree \(d\geq2\), the non-backtracking walk can be defined on the directed edges
+\(\vec E=\{(u,v):\{u,v\}\in E\}\), with transition probabilities
+\[
+ Q_G\bigl((u,v),(v,w)\bigr)=\frac1{d-1}
+ \quad\text{if }w\sim v\text{ and }w\ne u,
+\]
+and all other transition probabilities zero. The uniform distribution on \(\vec E\) is stationary. One can define its worst-case total-variation mixing time by the preceding formula with \(Q_G\), \(\vec E\), and this stationary distribution. Alternatively, one can study its vertex marginal; the source does not select between these meanings or specify initialization.
+
+\textbf{Question as supplied.} Does simple random walk exhibit total-variation cutoff on every family of vertex-transitive expander graphs? Can the comparison between the mixing times of simple and non-backtracking random walks stated to be known for random regular graphs be extended to every such family?
+
+\textbf{Unresolved qualifications.} For discrete-time simple random walk, connected bipartite graphs have period two, so convergence to the uniform distribution, required by the cutoff formulation above, fails. Vertex transitivity and the displayed edge-expansion condition alone do not exclude this obstruction. The source does not say whether to impose an aperiodicity or spectral hypothesis, use a lazy walk, or use continuous time. No such repair is adopted here. The second question supplies neither an inequality nor an asymptotic relation, degree regime, error thresholds, or time normalization for the proposed mixing-time comparison. Consequently, a fully quantified intended conjecture cannot be recovered from this record without resolving these qualifications.
+\subsection{Short English statement}
+The supplied question asks whether every family of vertex-transitive expanders has total-variation cutoff for simple random walk, and whether a mixing-time comparison with non-backtracking walk extends from random regular graphs to these families. The intended walk convention, expansion assumptions, and comparison formula need clarification. In particular, discrete-time periodicity must be addressed. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, \texttt{data/unsolvedmath/problems.json}, with \texttt{catalog/problems.json} as the additional-record registry: permanent ID \(30001246\), source problem code \texttt{catalogue entry}, title \emph{Cutoff for Random Walks on Vertex-Transitive Expanders}. The supplied record lists proposed year 2009 and names no individual proposer.
+\item Supplied report attribution: \emph{Combinatorics and Probability} (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/23, pp.~1225--1302. \url{https://doi.org/10.4171/owr/2009/23}. The record describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions; no problem-specific page or speaker attribution is supplied.
+\item Supplied literature source: Salez, \emph{Modern aspects of Markov chains}. \url{https://arxiv.org/abs/2508.21055}.
+\item Supplied literature source, labeled ``Lubetzky--Sly explicit expanders'': \url{https://www.maths.tcd.ie/EMIS/journals/EJP-ECP/article/view/869/0.html}.
+\item Literature assessment dated \texttt{2026-08-21}: the supplied curation labels the problem open and states that the conjecture remains recognized as open, with results for structured subclasses such as Ramanujan graphs and explicit examples. This is supplied dated curation, not an independently verified assessment; its time-sensitive status and cited claims require independent verification.
+\item The supplied record marks the statement \texttt{exact} and reports a manual review finding it self-contained and mathematically coherent. These are source-record assertions; they do not resolve the formulation issues identified in this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,74 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005307}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A linear compartment model describes transfers between finitely many compartments by a linear differential system. Once the compartments, transfers, leaks, measured outputs, applied inputs, parameter constraints, and experimental conventions have been specified, write its system schematically as
+\[
+\frac{\dd x}{\dd t}=A_M(\theta)x+B_M(\theta)u,
+\qquad y=C_M(\theta)x,
+\]
+where \(x\) is the vector of compartment states, \(u\) is the input, \(y\) is the measured output, and \(\theta\) is the vector of unknown parameters. This notation does not prescribe which matrix entries are unknown or which initial conditions are known; those choices are not supplied by the record.
+
+Eliminating the unobserved states produces input--output differential equations. After fixing their normalization and the coefficients retained, let
+\[
+c_M:\Theta_M\longrightarrow K^{q_M}
+\]
+be the resulting coefficient map. Here \(\Theta_M\) is the admissible parameter space, and the base field \(K\), parameter constraints, and construction of \(c_M\) must be specified for a concrete model.
+
+To state the rank criterion precisely under the usual independent-parameter formulation, suppose that \(\Theta_M\) is a nonempty open parameter domain with coordinates \(\theta_1,\ldots,\theta_{p_M}\), over \(K=\R\) or \(K=\C\), and that \(c_M\) is rational and defined on this domain. These are explicit conditional conventions, not additional hypotheses established by the supplied excerpt. Define
+\[
+J_M(\theta)=\left(\frac{\partial(c_M)_i}{\partial\theta_j}(\theta)\right)_{\substack{1\leq i\leq q_M\\1\leq j\leq p_M}}.
+\]
+The Jacobian has \emph{generically full column rank} if there is a proper algebraic exceptional set \(Z_M\subset K^{p_M}\), with \(\Theta_M\setminus Z_M\neq\varnothing\), such that
+\[
+\operatorname{rank}J_M(\theta)=p_M
+\qquad\text{for every }\theta\in\Theta_M\setminus Z_M.
+\]
+In particular, this condition requires \(q_M\geq p_M\). Full column rank, rather than merely rank \(\min\{p_M,q_M\}\), is the rank condition relevant to identifying the entire chosen parameter vector.
+
+In terms of this coefficient map, generic local identifiability means that, outside a proper algebraic exceptional set, each parameter point \(\theta\) has a neighborhood \(U\) in the admissible parameter domain for which
+\[
+\{\eta\in U:c_M(\eta)=c_M(\theta)\}=\{\theta\}.
+\]
+This expresses local determination of the chosen parameters and does not require global uniqueness among all admissible parameter values.
+
+\emph{Requested classification problem.} Determine which linear compartment models \(M\), with all of the preceding modeling and coefficient-map choices fixed, satisfy
+\[
+\operatorname{rank}J_M(\theta)=p_M
+\quad\text{generically on }\Theta_M.
+\]
+The supplied source identifies this rank condition with generic local identifiability using standard differential algebra techniques. Its applicability to a concrete model depends on the precise input--output construction and experimental assumptions. The record does not specify a family of models, a parameter domain, or these conventions, so it supplies a general classification question rather than a fully specified conjecture. The background discussion of parameters determined uniquely from data must not be interpreted as replacing local identifiability by global identifiability.
+\subsection{Short English statement}
+Classify the linear compartment models whose input--output coefficient map has a Jacobian of generic rank equal to the number of unknown parameters. The supplied source relates this condition to generic local identifiability. A concrete formulation still requires the model family, parameter domain, inputs, outputs, initial-condition conventions, and coefficient-map construction. Local identifiability does not assert global uniqueness.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record, permanent ID \(30005307\), source problem code \texttt{catalogue entry}, title \emph{Generic Identifiability of Linear Compartment Models}.
+\item Supplied report citation: \emph{Algebraic Structures in Statistical Methodology} (2023), Oberwolfach Reports, DOI \texttt{10.4171/owr/2022/55}, pp.\ 3121--3170. \url{https://doi.org/10.4171/owr/2022/55}. The supplied excerpt places the contribution on p.\ 3137 and attributes \emph{The singular locus for linear compartment models and structural equation models} to Elizabeth Gross, joint work with Mark Curiel, Nicolette Meshkat, and Anne Shiu. The registry gives proposed year 2022 and does not separately identify a proposer.
+\item Supplied literature source, labeled ``Gross--Meshkat--Shiu primary article'': \url{https://doi.org/10.1016/j.aam.2021.102268}.
+\item Supplied literature source, labeled ``recent compartment-model primary article'': \url{https://doi.org/10.1137/25M1728636}.
+\item Literature assessment checked at \texttt{2026-08-22}: the supplied curation labels the problem open, describes the record as descriptive rather than a complete conjecture, and states that published work treats specific linear-compartment families while the general parameter-identifiability problem remains unresolved. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The record requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and says that only formula delimiters, notation, grammar, and typography were repaired, preserving mathematical content and scope. These supplied editorial labels do not constitute mathematical review of this draft. No external source was visited or independently checked in preparing it.
+\end{itemize}
+\end{document}

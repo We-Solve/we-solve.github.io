@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001399}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks whether normalizing constants and variance in a quenched central limit theorem are almost surely the same. It does not say whether ``same'' means across environments, between quenched and annealed laws, or between different centering conventions. The aid separates these questions in the following setting.
+
+Let \((\Omega,\mathcal F,\mathbb P,\theta)\) be a probability-preserving ergodic environment, and let \(Q_\omega\) be conditional laws of real variables \(X_0,X_1,\ldots\). Put \(S_n=\sum_{i=0}^{n-1}X_i\), \(m_n(\omega)=\E_\omega S_n\), and \(v_n(\omega)=\operatorname{Var}_\omega(S_n)\). Suppose there are covariance diagonals \(c_r\in L^1(\mathbb P)\), \(r\geq0\), such that, on one common full-measure set,
+\[
+ \operatorname{Cov}_\omega(X_i,X_{i+r})=c_r(\theta^i\omega)
+ \quad(i,r\geq0),\qquad
+ \sum_{r\geq0}\int|c_r|\,\dd\mathbb P<\infty.
+\]
+This is an explicit integrable absolute-summability interpretation of the aid's covariance-cocycle hypothesis. It reports
+\[
+ \frac{v_n(\omega)}n\longrightarrow\sigma_q^2
+ :=\int c_0\,\dd\mathbb P+2\sum_{r\geq1}\int c_r\,\dd\mathbb P
+ \quad\text{for almost every }\omega.
+\]
+The Green--Kubo value is deterministic. If \(\sigma_q^2>0\), the variance self-normalizer satisfies \(\sqrt{v_n(\omega)}\sim\sigma_q\sqrt n\). A variance limit alone is not a quenched CLT.
+
+Assume in addition the nondegenerate fiber-centered quenched CLT
+\[
+ \mathcal L_{Q_\omega}\!\left(\frac{S_n-m_n(\omega)}{\sqrt n}\right)
+ \Longrightarrow N(0,\sigma_q^2)\quad\text{for almost every }\omega.
+\]
+For a deterministic real sequence \(d_n\), the aid reports the exact centering criterion
+\[
+ \mathcal L_{Q_\omega}\!\left(\frac{S_n-d_n}{\sqrt n}\right)
+ \Longrightarrow N(0,\sigma_q^2)\ \text{a.s.}
+ \quad\Longleftrightarrow\quad
+ m_n(\omega)-d_n=o(\sqrt n)\ \text{a.s.}
+\]
+It is this pathwise error, not determinism of the fiber variance, that controls replacing the random fiber mean.
+
+When \(S_n\) has a finite second moment under the joint annealed law \(\mathbb P(\dd\omega)Q_\omega\), the exact total-variance identity is
+\[
+ \operatorname{Var}_{\mathrm{ann}}(S_n)
+ =\int v_n(\omega)\,\dd\mathbb P(\omega)
+ +\operatorname{Var}_{\mathbb P}(m_n).
+\]
+Under the displayed covariance summability, the first term divided by \(n\) tends to \(\sigma_q^2\). Equality of the raw annealed asymptotic variance with this value therefore requires
+\(n^{-1}\operatorname{Var}_{\mathbb P}(m_n)\to0\).
+Almost-sure smallness of a centering error and this second-moment condition are distinct; neither is silently inferred from the other.
+
+The reported obstructions admit explicit Gaussian constructions. In an ergodic Bernoulli environment \(\xi_i\in\{-1,1\}\), take conditionally independent \(X_i=\xi_i(\omega)+Z_i\), where the \(Z_i\) are independent standard Gaussians independent of the environment. Then \(v_n=n\), the fiber-centered normalized sum is exactly standard Gaussian, but \(m_n=\sum_{i<n}\xi_i\) is not \(o(\sqrt n)\) almost surely. The deterministic center zero thus fails the stated criterion, while the raw annealed variance is \(2n\). For a separate stationary nonergodic example, take an invariant environment parameter \(V\) equal to one or four with positive probabilities and, conditionally, iid \(X_i\sim N(0,V)\). The fiber means are zero but the quenched variance coefficient is the component-dependent \(V\). These examples separate environment-independent scale, deterministic centering and agreement with raw annealed variance. No arbitrary-process universality statement or CLT beyond the stated additional hypothesis is asserted.
+\subsection{Short English statement}
+The aid distinguishes three issues: deterministic quenched variance under ergodic covariance assumptions, replacement of the random fiber mean by a deterministic center, and equality with raw annealed variance. They require different conditions and are separated by explicit Gaussian examples.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001399\), exact public code \texttt{catalogue entry}; \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[56]}.
+\item AIM workshop ``Stochastic methods for non-equilibrium dynamical systems'', Problem 14: \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. The extracted title prints ``Quenched central limit theorem (CTL)'' and asks whether normalizing constants and variance are almost surely the same. No process model, proposer or literature entry is supplied. The registry marks the statement \texttt{reconstructed\_unverified}.
+\item Research attempt 1: \texttt{partial\_result}, status at run \texttt{partially\_solved}, rigor label \texttt{proved}, novelty confidence low, classification \texttt{PARTIAL-PROGRESS}. It reports the exact covariance-cocycle setting, Green--Kubo variance, deterministic-centering criterion, total-variance distinction and Bernoulli/Gaussian and nonergodic Gaussian examples. No authoritative separate bibliography is supplied. The current registry status is partially_solved.
+\end{itemize}
+\end{document}

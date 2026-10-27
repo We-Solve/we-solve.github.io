@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003746}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Write \((X,T)\) for the discrete-time topological dynamical system in the source, where \(X\) is the state space and \(T:X\to X\) is the time-evolution map. For an initial state \(x\in X\), its forward orbit is \((T^n x)_{n\geq 0}\). The receiver's target is the initial state \(x\), rather than the current state \(T^n x\).
+
+The source asks for the minimum channel capacity or signal bitrate permitting lossless digitalization, meaning reconstruction of \(x\) with error tending to zero. It does not specify enough operational or topological hypotheses to define a unique numerical invariant.
+
+To describe the unresolved accuracy requirement, suppose a compatible metric \(d\) on \(X\) and a communication model have been specified. Let \(\widehat{x}_n(x)\in X\) denote the receiver's estimate of the initial state after \(n\) communication steps in a deterministic protocol. Two possible requirements are pointwise reconstruction,
+\[
+\forall x\in X\;\forall\varepsilon>0\;\exists N=N(x,\varepsilon)\;\forall n\geq N,
+\qquad d\bigl(\widehat{x}_n(x),x\bigr)<\varepsilon,
+\]
+and uniform reconstruction,
+\[
+\forall\varepsilon>0\;\exists N=N(\varepsilon)\;\forall x\in X\;\forall n\geq N,
+\qquad d\bigl(\widehat{x}_n(x),x\bigr)<\varepsilon.
+\]
+These are alternative interpretations, not additional hypotheses supplied by the record. A probabilistic interpretation would additionally require a probability law and a specified mode of convergence.
+
+\emph{Statement to be made precise.} For the given system, determine the infimum of the achievable signal bitrates, or the required channel capacity, among admissible communication protocols whose receiver reconstructs the initial state to arbitrarily small error. The communication model, rate convention, and reconstruction quantifiers must be fixed before this becomes a definite optimization problem. The record does not establish that channel capacity and signal bitrate give equivalent optimization problems, nor that either infimum is attained. No compactness, compatible metric, invariant probability measure, invertibility, or particular encoder observation model is supplied.
+\subsection{Short English statement}
+Determine the least communication rate needed for a receiver to recover the initial state of a discrete-time topological dynamical system with error tending to zero. The source leaves the communication model, error criterion, and rate definition unresolved, so this is a qualified statement-only draft requiring mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local problem registry, \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30003746\), source problem code \texttt{catalogue entry}, title: ``Bitrate Requirements for Lossless Dynamical System Digitalization.'' The supplied record belongs to the Oberwolfach Reports Open Problems collection. No individual proposer is identified.
+\item Supplied report citation: \emph{Mini-Workshop: Entropy, Information and Control (2019)}, Oberwolfach Reports, DOI 10.4171/owr/2018/10, pp. 531--558. \url{https://doi.org/10.4171/owr/2018/10}. The record gives proposed year 2018 and an \texttt{owr-year:2018} tag; the relationship to the citation's 2019 date is unresolved.
+\item Supplied literature reference: Boyle and Downarowicz. \url{https://doi.org/10.1007/s00222-003-0335-2}.
+\item Supplied literature reference: Newhouse survey. \url{https://users.math.msu.edu/users/newhous7/Papers/Symbolic/Symbolic_Extensions.pdf}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem partially solved and states that the measure-theoretic entropy answer is known, symbolic-extension entropy is characterized via entropy structures, and there is no universal simple bitrate formula for the topological problem. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; its status and cited claims require independent verification.
+\item The supplied statement status is \texttt{corrected\_verified}, with the explanation that mathematical content was preserved while notation, typography, and sentence structure were repaired. This is a registry assertion, not independent verification of the formulation or its mathematical correctness.
+\end{itemize}
+\end{document}

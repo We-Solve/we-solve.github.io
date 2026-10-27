@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004007}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A polymatroid function on a finite ground set \(V\) is a function \(f:2^V\to\R_{\geq 0}\) satisfying \(f(\varnothing)=0\), monotonicity \(f(A)\leq f(B)\) whenever \(A\subseteq B\subseteq V\), and submodularity
+\[
+f(A)+f(B)\geq f(A\cup B)+f(A\cap B)\qquad(A,B\subseteq V).
+\]
+The supplied record does not explicitly state that \(V\) is finite. The formulation below uses the usual finite-ground-set interpretation; an infinite-ground-set version would require additional specifications.
+
+Let \(F\) be a field. Such a function is linearly representable over \(F\) if there is an \(F\)-vector space \(W\) with finite-dimensional subspaces \(T_v\subseteq W\), indexed by \(v\in V\), such that
+\[
+f(S)=\dim_F\left(\sum_{v\in S}T_v\right)\qquad(S\subseteq V).
+\]
+Here the empty sum is \(\{0\}\), and the source notation \(\operatorname{rk}(\bigcup_{v\in S}T_v)\) is interpreted as the dimension of the linear span of that union.
+
+An \(F\)-representable matroid rank function on \(V\) is a function of the form
+\[
+r(S)=\dim_F\operatorname{span}_F\{a_v:v\in S\}\qquad(S\subseteq V),
+\]
+where \((a_v)_{v\in V}\) is a family of vectors in an \(F\)-vector space; zero vectors are permitted.
+
+\textbf{Question.} For every field \(F\), every finite ground set \(V\), and every polymatroid function \(f\) linearly representable over \(F\), do there exist a nonnegative integer \(m\), coefficients \(\lambda_1,\ldots,\lambda_m\in\R_{\geq 0}\), and \(F\)-representable matroid rank functions \(r_1,\ldots,r_m\) on the same ground set \(V\), such that
+\[
+f(S)=\sum_{i=1}^{m}\lambda_i r_i(S)\qquad\text{for every }S\subseteq V?
+\]
+For \(m=0\), the sum denotes the zero function. The coefficients and rank functions must work simultaneously for all subsets of \(V\). Nonnegative linear combination is interpreted here in its usual sense of a finite sum with nonnegative real coefficients; the supplied record does not separately specify the coefficient domain.
+\subsection{Short English statement}
+Must every polymatroid represented by subspaces over a field \(F\) be a nonnegative real linear combination of matroid rank functions represented over that same field and on the same ground set? This draft uses the finite-ground-set interpretation, which is not explicit in the supplied record. The record labels the question open; that status is supplied curation, not an independently verified conclusion.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004007\), source problem code \texttt{catalogue entry}, title: Decomposition of Representable Polymatroids into Matroid Ranks. Collection: Oberwolfach Reports Open Problems. The record supplies proposed year 2018 but names no proposer.
+\item Supplied source citation: \emph{Combinatorial Optimization (2019)}, Oberwolfach Reports, DOI 10.4171/owr/2018/50, pp. 2969--3023. \url{https://doi.org/10.4171/owr/2018/50}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source: \emph{Oberwolfach Report 50/2018}. \url{https://ems.press/content/serial-article-files/46772}.
+\item Supplied literature source: \emph{A Note on Extension Properties and Representations of Matroids}. \url{https://www.sciencedirect.com/science/article/pii/S0166218X2500349X}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the question open and reports that no proof or counterexample was found in the located literature. This is supplied dated literature triage derived from the OWR curation, not independently verified here; time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and describes its changes as repairs to notation, typography, duplicate clauses, or omitted definitions while preserving mathematical content. These are supplied editorial assertions, not independent mathematical verification of this draft.
+\end{itemize}
+\end{document}

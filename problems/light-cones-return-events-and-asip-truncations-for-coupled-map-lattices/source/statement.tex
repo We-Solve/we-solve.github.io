@@ -1,0 +1,79 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001395}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The AIM question concerns return times, almost sure invariance principles (ASIP), and the speed at which a signal propagates in infinite coupled map lattices, including comparison of ``finite'' and ``infinite'' coupling. No lattice, local maps, invariant measure, target sets, coupling class or ASIP error rate is specified in the original question. The following is the supplied aid's conditional locality formulation, not an unconditional answer.
+
+Let \(\Lambda=\Z^d\) with a fixed lattice norm, let \((E,\delta)\) be a metric space of diameter at most \(D<\infty\), and let \(F:E^\Lambda\to E^\Lambda\). An influence matrix is a nonnegative matrix \(A=(A_{ij})\), with uniformly bounded row sums, for which
+\[
+ \delta(F(x)_i,F(y)_i)\leq\sum_{j\in\Lambda}A_{ij}\delta(x_j,y_j)
+ \quad\text{for every }i,x,y.
+\]
+The aid reports the iterated bound with \(A^n\) in place of \(A\). If \(A_{ij}=0\) when \(|i-j|>R\), agreement of initial configurations within distance \(nR\) of a finite set \(S\) implies exact agreement on \(S\) through time \(n\).
+
+For infinite-range coupling suppose \(A_{ij}\leq a(j-i)\) for a nonnegative summable kernel \(a\). Write \(a^{*n}\) for its \(n\)-fold convolution. If \(x,y\) agree within distance \(r\) of \(S\), then the reported general tail estimate is
+\[
+ \max_{i\in S}\delta(F^n(x)_i,F^n(y)_i)
+ \leq D\sum_{|z|>r}a^{*n}(z).
+\]
+If for some \(\lambda>0\),
+\[
+ M_\lambda=\sum_z a(z)e^{\lambda|z|}<\infty,
+ \qquad \widehat M_\lambda=\max\{1,M_\lambda\},
+\]
+this is bounded by \(De^{-\lambda r}M_\lambda^n\), giving an effective cone with exponentially small exterior influence.
+
+Here is an explicit boundary-margin interpretation of the aid's return-event assertion. Let \(B\subseteq E^S\) be a measurable local target and \(\mu\) an initial probability law. Give \(E^S\) its maximum coordinate metric. Require, uniformly over the relevant times \(t\),
+\[
+ \mu\{x: \pi_SF^t(x)\in\partial_\varepsilon B\}\leq K\varepsilon^\beta,
+\]
+where \(\partial_\varepsilon B\) denotes the set of points whose \(\varepsilon\)-neighborhood meets both \(B\) and its complement, \(K<\infty\), and \(\beta>0\). Couple \(y=y(x)\) to \(x\) by agreement within radius \(r\) of \(S\). Set
+\[
+ \tau_B(x)=\inf\{t\geq1:\pi_SF^t(x)\in B\},
+ \qquad\inf\varnothing=\infty.
+\]
+The aid's reported estimate for disagreement of the entire target-membership history through time \(n\), hence for the corresponding truncated first-return time, is
+\[
+ \Pr\{\text{the two membership histories differ by time }n\}
+ \leq nK\bigl(De^{-\lambda r}\widehat M_\lambda^n\bigr)^\beta,
+\]
+with the trivial upper bound \(1\) understood. A conditional return law given initial membership requires the corresponding conditional margin hypothesis.
+
+For a Lipschitz observable \(\varphi\) depending only on \(S\), consider time-\(k\) approximations obtained from exterior modifications at initial distance \(r_k\geq vk+s\). The aid reports that
+\[
+ v>\lambda^{-1}\log\widehat M_\lambda
+ \quad\Longrightarrow\quad
+ \sum_{k\geq0}|\varphi(F^k(x))-\varphi(F^k(y^{(k)}))|<\infty,
+\]
+with a uniform bound under the above estimates. Thus the two Birkhoff partial-sum processes, with the same centering, differ by \(O(1)\). Any ASIP independently established for one process transfers to the other with the same diverging error scale and Brownian approximation. This does not establish an ASIP, mixing, a return-time limit law or nonzero variance for general coupled map lattices. A single fixed finite-volume evolution is not automatically covered by the stated sequence of initial exterior modifications; its coupling to the full evolution must satisfy the required influence estimates.
+\subsection{Short English statement}
+The original question asks how return statistics, Brownian approximations and signal propagation behave for infinite coupled map lattices. The supplied partial result controls propagation through an influence matrix, with exact finite-range cones and approximate exponentially decaying cones. Under extra target-margin and truncation hypotheses it transfers local return events and an already known ASIP.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001395\), code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[52]}.
+\item AIM workshop notes ``Stochastic Methods for Non-Equilibrium Dynamical Systems,'' Problem 10, \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. The verification field identifies this exact source record; no PDF inspection is asserted here. No further authoritative literature citation or proposer is supplied.
+\item Supplied research attempt 1: ``partial\_result,'' ``partially\_solved,'' rigor label ``proved,'' novelty confidence ``low.'' The research aid is machine generated and not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

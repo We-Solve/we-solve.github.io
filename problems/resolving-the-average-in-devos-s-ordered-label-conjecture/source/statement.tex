@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001052}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The original record is only ``Conjecture 6.10. (DeVos) Under the hypotheses of'', with its number split by extraction. It contains neither those hypotheses nor the averaging variable or bound. The attached aid adopts a uniform-start-vertex reading of an ordered-label reachability conjecture; the following is an explicit interpretation, not a verbatim restoration of the missing source.
+
+Let $G$ be a finite loopless digraph with ordered labels $1,\ldots,k$, let $A_i$ be the Boolean adjacency matrix for label $i$, and put $\delta_i=\min_vd_i^+(v)$. An increasing path chooses strictly increasing labels. Include the length-zero path and let $R(v)$ be all increasing endpoints from $v$. Under the aid's no-increasing-directed-cycle setting, its vertex-average target is interpreted as
+\[
+\frac1{|V|}\sum_{v\in V}|R(v)|\ge1+\sum_i\delta_i.
+\]
+The length-zero convention and $1$ on the right must be checked against the omitted full conjecture.
+
+The exact time-expanded representation has vertices $(v,i)$, $0\le i\le k$, wait arcs $(v,i-1)\to(v,i)$ and arcs $(u,i-1)\to(v,i)$ for label-$i$ arcs $u\to v$. Its endpoints have Boolean matrix
+\[
+P=(I\vee A_1)(I\vee A_2)\cdots(I\vee A_k),
+\]
+with Boolean multiplication, and $\sum_{u,v}P_{uv}=\sum_u|R(u)|$. Thus this reconstruction's average inequality is an endpoint-density statement.
+
+One precise collision-deficit formulation puts $U(v)=\{v\}\cup\bigcup_iN_i^+(v)$ and
+\[
+C(v)=1+\sum_i d_i^+(v)-|U(v)|,\qquad B(v)=|R(v)\setminus U(v)|.
+\]
+Then $|R(v)|=1+\sum_i d_i^+(v)-C(v)+B(v)$, and the target is exactly
+\[
+\sum_vB(v)+\sum_{v,i}(d_i^+(v)-\delta_i)\ge\sum_vC(v).
+\]
+Degree excess and genuinely new multi-label endpoints compensate the one-step collision deficit; neither is silently discarded.
+
+The aid reports a five-vertex, two-label example with no increasing cycle, $\delta_1=2,\delta_2=1$ and reachability sizes $(3,4,4,5,5)$. Its average is $21/5\ge4$, while one vertex has $3<4$, separating the average claim from a false pointwise strengthening. Its actual arc list is not supplied.
+
+A sufficient pointwise class in the neighborhood interpretation is the capacitated Hall condition
+\[
+\left|\bigcup_{i\in J}N_i^+(v)\right|\ge\sum_{i\in J}\delta_i
+\quad\text{for every }v\text{ and }J\subseteq[k].
+\]
+It permits disjoint neighbor representatives with capacities $\delta_i$ and gives $|R(v)|\ge1+\sum_i\delta_i$ already from one-step endpoints. This is a sufficient class, not a proof of the general average conjecture; the aid's complete Hall formulation and original conjecture text remain unavailable.
+\subsection{Short English statement}
+The assigned conjecture is truncated. The supplied aid clarifies a uniform-start average through time-expanded reachability and collision accounting, gives a counterexample to a stronger pointwise reading, and records a restricted sufficient condition.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001052$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[176]}.
+\item American Institute of Mathematics, ``The Caccetta--H\"aggkvist conjecture'' workshop record, truncated Conjecture 6.10 attributed to DeVos: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. No full hypotheses, original remarks or literature references are supplied, and no PDF inspection is claimed here.
+\item Attached research attempt 1: partial result, recorded run status unknown, rigor proved, novelty confidence low; registry status partially solved, classification PARTIAL-PROGRESS, suggested difficulty L4. Its average interpretation and constructions are machine generated and not peer reviewed; independently verify before citation. Internal report theorem numbers are not bibliographic references.
+\end{itemize}
+\end{document}

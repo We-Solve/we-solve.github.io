@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000929}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+In the online Ramsey game, Builder exposes a previously absent edge on an unlimited initially edgeless vertex set and Painter immediately colors it red or blue. Let $\widetilde r(s,n)$ be the least move bound by which Builder can force a red $K_s$ or a blue $K_n$, and let $r(s,n)$ be the ordinary Ramsey number. The source, attributed to Jacob Fox, asks for an $\epsilon>0$ such that
+\[
+\widetilde r(n,n)\ge(\sqrt2+\epsilon)^n
+\]
+for all sufficiently large $n$. This asymptotic qualification is necessary: the literal all-$n$ inequality already fails at $n=2$, where one move suffices.
+
+The source records $\widetilde r(s,n)\le\binom{r(s,n)}2$, Conlon's bound
+\[
+\widetilde r(n,n)\le0.99^n\binom{r(n,n)}2
+\quad\text{for infinitely many }n,
+\]
+and the suggestion that $0.99$ could be substantially smaller. It also records $\widetilde r(3,n)=\widetilde\Theta(n^3)$ attributed to Conlon--Fox--Grinshpun, with polylogarithmic losses and a lopsided-local-lemma lower bound. These are source attributions, not a new assessment. The source additionally writes $\widehat r(s,n)=\binom{r(s,n)}2$; if the hat means the usual minimum-edge size Ramsey number, that equality is not its definition and needs clarification. The displayed complete-graph online upper bound is unambiguous.
+
+The attached aid attributes to Conlon, Fox, Grinshpun and He the published bound
+\[
+\widetilde r(n,n)\ge2^{(2-\sqrt2)n-O(1)}.
+\]
+Since $2^{2-\sqrt2}>\sqrt2$, this implies the requested asymptotic assertion for any fixed base strictly between them. The aid records the problem solved under that reading.
+
+The source suggests an ordinary-Ramsey improvement from a hypothetical $\widetilde r(n,n)\ge1.999^n$. More generally, combining a lower bound $a^n$ with Conlon's $b^n\binom{r(n,n)}2$ upper bound yields
+\[
+r(n,n)\ge\sqrt2\,(a/b)^{n/2}
+\]
+on the subsequence where that upper bound holds. For $a=1.999$, $b=0.99$, the exponential base $\sqrt{a/b}$ exceeds $\sqrt2$. The infinitely-many-$n$ upper hypothesis by itself supplies an infinitely-many-$n$ ordinary-Ramsey conclusion, not an unqualified all-$n$ conclusion.
+
+The aid separately limits a greedy Painter strategy. If Painter always chooses red unless that edge would create a red $K_s$, each blue edge has a red $K_s$-minus-that-edge witness. In a terminal blue $K_n$, the witness's auxiliary vertices avoid every other clique vertex, but different witnesses may share one common core. Builder can expose a red core of size $s-2$, join it to $n$ new vertices, then expose all pairs among those vertices. This defeats the rule in
+\[
+\binom{s-2}2+(s-2)n+\binom n2
+\]
+moves on $s+n-2$ vertices, equal to $2n^2-5n+3$ moves diagonally. This is not a strategy against every Painter.
+
+The extraction appends the next section, ``Erd\H{o}s--Hajnal for tournaments,'' attributed to Maria Chudnovsky. It defines $T^*$ on $\{1,\ldots,6\}$ by reversing the increasing orientation on pairs $(1,6),(3,6),(2,5),(1,4)$, i.e. $6\to1$, $6\to3$, $5\to2$, $4\to1$. That adjacent definition is preserved as context; it states no additional online-Ramsey question.
+\subsection{Short English statement}
+The supplied literature bound solves the requested online diagonal exponential improvement asymptotically. The draft retains the source's historical comparisons, a subsequence qualification in the ordinary-Ramsey transfer, and a separate obstruction to a one-sided greedy Painter rule.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000929$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[53]}.
+\item AIM ``Graph Ramsey theory,'' ``Online Ramsey numbers,'' source item 7, attributed to Jacob Fox: \url{https://www.overleaf.com/read/mnvcscjjysvg}. Original text names Conlon and Conlon--Fox--Grinshpun; its appended next section names Maria Chudnovsky. No complete bibliographic references are supplied.
+\item Attached research attempt 1: full solution, recorded run status solved, rigor proved, novelty confidence low; registry status solved, classification SOLVED-IN-LITERATURE. It attributes the published diagonal bound to Conlon, Fox, Grinshpun and He without an exact citation. The machine-generated aid is not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

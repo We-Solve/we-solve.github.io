@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001093}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+R. Graham asks: for a partition-regular homogeneous linear system $S$, determine the minimum number of nontrivial monochromatic solutions in an $r$-coloring of $[n]=\{1,\ldots,n\}$, as a function of $n,r$. The source defines partition regularity by monochromatic nontrivial solvability in every finite coloring of $\Z$. To state a counting function one must additionally fix the variables, what ``nontrivial'' excludes, and whether solutions are ordered or identified by symmetries. Given a specified admissible solution set $\mathcal U_S(n)$, the target is
+\[
+ M_S(n,r)=\min_{c:[n]\to\{1,\ldots,r\}}
+ \#\{u\in\mathcal U_S(n):\text{all coordinates of }u\text{ have one color}\}.
+\]
+No universal asymptotic formula for all such systems is supplied.
+
+For the source's Schur example $x+y=z$, use solutions with $x\leq y$, counted once up to exchanging the summands. Its quoted two-color minimum is $n^2(1+o(1))/22$, compared with random two-color expectation $n^2/16+O(n)$, attributed to Schoen and Robertson--Zeilberger. Ordered counting would change the leading constants by a factor of two; it is not mixed with this convention.
+
+For the highlighted equation $x+y=2z$, count each nonconstant progression $(a,a+d,a+2d)$ once, with $d\geq1$ and $a+2d\leq n$. Let $\mathcal A_n$ be this set and $T_n=|\mathcal A_n|$. Put $V(n)=\min_c M_2(c)$, where $M_r(c)$ counts monochromatic members of $\mathcal A_n$. Independent uniform random two-coloring gives expectation $T_n/4=n^2/16+O(n)$. The aid reports that random two-colorings are not optimal and quotes the published bounds it located:
+\[
+ \left(\frac{1675}{32768}+o(1)\right)n^2
+ \leq V(n)\leq
+ \left(\frac{117}{2192}+o(1)\right)n^2,
+\]
+with the exact asymptotic constant still open in its assessment.
+
+Its exact finite-$n$ reduction defines, for $1\leq i<j\leq n$,
+\[
+ w_n(i,j)=\mathbf1_{\{2j-i\leq n\}}+
+ \mathbf1_{\{2i-j\geq1\}}+\mathbf1_{\{2\mid(j-i)\}},\qquad
+ C_r(c)=\sum_{i<j}w_n(i,j)\mathbf1_{\{c(i)\ne c(j)\}}.
+\]
+Let $R_r(c)$ count progressions whose three colors are pairwise distinct. The supplied identity is
+\[
+ M_r(c)=T_n-\tfrac12 C_r(c)+\tfrac12R_r(c).
+\]
+For two colors $R_2=0$, so minimizing monochromatic progressions is exactly maximizing the weighted cut $C_2$. For $r\geq3$ the rainbow correction remains and cannot be discarded. This reduction does not determine the open exact constant or the answer for arbitrary systems $S$.
+\subsection{Short English statement}
+Minimize monochromatic solutions of partition-regular systems under a specified counting convention. For three-term progressions the supplied aid says random two-colorings are not optimal and gives an exact weighted Max-Cut formulation for two colors, with a rainbow correction for more colors.
+\subsection{Sources}
+\begin{itemize}
+\item AIM list \emph{Recent trends in additive combinatorics}, problem 1.12 attributed to R. Graham, collected by Ernie Croot and Vsevolod F. Lev: \url{https://aimath.org/WWN/additivecomb/additivecomb.pdf}.
+\item The source names Schoen and ``Roberts-Zeilberger'' for the Schur result; its supplied verification corrects the latter attribution to Aaron Robertson and Doron Zeilberger. Full publication references and references for the quoted progression bounds are absent.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001093, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-combinatorics-notes.json notes[217]}. Attached attempt 1, partial result, problem status at run partially solved, rigor proved, low novelty confidence; machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

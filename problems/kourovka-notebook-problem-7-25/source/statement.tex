@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 700424}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A group word is a finite word in formal variables and their inverses, interpreted as an operation on a group. For a word \(W\) whose variables lie among \(x_1,\ldots,x_k\), write \(W^G:G^k\to G\) for its evaluation on a group \(G\). Unused variables are allowed. We use positive arities; the identity word can consequently be represented by \(x_1x_1^{-1}\). No independent constant operations are adjoined.
+
+Let \(\mathcal B=(B_1,\ldots,B_n)\) be a finite list of words, with each word regarded as an operation in a finite list of variables containing all of its occurring variables. Let \(T_{\mathcal B}(k)\) be the set of finite formal expressions with leaves among \(x_1,\ldots,x_k\) and internal operations drawn from \(B_1,\ldots,B_n\). Thus variables themselves are permitted, and expressions are formed by finitely many substitutions. Define
+\[
+\operatorname{Expr}_G(A;\mathcal B)
+\quad\Longleftrightarrow\quad
+\exists t\in T_{\mathcal B}(k)\ \forall(g_1,\ldots,g_k)\in G^k,\quad
+A^G(g_1,\ldots,g_k)=t^G(g_1,\ldots,g_k),
+\]
+where \(k\geq1\) contains all variables of \(A\). This describes expressibility modulo the identities of \(G\): the source permits both substitution and replacement of any word by a word inducing the same operation on \(G\).
+
+The list \(\mathcal B\) is \emph{functionally complete on \(G\)} if
+\[
+\forall k\geq1\ \forall A\text{ a word in }x_1,\ldots,x_k,
+\qquad \operatorname{Expr}_G(A;\mathcal B).
+\]
+A word \(B\) is a \emph{Schaeffer word on \(G\)} if the singleton list \((B)\) is functionally complete on \(G\).
+
+The questions ask for total algorithms on the indicated finite word inputs, each algorithm halting and correctly deciding its predicate:
+\begin{enumerate}
+\item[(a)] Given a word \(B\), decide whether \(B\) is a Schaeffer word on every group \(G\).
+\item[(b)] Given a finite list \(\mathcal B\), decide whether \(\mathcal B\) is functionally complete on every group \(G\).
+\item[(c)] Given words \(A,B_1,\ldots,B_n\), decide whether
+\[
+\forall G\text{ a group},\qquad
+\operatorname{Expr}_G(A;\mathcal B).
+\]
+\item[(d)] The source asks for ``the same for every finite group.'' Applied to (c), this asks for a total algorithm deciding
+\[
+\forall G\text{ a finite group},\qquad
+\operatorname{Expr}_G(A;\mathcal B).
+\]
+Replacing ``every group'' by ``every finite group'' also gives corresponding versions of (a) and (b). The supplied wording does not explicitly delimit whether (d) requests only the version of (c) or all three versions; this scope remains unresolved.
+\end{enumerate}
+In these predicates, expressibility is tested separately on each group: a witnessing finite expression may depend on \(G\), and, for functional completeness, on the target word \(A\). No bound on the orders of finite groups is imposed in (d).
+
+The source gives \(xy^{-1}\), \(x^{-1}y^2z\), and \(x^{-1}y^{-1}zx\) as examples of Schaeffer words on every group. It also states that \(x^{-1}\) is expressible in \(xy\) on each finite group, and that an algorithm exists for a fixed finite group. These are supplied background assertions, not results established in this draft.
+\subsection{Short English statement}
+For each group, start with variables and the operations defined by the input words, and form finite compositions, identifying words that agree everywhere on that group. Ask whether algorithms can decide universal expressibility, functional completeness, or completeness of a single word across all groups. The source also asks for finite-group versions, with an unresolved ambiguity about which preceding parts this includes. Expressions may depend on the group.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record with permanent ID \(700424\), exact source code \texttt{catalogue entry}, title \emph{Kourovka Notebook Problem 7.25}. The record attributes the problem to A. V. Kuznetsov, proposed in 1980, and labels it \emph{open}; this is supplied registry status, not an independently verified mathematical assessment.
+\item \emph{The Kourovka Notebook (Unsolved Problems in Group Theory)}, problem 7.25, originating in the 7th issue (1980); the supplied record identifies the 21st issue edition (2026), \texttt{arXiv:1401.0300v48}. The registry describes the collection as edited by E. I. Khukhro and V. D. Mazurov. Attribution: A. V. Kuznetsov.
+\item A. V. Kuznetsov, \emph{Matem. Issledovaniya}, Kishin\"ev, volume 6, no. 4 (1971), pp. 75--122 (Russian), as cited in the source for the terminology and context. The source specifically identifies p. 112 for part (c), and \(\S\,8\) for the assertion about an algorithm for a fixed finite group. No article title is supplied.
+\item A. G. Kurosh, \emph{Theory of Groups}, Moscow, Nauka, 1967, p. 435 (Russian), cited by the source for the related problem of describing all words that are Schaeffer words on every group.
+\end{itemize}
+\end{document}

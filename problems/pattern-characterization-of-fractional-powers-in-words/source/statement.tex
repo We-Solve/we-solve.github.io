@@ -1,0 +1,55 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001557}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(A\) be an alphabet, let \(A^*\) be the set of finite words over \(A\), and put \(A^+=A^*\setminus\{\varepsilon\}\). A factor is a contiguous finite subword. A pattern is a nonempty finite word over an alphabet \(V\) of variables. A nonerasing morphism \(h:V^*\to A^*\) satisfies \(h(uv)=h(u)h(v)\) and \(h(a)\ne\varepsilon\) for every variable \(a\in V\). A factor matches a pattern \(p\) if it equals \(h(p)\) for such a morphism.
+
+The source does not define an \(\alpha\)-power. Under the exact-exponent convention, a nonempty word \(w\) is an \(\alpha\)-power if there exist \(u\in A^+\), an integer \(k\geq 1\), and a proper prefix \(v\) of \(u\), possibly empty, such that
+\[
+w=u^k v,\qquad \alpha=k+\frac{|v|}{|u|}.
+\]
+A different possible intended convention is a word admitting such a representation with exponent at least \(\alpha\). These conventions must not be identified without clarification; in particular, the exact-exponent definition only produces rational exponents, whereas the supplied parameter ranges over all noninteger real numbers greater than \(1\).
+
+Write \(\mathcal T_\alpha(A)\subseteq A^+\) for the class of powers under the intended convention, and let \(\mathcal W(A)\) denote the intended class of test words. With those choices fixed, the source asks whether, for each \(\alpha\in\R\setminus\Z\) with \(\alpha>1\), there exists a finite or infinite set \(P\subseteq V^+\) such that
+\[
+\begin{aligned}
+\forall x\in\mathcal W(A),\quad
+&\bigl(\exists w\in\mathcal T_\alpha(A):\ w\text{ is a factor of }x\bigr)\\
+&\quad\Longleftrightarrow
+\bigl(\exists p\in P\ \exists h:V^*\to A^*\text{ nonerasing}:\ h(p)\text{ is a factor of }x\bigr).
+\end{aligned}
+\]
+The set \(P\) must work for every test word \(x\); the witnessing pattern and morphism may depend on \(x\). The source does not specify the size of \(A\), whether \(x\) is finite or infinite, or whether one set \(P\) must work uniformly over all alphabets. Thus this is a conditional formalization of the supplied question, with those quantifiers and the power convention requiring clarification.
+\subsection{Short English statement}
+For each noninteger real \(\alpha>1\), can occurrences of \(\alpha\)-powers be characterized exactly by occurrences of patterns whose variables are replaced by nonempty words? The power convention, alphabet quantifiers, and class of test words remain unspecified. The supplied literature assessment concerns sum-square avoidance, a different stated problem, and does not establish the status of this question.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30001557\), source problem code \texttt{catalogue entry}, titled \emph{Pattern Characterization of Fractional Powers in Words}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is recorded as \(2010\).
+\item Supplied source citation: \emph{Mini-Workshop: Combinatorics on Words (2011)}, Oberwolfach Reports, pp.~2195--2244, DOI \texttt{10.4171/owr/2010/37}. \url{https://doi.org/10.4171/owr/2010/37}. This is also listed among the supplied literature sources as the original workshop report. The citation and its connection to this problem have not been independently verified.
+\item Supplied literature source attributed to Au, Robertson, and Shallit: \url{https://arxiv.org/abs/0812.2466}. The record supplies no title or explanation connecting this reference to the pattern-characterization question.
+\item Literature assessment dated \texttt{2026-08-21}: the supplied curation labels the finite-alphabet infinite-word sum-square avoidance problem open and reports no construction or impossibility proof for its stated general form. This is supplied dated curation, not independently verified, and concerns a different formulation from the present question. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the present record \texttt{open} and its statement \texttt{corrected\_verified}. Its supplied verification note says only that TeX notation was enclosed in math delimiters without changing mathematical content; it does not document mathematical or bibliographic verification.
+\end{itemize}
+\end{document}

@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002458}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Item A.5 is Francis Filbet's contributed-talk abstract, \emph{Approximation of Hyperbolic Models for Chemosensitive Movement}, describing work with Chi-Wang Shu of Brown University. It is not an open-problem question. It reports first- and second-order well-balanced finite-volume schemes and a high-order finite-difference weighted essentially non-oscillatory (WENO) scheme adapted to preserve steady states while retaining high-order accuracy. Numerical tests concern accuracy, the well-balanced property, and network formation resembling experiments. The keywords concern chemotaxis, hyperbolic systems, finite-volume and finite-difference methods, WENO, and well-balanced schemes. No specific equations, discretization, accuracy theorem, or unresolved target occurs in the abstract.
+
+The aid's separate structural statement concerns positive one-dimensional rest equilibria. For a pressure $p$ with $p'(n)>0$ and a chemical potential $\chi(c)$, define an enthalpy by
+\[
+H'(n)=\frac{p'(n)}n\qquad(n>0).
+\]
+For the momentum balance $\partial_xp(n)=n\partial_x\chi(c)$ at zero velocity, the positive rest condition is
+\[
+H(n)-\chi(c)=K
+\]
+for a constant $K$. Given a shared interface value $\theta$, reconstruct each positive state by
+\[
+n^*=H^{-1}\bigl(H(n)+\theta-\chi(c)\bigr),
+\]
+whenever the argument lies in the range of $H$. States on the same equilibrium then reconstruct to the same interface density and zero velocity.
+
+The aid reports exact balance for any consistent numerical flux, with the matching well-balanced source treatment understood. Explicitly, for the hyperbolic flux $(nv,nv^2+p(n))$, consistency gives interface flux $(0,p(n^*))$ on such equal rest states. The source discretization must supply exactly the corresponding momentum flux difference at equilibrium; for a cell of width $\Delta x$ this is
+\[
+S_j=\left(0,\frac{p(n^*_{j+1/2})-p(n^*_{j-1/2})}{\Delta x}\right).
+\]
+Then the semidiscrete flux difference and source cancel. Matching reconstructed states without a compatible source term is not by itself a full well-balanced scheme. Any additional chemical-field equation must also be balanced separately; none is supplied here.
+
+For the normalized isothermal case $p(n)=n$, $H(n)=\log n$, the aid proves a local multiplicative rigidity statement. Suppose $R(\theta,z)>0$, $n^*=nR(\theta,\chi(c))$, the reconstruction matches every pair with $\log n-\chi(c)=K$, and $R(z,z)=1$. On the admissible parameter domain where these comparisons are available,
+\[
+R(\theta,z)=e^{\theta-z}.
+\]
+Thus the exponential Filbet--Shu factor is forced within this local multiplicative class and normalization. For a numerical flux that additionally detects unequal positive rest densities through a nonzero mass flux, a reconstruction mismatch creates nonzero face mass flux. That detection property is an extra condition, not implied by consistency of an arbitrary flux.
+
+The aid says comparison with the published Filbet--Shu paper corrects the scope of the 2005 WENO claim, but does not state the correction or provide full bibliographic data. The abstract's broad high-order preservation language is therefore retained as a reported claim, without promoting it to an independently verified theorem for every equilibrium or WENO variant.
+\subsection{Short English statement}
+This is a numerical-methods talk abstract, not an open question. The accompanying aid studies positive rest equilibria and shows how shared enthalpy reconstruction can balance a compatible flux/source discretization. In a normalized isothermal multiplicative class, exact equilibrium matching uniquely gives the exponential reconstruction factor; the broader WENO claims still need their stated scope recovered.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20002458$, \texttt{catalogue entry}; \texttt{aim-pdes-notes.json}, \texttt{notes[69]}, section tag.
+\item American Institute of Mathematics, \emph{Stiff sources and numerical methods for conservation laws}, A.5, Francis Filbet, \emph{Approximation of Hyperbolic Models for Chemosensitive Movement}, collaboration with Chi-Wang Shu, Brown University: \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}. Supplied verification identifies the talk abstract and repairs the line-break artifacts ``hy-perbolic'' and ``con-servation.''
+\item The aid refers to a published Filbet--Shu paper and a 2005 WENO scope correction without title, publication details, theorem numbers, or the actual correction. No authoritative separate reference for the structural lemma is supplied.
+\item Research attempt 1: context only, status ``not a problem'' at run, rigor label ``proved,'' novelty confidence low. Registry labels open and open triage, statement status exact, do not create an unresolved question in the abstract.
+\end{itemize}
+\end{document}

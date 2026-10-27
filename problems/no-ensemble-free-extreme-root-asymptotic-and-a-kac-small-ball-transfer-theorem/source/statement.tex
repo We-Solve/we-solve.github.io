@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000626}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a random polynomial \(P_n(z)=\sum_{j=0}^n a_{n,j}z^j\) of degree \(n\geq1\) almost surely, define its largest-root modulus by
+\[
+R_n=\max\{|z|:P_n(z)=0\}.
+\]
+For real coefficients this definition still takes all complex roots, not just real roots. Wenbo Li's question asks for asymptotics of \(R_n\) as \(n\to\infty\), for random polynomials in one real or complex variable. The verified source gives no coefficient law, weights, dependence assumptions, or mode of asymptotics. A precise theorem must specify the ensemble and whether it seeks a growth scale, convergence in probability or distribution, tails, or moments. A real-roots-only interpretation would be a different question and would need a convention when no real root exists.
+
+The attached aid illustrates why there is no single ensemble-free scale. For independent standard real or circular complex Gaussian coefficients \(\xi_j\), the Kac ensemble is
+\(P_n(z)=\sum_{j=0}^n\xi_jz^j\), and its reported largest-root moduli are tight. The usual Gaussian Weyl ensemble instead has
+\(W_n(z)=\sum_{j=0}^n\xi_jz^j/\sqrt{j!}\); the aid reports the lower bound
+\[
+\Pr\left\{R_n(W_n)\geq(e^{-1/2}-\varepsilon)\sqrt n\right\}\longrightarrow1
+\quad\text{for every }\varepsilon>0.
+\]
+This is a lower bound, not a complete Weyl extreme-root asymptotic.
+
+For a more specific Kac claim, let the real or complex \(\xi_j\) be independent and identically distributed, and suppose that for some \(\alpha>0\), \(u_0,c,C>0\),
+\[
+c u^\alpha\leq\Pr\{|\xi_0|\leq u\}\leq C u^\alpha
+\quad(0<u\leq u_0),\qquad
+\mathbb E|\xi_0|^\alpha<\infty.
+\]
+In particular the coefficient law has no atom at zero. The aid claims constants \(x_0,c_1,C_1>0\), depending on the law but not the degree, such that
+\[
+c_1x^{-\alpha}\leq\Pr\{R_n>x\}\leq C_1x^{-\alpha}
+\quad(n\geq1,\ x\geq x_0).
+\]
+It reports an associated limiting random-power-series law \(R_\infty\) with the same tail order, and convergence of every subcritical positive moment:
+\[
+\sup_{n\geq1}\mathbb E R_n^s<\infty,
+\qquad \mathbb E R_n^s\longrightarrow\mathbb E R_\infty^s<\infty
+\quad(0<s<\alpha).
+\]
+For \(s\geq\alpha\), the claimed lower tails force divergence of the corresponding moments at every finite degree and for the limiting law. The exact construction of the limiting power-series variable is not reproduced in the record. These are supplied unreviewed, ensemble-specific results; they do not assign an asymptotic to unspecified random polynomials.
+\subsection{Short English statement}
+Find the size and distribution of the largest-modulus zero as degree grows, after specifying a random-polynomial ensemble. The source specifies none. The supplied aid contrasts tight Gaussian Kac extremes with growing Weyl extremes and gives a conditional Kac tail and moment theorem based on coefficient small-ball behavior.
+\subsection{Sources}
+\begin{itemize}
+\item Wenbo Li, Question 1, AIM workshop \emph{Random analytic functions}: \url{https://aimath.org/WWN/randomzeros/arcc1.pdf}. The supplied verification says the PDF and following questions supply no ensemble definition.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID \(20000626\), exact source code \texttt{catalogue entry}; canonical \texttt{aim-analysis-notes.json}, notes[157].
+\item The attached aid supplies the Kac/Weyl comparison and small-ball theorem without full external bibliography. Attempt 1 is explicitly machine-generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

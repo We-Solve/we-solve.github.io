@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003749}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A conventional framework for the question is a sequence of binary logistic regression models indexed by sample size \(n\), with covariates \(X_{ni}\in\R^{p_n}\), responses \(Y_{ni}\in\{0,1\}\), and true coefficients \(\beta_n\in\R^{p_n}\), satisfying
+\[
+\Pr(Y_{ni}=1\mid X_{n1},\ldots,X_{nn})=\sigma(X_{ni}^{\mathsf T}\beta_n),\qquad \sigma(t)=\frac{e^t}{1+e^t},\qquad 1\le i\le n.
+\]
+The usual proportional asymptotic regime is
+\[
+n\longrightarrow\infty,\qquad p_n\longrightarrow\infty,\qquad \frac{p_n}{n}\longrightarrow\kappa\in(0,\infty).
+\]
+These formulas provide a conventional interpretation of logistic regression and proportional growth; the supplied record specifies neither an admissible range of \(\kappa\) nor a design distribution, dependence assumptions, or a coefficient sequence.
+
+If the responses are conditionally independent given the covariates, the conditional log-likelihood is
+\[
+\ell_n(b)=\sum_{i=1}^{n}\left\{Y_{ni}X_{ni}^{\mathsf T}b-\log\bigl(1+e^{X_{ni}^{\mathsf T}b}\bigr)\right\},\qquad b\in\R^{p_n}.
+\]
+Conditional independence is an explicit assumption of this formulation, not a hypothesis supplied by the record. When a finite maximizer exists, a maximum-likelihood estimator is a choice
+\[
+\widehat\beta_n\in\operatorname*{arg\,max}_{b\in\R^{p_n}}\ell_n(b).
+\]
+Its existence, uniqueness, and choice when maximizers are nonunique require specification. Once a probability law and an estimator choice have been fixed, its bias and covariance, when the corresponding moments exist, are
+\[
+\operatorname{Bias}(\widehat\beta_n)=\E[\widehat\beta_n]-\beta_n,\qquad
+\operatorname{Cov}(\widehat\beta_n)=\E\!\left[(\widehat\beta_n-\E\widehat\beta_n)(\widehat\beta_n-\E\widehat\beta_n)^{\mathsf T}\right].
+\]
+Whether these expectations should be conditional on the design or unconditional is unspecified.
+
+For specified nonempty nested parameter sets \(\Theta_{0,n}\subseteq\Theta_{1,n}\subseteq\R^{p_n}\), the likelihood-ratio statistic for the null hypothesis \(\beta_n\in\Theta_{0,n}\) against the larger model \(\Theta_{1,n}\) is
+\[
+T_n=2\left\{\sup_{b\in\Theta_{1,n}}\ell_n(b)-\sup_{b\in\Theta_{0,n}}\ell_n(b)\right\}.
+\]
+The use of suprema defines this statistic without assuming that finite maximizing coefficients exist; it does not resolve existence of the maximum-likelihood estimator.
+
+\textbf{Research question.} Develop a rigorous asymptotic theory in the proportional regime that specifies its assumptions and characterizes the bias and variance of the maximum-likelihood estimator, where it exists, and the limiting distributions of likelihood-ratio statistics for explicitly specified tests. The original wording also asks what is rigorously known about these questions. The supplied record does not determine a single quantified conjecture: the design law, parameter scaling, estimator existence regime, tested hypotheses, and required centering and normalization remain unspecified. In particular, no assertion for every design, every coefficient sequence, or every positive value of \(\kappa\) is justified by the record.
+\subsection{Short English statement}
+Study logistic regression when the number of covariates grows proportionally to the sample size, with particular attention to maximum-likelihood bias and variability and likelihood-ratio limits. This is a broad research program whose precise hypotheses and testing targets remain unspecified. The supplied curation labels it partially solved under important random-design assumptions; that assessment has not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30003749\), title \emph{Inference in Proportional High-Dimensional Logistic Regression}, Oberwolfach Reports Open Problems collection, exact source problem code \texttt{catalogue entry}. The record gives proposed year \(2018\) and names no proposer.
+\item Supplied report citation: \emph{Statistical Inference for Structured High-dimensional Models} (2019), Oberwolfach Reports, pp.\ 591--630, DOI \texttt{10.4171/owr/2018/12}. \url{https://doi.org/10.4171/owr/2018/12}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The report year is retained as supplied; it differs from the proposed year and the year component of the DOI.
+\item Supplied literature reference, labeled ``Sur and Candes'': \url{https://doi.org/10.1073/pnas.1810420116}.
+\item Supplied literature reference, labeled ``Arbitrary covariance extension'': \url{https://arxiv.org/abs/2001.09351}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: supplied status \texttt{partially\_solved}. The supplied assessment says that rigorous phase-transition, likelihood, and inference theory exists under important random-design assumptions, while the broad question remains incomplete beyond those regimes. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The supplied statement status is \texttt{corrected\_verified}, with the explanation that mathematical content was preserved while notation, typography, and sentence structure were repaired for publication. This is a registry annotation, not independent mathematical or source verification of this draft.
+\end{itemize}
+\end{document}

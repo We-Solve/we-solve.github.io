@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000458}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Poonen's AIM question asks for an algorithm deciding whether there is \(x\in\Z^n\) satisfying an integer linear system \(Ax=b\), together with finitely many specified constraints
+\[
+\{x_{i_\ell}\alpha_{j_\ell}\}<r_\ell,
+\qquad \alpha_j\in\R\setminus\Q,\quad r_\ell\in\Q,
+\]
+where \(\{u\}=u-\lfloor u\rfloor\). The original does not specify how the real coefficients are input, whether they are fixed, or the precise list of index pairs. For \(r\leq0\) such a strict inequality is impossible, and for \(r\geq1\) it is automatic; the nontrivial thresholds lie in \((0,1)\). These boundary cases must not be replaced by closed inequalities.
+
+Voloch's remark suggests adding variables and viewing this as linear programming: a constraint can be expressed with an integer \(z_\ell\) by \(0\leq x_{i_\ell}\alpha_{j_\ell}-z_\ell<r_\ell\). That leaves irrational coefficients and their effective representation to address. Another original remark says a negative answer would have implied undecidability of Hilbert's tenth problem over \(\Q\); its intended coefficient model and reduction are not provided.
+
+The attached report proposes a representation-sensitive dichotomy. For a finite tuple \(\alpha=(\alpha_1,\ldots,\alpha_t)\), suppose each coefficient is given by a fast Cauchy name, rational approximants with error at most \(2^{-m}\) at stage \(m\), and one is additionally given a \(\Z\)-basis for its full affine integer-relation lattice
+\[
+\mathcal R_\alpha=\{(a_0,\ldots,a_t)\in\Z^{t+1}:a_0+\sum_{j=1}^ta_j\alpha_j=0\}.
+\]
+It claims a terminating algorithm, using zero strata, Smith normal form, and the character version of Kronecker's closure theorem, reducing the system to finitely many exact strict linear-feasibility tests. The relation basis is promised exact input, not inferred uniformly from approximate names.
+
+Consequently the report asserts uniform decidability for exactly represented real-algebraic inputs, and, for any fixed finite tuple, decidability of the whole integer-system family if and only if each fractional-part constant \(\{\alpha_j\}\) is computable. The positive fixed-tuple direction may nonuniformly hard-code its finite relation basis; it does not give a uniform procedure to recover that basis from names.
+
+In contrast it claims no uniform solver from fast Cauchy names alone, even when every named irrational is promised quadratic algebraic. Its alleged halting template has three integer variables, two linear equations, two fractional inequalities, and common threshold \(1/4\). The actual equations and coefficient-name construction are not supplied, so the gadget cannot be reproduced here. This names-only impossibility is distinct from undecidability for exact algebraic-number input, and does not by itself establish the original historical Hilbert-tenth implication.
+\subsection{Short English statement}
+Decide integer linear equations with irrational rotation inequalities. The report makes the answer depend on coefficient representation: exact algebraic data or names plus a full relation basis are claimed decidable, while approximate names alone are not uniformly sufficient.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop ``Rational and integral points on higher dimensional varieties,'' Question 25, attributed to Poonen, with Voloch's linear-programming remark: \url{https://aimath.org/WWN/qptsurface2/qptsurface2.pdf}. No PDF was accessed here.
+\item Local canonical registry \texttt{aim-algebraic-number-theory-notes.json}, \texttt{notes[109]}, tag \texttt{question}; permanent UnsolvedMath ID \(20000458\), source code \texttt{catalogue entry}. Original includes the strict fractional inequalities and a historical Hilbert's-tenth-over-\(\Q\) remark; its verification claims official HTML/PDF typography normalization. No HTML URL or full literature entry is supplied.
+\item Supplied research attempt 1 proposing the relation-lattice algorithm and names-only halting obstruction. No authoritative full references or explicit gadget equations are supplied. The report is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

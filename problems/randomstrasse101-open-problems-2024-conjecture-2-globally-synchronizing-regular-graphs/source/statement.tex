@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800837}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record does not define ``globally synchronizing'' or specify the random regular graph model. The following is therefore a conditional formalization, using uniform simple labelled graphs and almost-everywhere synchronization of identical attractive Kuramoto oscillators. These interpretations require confirmation against the cited source.
+
+For each even integer \(n\geq 4\), let \(\mathcal G_{n,3}\) be the set of simple undirected graphs on \(\{1,\ldots,n\}\) in which every vertex has degree \(3\), and let \(G_n\) be uniformly distributed on \(\mathcal G_{n,3}\). The restriction to even \(n\) is necessary because the sum of the degrees is \(3n\).
+
+For a graph \(G\in\mathcal G_{n,3}\), consider phases in \(\mathbb T^n\), where \(\mathbb T=\R/(2\pi\Z)\), evolving by
+\[
+\frac{\dd\theta_i}{\dd t}=\sum_{j:\{i,j\}\in E(G)}\sin(\theta_j-\theta_i),\qquad i=1,\ldots,n.
+\]
+Under the interpretation used here, call \(G\) globally synchronizing if, for almost every initial phase vector with respect to normalized Haar measure on \(\mathbb T^n\), the resulting solution satisfies
+\[
+\lim_{t\to\infty}\max_{1\leq i,j\leq n}\left|e^{\mathrm{i}\theta_i(t)}-e^{\mathrm{i}\theta_j(t)}\right|=0.
+\]
+The source conjecture, conditional on these definitions, is
+\[
+\lim_{\substack{n\to\infty\\ n\text{ even}}}\Pr\!\left(G_n\text{ is globally synchronizing}\right)=1.
+\]
+The probability here concerns the random graph; the almost-everywhere quantifier over initial phases is part of the proposed definition of global synchronization.
+
+The source may instead use a condition formulated in terms of stable equilibria or another dynamical definition. No equivalence with the definition above is asserted. Without confirmation of the intended predicate and graph model, this remains a conditional statement-only draft.
+
+As background, the supplied record attributes to Abdalla, Bandeira, Kassabov, Souza, Strogatz, and Townsend the claims that random Erd\H{o}s--R\'enyi graphs are globally synchronizing above the connectivity threshold with high probability, and that uniform random \(d\)-regular graphs have this property with high probability for \(d\geq 600\). These are supplied contextual claims, not independently verified results here; the record does not give their detailed hypotheses.
+\subsection{Short English statement}
+The supplied conjecture says that a uniform random \(3\)-regular graph is globally synchronizing with probability tending to \(1\) as its number of vertices tends to infinity through even integers. The draft uses a specified Kuramoto interpretation and a uniform simple labelled graph model, both requiring source confirmation. The registry labels the problem open; that label is supplied metadata, not an independently verified literature assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800837\), exact source problem code \texttt{catalogue entry}. Supplied status: open. The record attributes the problem to Bandeira et al., with proposed year \(2025\).
+\item Bandeira et al., \emph{Randomstrasse101: Open Problems of 2024} (2025), Conjecture 2, context ``Globally Synchronizing Regular Graphs'': \url{https://arxiv.org/abs/2504.20539}. The supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; neither access nor the mathematical content has been independently verified here.
+\item The supplied statement cites Abdalla, Bandeira, Kassabov, Souza, Strogatz, and Townsend under the reference label \texttt{[ABKSST-SynchExpander]}. No complete bibliographic entry or direct link for that reference is supplied.
+\item Supplied contextual Quanta article: \url{https://www.quantamagazine.org/new-proof-shows-that-expander-graphs-synchronize-20230724/}. This is the coverage linked by the record, not an independently checked mathematical source.
+\end{itemize}
+\end{document}

@@ -1,0 +1,91 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006527}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\in\Z_{\geq 0}\). A partition \(\lambda\vdash n\) is a finite nonincreasing sequence of positive integers with sum \(n\), with the empty partition allowed when \(n=0\). Its diagram is \(D(\lambda)=\{(i,j):1\leq j\leq\lambda_i\}\), its conjugate is \(\lambda'_j=\#\{i:\lambda_i\geq j\}\), and the hook length of a cell is
+\[
+h_\lambda(i,j)=\lambda_i-j+\lambda'_j-i+1.
+\]
+A \(t\)-hook means a cell whose hook length is exactly \(t\); hooks are counted with multiplicity over cells and partitions. A partition is self-conjugate if \(\lambda=\lambda'\).
+
+The supplied excerpt does not define doubled-distinct partitions. To make the statement explicit, use the following working convention, subject to confirmation against the cited source. If \(r\) is the number of diagonal cells, write the Frobenius coordinates as \(a_i=\lambda_i-i\) and \(b_i=\lambda'_i-i\), for \(1\leq i\leq r\). A doubled-distinct partition satisfies \(a_i=b_i+1\) for every \(i\). Include the empty partition. The conjugate convention \(b_i=a_i+1\) gives the same total hook counts, since conjugation preserves hook lengths; the source's intended definition still requires confirmation.
+
+For \(t\in\Z_{\geq1}\), define
+\[
+\operatorname{sc}^{\star}_t(n)=
+\sum_{\substack{\lambda\vdash n\\\lambda=\lambda'}}
+\#\{(i,j)\in D(\lambda):h_\lambda(i,j)=t\},
+\qquad
+\operatorname{dd}^{\star}_t(n)=
+\sum_{\substack{\lambda\vdash n\\\lambda\text{ doubled-distinct}}}
+\#\{(i,j)\in D(\lambda):h_\lambda(i,j)=t\}.
+\]
+Both counts are zero at \(n=0\).
+
+\textbf{Conjecture 3 as expressed in the original excerpt.} Interpreting \(n\gg t\) with an implied constant independent of \(t\) as a uniform linear threshold, the proposed statement is
+\[
+\exists C>0\ \forall t\in\Z_{\geq1}\ \forall n\in\Z_{\geq0},\quad
+n>Ct\ \Longrightarrow\
+\begin{cases}
+\operatorname{sc}^{\star}_t(n)\geq\operatorname{sc}^{\star}_{t+1}(n),\\
+\operatorname{dd}^{\star}_t(n)\geq\operatorname{dd}^{\star}_{t+1}(n).
+\end{cases}
+\]
+The excerpt additionally proposes
+\[
+\forall t\in\{8,10,12,\ldots\}\ \forall n\in\Z_{\geq0},\qquad
+\operatorname{dd}^{\star}_t(n)\geq\operatorname{dd}^{\star}_{t+1}(n).
+\]
+\textbf{Unresolved threshold discrepancy.} The supplied clean statement instead asks for a threshold bounded uniformly in \(t\), which literally gives the stronger formulation
+\[
+\exists N\in\Z_{\geq0}\ \forall t\in\Z_{\geq1}\ \forall n\geq N,\qquad
+\operatorname{sc}^{\star}_t(n)\geq\operatorname{sc}^{\star}_{t+1}(n)
+\quad\text{and}\quad
+\operatorname{dd}^{\star}_t(n)\geq\operatorname{dd}^{\star}_{t+1}(n).
+\]
+The record does not resolve whether this stronger formulation was intended; it must not be substituted silently for the original uniform linear threshold.
+
+\textbf{Supplied partial-result context, not independently verified.} The excerpt says that asymptotic results cited there as [6] and [2] establish eventual inequalities separately for each fixed \(t\), allowing a threshold depending on \(t\). It reports the following as Theorems 4 and 5:
+\begin{itemize}
+\item For every integer \(k\geq1\) and every integer \(n>84k\),
+\(\operatorname{sc}^{\star}_{2k-1}(n)\geq\operatorname{sc}^{\star}_{2k}(n)\).
+\item For every integer \(n\geq0\) other than \(6,10\),
+\(\operatorname{dd}^{\star}_1(n)\geq\operatorname{dd}^{\star}_2(n)\).
+\item For all integers \(k\geq1\) and \(n\geq0\) other than the pairs
+\((k,n)=(1,12),(2,10),(3,14)\),
+\(\operatorname{dd}^{\star}_{2k}(n)\geq\operatorname{dd}^{\star}_{2k+1}(n)\).
+\end{itemize}
+The exceptional values are retained exactly as supplied. These reported partial results are context for the remaining conjecture, not assertions of mathematical verification by this draft.
+\subsection{Short English statement}
+Count all cells of hook length \(t\) across self-conjugate partitions and across doubled-distinct partitions of \(n\). The original conjecture asks whether both totals decrease from \(t\) to \(t+1\) whenever \(n>Ct\), with one constant \(C\) independent of \(t\). The cleaned record instead suggests an absolute threshold independent of \(t\); this stronger interpretation remains unresolved. The supplied record labels the problem partially solved and reports specific proved cases and exceptions.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local registry record: permanent UnsolvedMath ID \(30006527\), title \emph{Monotonicity of Hook Counts in Symmetric Partitions}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection; proposed year recorded as 2026. The individual proposer field is unspecified.
+\item Supplied report citation: \emph{Enumerative Combinatorics} (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/2, pp. 81--156. \url{https://doi.org/10.4171/owr/2026/2}. The excerpt labels the conjecture as Conjecture 3 and the partial results as Theorems 4 and 5; no exact passage page or talk author is supplied.
+\item Supplied literature source: Cho--Kim--Kim--Yee, \emph{European Journal of Combinatorics}. \url{https://doi.org/10.1016/j.ejc.2026.104390}. The supplied assessment describes this as a July 2026 primary paper proving the self-conjugate odd-to-even inequalities and the stated doubled-distinct cases, including the exceptional values, while leaving the full fixed-\(t\) monotonicity conjecture unproved.
+\item Literature assessment date: \texttt{2026-08-22}. The supplied status is \texttt{partially\_solved}. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; its time-sensitive status and cited claims require independent checking.
+\item Attribution retained from the excerpt: the speaker describes joint investigation with Cho, Kim, and Kim, motivated by a result of Singh and Barman. The conjecture is attributed there to reference [3], and fixed-\(t\) asymptotic results to references [6] for self-conjugate partitions and [2] for doubled-distinct partitions. Their full bibliography entries and the identity of the speaker are not supplied, so these reference labels cannot be resolved reliably from this record alone.
+\end{itemize}
+\end{document}

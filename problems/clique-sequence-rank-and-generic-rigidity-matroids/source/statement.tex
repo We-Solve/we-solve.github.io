@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004003}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(K_n\) denote the complete simple graph on \(n\) vertices, with edge set \(E=E(K_n)\). A copy of \(K_t\) in \(K_n\) is identified with its edge set. The supplied record does not specify the admissible range of the integer parameters \(n,t\), define a \emph{proper \(K_t\)-sequence}, or state whether the empty sequence is permitted. These omissions prevent an unconditional definition of the proposed rank function.
+
+Write \(\mathcal P_{n,t}\) for the intended family of finite proper \(K_t\)-sequences, pending clarification of that term. Conditional on this family being specified and the following minima existing, define, for every \(F\subseteq E\),
+\[
+ r_t(F)=\min_{(C_1,\ldots,C_k)\in\mathcal P_{n,t}}
+ \left(\left|F\cup\bigcup_{i=1}^{k}C_i\right|-k\right).
+\]
+If the empty sequence is permitted, its union is \(\varnothing\) and its contribution is \(|F|\); its admissibility is not established by the supplied record.
+
+The supplied conjecture asks whether, for every intended pair \(n,t\), this function is submodular:
+\[
+ r_t(A)+r_t(B)\ge r_t(A\cup B)+r_t(A\cap B)
+ \qquad\text{for all }A,B\subseteq E,
+\]
+and is the rank function of a matroid on \(E\). Here a matroid rank function on a finite set \(E\) is an integer-valued function \(r:2^E\to\Z\) satisfying
+\[
+ 0\le r(A)\le |A|,\qquad
+ A\subseteq B\Longrightarrow r(A)\le r(B),
+\]
+together with the displayed submodular inequality. Submodularity alone does not supply the other rank axioms; their applicability here depends on the missing definition and conventions.
+
+The highlighted conjecture is that, when \(t=5\), the resulting matroid equals the generic \(3\)-rigidity matroid on the same labelled edge set. Under the conventional real interpretation, choose points \(p_1,\ldots,p_n\in\R^3\) whose \(3n\) coordinates are algebraically independent over \(\Q\). For \(F\subseteq E\), let \(R_3(F,p)\) be the matrix with one row for each edge \(\{i,j\}\in F\), with blocks \(p_i-p_j\) and \(p_j-p_i\) in the three columns for vertices \(i\) and \(j\), respectively, and zeros elsewhere. The generic \(3\)-rigidity matroid is the matroid of linear independence of these rows. With this conventional interpretation, the highlighted assertion is
+\[
+ r_5(F)=\operatorname{rank}_{\R}R_3(F,p)
+ \qquad\text{for every }F\subseteq E(K_n).
+\]
+The record does not explicitly specify a ground field; the real interpretation above explains the standard terminology and requires confirmation against the intended source. No missing proper-sequence condition is supplied by this draft.
+\subsection{Short English statement}
+The conjecture proposes a matroid rank obtained by minimizing the size of an edge union minus the length of a proper clique sequence. For \(t=5\), it further identifies this rank with generic rigidity rank in three dimensions. The supplied record leaves ``proper sequence,'' the parameter range, and the empty-sequence convention undefined, so the formulation remains conditional and requires human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30004003\), exact source problem code \texttt{catalogue entry}, title ``Clique-Sequence Rank and Generic Rigidity Matroids.'' The supplied record gives proposed year 2018 and names no proposer.
+\item Supplied source citation: \emph{Combinatorial Optimization (2019)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2018/50}, pp.~2969--3023. \url{https://doi.org/10.4171/owr/2018/50}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source: ``Oberwolfach Report 50/2018.'' \url{https://ems.press/content/serial-article-files/46772}.
+\item Supplied literature source: ``Abstract 3-Rigidity and Bivariate C2-1-Splines II.'' \url{https://arxiv.org/abs/1911.00207}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem partially solved and states that the longest \(K_t\)-sequence problem and matroid conjecture are settled for \(t=3\) and \(t=4\), with substantial \(3\)-rigidity/cofactor progress, while the general conjecture and highlighted \(t=5\) case remain unsettled. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; its time-sensitive status and cited claims require independent verification. The longest-sequence problem mentioned in that assessment is not separately formulated in the supplied record.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official problem session was checked and the longest-clique-sequence rank definition and both conjectural conclusions were restored. These are supplied verification claims, not verification performed for this draft.
+\end{itemize}
+\end{document}

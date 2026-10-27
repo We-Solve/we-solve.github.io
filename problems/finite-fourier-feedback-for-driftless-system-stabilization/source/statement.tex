@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002812}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Consider the driftless control-affine system
+\[
+\dot x=\sum_{j=1}^{m}u_j f_j(x),\qquad x\in D\subset\R^n,
+\]
+where \(n,m\) are positive integers and the \(f_j\) are vector fields. Whenever the requisite iterated Lie brackets are defined, write
+\[
+\operatorname{Lie}_{0}\{f_1,\ldots,f_m\}
+:=\operatorname{span}_{\R}\{X(0):X\text{ is an iterated Lie bracket of the }f_j\},
+\]
+including the vector fields themselves among these brackets. The supplied rank hypothesis is
+\[
+\operatorname{Lie}_{0}\{f_1,\ldots,f_m\}=\R^n.
+\]
+The source does not specify regularity of the vector fields or the neighborhood assumptions on \(D\) needed to interpret this hypothesis and stabilization at the origin.
+
+The supplied construction question is: for every such system satisfying the rank hypothesis, can one choose a finite integer \(N\geq0\), a frequency \(\omega\), and piecewise-smooth coefficient functions \(v_{kj}\) on the state domain, for \(-N\leq k\leq N\) and \(1\leq j\leq m\), so that the feedback
+\[
+u_j(t,x)=\sum_{k=-N}^{N}v_{kj}(x)e^{i\omega kt},\qquad i^2=-1,
+\]
+satisfies exactly the supplied coefficient conditions
+\[
+v_{kj}(x)=v_{-k,j}(x),\qquad
+\lim_{\substack{x\to0\\x\in D}}v_{kj}(x)=0,
+\]
+and makes the trivial solution \(x(t)\equiv0\) of
+\[
+\dot x=\sum_{j=1}^{m}\left(\sum_{k=-N}^{N}v_{kj}(x)e^{i\omega kt}\right)f_j(x)
+\]
+asymptotically stable?
+
+Here asymptotic stability is the requested combination of Lyapunov stability and attraction to the origin for solutions starting sufficiently near it. The source does not specify whether these properties must be uniform in the initial time, whether a global conclusion is intended, or which solution concept applies to the piecewise-smooth feedback. These choices remain unresolved rather than being added as hypotheses.
+
+The coefficient symmetry above is retained literally. For real nonzero \(\omega\), real-valued controls represented by a complex Fourier expansion ordinarily require \(v_{-k,j}(x)=\overline{v_{kj}(x)}\). If the supplied equality is imposed together with real-valued coefficients, the displayed feedback reduces to
+\[
+u_j(t,x)=v_{0j}(x)+2\sum_{k=1}^{N}v_{kj}(x)\cos(\omega kt).
+\]
+The record does not establish whether this cosine-only restriction is intended or whether complex conjugation was omitted. It also leaves the admissible frequencies unspecified. Finally, the limits of the coefficients at the origin do not by themselves specify their values there. The requirement that \(x\equiv0\) be a solution must be imposed separately; assigning \(v_{kj}(0)=0\) would ensure it, but that assignment is not explicitly supplied.
+\subsection{Short English statement}
+For every driftless control-affine system satisfying the stated Lie-bracket rank condition at the origin, construct feedback with finitely many temporal Fourier modes and piecewise-smooth state coefficients tending to zero at the origin, so that the origin is asymptotically stable. The supplied symmetry of the Fourier coefficients is preserved literally. Its intended meaning, the regularity and domain hypotheses, and the precise stability and solution conventions require review. The supplied status is partially solved, according to dated curation rather than independent verification.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, with \texttt{catalog/problems.json} as the supplementary registry; supplied permanent UnsolvedMath ID \(30002812\), source problem code \texttt{catalogue entry}, title \emph{Finite Fourier Feedback for Driftless-System Stabilization}. The supplied record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2015; no individual proposer is identified.
+\item Supplied report attribution: \emph{Control Theory: A Mathematical Perspective on Cyber-Physical Systems} (2015), Oberwolfach Reports, pp.\ 597--659, DOI \texttt{10.4171/owr/2015/12}. Source URL and literature-source link: \url{https://doi.org/10.4171/owr/2015/12}. No problem-specific page or individual contribution is supplied.
+\item Supplied literature source labeled ``Zuyev, exponential stabilization'': \url{https://doi.org/10.1137/140999955}.
+\item Supplied literature source labeled ``Zuyev and Grushkovskaya, systems with drift'': \url{https://arxiv.org/abs/1904.10219}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: supplied dated curation, not independently verified. The record labels the problem partially solved and reports that explicit time-varying trigonometric-polynomial stabilizers are proved for driftless systems and selected systems with drift under finite Lie-bracket rank conditions, but not for arbitrary controllable nonlinear systems. The supplied background describes this assessment as literature triage derived from OWR curation and calls for independent verification of time-sensitive status and cited claims. This broader assessment does not specify which theorem resolves the exact coefficient and stability requirements displayed here.
+\item The supplied statement status is \texttt{corrected\_verified}, with the explanation that mathematical content was preserved while notation, typography, or omitted definitions were repaired for publication. This is a supplied editorial designation, not independent mathematical verification of this draft.
+\end{itemize}
+\end{document}

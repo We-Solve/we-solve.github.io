@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000384}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Alina Bucur and Kiran Kedlaya ask whether principles (A) and (B) remain true, or become easier or harder, after conditioning on ramification information. Those principles are not defined in the supplied record, so a complete statement of the original target is unavailable. The accompanying report studies a particular finite probability model rather than supplying the missing principles.
+
+Let independent local states $X_i$ have ramification indicators $R_i\in\{0,1\}$ and, when $R_i=0$, an unramified Frobenius mark with conditional law $\nu_i$. Tilt their product law by a nonnegative nonzero weight depending only on the indicators:
+\[
+ \Pr_w(X=x)=\frac{w(R(x))\prod_i\Pr(X_i=x_i)}{\E w(R)}.
+\]
+The report claims that conditional on any indicator pattern of positive tilted probability, the unramified marks still have their original product law $\prod_{i:R_i=0}\nu_i$. This preserves conditional marks, not the probability that a place is unramified. It further claims full local-state independence exactly when the tilted indicators are independent. If the original indicator law has full support and $w$ is positive, this is equivalent to $w$ factorizing placewise up to a constant; for conditioning on an indicator event, it is equivalent to rectangular support.
+
+For positive integer costs $c_i$ and the exact total $T=\sum_i c_iR_i=t$, write $q_i=\Pr(R_i=1)$ and $G(z)=\prod_i((1-q_i)+q_i z^{c_i})$. The coefficient normalization is $Z_t=[z^t]G(z)>0$. With factors $i,j$ omitted, put
+\[
+ A=[z^t]G_{-i,-j},\ B=[z^{t-c_i}]G_{-i,-j},\
+ C=[z^{t-c_j}]G_{-i,-j},\ D=[z^{t-c_i-c_j}]G_{-i,-j}.
+\]
+The report's coefficient/cross-ratio mechanism is expressed by
+\[
+ \operatorname{Cov}(R_i,R_j\mid T=t)=
+ \frac{q_iq_j(1-q_i)(1-q_j)}{Z_t^2}(AD-BC).
+\]
+Thus the sign need not be negative for heterogeneous costs. The reported $(1,1,2)$ cost example admits the explicit fair-indicator instance conditioned on $T=2$, where only $(1,1,0)$ and $(0,0,1)$ occur and the first two indicators have positive covariance.
+
+The summary separately cites a cyclic prime-degree fixed-conductor theorem giving family-specific fixed-place factorization and Chebotarev ratios with $O(1/n)$ error. It supplies neither the theorem reference nor its field, prime-degree and conductor hypotheses. For general heterogeneous asymptotics it proves only the exponential-tilt identity: tilting by $e^{\theta T}$ leaves the law conditional on $T=t$ unchanged. Convergence to an unconditioned tilted product remains conditional on a suitable local limit theorem, not an established general result.
+\subsection{Short English statement}
+Ask how ramification conditioning affects two principles that are undefined in the supplied excerpt. The report shows that indicator-only conditioning preserves conditional Frobenius marks while it may create dependence between full local states, even positive covariance. Its general asymptotic product-law claim still needs a local limit theorem; the cited fixed-conductor result has a narrower unspecified arithmetic family.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent ID $20000384$, source code \texttt{catalogue entry}; original question and supplied research summary.
+\item AIM workshop ``Arithmetic statistics over finite fields and function fields'', January 2014, Question 6, attributed to Alina Bucur and Kiran Kedlaya: \url{https://aimath.org/pastworkshops/arithstatffieldproblems.pdf}. Canonical location \texttt{aim-algebraic-number-theory-notes.json}, \texttt{notes[35]}; original remarks and literature field empty. No PDF was opened here.
+\item The summary refers to coefficient formula (5.5), cross-ratio (5.6), and a cited cyclic prime-degree fixed-conductor theorem, but supplies neither the detailed artifacts nor a bibliographic citation.
+\item Supplied machine-generated research attempt 1: partial result; problem partially solved at the run and in the registry; rigor metadata ``proved'', novelty confidence low. Its general heterogeneous asymptotic conclusion is explicitly conditional beyond the exact tilt identity. This non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

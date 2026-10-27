@@ -1,0 +1,87 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002455}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Alina Chertock's participant contribution concerns a hybrid method using finite volumes for conservation or balance laws and particles for coupled nonlinear transport. It describes shocks, rarefactions, contacts, stiff reaction, pollutant point sources, and reacting gases. It reports successful inviscid implementations and asks how to extend dual-equation ideas to diffusion and reaction, reconstruct point values from nonsmooth particle distributions, handle nonsmooth particle ODEs with suitable regularization, and justify methods with point sources. This is a programme, not one fully specified PDE or convergence theorem. The historical reference to Filippov generalized-solution existence requires its usual hypotheses and does not by itself provide uniqueness.
+
+The aid's restricted viscous benchmark is on \(T^d\). Choose \(0<\alpha\le1\) and, for a concrete integer-order formulation, an integer \(s>d/2+\alpha\). Let prescribed real coefficients satisfy
+\[
+ b\in L^1(0,T;W^{s,\infty}(T^d;\R^d)),\qquad
+ r\in L^1(0,T;W^{s,\infty}(T^d)),
+\]
+and let \(\nu\ge0\) be constant. Take a finite signed Radon initial measure \(\mu_0\) and a weak-star measurable measure source \(S_t\), with \(\int_0^T\|S_t\|_{\mathrm{TV}}\,\dd t<\infty\). Consider
+\[
+ \partial_t\mu+\nabla\cdot(b\mu)=\nu\Delta\mu+r\mu+S_t,
+ \qquad\mu(0)=\mu_0.
+\]
+Define \(H^{-s}\) as the dual of \(H^s\). The aid asserts a backward-duality estimate, uniformly in \(\nu\), for solutions and differences with the same coefficients:
+\[
+ \|\mu(t)-\widetilde\mu(t)\|_{H^{-s}}
+ \le C\left(\|\mu_0-\widetilde\mu_0\|_{H^{-s}}
+ +\int_0^t\|S_\tau-\widetilde S_\tau\|_{H^{-s}}\,\dd\tau\right),
+\]
+where \(C\) depends on the time-integrated indicated coefficient norms, \(s,d,T\), but not \(\nu\). The backward equation is
+\[
+ \partial_t\phi+b\cdot\nabla\phi+\nu\Delta\phi+r\phi=0,
+ \qquad\phi(t)=\psi.
+\]
+The benchmark includes continuous-in-time injection at a moving location, \(S_t=a(t)\delta_{z(t)}\), with \(a\in L^1\) and a measurable, in particular continuous, path \(z\). No spatial smoothing of that source is required for its measure formulation.
+
+For a smooth normalized nonnegative periodic mollifier \(K_\varepsilon\), the Sobolev--H\"older estimate asserted in the aid is
+\[
+ \|K_\varepsilon*\eta-\eta\|_{H^{-s}}
+ \le C\varepsilon^\alpha\|\eta\|_{\mathrm{TV}}
+\]
+for finite measures \(\eta\). If \(\mu_0^N,S_t^N\) approximate the data and \(\mu_\varepsilon^N\) denotes the \emph{PDE solution} with initial data \(K_\varepsilon*\mu_0^N\) and source \(K_\varepsilon*S_t^N\), the resulting bound is
+\[
+\begin{aligned}
+ \|\mu(t)-\mu_\varepsilon^N(t)\|_{H^{-s}}
+ \le C\biggl(&\|\mu_0-\mu_0^N\|_{H^{-s}}
+ +\int_0^t\|S_\tau-S_\tau^N\|_{H^{-s}}\,\dd\tau\\
+ &+\varepsilon^\alpha\bigl(\|\mu_0\|_{\mathrm{TV}}
+ +\int_0^t\|S_\tau\|_{\mathrm{TV}}\,\dd\tau\bigr)\biggr).
+\end{aligned}
+\]
+This does not automatically estimate a time-discrete particle algorithm or a scheme with an unestimated PDE residual.
+
+The complementary obstruction is for \(\nu>0\): a nonzero finite sum of moving Dirac masses with distinct regular trajectories and regular weights cannot exactly solve this equation on a time interval with only an order-zero measure source. The Laplacian produces second spatial derivatives of Dirac masses which the first-order transport and weight evolution cannot cancel. This does not preclude particles as approximations or diffusion through other particle mechanisms.
+
+For nonnegative equal-mass particle and target measures \(\eta_N,\eta\), the reconstruction estimate is
+\[
+ \|K_\varepsilon*(\eta_N-\eta)\|_\infty
+ \le \operatorname{Lip}(K_\varepsilon)W_1(\eta_N,\eta)
+ \le C\varepsilon^{-d-1}W_1(\eta_N,\eta).
+\]
+Thus \(W_1=o(\varepsilon^{d+1})\) is a sufficient scale condition to compare the two mollified reconstructions uniformly. Weak convergence or \(W_1\) convergence without a kernel scale relation gives no such guarantee. Even this comparison is not pointwise reconstruction of a nonsmooth target at its discontinuities. The benchmark does not settle nonlinear finite-volume coupling, shock-driven Filippov dynamics, or general stiff nonlinear reaction.
+\subsection{Short English statement}
+The aid gives a viscosity-uniform negative-Sobolev duality benchmark for prescribed smooth transport with measure sources, including moving Dirac injection. It also explains why raw finite Dirac sums cannot exactly represent diffusion and why point reconstruction needs a particle/kernel scale condition. The original coupled nonsmooth programme remains broader.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002455\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[66]}.
+\item Alina Chertock, participant contribution A.2, AIM \emph{Stiff Sources and Numerical Methods for Conservation Laws}, version 1 April 2005; supplied reference \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}. The text describes finite-volume-particle implementations, dual equations, diffusion and reaction extensions, reconstruction difficulties, Filippov theory and regularization, and point-source justification. No PDF was accessed here.
+\item Supplied research attempt 1: \texttt{partial\_result}, run and registry status \texttt{partially\_solved}, rigor label \texttt{proved}, low novelty confidence; classification \texttt{PARTIAL-PROGRESS}, statement status \texttt{reconstructed\_unverified}, created and updated 14 August 2026. No primary bibliographic citations for the benchmark or obstructions are supplied.
+\item The aid explicitly states that it is machine generated, not peer reviewed, and requires independent verification before citation. Historical open-language in the participant statement is not a current independent literature assessment.
+\end{itemize}
+\end{document}

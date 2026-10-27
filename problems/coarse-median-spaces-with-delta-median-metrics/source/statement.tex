@@ -1,0 +1,86 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005179}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied question is: \emph{Does every coarse median space admit a $\delta$-median metric?} Its precise interpretation is unresolved because the excerpt contains inconsistent interval notation and does not specify how the new metric must relate to the original metric.
+
+For a standard working convention, a coarse median structure on a metric space $(X,d)$ is a map $\mu\colon X^3\to X$ with constants $K,C\geq 0$ and a function $H\colon\N_{\geq 1}\to[0,\infty)$ satisfying the following conditions. First,
+\[
+ d\bigl(\mu(x_1,x_2,x_3),\mu(y_1,y_2,y_3)\bigr)
+ \leq K\sum_{i=1}^3 d(x_i,y_i)+C.
+\]
+Second, for every nonempty finite $A\subseteq X$ with $|A|\leq p$, there are a finite median algebra $(M,m_M)$ and maps $\pi\colon A\to M$ and $\lambda\colon M\to X$ such that
+\[
+ d(a,\lambda\pi(a))\leq H(p)\qquad(a\in A)
+\]
+and
+\[
+ d\bigl(\lambda m_M(u,v,w),\mu(\lambda u,\lambda v,\lambda w)\bigr)
+ \leq H(p)\qquad(u,v,w\in M).
+\]
+Here a finite median algebra may be represented as a nonempty subset of $\{0,1\}^n$, for some finite $n$, closed under coordinatewise majority, with $m_M$ the restricted majority operation. This is an explicit working convention; the supplied excerpt does not itself define coarse median spaces or specify a convention.
+
+For a metric $d'$ on $X$ and $\delta\geq 0$, define the usual coarse interval by
+\[
+ I^{d'}_\delta(x,y)
+ =\{w\in X:d'(x,w)+d'(w,y)\leq d'(x,y)+\delta\}.
+\]
+The excerpt does not supply a definition of $I_\delta$, so this formula is also an explicitly stated interpretive convention.
+
+If the intended operation is triple intersection, the approximate-median condition can be expressed as follows: there exist finite constants $\delta,R\geq 0$ such that, for every $x,y,z\in X$, there exists $m\in X$ for which
+\[
+ \varnothing\neq
+ S^{d'}_\delta(x,y,z)
+ :=I^{d'}_\delta(x,y)\cap I^{d'}_\delta(y,z)\cap I^{d'}_\delta(z,x)
+ \subseteq \{w\in X:d'(w,m)\leq R\}.
+\]
+Both constants are independent of $x,y,z$. Nonemptiness alone does not state this uniform boundedness requirement.
+
+With these conventions, the intended question has the conditional schema
+\[
+ \begin{gathered}
+ \text{For every coarse median space }(X,d,\mu),\text{ does there exist a metric }d'\text{ on }X\\
+ \text{satisfying the intended compatibility with }d\text{ and, if required, }\mu,\\
+ \text{together with }\delta,R\geq 0\text{ satisfying the displayed condition?}
+ \end{gathered}
+\]
+The compatibility requirement is missing from the supplied record. In particular, the record does not say whether $d'$ must be bilipschitz equivalent, quasi-isometric, or otherwise related to $d$, or whether its approximate medians must agree coarsely with $\mu$. These possibilities are not interchangeable.
+
+There is also a direct textual conflict: the displayed source definition uses
+\[
+ I_\delta(x,y)\cup I_\delta(y,z)\cup I_\delta(z,x)\sim_d\{m\},
+\]
+where $\sim_d$ is described as meaning nonempty and at uniformly bounded distance from the singleton, whereas the subsequent prose refers to the \emph{triple intersection} of the coarse intervals. The intersection formulation above is therefore a candidate interpretation, not an established correction of the source. A unique precise formulation requires resolution of this conflict and of the missing metric compatibility requirement.
+\subsection{Short English statement}
+The question asks whether every coarse median space can be equipped with a compatible metric whose three pairwise coarse intervals have a nonempty, uniformly bounded common intersection. This is only a candidate reading: the supplied display uses a union, the prose uses an intersection, and the required relationship between the original and replacement metrics is unspecified. The registry labels the question open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete record: permanent ID \texttt{30005179}, exact source problem code \texttt{catalogue entry}, title \emph{Coarse Median Spaces with $\delta$-Median Metrics}. The record assigns proposed year 2022, names no proposer, labels the problem \texttt{open}, and gives statement status \texttt{corrected\_verified}. Its statement-verification field reports reconstruction and checking against the official report; these are supplied registry assertions, not independent verification here.
+\item Supplied report citation: \emph{Topologie (2023)}, Oberwolfach Reports, DOI 10.4171/owr/2022/34, pp.\ 1927--1986. \url{https://doi.org/10.4171/owr/2022/34}. The background and literature-source list also identify this as Oberwolfach Report 34/2022. Both supplied year descriptions are retained without reconciliation.
+\item Supplied literature source: Niblo--Wright--Zhang, \emph{Coarse median algebras}. \url{https://arxiv.org/abs/1802.02499}. The excerpt attributes to Niblo, Wright and Zhang, through its reference [6], the assertion that $\delta$-median spaces are coarse median. That attribution is retained as a source claim.
+\item The excerpt mentions a paper with Cornelia Drutu as reference [1] and a result of Petyt as reference [7]. Their full bibliographic entries are not supplied. It defines a $\delta$-median group as one acting geometrically on a $\delta$-median space and attributes to Petyt an inclusion of mapping class groups of closed surfaces. It also lists cocompact lattices in products of rank-one Lie groups and non-cocompact lattices in $\mathrm{SO}(n,1)$, followed by a corrupted clause about lattices in $\mathrm{SL}(2,\cdot)$. These background claims are not independently verified, and the last group cannot be recovered reliably from the supplied text.
+\item Supplied literature assessment checked at \texttt{2026-08-22}: the excerpt asserts the implication from $\delta$-median to coarse median, while the converse metric-existence question remains unclear; related metric-reconstruction results are said not to settle the stronger assertion. This is supplied dated curation, not an independently verified literature assessment. The record explicitly calls for independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

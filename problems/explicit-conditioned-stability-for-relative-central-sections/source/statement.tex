@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001278}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $d\geq2$, let $S^{d-1}$ be the Euclidean unit sphere, and let $\theta^\perp=\{x:\langle x,\theta\rangle=0\}$. For a full-dimensional origin-symmetric convex polytope $P=-P\subset\R^d$, write
+\[
+ r_P(\theta)=\frac{\operatorname{vol}_{d-1}(P\cap\theta^\perp)}{\operatorname{vol}_d(P)},
+ \qquad
+ d_H(P,Q)=\max\left\{\sup_{p\in P}\inf_{q\in Q}\|p-q\|_2,
+ \sup_{q\in Q}\inf_{p\in P}\|q-p\|_2\right\}.
+\]
+Fix the intended normalization of ``isotropic'', which the supplied excerpt does not define. The stability question, conditional on that convention, is
+\[
+ \forall t\in\Z_{>0}\ \exists t'=t'(t)\in\Z_{>0}\ \forall d\geq2\ \forall P,Q:
+ \quad
+ \left\{
+ \begin{array}{l}
+ P,Q\text{ are isotropic origin-symmetric full-dimensional polytopes},\\
+ P,Q\text{ each have at most }d^t\text{ facets},\\
+ \sup_{\theta\in S^{d-1}}|r_P(\theta)-r_Q(\theta)|\leq d^{-t'}
+ \end{array}\right.
+ \ \Longrightarrow\ d_H(P,Q)\leq\tfrac1{10}.
+\]
+Here the facet bound and tolerance are read as powers, as confirmed by the supplied research summary. The displayed source uses $\operatorname{Vol}_{n-1}$ despite dimension $d$; $d-1$ in the definition above is the dimensionally consistent interpretation, not a verified source correction.
+
+The algorithmic question asks, in the affirmative case, for an algorithm which has oracle access to $r_P(\theta)$ to additive error $d^{-t'}$ for an unknown polytope in that same class and outputs a polytope $\widehat P$ with $d_H(P,\widehat P)\leq1/10$. The source literally requests time polynomial in $n$, although only $d$ is defined in this problem. Time polynomial in $d$ for each fixed $t$ is the natural interpretation identified by the supplied verification, but is not silently substituted as an exact quotation. The oracle, query precision, output encoding, and deterministic versus randomized guarantee are not specified.
+
+The normalization issue is essential. For a uniform point $X\in P$, the condition $\operatorname{Cov}(X)=\lambda I_d$ for some unrestricted $\lambda>0$ is invariant under scaling. It differs from a fixed-scale convention such as $\operatorname{Cov}(X)=I_d$, or unit volume together with scalar covariance. The supplied machine aid reports that the scale-free interpretation admits counterexamples using scaled cubes. The draft therefore does not assert the displayed question under an unspecified scale-free convention.
+
+The same aid reports exact uniqueness, including scale, from relative central-section data for origin-symmetric star bodies through a normalized Funk transform; a conditional stability result when the difference of normalized radial powers has only even spherical-harmonic degrees at most $2m$; and qualitative uniform stability in fixed dimension under fixed positive inner and outer radius bounds. For its finite-harmonic result it gives the constant
+\[
+ \frac{(d-1)\sqrt{N_{d,m}}}{|S^{d-2}|\,\Lambda_{d,m}},
+\]
+followed by a Hausdorff estimate under bounds $a\leq q_K,q_L\leq b$. The summary does not supply definitions of $N_{d,m}$, $\Lambda_{d,m}$, or the precise normalization of $q_K$, nor the final Hausdorff formula; these symbols are retained only as an attributed description, not a complete standalone bound. These conditional and fixed-dimension results are explicitly reported not to settle the dimension-uniform polynomial statement or the requested algorithm.
+\subsection{Short English statement}
+The problem asks whether two suitably normalized symmetric polytopes with polynomially many facets must be close when all their central-section areas, divided by volume, are polynomially close. It also asks for efficient reconstruction from approximate section queries. The meaning of isotropic, the dimension symbols, and the oracle model need clarification; the supplied partial results have extra conditioning or fixed-dimension assumptions.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001278, exact source code catalogue entry; canonical \texttt{aim-convex-geometry-notes.json}, \texttt{notes[9]}, source item 2, tag ``problem'', workshop \emph{Sections of convex bodies}; \url{https://aimath.org/pastworkshops/sectionsconvexproblems.pdf}.
+\item [AGR] Joseph Anderson, Navin Goyal, Luis Rademacher, \emph{Efficient learning of simplices} (2012).
+\item [FJK] Alan Frieze, Mark Jerrum, Ravi Kannan, ``Learning linear transformations'', 37th Annual Symposium on Foundations of Computer Science (1996), pp. 359--368.
+\item [G] Richard J. Gardner, \emph{Geometric tomography}, vol. 58, Cambridge University Press, Cambridge (1995).
+\item [GGZ] Richard J. Gardner, Paolo Gronchi, Chuanming Zong, ``Sums, projections, and sections of lattice sets, and the discrete covariogram'', \emph{Discrete \& Computational Geometry} 34 (2005), no. 3, pp. 391--409.
+\item [GLPR] Nick Gravin, Jean Lasserre, Dmitrii V. Pasechnik, Sinai Robins, ``The inverse moment problem for convex polytopes'', \emph{Discrete \& Computational Geometry} 48 (2012), no. 3, pp. 596--621.
+\item [R] Dmitry Ryabogin, ``On the continual rubik's cube'', \emph{Advances in Mathematics} 231 (2012), no. 6, pp. 3429--3444. These references are appended in the supplied extracted record; no claim that each directly proves a statement here is made.
+\item Supplied verification marks the statement ``reconstructed\_unverified'' and identifies polynomial time in $d$ as an interpretation of the literal $n$, noting that the preceding problem uses $d$ for dimension and $n$ for number of vertices. Research classification PARTIAL-PROGRESS; registry status ``partially\_solved''; attempt 1, result ``partial\_result'', problem status at run ``open'', recorded rigor ``proved'', novelty confidence ``low'', candidate description ``partial theorem and conditional obstruction''. This is a machine-generated, non-peer-reviewed aid requiring independent verification before citation. Original remarks and literature field are empty; no proposer is identified. No outside source was visited.
+\end{itemize}
+\end{document}

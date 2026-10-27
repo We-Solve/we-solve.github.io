@@ -1,0 +1,73 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006350}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(p\) be a prime. The source associates a finite group \(G_{E,P}(\F_p)\) of nilpotency class two to a pair \((E,P)\) involving an elliptic curve and a point. However, the supplied record does not define this construction, the permitted pairs, or the family denoted by \(\mathcal G_p\) in the original statement. These are unresolved prerequisites to a complete formulation; no domain for \(P\) or restriction on \(p\) is imposed here without source evidence.
+
+For a group \(H\), define its lower central series by \(\gamma_1(H)=H\) and \(\gamma_{i+1}(H)=[\gamma_i(H),H]\). Thus \(H\) has nilpotency class exactly three when \(\gamma_4(H)=1\) and \(\gamma_3(H)\ne1\). A central extension in the question means an exact sequence
+\[
+1\longrightarrow \Z/p\Z\xrightarrow{\iota}H\xrightarrow{\pi}G_{E,P}(\F_p)\longrightarrow1,
+\qquad \iota(\Z/p\Z)\subseteq Z(H).
+\]
+The first requested classification is: among the pairs allowed by the source construction, determine exactly those \((E,P)\) for which such an extension exists with
+\[
+|H|=p^{10},\qquad \gamma_4(H)=1,\qquad \gamma_3(H)\ne1.
+\]
+Exactness then necessarily gives \(|G_{E,P}(\F_p)|=p^9\). The source calls these extensions immediate descendants. Its precise convention for that term, and its relationship to any additional descendant conditions, are not supplied.
+
+For an explicit interpretation of counting descendants as isomorphism classes of groups, define, for a finite group \(K\),
+\[
+d_p(K)=\#\left\{[H]\;\middle|\;
+\begin{gathered}
+|H|=p^{10},\quad \gamma_4(H)=1,\quad \gamma_3(H)\ne1,\\
+\exists C\le Z(H):\ |C|=p,\quad H/C\cong K
+\end{gathered}
+\right\}.
+\]
+Here \([H]\) denotes the abstract group isomorphism class, so different choices of \(C\) in the same group do not contribute additional terms. This definition makes the extension-counting interpretation explicit; agreement with the intended immediate-descendant convention requires review.
+
+Once the missing family \(\mathcal G_p\) is specified, the second question, under this counting interpretation, asks whether
+\[
+D(p)=\sum_{[K]\in\mathcal G_p/\cong}d_p(K)
+\]
+is polynomial on residue classes, abbreviated PORC. For a function on the admissible primes, this means that there exist an integer \(m\ge1\) and polynomials \(f_0,\ldots,f_{m-1}\in\Q[X]\) such that
+\[
+D(p)=f_r(p)\qquad\text{whenever }p\text{ is admissible and }p\equiv r\pmod m.
+\]
+The admissible primes, and whether finitely many exceptional primes may be omitted, remain unspecified. The sum counts each base-group isomorphism class once; it does not identify contributions from different base groups if they share a descendant.
+
+As background, the original statement attributes to du Sautoy and Vaughan-Lee a non-PORC immediate-descendant count for the construction with \(E:y^2=x^3-x\) and \(P=(0,0)\). This is a supplied attribution, with its characteristic restrictions and counting conventions unavailable here. The original statement describes PORC behavior of the aggregate sum as a possibility of interest, not an established assertion.
+\subsection{Short English statement}
+Classify the permitted elliptic-curve pairs \((E,P)\) whose associated group has a central extension of order \(p^{10}\) and nilpotency class exactly three. Then ask whether the sum of descendant counts over the intended base-group isomorphism classes is PORC in \(p\). The construction, permitted pairs, prime restrictions, family \(\mathcal G_p\), and precise counting convention are missing, so this is a conditional statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied record with permanent ID \(30006350\), title \emph{Immediate Descendants of Elliptic-Curve p-Groups}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year 2025 and identifies no individual proposer.
+\item Supplied report citation: \emph{Computational Group Theory} (2025), Oberwolfach Reports, DOI \texttt{10.4171/owr/2025/27}, pp.\ 1389--1450. \url{https://doi.org/10.4171/owr/2025/27}. The supplied background describes these reports as records of workshops and their open-problem discussions.
+\item Supplied literature reference: du Sautoy--Vaughan-Lee, \emph{Non-PORC descendant p-groups}. \url{https://www.sciencedirect.com/science/article/pii/S0021869312001901}. The original excerpt attributes the exceptional elliptic-curve example to these authors using reference label [1]; the supplied literature list identifies this paper.
+\item Supplied literature reference: \emph{Oberwolfach Report 27/2025}. \url{https://ems.press/content/serial-article-files/51860}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open, reports a known exceptional family with non-PORC descendant counts, and states that a classification of pairs admitting the requested extension is not known. This is supplied dated curation derived from the OWR material, not independently verified literature assessment; the source itself requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified}, explaining that only formula delimiters, notation, grammar, and typography were repaired while mathematical content and scope were preserved. This supplied label does not establish mathematical correctness or independent source verification.
+\end{itemize}
+\end{document}

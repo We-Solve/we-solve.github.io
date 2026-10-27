@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001290}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Fix a dimension $d$ and a convex body $K\subseteq\R^d$ (compact, convex, with nonempty interior). Let $x_1,x_2,\ldots$ be independent uniform points in $K$, and set
+\[
+ P_n=\operatorname{conv}(x_1,\ldots,x_n),\quad V_n=\operatorname{vol}_d(P_n),\quad
+ Z_n=\frac{V_n-\E V_n}{\sqrt{\operatorname{Var}(V_n)}}.
+\]
+Van Vu asks whether, for every fixed $K$ in the intended dimensions $d\geq2$, $Z_n\Rightarrow N(0,1)$ as $n\to\infty$. This is a fixed-body binomial model, not a growing-dimension or uniform-over-all-bodies assertion. The source's 2007 remark says smooth-body and polytope cases were known, but the general planar case was then open; it does not specify the exact smoothness assumptions.
+
+The attached aid reports that Pardon's 2011 Poisson theorem and 2012 de-Poissonization theorem establish this binomial CLT for every planar convex body. It says no unrestricted fixed-dimensional theorem for arbitrary $K$ in $d\geq3$ was located, rather than claiming a complete verified current literature classification.
+
+The literal source does not exclude $d=1$, where the aid gives a counterexample. If $K$ is an interval of length $\ell>0$ and $n\geq2$, its missing-length fraction
+\[
+ Y_n=\frac{\ell-V_n}{\ell}
+\]
+has distribution $\operatorname{Beta}(2,n-1)$. Thus the supplied standardized limit is
+\[
+ Z_n\Rightarrow\frac{2-G}{\sqrt2},\qquad
+ G\sim\operatorname{Gamma}(2,1),
+\]
+where the gamma density is $t e^{-t}$ on $t\geq0$. This is not Gaussian. If $\Phi$ is the standard normal distribution function and $d_K$ is Kolmogorov distance between distributions, the aid records
+\[
+ \liminf_{n\to\infty}d_K(\mathcal L(Z_n),N(0,1))\geq1-\Phi(\sqrt2).
+\]
+Consequently excluding dimension one is material, not a cosmetic convention.
+
+For all dimensions, missing volume $M_n=\operatorname{vol}_d(K)-V_n$ has standardized variable exactly $-Z_n$, so the corresponding Gaussian CLT is equivalent. The aid also records Efron's first-moment identity
+\[
+ \frac{\E M_n}{\operatorname{vol}_d(K)}
+ =\frac{\E f_0(P_{n+1})}{n+1},
+\]
+where $f_0$ counts vertices. This identity alone supplies neither a variance comparison nor a CLT. The literature and exact-law statements above are supplied claims requiring independent verification.
+\subsection{Short English statement}
+Ask whether variance-standardized random-polytope volume is asymptotically Gaussian for every fixed convex body. The supplied aid reports the planar problem solved, retains uncertainty in higher dimensions, and gives a reflected-gamma obstruction in the literal one-dimensional case.
+\subsection{Sources}
+\begin{itemize}
+\item AIM workshop \emph{Algorithmic convex geometry}, November 5--9, 2007, problem 3 attributed to Van Vu and its smooth/polytope/planar remark: \url{https://aimath.org/WWN/convexgeometry/convexgeometry.pdf}.
+\item The attached aid cites Pardon (2011 Poisson and 2012 de-Poissonization results) and Efron's identity, without complete bibliographic entries.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID 20001290, exact source code \texttt{catalogue entry}; canonical location \texttt{aim-convex-geometry-notes.json notes[21]}. Attached attempt 1, partial result, problem status at run partially solved, rigor proved, low novelty confidence; machine-generated, not peer reviewed, requiring independent verification before citation.
+\end{itemize}
+\end{document}

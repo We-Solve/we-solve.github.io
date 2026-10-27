@@ -1,0 +1,84 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002547}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record concerns square-lattice loops with steps
+\[
+N=(0,1),\qquad E=(1,0),\qquad S=(0,-1),\qquad W=(-1,0).
+\]
+It does not explicitly specify the base point, rooting convention, or precise meaning of a northwest or east--south corner. The following is therefore a conditional formulation requiring confirmation of those conventions.
+
+Provisionally, a loop of length \(2n\) is a step sequence \(s_1,\ldots,s_{2n}\) with vertices
+\[
+v_0=(0,0),\qquad v_j=\sum_{i=1}^{j}s_i,\qquad v_{2n}=(0,0).
+\]
+Different step sequences are counted separately. Let \(\mathcal L_n^{\mathrm{all}}\) be the set of these loops, and let
+\[
+\mathcal L_n^{\mathrm{quad}}
+=\{\omega\in\mathcal L_n^{\mathrm{all}}:v_j\in\Z_{\geq0}^{\,2}\text{ for every }0\leq j\leq2n\}.
+\]
+Provisionally interpret the weighted corners as the ordered consecutive step pairs \((N,W)\) and \((E,S)\), and set
+\[
+c(\omega)=\#\{j:1\leq j<2n,\ (s_j,s_{j+1})\in\{(N,W),(E,S)\}\}.
+\]
+This convention does not count a corner across the closing junction between \(s_{2n}\) and \(s_1\). Neither this junction convention nor the ordered-pair interpretation is resolved by the supplied record.
+
+For a real parameter \(a\), define the weighted sums
+\[
+Q_n(a)=\sum_{\omega\in\mathcal L_n^{\mathrm{quad}}}a^{c(\omega)},\qquad
+U_n(a)=\sum_{\omega\in\mathcal L_n^{\mathrm{all}}}a^{c(\omega)},
+\]
+where a loop with no weighted corners has weight \(1\), including when \(a=0\), and the empty loop contributes \(Q_0(a)=U_0(a)=1\). Write
+\[
+Q(a,u)=\sum_{n\geq0}Q_n(a)u^n,\qquad
+U(a,u)=\sum_{n\geq0}U_n(a)u^n,
+\]
+and let \(R_Q(a)\) and \(R_U(a)\) denote their radii of convergence in the complex variable \(u\).
+
+\textbf{Conjectural target, subject to the unresolved conventions above.} For every real \(a\geq-1\),
+\[
+R_Q(a)=R_U(a).
+\]
+Equivalently, by the Cauchy--Hadamard formula, the radius formulation is
+\[
+\limsup_{n\to\infty}|Q_n(a)|^{1/n}
+=
+\limsup_{n\to\infty}|U_n(a)|^{1/n}.
+\]
+The normalization here is per \(n\), as in the supplied generating function, although the loops have length \(2n\). For negative \(a\), these are signed weighted sums; the record does not supply positivity or existence of ordinary growth limits. Consequently, its phrase ``exponential growth rate'' cannot automatically be interpreted as an ordinary limit of unsigned coefficient roots.
+
+The supplied record labels this problem open and reports that the corresponding radius formula is proved for unconfined and half-plane loops. These are supplied literature assessments, not mathematical claims independently verified in this draft. No explicit radius formula is supplied.
+\subsection{Short English statement}
+The conjecture asks whether requiring a weighted square-lattice loop to stay in the nonnegative quadrant leaves its generating-function radius unchanged for every real \(a\geq-1\). Precise rooting and corner-counting conventions require confirmation. Negative weights also require distinguishing radius-based growth from an ordinary coefficient-growth limit.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002547\), title ``Growth Rate of Quadrant Loops,'' exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives proposed year \(2014\) and does not identify an individual proposer.
+\item \emph{Enumerative Combinatorics} (2014), Oberwolfach Reports, pp.~635--720, DOI \texttt{10.4171/owr/2014/12}: \url{https://doi.org/10.4171/owr/2014/12}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions; no problem-specific page or verbatim report excerpt is supplied.
+\item Supplied literature source labelled ``Albert--Bousquet-M\'elou'': \url{https://arxiv.org/abs/1312.4487}.
+\item Supplied literature source labelled ``FPSAC paper'': \url{https://dmtcs.episciences.org/2425/pdf}.
+\item Literature assessment checked at \texttt{2026-08-21}: the record labels the problem open and states that the radius formula is proved for unconfined and half-plane loops, while the general quarter-plane case remains open. This is supplied dated curation derived from the OWR material, not independently verified here; the record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The supplied statement status is \texttt{corrected\_verified}, with an accompanying assertion that notation, typography, and wording were normalized without changing the mathematical content. This registry label does not resolve the formulation issues identified in this draft or constitute independent mathematical review.
+\end{itemize}
+\end{document}

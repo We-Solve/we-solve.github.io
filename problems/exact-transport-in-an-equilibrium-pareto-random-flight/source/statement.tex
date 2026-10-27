@@ -1,0 +1,89 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001411}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The original question asks for transport coefficients or related physical quantities for various billiard systems; it supplies no particular table or observable. The aid instead specifies an equilibrium renewal-flight surrogate. Its predictions for a billiard require a separately justified approximation.
+
+Let \(\alpha>1\). Take independent identically distributed flight durations \(\tau_j\) with survival function
+\[
+ \Pr(\tau_j>t)=(1+t)^{-\alpha}\quad(t\geq0),\qquad
+ \E\tau_j=\frac1{\alpha-1}.
+\]
+Use the stationary equilibrium renewal process on the time line, rather than starting at a renewal at time \(0\). During each flight use a fresh independent velocity with a symmetric law, speed \(v\), mean zero and covariance \(Q=\E[V V^{\mathsf T}]\). Velocities and durations are independent. Write \(V(t)\) for the stationary velocity and \(X(T)=\int_0^T V(t)\,\dd t\). This covariance convention absorbs the squared speed into \(Q\).
+
+The aid reports the exact velocity covariance and displacement second-moment matrix
+\[
+ K(t)=\E[V(t)V(0)^{\mathsf T}]=Q(1+t)^{1-\alpha},\qquad
+ \Sigma(T)=\E[X(T)X(T)^{\mathsf T}]
+ =2Q\int_0^T(T-t)(1+t)^{1-\alpha}\,\dd t.
+\]
+Define the finite-time Einstein and truncated Green--Kubo matrices by
+\[
+ E_T=\frac{\Sigma(T)}{2T},\qquad
+ G_T=\int_0^T K(t)\,\dd t.
+\]
+For \(\alpha>2\), the reported common finite limit is
+\[
+ \lim_{T\to\infty}E_T=\lim_{T\to\infty}G_T=\frac{Q}{\alpha-2}.
+\]
+For nonzero \(Q\), this finite diffusive transport limit occurs exactly when \(\alpha>2\); zero-variance directions are degenerate exceptions. At the threshold and below it, the aid gives
+\[
+ \Sigma(T)\sim2QT\log T\quad(\alpha=2),\qquad
+ \Sigma(T)\sim\frac{2Q}{(2-\alpha)(3-\alpha)}T^{3-\alpha}
+ \quad(1<\alpha<2),
+\]
+where the scalar asymptotics are interpreted on directions with positive \(Q\)-variance. In particular, for such a vector \(u\),
+\[
+ \frac{u^{\mathsf T}E_Tu}{u^{\mathsf T}G_Tu}\longrightarrow\frac1{3-\alpha}
+ \quad(1<\alpha<2).
+\]
+At \(\alpha=2\), the exact expressions are
+\[
+ G_T=Q\log(1+T),\qquad
+ E_T=Q\left[\left(1+\frac1T\right)\log(1+T)-1\right],
+ \qquad G_T-E_T\longrightarrow Q.
+\]
+Thus the sign in the matrix difference is fixed by these definitions.
+
+The aid also reports stable weak limits on the \(T^{1/\alpha}\) scale for \(1<\alpha<2\), a critical Gaussian limit
+\[
+ \frac{X(T)}{\sqrt{T\log T}}\ \Longrightarrow\ N(0,Q)\quad(\alpha=2),
+\]
+and the classical Gaussian limit \(X(T)/\sqrt T\Longrightarrow N(0,2Q/(\alpha-2))\) for \(\alpha>2\). The stable law depends on the full directional distribution, which is not specified merely by \(Q\). At the critical exponent,
+\[
+ \frac{\Sigma(T)}{T\log T}\longrightarrow2Q,
+\]
+so the weak Gaussian covariance \(Q\) is half the limiting normalized second-moment matrix. Weak convergence alone does not justify convergence of transport moments.
+
+The aid's transfer diagnostic distinguishes two requirements. A coupled billiard displacement \(Y(T)\) shares a weak limit of \(X(T)/b_T\) if \((Y(T)-X(T))/b_T\to0\) in probability. Transferring second-moment transport asymptotics requires corresponding \(L^2\) control, together with control of the reference moments; for example \(\|Y(T)-X(T)\|_2=o(c_T)\) and \(\|X(T)\|_2=O(c_T)\) suffice for equality of normalized second moments on scale \(c_T^2\). No such approximation for a specified billiard is supplied.
+\subsection{Short English statement}
+An equilibrium Pareto renewal-flight model gives exact finite-time transport matrices and three regimes: finite diffusion for \(\alpha>2\), logarithmic enhancement at \(2\), and stronger anomalous second-moment growth below \(2\). Its critical weak Gaussian covariance differs from the normalized second-moment limit, so billiard approximations must separately justify weak limits and transport coefficients.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001411\), code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[68]}.
+\item AIM, ``Stochastic methods for non-equilibrium dynamical systems,'' Problem 26, \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}. The supplied verification says that ``billard'' is the PDF spelling; Problem 26 is the first item after ``Open Problems and Questions: Thursday,'' between Problem 25 on shrinking strip targets and Problem 27 on martingale decompositions. This is a supplied verification report, not a claim of PDF inspection here.
+\item Supplied research attempt 1: ``partial\_result,'' ``partially\_solved,'' rigor label ``proved,'' novelty confidence ``low.'' No additional authoritative literature citation is supplied. The machine-generated aid is not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

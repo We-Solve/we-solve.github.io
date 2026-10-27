@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006394}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \([n]=\{1,\ldots,n\}\), and let \(G(n,p)\) denote the random simple undirected graph on \([n]\) in which each unordered pair of distinct vertices is an edge independently with probability \(p\), where \(0\leq p\leq1\). Let \(T\) be a tree with \(k=|V(T)|\leq n\) vertices. For an injection \(\iota:V(T)\to[n]\), write \(\iota(T)\) for its embedded copy and define the planted graph by
+\[
+H=G(n,p)\cup\iota(T),\qquad
+E(H)=E(G(n,p))\cup\{\{\iota(u),\iota(v)\}:\{u,v\}\in E(T)\}.
+\]
+The supplied record does not specify the law of \(\iota\), its dependence on the background graph, or whether \(T\) and its embedding are known to the observer. These choices must be supplied before this construction determines a statistical testing problem.
+
+Conditional on a specified planting law and specified information available to the observer, let \(P_{0,n}\) and \(P_{1,n}\) denote the laws of the observation under the unplanted and planted models, respectively. A test \(\varphi_n\), taking values in \(\{0,1\}\), declares planting when its value is \(1\). Its sum of error probabilities is
+\[
+P_{0,n}(\varphi_n=1)+P_{1,n}(\varphi_n=0).
+\]
+One possible meaning of asymptotic detectability is the existence of tests for which this sum tends to zero as \(n\to\infty\). For unrestricted tests this is equivalent to
+\[
+\|P_{1,n}-P_{0,n}\|_{\mathrm{TV}}\longrightarrow1,
+\qquad
+\|P-Q\|_{\mathrm{TV}}:=\sup_A|P(A)-Q(A)|.
+\]
+A weaker possible meaning is a testing advantage bounded away from zero, corresponding to \(\liminf_{n\to\infty}\|P_{1,n}-P_{0,n}\|_{\mathrm{TV}}>0\). The source does not select either criterion or specify a computational restriction.
+
+\textbf{Question, with unresolved qualifications.} How small can the vertex count \(k=k(n)\) of a planted tree be while the planted model \(G(n,p)\cup T\) remains statistically distinguishable from \(G(n,p)\)? A precise threshold question requires specification of \(p=p(n)\), the planting law, the information given to the test, the meaning of distinguishability, and the quantifier over tree shapes. In particular, the record does not determine whether the target concerns individual known trees, most random trees, existence of a detectable tree, or a guarantee for every tree.
+
+The original excerpt mentions \(p=c/n\) and starts a result entitled ``Possibility of detecting most known trees'': it introduces a constant \(C\) and a uniformly random labelled tree on \(k\) vertices, then ends before giving its hypotheses and conclusion. Here a uniformly random labelled tree on \(k\) vertices means a tree chosen uniformly from all trees on a fixed labelled vertex set of size \(k\). The excerpt does not define ``most'', specify the role of \(C\), or give the range or asymptotic behavior of \(c\); its missing theorem cannot be reconstructed from the supplied record.
+\subsection{Short English statement}
+Determine the smallest planted tree that can be distinguished statistically from an ordinary random graph. The answer depends on the graph density, the tree and embedding distributions, what the observer knows, and the required detection advantage. These choices are incompletely specified in the supplied record, so the testing definitions above describe conditional formulations requiring human review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: \texttt{data/unsolvedmath/problems.json}, permanent ID \(30006394\), source problem code \texttt{catalogue entry}, title ``Minimum Detectable Planted Trees in Sparse Random Graphs''. The supplied record attributes the problem to the Oberwolfach Reports collection of workshop discussions and records proposed year \(2025\); no individual proposer is supplied.
+\item Supplied report citation: \emph{Combinatorics, Probability and Computing (2026)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2025/42}, pp.\ 2243--2322. Supplied source link: \url{https://doi.org/10.4171/owr/2025/42}. The differing year indicators are retained as supplied and have not been reconciled.
+\item Supplied literature source: ``Oberwolfach Report 42 2025'', \url{https://ems.press/content/serial-article-files/52246}.
+\item Supplied literature source: \emph{Planting Trees in Graphs and Finding Them Back}, \url{https://arxiv.org/abs/1811.01800}. No authors or theorem numbers are supplied in the record.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem ``partially solved'' and states that, for most uniformly random labelled trees, detection is proved above logarithmic size at low mean degree and impossible below square-root size at high mean degree, while the full smallest-tree threshold across the parameter range remains undetermined. This is supplied dated curation, not an independently verified literature assessment; the quantitative hypotheses, detection criterion, and meaning of ``most'' require verification in the cited sources.
+\item The registry labels the statement \texttt{corrected\_verified}, explaining that only clear formula delimiters, notation, grammar, and typography were repaired while preserving mathematical content and scope. This supplied editorial label does not establish mathematical completeness or independent source verification. The record itself requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800447}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For an input dimension \(n\), let \(V_n=\mathbb F_2^n\). Given \(M\in\mathbb F_2^{m\times k}\) and \(\sigma\in\{0,1\}^k\), a forbidden occurrence in a function \(f\colon V_n\to\{0,1\}\) is a matrix
+\[
+X=\begin{pmatrix}x^{(1)}\\ \vdots\\ x^{(k)}\end{pmatrix}\in\mathbb F_2^{k\times n}
+\]
+whose rows satisfy
+\[
+MX=0\quad\text{and}\quad f(x^{(j)})=\sigma_j\qquad(1\le j\le k).
+\]
+All matrix operations are over \(\mathbb F_2\). The function \(f\) is \((M,\sigma)\)-free if it has no such occurrence. The source imposes neither distinctness nor nonzero conditions on the rows \(x^{(j)}\); repeated rows and the zero vector are therefore allowed.
+
+Fix a finite or countably infinite collection
+\[
+\mathcal C=\{(M^i,\sigma^i):i\in I\},\qquad M^i\in\mathbb F_2^{m_i\times k_i},\quad \sigma^i\in\{0,1\}^{k_i},
+\]
+independent of \(n\), and define
+\[
+\mathcal P_n=\{f\colon V_n\to\{0,1\}:f\text{ is }(M^i,\sigma^i)\text{-free for every }i\in I\}.
+\]
+For functions \(f,g\colon V_n\to\{0,1\}\), write
+\[
+d_n(f,g)=2^{-n}\bigl|\{x\in V_n:f(x)\ne g(x)\}\bigr|.
+\]
+For \(0<\varepsilon<1\), say that \(f\) is \(\varepsilon\)-far from \(\mathcal P_n\) if \(d_n(f,g)\ge\varepsilon\) for every \(g\in\mathcal P_n\). This universal definition also covers an empty \(\mathcal P_n\).
+
+\textbf{Bhattacharyya--Grigorescu--Shapira conjecture, as supplied.} Every fixed collection \(\mathcal C\) above defines a property family admitting a one-sided error, constant-query tester. In the usual oracle query formulation, this means that, for every \(\varepsilon\in(0,1)\), there is a finite bound \(q_{\mathcal C}(\varepsilon)\), independent of \(n\), and randomized testers \(T_{\mathcal C,\varepsilon,n}\) making at most \(q_{\mathcal C}(\varepsilon)\) oracle queries to \(f\), such that for every input dimension \(n\) and every \(f\colon V_n\to\{0,1\}\),
+\[
+\begin{aligned}
+f\in\mathcal P_n&\implies\Pr[T_{\mathcal C,\varepsilon,n}^{f}\text{ accepts}]=1,\\
+f\text{ is }\varepsilon\text{-far from }\mathcal P_n&\implies\Pr[T_{\mathcal C,\varepsilon,n}^{f}\text{ rejects}]\ge\tfrac23.
+\end{aligned}
+\]
+The distance convention and the probability \(2/3\) spell out standard testing conventions that are not explicit in the supplied statement. No behavior is required of a function outside \(\mathcal P_n\) that is not \(\varepsilon\)-far. The source does not specify computational uniformity, a running-time bound, or an effective presentation of an infinite \(\mathcal C\). Consequently, the tester-family formulation above does not resolve whether a single uniform algorithm is intended; that qualification requires review.
+
+\textbf{Supplied contextual qualifications.} The source attributes the conjecture to [BGS10] and describes it as motivated by Kaufman and Sudan [KS08], who ask for a characterization of testability for linear-invariant Boolean-function properties over \(\mathbb F_2^n\). It reports that the properties above are linear-invariant and subspace-hereditary, meaning closed under restriction to linear subspaces, and that the converse description by forbidden constraints holds only ``essentially'' [BGS10]; the meaning of that qualification is not supplied.
+
+The supplied background reports that Green [Gre05a] proved testability of \((M,1^k)\)-freeness for rank-one \(M\), where \(1^k=(1,\ldots,1)\), and that the extension to arbitrary \(M\) was proved by Kr\'{a}l', Serra, and Vena [KSV08] and independently by Shapira [Sha09]. It then attributes to Austin, again with the label [Sha09], the conjecture that \((M,\sigma)\)-freeness is testable for arbitrary \(\sigma\), describing even this single-constraint case as open. The Austin attribution and reused reference label are unresolved as supplied. The background further reports that the full conjecture holds when every \(M^i\) has rank one [BGS10], and that Bhattacharyya, Fischer, and Lovett [BFL12] proved a version over \(\mathbb F_p\) for affine constraints of Cauchy--Schwarz complexity strictly less than \(p\). These are supplied historical literature statements, not independently verified results or a current assessment of the conjecture's status.
+\subsection{Short English statement}
+Fix a finite or countably infinite collection of forbidden labeled homogeneous linear configurations over \(\mathbb F_2\). The supplied conjecture says that whether a Boolean function avoids every configuration can be tested with one-sided error using a number of queries depending on the collection and the distance parameter, but independent of the dimension. Uniform algorithmic effectiveness for an arbitrary infinite collection remains unspecified. The supplied open label and historical literature claims require human review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete source record, permanent ID \(800447\), source problem code \texttt{catalogue entry}, title ``Analysis of Boolean Functions --- Bhattacharyya--Grigorescu--Shapira Conjecture.'' The record belongs to AMR Open Problem Lists and has upstream revision \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}. Its supplied status is \texttt{open}; this is a registry label, not an independently verified mathematical status.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 17, ``Bhattacharyya--Grigorescu--Shapira Conjecture'': \url{https://arxiv.org/abs/1204.6447}. The supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. These are supplied provenance details; no source visit or independent verification is claimed. The registry lists O'Donnell with proposed year 2012, whereas the background attributes the conjecture itself to [BGS10].
+\item [BGS10]: supplied attribution to Bhattacharyya, Grigorescu, and Shapira for the conjecture, the subspace-hereditary discussion, and the rank-one case. No full bibliographic entry or separate link is supplied.
+\item [KS08]: supplied attribution to Kaufman and Sudan for the motivating characterization problem concerning testability of linear-invariant properties. No full bibliographic entry or separate link is supplied.
+\item [Gre05a]: supplied attribution to Green for the rank-one, all-ones-pattern result. [KSV08]: supplied attribution to Kr\'{a}l', Serra, and Vena for the arbitrary-matrix extension. [Sha09]: supplied attribution to Shapira for that extension; the background also uses [Sha09] when attributing a subsequent conjecture to Austin. Full bibliographic entries and separate links are absent, and the Austin reference requires clarification.
+\item [BFL12]: supplied attribution to Bhattacharyya, Fischer, and Lovett for the affine-constraint result over \(\mathbb F_p\) under the strict complexity bound stated above. No full bibliographic entry or separate link is supplied.
+\item The source list is dated 2012, and the imported record was created and updated on 2026-10-16. Its historical open claims and literature remarks are supplied curation, not a new literature assessment. No separate \texttt{literature\_checked\_at} value is supplied.
+\end{itemize}
+\end{document}

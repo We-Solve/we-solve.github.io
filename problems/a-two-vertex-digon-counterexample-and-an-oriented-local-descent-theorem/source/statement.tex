@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001057}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a finite digraph \(G\), let \(d_G(u,v)\) be directed distance, with value \(+\infty\) when \(v\) is unreachable, and put
+\[
+ N^+(v)=\{w:v\to w\},\qquad N_2^+(v)=\{w:d_G(v,w)=2\},\qquad
+ G^*=\{v:|N_2^+(v)|\geq|N^+(v)|\}.
+\]
+In particular, second neighbors are at \emph{exact directed distance} two, not merely endpoints of two-step walks. Write \(d_G(v,A)=\min_{a\in A}d_G(v,a)\), with minimum \(+\infty\) for \(A=\varnothing\). The literal source conjecture is
+\[
+ \text{for every finite digraph }G,\ k\in\Z_{\geq0},\ v\in V(G),\quad
+ |N^+(v)|=k\ \Longrightarrow\ d_G(v,G^*)\leq k.
+\]
+The supplied verification says that finiteness and the exact-distance convention are declared in the source list.
+
+The accompanying aid reports a counterexample to the quantifier over all digraphs: for the loopless digon \(a\to b\to a\), both first neighborhoods have size one and both exact second neighborhoods are empty, so \(G^*=\varnothing\). It separately identifies the following repair, reported open: impose that \(G\) is a finite \emph{oriented} graph, meaning a loopless simple digraph with no antiparallel pair, and ask for the same bound.
+
+For that repaired domain, the aid reports two partial results. First, suppose every induced digraph \(G[N^+(x)]\), whenever \(N^+(x)\ne\varnothing\), has a sink, namely a vertex with no outgoing arc within that induced digraph. For every \(v_0\) of outdegree \(k\), it reports a directed path
+\[
+ v_0\to v_1\to\cdots\to v_\ell\in G^*,\qquad \ell\leq k,
+ \qquad |N^+(v_{i+1})|\leq|N^+(v_i)|-1\quad(i<\ell).
+\]
+If \(d_G(v_0,G^*)=k\), the reported equality certificate for such a descent path is
+\[
+ \ell=k,\qquad |N^+(v_i)|=k-i,\qquad
+ N^+(v_{i+1})=N_2^+(v_i),\quad |N_2^+(v_i)|=k-i-1\quad(0\leq i<k).
+\]
+Second, without the neighborhood-sink hypothesis, the aid reports \(d_G(v,G^*)\leq |N^+(v)|\) for every starting vertex of outdegree at most three in a finite oriented graph. Neither statement is presented as a proof of the repair in general.
+
+The source motivates the bound by a degree-one vertex \(x\) with successor \(y\): if \(y\) has no successors it is good, and otherwise \(x\) is asserted good. That motivation is compatible with the oriented interpretation, whereas a digon obstructs the literal unrestricted wording. Its sharpness illustration is a pyramid: rows \(R_i\) of size \(i\), \(1\leq i\leq m\), with precisely all arcs from \(R_i\) to \(R_{i-1}\) for \(i\geq2\). The apex is the unique good vertex; a vertex in \(R_i\) has outdegree \(i-1\) and distance \(i-1\) to it. The source refers to the motivator only as ``he'', without supplying an identity in this record.
+\subsection{Short English statement}
+The literal finite-digraph conjecture fails for a digon when second neighbors mean exact distance two. The supplied aid distinguishes this from an open oriented-graph repair, and reports a local sink descent criterion, its equality case, and the unconditional degree-at-most-three case.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20001057\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[181]}.
+\item AIM workshop ``The Caccetta--Häggkvist conjecture'', Conjecture 6.14: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. The supplied verification attributes the finiteness and exact-distance neighborhood conventions to the opening of that list. The extracted statement includes the degree-one motivation and pyramid illustration. No proposer, year, or separate literature citation is provided; the literature field is empty.
+\item Supplied research attempt 1: result \texttt{counterexample}, problem status at run \texttt{refuted}, rigor label \texttt{proved}, novelty confidence low. It reports the digon refutation and the oriented local descent theorem and equality certificate. The registry classifies the entry \texttt{SOLVED-IN-LITERATURE} and labels its current status solved, while the same aid reports the oriented repair open. No independent literature reference for these assessments is supplied.
+\end{itemize}
+\end{document}

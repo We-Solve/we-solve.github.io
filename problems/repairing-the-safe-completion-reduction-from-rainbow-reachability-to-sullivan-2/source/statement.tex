@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001040}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This item is the truncated middle of a proof that Seymour--Sullivan rainbow-reachability Conjecture 6.1 implies Sullivan's neighborhood Conjecture 6.4, not an independent conjecture. The literal fragment keeps an augmented host equal to $H$ while counting arcs from a full complement, an inconsistency explicitly repaired by the attached aid.
+
+Let $G$ be a finite loopless simple digraph on $n$ vertices, each arc carrying a nonempty subset of labels $[r]$. A rainbow path or cycle admits a distinct chosen label on every arc. Let $R_G^+(u)$ and $R_G^-(u)$ be endpoints reachable from $u$, and starts reaching $u$, by positive-length rainbow paths; exclude $u$ itself. Put $d_i^+(u)=\#\{v:i\text{ labels }u\to v\}$. The conditional reachability principle used in the aid is: if there is no rainbow directed cycle, some vertex satisfies $|R_G^+(u)|\ge\sum_i d_i^+(u)$. This is the Conjecture 6.1 hypothesis, not a proved assertion here.
+
+For the safe completion, add a fresh label $r+1$ on every ordered pair
+\[
+(u,v),\qquad u\ne v,\quad v\notin R_G^-(u).
+\]
+Enlarge the host arc set when the arc was absent, and add the fresh label to an existing arc when necessary. The resulting $G'$ still has no rainbow directed cycle: such a cycle could use the fresh label at most once, leaving an old-label rainbow return path forbidden by the construction. The conditional principle applied to $G'$ therefore yields
+\[
+n-1\ge|R_{G'}^+(u)|\ge\sum_{i=1}^r d_i^+(u)+(n-1-|R_G^-(u)|),
+\]
+and hence the conditional dual inequality $|R_G^-(u)|\ge\sum_i d_i^+(u)$ for some $u$.
+
+For the fragment's application, let $H$ be oriented, with no loops or digons, and place both labels $1,2$ on every arc. There is no rainbow cycle. Its old rainbow in-reachability consists exactly of first and second in-neighborhoods, where $N_2^-(u)$ means distance exactly two and is disjoint from $N^-(u)$. The corrected augmented degree identity is
+\[
+\sum_{i=1}^3d_i^+(u)=2|N^+(u)|+(n-1-|N^-(u)|-|N_2^-(u)|).
+\]
+The dual inequality gives a vertex with $|N^-(u)|+|N_2^-(u)|\ge2|N^+(u)|$. Applying this to the reversed digraph yields the Sullivan-2 form
+\[
+|N^+(u)|+|N_2^+(u)|\ge2|N^-(u)|
+\]
+for some vertex, conditional on the reachability conjecture. The repair proves this implication within the stated conventions, not either conjecture unconditionally.
+\subsection{Short English statement}
+The source is a broken proof fragment. The supplied repair adds the missing fresh-label arcs, preserves the absence of rainbow cycles, and makes the conditional implication to Sullivan's neighborhood inequality precise.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20001040$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[164]}. The proof is split across source codes AIM-COMBINATORICS-0164 through AIM-COMBINATORICS-0166.
+\item Blair D. Sullivan, 2006 AIM workshop summary, \emph{A Summary of Problems and Results Related to the Caccetta--H\"aggkvist Conjecture}, pp. 5--6: \url{https://aimath.org/WWN/caccetta/caccetta.pdf}. The supplied verification reports inspection of original arXiv TeX as well; no such inspection is claimed here. It attributes Conjecture 6.1 to Seymour and Sullivan.
+\item Attached research attempt 1: context only, recorded run status not a problem, rigor label proved, novelty confidence low; registry status open, classification OPEN-TRIAGE, suggested difficulty L2. Its repair is machine generated and not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002678}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $(\mathcal M,\tau)$ be a finite von Neumann algebra with faithful normal trace normalized by $\tau(1)=1$, and let $\widetilde{\mathcal M}$ be its closed densely defined measurable affiliated operators. For $T\in\widetilde{\mathcal M}$, use $\nu_{|T|}$ for the spectral distribution of $|T|$ under $\tau$, avoiding confusion with the Brown measure being sought. Define
+\[
+ \mathcal M^\Delta=\left\{T:\int_0^\infty\log^+t\,\nu_{|T|}(\dd t)<\infty\right\},
+ \qquad
+ \log\Delta(T)=\int_0^\infty\log t\,\nu_{|T|}(\dd t),
+\]
+where $\log^+t=\max\{\log t,0\}$ and $\exp(-\infty)=0$. The positive logarithmic part, lost in the damaged extraction, is essential: the negative part may be infinite. On this class $\Delta(T)$ is finite and nonnegative, possibly zero.
+
+The source asks whether Brown measure extends to such unbounded operators. The supplied assessment attributes the affirmative answer to Haagerup and Schultz: for every $T\in\mathcal M^\Delta$,
+\[
+ u_T(\lambda)=\log\Delta(T-\lambda1)
+\]
+is a subharmonic function on $\C$, not identically $-\infty$, and
+\[
+ \mu_T=\frac1{2\pi}\Delta_{\R^2}u_T
+\]
+in the distributional sense is the uniquely determined probability Brown measure. The Laplacian symbol here is the real planar Laplacian, distinct from the Fuglede--Kadison determinant. Values $u_T(\lambda)=-\infty$ at some points are allowed; local integrability, rather than pointwise finiteness everywhere, is the distributional requirement.
+
+The aid adds a bounded-quotient regularization. Suppose $T=AB^{-1}$ with $A,B\in\mathcal M$, $B$ injective with dense range and $\Delta(B)>0$. Such a factorization can be chosen using
+\[
+ B=(1+|T|^2)^{-1/2},\qquad A=TB.
+\]
+The logarithmic condition makes $\log\Delta(B)>-\infty$. Multiplicativity gives
+\[
+ u_T(\lambda)=\log\Delta(A-\lambda B)-\log\Delta(B).
+\]
+For $\varepsilon>0$ set
+\[
+ u_\varepsilon(\lambda)=\tfrac12\tau\log\bigl((A-\lambda B)^*(A-\lambda B)
+                                         +\varepsilon1\bigr)
+                         -\log\Delta(B),
+ \qquad\mu_\varepsilon=\frac1{2\pi}\Delta_{\R^2}u_\varepsilon.
+\]
+The reported $u_\varepsilon$ are smooth subharmonic functions decreasing to $u_T$, with convergence also in $L^1_{\mathrm{loc}}$. Their positive Riesz measures converge vaguely to $\mu_T$:
+\[
+ \int\varphi\,\dd\mu_\varepsilon\longrightarrow
+       \int\varphi\,\dd\mu_T
+ \qquad(\varphi\in C_c(\C)).
+\]
+The limiting measure is independent of the bounded quotient factorization. No assertion of total-variation convergence of these regularizations is made. The solved label concerns the existence/uniqueness theorem in the supplied literature assessment; the additional approximation lemma remains a research-aid claim requiring verification.
+\subsection{Short English statement}
+Brown measure extends to affiliated operators with finite positive logarithmic singular-value moment by taking the normalized Laplacian of the log determinant. The aid also gives smooth bounded-quotient potentials whose Riesz measures converge vaguely to that measure, independently of the factorization.
+\subsection{Sources}
+\begin{itemize}
+\item American Institute of Mathematics workshop list \emph{Free analysis}, Question 18, \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}.
+\item The source and supplied assessment attribute the unbounded determinant/Brown-measure construction to Haagerup and Schultz; no paper title, year or complete bibliographic details are supplied.
+\item Local UnsolvedMath registry, permanent ID 20002678, source code \texttt{catalogue entry}, canonical location \texttt{aim-probability-notes.json}, \texttt{notes[119]}, record dated 14 August 2026. Verification identifies damaged integral notation, and the original literature field is empty.
+\item Supplied research attempt 1: partial result, problem status at run solved, rigor labelled proved, novelty confidence low. Its bounded-quotient regularization lemma is machine-generated research aid, not peer reviewed; independently verify before citation.
+\end{itemize}
+\end{document}

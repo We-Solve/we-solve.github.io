@@ -1,0 +1,49 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3000073}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A rotor-routing instance requires a directed graph $G=(V,E)$, a cyclic ordering of the outgoing edges at each active vertex, a rotor selecting one outgoing edge there, and a chip count $\sigma(v)$ at each vertex. In a common convention, a legal move at a nonsink vertex $v$ with $\sigma(v)>0$ advances its rotor to the next edge $v\to w$ and transfers one chip:
+\[
+\sigma\longmapsto\sigma-\mathbf1_v+\mathbf1_w.
+\]
+The source does not supply this rule, its advance-before/after convention, allowed chip signs, or sink behavior; it is an explicit standard model for interpreting the words, not a verified restriction of the source.
+
+The source asks two algorithmic questions for the intended game:
+\begin{enumerate}
+\item Given the initial graph, chip counts, and rotor positions, does the game eventually terminate, meaning reach a configuration with no legal move?
+\item Conditional on termination, determine the final chip-and-rotor configuration.
+\end{enumerate}
+A precise problem must specify whether graph size is finite, which vertices are sinks, whether sink chips are retained or removed, the schedule of legal moves or its quantifier, and any schedule-independence theorem being used. In a nonnegative-chip model a terminal state has no chips at active vertices; in a signed model the criterion differs. No assumption that all vertices can reach an absorbing sink is inserted. Nor is ordinary chip-firing identified with rotor-routing, since their move rules differ.
+
+The supplied summary regards the finite-digraph case as the main target, reports special-class halting tests, and describes the general issue in terms of computational complexity and computation of final configurations. The original question states no running-time requirement or input encoding, so decidability and efficient computation must be distinguished. The summary also asserts undecidability on general infinite digraphs, but provides no effective graph/initial-state representation, theorem statement, or citation for that scope. Its comments about polynomial tests in ``abelian/periodic regimes'' likewise lack precise definitions. These are preserved as reported context, not independent complexity or undecidability results.
+\subsection{Short English statement}
+The problem asks whether a rotor-routing game halts and, if it does, how to compute its terminal chips and rotors. The source omits move, sink, sign, schedule, and encoding conventions, while the summary mixes finite complexity questions with an uncited infinite-graph undecidability claim.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 3000073, exact source code catalogue entry, ``Rotor-routing halting problem''; status partially solved, classification PARTIAL-PROGRESS.
+\item Egres Open, \emph{List of open problems}, indexed page ``Rotor-routing halting problem,'' \url{https://oldlemon.cs.elte.hu/egres/open/List_of_open_problems}, HTML extraction accessed July 29, 2026. The record says the archived index lists the page as open but is not a current-resolution authority; no separate problem-page URL or original paper is supplied.
+\item The supplied summary mentions Holroyd--Propp, Cooper--Spencer, and others as rotor-routing literature, and reports special-class halting tests and general infinite-graph undecidability without exact titles, hypotheses, encodings, or theorem citations. It does not supply a verified general complexity classification.
+\end{itemize}
+\end{document}

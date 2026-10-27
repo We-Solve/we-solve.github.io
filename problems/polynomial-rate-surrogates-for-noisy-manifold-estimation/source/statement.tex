@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003168}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(M\) denote the smooth manifold to be estimated from noisy observations in an embedding space. The supplied record does not specify the embedding space, manifold dimension, smoothness order, boundary conditions, observation model, noise distribution, or admissible class of manifolds. It assumes that estimating \(M\) has logarithmic minimax convergence rates, without specifying the loss or the precise rate.
+
+\textbf{Source question.} What surrogate object associated with \(M\) preserves its essential geometric or topological features and can be estimated at a polynomial rate of convergence?
+
+The following notation makes the intended statistical question explicit while retaining its unresolved parameters. Let \(\Theta\) be an as-yet unspecified class of statistical parameters, with a smooth embedded manifold \(M_\theta\) and a law \(P_\theta^{(n)}\) for the noisy observations at sample size \(n\). This notation imposes no independence assumption. For a target \(U:\Theta\to\mathcal U\) and a nonnegative loss \(L\), define its minimax risk by
+\[
+ R_n(U;\Theta,L)
+ :=\inf_{\widehat U_n}\sup_{\theta\in\Theta}
+ \E_{P_\theta^{(n)}}\!\left[L\bigl(\widehat U_n,U(\theta)\bigr)\right],
+\]
+where the infimum is over measurable estimators based on the observations. The logarithmic-rate premise concerns \(U(\theta)=M_\theta\), for an unspecified manifold loss.
+
+After fixing the model and the features to be retained, a possible precise interpretation asks for a surrogate space \(\mathcal S\), a map \(T\) assigning \(T(M)\in\mathcal S\) to each admissible manifold, a loss \(L_{\mathcal S}\), estimators \(\widehat T_n\), and constants \(\alpha>0\), \(C>0\), and \(n_0\in\N\), such that
+\[
+ \sup_{\theta\in\Theta}
+ \E_{P_\theta^{(n)}}\!\left[
+ L_{\mathcal S}\bigl(\widehat T_n,T(M_\theta)\bigr)
+ \right]
+ \le C n^{-\alpha}
+ \qquad\text{for every }n\ge n_0.
+\]
+If preservation means exact recovery of a specified feature map \(\Phi\), its requirement could be expressed by the existence of a map \(g\) satisfying
+\[
+ g\bigl(T(M_\theta)\bigr)=\Phi(M_\theta)
+ \qquad\text{for every }\theta\in\Theta.
+\]
+These formulas are an explicitly conditional formulation template, not additional hypotheses supplied by the source. The record does not specify \(\Phi\), whether preservation is exact or approximate, or whether polynomial convergence is intended in uniform expected loss as above. Consequently, a unique fully quantified mathematical problem cannot be recovered from this record.
+\subsection{Short English statement}
+Find an estimable surrogate for a smooth manifold observed through noise that retains the relevant geometry or topology and admits polynomial convergence despite the assumed logarithmic minimax rates for estimating the manifold itself. The observation model, losses, retained features, and meaning of preservation remain unspecified, so the displayed formulation requires human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30003168\), title \emph{Polynomial-Rate Surrogates for Noisy Manifold Estimation}, Oberwolfach Reports Open Problems collection, exact source problem code \texttt{catalogue entry}. The record supplies proposed year \(2016\), names no proposer, and labels the problem open. Its statement status is supplied as exact, with a supplied verification claim that the wording is self-contained and publication-ready; these labels and claims have not been independently verified.
+\item Supplied report attribution: \emph{Statistics for Shape and Geometric Features (2017)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2016/32}, pp.\ 1821--1874. \url{https://doi.org/10.4171/owr/2016/32}. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The supplied citation uses \(2017\), whereas the DOI contains \(2016\) and the proposed year is \(2016\); their relationship is not established in the supplied record.
+\item Supplied literature source: Doss--Wellner, \emph{Inference for the mode of a log-concave density}. \url{https://arxiv.org/abs/1611.10348}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: this is supplied dated curation derived from the supplied OWR curation, not an independently verified assessment. It labels the problem open and states that likelihood-ratio inference for the mode of a log-concave density removes bandwidth selection in a strict-curvature model, but does not settle the broader question of avoiding logarithmic rates in the full problem class. The record expressly calls for independent verification of time-sensitive status and cited claims. Its connection to the manifold-surrogate question is not explained.
+\end{itemize}
+\end{document}

@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002224}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G$ be a finite simple graph with $n\ge1$ vertices, $m$ edges and degrees $d(v)$. Its combinatorial Laplacian is $L=D-A$, with eigenvalues $\lambda_1\ge\cdots\ge\lambda_n\ge0$. Define the conjugate degree sequence, padded to length $n$, by
+\[
+ d_i^*=\#\{v:d(v)\ge i\},\qquad1\le i\le n.
+\]
+Both sequences sum to $2m$. Majorization $\lambda\prec d^*$ means
+\[
+ \sum_{i=1}^k\lambda_i\le\sum_{i=1}^kd_i^*
+      =\sum_v\min(d(v),k)\quad(1\le k<n),
+ \qquad\sum_{i=1}^n\lambda_i=\sum_{i=1}^nd_i^*.
+\]
+Put $\mu=2m/n$ and $E_L(G)=\sum_i|\lambda_i-\mu|$.
+
+\textbf{Question 6, Grone--Merris conjecture.} Is $\lambda\prec d^*$? The source reports the workshop consequence
+\[
+ E_L(G)\le B(G):=\sum_{i=1}^n|d_i^*-\mu|.
+\]
+The supplied aid attributes an affirmative theorem for every finite simple graph to Hua Bai (2011). This is a named literature result as supplied, not a new proof by this draft.
+
+\textbf{Supplied exact energy and equality refinement.} The degree-only bound can be written
+\[
+ B(G)=2\max_{0\le k\le n}
+       \left(\sum_v\min(d(v),k)-\frac{2mk}{n}\right).
+\]
+For a decreasing sequence $x$ of mean $\mu$, define its mean-crossing index set
+\[
+ I(x)=\{k\in\{0,\ldots,n\}:\#\{i:x_i>\mu\}\le k
+                              \le\#\{i:x_i\ge\mu\}\}.
+\]
+The aid asserts that equality $E_L(G)=B(G)$ holds precisely when some $k\in I(\lambda)\cap I(d^*)$ has a tight Grone--Merris prefix,
+\[
+ \sum_{i=1}^k\lambda_i=\sum_{i=1}^kd_i^*.
+\]
+The inclusive mean-crossing convention handles repeated entries equal to $\mu$, and $k=0,n$ handles the edgeless/degenerate case without introducing undefined indices.
+
+For the complete bipartite graph $K_{a,b}$, $1\le a\le b$, the aid gives the exact deficit
+\[
+ B(K_{a,b})-E_L(K_{a,b})=2a(a-1).
+\]
+Hence equality in this family occurs exactly for $a=1$, the stars. This is a family-specific equality conclusion, not a claim that only stars attain equality among all simple graphs.
+\subsection{Short English statement}
+The source asks whether Laplacian eigenvalues are majorized by the conjugate degree sequence; the aid cites Bai's affirmative theorem. Its refinements give a degree-only Laplacian-energy bound, an exact tight-prefix equality test, and a complete-bipartite gap showing equality there exactly for stars.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002224, source code catalogue entry; canonical \texttt{aim-linear-algebra-notes.json}, notes[17], statement status reconstructed unverified.
+\item AIM \emph{Spectra of families of matrices described by graphs, digraphs, and sign patterns}, Question 6 and workshop energy observation: \url{https://aimath.org/WWN/matrixspectrum/matrixspectrum.pdf}.
+\item Grone--Merris conjecture; the supplied aid attributes its proof to Hua Bai (2011), without a full paper title, publication details or theorem label.
+\item Registry research attempt 1, dated 2026-08-14: full solution, problem status at run solved, rigor ``proved'', novelty confidence low. The explicitly machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

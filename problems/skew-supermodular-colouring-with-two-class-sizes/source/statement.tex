@@ -1,0 +1,53 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 3000078}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $S$ be finite. In the standard all-pairs convention an integer-valued set function $p:2^S\to\mathbb Z$ is skew-supermodular when, for every $X,Z\subseteq S$,
+\[
+p(X)+p(Z)\leq\max\{p(X\cap Z)+p(X\cup Z),\ p(X\setminus Z)+p(Z\setminus X)\}.
+\]
+The source does not give its convention, so any restriction to crossing or positive-demand pairs must be checked rather than silently substituted.
+
+\textbf{Decision problem.} Given two integer skew-supermodular functions $p_1,p_2$ satisfying
+\[
+\max\{p_1(X),p_2(X)\}\leq\min\{|X|,k\}\qquad(X\subseteq S),
+\]
+and positive integers $m_1,m_2,n_1,n_2$ with $m_1n_1+m_2n_2=|S|$, decide whether there is a partition $\mathcal P$ of $S$ having $m_1$ classes of size $n_1$ and $m_2$ classes of size $n_2$, such that
+\[
+\big|\{Y\in\mathcal P:Y\cap X\ne\varnothing\}\big|
+\geq\max\{p_1(X),p_2(X)\}\qquad(X\subseteq S).
+\]
+Can this decision be made in polynomial time? A partition has pairwise disjoint nonempty classes whose union is $S$; if $n_1=n_2$, the requirement is simply $m_1+m_2$ classes of that size, since the source does not require distinct sizes.
+
+The source uses $k$ without defining it or explicitly identifying it with $m_1+m_2$. It may be treated as an additional parameter pending that clarification. More importantly, polynomial time requires an input model for the set functions: explicit tables and value-oracle access have very different sizes and complexity measures. Neither is supplied. The summary reports no published polynomial algorithm or characterization found for the two-size variant; this is a search assessment, not a hardness result.
+\subsection{Short English statement}
+Decide whether two skew-supermodular demands can be met by a partition with prescribed counts of two class sizes. The exact function-access model and the parameter $k$ need clarification before polynomial time has a definite meaning.
+\subsection{Sources}
+\begin{itemize}
+\item Egres Open, \emph{Skew-supermodular colouring with two class sizes}, listed at \url{https://oldlemon.cs.elte.hu/egres/open/List_of_open_problems}; HTML extraction, accessed 2026-07-29. The archived index is not a current resolution authority according to the record.
+\item The research summary mentions Frank-school skew-supermodular coloring, covering by sets, and matroid/Gy\'arf\'as-style equal-size results, but gives no specific publication or theorem citation.
+\item Local registry \texttt{data/unsolvedmath/problems.json}, permanent ID $3000078$, source code catalogue entry, \emph{Skew-supermodular colouring with two class sizes}. The record labels this open and OPEN-TRIAGE, with NEEDS\_REVIEW source-status and rights notes; no redistribution license was displayed in the archived footer according to the record.
+\end{itemize}
+\end{document}

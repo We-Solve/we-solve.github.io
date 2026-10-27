@@ -1,0 +1,47 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800517}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a specified scalar domain \(K\) and an integer \(n\geq 1\), a symmetric tridiagonal matrix is a matrix \(T=(t_{ij})\in K^{n\times n}\) such that
+\[
+ t_{ij}=t_{ji},\qquad t_{ij}=0\quad\text{whenever }|i-j|>1.
+\]
+The supplied record does not explicitly specify \(K\), the representation of input entries, or a floating-point arithmetic model. These must be stated in any precise theorem; the usual real symmetric interpretation is not an explicit hypothesis in the record.
+
+\(\mathrm{MR}^{3}\) denotes the eigenvalue algorithm named in the source. The record supplies neither a complete algorithm specification nor a particular floating-point implementation.
+
+\textbf{Requested analysis.} Give a theoretical-computer-science-style analysis of a precisely specified floating-point implementation of \(\mathrm{MR}^{3}\) that proves correctness and convergence under explicitly stated, easily verifiable conditions on the input symmetric tridiagonal matrix. The analysis must specify the arithmetic model, the input conditions, the intended output and its accuracy requirements, and the meaning of convergence. Its guarantees must apply to every input satisfying those conditions. The source does not supply these specifications or quantitative requirements, so this is a request to formulate and prove such guarantees, rather than a fully specified conjecture with fixed error bounds.
+
+\textbf{Supplied qualifications.} The source reports that no rigorous theoretical-computer-science-style success proof was then available for a floating-point implementation on an arbitrary symmetric tridiagonal matrix. It attributes to Willems and Lang, under the reference label \texttt{Willems\_framework}, a conditional correctness proof relying on several assumptions, some verifiable only after executing the algorithm on the given input. It also reports that insufficiently careful implementations can fail through roundoff when eigenvalues are too tightly clustered, citing \texttt{Parlett:CSD-04-1367}. These are supplied source assessments, not independently verified literature conclusions. In particular, the requested input conditions must address the distinction between conditions checkable from the input and assumptions ascertainable only during execution.
+\subsection{Short English statement}
+Develop a rigorous correctness and convergence analysis for a specified floating-point implementation of \(\mathrm{MR}^{3}\), with guarantees under easily checkable conditions on a symmetric tridiagonal input matrix. The source leaves the implementation, arithmetic model, scalar domain, accuracy targets, and meaning of convergence unspecified. It reports a conditional correctness result and possible roundoff failures for tightly clustered eigenvalues; these qualifications must be retained.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete source record: permanent ID \(800517\), exact source problem code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 26.'' The registry labels the problem open and attributes it to Amsel, Baumann et al., with proposed year 2026; the status is supplied metadata, not an independently verified mathematical assessment.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 26. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The record gives an access date of 2026-10-16 and extraction method \texttt{arxiv\_latex}; this provenance is supplied and no independent source visit is claimed.
+\item Willems and Lang, reference label \texttt{Willems\_framework}: cited by the supplied statement for a correctness proof conditional on underlying assumptions. No full bibliographic entry or URL is supplied.
+\item Reference label \texttt{Parlett:CSD-04-1367}: cited by the supplied statement for possible roundoff failure with tightly clustered eigenvalues in an insufficiently careful implementation. No full bibliographic entry or URL is supplied.
+\end{itemize}
+\end{document}

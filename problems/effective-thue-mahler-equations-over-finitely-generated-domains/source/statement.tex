@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002045}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(A\) be a commutative integral domain described in the source as an arbitrary finitely generated domain, and let
+\[
+A^{\times}=\{u\in A:\text{there exists }v\in A\text{ with }uv=1\}.
+\]
+Let \(F\in A[X,Y]\) be a homogeneous polynomial of degree \(d\geq 3\), assumed in the source to have no multiple factors. Put
+\[
+S_F(A)=\{(x,y)\in A^2:F(x,y)\in A^{\times}\}.
+\]
+For \((x,y),(x',y')\in S_F(A)\), define
+\[
+(x,y)\sim(x',y')
+\quad\Longleftrightarrow\quad
+\text{there exists }u\in A^{\times}\text{ such that }(x',y')=(ux,uy).
+\]
+This is the equivalence relation induced by simultaneous multiplication by a unit; homogeneity gives \(F(ux,uy)=u^dF(x,y)\).
+
+The supplied record states that \(S_F(A)/{\sim}\) is finite. Taking this finiteness as a supplied premise, the question is whether, for every admissible input \(A,F\), one can effectively determine a finite list
+\[
+(x_1,y_1),\ldots,(x_r,y_r)\in S_F(A),\qquad r\geq 0,
+\]
+such that
+\[
+\forall(x,y)\in S_F(A)\ \exists! i\in\{1,\ldots,r\}\ \exists u\in A^{\times}:
+(x,y)=(ux_i,uy_i).
+\]
+Thus the output must contain exactly one representative of each class, and must be empty if there are no solutions.
+
+\emph{Unresolved qualifications.} The record does not specify the base over which \(A\) is finitely generated, its characteristic, or the effective presentation of \(A\) and its elements. These choices are needed to make the algorithmic quantifier precise. For \(K=\operatorname{Frac}(A)\), the usual geometric interpretation of ``without multiple factors'' is that \(F\) has no repeated linear factor over an algebraic closure of \(K\); the supplied record does not explicitly distinguish this from factorization over \(K\) or \(A\). Consequently, this is a conditional statement of the supplied target, pending verification of its exact domain and factorization hypotheses; the asserted finiteness is not independently established here for every interpretation of an arbitrary finitely generated domain.
+\subsection{Short English statement}
+Given a binary form of degree at least three over a finitely generated domain, determine effectively one representative of every unit-scaling class of pairs whose form value is a unit, taking the supplied finiteness assertion as a premise. The domain hypotheses, meaning of repeated factors, and effective input representation require clarification. The supplied status is partially solved; this draft does not independently verify that assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002045\), title: \emph{Effective Thue--Mahler Equations over Finitely Generated Domains}; exact source problem code: \texttt{catalogue entry}. The collection is \emph{Oberwolfach Reports Open Problems}. No individual proposer is identified; the supplied proposed year is 2012.
+\item Supplied source citation: \emph{Diophantische Approximationen (2013)}, Oberwolfach Reports, DOI 10.4171/owr/2012/22, pp.~1307--1359. \url{https://doi.org/10.4171/owr/2012/22}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. The citation's 2013 date and the supplied 2012 provenance have not been reconciled here.
+\item Supplied literature source: \emph{Oberwolfach report, Diophantische Approximationen}. \url{https://oa.tib.eu/renate/server/api/core/bitstreams/1fd6cbc9-1093-41b9-8def-fe335e6bf581/content}.
+\item Supplied literature source: B\'erczes--Evertse--Gy\H{o}ry, \emph{Effective results for Diophantine equations over finitely generated domains}. \url{https://doi.org/10.4064/aa163-1-6}.
+\item Literature assessment dated \texttt{2026-08-21}: the supplied curation labels the problem partially solved and reports effective algorithms for unit, Thue, hyperelliptic, and superelliptic equations over finitely generated domains, while describing effective determination of representatives for the general Thue--Mahler problem in this record as remaining open. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; its time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and supplies the verification note that the official report asks for effective determination of representatives after stating finiteness. These are supplied registry assertions; no source consultation or independent verification is claimed here.
+\end{itemize}
+\end{document}

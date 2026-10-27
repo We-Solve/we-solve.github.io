@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1871}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $\mathcal P$ be the set of positive rational primes. The supplied plus-branch Erd\H{o}s--Selfridge rule first declares
+\[
+C_1=\{p\in\mathcal P:\text{every prime divisor of }p+1\text{ belongs to }\{2,3\}\}.
+\]
+The stated higher-class rule says that $p$ is in class $r$ when every prime factor of $p+1$ has class at most $r-1$, with at least one factor of class exactly $r-1$.
+
+There is a literal overlap in these rules unless the first rule takes priority: for example, $2,3\in C_1$ and $5+1=2\cdot3$, so the unqualified higher-class rule would also put the class-one prime $5$ in class two. The displayed lists indicate disjoint classes, so the following is an explicit priority interpretation requiring source confirmation. Give every prime in $C_1$ height $h(p)=1$, and for a prime $p\notin C_1$ set
+\[
+h(p)=1+\max_{q\in\mathcal P,\ q\mid p+1}h(q).
+\]
+Then let $C_r=\{p\in\mathcal P:h(p)=r\}$ for $r\geq1$. The recursion is well founded: $2,3\in C_1$, and for $p>3$ every prime divisor of the even number $p+1$ is at most $(p+1)/2<p$. Thus only previously defined smaller primes enter a nonbase step. Equivalently, apply the source's higher-class rule only to primes not already in $C_1$.
+
+With this priority qualification, the question is
+\[
+\forall r\in\Z_{\geq1}\ \forall X\in\R\ \exists p\in\mathcal P,\qquad p>X\ \text{and}\ h(p)=r,
+\]
+that is, whether every class $C_r$ is infinite. The source concerns prime factors of $p+1$; no $p-1$ branch is substituted.
+
+The source supplies the following initial examples:
+\[
+C_1: 2,3,5,7,11,17,23,31,47,53,71,107,127,191,\ldots;
+\]
+\[
+C_2: 13,19,29,41,43,59,61,67,79,83,89,97,101,\ldots;
+\]
+\[
+C_3: 37,103,113,151,157,163,173,181,193,227,233,\ldots.
+\]
+These are supplied examples, not a classification proof. The registry and its literature triage dated 2026-08-17 label the infinitude question open. The triage reports that no proof of infinitude of every class or current primary-source resolution was located and calls for further specialist bibliography review; this does not prove that no later or unindexed result exists.
+\subsection{Short English statement}
+Are there infinitely many primes in every recursively defined class based on the prime factors of $p+1$? The base class consists of primes for which $p+1$ has only prime factors $2$ and $3$. The source must explicitly give this base rule priority to avoid assigning those primes to class two as well.
+\subsection{Sources}
+\begin{itemize}
+\item Richard Guy, Unsolved Problems in Number Theory, Section A18, supplied by the background; no edition or page number is provided.
+\item ``Erd\H{o}s--Selfridge classification of primes,'' OEIS Wiki, supplied reference: \url{https://oeis.org/wiki/Erd%C5%91s%E2%80%93Selfridge_classification_of_primes}.
+\item Local registry data/unsolvedmath/problems.json, permanent catalogue entry, source code catalogue entry, ``Erd\H{o}s-Selfridge Classification: Infinitely Many Primes in Each Class''; statement, example lists, and literature triage dated 2026-08-17. Dataset attribution: Ulam AI and the UnsolvedMath Contributors.
+\end{itemize}
+\end{document}

@@ -1,0 +1,63 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002002}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Jean-Yves Welschinger's item A.20 asks for tropical computation of real enumerative invariants of convex real algebraic threefolds, illustrating the question in \(\mathbb{CP}^3\). Fix \(d\geq1\), a generic configuration \(\mathbf x\) of \(2d\) real points, an orientation of \(\mathbb{RP}^3\), and a spin structure \(s\). In the regular enumerative setting described by the source, the finite relevant set \(\mathcal R_d(\mathbf x)\) consists of irreducible real rational degree-\(d\) curves through those points, with nonempty real normalization.
+
+The source constructs a real-knot framing using a real holomorphic normal subline of maximal degree, then a loop in the oriented orthonormal-frame bundle. Its lifting obstruction to the \(\operatorname{Spin}_3\) bundle defines the spinor state \(\operatorname{sp}_s(C)\in\{\pm1\}\), with the framing and sign convention fixed as in Welschinger's construction. The reported invariant is
+\[
+ \chi_{d,s}=\sum_{C\in\mathcal R_d(\mathbf x)}\operatorname{sp}_s(C),
+\]
+independent of the generic constraint configuration under the theorem's admissibility hypotheses. The source does not reproduce all regularity or framing choices.
+
+The aid attributes an affirmative answer for this \(\mathbb{CP}^3\) problem to Brugalle--Mikhalkin's published 2007 floor-diagram theorem: the same invariant is an explicit signed sum over marked three-dimensional degree-\(d\), genus-zero floor diagrams with the specified \(2d\) real point constraints,
+\[
+ \chi_{d,s}=\sum_D\mu_{\mathbb R,s}(D).
+\]
+The actual diagram, marking and multiplicity rules are not supplied, so this records the reported computational theorem rather than inventing an executable formula. It does not assert an identical theorem for every convex real threefold.
+
+The aid's further contribution tracks spin dependence. Spin structures form a torsor for \(H^1(\mathbb{RP}^3;\mathbb Z/2)\). For any \(\alpha\) in that group, with the orientation and framing convention unchanged,
+\[
+ \operatorname{sp}_{s+\alpha}(C)=
+ (-1)^{\langle\alpha,[C(\mathbb R)]\rangle}\operatorname{sp}_s(C).
+\]
+The real mod-two homology class is \([C(\mathbb R)]=d[\ell]\), where \([\ell]\) is the projective-line generator of \(H_1(\mathbb{RP}^3;\mathbb Z/2)\). Thus for the nonzero \(\alpha\), which exchanges the two distinct spin structures,
+\[
+ \operatorname{sp}_{s+\alpha}(C)=(-1)^d\operatorname{sp}_s(C),\qquad
+ \chi_{d,s+\alpha}=(-1)^d\chi_{d,s}.
+\]
+For \(\alpha=0\) the factor is instead \(1\), as the general pairing formula shows.
+
+If a tropical multiplicity is defined by summing spinor states over a fixed spin-independent set of algebraic lifts, it obeys this same covariance term by term. This conditional liftwise assertion does not require every conceivable regrouping of a tropical formula to have a preferred termwise meaning. Degree one gives a nonzero test: the unique line through two generic real points contributes \(\pm1\), with sign reversed by exchanging the spin structures. Hence a signed rule claimed valid for both structures cannot ignore that spin choice.
+\subsection{Short English statement}
+The supplied report attributes tropical computation of the three-dimensional \(\mathbb{CP}^3\) Welschinger count to a 2007 floor-diagram theorem. Its additional spin calculation says that exchanging the two spin structures multiplies a degree-\(d\) count by \((-1)^d\). Liftwise tropical signed multiplicities must retain that same dependence.
+\subsection{Sources}
+\begin{itemize}
+\item Local source record: catalogue entry, catalogue entry; canonical \texttt{aim-geometry-notes.json}, \texttt{notes[339]}, item A.20, ``Real enumerative invariants,'' contributed by Jean-Yves Welschinger. Title: ``Tropical computation and spin-structure covariance of real curve counts in projective three-space.''
+\item AIM 2003 workshop ``Amoebas and tropical geometry,'' supplied reference \url{https://aimath.org/WWN/amoebas/amoebas.pdf}. The verification reports PDF/HTML and primary-paper comparison; this draft uses the supplied record without visiting them. The embedded page number is an extraction artifact.
+\item Supplied literature attribution: Brugalle--Mikhalkin's published 2007 floor-diagram theorem. The verification also refers to Welschinger's primary paper without naming it. Full bibliographic entries, theorem numbers and explicit floor-diagram rules are not supplied.
+\item Attempt 1 gives the spin-structure covariance and liftwise test. Registry dated 14 August 2026: ``solved,'' ``SOLVED-IN-LITERATURE,'' statement status ``exact''; attempt partial, rigor ``proved,'' novelty confidence low. The machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

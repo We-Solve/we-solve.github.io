@@ -1,0 +1,71 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005935}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record concerns the stochastic heat equation
+\[
+\mathrm{d}u(t,x)=\Delta u(t,x)\,\mathrm{d}t+g(u(t,x))\,\mathrm{d}\beta(t),\qquad x\in D,
+\]
+with homogeneous Dirichlet boundary condition
+\[
+u(t,x)=0,\qquad x\in\partial D,
+\]
+and nonlinearity
+\[
+g(v)=v^{1.25}=v^{5/4}.
+\]
+Here \(D\) is the spatial domain appearing in the source fragment, \(\Delta\) denotes the spatial Laplacian, and \(\beta\) denotes the driving noise. The dimension and regularity of \(D\), the law and dimension of \(\beta\), the stochastic integration convention, the initial condition, and the solution concept are not supplied. As a real-valued expression, the displayed fractional power specifies \(g\) on \([0,\infty)\); its treatment at negative arguments is not specified. The record describes this nonlinearity as non-globally Lipschitz.
+
+The intended problem concerns a Lie--Trotter splitting approximation, denoted by \(u_m^{\mathrm{LT}}(x)\). The defining update, called the time integrator \((2)\) in the source fragment, is absent. Consequently, the approximation cannot be uniquely defined from this record.
+
+For purposes of expressing the intended targets, write \(t_m=m\tau\), \(m=0,\ldots,M\), on an intended fixed finite time interval \([0,T]\), with \(\tau=T/M\). This is notation for the proposed convergence statement, not a supplied specification of the time horizon or admissible step sizes. Subject to recovering the missing hypotheses and numerical update, the reconstructed statement requests:
+\begin{enumerate}
+\item Positivity preservation, in the sense of the displayed source property
+\[
+\mathbb{P}\!\left(u_m^{\mathrm{LT}}(x)\geq 0\text{ for every }x\in D\text{ and }m\in\{0,\ldots,M\}\right)=1.
+\]
+A nonnegativity hypothesis on the initial data would need to be specified; it is absent from the supplied statement. Versions of the random fields for which this simultaneous pointwise assertion is meaningful must also be specified.
+\item Mean-square convergence of order \(1/2\), with the intended reading
+\[
+\sup_{0\leq m\leq M}\sup_{x\in D}
+\left(\mathbb{E}\left[\left|u_m^{\mathrm{LT}}(x)-u(t_m,x)\right|^2\right]\right)^{1/2}
+\leq C\tau^{1/2}.
+\]
+Here \(\mathbb{E}\) denotes expectation under the as-yet unspecified probability law. The intended constant \(C\) is independent of the time step on a fixed time interval; its permitted dependence on other data and any step-size restrictions are unspecified. The extracted original inequality has corrupted formatting, so the placement of the square root must be checked against the report.
+\item Establish a weak convergence rate. The record specifies neither the observables, the solution space, the time points at which expectations are compared, nor a proposed rate. Thus no definite weak-error inequality can be stated from the supplied evidence.
+\end{enumerate}
+
+These are conditional targets extracted from the reconstructed statement, not a fully specified conjecture. There is a material conflict with the original fragment: it introduces positivity, exactness in the linear case \(g(v)=v\) with \(f(v)=1\), and mean-square order \(1/2\) as properties that the time integrator already satisfies, referring to an unavailable reference \([3]\) for precise statements. The fragment does not establish whether these properties apply to \(g(v)=v^{5/4}\), or what the preceding sentence, ``To prove this remains an open question,'' refers to. It defines \(G(t,x,y)\) as the fundamental solution of the deterministic heat equation but supplies no update using \(G\). Its concluding transition to heat equations driven by space-time white noise does not identify that noise as the \(\beta\) in the displayed equation. These gaps must be resolved before a precise mathematical problem can be accepted.
+\subsection{Short English statement}
+The reconstructed problem asks whether a Lie--Trotter approximation of a stochastic heat equation with homogeneous Dirichlet boundary data and coefficient \(g(v)=v^{5/4}\) preserves nonnegativity, has root-mean-square error of order \(\tau^{1/2}\), and admits a weak convergence rate. The scheme and essential hypotheses are missing, and the original fragment presents some requested properties as already established under unspecified assumptions. This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30005935\), title \emph{Positivity and Convergence of a Splitting Scheme}, exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record associates the problem with 2024 and supplies no named proposer.
+\item Supplied report citation: \emph{Constrained Dynamics, Stochastic Numerical Methods and the Modeling of Complex Systems} (2024), Oberwolfach Reports, pp.\ 1445--1516, DOI \texttt{10.4171/owr/2024/26}. Supplied source URL and literature-source link, labeled \emph{Oberwolfach Report 26/2024}: \url{https://doi.org/10.4171/owr/2024/26}. No location within this page range is supplied for the fragment.
+\item The original fragment refers to a time integrator \((2)\), an SPDE \((1)\), and reference \([3]\). Their definitions and bibliographic details are absent from the supplied record.
+\item The supplied literature assessment is dated exactly \texttt{2026-08-22}. It labels the problem open and states that the exact record is only a fragment saying that proving the stated numerical-SPDE properties remains open, so no later resolution is identifiable from the extracted claim. The background describes this as dated literature triage derived from supplied Oberwolfach curation and requests independent verification of time-sensitive status and cited claims. This is supplied dated curation, not an independently verified literature assessment.
+\item The registry labels the statement \texttt{corrected\_verified} and says it was reconstructed and checked against the official Oberwolfach report. These are supplied provenance claims; no independent source visit or mathematical verification is asserted here.
+\end{itemize}
+\end{document}

@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800556}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G\) be a finite simple undirected graph on \(n\) vertices, supplied by its adjacency matrix \(A\in\{0,1\}^{n\times n}\). Under the closed-polygon vertex-visibility convention, a simple polygon \(P\subset\R^2\) is the closed region bounded by a polygonal Jordan curve with vertices \(p_1,\ldots,p_n\), where \(n\geq 3\). Its visibility graph \(\operatorname{Vis}(P)\) has these polygon vertices as its graph vertices, and distinct vertices \(p_i,p_j\) are adjacent exactly when the entire closed line segment \([p_i,p_j]\) lies in \(P\). Thus boundary edges count as visibility edges under this convention.
+
+\textbf{Recognition task.} Given \(A\), determine whether there exist such a simple polygon \(P\) and a bijection \(\phi:V(G)\to\{p_1,\ldots,p_n\}\) satisfying
+\[
+\{u,v\}\in E(G)
+\quad\Longleftrightarrow\quad
+[\phi(u),\phi(v)]\subseteq P
+\qquad(u\ne v).
+\]
+The input supplies only the adjacency matrix; a polygonal boundary order is not supplied.
+
+\textbf{Complexity question.} Let \(\mathcal L_{\mathrm{poly}}\) be the language of adjacency-matrix encodings accepted by this recognition task. Is
+\[
+\mathcal L_{\mathrm{poly}}\in\mathrm{NP}?
+\]
+Equivalently, do there exist a polynomial \(q\) and a deterministic polynomial-time verifier \(V\) such that, for every input encoding \(x\),
+\[
+x\in\mathcal L_{\mathrm{poly}}
+\quad\Longleftrightarrow\quad
+\exists c\in\{0,1\}^{*}\;
+\bigl(|c|\leq q(|x|)\ \text{and}\ V(x,c)=1\bigr)?
+\]
+No restriction to rational polygon coordinates, and no polynomial bound on coordinate representations, is asserted here.
+
+\textbf{Unresolved source qualifications.} The supplied excerpt does not define visibility or its treatment of boundary contacts and collinear vertices. The displayed formulation explicitly uses closed-region visibility; its agreement with the source's full definitions requires review. The final source question says only ``visibility graphs''; its restriction here to visibility graphs of simple polygons follows the immediately preceding recognition task and remains an interpretation requiring confirmation.
+\subsection{Short English statement}
+Given only a graph's adjacency matrix, decide whether its vertices can be realized as the vertices of a simple polygon with exactly the prescribed visibility adjacencies. The accompanying question asks whether this recognition problem belongs to \(\mathrm{NP}\). The draft uses an explicit boundary-inclusive visibility convention; the excerpt leaves that convention, degeneracies, and the scope of the final question unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800556\), source problem code \texttt{catalogue entry}, title: \emph{Visibility Graphs of Points, Segments and Polygons --- Problem 30}. The supplied registry labels the problem open; that label is supplied curation, not an independently verified mathematical or literature assessment.
+\item Ghosh and Goswami, \emph{Unsolved Problems in Visibility Graphs of Points, Segments and Polygons} (2010), Problem 30. Supplied source URL: \url{https://arxiv.org/abs/1012.5187}. The registry attributes the problem to Ghosh and Goswami and records proposed year 2010; this does not independently establish original authorship.
+\item Supplied provenance reports access on \texttt{2026-10-16} and extraction by \texttt{arxiv\_latex}. These are supplied provenance details; no source visit or independent verification was performed for this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001277}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a full-dimensional compact convex polytope \(P\subset\R^d\), define its normalized raw moment tensors by
+\[
+ M_j(P)=\frac1{\operatorname{vol}_dP}\int_Px^{\otimes j}\,\dd x\qquad(j\ge1).
+\]
+These are moments of the uniform probability distribution in the given coordinates, not centered moments or unnormalized integrals. The source asks, for each fixed positive integer \(t\), whether some \(k=k(t)\), independent of \(d\), makes \(P\mapsto(M_1(P),\ldots,M_k(P))\) injective on \(d\)-polytopes with \(d^t\) facets. The stored ``dt'' has lost superscript formatting; \(d^t\) is the supplied aid's recovered interpretation. ``Exactly'' versus ``at most'' is not explicit in the excerpt; the aid's dimension obstruction uses exactly \(d^t\). For \(t=1\), a bounded full-dimensional \(d\)-polytope cannot have only \(d\) facets, so the literal class is empty; the nonvacuous obstruction below concerns \(t\ge2\).
+
+The source also asks for efficient reconstruction to absolute Hausdorff error \(1/10\) from exact tensors, and then from sample-approximated tensors using polynomially many samples for fixed \(t\). It says runtime is polynomial in \(n\) without consistently defining \(n\), and supplies no coordinate encoding, scale normalization, precision model, or success probability. These issues are separate from exact injectivity.
+
+The aid reports a necessary dimension inequality: whenever the class of \(d\)-polytopes with exactly \(m\) facets contains its stated open \(md\)-dimensional simple-polytope parameter chart, injectivity of the first \(k\) normalized moment tensors requires
+\[
+ \binom{d+k}{k}-1\ge md.
+\]
+The left side counts independent monomial moments of positive degrees through \(k\). The chart and invariance-of-domain argument require a nonempty admissible class, rather than a vacuous statement for impossible facet counts. For fixed \(t\ge2\), \(m=d^t\), and arbitrarily large \(d\), the aid concludes
+\[
+ k(t)\ge t+2.
+\]
+In particular \(k=t+1\) fails already in its leading coefficient, not only in polynomial degree. This is a necessary lower bound, not sufficiency or a reconstruction algorithm.
+
+The aid separately reports a scale obstruction to uniform sampling guarantees. Nested rectangles \(P_T=[0,T]\times[0,1]\) and \(Q_T=[0,T+1]\times[0,1]\) have four facets and Hausdorff distance one, while their uniform measures have total variation distance \(1/(T+1)\). For \(r\) independent samples their product laws have total variation at most \(r/(T+1)\). Thus no sample bound depending only on dimension and facet count can guarantee Hausdorff error \(1/10\) uniformly over the unnormalized class with any fixed success probability greater than \(1/2\). At \(d=2,t=2\), these rectangles already have \(d^t\) facets. Sample-derived moment tensors cannot contain more information than the raw samples. This reported Le Cam obstruction does not refute exact-moment injectivity or exact reconstruction; adding geometric normalization would pose a distinct stability problem.
+
+The source's background claims are retained: [GLPR] recovers a \(d\)-polytope with \(n\) vertices from \(O(dn)\) moments along \(d\) random directions; [FJK] efficiently estimates a parallelepiped from the first four tensors; [AGR] efficiently estimates any simplex from the first three. Their metric, conditioning, probability, and precision hypotheses are not supplied.
+\subsection{Short English statement}
+The source asks whether a dimension-independent moment order identifies polytopes with polynomially many facets, and whether reconstruction is efficient and sample-stable. The supplied aid gives the necessary order \(k(t)\ge t+2\) and a separate scale obstruction to the unnormalized sampling guarantee, without resolving exact identifiability.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001277\), source code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[8]}, tag \texttt{problem}.
+\item AIM workshop ``Sections of convex bodies,'' section 10, ``Reconstruction of Polytopes with Few Facets (or Few Vertices),'' Problem 1, ``Identifiability from moments'': \url{https://aimath.org/pastworkshops/sectionsconvexproblems.pdf}. Statement status \texttt{exact}; the supplied verification notes lost superscripts and a variable inconsistency. No PDF was accessed for this draft.
+\item Source labels [GLPR], [FJK], and [AGR], with the respective vertex-moment, parallelepiped, and simplex claims. Their bibliographic entries are not supplied and are not invented.
+\item Invariance of domain and Le Cam's argument are named inputs in the aid without full citations. Research attempt 1: \texttt{partial\_result}, problem status at run \texttt{open}, rigor label \texttt{proved}, novelty confidence low; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

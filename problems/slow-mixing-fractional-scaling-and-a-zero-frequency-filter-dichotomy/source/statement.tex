@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001402}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks what new statistical properties can be found for slowly mixing systems. It supplies no class of systems, invariant measure, observable space, mixing rate, or proposed conclusion, so this is a research direction rather than one recoverable quantified conjecture. A measure-preserving transformation $T$ is mixing when $\mu(T^{-n}A\cap B)\to\mu(A)\mu(B)$ for measurable $A,B$. Calling it slowly mixing requires a further rate notion or class of observables, neither specified in the original.
+
+The supplied machine aid gives an explicit model. For $0<\beta<1$, let $(X_j)_{j\in\Z}$ be a centered stationary Gaussian process with covariance
+\[
+ \gamma(n)=\E(X_0X_n)=(1+|n|)^{-\beta}.
+\]
+It reports that this defines a measure-theoretically mixing Gaussian shift. For $S_n=\sum_{j=0}^{n-1}X_j$, it states
+\[
+ \operatorname{Var}(S_n)\sim\kappa_\beta n^{2-\beta},
+ \qquad\kappa_\beta=\frac{2}{(1-\beta)(2-\beta)},\qquad H=1-\frac\beta2,
+\]
+and a polygonally interpolated fractional-Brownian limit with exponent $H$. With standard fractional Brownian motion normalized by
+\[
+ \E(B_H(s)B_H(t))=\tfrac12(s^{2H}+t^{2H}-|t-s|^{2H}),
+\]
+the reported scaling is $n^{-H}S_{\lfloor nt\rfloor}$, with linear interpolation, tending to $\sqrt{\kappa_\beta}B_H(t)$. The record announces the functional limit without specifying its topology or time interval; those details require checking the underlying report.
+
+For a nonzero real finite filter $(a_k)$, set $Y_j=\sum_k a_kX_{j+k}$ and define ordinary moments $M_\ell=\sum_k a_k k^\ell$. Let $r$ be the first index with $M_r\ne0$. The aid's leading filtered-correlation formula, written as an unnormalized covariance, is
+\[
+ \E(Y_0Y_n)\sim(-1)^r\left(\frac{M_r}{r!}\right)^2
+ (\beta)_{2r}\,n^{-\beta-2r},
+\]
+where $(\beta)_m=\beta(\beta+1)\cdots(\beta+m-1)$ and $(\beta)_0=1$. If normalized correlation is intended, this expression must be divided by $\operatorname{Var}(Y_0)$; the summary does not distinguish that terminology explicitly.
+
+If $M_0\ne0$, the aid states that the polygonal sums of $Y_j$ retain the same fractional scaling with the signed multiplier $M_0\sqrt{\kappa_\beta}$. If $M_0=0$, it states that $Y_0$ is an exact finite-coordinate $L^2$ coboundary, $Y_0=Z\circ T-Z$ for a finite linear combination $Z$ of coordinates. Its sums are then uniformly bounded in $L^2$ and tight, rather than exhibiting the previous nondegenerate fractional scaling. This is a filter dichotomy in the selected Gaussian family, not a universal classification of slowly mixing systems or observables.
+\subsection{Short English statement}
+The broad question asks for statistical phenomena beyond conventional mixing behavior. The supplied model has polynomial covariance decay and fractional-Brownian scaling. Finite filters reveal a sharp distinction: nonzero total filter weight preserves that scaling, while zero total weight gives a coboundary with bounded fluctuations. These are model-dependent partial results, with the general scope still unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001402, exact source code catalogue entry; canonical \texttt{aim-dynamical-systems-notes.json}, \texttt{notes[59]}, source item 17, tag ``problem'', workshop \emph{Stochastic methods for non-equilibrium dynamical systems}; \url{https://aimath.org/pastworkshops/noneqdynsysproblems.pdf}.
+\item The original one-line question and verification supply no proposer or separate bibliographic references. Original remarks and literature field are empty. The Gaussian and finite-filter model comes from the supplied research summary, rather than an assumption stated in the original workshop question.
+\item Supplied metadata: PARTIAL-PROGRESS, registry status ``partially\_solved'', statement status ``exact''; attempt 1, result ``partial\_result'', problem status at run ``partially\_solved'', recorded rigor ``proved'', novelty confidence ``low'', candidate type ``theorem''. The machine aid explicitly is not peer reviewed and requires independent verification before citation. No external source was visited.
+\end{itemize}
+\end{document}

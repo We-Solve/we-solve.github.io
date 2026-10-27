@@ -1,0 +1,96 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002222}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G\) be a countable amenable group, understood with the discrete topology, acting continuously on a compact metrizable space \(X\). Write \(gx\) for the action and \(\mathcal M(X)\) for the set of metrics inducing the topology of \(X\). The following definitions apply to nonempty \(X\); the supplied record does not specify conventions for the empty space.
+
+Choose a Følner sequence \((F_n)_{n\geq 1}\) of nonempty finite subsets of \(G\), so that
+\[
+\frac{|gF_n\mathbin{\triangle}F_n|}{|F_n|}\longrightarrow 0
+\qquad\text{for every }g\in G.
+\]
+The source does not require \(G\) to be infinite, and no such restriction is imposed here.
+
+For a finite open cover \(\mathcal U\) of \(X\), put
+\[
+\operatorname{ord}(\mathcal U)
+=\max_{x\in X}\left(\sum_{U\in\mathcal U}\mathbf 1_U(x)-1\right),
+\qquad
+D(\mathcal U)=\min_{\mathcal V\succcurlyeq\mathcal U}\operatorname{ord}(\mathcal V),
+\]
+where the minimum ranges over finite open covers \(\mathcal V\) refining \(\mathcal U\). Let \(\bigvee\) denote the common refinement formed by intersections. The mean topological dimension is given by the Følner formula
+\[
+\operatorname{mdim}(X,G)
+=\sup_{\mathcal U}\limsup_{n\to\infty}
+\frac{D\!\left(\bigvee_{g\in F_n}g^{-1}\mathcal U\right)}{|F_n|},
+\]
+where \(\mathcal U\) ranges over finite open covers and \(g^{-1}\mathcal U=\{\{x:gx\in U\}:U\in\mathcal U\}\).
+
+For \(d\in\mathcal M(X)\), a nonempty finite set \(F\subseteq G\), and \(\varepsilon>0\), define
+\[
+d_F(x,y)=\max_{g\in F}d(gx,gy).
+\]
+Let \(N(X,d_F,\varepsilon)\) be the least cardinality of a finite open cover of \(X\) whose members have \(d_F\)-diameter strictly less than \(\varepsilon\), and put
+\[
+h_d(\varepsilon)=\limsup_{n\to\infty}
+\frac{\log N(X,d_{F_n},\varepsilon)}{|F_n|}.
+\]
+The lower and upper metric mean dimensions are
+\[
+\underline{\operatorname{mdim}}_{\mathrm M}(X,G,d)
+=\liminf_{\varepsilon\downarrow0}
+\frac{h_d(\varepsilon)}{\log(1/\varepsilon)},
+\qquad
+\overline{\operatorname{mdim}}_{\mathrm M}(X,G,d)
+=\limsup_{\varepsilon\downarrow0}
+\frac{h_d(\varepsilon)}{\log(1/\varepsilon)}.
+\]
+These quantities may take the value \(+\infty\).
+
+\textbf{Source question and unresolved convention.} For every such action, is
+\[
+\operatorname{mdim}(X,G)
+=\min_{d\in\mathcal M(X)}\operatorname{mdim}_{\mathrm M}(X,G,d)?
+\]
+The source does not specify whether \(\operatorname{mdim}_{\mathrm M}\) means the lower or the upper metric mean dimension. Thus, for either chosen convention \(\star\in\{\mathrm{lower},\mathrm{upper}\}\), the corresponding precise candidate statement is that every such action admits \(d_*\in\mathcal M(X)\) satisfying
+\[
+\operatorname{mdim}(X,G)
+=\operatorname{mdim}_{\mathrm M}^{\star}(X,G,d_*)
+\leq\operatorname{mdim}_{\mathrm M}^{\star}(X,G,d)
+\quad\text{for every }d\in\mathcal M(X).
+\]
+No choice between these conventions is asserted here. The word ``minimum'' includes attainment by a compatible metric; replacing it by an infimum would change the requested statement. Empty-space conventions also remain unresolved.
+\subsection{Short English statement}
+The question asks whether every continuous action of a countable amenable group on a compact metrizable space has a compatible metric whose metric mean dimension attains the mean topological dimension and is minimal among all compatible metrics. The source leaves the lower versus upper metric mean dimension convention unspecified. Its supplied status is \emph{partially solved}; that label and the accompanying literature assessment are not independently verified here.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete source record for permanent ID \(30002222\), entitled ``Metric Mean Dimension for Amenable Group Actions,'' in the Oberwolfach Reports Open Problems collection; exact source problem code \texttt{catalogue entry}. No individual proposer is supplied. The registry labels the statement ``exact'' and records a manual verification of extraction and coherence; those are supplied provenance claims, not mathematical verification by this draft.
+\item Supplied source citation: \emph{\(C^*\)-Algebras, Dynamics, and Classification (2013)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2012/52}, pp.~3129--3209. \url{https://doi.org/10.4171/owr/2012/52}. The record gives proposed year 2012; the relationship between that year and the citation's 2013 label is not resolved here.
+\item Supplied literature source, ``mean dimension for algebraic actions'': \url{https://arxiv.org/abs/1307.5471}.
+\item Supplied literature source, ``mean dimension and minimal factors'': \url{https://doi.org/10.1007/BF02698858}.
+\item Supplied literature source, ``original OWR question'': \url{https://doi.org/10.4171/owr/2012/52}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation states that the dynamical Pontryagin--Schnirelmann equality is proved for algebraic actions of amenable groups and for several \(\mathbb Z\)-actions with marker or minimal-factor hypotheses, while the general continuous amenable action question remains open. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The source itself requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

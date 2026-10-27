@@ -1,0 +1,77 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800996}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Identify a set \(A\subseteq\N\) with its characteristic sequence in Cantor space \(2^{\N}\), and put
+\[
+\mathrm{Rec}=\{A\subseteq\N:A\text{ is computable}\}.
+\]
+A class \(C\subseteq 2^{\N}\) is \(\Pi^0_1\) if there is a computable tree \(T\subseteq 2^{<\N}\), closed under initial segments, such that
+\[
+C=[T]=\{X\in 2^{\N}:\forall n\in\N\ (X\upharpoonright n\in T)\}.
+\]
+Under the usual convention, an almost disjoint family consists of infinite subsets of \(\N\), and distinct members have finite intersection. Such a family of recursive sets is maximal among the infinite recursive sets if every infinite recursive set has infinite intersection with some member of the family.
+
+With these conventions, the supplied question has the following precise candidate formulation: does there exist a \(\Pi^0_1\) class \(C\subseteq 2^{\N}\) such that, writing \(\mathcal F=C\cap\mathrm{Rec}\),
+\[
+\begin{gathered}
+|\mathcal F|=\infty,\\
+\forall A\in\mathcal F\quad |A|=\infty,\\
+\forall A,B\in\mathcal F\quad
+\bigl(A\ne B\Longrightarrow |A\cap B|<\infty\bigr),\\
+\forall R\in\mathrm{Rec}\quad
+\bigl(|R|=\infty\Longrightarrow
+\exists A\in\mathcal F\ (|R\cap A|=\infty)\bigr)?
+\end{gathered}
+\]
+The requirement that every member of \(\mathcal F\) be infinite makes explicit the usual almost disjoint family convention. The supplied record does not state that convention or explicitly specify Cantor space as the ambient space. Consequently, this formulation is conditional on those interpretations; in particular, it does not replace \(C\cap\mathrm{Rec}\) by only its infinite members.
+
+The record also supplies the separate display
+\[
+A\le_{SJT}B
+\quad\Longleftrightarrow\quad
+\forall Y\,
+\Bigl((Y\text{ is }\omega\text{-c.a.}\ \land\ Y\in\mathrm{MLR})
+\Longrightarrow A\le_T B\oplus Y\Bigr).
+\]
+For its standard reading with \(A,B,Y\subseteq\N\), \(\le_T\) denotes Turing reducibility and
+\[
+B\oplus Y=\{2n:n\in B\}\cup\{2n+1:n\in Y\}.
+\]
+A set \(Y\) is \(\omega\)-computably approximable if there are computable functions \(y:\N\times\N\to\{0,1\}\) and \(b:\N\to\N\) such that, for every \(n\),
+\[
+\lim_{s\to\infty}y(n,s)=\mathbf 1_Y(n),\qquad
+\bigl|\{s:y(n,s+1)\ne y(n,s)\}\bigr|\le b(n).
+\]
+Under the usual unrelativized interpretation, \(\mathrm{MLR}\) is the class of Martin--L\"of random binary sequences for the fair-coin measure \(\mu\): a sequence belongs to this class if it avoids \(\bigcap_n U_n\) for every uniformly effectively open sequence \((U_n)_{n\in\N}\) with \(\mu(U_n)\le 2^{-n}\). The source does not explain how its displayed relation \(\le_{SJT}\) relates to the question about \(C\), nor explicitly specify the domains or randomness convention. The display is therefore retained separately and supplies no additional hypothesis on \(C\) in the candidate formulation above.
+\subsection{Short English statement}
+The question asks for an effectively closed class with infinitely many computable members whose computable members form a maximal almost disjoint family. Under the usual convention, all those members must be infinite, distinct members must intersect finitely, and every infinite computable set must intersect some member infinitely. The supplied \(\le_{SJT}\) display has no stated connection to this question. The registry labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(800996\), exact source problem code \texttt{catalogue entry}; title: \emph{Open Problems in Mathematical Logic --- Problem 8}. Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Supplied source attribution: Barmpalias, Gao et al., \emph{Open Problems in Mathematical Logic} (2026), Problem 8, \url{https://arxiv.org/abs/2608.26628}. The registry also records Barmpalias, Gao et al. in its proposer field and gives proposed year 2026; the supplied excerpt does not distinguish compilation authorship from original problem attribution.
+\item Supplied provenance: accessed 2026-10-16; extraction method \texttt{arxiv\_latex}. The registry record was created and updated on 2026-10-16 and labels the problem open. These are supplied provenance and status statements, not independently verified source access or a verified literature assessment.
+\end{itemize}
+\end{document}

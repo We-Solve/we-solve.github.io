@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002338}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For every prime $p$ and every integer $x$, Fermat's little theorem states
+\[
+ x^p\equiv x\pmod p,
+\]
+or equivalently $a^{p-1}\equiv1\pmod p$ when $p\nmid a$. The source asks for proofs of this theorem and a ``simple'' definition of $n!\bmod p$, allowing exponentiation. It sketches three routes: cyclicity of $\F_p^\times$, using the bound $|\{x\in\F_p:P(x)=0\}|\le\deg P$ for nonzero polynomials $P$; the permutation of $\{1,\ldots,p-1\}$ induced by multiplication by a nonzero residue $a$, giving
+\[
+ (p-1)!\equiv\prod_{i=1}^{p-1}(ai)
+ \equiv a^{p-1}(p-1)!\pmod p;
+\]
+and the identity $(x+y)^p\equiv x^p+y^p\pmod p$. Cancellation in the product argument uses $p\nmid(p-1)!$. The supplied research aid reports completed versions of these arguments and further proofs using Lagrange's theorem and the orbits of length-$p$ words under cyclic rotation.
+
+For the factorial-definition request, the aid adopts standard $\N$ with addition, multiplication, order and the binary exponentiation function. The following makes its bounded single-code formulation explicit. For $p\ge2$, define the base-$p$ digit relation by
+\[
+ \operatorname{Digit}_p(C,j,u)\ \Longleftrightarrow\
+ u<p\ \wedge\ \exists a\le C\ \exists b<p^j\
+ \bigl(C=ap^{j+1}+up^j+b\bigr).
+\]
+Then, for all $n\in\N$, $p\ge2$ and $r\in\N$, the reported definition of $r=n!\bmod p$ is
+\[
+\begin{split}
+ r<p\ \wedge\ \exists C<p^{n+1}\ \bigl(&\operatorname{Digit}_p(C,0,1)
+ \wedge\operatorname{Digit}_p(C,n,r)\\
+ &\wedge\ \forall j<n\ \exists u<p\ \exists v<p\ \exists q\le j\
+ [\operatorname{Digit}_p(C,j,u)\wedge
+ \operatorname{Digit}_p(C,j+1,v)\\
+ &\hspace{42mm}\wedge\ (j+1)u=v+qp]\bigr).
+\end{split}
+\]
+Every variable here ranges over $\N$. The code stores the residues of $0!,1!,\ldots,n!$ as its successive digits, and the quotient bound is $q\le j$. The assertion is that this bounded formula is correct and functional in standard arithmetic for every modulus $p\ge2$, including composite moduli, with the boundary case $n=0$ giving $r=1$. Primality is needed for Fermat's theorem, not for this definition. The source does not specify a weak formal theory in which correctness must be proved, a permitted quantifier class without exponentiation, or a precise complexity criterion for ``simple.'' The bounded formula is one explicit interpretation of that request, not a claim of an existential polynomial definition or of provability in every weak arithmetic.
+\subsection{Short English statement}
+Give proofs of Fermat's little theorem and a simple definition of factorial residues. With exponentiation available, the research aid uses one bounded base-$p$ code for successive factorial residues; the definition also works for composite moduli.
+\subsection{Sources}
+\begin{itemize}
+\item Paola D'Aquino, Question 1 in the American Institute of Mathematics workshop \emph{Extensions of Hilbert's Tenth Problem}, 21--25 March 2005, page 1 as identified in the supplied verification, \url{https://aimath.org/WWN/hilberts10th/hilberts10th.pdf}.
+\item Local UnsolvedMath registry, permanent ID 20002338, source code \texttt{catalogue entry}, canonical location \texttt{aim-logic-notes.json}, \texttt{notes[113]}, record dated 14 August 2026. Its verification reports lost exponents and damaged group and product notation in the extraction; the formulas here restore the meanings expressly described there. The original literature field is empty.
+\item Supplied research attempt 1: partial result, problem status at run solved, rigor labelled proved, novelty confidence low. The single-code definition and additional proofs are machine-generated research aid, not peer reviewed, and require independent verification before citation; no separate bibliographic source is supplied for them.
+\end{itemize}
+\end{document}

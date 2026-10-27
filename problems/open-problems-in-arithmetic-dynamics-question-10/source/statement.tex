@@ -1,0 +1,80 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800387}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(K\) be a field of characteristic \(0\), let \(\overline K\) be an algebraic closure, and put \(G_K=\operatorname{Gal}(\overline K/K)\). Let \(f:\PP^N_K\to\PP^N_K\) be a morphism of degree \(d\geq 2\) defined over \(K\).
+
+The supplied excerpt does not define its periodic-point and graph notation. The following formulation explicitly uses the exact-period interpretation, which requires confirmation against the cited source. For every integer \(n\geq 1\), define
+\[
+\operatorname{Per}_n^*(f)=\{P\in\PP^N(\overline K): f^n(P)=P\text{ and }f^m(P)\neq P\text{ for every }1\leq m<n\},
+\qquad \nu(n,f)=\#\operatorname{Per}_n^*(f).
+\]
+Here \(f^m\) denotes the \(m\)-fold iterate. Under this interpretation, let \(\mathcal P_{n,\nu}^*\), with \(\nu=\nu(n,f)\), denote the finite directed graph whose vertices are these points and whose edges are \(P\to f(P)\). It is a disjoint union of directed cycles of length \(n\). Its automorphism group is
+\[
+A_n:=\operatorname{Aut}(\mathcal P_{n,\nu}^*)
+=\{\sigma\in\operatorname{Sym}(\operatorname{Per}_n^*(f)):
+\sigma\circ f=f\circ\sigma\text{ on }\operatorname{Per}_n^*(f)\}.
+\]
+The natural Galois action defines
+\[
+\rho_{n,f}^{\mathrm{dyn}}:G_K\longrightarrow A_n,
+\qquad \rho_{n,f}^{\mathrm{dyn}}(\tau)(P)=\tau(P).
+\]
+Define
+\[
+\operatorname{Aut}_K(f)=\{h\in\operatorname{Aut}_K(\PP^N):h\circ f=f\circ h\}.
+\]
+Each such \(h\) restricts to an element \(h_n\in A_n\). Interpret the superscript in the source as fixed points under conjugation, namely
+\[
+A_n^{\operatorname{Aut}_K(f)}
+:=\{\sigma\in A_n:\sigma h_n=h_n\sigma\text{ for every }h\in\operatorname{Aut}_K(f)\}.
+\]
+This interpretation of the superscript also requires source confirmation.
+
+For the given field \(K\), find general necessary and sufficient conditions on \(f\), separately, for each of the following properties:
+\begin{enumerate}
+\item[(a)] There exists a finite constant \(M\), allowed to depend on \(K\) and \(f\) but independent of \(n\), such that
+\[
+[A_n:\rho_{n,f}^{\mathrm{dyn}}(G_K)]\leq M
+\quad\text{for every integer }n\geq 1.
+\]
+Equivalently, the supremum of these indices over all \(n\geq 1\) is finite.
+\item[(b)] There exists an integer \(n_0\geq 1\), allowed to depend on \(K\) and \(f\), such that
+\[
+\rho_{n,f}^{\mathrm{dyn}}(G_K)
+=A_n^{\operatorname{Aut}_K(f)}
+\quad\text{for every integer }n\geq n_0.
+\]
+\end{enumerate}
+No number-field or finite-generation hypothesis on \(K\) is supplied. If the source instead uses formal dynatomic periods, a different graph, or a different superscript convention, those definitions must replace the interpretations above before this draft can be regarded as a precise transcription.
+\subsection{Short English statement}
+For a projective-space morphism of degree at least two over an arbitrary characteristic-zero field, characterize when the Galois action on periodic points has uniformly bounded index in the full periodic graph automorphism group, and separately when it eventually equals the subgroup permitted by the map's \(K\)-defined symmetries. The exact-period and centralizer interpretations require confirmation from the source.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(800387\), exact source problem code \texttt{catalogue entry}, title ``Open Problems in Arithmetic Dynamics --- Question 10.'' The registry attributes the problem to Benedetto, DeMarco, Ingram, Jones et al., with proposed year \(2018\), and labels it ``open.'' That label is supplied metadata, not an independently verified mathematical or literature assessment.
+\item Benedetto, DeMarco, Ingram, Jones et al., \emph{Current Trends and Open Problems in Arithmetic Dynamics} (2018), Question 10. Supplied source URL: \url{https://arxiv.org/abs/1806.04980}. The record reports access on \texttt{2026-10-16} and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not a claim of independent access or verification.
+\item The supplied registry record was created and updated at \texttt{2026-10-16T14:00:00Z} and identifies upstream revision \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}. These timestamps and revision identify the supplied source data and do not establish current problem status.
+\end{itemize}
+\end{document}

@@ -1,0 +1,51 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 1363}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Komi is an additive score compensation awarded to White, the second player, for Black's first move. A precise game-value problem must first fix a specification $\Theta$: board size, initial position and player to move, legality rules including ko or superko and repetition, passing and termination, scoring, treatment of dead stones and seki, and any draw or no-result conventions. The supplied record leaves $\Theta$ unspecified.
+
+For a fixed specification yielding a finite deterministic two-player perfect-information zero-sum score game, let $\Sigma_B,\Sigma_W$ be the sets of Black and White strategies. Write $S_\Theta(\sigma_B,\sigma_W)$ for terminal Black score minus terminal White score before adding komi. Its perfect-play score value is
+\[
+v_\Theta=\max_{\sigma_B\in\Sigma_B}\min_{\sigma_W\in\Sigma_W}S_\Theta(\sigma_B,\sigma_W)
+=\min_{\sigma_W\in\Sigma_W}\max_{\sigma_B\in\Sigma_B}S_\Theta(\sigma_B,\sigma_W).
+\]
+If White receives komi $c\in\R$, the score payoff is $S_\Theta-c$ and its value is $v_\Theta-c$. Under the exact score-balancing interpretation, the perfect komi question is to determine
+\[
+c_\Theta=v_\Theta,
+\]
+so that the perfect-play score value after compensation is zero. This formulation is conditional on the finite score-game assumptions; repetitions, infinite play or no-result outcomes may require a different game model.
+
+The source does not define ``perfectly fair''. A zero score value, a perfect-play draw, and equal win probability under some distribution of players are different notions. In a deterministic perfect-information setting, fairness does not automatically mean a fifty-percent win probability. If the rules forbid draws or restrict komi to a lattice such as half-integers, exact zero compensation may not belong to the allowed set; then thresholds between Black and White winning values or another fairness criterion must be specified rather than silently substituted.
+
+The background reports professional komi values of $6.5$ or $7.5$, describes an order-of-magnitude legal-position count of $10^{170}$ as motivation for computational difficulty, and mentions AI such as AlphaGo suggesting adjustments. These are supplied contextual descriptions, not proofs of the game-theoretic value; no supporting AI study is cited. The literature triage, checked 2026-08-17, reports that perfect komi for full-board Go was undetermined, with computer solutions only for restricted boards and particular rule sets, and that no theorem fixes perfect compensation for standard full-board Go. It specifically requires a precise board and rule choice before the value can be solved. The record's open label is a dated assessment.
+\subsection{Short English statement}
+For a fully specified Go board and rule set, determine Black's perfect-play score advantage before komi; under exact score balancing, that number is the compensation to give White. The stored question omits the rules and the meaning of fairness, and the supplied assessment says the full-board value was unknown at its check date.
+\subsection{Sources}
+\begin{itemize}
+\item UnsolvedMath local registry, permanent ID 1363, source code catalogue entry, ``Perfect Komi in Go''. Dataset attribution: Ulam AI and the UnsolvedMath Contributors; curation and metadata under CC BY 4.0.
+\item \emph{Go (game)}, game-theory overview, \url{https://en.wikipedia.org/wiki/Go_(game)}, recorded as accessed 2026-08-17. The supplied triage labels it an authoritative secondary source for rule dependence and unsolved full-board play.
+\item No primary computer-solving result, exact rule specification, or source supporting the background's AI-adjustment description is supplied. The literature assessment is reproduced from the local record.
+\end{itemize}
+\end{document}

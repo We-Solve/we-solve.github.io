@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001780}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\in\N\), and let \(p,q\in[0,1]\), as required by the stated sampling probabilities. For each \(n\), form random subsets \(\Omega_n,T_n\subseteq\{0,\ldots,n-1\}\) by including each row index with probability \(1-q\) and each column index with probability \(1-p\), with all these inclusion decisions independent. Write \(F_{\Omega_n,T_n}\) for the corresponding submatrix of the discrete Fourier transform matrix. Its dimensions are \(|\Omega_n|\times|T_n|\). Interpret \(\|\cdot\|\) as the operator norm for Euclidean norms, consistent with the supplied singular-value description.
+
+The source record does not specify the normalization of the Fourier matrix. Under the explicitly conditional choice of the unitary normalization,
+\[
+(F_n)_{jk}=n^{-1/2}\exp(-2\pi\mathrm{i}jk/n),\qquad 0\le j,k<n,
+\]
+define
+\[
+a(p,q)=\sqrt{p(1-q)}+\sqrt{q(1-p)},\qquad
+b(p,q)=\left|\sqrt{p(1-q)}-\sqrt{q(1-p)}\right|.
+\]
+The following limit statements express the usual interpretation of ``with high probability,'' taking \(p,q\) and the tolerance to be fixed while \(n\to\infty\). The source record does not explicitly supply these quantifier conventions.
+
+The first proposed bound asks whether, for every fixed admissible pair \(p,q\) satisfying \(p+q>1\) and every fixed \(\varepsilon>0\),
+\[
+\lim_{n\to\infty}\mathbb{P}\!\left(
+\|F_{\Omega_n,T_n}\|<a(p,q)+\varepsilon
+\right)=1.
+\]
+Here the norm of a matrix with no rows or no columns is taken to be zero, an explicit convention needed for the sampling model.
+
+The second proposed bound is stated separately under \(p\ne q\); the supplied wording does not impose \(p+q>1\) on this second question. Its displayed target is
+\[
+\left\|(F_{\Omega_n,T_n})^{-1}\right\|
+<\bigl(b(p,q)-\varepsilon\bigr)^{-1}
+\quad\text{with probability tending to one.}
+\]
+A positive reciprocal bound requires \(0<\varepsilon<b(p,q)\); this restriction is absent from the supplied wording. More fundamentally, the independently sampled submatrix is generally rectangular, so its ordinary two-sided inverse is undefined. No generalized inverse or restriction to a suitable subspace is specified. Thus this second display records an unresolved source formulation, rather than a well-defined probability assertion. A precise completion must specify the inverse operation, its treatment of rank deficiency and empty matrices, and the associated probability event. The record also does not specify whether boundary values \(p,q\in\{0,1\}\) are intended to be included. These qualifications require source clarification before either conditional interpretation is accepted as the intended formulation.
+\subsection{Short English statement}
+For independently sampled rows and columns of a Fourier matrix, the supplied problem asks for a high-probability upper bound on the largest singular value when \(p+q>1\), and a separate inverse-norm bound when \(p\ne q\). The Fourier normalization and asymptotic conventions require confirmation. The inverse bound remains undefined for the generally rectangular sampled matrix until the intended inverse and boundary conventions are specified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: \texttt{data/unsolvedmath/problems.json}, supplied record with permanent ID \(30001780\), title ``Spectral Bounds for Random DFT Submatrices,'' source problem code \texttt{catalogue entry}.
+\item Supplied primary citation: \emph{Random Matrices, Geometric Functional Analysis and Algorithms} (2011), Oberwolfach Reports, pp.\ 1287--1360, DOI 10.4171/owr/2011/24. \url{https://doi.org/10.4171/owr/2011/24}. The record attributes the problem to this workshop-report collection and gives proposed year 2011; no individual proposer is supplied.
+\item Supplied literature source labelled ``random DFT submatrix bounds'': \url{https://arxiv.org/abs/0709.0517}. No author or title is supplied for this reference.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and reports that the cited literature provides limiting laws and partial bounds, while no complete proof of both conjectures was found. This is supplied dated curation, not an independently verified literature assessment; time-sensitive status and cited claims require independent verification.
+\item The registry labels the statement \texttt{corrected\_verified} and reports that the official report was checked and the statement repaired to match its passage. These are supplied provenance claims, not verification performed for this draft.
+\end{itemize}
+\end{document}

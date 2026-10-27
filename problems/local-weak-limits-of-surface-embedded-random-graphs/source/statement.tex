@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003812}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(g\in\Z_{\geq 0}\) be fixed, and let \(\Sigma_g\) be the closed orientable surface of genus \(g\). The supplied interpretation of \(S_g(n,m)\) is a uniformly chosen labelled graph with vertex set \([n]=\{1,\ldots,n\}\), exactly \(m\) edges, and an embedding in \(\Sigma_g\). Here embeddability means that the graph admits a drawing on the surface with distinct edge interiors disjoint from one another and from the vertices. The supplied record does not specify whether graphs are simple, whether loops or parallel edges are allowed, or whether an embedding is part of the sampled object. Consequently, these conventions must be resolved before the finite probability space is uniquely determined. In particular, sampling graphs that admit embeddings and sampling graphs together with embeddings need not give the same distribution.
+
+Once the graph and sampling conventions are fixed, write \(\mathcal S_g(n,m)\) for the resulting finite class and interpret uniformity as
+\[
+\Pr\bigl(S_g(n,m)=G\bigr)=\frac{1}{|\mathcal S_g(n,m)|},\qquad G\in\mathcal S_g(n,m),
+\]
+whenever \(\mathcal S_g(n,m)\neq\varnothing\). Let \(m=m(n)\in\Z_{\geq0}\) satisfy this nonemptiness condition for all sufficiently large \(n\), and put \(G_n=S_g(n,m(n))\). Conditionally on \(G_n\), choose a vertex \(\rho_n\) uniformly from \([n]\).
+
+For a graph \(G\), a vertex \(v\), and an integer \(r\geq0\), let \(B_r(G,v)\) be the rooted subgraph induced by the vertices at graph distance at most \(r\) from \(v\), with root \(v\). Isomorphism of these neighborhoods forgets vertex labels and preserves the root. A distributional local weak limit is a random rooted, connected, locally finite graph \((\mathcal G,\rho)\) such that, for every \(r\geq0\) and every finite rooted graph \((H,o)\),
+\[
+\lim_{n\to\infty}\Pr\bigl(B_r(G_n,\rho_n)\cong(H,o)\bigr)
+=\Pr\bigl(B_r(\mathcal G,\rho)\cong(H,o)\bigr).
+\]
+The rooted limit describes the component seen from the sampled vertex; the finite graphs are not assumed connected.
+
+\textbf{Requested determination.} Identify the Benjamini--Schramm local weak limit of \(S_g(n,m(n))\) in the intended asymptotic regimes as \(n\to\infty\). The record calls these regimes ``natural'' but supplies no conditions on \(m(n)\), so it does not specify a complete family of sequences for which existence or identification is requested. Existence of a locally finite limit is not assumed here.
+
+There is also an unresolved convergence qualification. The displayed condition averages over both the random graph and its uniform root. A stronger possible formulation asks that, for every \(r\) and \((H,o)\),
+\[
+\frac{1}{n}\sum_{v\in[n]}\mathbf 1\{B_r(G_n,v)\cong(H,o)\}
+\xrightarrow{\Pr}
+\Pr\bigl(B_r(\mathcal G,\rho)\cong(H,o)\bigr).
+\]
+The supplied record does not distinguish these formulations. The model conventions, asymptotic regimes, and intended mode of convergence therefore remain qualifications requiring mathematical review.
+\subsection{Short English statement}
+For a fixed orientable genus, sample a labelled graph uniformly subject to its vertex count, edge count, and surface embeddability, then inspect neighborhoods of a uniformly chosen vertex. Determine their limiting distribution as the vertex count grows in the intended edge-count regimes. The source leaves the graph conventions, sampling of embeddings, edge-count regimes, and precise mode of convergence unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local problem registry record: permanent UnsolvedMath ID \(30003812\), source problem code \texttt{catalogue entry}, title \emph{Local Weak Limits of Surface-Embedded Random Graphs}, in the Oberwolfach Reports Open Problems collection. The supplied proposed year is \(2018\); no individual proposer is identified.
+\item Supplied report citation: \emph{Enumerative Combinatorics (2019)}, Oberwolfach Reports, DOI \texttt{10.4171/owr/2018/23}, pp.\ 1381--1464. \url{https://doi.org/10.4171/owr/2018/23}. The record describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions. Its citation year \(2019\) and the \(2018\) year in the DOI and proposed-year field are retained without reconciliation; no exact problem page or individual attribution is supplied.
+\item Supplied literature source: \emph{Local limit of sparse random planar graphs}. \url{https://arxiv.org/abs/2101.11910}.
+\item Supplied literature source: \emph{Evolution of random graphs on surfaces}. \url{https://doi.org/10.1137/17M113383X}.
+\item Supplied literature assessment, checked on \texttt{2026-08-21}: the notation is described as uniform labelled graphs embeddable on a fixed-genus surface; later work is said to determine sparse planar local limits, while no general Benjamini--Schramm limit for the extracted \(S_g\) model and regimes is said to be known. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The record labels the problem \texttt{open} and its statement \texttt{corrected\_verified}; its verification note describes repairs to notation, typography, and sentence structure while preserving mathematical content. These are supplied registry labels, not independent mathematical verification. The source itself requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

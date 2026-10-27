@@ -1,0 +1,87 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800615}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For the formulation below, use the standard interpretation of $\Z^{\N}$ as the additive product of discrete copies of $\Z$, with $\N=\{1,2,\ldots\}$, and give every subgroup the subspace topology. These topology and metric conventions are implicit rather than explicit in the supplied source. Equip $\Z^{\N}$ with the usual product metric
+\[
+d(x,y)=\begin{cases}0,&x=y,\\2^{-\min\{n\in\N:x(n)\ne y(n)\}},&x\ne y.\end{cases}
+\]
+Here strong measure zero is interpreted with respect to the restriction of this metric to the subgroup.
+
+For $f,h\in\N^{\N}$, or for nonnegative integer-valued sequences, write $f\leq^*h$ if $f(n)\leq h(n)$ for all but finitely many $n$. For $g\in\Z^{\N}$, put $|g|(n)=|g(n)|$. A subgroup $G\leq\Z^{\N}$ is \emph{bounded} if
+\[
+\exists b\in\N^{\N}\ \forall g\in G\quad |g|\leq^*b.
+\]
+Thus $G$ is \emph{unbounded} precisely when
+\[
+\forall b\in\N^{\N}\ \exists g\in G\ \forall N\in\N\ \exists n\geq N\quad |g(n)|>b(n).
+\]
+
+The metric space $G$ has \emph{strong measure zero} if, for every sequence $(\varepsilon_n)_{n\in\N}$ of positive real numbers, there are sets $A_n\subseteq G$ such that
+\[
+G=\bigcup_{n\in\N}A_n,
+\qquad \operatorname{diam}_d(A_n)<\varepsilon_n\quad(n\in\N),
+\]
+where the diameter of the empty set is taken to be zero.
+
+Let $\mathcal O(G)$ be the family of open covers of $G$. The selection property $\mathsf S_{\mathrm{fin}}(\mathcal O,\mathcal O)$ means that, for every sequence $(\mathcal U_n)_{n\in\N}$ from $\mathcal O(G)$, there are finite subfamilies $\mathcal F_n\subseteq\mathcal U_n$ with
+\[
+G=\bigcup_{n\in\N}\bigcup\mathcal F_n.
+\]
+Its failure therefore means that there exists a sequence of open covers $(\mathcal U_n)_{n\in\N}$ such that
+\[
+\forall (\mathcal F_n)_{n\in\N}\in\prod_{n\in\N}[\mathcal U_n]^{<\omega},\qquad
+G\ne\bigcup_{n\in\N}\bigcup\mathcal F_n.
+\]
+
+\textbf{Consistency question.} Is it consistent that there exists a subgroup $G\leq\Z^{\N}$ which has strong measure zero, is unbounded with respect to $\leq^*$ as defined above, and fails $\mathsf S_{\mathrm{fin}}(\mathcal O,\mathcal O)$? Under the usual interpretation of consistency relative to $\mathsf{ZFC}$, the question asks whether
+\[
+\operatorname{Con}(\mathsf{ZFC})\ \Longrightarrow\
+\operatorname{Con}\!\left(\mathsf{ZFC}+\text{there exists such a subgroup }G\right).
+\]
+The source does not explicitly specify the underlying set theory; this is an interpretation requiring review.
+
+\textbf{Supplied context.} The source states, for subgroups of $\Z^{\N}$,
+\[
+\begin{aligned}
+G\models\mathsf S_1(\Omega_{\mathrm{nbd}},\Gamma)
+&\quad\Longleftrightarrow\quad G\text{ is bounded}
+&&\text{[Bab05]},\\
+G\models\mathsf S_1(\mathcal O_{\mathrm{nbd}},\mathcal O_{\mathrm{nbd}})
+&\quad\Longleftrightarrow\quad G\text{ has strong measure zero}
+&&\text{[coc11]}.
+\end{aligned}
+\]
+These are retained as supplied background assertions, without independent verification. Here $\mathsf S_1(\mathcal A,\mathcal B)$ denotes selecting one member from each family in a sequence from $\mathcal A$ so that the selected members form an element of $\mathcal B$. The precise conventions for the neighborhood-cover families and $\Gamma$ are not supplied in the record and are not needed for the direct formulation above.
+\subsection{Short English statement}
+The question asks whether it is consistent that an additive subgroup of $\Z^{\N}$ has strong measure zero, has no single eventual bound on the absolute values of all its elements, and fails the Menger covering property $\mathsf S_{\mathrm{fin}}(\mathcal O,\mathcal O)$. The formulation uses the usual product topology and product metric; these conventions and the interpretation of consistency relative to $\mathsf{ZFC}$ require confirmation from the source. The registry labels the problem open; that label is supplied curation, not an independently verified status assessment.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \texttt{800615}, exact source problem code \texttt{catalogue entry}, supplied complete source record. The registry records proposer Tsaban, proposed year 2006, and status \texttt{open}.
+\item Tsaban, \emph{Selection Principles and Special Sets of Reals: Open Problems} (2006), Problem 43, as identified in the supplied provenance: \url{https://arxiv.org/abs/math/0609601}. The supplied record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; this access report is not an independent verification of the source.
+\item The source title and background attach the attribution/context label \texttt{[BG]}. Its expansion is not supplied.
+\item The background cites \texttt{[Bab05]} for the boundedness equivalence and \texttt{[coc11]} for the strong-measure-zero equivalence. Full bibliographic entries and links for these labels are not supplied.
+\end{itemize}
+\end{document}

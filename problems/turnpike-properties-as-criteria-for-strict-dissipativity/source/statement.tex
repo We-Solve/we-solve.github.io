@@ -1,0 +1,57 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002811}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied problem concerns a discrete-time control system
+\[
+ x(k+1)=f(x(k),u(k))
+\]
+with stage cost \(\ell(x,u)\). The state and control domains, admissibility constraints, optimization horizon, terminal conditions, and precise meaning of the turnpike property are not specified in the record.
+
+To express the supplied dissipativity condition, write \(X\) for the state domain in an unspecified normed space, \(U\) for the control domain, and \(D\subseteq X\times U\) for the admissible state--control pairs, with \(f:D\to X\) and \(\ell:D\to\R\). These symbols describe data that must be supplied; they do not impose a particular state space or admissibility model. An admissible equilibrium is a pair \((x_e,u_e)\in D\) satisfying \(f(x_e,u_e)=x_e\). The class \(\mathcal K_\infty\) consists of continuous, strictly increasing functions \(\rho:[0,\infty)\to[0,\infty)\) such that \(\rho(0)=0\) and \(\lim_{r\to\infty}\rho(r)=\infty\).
+
+The source's strict dissipativity condition asks for an equilibrium \((x_e,u_e)\), a storage function \(\lambda:X\to\R\), and \(\rho\in\mathcal K_\infty\) such that
+\[
+ \ell(x,u)-\ell(x_e,u_e)
+ +\lambda(x)-\lambda\bigl(f(x,u)\bigr)
+ \geq \rho\bigl(\lVert x-x_e\rVert\bigr)
+ \qquad\text{for every }(x,u)\in D.
+\]
+Here universal quantification over admissible pairs makes explicit the usual reading of the displayed source condition; the intended admissible set and whether a local restriction is intended remain unspecified. The record gives no regularity or boundedness requirements on \(\lambda\), and the strictness term measures state deviation only.
+
+\textbf{Problem.} Determine assumptions under which a turnpike property for the stated optimal-control problem implies strict dissipativity in the displayed sense. A precise converse theorem requires specifying the turnpike property, its quantifiers and uniformity, the optimization problem and admissible initial states, and its relationship to the equilibrium \((x_e,u_e)\). These choices cannot be recovered uniquely from the supplied record. In particular, the source does not explicitly require \((x_e,u_e)\) to minimize the stage cost among admissible equilibria.
+
+The record describes strict dissipativity implying a turnpike property as the known direction, without supplying its hypotheses or identifying the turnpike variant. This is retained as a qualified source assertion, not an unconditional theorem.
+\subsection{Short English statement}
+The problem asks when optimal trajectories spending most of their horizon near an equilibrium force a strict dissipativity inequality relative to that equilibrium. This description of turnpike behavior is informal: the source does not specify its exact definition or the control problem's constraints and boundary conditions. The supplied status is \emph{partially solved}; a precise theorem statement requires resolving these omissions.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002811\), source code \texttt{catalogue entry}, title \emph{Turnpike Properties as Criteria for Strict Dissipativity}, in the collection \emph{Oberwolfach Reports Open Problems}. Project registry references: \texttt{data/unsolvedmath/problems.json} and supplementary \texttt{catalog/problems.json}; neither file was independently inspected for this draft.
+\item \emph{Control Theory: A Mathematical Perspective on Cyber-Physical Systems} (2015), Oberwolfach Reports, pp.~597--659, DOI \texttt{10.4171/owr/2015/12}. Supplied report reference and literature-source link: \url{https://doi.org/10.4171/owr/2015/12}. The record attributes the problem to workshop open-problem discussions and supplies the proposed year 2015, but names no individual proposer and gives no problem-specific page.
+\item Supplied literature reference labelled ``Grune and Muller, strict dissipativity'': \url{https://doi.org/10.1016/j.sysconle.2016.01.003}. The record supplies no fuller bibliographic citation.
+\item Literature assessment dated \textbf{2026-08-21}: the supplied curation states that, under controllability and structural assumptions, strict dissipativity and several turnpike variants are equivalent, while a converse theorem under minimal general assumptions remains unavailable. This is supplied dated curation, not an independently verified literature assessment. Its time-sensitive status and cited claims require independent verification.
+\item The registry labels the problem \texttt{partially\_solved} and the statement \texttt{corrected\_verified}, with the explanation that mathematical content was preserved while notation, typography, or omitted definitions were repaired for publication. These are supplied registry labels, not mathematical verification performed for this draft.
+\end{itemize}
+\end{document}

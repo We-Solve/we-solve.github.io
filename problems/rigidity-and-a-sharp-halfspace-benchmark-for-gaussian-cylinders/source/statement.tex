@@ -1,0 +1,62 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001291}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\gamma_n\) be standard Gaussian probability on \(\R^n\), let \(K\) be measurable and convex with \(\gamma_n(K)>0\), let \(X\sim\gamma_n(\,\cdot\mid K)\), and let \(\theta\) be a unit vector. A cylinder in direction \(\theta\) has the form \(C=E+\R\theta\), \(E\subset\theta^\perp\). The source asks whether
+\[
+ \operatorname{Var}\langle X,\theta\rangle=1
+\]
+forces such a cylinder, and whether deficit \(\varepsilon=1-\operatorname{Var}\langle X,\theta\rangle\) forces small symmetric difference from one. The extracted control character is read as \(\varepsilon\). Standard covariance and unit direction are explicit normalization assumptions; the original does not specify them or a measure for symmetric difference.
+
+The source remarks state \(\operatorname{Var}\langle X,\theta\rangle\le1\), obtainable for example by Brascamp--Lieb, and refer to Sidak's lemma in the symmetric case. The supplied aid attributes exact rigidity to Vempala's 2010 normal-subspace theorem: unit conditional variance is equivalent to invariance in direction \(\theta\). Literal set invariance requires an appropriate closed convex representative; for arbitrary measurable convex sets, boundary changes invisible to Gaussian conditioning require an almost-everywhere or closure interpretation. For closed full-dimensional \(K\), the claimed conclusion is \(K=E+\R\theta\). The full theorem hypotheses are not supplied.
+
+For its quantitative benchmark, define
+\[
+ \delta_\theta(K)=\inf_{E\subset\theta^\perp\ \mathrm{measurable}}
+ \gamma_n\bigl(K\mathbin{\triangle}(E+\R\theta)\bigr).
+\]
+This is absolute standard-Gaussian distance, not Lebesgue or conditional-relative distance. For \(n\ge2\), take the centered halfspace \(K=\{x:\langle u,x\rangle\ge0\}\), where \(u\) is unit, and put \(\rho=\langle u,\theta\rangle\). The aid reports
+\[
+ \gamma_n(K)=1/2,\qquad
+ \varepsilon=\frac2\pi\rho^2,\qquad
+ \delta_\theta(K)=\frac{\arcsin|\rho|}{\pi}
+ =\frac{\arcsin\sqrt{\pi\varepsilon/2}}{\pi}.
+\]
+Here \(0\le\varepsilon\le2/\pi\). For \(|\rho|<1\), the optimum is attained by the convex cylinder
+\(\{x:\langle u-\rho\theta,x\rangle\ge0\}\).
+At \(|\rho|=1\), every cylinder has error \(1/2\), and whole space or the empty cylinder attains it; this avoids treating the zero projected normal as a genuine halfspace normal.
+
+As \(\varepsilon\downarrow0\), the reported distance is asymptotic to \(\sqrt{\varepsilon/(2\pi)}\). Thus no uniform estimate \(\delta_\theta(K)\le C\varepsilon^\beta\), with a fixed finite \(C\), can hold for this family with \(\beta>1/2\). The benchmark fixes Gaussian measure at one half, so it is not an artifact of vanishing body probability. It supplies a necessary exponent limit, not an upper stability theorem for all convex sets. The original quantitative question still needs its distance convention, dimensional/probability dependence, and regularity assumptions specified.
+\subsection{Short English statement}
+The source asks whether maximal conditional Gaussian variance forces a cylinder and whether near-maximal variance gives quantitative closeness. The supplied aid reports exact rigidity and computes tilted halfspaces showing that a uniform Gaussian-distance stability exponent cannot exceed one half.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(20001291\), source code \texttt{catalogue entry}; \texttt{aim-convex-geometry-notes.json}, \texttt{notes[22]}, tag \texttt{problem}.
+\item AIM workshop ``Algorithmic Convex Geometry,'' 5--9 November 2007, Problem 4, Ryan O'Donnell (printed ``O'Donnnell''): \url{https://aimath.org/WWN/convexgeometry/convexgeometry.pdf}. Statement status \texttt{reconstructed\_unverified}. No PDF was accessed for this draft.
+\item Source references Sidak's lemma and the Brascamp--Lieb inequality without full citations. Vempala's 2010 normal-subspace theorem is named by the aid without paper title, theorem number, or URL. The halfspace benchmark has no separate authoritative citation.
+\item Research attempt 1: \texttt{partial\_result}, status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, rigor label \texttt{proved}, novelty confidence low. Created and updated 14 August 2026. This machine-generated aid is not peer reviewed; independently verify before citation.
+\item Ulam AI / UnsolvedMath Contributors; CC BY 4.0.
+\end{itemize}
+\end{document}

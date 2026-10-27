@@ -1,0 +1,84 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001585}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) and \(C\) be the integer parameters in the supplied statement. The matrix alphabet is
+\[
+\Sigma_{n,C}=\{B\in\operatorname{Mat}_{n\times n}(\Z): B_{ij}\in\{-C,-C+1,\ldots,C\}\}.
+\]
+The intended parameter restrictions appear to be \(n\geq1\) and \(C\geq0\); these restrictions are not explicitly stated in the record. Let \(A\) be the supplied automaton over this alphabet, and write \(L(A)\) for its accepted language. The source does not specify the automaton model.
+
+The source describes a matrix \(M\) of dimension \(d(M)\geq n\) as recognized when its entries vanish outside the \(n\)-neighborhood of the diagonal and \(A\) accepts its word of consecutive \(n\times n\) diagonal minors. Here the letters must be matrix blocks, rather than determinants, to belong to \(\Sigma_{n,C}\). The neighborhood and block-reading conventions require clarification.
+
+For precision, one possible interpretation can be expressed conditionally as follows. If the matrices are square integer matrices and consecutive blocks mean overlapping principal blocks, define
+\[
+W_n(M)=\bigl(M[\{j,\ldots,j+n-1\},\{j,\ldots,j+n-1\}]\bigr)_{j=1}^{d-n+1}
+\quad(M\in\operatorname{Mat}_{d\times d}(\Z)).
+\]
+For a specified bandwidth \(b\), the corresponding recognized set would be
+\[
+\mathcal R_{A,d}^{(b)}=
+\left\{M\in\operatorname{Mat}_{d\times d}(\Z):
+M_{ij}=0\text{ if }|i-j|>b,\quad W_n(M)\in L(A)\right\}.
+\]
+The readings \(b=n\) and \(b=n-1\) are different; the supplied record does not resolve which is intended, nor confirm the overlapping-block convention. In particular, overlapping blocks of size \(n\) do not inspect entries with \(|i-j|=n\), so the alphabet bound alone does not bound those entries under the reading \(b=n\). This conditional formulation is not a choice of the intended convention.
+
+Once the recognized sets \(\mathcal R_{A,d}\) have been specified, count each recognized matrix once and set
+\[
+a_d(A)=\sum_{M\in\mathcal R_{A,d}}\dim_{\Q}\ker(M:\Q^d\longrightarrow\Q^d),
+\qquad
+F_A(x)=\sum_{d\geq n}a_d(A)x^d,
+\]
+provided every coefficient is finite. For integer matrices, the nullity is unchanged by extending scalars to \(\R\) or \(\C\). The integer-matrix setting and characteristic-zero interpretation are explicit conditional conventions here, since the source does not separately specify the ambient matrix domain or kernel field.
+
+\textbf{Automaton-series question.} With the intended recognition conventions fixed, determine the possible values of \(F_A(q)\) at rational \(q\). In particular, do there exist permitted parameters, an automaton \(A\), and \(q\in\Q\) such that
+\[
+F_A(q)\in\overline{\Q}\cap\R\setminus\Q?
+\]
+Here \(\overline{\Q}\) denotes the algebraic numbers. Under the ordinary convergent-power-series interpretation, evaluation requires
+\[
+\sum_{d\geq n}a_d(A)|q|^d<\infty.
+\]
+The supplied question gives no convergence condition or alternative evaluation rule, so this evaluation convention also requires confirmation.
+
+The original extracted statement additionally asks
+\[
+C(G)\not\subseteq\Q
+\quad\Longleftrightarrow\quad
+\Z/p\wr K\subseteq G
+\text{ for some prime }p\text{ and infinite finitely generated group }K,
+\]
+and asks for \(C(\Z/2\wr\Z)\). These are retained as source questions: the record does not define \(C(G)\), specify the class of groups \(G\), or specify the wreath-product convention. Consequently, they cannot be made into fully defined mathematical targets from the supplied record alone.
+\subsection{Short English statement}
+The main question asks which numbers arise by evaluating a generating series that counts kernel dimensions of matrices recognized by an automaton, especially whether an irrational algebraic value can occur at a rational argument. The recognition conventions, matrix domain, and evaluation domain need clarification. The original record also contains group-theoretic questions involving an undefined invariant \(C(G)\). This is a statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: \texttt{data/unsolvedmath/problems.json}, permanent ID \(30001585\), title ``Automaton Kernel Series and \(\ell^2\)-Betti Values,'' exact source code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. No individual proposer is supplied; the proposed year is recorded as 2010.
+\item Supplied authoritative source citation: \emph{Actions and Invariants of Residually Finite Groups: Asymptotic Methods} (2011), Oberwolfach Reports, pp.\ 2335--2391, DOI \texttt{10.4171/owr/2010/40}. Original OWR report: \url{https://doi.org/10.4171/owr/2010/40}. The supplied background describes Oberwolfach Reports as records of mathematical workshops and their open-problem discussions.
+\item Supplied literature reference: Grabowski, \emph{Atiyah problem for lamplighter groups}, \url{https://arxiv.org/abs/1009.0229}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the record ``partially solved'' and reports that explicit transcendental-kernel constructions settle the existence of non-rational values for the lamplighter group, while the broader subgroup characterization and automata-series questions remain open. This is supplied dated curation, not an independently verified literature assessment; its time-sensitive status and cited claims require independent checking.
+\item The supplied registry labels the statement \texttt{corrected\_verified} and reports that its mathematical content was checked against the official Oberwolfach report, with notation, context, and question form normalized. These are supplied verification claims; no source was independently visited or checked in preparing this draft.
+\end{itemize}
+\end{document}

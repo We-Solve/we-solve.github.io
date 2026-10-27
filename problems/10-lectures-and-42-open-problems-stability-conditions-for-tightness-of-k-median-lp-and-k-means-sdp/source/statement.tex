@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 2800904}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Given finite data and an integer $1\leq k\leq N$, the source asks for stability-type hypotheses ensuring exactness of a $k$-median linear-programming relaxation or a $k$-means semidefinite-programming relaxation. ``Well-explained by $k$ clusters'' is motivation, not a specified mathematical hypothesis.
+
+In a common discrete $k$-median model, data points have dissimilarities $d_{ij}$ and one selects at most $k$ data-point centers. A standard LP uses assignment variables $x_{ij}$ and center variables $y_j$:
+\[
+\min\sum_{i,j}d_{ij}x_{ij},\quad
+\sum_jx_{ij}=1,\quad0\leq x_{ij}\leq y_j\leq1,\quad
+\sum_jy_j\leq k.
+\]
+Integrality would mean an optimum is attained by $0$--$1$ assignments and center selections.
+
+For Euclidean $k$-means, the discrete objective for a partition into nonempty clusters is
+\[
+\sum_{C}\sum_{i\in C}\|v_i-\bar v_C\|_2^2,
+\qquad \bar v_C=|C|^{-1}\sum_{i\in C}v_i.
+\]
+In a common partition-matrix SDP, a genuine partition is encoded by
+\[
+Z=\sum_C|C|^{-1}\mathbf1_C\mathbf1_C^{\mathsf T}.
+\]
+Tightness means that an SDP optimum has such a partition encoding; it does not mean every entry of $Z$ is $0$ or $1$. The source does not supply a particular LP/SDP, so these examples explain typical meanings rather than select verified source formulations.
+
+The requested task is to identify precise stability properties and parameter regimes that guarantee the relevant relaxation is integral/exact. For example, a common perturbation-stability notion asks that a unique optimal partition survive every admissible multiplicative perturbation $d_{ij}\leq d'_{ij}\leq\alpha d_{ij}$, but the source fixes neither this notion, the perturbation class, nor $\alpha$. It also does not specify whether exactness means existence of an integral optimum, integrality of all optima, or unique recovery of a distinguished partition.
+
+The supplied summary reports exactness under strong separation in well-separated mixture/community settings, and near-optimal algorithms under more permissive stability hypotheses. It expressly distinguishes those algorithmic results from a general proof of exact LP/SDP integrality under stability, which it calls still partially open. No quantitative separation or stability theorem is supplied.
+\subsection{Short English statement}
+The problem seeks stability assumptions that force clustering relaxations to return genuine cluster solutions. The exact relaxations and stability model are unspecified. The supplied summary reports separation-based results and stability-based algorithms, while distinguishing both from general exact-integrality guarantees.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 2800904, exact source code catalogue entry, ``10 Lectures and 42 Open Problems --- Stability conditions for tightness of k-median LP and k-means SDP''; proposer Afonso S. Bandeira, 2015; status partially solved, classification PARTIAL-PROGRESS.
+\item Bandeira, \emph{42 Open Problems in Data Science} (source-list year 2016), Open Problem 9.4, author blog \url{https://afonsobandeira.wordpress.com/2015/11/28/10l42psbm/}. The provenance records HTML extraction, accessed July 29, 2026, and says the source presented the item as open.
+\item The supplied research summary reports strong-separation tightness results and near-optimal algorithms under perturbation stability, but gives no authors, precise relaxations, parameters, or authoritative theorem citations. Its general exact-integrality qualification is a supplied assessment, not independently verified literature analysis.
+\end{itemize}
+\end{document}

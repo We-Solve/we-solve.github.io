@@ -1,0 +1,54 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001008}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Consider a plane-wave discontinuous Galerkin method for the homogeneous Helmholtz equation, conventionally written
+\[
+-\Delta u-\kappa^2u=0\quad\text{in }\Omega,
+\]
+with wavenumber $\kappa>0$. Homogeneity here concerns the interior equation; the boundary data and boundary conditions are not supplied and are not assumed zero.
+
+For a fixed mesh $\mathcal T_h$, a conventional local approximation space on an element $K$ is
+\[
+V_p(K)=\operatorname{span}\{e^{i\kappa d_{K,j}\cdot x}:1\leq j\leq m_K(p)\},
+\qquad |d_{K,j}|=1.
+\]
+The global space is broken across element interfaces, with coupling through the chosen DG formulation. In the $p$-version, approximation order or the number of directions $m_K(p)$ increases while the mesh is fixed. The record does not specify a relation between its order parameter $p$ and $m_K(p)$, or how directions are distributed.
+
+Develop and analyze this $p$-version: establish convergence and quantitative error estimates as the approximation order increases, and determine the dependence on wavenumber that governs pollution. A possible analysis would specify suitable error and approximation norms, stability constants and best-approximation estimates before deriving a rate. Neither an algebraic nor an exponential rate is imposed by the question. Pollution analysis must distinguish approximation error from deterioration of the numerical method as $\kappa$ grows and state the accompanying resolution regime; a fixed-wavenumber convergence statement alone does not specify that behavior.
+
+The domain and dimension, boundary-value problem and its well-posedness, mesh regularity, numerical fluxes and penalty parameters, direction choices, solution regularity, error norm and joint dependence of $h,p,\kappa$ are all unstated. Thus no particular DG scheme, stability theorem or rate can be uniquely formulated from this record alone.
+
+The supplied assessment checked 2026-08-21 labels the problem partially solved. It describes the historical 2009 question as substantially resolved in important settings by $p$-version analysis and later exponential $hp$ convergence, while saying no single result settles the broad statement as written. That reported $hp$ progress is retained separately from the requested fixed-mesh $p$-version analysis.
+\subsection{Short English statement}
+Analyze convergence, error rates and pollution when increasing plane-wave approximation order in a fixed-mesh DG Helmholtz method. The source leaves the boundary problem, DG formulation, direction strategy and parameter regime unspecified and reports substantial progress in particular settings.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30001008, source code catalogue entry; supplied complete record, including its corrected-verified editorial-cleanup note. Literature checked 2026-08-21: the assessment is supplied dated curation, not independently verified here.
+\item Nonstandard Finite Element Methods (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/36, pp. 2027--2094: \url{https://doi.org/10.4171/owr/2008/36}. Proposed-year metadata gives 2008.
+\item PWDG $p$-version analysis: \url{https://doi.org/10.1137/090761057}.
+\item PWDG $hp$ convergence: \url{https://centaur.reading.ac.uk/40203/1/HiptmairMoiolaPerugia_FoCM_accepted.pdf}.
+\end{itemize}
+\end{document}

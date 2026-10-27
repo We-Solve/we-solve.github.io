@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002319}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Work with complete first-order theories in countable computable languages. A theory \(T\) is \(\aleph_1\)-categorical if all its models of cardinality \(\aleph_1\) are isomorphic. Let \(0^{(0)}=\varnothing\), and let \(0^{(n+1)}\) be the Turing jump of \(0^{(n)}\). A presentation is computable in an oracle \(A\) if its atomic diagram is \(A\)-computable; this does not require its complete elementary diagram to be \(A\)-computable.
+
+Conjecture 17 asks whether
+\[
+ \forall T\ \exists n<\omega\quad
+ \Bigl[T\text{ is }\aleph_1\text{-categorical and has a computable model}
+ \ \Longrightarrow\
+ \forall N\models T\ (|N|=\aleph_0\Longrightarrow
+ \exists\widehat N\cong N\ (D(\widehat N)\le_T0^{(n)}))\Bigr].
+\]
+The finite bound may depend on \(T\) but must work for all its countable models. The conclusion is existence of presentations; it does not by itself assert an algorithm recovering every desired copy uniformly from arbitrary input presentations.
+
+The source's historical note says that \(n=4\) works when \(T\) is strongly minimal. Strong minimality means that in every model every definable unary set, with parameters, is finite or cofinite. The supplied aid reports a later stronger published bound: if a strongly minimal theory has a computable model, every countable model has a \(0^{(3)}\)-computable presentation. It also reports examples showing that \(0^{(2)}\) is insufficient. Thus \(3\) is reported sharp as a common bound for the strongly minimal subclass, not necessarily as the least bound for each individual theory. The historical four-jump assertion and this stronger reported result are compatible. Full citations and the precise uniformity statements are absent from the record.
+
+The conditional transfer in the aid can be formulated with the following explicit additional hypotheses for an ambient \(T\). There is a strongly minimal reduct theory \(S\), an effective reduct operation taking a computable \(T\)-model to a computable \(S\)-model, and a fixed finite \(k\) with faithful reconstruction: for every countable \(N\models T\), every oracle \(A\), and every \(A\)-computable copy \(B\cong N\!\upharpoonright\!S\), the specified reconstruction procedure using \(A^{(k)}\) produces a copy of that same ambient \(N\). In particular, faithfulness must recover the ambient isomorphism type, rather than merely some expansion of the reduct. Then
+\[
+ T\text{ has a computable model}
+ \ \Longrightarrow\
+ \forall N\models T\ (|N|=\aleph_0\Longrightarrow
+ \exists\widehat N\cong N\ (D(\widehat N)\le_T0^{(3+k)})).
+\]
+Indeed, the stated bound composes a \(0^{(3)}\)-computable reduct presentation with the assumed \(k\)-jump reconstruction; the jump identity is \((0^{(3)})^{(k)}\equiv_T0^{(3+k)}\). The existence of such a faithful reduct and reconstruction for every \(\aleph_1\)-categorical theory is not supplied. The general conjecture is therefore not claimed solved.
+
+The trailing text ``1.10. Computable prime models (Andrews)'' is a following-section heading and is not an additional hypothesis or an attribution of Conjecture 17.
+\subsection{Short English statement}
+The conjecture asks for one finite jump bound, depending on the theory, for presentations of all its countable models. The aid reports the sharp common bound three for strongly minimal theories and transfers it to \(3+k\) only when faithful reconstruction from a strongly minimal reduct uses \(k\) jumps.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002319\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-logic-notes.json}, \texttt{notes[94]}.
+\item AIM, \emph{Computable Stability Theory}, Conjecture 17, with historical note ``if \(T\) is strongly minimal then \(n=4\) works.'' Supplied reference: \url{https://aimath.org/pastworkshops/computestabproblems.pdf}. No proposer, year, original remarks, or literature entry is supplied. Andrews is named only in the following section heading.
+\item Supplied research attempt 1: \texttt{conditional\_result}, run status \texttt{unknown}, rigor \texttt{conditional}, low novelty confidence. Registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. The reported published three-jump upper bound and two-jump insufficiency are not accompanied by bibliographic references in this record.
+\item The supplied research aid is machine generated, not peer reviewed, and explicitly requires independent verification before citation.
+\end{itemize}
+\end{document}

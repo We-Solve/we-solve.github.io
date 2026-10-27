@@ -1,0 +1,64 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003721}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks about stochastic completeness and logarithm-map bridge constructions on an LDDMM (large deformation diffeomorphic metric mapping) landmark manifold. It does not specify the ambient space, number of landmarks, kernel, or bridge construction. The following gives a conditional mathematical framework; these missing choices remain part of the formulation problem.
+
+For positive integers \(n,d\), a standard Euclidean landmark configuration space is
+\[
+M_{n,d}=\{(q_1,\ldots,q_n)\in(\R^d)^n:q_i\ne q_j\text{ whenever }i\ne j\}.
+\]
+If a matrix-valued kernel \(K:\R^d\times\R^d\to\R^{d\times d}\) makes the block matrix \(\mathbf K(q)=(K(q_i,q_j))_{i,j=1}^n\) symmetric positive definite for every \(q\in M_{n,d}\), and has sufficient regularity to define a smooth metric, the associated landmark cometric is
+\[
+g_q^{-1}(\alpha,\beta)=\sum_{i,j=1}^n\alpha_i^{\mathsf T}K(q_i,q_j)\beta_j,
+\qquad \alpha,\beta\in T_q^*M_{n,d},
+\]
+and the metric is \(g_q(v,w)=v^{\mathsf T}\mathbf K(q)^{-1}w\). This is a conventional possible setting, not a claim that the supplied record specifies Euclidean landmarks or these exact kernel hypotheses.
+
+For a specified landmark Riemannian manifold \((M,g)\), let \((X_t)_{0\le t<\zeta}\) be its minimal Brownian motion with generator \(\tfrac12\Delta_g\) and lifetime \(\zeta\). Stochastic completeness means
+\[
+\forall x\in M,\qquad \mathbb P_x(\zeta=\infty)=1.
+\]
+Equivalently, its minimal heat semigroup preserves the constant function \(1\): \(P_t1(x)=1\) for every \(x\in M\) and every \(t\ge0\).
+
+\textbf{Stochastic completeness question.} For the LDDMM landmark manifold intended by the source, with its kernel, configuration domain, metric, and any boundary behavior explicitly specified, determine whether the displayed stochastic completeness property holds. The source supplies no class of admissible kernels or quantification over landmark numbers or ambient dimensions, so it does not determine a single universal assertion over the conditional family above. In the displayed configuration space, collisions are excluded; whether Brownian motion can approach a collision or escape to infinity in finite lifetime is included in the completeness question, without adding a reflecting boundary or a continuation rule.
+
+For a specified Riemannian manifold, \(\exp_x(v)\) denotes the endpoint at time \(1\) of the geodesic with initial data \((x,v)\), whenever this geodesic exists up to that time. On a normal domain where this map has a smooth inverse, write \(\operatorname{Log}_x(y)=\exp_x^{-1}(y)\in T_xM\). The cut locus \(\operatorname{Cut}(x)\) records cut points of minimizing geodesics from \(x\); a smooth, single-valued minimizing logarithm cannot in general be presumed there. For a fixed bridge endpoint \(y\), the relevant singular pairs are those with \(y\in\operatorname{Cut}(x)\).
+
+\textbf{Bridge continuity question.} For the source's intended construction of a stochastic bridge with prescribed endpoints, using \(\operatorname{Log}_x(y)\), specify and justify how the construction is defined as such singular pairs are approached or crossed, and formulate and prove the intended continuity property. The record does not identify the bridge equation, a logarithm selection, an extension rule, the object required to be continuous, its topology, or the terminal-time condition. Continuity of a logarithm or drift field, continuity of sample paths, and continuous dependence of bridge laws on endpoints are different possible requirements. None is selected here, and no globally continuous extension of the logarithm is asserted.
+
+The supplied dated curation labels the problem partially solved: it reports stochastic completeness for broad classes of landmark kernels and arbitrary landmark number, while reporting general cut-locus continuity and rigorous logarithm-map bridge behavior as unresolved. These are supplied literature qualifications, not independently verified results or additional hypotheses.
+\subsection{Short English statement}
+Determine stochastic completeness for the intended LDDMM landmark metric, and formulate a rigorous continuity requirement for bridges constructed using Riemannian logarithms near the cut locus. The kernel, configuration space, bridge construction, and meaning of continuity are unspecified. Supplied dated curation labels the problem partially solved and reports broad stochastic completeness results, with general bridge continuity questions remaining unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, supplied record with permanent UnsolvedMath ID \(30003721\), source problem code \texttt{catalogue entry}, title \emph{Stochastic Completeness and Bridge Continuity on Landmark Manifolds}. The record attributes the question to Oberwolfach workshop discussions, gives proposed year \(2018\), and supplies no individual proposer.
+\item Supplied report citation: \emph{Statistics for Data with Geometric Structure (2019)}, Oberwolfach Reports, pp.~125--186, DOI \texttt{10.4171/owr/2018/3}. Literature-source label: ``Oberwolfach Report 3/2018.'' \url{https://doi.org/10.4171/owr/2018/3}. The supplied title-year notation and report identifier have not been reconciled here.
+\item Supplied literature-source label: ``Habermann--Sommer, stochastic completeness.'' \url{https://arxiv.org/abs/2606.02570}.
+\item Supplied literature-source label: ``Sommer et al., landmark-manifold bridges.'' \url{https://arxiv.org/abs/1705.10943}.
+\item Literature assessment checked at \texttt{2026-08-21}: supplied dated curation, not independently verified. It reports stochastic completeness for broad classes of landmark kernels and arbitrary landmark number, and says continuity at the cut locus and rigorous Log-map bridge behavior remain unresolved in general. The background explicitly calls this dated literature triage derived from supplied OWR curation and requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified}, explaining that notation, typography, and sentence structure were repaired while mathematical content was preserved. This supplied editorial label does not establish mathematical correctness or independent source verification.
+\end{itemize}
+\end{document}

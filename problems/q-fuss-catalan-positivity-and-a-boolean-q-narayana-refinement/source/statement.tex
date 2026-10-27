@@ -1,0 +1,97 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002706}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Problem 2.1, attributed to C. Athanasiadis, concerns a finite Coxeter group \(W\) of rank \(n\), exponents \(e_1,\ldots,e_n\), Coxeter number \(h\), and integer \(k\ge1\). Put \(d_i=e_i+1\) and
+\[
+ Q_{W,k}(q)=\prod_{i=1}^n\frac{[kh+d_i]_q}{[d_i]_q},
+ \qquad [a]_q=q+q^2+\cdots+q^a.
+\]
+The source's shifted \(q\)-integer convention is retained; its common factor \(q\) cancels in each ratio, giving the same rational function as the convention \(1+q+\cdots+q^{a-1}\). For irreducible \(W\), \(h\) is the usual Coxeter number. For general reducible groups, a common \(h\) must be specified or the product formed componentwise; the Boolean example below has common \(h=2\).
+
+\textbf{Central request.} Show \(Q_{W,k}(q)\in\Z_{\ge0}[q]\). The source says this was known in types A, B and D, and that in type A with \(k=1\) the expression agrees, up to a power of \(q\), with the Garsia--Haiman \((q,t)\)-Catalan specialization \(t=1/q\) [25]. These are historical source reports.
+
+The complete attached remarks contain further questions and a conjecture:
+\begin{enumerate}
+\item D. Bessis asks for the same positivity assertion for finite complex reflection groups after replacing \(e_i+1\) by fundamental degrees \(d_i\) and \(h\) by the highest degree. The well-generated and reducible conventions matter; this is not automatically the same expression as every modern generalized complex-reflection \(q\)-Catalan polynomial.
+\item V. Reiner conjectures: if \(c\) is a Coxeter element, \(d\mid h\), and \(\zeta\) is a primitive \(d\)-th root of unity, then
+\[
+ Q_{W,1}(\zeta)=
+ |\{u\in NC_W=[1,c]:c^{h/d}u c^{-h/d}=u\}|.
+\]
+The interval is in absolute reflection order. Root evaluation is of the polynomial after cancellation, not an undefined quotient at a zero denominator.
+\item S. Fomin and V. Reiner ask for other \(q\)-Catalan statistics, including whether
+\[
+ Q^+_{W,k}(q)=\prod_{i=1}^n
+       \frac{[kh+e_i-1]_q}{[e_i+1]_q}
+   =\prod_{i=1}^n\frac{[kh+d_i-2]_q}{[d_i]_q}
+\]
+is in \(\Z_{\ge0}[q]\), and whether \(Q_{W,k}\) admits a nonnegative polynomial refinement specializing at \(q=1\) to Fuss--Narayana numbers.
+\item Can Chapoton's \(M\)-, \(F\)- and \(H\)-triangles be extended to the \(q\)-Fuss--Catalan setting? The source does not specify a unique \(q\)-weight or a complete refinement identity for this extension.
+\end{enumerate}
+
+The supplied aid attributes to Gordon and Griffeth a nonnegative complex-reflection-group \(q\)-Fuss--Catalan polynomial which, in the well-generated case and hence the usual finite Coxeter setting, equals the central AIM product. It reports the central positivity question as solved in literature. This does not independently settle every attached remark, every naive complex product, or all triangle refinements.
+
+\textbf{Boolean refinement reported in the aid.} For \(W=A_1^n\), \(n,k\ge1\), define
+\[
+ N_{n,k}(q,t)=\sum_{a\in\{0,\ldots,k\}^n}
+ q^{2\sum_i a_i}t^{|\{i:a_i>0\}|}
+ =\left(1+t\sum_{a=1}^kq^{2a}\right)^n.
+\]
+Then it has nonnegative integer coefficients,
+\[
+ N_{n,k}(q,1)=Q_{A_1^n,k}(q)
+       =(1+q^2+\cdots+q^{2k})^n,
+ \qquad N_{n,k}(1,t)=(1+kt)^n.
+\]
+The latter is the Boolean Fuss--Narayana refinement in the aid's convention. Its rank coefficient
+\[
+ N_{n,k,r}(q)=[t^r]N_{n,k}(q,t)
+ =\binom nr(q^2+\cdots+q^{2k})^r
+\]
+satisfies, for \(0\le r\le n\),
+\[
+ q^{2r(k+1)}N_{n,k,r}(q^{-1})=N_{n,k,r}(q).
+\]
+For a primitive \(m\)-th root \(\zeta\), \(m\mid2k\), the reported evaluations are
+\[
+ N_{n,k}(\zeta,t)=
+ \begin{cases}(1+kt)^n,&m=1\text{ or }2,\\1,&m>2.\end{cases}
+\]
+The positive Boolean product is explicitly
+\[
+ Q^+_{A_1^n,k}(q)=(1+q^2+\cdots+q^{2k-2})^n.
+\]
+These Boolean formulas supply a special-case refinement and positive product; they are not a general construction of \(q\)-Narayana statistics or Chapoton triangles, nor do their root evaluations assert all the Reiner cyclic-sieving conjectures.
+\subsection{Short English statement}
+The central problem asks for nonnegative polynomial coefficients in the \(q\)-Fuss--Catalan product. The aid reports its solution in the well-generated setting and supplies a Boolean colored-root refinement. The source's additional complex-group, root-of-unity, positive-Catalan, Narayana and triangle questions are retained separately rather than absorbed into the solved label.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002706, catalogue entry; canonical \texttt{aim-probability-notes.json}, notes[147], including all attached remarks.
+\item Drew Armstrong's outline of the January 2005 AIM workshop \emph{Braid Groups, Clusters, and Free Probability}, Problem 2.1, \url{https://aimath.org/WWN/braidgroups/braidgroups.pdf}. The supplied verification reports checking signs and indices and correcting the OCR line break in ``2.1''; this draft does not independently repeat that check.
+\item Source attributions: C. Athanasiadis; D. Bessis; V. Reiner; S. Fomin and V. Reiner; Fr\'ed\'eric Chapoton. The only numbered reference supplied here is Garsia and Haiman [25]; no full entry is available.
+\item The aid credits Gordon and Griffeth for the central positivity result, without a full bibliographic reference. Machine-generated research attempt 1 is labeled partial result, solved in literature, rigor proved and low novelty confidence. Its Boolean refinement is not peer reviewed and requires independent verification.
+\end{itemize}
+\end{document}

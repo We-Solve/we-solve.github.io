@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002721}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $u$ be a unitary of finite order $k$ in a unital $*$-probability space $(\mathcal A,\varphi)$, with $\varphi(u^j)=0$ for $1\le j<k$. For $k\ge2$ this gives $\varphi(u^r)=\mathbf1_{\{k\mid r\}}$ for every integer $r$. Nica's question asks for all mixed free cumulants of $u,u^*$, equivalently their two-variable $R$-transform.
+
+For a word $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)\in\{+1,-1\}^n$, let $q_B=\sum_{j\in B}\varepsilon_j$ and let $NC(n)$ be the lattice of noncrossing partitions, with top $1_n$ and M\"obius function $\mu_{NC}$. The aid's exact formula is
+\[
+ \kappa_n(u^{\varepsilon_1},\ldots,u^{\varepsilon_n})
+   =\sum_{\substack{\pi\in NC(n)\\ k\mid q_B\ \forall B\in\pi}}
+            \mu_{NC}(\pi,1_n).
+\]
+Writing $K(\pi)$ for the Kreweras complement and
+$\operatorname{Cat}_r=(r+1)^{-1}\binom{2r}{r}$, this becomes
+\[
+ \sum_{\substack{\pi\in NC(n)\\ k\mid q_B\ \forall B\in\pi}}
+    (-1)^{|\pi|-1}\prod_{C\in K(\pi)}\operatorname{Cat}_{|C|-1}.
+\]
+The source's remark about $k$-divisible partitions is literal for pure words, where charge is block size; for mixed words the correct condition is signed charge divisible by $k$. For example a block $(+1,-1)$ has charge zero for every $k$, although its size is not generally divisible by $k$.
+
+For a shorter-word computation, let $\kappa(\varepsilon)$ abbreviate the mixed cumulant, and for $1\in B\subseteq\{1,\ldots,n\}$ let $\mathcal G(B)$ consist of the consecutive index gaps between successive members of $B$ and the tail after its last member. Empty gaps contribute one. Then
+\[
+ \kappa(\varepsilon)=\mathbf1_{\{k\mid\sum_j\varepsilon_j\}}
+ -\sum_{\substack{1\in B\subsetneq\{1,\ldots,n\}}}
+       \kappa(\varepsilon_B)
+       \prod_{I\in\mathcal G(B)}
+                      \mathbf1_{\{k\mid\sum_{j\in I}\varepsilon_j\}}.
+\]
+With noncommuting formal variables $z_+,z_-$, the convention
+\[
+ R(z_+,z_-)=\sum_{n\ge1}\sum_{\varepsilon\in\{+1,-1\}^n}
+       \kappa(\varepsilon)z_{\varepsilon_1}\cdots z_{\varepsilon_n}
+\]
+specifies every coefficient; no analytic convergence domain is asserted.
+
+The aid also gives the pure closed form
+\[
+ \kappa_{km}(u,\ldots,u)
+   =\frac{(-1)^{m-1}}m\binom{km-2}{m-1}\quad(m\ge1),
+\]
+with other pure cumulants zero, and the same formula for all-$u^*$ words. Below degree $k$, every mixed cumulant agrees with that of a Haar unitary. At degree $k$ the only differences are the two pure words, each with new cumulant $1$. For $k=1$, $u=1$ and the first cumulants are $1$ while all higher cumulants vanish.
+
+The original benchmark cases are retained in ordinary Catalan notation. For $k=2$, $u=u^*$, odd cumulants vanish and $\kappa_{2m}=(-1)^{m-1}\operatorname{Cat}_{m-1}$. For a Haar unitary, meaning all nonzero integer moments vanish, only even strictly alternating words are nonzero, with that same value. Infinite order alone is not the Haar assumption. The source's type-$A$ Catalan typography is not used to change this standard index. The following Section 6 material on cluster algebras, root compatibility and associahedra is appended background, not a hypothesis of the cumulant problem.
+\subsection{Short English statement}
+Compute finite-order unitary cumulants by summing noncrossing M\"obius weights over partitions whose blocks have charge zero modulo the order. The rule gives the formal $R$-transform, pure cumulants and the first departure from Haar-unitary behavior; block size alone is insufficient for mixed words.
+\subsection{Sources}
+\begin{itemize}
+\item A. Nica, Problem 5.3, American Institute of Mathematics workshop \emph{Braid groups, clusters and free probability}, \url{https://aimath.org/WWN/braidgroups/braidgroups.pdf}.
+\item Local UnsolvedMath registry, permanent ID 20002721, source code \texttt{catalogue entry}, canonical location \texttt{aim-probability-notes.json}, \texttt{notes[162]}, record dated 14 August 2026. Its remarks contain the $k=2$, Haar and noncrossing-partition benchmarks. The original literature field is empty.
+\item Reference labels [23], [24], [19] and [22], and names Fomin--Zelevinsky and Chapoton--Fomin--Zelevinsky, occur in the appended Section 6 cluster-algebra background, not as supplied proofs of the cumulant formulas; complete entries are absent.
+\item Supplied research attempt 1: full solution, problem status at run solved, rigor labelled proved, novelty confidence low. Its signed-charge and degree-$k$ refinements are machine-generated research aid, not peer reviewed; independently verify before citation. No separate full reference is supplied for them.
+\end{itemize}
+\end{document}

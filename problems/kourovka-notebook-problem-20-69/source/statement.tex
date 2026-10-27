@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 701727}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A one-relator group is a group admitting a presentation with a single defining relator. A group has torsion if it contains an element other than the identity of finite order; this does not require every element to have finite order.
+
+For the algorithmic formulation below, take a finite generating alphabet \(X\) and a presentation
+\[
+G=\langle X\mid R=1\rangle,
+\]
+where \(R\) is a word over \(X\cup X^{-1}\), and assume that \(G\) has torsion. The source does not explicitly specify finiteness of the generating alphabet; the formulation here uses the usual finite-presentation convention, and its scope requires review if infinitely generated one-relator groups were intended.
+
+For a word \(v\), write \(\overline v\) for the element it represents in \(G\). Given a nonnegative integer \(m\) and words \(u_1,\ldots,u_m\), their generated submonoid is
+\[
+\operatorname{Mon}_G(\overline{u_1},\ldots,\overline{u_m})
+=
+\left\{\overline{u_{i_1}}\cdots\overline{u_{i_k}}:
+ k\geq 0,\ i_1,\ldots,i_k\in\{1,\ldots,m\}\right\}.
+\]
+The empty product is the identity, so for \(m=0\) this submonoid is \(\{1_G\}\).
+
+The submonoid membership problem for a fixed such group asks for an algorithm which, on every input consisting of \(m\geq0\) and words \(u_1,\ldots,u_m,w\) over \(X\cup X^{-1}\), terminates and decides whether
+\[
+\overline w\in\operatorname{Mon}_G(\overline{u_1},\ldots,\overline{u_m}).
+\]
+\textbf{Question.} Does every one-relator group with torsion have decidable submonoid membership problem?
+
+Here the algorithm may depend on the fixed group and its presentation. The supplied wording does not explicitly ask for a single algorithm uniform over presentations.
+\subsection{Short English statement}
+For each fixed one-relator group containing a nonidentity element of finite order, can an algorithm always decide whether a given element is a product of elements from a supplied finite list, allowing repetitions and the empty product? The draft uses finite presentations; the source leaves that convention implicit.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID \(701727\), exact source code \texttt{catalogue entry}, title \emph{Kourovka Notebook Problem 20.69}. This draft uses the supplied complete source record, upstream revision \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Supplied attribution: C.-F. Nyberg-Brodda, proposed in 2022; original problem number 20.69 in \emph{The Kourovka Notebook (Unsolved Problems in Group Theory)}, 20th issue (2022), also identified in the record with the 21st issue edition (2026), \texttt{arXiv:1401.0300v48}. The supplied collection description names E. I. Khukhro and V. D. Mazurov as editors.
+\item The registry labels the problem \emph{open}. This is a supplied status label, not an independently verified assessment of the literature. The cited editions and arXiv version have not been independently consulted for this draft.
+\end{itemize}
+\end{document}

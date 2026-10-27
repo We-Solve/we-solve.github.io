@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30000050}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for a power lower bound at \emph{every prescribed radius}, rather than after choosing between two radii. Write $T_n=\R^2/n\Z^2$ and let $\chi$ be a red-blue coloring of its $n\times n$ toroidal square lattice, encoded by $\pm1$, with global balance $\sum\chi=0$. For a point or unit-cell coloring this requires $n$ even. If $\Delta_\chi(t,R)$ denotes the intended absolute color imbalance of the translated circle centered at $t$, the proposed quantifiers are
+\[
+ \exists c>0\ \exists\alpha>0\ \forall\text{ even }n\ 
+ \forall\chi\text{ balanced}\ \forall R\in(2,n/2)\ 
+ \exists t\in T_n:\quad \Delta_\chi(t,R)\geq cR^\alpha.
+\]
+The constants must be independent of $n$, the coloring and the prescribed radius; the center may depend on all of them. If the radius interval is empty the assertion is vacuous.
+
+The record does not define ``circle imbalance'' precisely. In the common unit-cell boundary-length model, extend $\chi$ to a periodic function constant on each unit square and set
+\[
+ \Delta_\chi(t,R)=\left|\int_{C(t,R)}\chi(x)\,ds(x)\right|
+ =\left|R\int_0^{2\pi}\chi\bigl(t+R(\cos\theta,\sin\theta)\bigr)\,d\theta\right|.
+\]
+This measures red versus blue arc length. In a lattice-vertex model a filled-disk discrepancy would instead be the absolute signed count of vertices in $B_{T_n}(t,R)$; signed counts on the circumference and integrals over a filled disk are still different quantities. The extraction's ``square lattice'' and ``circle'' do not resolve these choices. Thus the arc-length formula is an explicit possible convention, not a silent identification of the source model. The restriction $R<n/2$ permits an embedded Euclidean circle or disk on the flat torus.
+
+The supplied literature assessment checked 21 August 2026 reports a logarithmic lower bound and a later power bound only when a radius \emph{or its double} may be used. It did not locate a power bound for each prescribed radius. In particular, a statement of the form
+\[
+ \max\{\sup_t\Delta_\chi(t,R),\sup_t\Delta_\chi(t,2R)\}
+ \geq cR^\alpha
+\]
+in its applicable model and parameter range does not imply the fixed-$R$ assertion above. The assessment does not specify the logarithmic rate, power exponent, or the doubled-radius range restrictions, so those are not invented here.
+\subsection{Short English statement}
+Must every balanced toroidal coloring have a translated circle with polynomially large imbalance at each prescribed radius? The center can vary, but the radius cannot. The supplied assessment distinguishes the open fixed-radius question from a power bound allowing either a radius or its double; the precise coloring and circle-measure convention still needs source review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 30000050, exact source code catalogue entry; \emph{Power-Law Fixed-Radius Circle Discrepancy}. Proposed year 2004, status open; corrected\_verified wording specifies absolute $c,\alpha>0$ and $2<R<n/2$.
+\item \emph{Discrepancy Theory and Its Applications (2004)}, Oberwolfach Reports, DOI 10.4171/owr/2004/13, pp. 673--722, \url{https://doi.org/10.4171/owr/2004/13}.
+\item Supplied literature triage checked 2026-08-21: ``Circle discrepancy'', \url{https://arxiv.org/abs/1201.5544}; ``OWR 13/2004'', \url{https://doi.org/10.4171/OWR/2004/13}. This dated OWR-derived curation requires independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}

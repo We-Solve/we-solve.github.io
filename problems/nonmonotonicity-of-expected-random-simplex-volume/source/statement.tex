@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001382}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\operatorname{vol}_3\) denote three-dimensional Lebesgue measure and \(\operatorname{conv}\) denote convex hull. For \(\varepsilon>0\), define
+\[
+H=\{x=(x_1,x_2,x_3)\in\R^3:\|x\|_2\leq1,\ x_1\geq0\},\qquad
+L_\varepsilon=\operatorname{conv}\bigl(H\cup\{(-\varepsilon,0,0)\}\bigr).
+\]
+For \(\delta>0\), define the truncated body
+\[
+K_{\varepsilon,\delta}=L_\varepsilon\cap\{x\in\R^3:x_1\geq-\varepsilon+\delta\}.
+\]
+Both bodies are compact and convex, and \(K_{\varepsilon,\delta}\subseteq L_\varepsilon\). To define a uniform distribution using three-dimensional volume on \(K_{\varepsilon,\delta}\), one needs \(\operatorname{vol}_3(K_{\varepsilon,\delta})>0\), which here is equivalent to \(0<\delta<1+\varepsilon\). At \(\delta=1+\varepsilon\) the intersection is a singleton, and for larger \(\delta\) it is empty.
+
+For any compact convex body \(B\subset\R^3\) with positive volume, let \(X_0^B,\ldots,X_3^B\) be independent random points with common distribution
+\[
+\mathbb{P}(X_i^B\in A)=\frac{\operatorname{vol}_3(A\cap B)}{\operatorname{vol}_3(B)}
+\quad\text{for every Borel set }A\subseteq\R^3.
+\]
+Define its expected random-simplex volume by
+\[
+M(B)=\E\!\left[\operatorname{vol}_3\!\left(\operatorname{conv}\{X_0^B,X_1^B,X_2^B,X_3^B\}\right)\right].
+\]
+Thus the simplex volume is ordinary Euclidean volume; the sampling probability is normalized separately for each body.
+
+The supplied problem asks whether the half-ball-and-cone construction, after the indicated truncation, gives a counterexample to monotonicity under inclusion in dimension three. The precise inequality at an admissible parameter pair is
+\[
+M(K_{\varepsilon,\delta})>M(L_\varepsilon),
+\qquad \varepsilon>0,\quad 0<\delta<1+\varepsilon.
+\]
+Any such pair would violate the proposed monotonicity implication \(B\subseteq C\Longrightarrow M(B)\leq M(C)\) for convex bodies of positive volume in \(\R^3\).
+
+The source describes \(\varepsilon\) and \(\delta\) only as positive and small. It supplies neither thresholds nor a dependence of \(\delta\) on \(\varepsilon\), and does not specify whether the inequality is sought for some small pair, for every sufficiently small pair, or in an iterated limiting regime. These stronger quantified formulations therefore remain unresolved in this draft. The accompanying curation also mentions an unresolved exact integral evaluation in dimension three, but supplies no particular integral formula or evaluation target.
+\subsection{Short English statement}
+Form a convex body from a half unit ball in \(\R^3\) and a point just beyond its flat face, then truncate near that point. Does this truncation increase the expected volume of the tetrahedron formed by four independent uniform points? The source leaves the meaning and quantifiers of the small parameters unspecified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(30001382\), title ``Nonmonotonicity of Expected Random Simplex Volume,'' source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the recorded proposed year is 2009.
+\item Supplied source citation: \emph{Convex Geometry and its Applications} (2010), Oberwolfach Reports, pp.~2851--2926, DOI \texttt{10.4171/owr/2009/53}. The supplied literature-source label is ``original Oberwolfach report 4136'': \url{https://doi.org/10.4171/owr/2009/53}. The background describes Oberwolfach Reports as documenting workshops and their open-problem discussions.
+\item Supplied literature source, labeled ``random-simplex and slicing results'': \url{https://arxiv.org/abs/1008.3944}. No authors or paper title are supplied in the record.
+\item Literature assessment checked at \texttt{2026-08-21}: this is supplied dated curation, not independently verified. It labels the problem open, reports that the extracted passage leaves the dimension-three case and an exact integral evaluation open, and states that later partial results do not establish the full slicing-equivalent conjecture. The record explicitly requests independent verification of time-sensitive status and cited claims. The broader conjecture is not formulated in the supplied record.
+\item The supplied statement-status label is \texttt{corrected\_verified}. Its accompanying verification text attributes the half-ball, cone tip, truncation, and unresolved three-dimensional evaluation to the official report. These are supplied verification claims, not independent verification performed for this draft. The citation gives 2010, whereas the DOI contains 2009 and the recorded proposed year is 2009; these source details are retained without reconciliation.
+\end{itemize}
+\end{document}

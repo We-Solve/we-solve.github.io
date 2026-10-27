@@ -1,0 +1,89 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20001310}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied verification identifies this as a fused extraction of official Problems 15--20, not one problem. The initial ``5'' has lost its leading digit. Let $B_\infty^n=[-1,1]^n$, let $B_2^n$ be the Euclidean unit ball, and let $S^{n-1}=\partial B_2^n$. Write $|\cdot|$ for the appropriate Euclidean volume.
+
+\begin{enumerate}
+\item[15.] \textbf{Gaussian sections (A. Zvavitch).} On an $(n-1)$-dimensional Euclidean subspace $H$, let $\gamma_{n-1}$ be standard Gaussian measure with density $(2\pi)^{-(n-1)/2}e^{-\|x\|_2^2/2}$ relative to its intrinsic volume. For $n\geq3$ and $r>0$, determine the maximizers
+\[
+ \theta(r)\in\operatorname*{arg\,max}_{\theta\in S^{n-1}}
+ \gamma_{n-1}(rB_\infty^n\cap\theta^\perp).
+\]
+The source also asks whether its stated known upper bound at $r=1$ is sharp. That bound has the form
+\[
+ \gamma_{n-1}(B_\infty^n\cap\theta^\perp)
+ \leq\gamma_{n-1}(a_nB_\infty^{n-1}),
+\]
+but the extracted scale ``$\sqrt{\phantom n}$ nn $-1$'' does not unambiguously recover $a_n$. A plausible reading is $a_n=\sqrt{n/(n-1)}$; it is recorded as tentative rather than certified from the truncated verification. The maximizing-section question is well defined independently of that damaged bound.
+\item[16.] \textbf{Minimum slabs of the cube.} Under the explicit half-width convention, put
+\[
+ F_{n,t}(u)=|B_\infty^n\cap\{x:|\langle x,u\rangle|\leq t\}|,
+ \quad u\in S^{n-1},\quad t\geq0,
+\]
+and $u_j=j^{-1/2}(\underbrace{1,\ldots,1}_{j},0,\ldots,0)$. The source states that a coordinate direction $u_1$ minimizes for $t\leq2\sqrt2-2$, and conjectures thresholds $t_1,t_2$ for which minimizing directions are $u_2$ when $2\sqrt2-2<t<t_1$, $u_3$ when $t_1<t<t_2$, and $u_n$ when $t_2<t$. Its slab-width normalization, dimension range, dependence of the thresholds on $n$, tie cases, and treatment of widths for which the slab contains the whole cube are not specified. The displayed convention makes the question interpretable but requires source confirmation.
+\item[17.] \textbf{Covering the sphere.} Given $n+k$ centers $x_i\in S^{n-1}$ with $k\leq n$, minimize the radius of equal-radius caps covering $S^{n-1}$, describe optimal configurations, and determine dependence on $n,k$. With angular radius this can be expressed as
+\[
+ r(n,k)=\inf_{x_1,\ldots,x_{n+k}\in S^{n-1}}
+ \sup_{u\in S^{n-1}}\min_i\arccos\langle u,x_i\rangle.
+\]
+The source does not fix angular versus chordal radius or the lower bound on $k$; the commonly intended nontrivial range $1\leq k\leq n$ is not explicitly stated. Chordal radius is obtained from angular radius by $r\mapsto2\sin(r/2)$, so numerical radius formulas require the convention.
+\item[18.] \textbf{Mean width of an inscribed simplex.} For $n+1$ points $x_1,\ldots,x_{n+1}\in S^{n-1}$, maximize the mean width of their convex hull. With $h_K(u)=\sup_{x\in K}\langle x,u\rangle$, use
+\[
+ w(K)=\frac1{|S^{n-1}|}\int_{S^{n-1}}(h_K(u)+h_K(-u))\,d\sigma(u).
+\]
+Is the maximum attained by a regular inscribed simplex? The source does not assume affine independence of the initial points, so the optimization includes degenerate configurations.
+\item[19.] \textbf{Intersection with the negative.} The source writes that a non-symmetric set $K\subset\R^n$ with centroid $0$ satisfies
+\[
+ |K\cap(-K)|\geq2^{-n}|K|,
+\]
+and asks whether a centered simplex is extremal and, if not, what is. For a measurable positive-volume set the centroid is $|K|^{-1}\int_Kx\,dx$ when defined. The word ``set'' supplies no compactness or convexity hypothesis; the quoted lower bound cannot be treated as an established statement for all such sets. In the intended convex-geometric setting, the target is to minimize $|K\cap(-K)|/|K|$ among suitably specified centered convex bodies and determine the extremizers. Adding that convexity assumption is an explicit interpretation needing source review, not a silent repair.
+\item[20.] \textbf{Lattice points and inradius.} Find the smallest dimension-dependent Euclidean inradius threshold $R(n)$ such that every convex body $K\subset\R^n$ containing some translate of $R(n)B_2^n$ has lattice-point count comparable to volume by a polynomial factor in $n$. More explicitly, seek a universal polynomial factor $p(n)\geq1$ and a sharp threshold or asymptotic scale for which
+\[
+ p(n)^{-1}|K|\leq\#(K\cap\Z^n)\leq p(n)|K|.
+\]
+The polynomial degree and whether ``smallest'' means exact or asymptotic are unspecified. The ball need not be centered at the origin or a lattice point.
+\end{enumerate}
+
+The supplied machine aid reports the following partial theorem for Problem 20: if $K$ contains a Euclidean ball of radius $R>\sqrt n/2$, then
+\[
+ \left(1-\frac{\sqrt n}{2R}\right)^n|K|
+ \leq\#(K\cap\Z^n)
+ \leq\left(1+\frac{\sqrt n}{2R}\right)^n|K|.
+\]
+It reports that $R\geq n^{3/2}/\log(n+1)$ gives
+\[
+ \frac{|K|}{n+1}\leq\#(K\cap\Z^n)\leq\sqrt{n+1}\,|K|,
+\]
+and that no positive lower comparison is possible below $\sqrt n/2$, by a ball centered at a half-cell point and containing no lattice points. These bounds do not identify the optimal threshold in the intervening range. The aid additionally announces Gaussian small- and large-radius endpoint formulas, a restricted slab crossing, the exact $n+1$-center covering radius, the planar mean-width case, and a centered-simplex intersection formula. Their formulas and hypotheses are not supplied, so no stronger statements for Problems 15--19 are reconstructed.
+\subsection{Short English statement}
+This extraction combines six optimization questions. They concern Gaussian cube sections, minimal slabs, optimal spherical caps, the largest mean-width simplex, overlap with reflection, and lattice counts controlled by inradius. The supplied partial theorem gives explicit upper and lower lattice-count bounds; the other problems and their missing conventions remain separate.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20001310, exact source code catalogue entry; canonical \texttt{aim-convex-geometry-notes.json}, \texttt{notes[41]}, source item 5, tag ``problem'', workshop \emph{Fourier analytic methods in convex geometry}; \url{https://aimath.org/WWN/fourierconvex/fourierconvex.pdf}.
+\item Supplied verification identifies official Problems 15--20 and says the extraction lost the initial digit and damaged fractions, superscripts, and page material. It attributes correction to inspection of the linked PDF; this draft does not claim to have performed that inspection. Original attribution for Problem 15: A. Zvavitch. No individual attributions for Problems 16--20 or separate authoritative bibliographic entries are supplied. Original remarks and literature field are empty.
+\item Supplied research metadata: PARTIAL-PROGRESS, registry status ``partially\_solved'', statement status ``reconstructed\_unverified''; attempt 1, result ``partial\_result'', problem status at run ``open'', recorded rigor ``proved'', novelty confidence ``low'', candidate type ``theorem''. The aid is explicitly machine generated and not peer reviewed, requiring independent verification before citation. No external source was visited.
+\end{itemize}
+\end{document}

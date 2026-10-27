@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005113}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For a positive integer \(n\), write \([n]=\{1,\ldots,n\}\) and let \(\binom{[n]}2\) denote the set of unordered pairs of distinct elements of \([n]\). The working graph convention is that graphs are simple, undirected, and labelled on \([n]\); thus a graph \(G\) is specified by an edge set \(E(G)\subseteq\binom{[n]}2\). This convention is suggested by the supplied count \(2^{\binom n2}\), although the record does not explicitly state it.
+
+For two such graphs, define their symmetric difference by
+\[
+G_1\triangle G_2=\bigl([n],E(G_1)\triangle E(G_2)\bigr),
+\]
+where \(A\triangle B=(A\setminus B)\cup(B\setminus A)\).
+
+The following precise formulation interprets a nonempty clique difference as an edge set of the form \(\binom S2\), where \(S\subseteq[n]\) and \(|S|\ge2\); vertices outside \(S\) are isolated. The supplied record does not explicitly resolve this convention, so it requires source review.
+
+\emph{Question attributed in the supplied extraction to Noga Alon, Problem 5.} Is it true that for every \(\varepsilon>0\) there exists a positive integer \(N\) such that, for every integer \(n\ge N\) and every family \(\mathcal F\) of graphs on \([n]\) satisfying
+\[
+\forall F_1,F_2\in\mathcal F,\quad F_1\ne F_2
+\ \Longrightarrow\ 
+\forall S\subseteq[n]\text{ with }|S|\ge2,\quad
+E(F_1)\triangle E(F_2)\ne\binom S2,
+\]
+one has
+\[
+|\mathcal F|\le\varepsilon\,2^{\binom n2}?
+\]
+Equivalently, must every sequence \((\mathcal F_n)_{n\ge1}\) of families satisfying this condition obey
+\[
+\lim_{n\to\infty}\frac{|\mathcal F_n|}{2^{\binom n2}}=0?
+\]
+
+The meaning of ``clique'' is material: requiring the symmetric difference to be the complete graph on all of \([n]\) would give a different formulation. The raw extraction also contains a separate, corrupted graph-homomorphism problem introduced as proposed by Ashwin Sah, Problem 4. That fragment is not incorporated into the graph-family question; its hypotheses and the placement of the subsequent Hales--Jewett remark require source review.
+\subsection{Short English statement}
+Must every family of labelled graphs in which no two members differ exactly on the edges of a complete graph on a subset of vertices have density tending to zero among all graphs on \([n]\)? This draft uses an explicitly stated clique convention that requires review. The supplied registry labels the problem open; this status has not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: \texttt{data/unsolvedmath/problems.json}, permanent ID \(30005113\), source code \texttt{catalogue entry}; collection: Oberwolfach Reports Open Problems. The supplied raw extraction attributes the graph-family question to Noga Alon, Problem 5. The registry's separate proposer field is empty, and its proposed year is \(2022\).
+\item Supplied report citation: \emph{Combinatorics, Probability and Computing} (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/22, pp. 1165--1237. \url{https://doi.org/10.4171/owr/2022/22}. The supplied background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature reference: Alon, \emph{Graph-Codes}. \url{https://web.math.princeton.edu/~nalon/PDFS/gcs4.pdf}.
+\item Supplied literature reference: official OWR report. \url{https://publications.mfo.de/bitstream/handle/mfo/3964/OWR_2022_22.pdf?isAllowed=y&sequence=4}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open, identifies Alon's family-size assertion as the first open case of polynomial-density Hales--Jewett, and reports that primary discussion describes the corresponding density problem as wide open. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment; its time-sensitive status and cited claims require independent verification.
+\item The supplied statement status is \texttt{corrected\_verified}. Its verification note reports direct checking of the official report and says that the clean statement preserves the complete target while restoring definitions and removing extraction artifacts or source-dependent wording. This is a supplied verification claim, not a source visit or mathematical verification performed for this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,83 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30006539}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record does not define \emph{$s$-convex}. Consequently, the following formulation is conditional on specifying the families \(\mathcal C_s(\R^d)\) of subsets of \(\R^d\) that this term denotes. The title suggests a connection with unions of convex sets, but it does not supply a definition.
+
+For a dimension \(d\), a number \(r\) of parts, and admissible parameters \(s_1,\ldots,s_r\), define
+\[
+\begin{aligned}
+f_r(d,s_1,\ldots,s_r)=\min\bigl\{N\in\Z_{\geq1}:{}&\ \text{for every }P\subseteq\R^d\text{ with }|P|=N,\\
+&\text{there exist }P_1,\ldots,P_r\subseteq P\text{ such that}\\
+&P=\bigcup_{i=1}^r P_i,\qquad P_i\cap P_j=\varnothing\quad(i\ne j),\\
+&\text{and for every }(C_1,\ldots,C_r)\in\prod_{i=1}^r\mathcal C_{s_i}(\R^d),\\
+&\qquad\left[(\forall i\in\{1,\ldots,r\})\ P_i\subseteq C_i\right]
+\Longrightarrow \bigcap_{i=1}^r C_i\ne\varnothing\bigr\}.
+\end{aligned}
+\]
+The partition is chosen before, and must work for every, qualifying family \((C_i)_{i=1}^r\). The question is to determine this least integer. If the displayed set of integers is empty, no such least integer exists; no alternative convention is supplied.
+
+The displayed formulation follows the source's explicit disjoint-cover description and imposes no nonemptiness condition on the blocks \(P_i\). Whether all blocks must be nonempty requires clarification. The admissible ranges of \(d,r,s_1,\ldots,s_r\), including boundary cases, are also not stated. These omissions and the missing definition of \(s\)-convexity prevent an unconditional, self-contained numerical specification of the requested function.
+
+As normalization checks, the supplied report identifies Radon's theorem with
+\[
+f_2(d,1,1)=d+2
+\]
+and Tverberg's theorem with
+\[
+f_r(d,1,\ldots,1)=(r-1)(d+1)+1.
+\]
+These are reported source identifications, subject to the intended parameter ranges and definition of \(1\)-convexity.
+
+The surrounding passage reports polynomial upper bounds, including
+\[
+f_2(d,s,t)\leq O\!\left(dst\log(st+1)\right).
+\]
+A natural reconstruction of its damaged general-\(r\) formula is
+\[
+f_r(d,s_1,\ldots,s_r)
+\leq O\!\left(dr^2\log r\,
+\left(\prod_{i=1}^r s_i\right)
+\ln\!\left(1+\prod_{i=1}^r s_i\right)\right).
+\]
+Likewise, its flattened lower-bound expressions naturally read
+\[
+f_2(2,s,s)\geq s^2,
+\qquad
+f_r(d,s,\ldots,s)\geq(d-2r+4)s^r
+\quad\text{for }d\geq2r-2.
+\]
+The reconstructed grouping and exponents require source review. The passage attributes the lower bounds to an unidentified follow-up reference labelled [3]; its identity and the bounds' full parameter hypotheses are absent. It also states that the mainly combinatorial proofs extend to abstract separable convexity spaces with bounded Radon numbers. That contextual extension is not a separately specified target here.
+\subsection{Short English statement}
+Determine the smallest number of points in \(\R^d\) that guarantees a partition into \(r\) parts such that every choice of qualifying \(s_i\)-convex supersets of those parts has a common point. The supplied record omits the definition of \(s\)-convexity and the full parameter and partition conventions, so the statement remains conditional pending mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record with permanent ID \(30006539\), title \emph{Tverberg Numbers for Unions of Convex Sets}, source code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record labels the statement \texttt{corrected\_verified} and says that the official report was checked and notation repaired. These are supplied verification claims, not verification performed for this draft. No individual proposer is supplied.
+\item \emph{Combinatorics} (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/1, pp.\ 5--79: \url{https://doi.org/10.4171/owr/2026/1}. The supplied excerpt identifies the question as Problem 4 and includes surrounding results and combinatorial background.
+\item Alon--Smorodinsky, \emph{Extended VC-dimension and Radon and Tverberg type theorems}: \url{https://arxiv.org/abs/2506.17777}. This is a supplied literature reference; its contents have not been independently checked for this draft.
+\item Supplied literature assessment dated \textbf{2026-08-22}: the record labels the problem \emph{partially solved} and states that polynomial upper bounds and near-matching lower bounds are known, while the exact least integer is not determined in general. This is supplied dated curation derived from the OWR collection, not an independently verified literature assessment. The record explicitly requests independent verification of time-sensitive status and cited claims.
+\item The supplied excerpt cites a recent follow-up paper as [3] for lower bounds, but provides no bibliographic identification or link for that reference.
+\end{itemize}
+\end{document}

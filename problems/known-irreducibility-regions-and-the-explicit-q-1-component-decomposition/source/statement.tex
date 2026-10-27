@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000811}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The report recovers $E_{p,q,r}$ as a based representation scheme for the polynomial ring in four variables. Over an algebraically closed field $k$, fix graded vector spaces $M_0=k^p$, $M_1=k^q$, $M_2=k^r$, with all other degrees zero. The four multiplication maps in each adjacent degree are
+\[
+ A_i:k^p\to k^q,\qquad B_i:k^q\to k^r\quad(1\leq i\leq4).
+\]
+Then
+\[
+ E_{p,q,r}=\{(A_i,B_i)_{i=1}^4:B_iA_j=B_jA_i\text{ for }1\leq i<j\leq4\}
+\]
+is an affine scheme defined by six matrix commutativity relations. This is the scheme with bases fixed, not an unspecified quotient by changes of basis.
+
+\textbf{Problem 10.} For which Hilbert functions $\rho=(p,q,r,0,\ldots)$ is $E_{p,q,r}=E_\rho$ irreducible? The original extract calls this a moduli space without supplying the four-variable or based-scheme convention; the report's recovery makes those choices explicit.
+
+\textbf{Original remark and reported correction.} The source credits Martin--Deschamps--Perrin with reducibility when
+\[
+ 4q<\max\{6p+r,6r+p\},
+\]
+and conjectures irreducibility when the reverse weak inequality holds. As written, the first statement misses an exception: the aid says $(p,q,r)=(1,1,1)$ is irreducible although $4<7$. The exceptional triple must therefore be restored before quoting that reducibility criterion for positive triples. The aid also says Ginouillac's later results refine the known/open region, but their inequalities and hypotheses are not included in the supplied summary, so the full modern classification cannot be reconstructed here.
+
+\textbf{Reported complete $q=1$ decomposition.} Let $p,r>0$, $q=1$. Regard $A_i$ as row vectors of length $p$ and $B_i$ as column vectors of length $r$. Form the $(p+r)\times4$ matrix
+\[
+ M(A,B)=\begin{pmatrix}A_1^{\mathsf T}&A_2^{\mathsf T}&A_3^{\mathsf T}&A_4^{\mathsf T}\\
+ B_1&B_2&B_3&B_4\end{pmatrix}.
+\]
+The aid proves the reduced-scheme decomposition
+\[
+ (E_{p,1,r})_{\mathrm{red}}
+ =\{A_1=\cdots=A_4=0\}\ \cup\ \{B_1=\cdots=B_4=0\}
+ \ \cup\ \{\operatorname{rank}M(A,B)\leq1\}.
+\]
+The first two loci are affine linear spaces; the third is the irreducible rank-at-most-one determinantal variety. Removing those loci contained in others gives exactly
+\[
+ \#\{\text{irreducible components of }E_{p,1,r}\}
+ =\begin{cases}
+ 1,&p=r=1,\\
+ 2,&\text{exactly one of }p,r\text{ equals }1,\\
+ 3,&p>1\text{ and }r>1.
+ \end{cases}
+\]
+This statement is over every algebraically closed field as reported. It determines the irreducible supports and does not assert that the original commutativity-equation scheme is reduced. It addresses the middle-degree-one slice, not all positive triples or unspecified zero-dimensional-degree edge cases.
+\subsection{Short English statement}
+Classify irreducibility of the based four-variable graded-module scheme with dimensions $(p,q,r)$. The aid corrects an omitted $(1,1,1)$ exception in the original remark and gives the full reduced decomposition when $q=1$: two zero-map loci together with one rank-one determinantal locus yield one, two or three components.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000811$, \texttt{catalogue entry}; canonical \texttt{aim-arithmetic-geometry-notes.json}, \texttt{notes[56]}.
+\item AIM workshop ``Components of Hilbert schemes,'' PDF Problem 10 and its nested remark: \url{https://aimath.org/WWN/hilbertschemes/hilbertschemes.pdf}.
+\item M. Martin--Deschamps, D. Perrin, ``Courbes gauches et modules de Rao,'' J. Reine Angew. Math. 439 (1993), 103--145, p. 119, Theorem 2.1, as cited in the original remark. The report also names later work of Ginouillac without a complete citation or statement.
+\item Research attempt 1, \texttt{partial\_result}, run status \texttt{open}, internal rigor \texttt{proved}, low novelty confidence; current registry partially solved. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. Original literature field empty.
+\end{itemize}
+\end{document}

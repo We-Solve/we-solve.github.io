@@ -1,0 +1,56 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004976}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Use the standard convention that graphs are finite, simple, and undirected; the supplied record does not explicitly specify this convention. For an integer \(n\geq 1\), a proper edge-colouring of a graph \(G\) is a map \(\chi:E(G)\to S\), for an arbitrary set of colours \(S\), such that distinct edges sharing a vertex receive distinct colours. A subgraph is rainbow if its edges have pairwise distinct colours. Let \(\mathcal C=\{C_\ell:\ell\geq 3\}\) be the family of all simple cycles. Define
+\[
+\operatorname{ex}^{*}(n,\mathcal C)
+=\max\bigl\{|E(G)|:\ |V(G)|=n,\ G\text{ admits a proper edge-colouring containing no rainbow cycle}\bigr\}.
+\]
+Here the maximum ranges over graphs and their admissible colourings, with no bound imposed on the number of colours.
+
+The question, attributed in the supplied report passage to Keevash, Mubayi, Sudakov and Verstraëte, is whether there exist constants \(K>0\) and an integer \(n_0\geq 3\) such that
+\[
+\forall n\in\Z,\qquad n\geq n_0\ \Longrightarrow\ \operatorname{ex}^{*}(n,\mathcal C)\leq K n\log n.
+\]
+Equivalently, must every properly edge-coloured simple graph on \(n\geq n_0\) vertices with more than \(Kn\log n\) edges contain a rainbow cycle? One may take \(\log\) to be the natural logarithm in this asymptotic statement; its base changes only the constant.
+
+The supplied historical context attributes the lower bound \(\Omega(n\log n)\) and the upper bound \(O(n^{4/3})\) to Keevash, Mubayi, Sudakov and Verstraëte. The lower-bound construction uses a hypercube: its vertices are binary vectors of length \(k\), and an edge joining vectors that differ in coordinate \(i\) receives colour \(i\). The passage states that this proper colouring has no rainbow cycle. Its expression \(k=\lfloor\log n\rfloor\) leaves the logarithm base implicit. The passage further attributes an affirmative answer to the weaker \(n^{1+o(1)}\) question to Das, Lee and Sudakov, and an upper bound \(O(n(\log n)^4)\) to Janzer. The explicit displayed Das--Lee--Sudakov bound is damaged in the supplied extraction and is not reconstructed here.
+
+For context, the passage also states the following auxiliary result, which is distinct from the question above: for each fixed integer \(m\geq 2\), and all sufficiently large integers \(n\) depending on \(m\), every properly edge-coloured graph on \(n\) vertices with at least \(n(\log n)^{60}\) edges contains a rainbow subdivision of \(K_m\), with each original edge subdivided at most \((\log n)^6\) times. A subdivision replaces each original edge by a path, with mutually disjoint sets of internal vertices and no internal vertex among the original vertices; rainbow means that all edges of the resulting subdivision have distinct colours. The passage's preceding theorem is attributed to Jiang, Methuku and Yepremyan and quantifies over every integer \(m\geq 2\), some constant \(c>0\), and every integer \(n\geq m\), with at most \(1300(\log n)^2\) subdivisions per original edge. Its edge-count hypothesis is corrupted, so a precise statement of that preceding theorem cannot be recovered from this record.
+
+The record labels the problem \emph{partially solved}. Its supplied dated assessment says that the \(n^{1+o(1)}\) and polylogarithmic upper bounds are proved while the proposed \(O(n\log n)\) bound remains open. These are supplied source and curation claims, not an independent verification of the results or their current status.
+\subsection{Short English statement}
+Is there an absolute constant \(K>0\) such that, for all sufficiently large \(n\), every properly edge-coloured simple graph on \(n\) vertices with no cycle whose edges all have different colours has at most \(Kn\log n\) edges? The supplied record describes this bound as open and matching a hypercube lower bound in order of magnitude; its status assessment requires independent review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(30004976\), title ``Rainbow Turán Number of Cycles'', source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The supplied proposed year is 2022; no individual proposer is recorded. The registry supplies the labels \texttt{partially\_solved} and \texttt{corrected\_verified}, and says that its clean statement was checked against the official report. Those verification assertions are supplied metadata, not checks performed for this draft.
+\item Supplied report citation: \emph{Graph Theory (2023)}, Oberwolfach Reports, DOI 10.4171/owr/2022/1, pp.~5--78. \url{https://doi.org/10.4171/owr/2022/1}. The extracted passage attributes the cycle question and initial bounds to Keevash, Mubayi, Sudakov and Verstraëte, report reference [8]. The citation's 2023 label differs from the 2022 proposed year and DOI year; this discrepancy is retained unresolved.
+\item Supplied literature source: Janzer, ``rainbow Turán number of cycles''. \url{https://arxiv.org/abs/2006.01062}. The passage refers to Janzer as report reference [4]. No independent source visit or bibliographic verification is claimed.
+\item Supplied literature source: Alon et al., ``essentially tight rainbow-cycle bounds''. \url{https://doi.org/10.1112/plms.70044}. The supplied record does not provide the full author list or a detailed theorem statement from this reference.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation describes the status as partially solved, with proved \(n^{1+o(1)}\) and polylogarithmic upper bounds, and an open \(O(n\log n)\) target matching the hypercube lower bound. This is supplied dated curation derived from the OWR record, not independently verified literature assessment; its time-sensitive status and cited claims require independent checking.
+\item Other attributions retained from the passage, without complete bibliographic records: Das, Lee and Sudakov [2]; Jiang, Methuku and Yepremyan [6]; an improvement cited as [5] without a full attribution; Sudakov and Tomon [16]; Mader [13, 14]; Komlós and Szemerédi [9, 10]; Bollobás and Thomason [1]; and Letzter [11]. These are report-local reference labels, not independently identified citations.
+\end{itemize}
+\end{document}

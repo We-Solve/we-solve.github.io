@@ -1,0 +1,65 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800573}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(G=(V,E)\) be either the infinite hexagonal lattice (the vertices and edges of the regular hexagonal tiling) or the square lattice (\(V=\Z^2\), with nearest-neighbor edges). For an integer \(q\ge 2\), a spin configuration is an element of \(\Omega_q=\{1,\ldots,q\}^{V}\). A conventional dimensionless parameter for the antiferromagnetic Potts model is \(K\ge 0\), with equal neighboring spins penalized by the factor \(e^{-K}\). For finite \(\Lambda\subset V\) and exterior configuration \(\tau\), its finite-volume conditional distribution is
+\[
+ \gamma_{\Lambda,K}^{\tau}(\sigma_\Lambda)
+ =\frac{1}{Z_{\Lambda,K}^{\tau}}
+ \exp\!\left[-K\!\sum_{\substack{\{x,y\}\in E\\\{x,y\}\cap\Lambda\ne\varnothing}}
+ \mathbf{1}_{\{\eta_x=\eta_y\}}\right],
+ \qquad
+ \eta|_\Lambda=\sigma_\Lambda,\quad
+ \eta|_{V\setminus\Lambda}=\tau.
+\]
+Here \(Z_{\Lambda,K}^{\tau}\) normalizes the distribution. An infinite-volume Gibbs measure is a probability measure on \(\Omega_q\) whose conditional distributions in every finite \(\Lambda\) agree almost surely with these kernels. If zero temperature is included, the corresponding hard-constraint model is the uniform proper-coloring specification: conditionally on the exterior, all proper extensions to \(\Lambda\) have equal probability, for admissible exterior configurations.
+
+The supplied problem asks for uniqueness of the infinite-volume Gibbs measure and exponential decay of correlations for
+\[
+ (G,q)\in
+ \bigl\{(G_{\mathrm{hex}},3),
+ (G_{\mathrm{sq}},4),
+ (G_{\mathrm{sq}},5),
+ (G_{\mathrm{sq}},6)\bigr\}.
+\]
+The source also says ``etc.,'' without identifying further lattice--\(q\) pairs.
+
+One precise interpretation of exponential decay is the following local-observable clustering property. For each parameter value under consideration, there exists \(m>0\) such that, for every pair of finite sets \(A,B\subset V\) and bounded observables \(f\) and \(g\) depending respectively on spins in \(A\) and \(B\), there is a finite constant \(C_{f,g}\), independent of the lattice translation \(t\), for which
+\[
+ \left|\operatorname{Cov}_{\mu}(f,g_t)\right|
+ \le C_{f,g}\exp\!\bigl[-m\,d_G(A,tB)\bigr].
+\]
+Here \(g_t\) is the translated observable and \(d_G\) is graph distance between supports. This is an explicit possible interpretation, requiring review: the supplied excerpt does not specify the class of correlations or the uniformity of the decay bounds.
+
+\textbf{Unresolved qualification.} The excerpt supplies no temperature or coupling range and does not say whether zero temperature is included. Thus the introduction of \(K\) above defines a framework; it does not supply the missing quantifier over \(K\). A fully quantified theorem cannot be recovered from this record alone. The temperature range, endpoint conditions, and intended correlation property must be checked against the source context before this draft is treated as a precise formulation of the original target.
+\subsection{Short English statement}
+Sokal asks for uniqueness of the infinite-volume antiferromagnetic Potts Gibbs measure and exponential decay of correlations for three colors on the hexagonal lattice and four, five, or six colors on the square lattice. The supplied excerpt leaves the temperature range, the precise correlation bound, and the additional cases indicated by ``etc.'' unspecified. This statement-only draft records those gaps for mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, supplied complete source record, permanent ID \(800573\), exact source problem code \texttt{catalogue entry}; title: \emph{Lattice Gases and Antiferromagnetic Potts Models --- Problem 4}. The record attributes the problem to Sokal, proposed in 2000, and labels it \texttt{open}. That label is supplied registry metadata, not an independently verified assessment.
+\item Sokal, \emph{A Personal List of Unsolved Problems Concerning Lattice Gases and Antiferromagnetic Potts Models} (2000), Problem 4. Supplied source URL: \url{https://arxiv.org/abs/cond-mat/0004231}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance statements, not a claim of independent consultation.
+\item Salas and Sokal, reference label \texttt{[Salas\_97]} in the supplied excerpt. No full bibliographic entry is supplied. The excerpt attributes improvements of an unspecified preceding result for square, triangular, hexagonal, and Kagom\'e lattices to decimation and a computer-assisted proof, and describes those results as far from sharp. These are source-attributed contextual statements, not a new assessment of the literature.
+\end{itemize}
+\end{document}

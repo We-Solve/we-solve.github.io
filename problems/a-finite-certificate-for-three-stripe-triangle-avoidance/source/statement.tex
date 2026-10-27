@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000959}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(T=\{t_1,t_2,t_3\}\subset\R^2\) consist of three distinct points, allowing collinearity. A copy means a congruent image under a Euclidean isometry, including reflections, without rescaling. The original conjecture is
+\[
+ \forall T\ \exists c:\R^2\to\{0,1,2\}\quad
+ \forall\text{ Euclidean isometries }g:\quad c\text{ is not constant on }g(T).
+\]
+No measurability restriction on arbitrary colorings is specified. The supplied partial result studies only the cyclic half-open stripe colorings
+\[
+ c_w(x,y)=\lfloor y/w\rfloor\pmod3,\qquad w>0.
+\]
+
+Write \(D=\operatorname{diam}(T)\), \(u_\theta=(\cos\theta,\sin\theta)\), and
+\[
+ p_i(\theta)=(t_i-t_1)\cdot u_\theta,\quad
+ K=\left\lceil\frac{D+w}{3w}\right\rceil.
+\]
+For integers \(k_1=0\), \(k_2,k_3\in[-K,K]\), put \(r_i(\theta)=p_i(\theta)-3wk_i\) and \(R_{k_2,k_3}(\theta)=\max_i r_i(\theta)-\min_i r_i(\theta)\). The exact certificate reported by the aid is
+\[
+ c_w\text{ admits a monochromatic congruent copy of }T
+ \quad\Longleftrightarrow\quad
+ \exists k_2,k_3,\theta:\ R_{k_2,k_3}(\theta)<w.
+\]
+The offsets belong to one coherent triple, rather than independent pairwise modular choices. A common vertical translation places all residuals in one half-open interval of width \(w\) exactly when the range is strictly smaller than \(w\); equality is excluded. Varying the projection direction accounts for rotations and reflections, while the common translation is eliminated by the range test.
+
+For each offset pair, the global minimum of \(R\) is found among angles where either \(r_i=r_j\) or \((r_i-r_j)'=0\) for some distinct pair. Each of the three pairs gives at most two angles of each type, so at most twelve critical angles suffice. Therefore at most
+\[
+ 12(2K+1)^2
+\]
+range evaluations decide whether this particular stripe coloring avoids \(T\), in an exact-real comparison convention. This is a finite certificate for a prescribed \(w\), not a general decision algorithm for arbitrary colorings or unspecified noncomputable real input.
+
+The aid also reports a boundary-safe stripe avoidance theorem for every nondegenerate triangle whose smallest angle is at least \(30^\circ\): some suitable stripe width avoids all congruent copies. Its width choice and full special-case proof are not supplied in the summary and require review; no unprovided width formula is inserted.
+
+Finally, a coloring constant on lines in one fixed direction cannot avoid a collinear three-point set, which can be placed on one such line. A strategy requiring every segment of one prescribed positive length to have differently colored endpoints would be a proper three-coloring of that distance graph, which the aid reports impossible. These are obstructions to particular approaches, not refutations of the original three-point conjecture. The report describes the full conjecture as open and supplies no unrestricted coloring construction.
+\subsection{Short English statement}
+The full conjecture asks to avoid each prescribed three-point configuration with three colors. The supplied result gives an exact finite test for one cyclic stripe family, including coherent offsets and half-open boundaries, and reports a triangle special case. It does not decide the general coloring question or cover collinear sets with line-constant stripes.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: permanent UnsolvedMath ID \(20000959\), exact public code \texttt{catalogue entry}; \texttt{aim-combinatorics-notes.json}, \texttt{notes[83]}.
+\item AIM workshop \emph{Graph Ramsey theory}, section \emph{Euclidean Ramsey sets}, Conjecture 37: \url{https://www.overleaf.com/read/mnvcscjjysvg}.
+\item Supplied research summary, ``A finite certificate for three-stripe triangle avoidance,'' attempt 1. No named external theorem citations, width formula for the angle special case, or complete references for the strategy obstructions are supplied; original remarks and literature fields are empty.
+\end{itemize}
+\end{document}

@@ -1,0 +1,76 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002454}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Debora Amadori asks about numerical approximation of the scalar balance law
+\[
+ \partial_tu^\varepsilon+\partial_x f(u^\varepsilon)
+ =\varepsilon^{-1}h(x/\varepsilon),\qquad
+ u^\varepsilon(0,x)=u_0(x),\quad u_0(x+1)=u_0(x),\quad\varepsilon>0.
+\]
+The supplied assumptions are \(h\in C(\R)\), \(h(y+1)=h(y)\), \(\int_0^1h(y)\,\dd y=0\), \(f\in C^1(\R)\), \(f(u)\to+\infty\) as \(|u|\to\infty\), and the printed condition \(uf'(u)>0\). The latter can only hold for \(u\ne0\); with that interpretation \(f\) decreases on \(( -\infty,0)\), increases on \((0,\infty)\), and has minimum \(f(0)\). No regularity or boundedness class for \(u_0\), solution concept, convergence norm, time interval, or desired error bound is specified. The research request is to construct and analyze numerical approximations capturing the oscillations as \(\varepsilon\to0\), and more broadly to study resonance phenomena; it is not a stated convergence theorem.
+
+For a periodic primitive \(H'=h\), fix its additive constant, for example by \(\int_0^1H=0\). The exact conservation form is
+\[
+ \partial_tu^\varepsilon+\partial_x\bigl(f(u^\varepsilon)-H(x/\varepsilon)\bigr)=0.
+\]
+On the unit torus \(\R/\Z\), the forcing must itself be 1-periodic. For nonconstant \(h\) of minimal period 1 this requires \(\varepsilon^{-1}=N\in\N\); the original initial-data condition alone does not impose this compatibility on arbitrary \(\varepsilon\). Consider this compatible sequence in the following auxiliary statements.
+
+The supplied research aid describes separated stationary entropy states. Let \(\phi_+\) and \(\phi_-\) be the inverse branches of \(f\) on \([0,\infty)\) and \(( -\infty,0]\), respectively. If
+\[
+ C+\min H>f(0),\qquad
+ U^\pm_{C,N}(x)=\phi_\pm(C+H(Nx)),
+\]
+then \(f(U^\pm_{C,N})-H(Nx)=C\). The aid reports that every periodic BV stationary entropy solution staying away from branch contact belongs to one of these two pure branches; the precise separation and entropy hypotheses require review. Their means are
+\[
+ m_\pm(C)=\int_0^1\phi_\pm(C+H(y))\,\dd y,
+\]
+and their oscillation amplitudes do not depend on \(N\). For nonconstant \(H\) these oscillatory profiles converge weakly to their means and do not converge strongly in \(L^p(\R/\Z)\), \(1\le p<\infty\). These statements concern fixed separated equilibria, not arbitrary time-dependent solutions.
+
+The aid proposes reconstructing equilibria from exact cell averages on any mesh \(I_j\):
+\[
+ \overline U_j=|I_j|^{-1}\int_{I_j}\phi_\pm(C_j+H(Nx))\,\dd x.
+\]
+For a fixed branch this relation determines the admissible \(C_j\) uniquely. When all \(C_j=C\), reconstruction gives the same invariant flux \(f(U)-H=C\) at every interface, permitting a consistent finite-volume flux to preserve that equilibrium even on a mesh that does not resolve \(N^{-1}\). This is an equilibrium-preservation target; no general stability or convergence rate is supplied.
+
+At branch contact the aid gives a separate example, using a different convenient additive normalization:
+\[
+ f(u)=u^2/2,\quad H(y)=1-\cos(2\pi y),\quad h(y)=2\pi\sin(2\pi y).
+\]
+For \(N\in\N\), independently choose \(\sigma_j\in\{-1,1\}\), \(0\le j<N\), and put
+\[
+ U_\sigma(x)=\sigma_j\sqrt{2H(Nx)}
+ \quad (j/N\le x\le(j+1)/N).
+\]
+The aid reports \(2^N\) distinct periodic Lipschitz stationary entropy states with invariant flux zero. Their means are \(4(\pi N)^{-1}\sum_j\sigma_j\). For even \(N\), exactly \(\binom{N}{N/2}\) of these states have mean zero. Thus mass and invariant flux alone do not determine the microscopic branch pattern. This obstruction does not establish a full numerical theory of resonance.
+\subsection{Short English statement}
+Amadori seeks numerical approximations for a scalar conservation law with rapidly oscillating forcing and mentions pointwise oscillation results. The supplied aid treats separated stationary branches and exact equilibrium cell averages, then exhibits many branch-contact equilibria with the same mass and flux. These partial results leave the general numerical approximation and resonance questions open in the supplied formulation.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002454, catalogue entry; canonical \texttt{aim-pdes-notes.json}, notes[65], source tag section.
+\item Debora Amadori, contribution A.1 in the AIM workshop list \emph{Stiff Sources and Numerical Methods for Conservation Laws}, \url{https://aimath.org/WWN/balancelaws/balancelaws.pdf}. The supplied verification field dates the version to April 1, 2005 and confirms the displayed forcing; this draft does not independently verify that report.
+\item Supplied machine-generated research attempt 1, reported as partial progress, rigor label proved and low novelty confidence. It has no separate bibliographic citation and is not peer reviewed. Amadori's mentioned recent oscillation results are not bibliographically identified.
+\end{itemize}
+\end{document}

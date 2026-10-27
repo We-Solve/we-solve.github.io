@@ -1,0 +1,70 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000733}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The source asks for the Laplace transform and its ``jumps'' for a $q$-hypergeometric series referred to only as ``above'', and asks how these depend on $A,B,C$; it notes that a Mellin transform does not converge. That preceding series, the integration variable, contour, normalization and meaning of a jump are absent from this record. The accompanying aid distinguishes ordinary radial transforms from Borel--Laplace summation.
+
+Under the standard positive-definite Nahm-sum interpretation used by the aid, take a symmetric positive-definite matrix $A$ of size $r$, vectors $B$ and scalar $C$, with real data for the positive radial statement, and set
+\[
+ F_{A,B,C}(q)=\sum_{n\in\Z_{\geq0}^r}
+ \frac{q^{\frac12 n^TAn+B^Tn+C}}{\prod_{i=1}^r(q)_{n_i}},
+ \qquad(q)_m=\prod_{j=1}^m(1-q^j),\qquad R_{A,B,C}(t)=F_{A,B,C}(e^{-t}).
+\]
+This makes a conventional interpretation explicit; it does not certify the omitted preceding source formula or its parameter domain. The aid attributes the cusp asymptotic to Garoufalidis--Zagier and reports
+\[
+ R_{A,B,C}(t)=K(A,B)e^{\Lambda(A)/t}(1+O(t)),\qquad t\downarrow0,
+\]
+with $K(A,B)>0$ and $\Lambda(A)>0$. The dominant action depends only on $A$, the leading amplitude depends on $A,B$, and neither depends on $C$. In this positive radial setting the ordinary Laplace integral $\int_0^\infty e^{-st}R(t)\,dt$ and the ordinary Mellin integral $\int_0^\infty t^{s-1}R(t)\,dt$ both fail local integrability at zero for every fixed transform parameter $s$. Thus changing from Mellin to a literal radial Laplace transform does not remove the cusp obstruction.
+
+In the aid's usual Nahm-variable convention, let $z_i(A)\in(0,1)$ solve
+\[
+ 1-z_i=\prod_{j=1}^r z_j^{A_{ij}}.
+\]
+The stated amplitude dependence is
+\[
+ \frac{K(A,B+\Delta B)}{K(A,B)}=\prod_{i=1}^r z_i(A)^{\Delta B_i}.
+\]
+The absolute formulas for $K$ and $\Lambda$, although described as explicit in the summary, are not included there; no further normalization formula is guessed.
+
+Separately factor off the dominant action and amplitude and write the formal all-orders normalized expansion as $\Phi_{A,B,C}(t)$. Since the sum itself satisfies $F_{A,B,C}(e^{-t})=e^{-Ct}F_{A,B,0}(e^{-t})$, the aid reports the exact formal relation
+\[
+ \Phi_{A,B,C}(t)=e^{-Ct}\Phi_{A,B,0}(t).
+\]
+Whenever compatible lateral Borel--Laplace sums exist, their Stokes discontinuities therefore obey
+\[
+ \operatorname{Disc}_\theta\Phi_{A,B,C}(t)
+ =e^{-Ct}\operatorname{Disc}_\theta\Phi_{A,B,0}(t).
+\]
+The factor is entire and nonvanishing, so the set of directions carrying nonzero jumps cannot depend on $C$ in this interpretation. The existence of lateral sums and the determination of the jumps or their directions as functions of $A,B$ are not proved by this parameter law. This summation problem must not be identified with the divergent ordinary radial integral.
+\subsection{Short English statement}
+For the aid's positive Nahm-sum interpretation, the cusp grows exponentially fast enough that both ordinary radial transforms diverge at zero. A different Borel--Laplace interpretation gives an exact parameter law: changing $C$ multiplies every existing Stokes jump by $e^{-Ct}$. It does not determine the jumps or prove that the required lateral sums exist.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000733$, source code \texttt{catalogue entry}, supplied complete source record and research summary.
+\item American Institute of Mathematics, \emph{Mock modular forms in combinatorics and arithmetic geometry}, Problem 2.2, supplied source \url{https://aimath.org/WWN/mockmodular/mockmodular.pdf}; canonical local record \texttt{aim-analytic-number-theory-notes.json}, \texttt{notes[96]}. No PDF was retrieved.
+\item The aid attributes the cusp asymptotic to Garoufalidis--Zagier without a full bibliographic reference. The original literature field is empty and the preceding $q$-series definition is not included.
+\item Research attempt 1: partial result; problem partially solved at the recorded run; rigor label ``proved'', novelty confidence ``low''. This machine-generated aid is not peer reviewed and requires independent verification before citation. The lateral-summation conclusion is explicitly conditional on existence and compatible conventions.
+\end{itemize}
+\end{document}

@@ -1,0 +1,48 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 8800019}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(N=pqr\) with \(p,q,r\) prime. The task is to recover these factors from \(N\) together with fewer known binary digits of the factors than required by an intended earlier method. The excerpt does not specify that baseline, the factor sizes, whether the primes are distinct, which bits are known, or how the leakage is divided among factors.
+
+To make such data explicit, one could write \(p_i=\sum_j b_{i,j}2^j\) and supply positions \(I_i\) together with the values \(b_{i,j}\) for \(j\in I_i\). A bit budget would be \(\sum_i|I_i|\). Contiguous most-significant bits, least-significant bits, arbitrary positions, and correlated leakage give different problems; this illustration does not select the missing leakage model. A usual algorithmic target is factoring in time polynomial in the binary input length under the prescribed leakage hypothesis, with a reduced sufficient bit budget.
+
+The registry labels this solved. Its summary attributes a rigorous iterative univariate-Coppersmith method to May--Ritzenhofen for square-free products \(N=\prod_{i=1}^r p_i\), reporting the bit expression
+\[
+ \left(1-\frac{H_r}{r}\right)\log N,
+ \qquad H_r=\sum_{i=1}^r\frac1i.
+\]
+It says this covers \(r=3\) and improves earlier heuristic multivariate work of Santoso--Kunihiro--Kanayama--Ohta. The supplied excerpt does not provide bit positions, allocation, size/rounding or slack hypotheses, or a logarithm base for that bound. Consequently the expression is retained as a source report, not a guarantee for arbitrary leaked bits. Repeated-prime inputs in the literal \(pqr\) wording are also not covered merely by citing a square-free theorem.
+
+The existence of a reported algorithm is distinguished from an optimal leakage threshold and from the original undefined comparison ``fewer''. The literature attribution and solved label require original theorem verification; no independent current-status claim is made.
+\subsection{Short English statement}
+Factor a product of three primes using a reduced amount of known factor bits. The source reports a later polynomial-time square-free factoring result, but omits the leakage pattern and exact hypotheses, so neither an arbitrary-bit guarantee nor an optimal threshold is asserted.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \url{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(8800019\), source code catalogue entry; supplied statement, background, and research summary, updated 2026-08-06. Attributed to Alexander May.
+\item IPAM, \emph{Workshop on Number Theory and Cryptography---Open Problems} (2006), attachment 6222, PDF page 12, printed slide 8: \url{https://www.ipam.ucla.edu/programs/workshops/workshop-i-number-theory-and-cryptography-open-problems/?tab=schedule}. Supplied PDF/legacy-PPT visual audit accessed 2026-07-29; it reports 19 inspected surviving attachments.
+\item May--Ritzenhofen, ``On Factoring Arbitrary Integers with Known Bits'', eprint 2007/374, as cited by the supplied summary; precise theorem hypotheses are not reproduced.
+\item Santoso--Kunihiro--Kanayama--Ohta and univariate Coppersmith methods are named by the summary without further exact references.
+\end{itemize}
+\end{document}

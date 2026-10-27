@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001748}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(H=L^2(\R)\), the space of square-integrable signals modulo equality almost everywhere, with norm
+\[
+\|x\|_2=\left(\int_{\R}|x(t)|^2\,\dd t\right)^{1/2}.
+\]
+The supplied record does not specify whether signals are real-valued or complex-valued.
+
+A Gabor multiplier requires a choice of Gabor analysis and synthesis systems, consisting of time-frequency translates of specified windows, together with an admissible class of masks. To describe the missing data schematically, let \((g_\lambda)_{\lambda\in\Lambda}\) and \((h_\lambda)_{\lambda\in\Lambda}\) be such analysis and synthesis systems. For a mask \(m=(m_\lambda)_{\lambda\in\Lambda}\), the corresponding multiplier has the form
+\[
+M_m x=\sum_{\lambda\in\Lambda}m_\lambda\langle x,g_\lambda\rangle h_\lambda,
+\]
+whenever the chosen synthesis procedure makes this expression well-defined in \(H\). This is an explanatory schema, not a specification of the systems or mask class intended by the source. The record supplies neither these choices nor hypotheses ensuring convergence or boundedness.
+
+\textbf{Source question, with unresolved qualifications.} Given \(x_0,x_1\in L^2(\R)\), determine assumptions under which there exists a mask \(m\) such that \(M_mx_0\) approximates \(x_1\). The meaning and required accuracy of approximation are not specified, so this wording does not determine a unique quantified mathematical problem.
+
+For example, after fixing the missing systems and a nonempty admissible mask class \(\mathcal M\), and requiring each \(M_mx_0\) to be defined, set
+\[
+\mathcal R(x_0)=\{M_mx_0:m\in\mathcal M\}\subseteq H.
+\]
+If approximation is intended in the \(L^2\) norm, approximation at a prescribed tolerance \(\varepsilon>0\) would mean
+\[
+\exists m\in\mathcal M\qquad \|M_mx_0-x_1\|_2<\varepsilon,
+\]
+whereas arbitrary accuracy would mean
+\[
+\forall\varepsilon>0\ \exists m\in\mathcal M\qquad
+\|M_mx_0-x_1\|_2<\varepsilon,
+\qquad\text{equivalently}\qquad
+x_1\in\overline{\mathcal R(x_0)}^{\,\|\cdot\|_2}.
+\]
+Exact recovery would instead mean \(x_1\in\mathcal R(x_0)\). These are distinct possible targets; the record does not select one. Its reference to an optimal-mask formula also does not specify a variational objective here.
+
+The supplied statement-verification note describes the report as presenting an approximation setup followed by variational solutions and inverse algorithms, rather than a standalone unresolved problem. It marks the statement as \texttt{unrecoverable} and supplies no clean replacement. Accordingly, the conditional formulations above identify missing specifications and are not asserted to be the report's intended open problem.
+\subsection{Short English statement}
+The record asks when a Gabor multiplier can transform a given square-integrable signal into an approximation of another. A precise problem requires the Gabor systems, admissible masks, approximation criterion, and accuracy quantifiers. These are missing. The supplied curation labels the topic partially solved, while its verification note says that no standalone unresolved statement was recovered.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30001748\), title \emph{Signal Approximation by Gabor Multipliers}, exact source problem code \texttt{catalogue entry}, in the collection \emph{Oberwolfach Reports Open Problems}. The record associates the problem with 2011 and supplies no named proposer.
+\item Supplied report citation: \emph{Operator Algebras and Representation Theory: Frames, Wavelets and Fractals} (2011), Oberwolfach Reports, pp.\ 901--978, DOI \texttt{10.4171/owr/2011/17}. Source URL and supplied literature-source link, labelled ``original OWR report'': \url{https://doi.org/10.4171/owr/2011/17}. No problem-specific page or passage is supplied. The background describes Oberwolfach Reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature assessment, checked \texttt{2026-08-21}: the report gives an explicit optimal-mask formula under invertibility and regularity hypotheses, but the general approximation or exact-recovery question remains only partially answered. The supplied status is \texttt{partially\_solved}. This is supplied dated curation derived from the OWR record, not an independently verified assessment; the record explicitly requests independent verification of time-sensitive status and cited claims. The hypotheses and formula themselves are not supplied.
+\item Supplied statement-verification qualification: the official report presents an approximation setup followed by variational solutions and inverse algorithms, rather than a standalone unresolved problem. The statement status is \texttt{unrecoverable}; no separate clean statement is promoted, and the original record is retained publicly for provenance. This qualification is reproduced from the supplied record and has not been independently verified.
+\end{itemize}
+\end{document}

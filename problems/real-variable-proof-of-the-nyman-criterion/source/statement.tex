@@ -1,0 +1,59 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002495}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+For real \(x\geq 2\), let \(\pi(x)=\#\{p\leq x:p\text{ is prime}\}\), and let \(\operatorname{li}(x)=\operatorname{PV}\int_0^x du/\log u\) be the logarithmic integral. For \(u\in\R\), write \(\{u\}=u-\lfloor u\rfloor\). For \(t>0\) and real \(\alpha>1\), define
+\[
+\chi(t)=\begin{cases}1,&t>1,\\0,&0<t\leq 1,\end{cases}
+\qquad e_\alpha(t)=\{t/\alpha\}.
+\]
+The first assertion in the supplied statement is
+\[
+\tag{A}
+\forall\varepsilon>0\ \exists C_\varepsilon>0\ \exists X_\varepsilon\geq2\ \forall x\in\R,\ x\geq X_\varepsilon:
+\quad |\pi(x)-\operatorname{li}(x)|\leq C_\varepsilon x^{1/2+\varepsilon}.
+\]
+The source writes the second assertion using a sum \(\sum_\alpha c_\alpha e_\alpha\), without explicitly specifying its support or coefficient field. Under the finite-linear-combination interpretation, its precise formulation, for a specified field \(K\in\{\R,\C\}\), is
+\[
+\tag{B\(_K\)}
+\begin{gathered}
+\forall\delta>0\ \exists n\in\N,\ n\geq1,\ \exists\alpha_1,\ldots,\alpha_n\in(1,\infty)\ \exists c_1,\ldots,c_n\in K:\\
+\int_0^\infty\left|\chi(t)-\sum_{j=1}^n c_j\{t/\alpha_j\}\right|^2\frac{dt}{t^2}<\delta.
+\end{gathered}
+\]
+The parameters and coefficients may depend on \(\delta\). The integral is with respect to the weighted Lebesgue measure \(t^{-2}\,dt\). No additional coefficient constraint is stated in the supplied record.
+
+The requested task is to give a real-variable proof of the equivalence of (A) and the intended second assertion. With the explicitly qualified finite-sum interpretation above, this is the equivalence of (A) and \(\mathrm{(B}_K\mathrm{)}\), after the coefficient field has been specified. The finite-support interpretation and coefficient field require confirmation from the cited report; an infinite-sum interpretation would additionally require a convergence convention. The supplied record also does not define which methods qualify as a real-variable proof. Its original wording refers to assertions (2) and (3) of the report; the expanded assertions above come from the supplied clean statement, without independent verification of that correspondence. The target is a proof with the requested methodological restriction, rather than a request to establish (A) unconditionally.
+\subsection{Short English statement}
+Find a real-variable proof that the stated prime-counting error estimate is equivalent to arbitrarily accurate approximation of \(\chi\) by combinations of the fractional-part functions \(e_\alpha\) in \(L^2((0,\infty),t^{-2}\,dt)\). The displayed finite-sum formulation is explicitly conditional on that interpretation of the source. The coefficient field and the permitted proof methods require clarification. The supplied open label concerns the requested proof method.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30002495\), title \emph{Real-Variable Proof of the Nyman Criterion}, source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. The record gives the proposed year as 2014 and identifies no individual proposer.
+\item \emph{Dirichlet Series and Function Theory in Polydiscs} (2014), Oberwolfach Reports, pp.\ 335--393, DOI \texttt{10.4171/owr/2014/06}. Supplied source report and literature-source link: \url{https://doi.org/10.4171/owr/2014/06}.
+\item Supplied literature-source label: ``Baez-Duarte real-variable reformulation,'' \url{https://doi.org/10.48550/arXiv.math/0011254}. No further bibliographic details are supplied.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the methodological question open, reports that existing proofs use analytic or arithmetic machinery, and states that no such real-variable proof was found. This is supplied dated curation, not an independently verified literature assessment. The background expressly calls for independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and states that it was checked against the official Oberwolfach report. This is a supplied verification claim, not a source check performed for this draft.
+\end{itemize}
+\end{document}

@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800512}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(A\in\C^{n\times n}\) be Hermitian and tridiagonal, meaning \(A=A^*\) and \(A_{ij}=0\) whenever \(|i-j|>1\). For a Hermitian matrix \(B\) of size \(n\ge2\), list its eigenvalues with multiplicity as \(\lambda_1(B)\le\cdots\le\lambda_n(B)\), and define
+\[
+\operatorname{gap}(B)=\min_{1\le i<n}\bigl(\lambda_{i+1}(B)-\lambda_i(B)\bigr).
+\]
+Write \(\operatorname{nnz}(A)=\#\{(i,j):A_{ij}\ne0\}\). A diagonal perturbation preserving Hermitian symmetry has the form \(E=\operatorname{diag}(e_1,\ldots,e_n)\) with \(e_i\in\R\).
+
+The supplied record attributes to Minami [minami1996local] a random perturbation result: when the diagonal entries of \(E\) are independent and absolutely continuously distributed, it states a bound of the form
+\[
+\operatorname{gap}(A+\delta E)\ge C\left(\frac{\delta}{n}\right)^c,
+\]
+with constants depending on the entry distributions. The record does not specify the probability of this event, the admissible distributions, or any additional hypotheses of that result; thus this attribution is not a complete probabilistic theorem statement.
+
+\textbf{Requested deterministic construction.} Given \(A\) and a perturbation parameter \(\delta\), construct a diagonal matrix \(E\) deterministically so that the displayed gap bound holds for positive constants \(C,c\) with the permitted distribution dependence. The positive regime \(\delta>0\) is implicit in the displayed scale and running times, but the source does not specify its admissible range. It also does not specify a bound on \(E\), a normalization of \(A\), or how the entry distributions constrain a deterministic output. These are unresolved parts of the intended construction problem.
+
+The source asks for efficiency relative to the parent algorithm using the perturbation. Its stated target for diagonalization is
+\[
+O\!\left(n^3\log^c(n/\delta)\right),
+\]
+and its more ambitious targets for Krylov methods are
+\[
+O\!\left(\operatorname{nnz}(A)\log^c(n/\delta)\right)
+\quad\text{or}\quad
+O\!\left(\frac{\operatorname{nnz}(A)\log^c(n)}{\delta^c}\right).
+\]
+These expressions are retained as supplied: the computational model, precision requirements, parameter range, and relationship between the occurrences of \(c\) are unspecified. The source describes efficiency as being faster than the parent algorithm, but gives no more precise comparison criterion. No convention for \(\operatorname{gap}\) when \(n=1\) is supplied.
+\subsection{Short English statement}
+For a Hermitian tridiagonal matrix, find an efficient deterministic diagonal perturbation producing a polynomial lower bound on the minimum eigenvalue spacing. The source motivates this task by a random perturbation result attributed to Minami and gives running-time targets for diagonalization and Krylov methods. Perturbation-size restrictions, probability qualifications, and computational assumptions remain unresolved.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(800512\), source problem code \texttt{catalogue entry}, titled \emph{Linear Systems and Eigenvalue Problems --- Problem 21 (Deterministic Minami Perturbation)}. The supplied registry labels the problem open; that label is not an independently verified literature assessment. Upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 21. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The source record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these are supplied provenance details, not a claim of independent access or verification. The supplied attribution/context is ``Deterministic Minami Perturbation.''
+\item Minami [minami1996local], cited in the supplied statement for the random diagonal perturbation result. No full bibliographic entry or direct reference URL is supplied for this citation, so its precise hypotheses and conclusion remain unverified.
+\end{itemize}
+\end{document}

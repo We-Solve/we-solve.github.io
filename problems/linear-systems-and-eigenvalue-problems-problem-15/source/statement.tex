@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800506}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Consider a linear system \(Ax=b\) and an initial guess \(x_0\). The supplied source describes methods, with or without preconditioning, whose nominal updates are
+\[
+\begin{aligned}
+x_k &= x_{k-1}+a_{k-1}p_{k-1},\\
+r_k &= r_{k-1}-a_{k-1}Ap_{k-1},
+\end{aligned}
+\qquad k=1,2,\ldots,
+\]
+where \(a_{k-1}\) is a step coefficient and \(p_{k-1}\) is a search direction. These formulas describe operations to be implemented in finite precision; they do not assert exact equalities between the stored vectors. For a computed iterate \(x_k\), define its true residual, evaluated mathematically without rounding, by
+\[
+\rho_k:=b-Ax_k.
+\]
+The recursively updated vector \(r_k\) need not equal \(\rho_k\).
+
+\textbf{Requested problem.} Taking these updates to represent the conjugate gradient (CG) method or the steepest descent method, determine conditions on \(A\) ensuring that the norms of the recursively computed vectors \(r_k\) fall below machine precision in finite precision arithmetic, or give examples in which they do not. For a fully specified implementation and run, the requested event can be written provisionally as
+\[
+\exists\,k\geq 1\text{ at which the update is defined such that }
+\|r_k\|<\varepsilon_{\mathrm{mach}},
+\]
+where \(\varepsilon_{\mathrm{mach}}\) denotes the threshold intended by ``machine precision.'' This display retains the source's wording; the source does not specify a norm, a normalization, or the precise meaning of this threshold.
+
+\textbf{Unresolved qualifications.} The supplied record does not specify the scalar field, matrix dimension, admissible matrix class, initialization of \(r_0\), formulas for the step coefficients and search directions, preconditioner, rounding model, operation ordering, stopping rules, or treatment of breakdown and underflow. In particular, it does not explicitly impose symmetry or Hermitian symmetry and positive definiteness. It also does not specify whether the requested guarantee is to hold for every admissible right-hand side and initial guess, for a fixed run, or uniformly over implementations and preconditioners. These choices must be resolved before the request becomes a fully quantified theorem or counterexample target; they are not additional hypotheses asserted here.
+
+The source reports that recursively updated residual vectors often shrink well below machine precision and attributes to \([\mathrm{Greenbaum97}]\) the use of this behavior in proving bounds on true residuals. It expressly says that this shrinking behavior is not proved. This is a supplied source qualification, not an independently verified literature assessment.
+\subsection{Short English statement}
+For CG or steepest descent implemented in finite precision, find conditions on \(A\) that force the recursively updated residual vectors eventually to have norm below machine precision, or provide examples where this fails. The true residual is \(b-Ax_k\), which can differ from the updated vector \(r_k\). The arithmetic model, threshold normalization, algorithm details, and scope of the guarantee remain unspecified in the supplied source.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record: permanent ID \(800506\), source problem code \texttt{catalogue entry}, title ``Linear Systems and Eigenvalue Problems --- Problem 15.'' The record attributes the problem to Amsel, Baumann et al., with proposed year 2026, and labels it \texttt{open}. This is a supplied status label, not an independently verified mathematical fact.
+\item Amsel, Baumann et al., \emph{Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop} (2026), Problem 15. Supplied source URL: \url{https://arxiv.org/abs/2602.05394}. The supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; no independent source visit or verification is asserted here.
+\item The statement cites \texttt{[Greenbaum97]} for observations concerning recursively updated residual vectors and their use in bounds for true residuals. No full bibliographic entry or URL for this reference is supplied.
+\item Supplied upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}; registry update dated 2026-10-16. These are provenance data, not evidence of mathematical review.
+\end{itemize}
+\end{document}

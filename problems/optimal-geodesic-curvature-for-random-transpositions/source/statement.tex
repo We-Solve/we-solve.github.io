@@ -1,0 +1,60 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30002753}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $n\geq 2$ be an integer, let $S_n$ be the group of permutations of $\{1,\ldots,n\}$, and let $T_n=\{(i\,j):1\leq i<j\leq n\}$ be its set of transpositions. A random-transposition chain has transitions obtained by multiplying a permutation by a transposition. Its transition rates and time normalization must be specified to determine a numerical curvature constant; these are not supplied in the record.
+
+The supplied background identifies the intended quantity as an entropic geodesic-convexity constant. The following makes that interpretation explicit, conditionally on the missing transport structure. Let $\pi_n(\sigma)=1/n!$ be the uniform probability measure on $S_n$, and define
+\[
+\mathcal P_n=\left\{\rho:S_n\to[0,\infty):\sum_{\sigma\in S_n}\rho(\sigma)\pi_n(\sigma)=1\right\},\qquad
+\operatorname{Ent}_{\pi_n}(\rho)=\sum_{\sigma\in S_n}\rho(\sigma)\log\rho(\sigma)\,\pi_n(\sigma),
+\]
+with $0\log 0=0$. If $\mathcal W_n$ is the intended discrete transport metric associated with the intended random-transposition generator, define, using the displayed convexity convention,
+\[
+\kappa_n=\sup\Bigl\{k\in\R:\ 
+\operatorname{Ent}_{\pi_n}(\rho_t)\leq
+(1-t)\operatorname{Ent}_{\pi_n}(\rho_0)+t\operatorname{Ent}_{\pi_n}(\rho_1)
+-\frac{k}{2}t(1-t)\mathcal W_n(\rho_0,\rho_1)^2
+\ \text{for every constant-speed $\mathcal W_n$-geodesic $(\rho_t)_{t\in[0,1]}$ and every $t\in[0,1]$}\Bigr\}.
+\]
+This is a conditional interpretation: the record does not define $\mathcal W_n$, the generator normalization, the precise geodesic domain, or the convexity convention. Those choices must be recovered from the cited sources before identifying this definition with the source's $\kappa$.
+
+\textbf{Requested statement.} For the random-transposition model and conventions intended by the source, determine the asymptotic order of its optimal constant $\kappa_n$ as $n\to\infty$. The supplied record reports the bounds
+\[
+\frac{4}{n^2-n}\leq\kappa_n\leq\frac{2}{n-1}\qquad(n\geq2).
+\]
+The target is matching upper and lower bounds: identify an explicit positive scale $a_n$ and constants $0<c\leq C<\infty$, independent of $n$, such that $c a_n\leq\kappa_n\leq C a_n$ for all sufficiently large $n$. The reported numerical bounds and this asymptotic target refer to the source's normalization, which remains unspecified in the supplied record.
+\subsection{Short English statement}
+Determine the asymptotic size of the optimal entropic geodesic-convexity constant for random transpositions on $S_n$. The supplied bounds range from order $n^{-2}$ to order $n^{-1}$. A complete formulation requires the source's generator normalization and discrete transport metric. The supplied open-status assessment has not been independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID $30002753$, exact source problem code \texttt{catalogue entry}, title \emph{Optimal Geodesic Curvature for Random Transpositions}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied.
+\item Supplied source citation: \emph{Variational Methods for Evolution (2015)}, Oberwolfach Reports, DOI 10.4171/owr/2014/57, pp.\ 3177--3254. \url{https://doi.org/10.4171/owr/2014/57}. The record separately gives proposed year $2014$ and tag \texttt{owr-year:2014}; these are preserved without resolving the dating distinction.
+\item Supplied literature source, labelled ``Erbar, Maas, and Tetali, discrete Ricci bounds'': \url{https://www.numdam.org/item/10.5802/afst.1464.pdf}.
+\item Supplied literature source, labelled ``Bobkov and Tetali, modified log-Sobolev inequalities'': \url{https://tetali.math.gatech.edu/PUBLIS/BT_ENT.pdf}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and reports that the cited bounds leave different powers of the system size, with later treatments still describing the exact order as unresolved. This is supplied dated curation derived from the OWR material, not an independently verified literature assessment; its status and cited claims require independent checking.
+\item The registry labels the statement \texttt{corrected\_verified} and describes its mathematical content as preserved while notation, typography, or omitted definitions were repaired for publication. This is supplied editorial metadata, not independent mathematical verification of this draft.
+\end{itemize}
+\end{document}

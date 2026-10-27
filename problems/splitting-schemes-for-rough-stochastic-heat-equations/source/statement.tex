@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005936}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(u\) denote the intended solution of the formal stochastic heat equation
+\[
+\partial_t u(t,x)=\partial_{xx}u(t,x)+g(u(t,x))\dot W(t,x),\qquad t>0,\quad x\in(0,1),
+\]
+with homogeneous Dirichlet boundary conditions \(u(t,0)=u(t,1)=0\) and initial datum denoted by \(u_0\). The supplied record does not specify the law and covariance of \(W\), the interpretation of the stochastic term, the solution concept, or the admissible initial data.
+
+For \(T>0\) and positive integers \(M,N\), write
+\[
+\tau=T/M,\qquad h=1/N,\qquad t_m=m\tau,\qquad x_n=nh.
+\]
+Let \(u^{\mathrm{LT}}_{m,n}\) denote the fully discrete Lie--Trotter approximation referred to as scheme (4) in the source. Its update rule is absent from the supplied record. The excerpt identifies noise increments only through
+\[
+\Delta_{m,n}W=W_n^N(t_{m+1})-W_n^N(t_m),
+\]
+without defining the processes \(W_n^N\).
+
+\textbf{Source-reported baseline.} Under unspecified technical assumptions, the source attributes to its reference [2] the properties
+\[
+\mathbb P\!\left(u^{\mathrm{LT}}_{m,n}\geq0\text{ for every }0\leq m\leq M,\ 1\leq n\leq N-1\right)=1
+\]
+and the following root-mean-square error bound: for every \(\gamma>0\) and \(T>0\), there exists \(C=C_{\gamma,T}(u_0)>0\) such that, for every pair of positive integers \(M,N\) satisfying \(\tau\leq\gamma h^2\),
+\[
+\sup_{0\leq m\leq M}\sup_{0\leq n\leq N}
+\left(\mathbb E\left[\left|u^{\mathrm{LT}}_{m,n}-u(t_m,x_n)\right|^2\right]\right)^{1/2}
+\leq C\tau^{1/4}.
+\]
+This display reconstructs the damaged mathematical typography of the supplied excerpt using its explicit description of mean-square order \(1/4\); it requires checking against the source.
+
+\textbf{Requested extension.} Establish these positivity and convergence properties for \(g\) less regular than permitted in the source's reference [2], and determine a weak convergence rate for the same approximation. A precise theorem remains unresolved at the formulation level: neither the baseline regularity assumptions nor the intended weaker class of \(g\) is supplied. The hypotheses ensuring positivity, including the restrictions on \(u_0\) and the behavior of \(g\) at zero, must also be recovered. The weak convergence request does not specify a class of test functions, an observable, or a topology. No particular choices for these missing data are asserted here.
+\subsection{Short English statement}
+The problem asks whether the source's fully discrete Lie--Trotter approximation remains nonnegative and retains a root-mean-square error bound of order \(\tau^{1/4}\), under \(\tau\leq\gamma h^2\), when the noise coefficient \(g\) has weaker regularity. The curated statement also asks for a weak convergence rate. The numerical update, noise model, coefficient assumptions, initial-data assumptions, and weak-error criterion are missing, so this is a qualified statement-only draft requiring human mathematical review.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30005936\), title: \emph{Splitting Schemes for Rough Stochastic Heat Equations}; exact source problem code: \texttt{catalogue entry}. The record belongs to the Oberwolfach Reports Open Problems collection and gives proposed year 2024; no proposer is named.
+\item Supplied report citation: \emph{Constrained Dynamics, Stochastic Numerical Methods and the Modeling of Complex Systems} (2024), Oberwolfach Reports, pp.\ 1445--1516, DOI \texttt{10.4171/owr/2024/26}. Source URL and supplied literature source, labelled ``Oberwolfach Report 26/2024'': \url{https://doi.org/10.4171/owr/2024/26}.
+\item The excerpt attributes the baseline positivity and convergence results to its reference [2], whose bibliographic details are not supplied. It refers to SPDE (3) and scheme (4), whose complete definitions are not supplied.
+\item Literature checked at: \texttt{2026-08-22}. This is supplied dated curation, not an independently verified assessment. It labels the problem open and states that the source leaves positivity and convergence for less regular \(g\) open, with no authoritative subsequent resolution found in that curation. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry marks the statement \texttt{corrected\_verified} and reports that it was reconstructed and checked against the official report. These are supplied provenance claims; no independent source consultation or verification is claimed here.
+\end{itemize}
+\end{document}

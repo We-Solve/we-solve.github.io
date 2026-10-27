@@ -1,0 +1,95 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002666}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+This record fuses three separate unnumbered questions in the AIM \emph{Free Analysis} section on large deviations. They must not be treated as one theorem.
+
+\textbf{1. Change of variables for processes.} In a tracial noncommutative probability space, let \(x=(x_1,\ldots,x_m)\) be a self-adjoint tuple whose joint law is the terminal law of a process
+\[
+ \dd A_i(t)=\dd S_i(t)+k_{t,i}(A(s):s\le t)\,\dd t,
+ \qquad \mu_{A(1)}=\mu_x.
+\]
+Here \(S_1,\ldots,S_m\) are free Brownian motions, and \(\mu_x\) denotes joint noncommutative moments. The vector drift and the factor \(\dd t\) are explicit minimal repairs of the extraction. For a suitable self-adjoint functional transformation \(y_i=f_i(x)\), can one transform the drift by a rule \(\mathcal P_f\) to obtain
+\[
+ \dd B_i(t)=\dd\widetilde S_i(t)
+       +(\mathcal P_f k)_{t,i}(B(s):s\le t)\,\dd t,
+ \qquad \mu_{B(1)}=\mu_y,
+\]
+with identity free-Brownian diffusion? Initial conditions, admissible drifts and filtrations, functional calculus, integrability, and the required universality of \(\mathcal P_f\) are not specified. In particular this endpoint-law question does not require \(B(t)=f(A(t))\) pathwise.
+
+The aid gives a necessary condition for the stronger pathwise polynomial transformation \(B_j=F_j(A)\). Write its evaluated free Jacobian as biprocesses \(U_{ji}=(\partial_iF_j)(A)\), acting on Brownian increments by \((a\otimes b)\#\dd S_i=a\,\dd S_i\,b\). For biprocesses \(U=\sum a\otimes b\), \(V=\sum c\otimes d\), define the conditional covariance map
+\[
+ \mathcal C(U,V)[z]=\sum_{a,b,c,d}a\,\tau(bzc)\,d.
+\]
+The summation denotes all tensor terms in the two displayed decompositions. Identity diffusion requires
+\[
+ \sum_i\mathcal C(U_{ji},U_{qi})[z]
+       =\delta_{jq}\tau(z)1
+\]
+for the relevant past-algebra elements \(z\); changing a finite-variation drift cannot alter this quadratic covariance. This is a necessary condition, not an endpoint-steering impossibility theorem. In one variable, for a real polynomial \(f\), the aid reports that interval support of the relevant law forces \(f(x)=x+c\) or \(f(x)=-x+c\) under this covariance condition. Conversely, an orthogonal affine map \(B=OA+c\), \(OO^T=I\), is realized with \(\widetilde S=OS\) and drift
+\[
+ (\mathcal P_f k)_t(B_{\le t})
+       =O\,k_t\bigl(O^T(B_{\le t}-c)\bigr).
+\]
+This also transforms the initial condition; a separately prescribed initial state may impose an additional constraint. General endpoint-only steering remains unresolved in the supplied attempt.
+
+\textbf{2. Microstates limsup versus liminf.} For a bounded self-adjoint \(m\)-tuple \(x\), let \(\Gamma_R(x;\ell,N,\epsilon)\) be the set of self-adjoint \(N\times N\) matrix tuples with norms at most \(R\), whose normalized traces of all words of length at most \(\ell\) differ from the corresponding \(\tau\)-moments of \(x\) by less than \(\epsilon\). Using the usual Hilbert--Schmidt Lebesgue measure \(\Lambda_N\), put
+\[
+ a_N(R,\ell,\epsilon)=N^{-2}\log\Lambda_N(\Gamma_R(x;\ell,N,\epsilon))
+                         +\frac m2\log N,
+\]
+with \(\log0=-\infty\). Up to a common fixed normalization convention, microstates entropy is
+\[
+ \chi(x)=\sup_{R>0}\inf_{\ell\in\N,\epsilon>0}
+                       \limsup_{N\to\infty}a_N(R,\ell,\epsilon).
+\]
+Can the \(\limsup\) in this definition be replaced by \(\liminf\) without changing \(\chi\), with all other operations in the same order? The aid does not resolve this question. It is not a license to interchange the cutoff, moment, tolerance, and matrix-size limits.
+
+\textbf{3. Uniqueness of pressure equilibrium states.} For \(R>0\), let
+\[
+ \mathcal A_R^{(m)}=*_{i=1}^m C([-R,R])
+\]
+be the universal unital free-product \(C^*\)-algebra, with canonical self-adjoint generators, and \(TS(\mathcal A_R^{(m)})\) its tracial state space. For self-adjoint \(h\), Hiai's free pressure \(\pi_R(h)\) and its entropy-like dual satisfy
+\[
+ \eta_R(\tau)=\inf_{g=g^*}\{\tau(g)+\pi_R(g)\},
+ \qquad\eta_R(\tau)\ge\chi(\tau)
+\]
+in the source's conventions. The source says an equilibrium tracial state exists for each \(h\), meaning
+\[
+ \eta_R(\tau)=\tau(h)+\pi_R(h).
+\]
+For which \(h\) is this state unique? The source proposes free transportation inequalities as a route. It does not provide a universal uniqueness theorem.
+
+The aid reports the criterion that uniqueness is equivalent to G\^ateaux differentiability of the pressure at \(h\), with directional derivative \(D\pi_R(h)[g]=-\tau_h(g)\) for the unique equilibrium state. It also reports known uniqueness in one variable and for uniformly convex additive potentials, under the relevant hypotheses of those results. An additive example class has \(h=\sum_iV_i(X_i)\) with a uniform positive lower bound on \(V_i''\) on the relevant spectral interval; exact regularity and cutoff assumptions require the omitted references. This report is not extended to arbitrary noncommutative potentials. None of these pressure statements resolves the separate process or microstates questions.
+\subsection{Short English statement}
+The extraction joins three questions: transforming free-Brownian drifts to realize a changed terminal law, replacing limsup by liminf in microstates entropy, and uniqueness of Hiai pressure equilibrium states. The aid supplies a pathwise covariance obstruction and orthogonal affine examples, while keeping endpoint-only steering distinct. It reports differentiability and convex-potential results for the separate equilibrium question.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID 20002666, catalogue entry; canonical \texttt{aim-probability-notes.json}, notes[107].
+\item AIM \emph{Free Analysis}, section 0.2, ``Large Deviations'', \url{https://aimath.org/WWN/freeanalysis/freeanalysis.pdf}. The supplied verification identifies three consecutive unnumbered items merged by extraction and the omitted drift \(\dd t\). No individual proposer is assigned to the first two questions.
+\item Hiai is explicitly credited in the source for free pressure and \(\eta_R\); no full bibliography or theorem references for existence, differentiability, or convex-potential uniqueness are supplied.
+\item Machine-generated research attempt 1, partial-result/partially-solved labels, reported rigor proved and low novelty confidence. Its covariance obstruction is not peer reviewed and requires independent verification before citation. The general steering and microstates liminf questions remain unresolved in that attempt.
+\end{itemize}
+\end{document}

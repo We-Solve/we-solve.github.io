@@ -1,0 +1,67 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800446}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Equip \(\{-1,1\}^n\) with the uniform probability measure. For \(S\subseteq[n]=\{1,\ldots,n\}\), put \(\chi_S(x)=\prod_{j\in S}x_j\) and \(\widehat f(S)=\E[f\chi_S]\). Write
+\[
+f(x)=\sum_{S\subseteq[n]}\widehat f(S)\chi_S(x).
+\]
+The condition \(\deg(f)\leq k\) means that \(\widehat f(S)=0\) whenever \(|S|>k\). Define
+\[
+\operatorname{Var}[f]=\E[(f-\E[f])^2]
+=\sum_{\varnothing\ne S\subseteq[n]}\widehat f(S)^2,
+\qquad
+\operatorname{Inf}_i[f]=\sum_{S\ni i}\widehat f(S)^2.
+\]
+Equivalently, if \(x^{\oplus i}\) is obtained by reversing coordinate \(i\), then
+\[
+\operatorname{Inf}_i[f]=\frac14\E\bigl[(f(x)-f(x^{\oplus i}))^2\bigr].
+\]
+These definitions make explicit the standard uniform-cube interpretation of the notation in the supplied record.
+
+\textbf{Aaronson--Ambainis conjecture.} There exists an absolute constant \(C>0\) such that, for every pair of positive integers \(n,k\) and every function \(f:\{-1,1\}^n\to[-1,1]\) of degree at most \(k\), there exists \(i\in[n]\) satisfying
+\[
+\operatorname{Inf}_i[f]\geq
+\left(\frac{\operatorname{Var}[f]}{k}\right)^C.
+\]
+Here the source notation \((\operatorname{Var}[f]/k)^{O(1)}\) is interpreted as a bound with an absolute positive exponent independent of \(n\), \(k\), and \(f\). The source does not explicitly specify the parameter boundaries: the displayed quotient requires \(k>0\), and the requested coordinate requires \(n>0\). Constant functions are included when \(n,k\geq1\), with variance and all influences equal to zero; the source gives no separate formulation for \(k=0\).
+
+\textbf{Supplied literature qualifications.} The record reports that the conjecture holds for functions \(f:\{-1,1\}^n\to\{-1,1\}\), following a result of O'Donnell, Schramm, Saks, and Servedio [OSSS05]. It also reports that a result of Dinur, Kindler, Friedgut, and O'Donnell [DFKO07] yields the weaker bound
+\[
+\operatorname{Inf}_i[f]\geq
+\left(\frac{\operatorname{Var}[f]}{2^k}\right)^{O(1)}
+\]
+for some coordinate \(i\). These are supplied source claims, not independently verified literature assessments. The registry labels the problem open.
+\subsection{Short English statement}
+The conjecture asks whether every bounded real-valued function on the uniform Boolean cube with degree at most \(k\) has a coordinate whose squared-difference influence is at least a fixed power of its variance divided by \(k\), uniformly in the dimension. The source reports the Boolean-valued case and a weaker exponential-in-degree bound as known. Its open label and literature claims are supplied information requiring human review.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: permanent ID \(800446\), source problem code \texttt{catalogue entry}, title ``Analysis of Boolean Functions --- Aaronson--Ambainis Conjecture.'' The supplied record lists O'Donnell as proposer, gives the year 2012, and labels the status open. Upstream revision: \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item O'Donnell, \emph{Open Problems in Analysis of Boolean Functions} (2012), Problem 16, ``Aaronson--Ambainis Conjecture'': \url{https://arxiv.org/abs/1204.6447}. The record reports access on 2026-10-16 and extraction by \texttt{arxiv\_latex}; these provenance details are supplied and do not represent access or verification performed for this draft.
+\item The supplied source identifies [Aar08,AA11] under ``Proposed/Source.'' Full bibliographic entries are not included in the record.
+\item [OSSS05]: attributed in the supplied remarks to O'Donnell, Schramm, Saks, and Servedio, for the Boolean-valued case. No full bibliographic entry or separate URL is supplied.
+\item [DFKO07]: attributed in the supplied remarks to Dinur, Kindler, Friedgut, and O'Donnell, for the weaker bound involving \(2^k\). No full bibliographic entry or separate URL is supplied.
+\end{itemize}
+\end{document}

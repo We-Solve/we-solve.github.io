@@ -1,0 +1,61 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000935}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+A graph $G$ is $r$-Ramsey for $H$ if every $r$-edge-coloring has a monochromatic $H$, and is Ramsey-minimal if no proper subgraph is $r$-Ramsey for $H$. Put
+\[
+ s_r(H)=\min\{\delta(G):G\text{ is }r\text{-Ramsey-minimal for }H\}.
+\]
+The aid recovers the source's abbreviation $s_r(3)$ as $s_r(K_3)$.
+
+\textbf{Source conjecture, item 13.} As $r\to\infty$,
+\[
+ s_r(K_3)=\Theta(r^2\log r),
+\]
+meaning upper and lower bounds with absolute positive constants for sufficiently large $r$. The original remark suggests this would follow from an extension of the triangle-free process to $r$ colors.
+
+\textbf{Supplied resolution.} The aid attributes the matching lower order and identity $s_r(K_3)=P_r(2)$ to FGLPS, and the upper order to Guo--Warnke. Here $P_r(2)$ is the least $|V|$ admitting pairwise edge-disjoint triangle-free graphs $G_1,\ldots,G_r$ on the same $V$ such that every vertex coloring $c:V\to\{1,\ldots,r\}$ has an edge $uv\in E(G_i)$ with $c(u)=c(v)=i$ for some $i$. This is the strong-coloring certificate property, not ordinary Ramsey arrowing of each layer.
+
+The report describes Guo--Warnke packings on $n$ vertices with $\Theta(\sqrt{n/\log n})$ edge-disjoint triangle-free layers, each of independence number $O(\sqrt{n\log n})$. Choosing $n=\Theta(r^2\log r)$ with a suitable constant gives $r$ layers with $\alpha(G_i)<n/r$, hence the matching $P_r(2)$ upper bound. Their method is reported to iterate a host-robust semi-random R\"odl-nibble variant, rather than implement one simultaneous ordinary $r$-color triangle-free process. The source remark is thus a proposed route, not a literal description of the supplied proof.
+
+\textbf{Reported aggregate certificate and deletion reserve.} More generally, the certificate follows whenever
+\[
+ \sum_{i=1}^r\alpha(G_i)<|V|.
+\]
+Indeed, avoiding a strong edge would make every color class independent in its corresponding layer. On deleting $X\subset V$, the same layers restricted to $V\setminus X$ retain the property whenever
+\[
+ |V\setminus X|>\sum_i\alpha(G_i).
+\]
+The aid deduces that for every fixed $\eta\in(0,1)$ there is an $O_\eta(r^2\log r)$-vertex certificate surviving deletion of every $X$ with $|X|<\eta|V|$. This resilience concerns the auxiliary layer certificate; a Ramsey-minimal host itself is not claimed to remain Ramsey after vertex deletion. The literature resolution and the additional certificate corollaries are supplied claims requiring independent verification.
+\subsection{Short English statement}
+The source conjectures order $r^2\log r$ for the smallest minimum degree of an $r$-Ramsey-minimal triangle host. The aid reports a complete literature resolution via triangle-free layer packings and gives an aggregate independence-number test with a vertex-deletion reserve for those auxiliary certificates.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000935$, \texttt{catalogue entry}; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[59]}.
+\item AIM workshop ``Graph Ramsey theory,'' ``Ramsey minimal graphs,'' item 13: \url{https://www.overleaf.com/read/mnvcscjjysvg}. The original includes the proposed multicolor triangle-free-process route.
+\item FGLPS (abbreviation as supplied) for the lower bound and packing identity; Guo--Warnke for the upper bound and semi-random packings. No full titles, identifiers or complete bibliographic references are supplied.
+\item Research attempt 1, \texttt{full\_solution}, run status \texttt{solved}, internal rigor \texttt{proved}, low novelty confidence; registry \texttt{SOLVED-IN-LITERATURE}. Explicitly machine-generated, not peer reviewed, and to be independently verified before citation. Original literature field empty.
+\end{itemize}
+\end{document}

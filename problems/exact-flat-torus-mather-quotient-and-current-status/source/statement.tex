@@ -1,0 +1,75 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002466}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(M\) be a compact connected smooth manifold without boundary, and \(\mathbb T=\R/\Z\). Let \(L:TM\times\mathbb T\to\R\) be \(C^\infty\), strictly convex with positive-definite fiber Hessian, uniformly superlinear in velocity, and with complete Euler--Lagrange flow. These make the source's ``usual hypotheses of the Mather theory'' explicit. Fix \(c\in H^1(M;\R)\), a smooth closed one-form \(\eta_c\) representing it, and
+\[
+ \alpha(c)=-\inf_\mu\int(L-\eta_c)\,\dd\mu,\qquad
+ L_c=L-\eta_c+\alpha(c),
+\]
+where \(\mu\) ranges over invariant probability measures with finite action on the time-extended phase space. Thus \(\inf_\mu\int L_c\,\dd\mu=0\).
+
+For each positive integer \(N\), define
+\[
+ h_c^N(x,y)=\inf_{\substack{\gamma\in AC([0,N],M)\\\gamma(0)=x,\ \gamma(N)=y}}
+ \int_0^N L_c(\gamma(t),\dot\gamma(t),t)\,\dd t,
+ \qquad h_c(x,y)=\liminf_{N\to\infty}h_c^N(x,y).
+\]
+All endpoints are at time zero modulo one. Accordingly take the projected Aubry set in that time slice,
+\[
+ \mathcal A_c=\{x\in M:h_c(x,x)=0\},\qquad
+ \rho_c(x,y)=h_c(x,y)+h_c(y,x)\quad(x,y\in\mathcal A_c).
+\]
+On \(\mathcal A_c\), \(\rho_c\) is a pseudometric. Let \(x\sim y\) mean \(\rho_c(x,y)=0\), and give \(\overline{\mathcal A}_c=\mathcal A_c/\!\sim\) the induced metric \(\bar\rho_c([x],[y])=\rho_c(x,y)\). John Mather's two questions are whether, for every such \(M,L,c\), this quotient is totally disconnected, and whether
+\[
+ \dim_H(\overline{\mathcal A}_c,\bar\rho_c)=0.
+\]
+Totally disconnected means that every connected component is a singleton. The Hausdorff dimension is for the quotient metric, not for the Aubry set in an ambient Riemannian metric.
+
+The supplied explicit family is \(M=\R^d/\Z^d\), \(L(x,v,t)=\tfrac12v^{\mathsf T}Av\), with a constant symmetric positive-definite \(d\times d\) matrix \(A\). Identify \(c\) with a constant covector, and put \(b=A^{-1}c\). Then
+\[
+ \alpha(c)=\tfrac12c^{\mathsf T}A^{-1}c,\qquad
+ L_c=\tfrac12(v-b)^{\mathsf T}A(v-b).
+\]
+For lifts \(X,Y\in\R^d\) of \(x,y\), the aid's all-winding formula is
+\[
+ h_c^N(x,y)=\frac1{2N}\min_{\ell\in\Z^d}
+ (Y-X+\ell-Nb)^{\mathsf T}A(Y-X+\ell-Nb),
+ \qquad
+ 0\le h_c^N(x,y)\le\frac{\lambda_{\max}(A)d}{8N}.
+\]
+The bound is uniform in \(x,y,c\) and uses no rationality assumption on \(b\). Hence \(h_c\equiv0\), \(\mathcal A_c=M\), and its quotient is a singleton, although the projected Aubry set is the whole torus. Both requested quotient properties hold in this family.
+
+The aid distinguishes known autonomous and low-dimensional results from the still-open arbitrary-dimensional smooth time-periodic questions, but gives no precise theorem ranges or references. No blanket autonomous theorem or solution of the full questions is inferred from the flat kinetic family.
+\subsection{Short English statement}
+Mather asks whether every smooth time-periodic Aubry quotient is totally disconnected and has zero Hausdorff dimension. The aid's constant-kinetic flat-torus family has an exact \(O(1/N)\) action formula: its Aubry set is the whole torus but its quotient is one point, for every cohomology class.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry, permanent UnsolvedMath ID \(20002466\), exact public code \texttt{catalogue entry}; canonical location \texttt{aim-pdes-notes.json}, \texttt{notes[77]}.
+\item AIM, \emph{New connections between dynamical systems and PDE's}, Problem 3 attributed to John Mather; supplied reference \url{https://aimath.org/WWN/dynpde/dynpde.pdf}. The record preserves an OCR-damaged extraction of the normalized action and quotient definitions. No PDF was accessed here. No proposer year, original remarks, or literature citation is supplied.
+\item Supplied research attempt 1: \texttt{partial\_result}, run status \texttt{open}, rigor label \texttt{proved}, low novelty confidence; registry status \texttt{partially\_solved}, classification \texttt{PARTIAL-PROGRESS}, created and updated 14 August 2026. It supplies the constant-kinetic lattice formula and mentions known autonomous/low-dimensional results without exact theorem statements or citations.
+\item The research aid explicitly says it is machine generated, not peer reviewed, and requires independent verification before citation.
+\end{itemize}
+\end{document}

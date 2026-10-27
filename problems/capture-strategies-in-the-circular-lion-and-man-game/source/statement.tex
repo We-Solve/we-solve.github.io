@@ -1,0 +1,66 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30004551}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied record asks for a winning lion strategy in a discrete equal-speed pursuit game on a closed circular arena, or for geometric conditions ensuring such a strategy. Its rules do not determine a unique mathematical game, so the following is a conditional formulation rather than an asserted capture theorem.
+
+An arena is a metric space \((A,d)\). For example, a filled Euclidean circular arena of radius \(R>0\) would be
+\[
+D_R=\{x\in\R^2:\|x\|_2\le R\},
+\]
+whereas its boundary alone would be
+\[
+S_R=\{x\in\R^2:\|x\|_2=R\}.
+\]
+The source does not explicitly distinguish these interpretations or specify a broader class of arenas for its geometric question. Neither interpretation is imposed here.
+
+Let \(G\) denote a fully specified discrete pursuit game on \(A\), including the legal moves, move order, information available to each player, and observation and capture rules. Let \(I\subseteq A\times A\) be its permitted initial lion--man positions. A strategy assigns a legal move to each history available to that player. For strategies \(\sigma\) of the lion and \(\tau\) of the man, write \(L_n^{\sigma,\tau,i}\) and \(M_n^{\sigma,\tau,i}\) for their positions at observation index \(n\in\Z_{\ge0}\), starting from \(i\in I\).
+
+For a game whose capture rule is evaluated at these observation indices, define the conditional winning property at threshold \(q\ge0\) by
+\[
+\mathcal W_q(G,I)\quad\Longleftrightarrow\quad
+\exists\sigma\ \forall i\in I\ \forall\tau\ \exists n\in\Z_{\ge0}:\quad
+ d\bigl(L_n^{\sigma,\tau,i},M_n^{\sigma,\tau,i}\bigr)\le q.
+\]
+Here the strategies range over those permitted by \(G\), and may use the initial information that \(G\) makes available. The case \(q=0\) expresses exact capture at a finite observation index. One possible approximate-capture target is
+\[
+\forall\varepsilon>0\quad\mathcal W_\varepsilon(G,I),
+\]
+which allows the lion's strategy to depend on \(\varepsilon\). Requiring one strategy to work for every positive tolerance is a separate quantifier choice. Capture during a move, or a strict threshold \(d<\varepsilon\), requires a correspondingly different definition.
+
+\textbf{Statement to be specified.} Determine legal lion strategies guaranteeing the intended capture property in the intended closed circular arena; for a specified class of arenas and fixed game rules, determine the geometric hypotheses under which that property holds. The record does not specify which capture property, which initial configurations, or which game rules are intended. Equal speed alone does not specify whether moves have a common maximum length, an exact length, or a common time-dependent movement budget. Consequently, the displayed properties cannot yet be instantiated as the uniquely intended problem. Finding a strategy in a fixed arena and characterizing winning arenas are related requests, but their claimed equivalence requires additional definitions.
+
+The supplied dated curation distinguishes discrete \(\varepsilon\)-capture in uniformly convex bounded domains from an unrestricted classical equal-speed closed-arena formulation. These are not identified here: the latter is described in the record as a negative result of Besicovitch, while the former is described as admitting lion strategies with an extracted uniform rate. These are supplied literature assessments, not independently verified mathematical conclusions or solutions established by this draft.
+\subsection{Short English statement}
+Specify the discrete equal-speed lion--man game, then determine whether the lion can force the intended form of capture and which geometric assumptions ensure this. The record leaves move order, legal movement, initial positions, and exact versus approximate capture unresolved. Its supplied partially solved label combines assessments of distinct game formulations.
+\subsection{Sources}
+\begin{itemize}
+\item Supplied local UnsolvedMath registry record, permanent ID \(30004551\), title ``Capture Strategies in the Circular Lion-and-Man Game,'' source code \texttt{catalogue entry}; registry collection \texttt{data/unsolvedmath/problems.json}. The record attributes the problem to the Oberwolfach Reports collection and gives proposed year 2020; no individual proposer is supplied.
+\item Supplied source citation: \emph{Mathematical Logic: Proof Theory, Constructive Mathematics (2021)}, Oberwolfach Reports, DOI 10.4171/owr/2020/34, pp.\ 1693--1757. \url{https://doi.org/10.4171/owr/2020/34}. The literature list also labels this reference ``Oberwolfach Report 34/2020.'' No problem-specific page or quoted passage is supplied.
+\item Supplied literature reference: Kohlenbach--Lopez-Acedo--Nicolae, 2021. \url{https://doi.org/10.2140/pjm.2021.310.181}. The record supplies no article title, theorem number, or precise hypotheses for the claim attributed to this reference.
+\item Literature assessment checked at \texttt{2026-08-22}: this is supplied dated curation, not independently verified. Its status is ``partially solved.'' It reports a lion win with an extracted uniform rate for discrete \(\varepsilon\)-capture in uniformly convex bounded domains, and describes the unrestricted classical equal-speed closed-arena formulation as a known negative result of Besicovitch. No separate Besicovitch reference is supplied. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement ``exact'' and says it was retained byte-for-byte as clear, self-contained, and publication-ready. This supplied verification label does not resolve the rule and quantifier omissions identified in this draft. The cited external sources have not been visited or independently checked here.
+\end{itemize}
+\end{document}

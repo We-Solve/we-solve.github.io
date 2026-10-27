@@ -1,0 +1,48 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20000974}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let $G$ be a finite connected loopless graph, allowing parallel edges, with graph Laplacian $L$. A divisor is $D\in\Z^{V(G)}$, is effective when all entries are nonnegative, and is linearly equivalent to $D'$ when $D-D'\in L\Z^{V(G)}$. Write $|D|$ for its effective representatives. The Baker--Norine rank is
+\[
+r_G(D)=\min\{\deg E-1:E\ge0,\ |D-E|=\varnothing\}.
+\]
+In particular $r_G(D)=-1$ when $|D|=\varnothing$. The source attributes to Lionel Levine the question of computing this rank efficiently; it does not specify graph encoding, divisor encoding, exact versus approximate output or allowed parameters.
+
+The attached aid reports NP-hardness of exact rank even on simple graphs. This rules out a general polynomial-time exact algorithm only under $\mathrm P\ne\mathrm{NP}$, not as an unconditional separation. It separately reports tractability of reduced-divisor effectivity, fixed rank-threshold tests, fixed vertex count and some graph classes, without giving their full hypotheses or references. Effectivity alone does not compute arbitrary rank.
+
+For the explicit two-vertex multigraph $B_m$, with $m\ge1$ parallel edges and divisor $D=(x,y)\in\Z^2$, let $a$ be the unique integer $0\le a<m$ congruent to $x$ modulo $m$, and set $b=x+y-a$. The aid's exact formula is
+\[
+r_{B_m}(D)=\min\{a+\max(b-m+1,0),\ \max(b,-1)\}.
+\]
+No nonnegativity hypothesis is imposed on $x,y$ or $b$. The formula includes noneffective classes, rank $-1$, and the tree case $m=1$. The aid states that one modular normalization and these two obstruction sectors suffice for an algorithm polynomial in the bit lengths of $m,x,y$, even when $m$ and the signed chip counts are binary encoded. This is a special-family algorithm rather than a solution of the general NP-hard problem.
+\subsection{Short English statement}
+Compute Baker--Norine divisor rank efficiently. The supplied aid distinguishes general exact-rank NP-hardness from tractable restricted settings and gives a closed formula with polynomial bit complexity for every signed divisor on a two-vertex multigraph.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry, permanent ID $20000974$, source code catalogue entry; canonical \texttt{aim-combinatorics-notes.json}, \texttt{notes[98]}.
+\item American Institute of Mathematics, \emph{Problems from the AIM Chip-Firing Workshop}, problem 9, attributed to Lionel Levine: \url{https://aimath.org/pastworkshops/chipfiringproblems.pdf}. The source refers to Baker and Norine as reference [7], whose bibliographic entry is absent here. An appended page header is extraction material, not part of the question; no PDF inspection is claimed.
+\item Attached research attempt 1: partial result, run and registry status partially solved, rigor proved, novelty confidence low, classification PARTIAL-PROGRESS. Its NP-hardness, restricted algorithms and two-vertex formula are machine generated and not peer reviewed; independently verify before citation. No exact complexity reference is supplied.
+\end{itemize}
+\end{document}

@@ -1,0 +1,78 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30005117}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+The supplied problem concerns an asymptotic family of graphs. The formulation below uses the standard conventions of finite simple undirected graphs, ordinary (not necessarily induced) subgraph copies, and uniform discrepancy over all vertex subsets. These conventions are not fully specified in the supplied record and require confirmation against the source.
+
+Write \([n]=\{1,\ldots,n\}\). Let \(G_n\) have vertex set \([n]\), and define its edge density by
+\[
+p_n=\frac{2|E(G_n)|}{n(n-1)}.
+\]
+For possibly overlapping subsets \(A,B\subseteq[n]\), use the ordered incidence convention
+\[
+e_{G_n}(A,B)=\bigl|\{(a,b)\in A\times B:\{a,b\}\in E(G_n)\}\bigr|.
+\]
+Thus an edge with both endpoints in \(A\cap B\) contributes twice. Say that \(G_n\) is \(C_4\)-free if it contains no subgraph isomorphic to the cycle of length four, whether induced or not.
+
+Define the Petersen graph \(P\) to have vertex set \(\binom{[5]}{2}\), with two vertices adjacent exactly when the corresponding two-element subsets are disjoint. It has ten vertices and fifteen edges. Let
+\[
+X_P(G)=\frac{1}{|\operatorname{Aut}(P)|}
+\bigl|\{\phi:V(P)\hookrightarrow V(G):
+\{\phi(u),\phi(v)\}\in E(G)\text{ for every }\{u,v\}\in E(P)\}\bigr|
+\]
+count its ordinary subgraph copies. Let \(G(n,p)\) be the random graph on \([n]\) in which each unordered pair of distinct vertices is independently an edge with probability \(p\). Then
+\[
+\mathbb E X_P(G(n,p))
+=\frac{(n)_{10}}{|\operatorname{Aut}(P)|}p^{15},
+\qquad (n)_{10}=n(n-1)\cdots(n-9).
+\]
+
+A precise interpretation of the supplied question is the following. For every fixed \(c_0>0\), does there exist \(c=c(c_0)>0\) such that every sequence \((G_n)_{n\to\infty}\) of \(C_4\)-free graphs satisfying
+\[
+p_n\ge c_0 n^{-1/2}
+\quad\text{for all sufficiently large }n,
+\qquad
+\frac{1}{p_n n^2}
+\max_{A,B\subseteq[n]}
+\left|e_{G_n}(A,B)-p_n|A||B|\right|\longrightarrow0
+\]
+also satisfies, for all sufficiently large \(n\),
+\[
+X_P(G_n)\ge c\,\mathbb E X_P(G(n,p_n))
+=c\,\frac{(n)_{10}}{|\operatorname{Aut}(P)|}p_n^{15}?
+\]
+Here the threshold for sufficiently large \(n\) may depend on the sequence. The source does not explicitly specify whether the comparison constant may depend on the implicit constant in \(p\gtrsim n^{-1/2}\); the displayed quantifiers permit that dependence. The uniform interpretation of the little-oh condition and the counting conventions above are explicit interpretations, not independently verified source details.
+\subsection{Short English statement}
+Must every sufficiently large \(C_4\)-free graph with edge density at least a fixed positive multiple of \(n^{-1/2}\), and uniformly negligible discrepancy relative to \(pn^2\), contain at least a fixed positive fraction of the expected Petersen-graph count in \(G(n,p)\)? The precise counting conventions and dependence of the comparison constant need source confirmation. The supplied registry labels the problem open; this draft does not independently verify that status.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete source record, permanent ID \(30005117\), title ``Petersen-Graph Counts in Sparse Pseudorandom Graphs,'' exact source problem code \texttt{catalogue entry}, in the Oberwolfach Reports Open Problems collection. No individual proposer is supplied; the proposed year is recorded as 2022.
+\item Supplied report citation: \emph{Combinatorics, Probability and Computing} (2023), \emph{Oberwolfach Reports}, pp.~1165--1237, DOI \texttt{10.4171/owr/2022/22}. \url{https://doi.org/10.4171/owr/2022/22}. The supplied background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied literature source, labeled ``Conlon, Fox, Sudakov, and Zhao, sparse regularity'': \url{https://doi.org/10.1112/jlms.12500}.
+\item Supplied literature source, labeled ``official OWR report'': \url{https://publications.mfo.de/bitstream/handle/mfo/3964/OWR_2022_22.pdf?isAllowed=y&sequence=4}.
+\item Literature assessment dated exactly \texttt{2026-08-22}: the supplied curation labels the problem open and reports finding no proof or counterexample under the stated \(C_4\)-free and discrepancy hypotheses. This is supplied dated curation, not an independently verified literature assessment. The background explicitly requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified} and supplies a claim that the official report was checked directly and extraction artifacts were removed. That verification claim is part of the supplied record; no source visit or independent verification is asserted here.
+\end{itemize}
+\end{document}

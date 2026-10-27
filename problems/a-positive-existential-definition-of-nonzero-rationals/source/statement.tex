@@ -1,0 +1,68 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 20002290}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Write \(\mathcal L_2=\{0,1,+,P_2\}\) for the language in Koenigsmann's Question 6, interpreted on \(\mathbb Q\), where \(P_2\) is the unary predicate of rational squares, including zero. An existential-positive formula uses existential quantifiers, atomic formulas, conjunctions and disjunctions, with no negations. The source asks whether every existentially definable set is already existential-positive definable. Its equivalent two targets are
+\[
+ \mathbb Q^\times=\{x:x\ne0\},\qquad
+ \mathrm{NSq}=\{x:\neg P_2(x)\}.
+\]
+The latter is described semantically in the source as having no rational square root; multiplication and that universal description are not being added to the language. The extracted ``6 ='' is reconstructed as \(\ne\).
+
+The aid gives the following parameter-free positive formula:
+\[
+ \begin{split}
+ \operatorname{Pos}(x)\ \Longleftrightarrow\
+ \exists a,b_1,b_2,b_3,b_4\quad
+ &x=a+b_1+b_2+b_3+b_4\\
+ &\wedge P_2(a)\wedge P_2(a+1+1)
+ \wedge\bigwedge_{i=1}^4P_2(b_i).
+ \end{split}
+\]
+Its reported meaning is exactly \(x\in\mathbb Q_{>0}\). The simultaneous square conditions force \(a>0\), with admissible \(a\) arbitrarily small, and a positive rational remainder is a sum of four rational squares. No multiplication term is used in the displayed formula.
+
+It follows as reported that
+\[
+ \operatorname{Nonzero}(x)\ \Longleftrightarrow\
+ \operatorname{Pos}(x)\ \vee\
+ \exists y\,(x+y=0\wedge\operatorname{Pos}(y))
+\]
+is an existential-positive definition of \(\mathbb Q^\times\). The unresolved target in the aid is \(\mathrm{NSq}\).
+
+The aid's exact reduction says that, once \(\operatorname{Nonzero}\) is available, the overall existential-to-positive conversion is equivalent to positive definability of \(\mathrm{NSq}\). Indeed a disequality between terms \(s,t\) can be replaced by
+\[
+ \exists z\,(s=t+z\wedge\operatorname{Nonzero}(z)),
+\]
+and a negative square atom by the prospective nonsquare predicate. Disjunctive normal form then removes all negative atoms without adding universal quantifiers, in the same parameter convention as the input. Conversely \(\neg P_2(x)\) is already quantifier-free, hence existential, so the claimed general conversion would define it positively. This is a reduction and a solution of the first target, not a positive definition of nonsquares or a solution of the full question.
+\subsection{Short English statement}
+The supplied aid positively defines the positive rationals using only addition and square predicates, then defines nonzero rationals by allowing an additive inverse. The original problem therefore reduces exactly to positive existential definability of nonsquares. No nonsquare formula is supplied.
+\subsection{Sources}
+\begin{itemize}
+\item Local source record: catalogue entry, catalogue entry; canonical \texttt{aim-logic-notes.json}, \texttt{notes[65]}, Question 6 attributed to Koenigsmann. Title: ``A positive-existential definition of nonzero rationals.''
+\item AIM workshop ``Definability and decidability problems in number theory,'' supplied reference \url{https://aimath.org/pastworkshops/definabilityinntproblems.pdf}. The verification reports PDF-text/font inspection resolving damaged language, predicate and inequality glyphs; this draft does not access a PDF.
+\item Attempt 1 supplies the positive-cone formula, nonzero formula and disjunctive-normal-form reduction. No authoritative separate bibliographic citation or nonsquare definition is provided.
+\item Registry dated 14 August 2026: ``partially\_solved,'' ``PARTIAL-PROGRESS,'' statement status ``exact''; attempt partial, rigor ``proved,'' novelty confidence low. The machine-generated, non-peer-reviewed aid requires independent verification before citation.
+\end{itemize}
+\end{document}

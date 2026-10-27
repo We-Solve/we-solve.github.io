@@ -1,0 +1,58 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30001672}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(n\) be a positive integer, let \([n]=\{1,\ldots,n\}\), and let \(f:\{0,1\}^{n}\to\{0,1\}\) be a Boolean function. For \(S\subseteq[n]\), write \(S^{c}=[n]\setminus S\). Given an assignment \(y\in\{0,1\}^{S^{c}}\), define the restricted function \(f_y:\{0,1\}^{S}\to\{0,1\}\) by \(f_y(z)=f(x)\), where \(x|_{S^{c}}=y\) and \(x|_S=z\). The value of \(f\) remains undetermined after assigning \(y\) precisely when \(f_y\) is nonconstant, equivalently when there exist \(z,z'\in\{0,1\}^{S}\) with \(f_y(z)=0\) and \(f_y(z')=1\).
+
+The supplied record does not specify the distribution used for random assignments or expectations. Under the explicitly provisional interpretation that all coordinates are independent and uniformly distributed on \(\{0,1\}\), put
+\[
+ m(f)=2^{-n}\sum_{x\in\{0,1\}^{n}}f(x),\qquad
+ I_f(S)=2^{-|S^{c}|}\bigl|\{y\in\{0,1\}^{S^{c}}:f_y\text{ is nonconstant}\}\bigr|.
+\]
+Thus \(I_f(S)\) is the coalition influence defined in the supplied statement.
+
+\textbf{Question, with unresolved qualifications.} If \(m(f)\) is bounded away from both \(0\) and \(1\), must there exist \(S\subseteq[n]\) with \(|S|\le n/3\) and
+\[
+ I_f(S)\ge 1-c^n
+\]
+for some absolute constant \(c\) satisfying \(0<c<1\)? More explicitly, the requested implication has the form
+\[
+ \varepsilon\le m(f)\le1-\varepsilon
+ \quad\Longrightarrow\quad
+ \exists S\subseteq[n]\;\bigl(|S|\le\lfloor n/3\rfloor\ \text{ and }\ I_f(S)\ge1-c^n\bigr),
+\]
+where \(0<\varepsilon\le1/2\) represents a fixed positive balance margin. The record does not specify that margin, whether \(c\) must be independent of it, or whether the assertion is intended for every positive integer \(n\) or only for sufficiently large \(n\). Consequently, the displayed implication is a formulation template, not a fully specified quantified conjecture. The probability law, the quantifier order for \(\varepsilon,c,n,f\), and any dimension threshold require clarification from the source.
+\subsection{Short English statement}
+The question asks whether a Boolean function whose mean stays away from \(0\) and \(1\) has a coalition of at most one third of its variables that can still change the output after all other variables are randomly fixed, with probability at least \(1-c^n\). The probability law, uniformity of the constant, and intended range of \(n\) remain unspecified in the supplied record.
+\subsection{Sources}
+\begin{itemize}
+\item Local registry: \texttt{data/unsolvedmath/problems.json}, permanent UnsolvedMath ID \(30001672\), source problem code \texttt{catalogue entry}, titled ``High Influence Small Sets in Boolean Functions,'' in the Oberwolfach Reports Open Problems collection. The supplied record gives proposed year 2011 and names no individual proposer.
+\item Supplied source citation: \emph{Combinatorics (2011)}, Oberwolfach Reports, DOI 10.4171/owr/2011/01, pp.\ 5--83. \url{https://doi.org/10.4171/owr/2011/01}. This is also the supplied literature reference labelled ``Oberwolfach problem statement.'' No exact problem page is supplied.
+\item Supplied literature reference: ``Ajtai and Linial, influence of large coalitions.'' \url{https://doi.org/10.1007/BF01303199}.
+\item Supplied literature reference: ``KKL influence bounds.'' \url{https://eccc.weizmann.ac.il/eccc-reports/2005/TR05-163/index.html}.
+\item Literature assessment dated exactly \texttt{2026-08-21}: the supplied curation labels the problem open and states that KKL and subsequent influence theorems give related bounds but do not settle the stated \(n/3\) coalition assertion under the report hypotheses. This is supplied dated curation, not independently verified here. The supplied background requests independent verification of time-sensitive status and cited claims.
+\item The registry labels the statement \texttt{corrected\_verified}, but its accompanying verification note reports only enclosing TeX notation in math delimiters without changing mathematical content. That label does not establish mathematical verification of the formulation.
+\end{itemize}
+\end{document}

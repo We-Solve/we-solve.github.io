@@ -1,0 +1,72 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 800111}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Let \(\Sigma_g\) denote a closed, connected, orientable surface of genus \(g\), and let \(G=\mathrm{Homeo}_0(\Sigma_g)\) be the identity component of its homeomorphism group, with the compact-open topology. This uses the customary interpretation of the surface notation: the supplied record does not explicitly specify closedness, orientability, boundary conditions, or the permitted genera. The questions below are therefore conditional on this interpretation and concern an intended fixed genus \(g\); the source does not specify a quantifier over genera.
+
+Interpret a flow on \(\Sigma_g\) as a continuous map \(\Phi:\R\times\Sigma_g\to\Sigma_g\) satisfying \(\Phi_0=\mathrm{id}\) and \(\Phi_{s+t}=\Phi_s\circ\Phi_t\) for all \(s,t\in\R\). Set
+\[
+\mathcal S=\{\Phi_1:\Phi\text{ is a flow on }\Sigma_g\}.
+\]
+The source does not explicitly state the regularity convention for flows; continuity is the interpretation used here for its homeomorphism-group question. The set \(\mathcal S\) is closed under inverses by reversing time. Using the source's premise that these time-one maps generate \(G\), define the flow length and stable flow length by
+\[
+\ell_{\mathrm{flow}}(h)=\min\{k\in\Z_{\geq0}:h=s_1\cdots s_k,\ s_i\in\mathcal S\},
+\qquad
+\overline\ell_{\mathrm{flow}}(h)=\lim_{n\to\infty}\frac{\ell_{\mathrm{flow}}(h^n)}{n}.
+\]
+The empty product is the identity, and the limit exists by subadditivity.
+
+For \(h\in[G,G]\), let \(\operatorname{cl}_G(h)\) be the minimum number of commutators whose product is \(h\), where \([a,b]=aba^{-1}b^{-1}\), and define
+\[
+\operatorname{scl}_G(h)=\lim_{n\to\infty}\frac{\operatorname{cl}_G(h^n)}{n}.
+\]
+The source invokes simplicity of the groups under discussion. Under its intended nonabelian simple-group setting, \([G,G]=G\), so this definition applies to every requested element. This group hypothesis must be checked against the intended surface conventions.
+
+\begin{enumerate}
+\item Does there exist \(h\in G\) such that
+\[
+\operatorname{scl}_G(h)=0
+\qquad\text{and}\qquad
+\overline\ell_{\mathrm{flow}}(h)>0?
+\]
+\item Does there exist such an \(h\) which is conjugate to its inverse in \(G\), that is, for which there exists \(a\in G\) satisfying
+\[
+ a h a^{-1}=h^{-1}?
+\]
+\end{enumerate}
+The ambient group for conjugacy is interpreted as \(G\); the source does not explicitly specify it.
+
+For context, the source also introduces flow length on \(\mathrm{Homeo}_0(M)\) and \(\mathrm{Diff}_0^\infty(M)\), asserting generation by time-one maps using simplicity, but supplies no general hypotheses on \(M\). It describes flow length, and its stable version, as measures of dynamical complexity, especially on surfaces where flows are described as having ``simple'' dynamics. It reports that methods referenced by the citation key \texttt{bowden2022quasi} for producing elements with positive stable commutator length also yield positive stable flow length, and notes that conjugacy to the inverse forces vanishing stable commutator length in the intended setting. These are supplied contextual assertions, not independently verified literature conclusions here.
+\subsection{Short English statement}
+For the intended surface \(\Sigma_g\), can a homeomorphism in \(\mathrm{Homeo}_0(\Sigma_g)\) have zero stable commutator length while the minimum number of flow time-one maps needed to express its iterates grows at a positive linear rate? Can such a homeomorphism also be conjugate to its inverse? The genus range, surface conventions, and ambient group for conjugacy require confirmation from the source.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record with permanent ID \(800111\), source problem code \texttt{catalogue entry}, in the AMR Open Problem Lists collection. The project identifies \texttt{data/unsolvedmath/problems.json}, \texttt{catalog/problems.json}, and appended records under \texttt{data/unsolvedmath/additions/} as registry sources; the supplied record does not identify its particular containing file.
+\item Nariman and Yazdi, \emph{Problem List on Foliations and Diffeomorphism Groups} (2025), Question 52. Supplied source URL: \url{https://arxiv.org/abs/2503.18274}. The registry attributes the problem to Nariman and Yazdi, with proposed year 2025.
+\item Supplied provenance records access on 2026-10-16 and extraction by \texttt{arxiv\_latex}. This is supplied provenance, not a claim of independent source access or verification. The supplied upstream revision is \texttt{d371ee917ac9647fbb06cd6fc529deec6f3dda82}.
+\item The statement contains the citation key \texttt{bowden2022quasi}, concerning methods producing positive stable commutator length and positive stable flow length. No corresponding bibliographic entry, title, author list, or URL is supplied.
+\item The registry labels this problem \texttt{open}. This is the supplied status, not an independently verified mathematical or literature assessment.
+\end{itemize}
+\end{document}

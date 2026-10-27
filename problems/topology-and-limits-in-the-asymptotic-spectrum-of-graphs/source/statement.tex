@@ -1,0 +1,89 @@
+% Generated draft: requires mathematical and source review.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{enumitem,needspace,xurl,hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\section*{UnsolvedMath ID: 30003991}
+\textbf{Source problem code:} catalogue entry
+\subsection{Definitions and mathematical statement}
+Use the following standard conventions to make the supplied questions explicit. Graphs are finite, simple, and undirected; these conventions are not spelled out in the record. Write \(V(G)\) and \(E(G)\) for the vertex and edge sets, \(\overline G\) for the complement, and \(G\sqcup H\) for disjoint union. The strong product \(G\boxtimes H\) has vertex set \(V(G)\times V(H)\); distinct vertices \((g,h)\) and \((g',h')\) are adjacent precisely when each coordinate pair is equal or adjacent in its respective graph. A cohomomorphism from \(G\) to \(H\) is a graph homomorphism \(\overline G\to\overline H\).
+
+Let \(\mathcal G\) denote the set of isomorphism classes of these graphs. Under the usual nonnegative-real-valued interpretation, define
+\[
+\Delta=\left\{f:\mathcal G\to\R_{\geq0}:\begin{array}{l}
+f(K_1)=1,\\
+f(G\sqcup H)=f(G)+f(H),\\
+f(G\boxtimes H)=f(G)f(H),\\
+\overline G\to\overline H\ \Longrightarrow\ f(G)\leq f(H)
+\end{array}\text{ for all }G,H\right\}.
+\]
+Equip \(\Delta\) with the subspace topology inherited from \(\R_{\geq0}^{\mathcal G}\), namely pointwise convergence on graphs. The record calls \(\Delta\) compact but does not explicitly specify its topology or codomain; the preceding choices are the standard interpretation used in this draft.
+
+Let \(\alpha(G)\) be the maximum size of an independent vertex set and define the Shannon capacity by
+\[
+\Theta(G)=\sup_{m\geq1}\alpha(G^{\boxtimes m})^{1/m}.
+\]
+Let \(C_7\) be the cycle on \(\Z/7\Z\), with adjacent residues differing by \(1\) or \(-1\). The first two questions in the supplied reconstructed statement are:
+\begin{enumerate}
+\item Is \(\Delta\) connected in the topology just specified?
+\item Does there exist \(f\in\Delta\) such that \(f(C_7)=\Theta(C_7)\)?
+\end{enumerate}
+
+For a field \(\mathbb K\) and a nonempty graph \(G\), a fitting matrix is a matrix \(M\in\mathbb K^{V(G)\times V(G)}\) with \(M_{vv}=1\) for every vertex and \(M_{uv}=0\) whenever \(u\ne v\) and \(\{u,v\}\notin E(G)\). No symmetry condition is imposed. Define the ordinary Haemers bound by
+\[
+h_{\mathbb K}(G)=\min_M\operatorname{rank}_{\mathbb K}M.
+\]
+For \(d\geq1\), a block fitting matrix has blocks \(M_{uv}\in\mathbb K^{d\times d}\), with \(M_{vv}=I_d\) and \(M_{uv}=0\) for distinct nonadjacent vertices. Using the usual interpretation of the star as the fractional Haemers bound, set
+\[
+h_{\mathbb K}^{*}(G)=\inf_{d\geq1}\ \inf_M\frac{\operatorname{rank}_{\mathbb K}M}{d}.
+\]
+Set both bounds to zero on the empty graph. The record does not explicitly define the starred notation. Under these conventions and a pointwise interpretation of convergence of graph parameters, the field-limit questions are whether, for every finite graph \(G\),
+\[
+\lim_{\substack{p\to\infty\\p\ \mathrm{prime}}}h_{\F_p}^{*}(G)=h_{\Q}^{*}(G),
+\qquad
+\lim_{\substack{p\to\infty\\p\ \mathrm{prime}}}h_{\F_p}(G)=h_{\Q}(G).
+\]
+Here \(\F_p\) is the field with \(p\) elements. The source does not specify whether a stronger mode of convergence is intended.
+
+For integers \(n\geq3\) and \(k\geq1\), the supplied adjacency rule defines a graph \(C_{k,n}\) on \(\Z/n\Z\): for representatives \(i,j\in\{0,\ldots,n-1\}\), distinct vertices are adjacent precisely when
+\[
+\delta_n(i,j):=\min\{|i-j|,n-|i-j|\}<k.
+\]
+These index ranges make the adjacency rule meaningful; the record does not specify its intended admissible range of pairs \((k,n)\). For a nonempty graph \(G\), use the standard Lov\'asz theta convention
+\[
+\vartheta(G)=\max\left\{\sum_{u,v\in V(G)}X_{uv}: X\text{ is real symmetric},\ X\succeq0,\ \operatorname{tr}X=1,\ X_{uv}=0\text{ if }\{u,v\}\in E(G)\right\}.
+\]
+The reconstructed statement asks whether the assignments
+\[
+\frac nk\longmapsto\Theta(C_{k,n}),\qquad
+\frac nk\longmapsto\vartheta(C_{k,n})
+\]
+are continuous. A precise continuity assertion requires an admissible index set, a domain and topology for the ratio, and confirmation that each value depends only on \(n/k\). It must also distinguish continuity on the resulting rational domain from existence of a continuous extension to a real interval, including any endpoints. None of these qualifications is explicit in the supplied record. Moreover, its original statement instead writes \(k\mapsto\Theta(C_{k,n})\) and \(k\mapsto\vartheta(C_{k,n})\), without specifying how \(n\) varies. Thus the intended continuity target remains unresolved; no particular domain or extension assertion is adopted here.
+\subsection{Short English statement}
+The supplied entry asks whether the graph asymptotic spectrum is connected, whether one of its parameters attains the Shannon capacity of \(C_7\), whether ordinary and fractional Haemers bounds over prime fields converge to their rational-field counterparts, and whether capacity and Lov\'asz theta vary continuously with a circular-graph ratio. Standard conventions are made explicit above, but the intended continuity domain and some parameter conventions require source review. This is a statement-only draft, and the supplied open-status assessment is not independently verified.
+\subsection{Sources}
+\begin{itemize}
+\item Local UnsolvedMath registry: supplied complete record for permanent ID \(30003991\), titled ``Topology and Limits in the Asymptotic Spectrum of Graphs,'' source problem code \texttt{catalogue entry}; project registry \texttt{data/unsolvedmath/problems.json}. The record belongs to the Oberwolfach Reports Open Problems collection and supplies proposed year 2018. No individual proposer is named.
+\item Supplied source citation: \emph{Combinatorial Optimization (2019)}, Oberwolfach Reports, DOI 10.4171/owr/2018/50, pp.\ 2969--3023. Supplied source URL and literature-source link, labeled ``Oberwolfach Report 50/2018'': \url{https://doi.org/10.4171/owr/2018/50}. The bibliographic year 2019 and report designation 50/2018 are retained as supplied. The background describes these reports as documenting mathematical workshops and their open-problem discussions.
+\item Supplied statement-verification metadata: the record is labeled \texttt{corrected\_verified} and reports that the official report was checked, that the asymptotic-spectrum space and circular graphs were defined in the reconstruction, and that the omitted question concerning attainment of the seven-cycle capacity was restored. These are supplied verification claims; no independent source visit or verification is asserted here.
+\item Supplied literature assessment, checked on \texttt{2026-08-21}: status ``open.'' The assessment states that this entry contains several separate connectivity, asymptotic-limit, and continuity questions and that at least the general questions remain unresolved. This is supplied dated curation derived from the OWR record, not an independently verified literature assessment. The record expressly requests independent verification of time-sensitive status and cited claims.
+\end{itemize}
+\end{document}
