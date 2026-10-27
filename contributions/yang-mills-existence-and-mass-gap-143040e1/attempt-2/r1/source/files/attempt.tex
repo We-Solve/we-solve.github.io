@@ -1,0 +1,296 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype,booktabs,array,longtable,enumitem}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdfauthor={Literature-report preparation with GPT-6 Astra Pro}}
+\setlength{\emergencystretch}{3em}
+\setlength{\parskip}{4pt}
+\setlist{itemsep=3pt,topsep=5pt}
+\allowdisplaybreaks[2]
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\poly}{\operatorname{poly}}
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\pin}{\texttt{7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a}}
+\newcommand{\statusbox}[1]{\begin{quote}\small\noindent\textbf{Status and attribution.} #1\end{quote}}
+
+\title{The announced Yang--Mills existence result\\
+\large A literature and scope report for Phys-1, not a mass-gap solution}
+\author{Prepared for \texttt{we-solve} from the public announcement and problem statement}
+\date{26 October 2026}
+\begin{document}
+\maketitle
+\section*{Abstract}
+The October 26, 2026 announcement includes an existence claim for pure
+four-dimensional Yang--Mills theory, within broader claims about interacting
+gauge theories. This report identifies the matching Phys-1 catalogue problem,
+separates existence from the additional mass-gap requirement, and records what
+is publicly assessable. The physics proof artifacts are withheld according to
+the announcement, so this document does not reconstruct their argument or claim
+a solution. Elementary spectral examples explain why a mass gap cannot be
+inferred from existence or from nonuniform gaps in approximations. The result
+is a status report for editorial consideration, not new mathematical progress
+on the Yang--Mills construction.
+
+\statusbox{Claim category: Literature report. The physics manuscript and Lean
+proof were not available in the public materials inspected. No independent
+verification, full solution, or proved partial Yang--Mills theorem is claimed.
+A detailed account of the unreleased proof cannot be supplied from these
+sources without inventing mathematics. This report deliberately does not do so.}
+
+\section{The matched catalogue problem}
+The relevant entry is \emph{Yang--Mills Existence and Mass Gap}, Phys-1,
+stable handle
+\texttt{prb\_143040e1e85343ff92d7f92801ed2f08}
+\cite{catalogue}. Its official specification is the Jaffe--Witten Clay problem
+description, especially Sections 3--4 and printed page 6 \cite{clay}.
+
+The target is a nontrivial four-dimensional continuum quantum Yang--Mills
+theory for \emph{every compact simple gauge group} $G$. It includes suitable
+local observable fields, positivity, covariance, locality and the required
+short-distance structure. In its vacuum representation, the Hamiltonian $H$
+is positive and self-adjoint, $H\Omega=0$, and the additional spectral target is
+\begin{equation}\label{eq:gap}
+ 0<m:=\inf\bigl(\spec(H)\setminus\{0\}\bigr)<\infty.
+\end{equation}
+The spectrum and its gap must belong to the actual quantum theory, not a
+classical field equation, a formal integral, or an unrelated operator. These
+requirements must be met together; the displayed inequality is not a replacement
+for the field-theoretic axioms.
+
+For clarity, write the full target schematically as
+\[
+ \forall G:\quad \mathsf{Existence}(G)
+       \ \text{and}\ \mathsf{Gap}(G),
+\]
+where $\mathsf{Existence}(G)$ includes the specified nontriviality and axiomatic
+conditions. An existence announcement addresses only the first conjunct unless
+a gap is separately stated and proved.
+
+\section{What the public announcement establishes as a report}
+OpenAI announces existence proofs for certain interacting gauge theories in four
+dimensions, including QCD and a unified completion of the Standard Model. It
+identifies pure Yang--Mills existence as a subproblem, says the approach builds
+on Balaban's work, and reports completion of a Lean formalization of
+Yang--Mills existence. The physics collaboration has elected to withhold the
+AI-produced artifacts while preparing an exposition \cite{announcement}.
+
+These are claims about what was obtained, not a public mathematical statement
+with all hypotheses available for examination. The announcement does not provide
+a mass-gap theorem. Its formalization statement concerns Yang--Mills existence;
+it should not be enlarged into a claim that a mass gap, QCD, and the unified
+theory have all been publicly formalized and verified.
+
+\paragraph{Publicly accessible scope.}
+For this report there is an announcement, an exact catalogue target and the
+official Clay specification. There is no inspected public physics manuscript,
+precise theorem signature, proof dependency list or reproducible formal-checking
+configuration to cite as the proof of the announced construction. This is an
+availability limit of the present source set, not evidence that the claimed
+construction is false.
+
+\paragraph{Quantifiers cannot be supplied by inference.}
+Before matching even the existence part of Phys-1, a released theorem must show
+which groups and parameters it covers, which continuum axioms it establishes,
+and in what sense it is nontrivial. A general phrase such as ``pure Yang--Mills
+exists'' cannot be silently expanded into all those exact quantifiers. This
+report therefore records an announced existence advance relevant to Phys-1,
+not a verified resolution of its existence component for every required group.
+
+\section{Why existence does not imply a mass gap}
+The distinction is mathematically substantive. Positivity and a vacuum do not
+by themselves keep positive energies away from zero.
+
+\begin{proposition}[An elementary spectral counterexample]\label{prop:gapless}
+There is a bounded positive self-adjoint operator with a unique zero-energy
+vector up to scalar multiples, nonzero excited states, and no positive gap.
+\end{proposition}
+\begin{proof}
+On $\mathcal H=\C\Omega\oplus\ell^2(\N)$, with orthonormal excited basis
+$e_1,e_2,\ldots$, define
+\[
+ H\Omega=0,\qquad He_j=\frac1j e_j.
+\]
+It is a bounded diagonal self-adjoint operator. For
+$\psi=a\Omega+\sum_j b_je_j$,
+\[
+ \langle\psi,H\psi\rangle=\sum_{j\ge1}\frac{|b_j|^2}{j}\ge0,
+\]
+and $H\psi=0$ implies every $b_j=0$. Its spectrum is the closure of its
+diagonal entries, namely $\{0\}\cup\{1/j:j\ge1\}$. Hence
+\[
+ \inf\bigl(\spec(H)\setminus\{0\}\bigr)=0,
+\]
+even though the vacuum is unique and there are nonzero excitations.
+\end{proof}
+
+This is an elementary operator example, \emph{not} a Yang--Mills theory or a
+counterexample to the Clay problem. Its only purpose is to invalidate an
+inference based solely on existence of a positive-energy Hilbert-space
+representation and a vacuum. Extra field-theoretic information would have to
+supply the desired gap.
+
+\subsection{Positive gaps at every cutoff can still disappear}
+\begin{proposition}[Nonuniform gaps do not survive even norm convergence]
+There are bounded positive self-adjoint operators $H_N$ with the same unique
+vacuum and with strictly positive gap for every $N$, converging in operator
+norm to the gapless operator in Proposition~\ref{prop:gapless}.
+\end{proposition}
+\begin{proof}
+On the same space set
+\[
+ H_N\Omega=0,\qquad H_Ne_j=\max\{1/j,1/N\}\,e_j.
+\]
+Each $H_N$ has gap $1/N$. Moreover,
+\[
+ \|H_N-H\|=\sup_{j\ge1}\bigl(\max\{1/j,1/N\}-1/j\bigr)=1/N.
+\]
+Thus $H_N\to H$ in norm while the positive gaps tend to zero. The limit is
+nontrivial and has a unique vacuum, but is gapless.
+\end{proof}
+
+Again this is an illustrative spectral calculation, not a lattice gauge model.
+It shows that a construction using approximations needs a lower bound on the
+physical gap that does not vanish in the required limits, together with a valid
+transfer of that bound to the continuum theory. Merely establishing a positive
+gap for each approximation is insufficient.
+
+\section{The proof obligations a released construction must resolve}
+The following is an audit map derived from the catalogue target, not a summary
+of hidden steps in OpenAI's unavailable proof.
+
+\paragraph{Exact mathematical object.}
+A theorem should specify the group, spacetime, observables, parameters and
+representation being constructed. A QCD theorem with matter is not automatically
+a pure-gauge theorem, and a theorem for one selected group does not automatically
+meet the universal group quantifier. Any transfer between these objects needs
+its own argument.
+
+\paragraph{Continuum and nontriviality.}
+A cutoff measure or a regulated Hamiltonian may be a useful starting object.
+Its relation to a continuum theory and its nontriviality must still be proved.
+A limiting theory in which all relevant observables become trivial would not
+meet the target. The needed compactness, renormalization and limit arguments
+cannot be filled in from the name of a constructive approach.
+
+\paragraph{Axioms and physical observables.}
+A proof must establish the required positivity, covariance and locality for the
+actual observable system, and match the short-distance requirements. For a
+Euclidean route, ordinary positivity of a probability measure must not be
+confused with the reflection-positivity property needed by the chosen
+reconstruction framework. A direct Hamiltonian route has its own operator and
+representation obligations. These are alternatives to be identified in a
+released proof, not assumptions this report makes about its method.
+
+\paragraph{The full excitation space.}
+A bound for one selected correlation function or one special channel does not,
+without a theorem linking it to the whole vacuum-orthogonal space, determine
+$\inf(\spec(H)\setminus\{0\})$. The spectral conclusion must concern the
+physical Hilbert space and all required nonvacuum states. The finite upper
+bound in \eqref{eq:gap} also rules out satisfying the request merely by leaving
+no finite-energy excitation at all.
+
+\paragraph{Uniformity of any limiting gap estimate.}
+If regularization and volume limits are used, the relevant physical lower bound
+must survive those limits. The preceding example explains why positivity at
+each intermediate stage is not enough. This is a logical requirement for an
+argument of that form, not a claim that OpenAI uses or lacks such an estimate.
+
+\paragraph{Formalization alignment.}
+A public formal theorem would need explicit definitions, an auditable dependency
+closure and a reproducible validation procedure. One must compare the formal
+conclusion with the continuum and spectral requirements above. A formal proof
+of an existence assertion would not also prove an omitted mass-gap assertion.
+The announcement does not make those unavailable artifacts inspectable.
+
+\section{Relation to the earlier Phys-1 contribution}
+The existing Phys-1-A1 exploration distinguishes a finite-cutoff construction
+from a continuum theory and discusses conditions under which correlation decay
+would imply a gap \cite{catalogue}. This report does not re-label those standard
+conditional deductions as new discoveries. Its contribution is the catalogue
+scope assessment of the new announcement and the separation between reportable
+existence progress and an unreported full solution.
+
+The elementary examples above are included for clarity, not as novel partial
+progress on Yang--Mills theory. Under the site's significance criterion,
+editors may prefer to record this document as a status update rather than a
+research attempt. It should not be promoted to ``Full solution'' or to a proved
+``Partial result'' merely because the underlying announcement is important.
+
+\section{Exact outcome and what remains unavailable}
+The appropriate present outcome is:
+\begin{quote}
+An announced, externally attributed existence advance relevant to Phys-1 is
+recorded. The public material inspected does not provide the construction for
+review, does not establish its exact universal-group match here, and does not
+supply the required mass-gap theorem. No resolution of the full catalogue
+problem is claimed by this submission.
+\end{quote}
+
+When source artifacts become public, the report can be replaced or extended by
+a theorem-by-theorem exposition with precise hypotheses, source versions and a
+verification record. Until then, fabricating an auxiliary equation, convergence
+estimate, mass-gap proof or Lean theorem name would misrepresent the available
+evidence. This document intentionally contains none of those invented details.
+
+\section{Submission disclosures}
+\paragraph{Problem handle.} \texttt{prb\_143040e1e85343ff92d7f92801ed2f08}.
+\paragraph{Claim.} Literature report.
+\paragraph{Exact scope.} Reports the October 26 announcement and identifies its relation
+to the existence component of Phys-1. It does not supply an unreleased proof,
+establish the exact universal-group scope, or prove a mass gap. The spectral
+examples are explanatory and are not claimed as new Yang--Mills results.
+Editorial status update / literature report only.
+\paragraph{Who did the work.} LLM only (people only prompted or submitted).
+\paragraph{Models used in preparing this report.} OpenAI GPT 6 Astra Pro.
+\paragraph{Thinking level / time.} Unknown (not available).
+\paragraph{Per-model versions, thinking and roles.}
+GPT-6 Astra Pro; exact version: unknown; thinking setting: unknown;
+actual compute budget/duration: unknown; role: source retrieval, mathematical
+exposition, catalogue-scope comparison, and preparation of this report.
+No second model or independent human proof reviewer was used in this preparation.
+\paragraph{People and roles.}
+Submitted as a standard We-Solve addition. Human roles are prompting and submission; no human proof-discovery or expert proof-verification role is claimed. Authenticated submitter identity and declarations are retained in the contribution metadata.
+\paragraph{Original research provenance.} The announced research is attributed to OpenAI. The independent academic collaboration is not represented here as having authored, endorsed, or validated the unavailable proof.
+The internal model names, versions, thinking settings and budgets behind those
+source results are not established by the inspected material and are recorded as
+unknown. They are external source provenance, not additional models invoked to
+prepare this report.
+\paragraph{Eligibility and verification evidence.}
+Astra Pro is an example model in the inspected submission form. This is not
+independent verification of the source research. The exact checks and omissions
+are stated in the body of the report.
+\paragraph{Rights and declarations.}
+This is newly written exposition with attribution and links, not a redistribution
+of the source manuscripts or their code. New exposition is intended for the
+site's CC BY 4.0 terms. The submitting human explicitly confirmed publication rights, public release, and complete people/model disclosure on 26 October 2026; cited third-party materials retain their own terms. No source papers, PDFs or executable code are redistributed.
+\begin{thebibliography}{9}
+\bibitem{catalogue} \emph{we-solve}, Phys-1, Yang--Mills Existence and Mass Gap, and its existing contribution, inspected 26 October 2026. Used: exact target, stable handle and distinction from previous conditional observations.
+\url{https://we-solve.github.io/problems/yang-mills-existence-and-mass-gap-143040e1/}.
+\bibitem{clay} Arthur Jaffe and Edward Witten, \emph{Quantum Yang--Mills Theory}, official Clay Mathematics Institute problem description, Sections 3--4, especially printed page 6. Used: universal gauge-group target, axiomatic conditions and mass-gap definition. The relevant PDF page was inspected.
+\url{https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf}.
+\bibitem{announcement} OpenAI, \emph{Working with academic communities to build scientific understanding}, 26 October 2026. Used: the announced existence scope, reported Yang--Mills formalization and decision not to release the physics artifacts.
+\url{https://openai.com/index/building-scientific-understanding-with-academic-communities/}.
+\end{thebibliography}
+\end{document}
