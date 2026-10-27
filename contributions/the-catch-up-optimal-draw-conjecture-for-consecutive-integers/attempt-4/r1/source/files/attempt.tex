@@ -1,0 +1,1026 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{xurl,hyperref} % REVIEW: required by the existing \url command.
+
+% Theorem environments (numbered by section, typical for journals)
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% Notation
+\newcommand{\CatchUp}{\mathrm{CatchUp}}
+\newcommand{\val}{\operatorname{val}}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Catch-Up on Fibonacci triples: a clean-state no-jump lemma and an optimal-play draw criterion}}\\
+\end{center}
+
+\section*{Abstract}
+We study a finite perfect-information game \emph{Catch-Up} played on a finite set of positive integers.
+Players alternately remove numbers and add them to their scores, with the constraint that a turn continues
+until the mover first catches up to (or exceeds) the opponent's score. We analyze Catch-Up on Fibonacci
+prefix sets $S_n=\{F_1,\dots,F_n\}$ (with $F_1=1,F_2=2$), grouped into consecutive \emph{Fibonacci triples}
+$\{F_{3i-2},F_{3i-1},F_{3i}\}$. Our main result shows that whenever $\sum_{i=1}^n F_i$ is even
+(equivalently $n\equiv 0\pmod 3$), optimal play yields a draw.
+
+The proof is constructive and proceeds through two forcing mechanisms native to Catch-Up:
+(i) a \emph{poisoned frontier} invariant implying a clean-state \emph{no-jump} theorem, and
+(ii) a \emph{crumb} lemma showing that ``touching the tail while still behind'' is losing.
+These mechanisms give non-losing strategies for both players; a short induction then gives the draw result.
+A supplementary optimal-move argument shows that every optimal play resolves triples from left to right,
+returning repeatedly to tied ``clean'' states.
+
+
+\section{The Catch-Up game and deficit states}
+
+\subsection{Rules and state representation}
+
+\begin{definition}[Catch-Up]\label{def:catchup}
+Let $S$ be a finite nonempty set of positive integers. Two players play a perfect-information game as follows.
+Each player has a \emph{score}, initially $0$.
+
+\begin{itemize}
+\item \textbf{First move:} Player~1 removes \emph{exactly one} element of $S$ and adds it to their score.
+\item \textbf{Subsequent turns:} Players alternate turns. On a turn, the player to move removes one or more
+numbers from the remaining set, \emph{one at a time}, adding each removed number to their score, under the rule:
+\begin{quote}
+They must make at least one pick. After every pick, the turn ends immediately if their score is
+\emph{at least} the opponent's score; otherwise they must continue. Thus, after every nonfinal pick
+they remain \emph{strictly behind}.
+\end{quote}
+Equivalently, after each pick: if the mover is still strictly behind, they are forced to pick again (if possible);
+the turn ends immediately after the first pick that makes the mover's score $\ge$ the opponent's.
+\item \textbf{Terminal rule:} If at the start of a player's turn they cannot catch up even by taking \emph{all}
+remaining numbers, then the game ends immediately and the current player loses.
+\item When the remaining set becomes empty, the player with the larger score wins; equal scores give a draw.
+\end{itemize}
+We write $\CatchUp(S)$ for this game.
+\end{definition}
+
+A convenient way to encode the game is via the mover's \emph{deficit}.
+
+\begin{definition}[Deficit positions $(R,d)$]\label{def:state}
+An abstract \emph{deficit state} is a pair $(R,d)$, where $R$ is a finite set of positive integers
+(possibly empty) and $d\in\mathbb Z_{\ge 0}$. In an actual game position, $R$ is the remaining set and
+\[
+d := (\text{opponent's score})-(\text{mover's score}).
+\]
+This deficit is nonnegative at the start of every turn: the preceding mover stopped upon first
+catching up or taking the lead. We allow all abstract pairs for recursive bookkeeping, without
+requiring reachability from a specified initial set. Pairs with $d>\sum R$ are immediate losses
+for the mover or would-be next mover. If $R=\varnothing$, no further turn is played:
+$(\varnothing,0)$ is a draw, and $(\varnothing,d)$ with $d>0$ is a loss for the represented player.
+For a finite set $R$ we write
+\[
+\sum R := \sum_{r\in R} r,
+\]
+with the convention $\sum\varnothing:=0$.
+\end{definition}
+
+\begin{remark}[Intermediate-position Markov property]\label{rem:intermediate}
+Suppose that, partway through a turn, the current mover is still strictly behind by deficit $d>0$,
+the remaining set is $R$, and $d\le \sum R$. Then the legal continuations from that point through
+the end of the turn, and the resulting successor position, are exactly the same as for the ordinary
+state $(R,d)$. Earlier picks in the turn matter only through the current deficit $d$.
+\end{remark}
+
+\subsection{Terminal criterion and a last-pick normal form}
+
+\begin{lemma}[Terminal criterion]\label{lem:terminal}
+A deficit position $(R,d)$ is a terminal loss for the mover (or the would-be next mover when $R=\varnothing$)
+if and only if $d>\sum R$.
+\end{lemma}
+
+\begin{proof}
+Suppose first that $d>\sum R$. If $R\neq\varnothing$, even taking all remaining numbers cannot close the deficit,
+so the mover loses immediately by the terminal rule. If $R=\varnothing$, then $d>0$ and the game has already ended
+with the player represented by the deficit behind, hence losing.
+
+Conversely, suppose $d\le \sum R$. If $R=\varnothing$, then necessarily $d=0$, so the terminal position is a draw.
+Now assume $R\neq\varnothing$.
+
+If $d=0$, the mover may take any $u\in R$; since $u>0$ this immediately makes the mover strictly ahead and the turn ends.
+Thus the position is not a terminal loss.
+
+If $d>0$, list the elements of $R$ in any order as $r_1,\dots,r_m$ and define partial sums $S_t:=r_1+\cdots+r_t$.
+Since $S_m=\sum R\ge d$, there exists a least $t$ with $S_t\ge d$.
+Let $u:=r_t$ and let $T:=\{r_1,\dots,r_{t-1}\}$. Then $S_{t-1}=\sum T<d\le \sum T+u=S_t$.
+The mover can take the elements of $T$ first (remaining strictly behind) and then take $u$ to catch up.
+So the position is not a terminal loss.
+\end{proof}
+
+\begin{lemma}[Last-pick normal form]\label{lem:last-pick}
+Let $(R,d)$ be a state with $R\neq\varnothing$ and $d\le \sum R$ (equivalently, the mover does not lose immediately by Lemma~\ref{lem:terminal}).
+\begin{itemize}
+\item If $d=0$, then the mover's turn consists of taking \emph{exactly one} element $u\in R$; the next state is $(R\setminus\{u\},u)$.
+\item If $d>0$, then a legal turn is equivalent to choosing a last pick $u\in R$ and a (possibly empty) subset
+$T\subseteq R\setminus\{u\}$ such that
+\begin{equation}\label{eq:lastpickineq}
+\sum T < d \le \sum T + u.
+\end{equation}
+The mover takes all elements of $T$ first (in any order) and then takes $u$ last. The next mover's deficit is
+\[
+d' := (\sum T + u)-d.
+\]
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+If $d=0$, the mover is tied; any pick $u\in R$ makes the mover strictly ahead (since $u>0$) and ends the turn.
+Thus exactly one number is taken, and the next mover is behind by $u$.
+
+Assume $d>0$. Consider any legal turn. Let $u$ be the last number taken on that turn, and let $T$ be the set of earlier picks.
+Immediately before taking $u$, the mover was strictly behind, hence $\sum T<d$.
+Immediately after taking $u$, the mover has caught up, hence $d\le \sum T+u$.
+This yields \eqref{eq:lastpickineq}. Conversely, if \eqref{eq:lastpickineq} holds, then the elements of $T$ may be taken in any order: because all numbers are positive,
+every partial sum from $T$ is at most $\sum T<d$, so the mover remains strictly behind until $u$ is taken.
+Taking $u$ last reaches (or exceeds) the opponent, ending the turn. The formula for $d'$ is the resulting lead.
+\end{proof}
+
+\begin{lemma}[Lead is strictly less than the last pick]\label{lem:lead<last}
+In a state $(R,d)$ with $d>0$, suppose the mover plays a legal turn in last-pick form \eqref{eq:lastpickineq} with last pick $u$.
+Then the next mover's deficit $d'$ satisfies $0\le d'<u$.
+\end{lemma}
+
+\begin{proof}
+By definition $d'\ge 0$. Since $\sum T<d$,
+\[
+d'=(\sum T+u)-d < (d+u)-d=u.\qedhere
+\]
+\end{proof}
+
+\subsection{Game-theoretic value and optimal play}\label{subsec:value}
+
+All numbers are positive and every pick removes an element from a finite set, so Catch-Up is a finite perfect-information game.
+We evaluate outcomes by the strict preference order
+\[
+\text{win} \;>\; \text{draw} \;>\; \text{loss},
+\]
+and the margin of victory is irrelevant.
+
+\begin{definition}[Value of a position; optimal strategies]\label{def:value}
+For any deficit position $(R,d)$, define its \emph{value}
+\[
+\val(R,d)\in\{-1,0,1\}
+\]
+(where $-1<0<1$) by backward induction on $|R|$ as follows.
+
+\begin{itemize}
+\item \textbf{Empty set.} If $R=\varnothing$, the game is over: set
+\[
+\val(\varnothing,0)=0,\qquad \val(\varnothing,d)=-1\ \text{for }d>0.
+\]
+
+\item \textbf{Immediate terminal loss.} If $R\neq\varnothing$ and $d>\sum R$, then the mover loses immediately
+(Lemma~\ref{lem:terminal}), so $\val(R,d)=-1$.
+
+\item \textbf{Nonterminal states.} Otherwise ($R\neq\varnothing$ and $d\le\sum R$), the mover has at least one legal turn.
+A \emph{move} in the game tree is one complete legal \emph{turn} (possibly taking several numbers). Since $R$ is finite,
+there are only finitely many legal turns.
+By Lemma~\ref{lem:last-pick}, each legal turn from $(R,d)$ produces a successor state $(R',d')$ for the next mover with $R'\subsetneq R$.
+Define
+\[
+\val(R,d)\;:=\;\max\bigl\{-\val(R',d'):\ (R',d')\text{ is a successor state of }(R,d)\bigr\}.
+\]
+\end{itemize}
+
+A legal turn is \emph{optimal} if it attains the maximum. A (pure) strategy is \emph{optimal} if it selects an optimal turn at every state where it moves.
+\end{definition}
+
+\begin{remark}[Initial game and the tied state]\label{rem:initial-value}
+At the initial position of $\CatchUp(S)$ the scores are tied. The special rule that Player~1 takes exactly one number
+therefore agrees with the $d=0$ case of Lemma~\ref{lem:last-pick}. Consequently, $\val(S,0)$ is precisely the value of
+$\CatchUp(S)$.
+\end{remark}
+
+\begin{lemma}[Interpretation of the value]\label{lem:value-meaning}
+For every state $(R,d)$:
+\begin{enumerate}
+\item $\val(R,d)=1$ iff the mover has a forcing win from $(R,d)$.
+\item $\val(R,d)=-1$ iff the mover is losing (equivalently, the opponent has a forcing win).
+\item $\val(R,d)=0$ iff neither player has a forcing win from $(R,d)$;
+equivalently, each player has a non-losing strategy. Hence under optimal play the outcome is a draw.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We induct on $|R|$.
+
+If $R=\varnothing$, or if $R\neq\varnothing$ and $d>\sum R$, then the value was defined to
+match the game outcome, so the claim is immediate.
+
+Now assume $R\neq\varnothing$ and $d\le \sum R$. Every legal turn leads to a successor
+$(R',d')$ with $R'\subsetneq R$, so the induction hypothesis applies to every successor.
+
+If $\val(R,d)=1$, then some successor satisfies $\val(R',d')=-1$, so the mover can move to
+a losing state for the opponent and hence force a win.
+
+If $\val(R,d)=-1$, then every successor satisfies $\val(R',d')=1$, so every legal move gives
+the opponent a forcing win. Hence the mover is losing.
+
+If $\val(R,d)=0$, then by definition
+\[
+0=\max\{-\val(R',d'):\ (R',d')\text{ is a successor state of }(R,d)\}.
+\]
+Therefore at least one successor has $\val(R',d')=0$, and no successor has
+$\val(R',d')=-1$ (otherwise the maximum would be $1$). Thus the mover can choose a
+successor of value $0$ and guarantee at least a draw, while after every legal move the
+opponent is in a state of value $0$ or $1$, so the opponent can also avoid losing.
+Hence neither player has a forcing win, and under optimal play the outcome is a draw.
+Since the three possible values are mutually exclusive and exhaustive, these implications also prove the stated converses.
+\end{proof}
+
+\section{Fibonacci triples and clean blocks}
+
+We use the Fibonacci sequence without a repeated $1$:
+\[
+F_1=1,\qquad F_2=2,\qquad F_{n+2}=F_{n+1}+F_n \quad (n\ge 1).
+\]
+For each $i\ge 1$ define the $i$th \emph{Fibonacci triple}
+\[
+x_i:=F_{3i-2},\qquad y_i:=F_{3i-1},\qquad z_i:=F_{3i}.
+\]
+Then
+\begin{equation}\label{eq:triple}
+z_i=x_i+y_i.
+\end{equation}
+Let $T_i:=\{x_i,y_i,z_i\}$.
+
+For $1\le j\le k$ define the \emph{consecutive triple block}
+\[
+U_{j,k}:=T_j\cup T_{j+1}\cup\cdots\cup T_k=\{F_{3j-2},F_{3j-1},\dots,F_{3k}\}.
+\]
+We adopt the convention $U_{a,b}=\varnothing$ when $a>b$.
+
+\begin{definition}[Clean state]\label{def:clean}
+A \emph{clean state} is the tied-score state $(U_{j,k},0)$ at the start of a turn.
+\end{definition}
+
+\begin{remark}[Why triples matter]
+The identity $z_i=x_i+y_i$ is the core algebraic structure used to force ties and create large leads.
+The draw proof constructs non-losing strategies that either punish a deviation or resolve the leftmost
+triple $T_j$ to the next clean state $(U_{j+1,k},0)$. After that proof,
+Proposition~\ref{prop:optimal-clean} establishes the stronger conclusion that every optimal play
+resolves triples in this order.
+\end{remark}
+
+\section{Fibonacci sum identities}
+
+\begin{lemma}[Prefix sum]\label{lem:prefixsum}
+For all $n\ge 0$,
+\[
+\sum_{i=1}^n F_i = F_{n+2}-2,
+\]
+where the sum is $0$ when $n=0$.
+\end{lemma}
+
+\begin{proof}
+Induct on $n$. For $n=0$, the identity is $0=F_2-2$. If it holds for $n$, then
+\[
+\sum_{i=1}^{n+1}F_i=(F_{n+2}-2)+F_{n+1}=F_{n+3}-2.\qedhere
+\]
+\end{proof}
+
+\begin{lemma}[Range sum]\label{lem:rangesum}
+For $1\le p\le q$,
+\[
+\sum_{i=p}^{q}F_i = F_{q+2}-F_{p+1}.
+\]
+\end{lemma}
+
+\begin{proof}
+Subtract two prefix sums from Lemma~\ref{lem:prefixsum}:
+\[
+\sum_{i=p}^{q}F_i=(F_{q+2}-2)-(F_{p+1}-2)=F_{q+2}-F_{p+1}.\qedhere
+\]
+\end{proof}
+
+\begin{lemma}[Two block-sum formulas]\label{lem:blocksums}
+Let $1\le q<r$ and set
+\[
+B:=U_{q+1,r-1}.
+\]
+Thus $B=\varnothing$ if $r=q+1$, while
+$B=\{F_{3q+1},F_{3q+2},\dots,F_{3r-3}\}$ if $r\ge q+2$.
+Then
+\begin{align}
+\sum B &= F_{3r-1}-F_{3q+2}=y_r-F_{3q+2}, \label{eq:sumB}\\
+\sum\bigl(B\setminus\{z_{r-1}\}\bigr) &= x_r-F_{3q+2}\qquad(r\ge q+2). \label{eq:sumBminus}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+If $r=q+1$, then $B=\varnothing$ and
+\[
+\sum B=0=F_{3q+2}-F_{3q+2}=F_{3r-1}-F_{3q+2}=y_r-F_{3q+2}.
+\]
+If $r\ge q+2$, apply Lemma~\ref{lem:rangesum} with $p=3q+1$ and $q'=3r-3$ to get
+\[
+\sum B = F_{(3r-3)+2}-F_{(3q+1)+1}=F_{3r-1}-F_{3q+2}=y_r-F_{3q+2}.
+\]
+This proves \eqref{eq:sumB}. For \eqref{eq:sumBminus}, if $r\ge q+2$ then $z_{r-1}=F_{3r-3}\in B$ and
+\[
+\sum(B\setminus\{z_{r-1}\})=(y_r-F_{3q+2})-F_{3r-3}.
+\]
+Since $y_r-F_{3r-3}=F_{3r-2}=x_r$, we obtain \eqref{eq:sumBminus}.
+\end{proof}
+
+\section{Poisoned frontiers: a forcing-win mechanism}
+
+\subsection{Idea and definition}
+
+The key invariant in our ``no-jump'' analysis is a configuration in which the leading player has a lead $L$
+that (i) dominates the total sum of all remaining \emph{prefix} numbers, so the trailing player cannot catch up within the prefix,
+yet (ii) is smaller than the least available \emph{tail} number, so the trailing player's \emph{first} tail pick ends their turn immediately.
+This yields a deterministic alternation: the trailer is forced to take \emph{exactly one} tail number each turn, and the leader can
+use a local reply to recreate the same situation deeper in the tail. The ``frontier'' index then strictly advances until the trailer loses.
+
+\begin{definition}[Poisoned position at frontier $q$]\label{def:poison}
+Fix a block $U_{j,k}$ and an index $j\le q\le k$. Immediately after a turn by the leading player,
+a position is \emph{poisoned at frontier $q$} if the remaining set and the trailer's deficit have the form
+\[
+(P_q\cup U_{q+1,k},\,L),
+\]
+where $P_q\subseteq U_{j,q}$, $L>0$, and
+\begin{enumerate}
+\item $L>\sum P_q$; and
+\item if $q<k$, then $L<x_{q+1}$.
+\end{enumerate}
+If the remaining set is nonempty, it is now the trailer's turn. If $q=k$ and $P_k=\varnothing$,
+the game has already ended in a win for the leader; we retain the poisoned-position terminology for this terminal case.
+\end{definition}
+
+\subsection{Forced one-tail moves and frontier advance}
+
+\begin{lemma}[Trailer takes exactly one tail number]\label{lem:one-tail}
+Assume we are in a poisoned position $(P_q\cup U_{q+1,k},L)$ at frontier $q<k$.
+Let the trailer take some prefix numbers from $P_q$ totaling $p$ and then take a first tail number $v\in U_{q+1,k}$.
+Then:
+\begin{enumerate}
+\item the remaining deficit is $\delta:=L-p$ and satisfies $1\le \delta < x_{q+1}$;
+\item the tail pick satisfies $v\ge x_{q+1}>\delta$, hence it ends the trailer's turn immediately;
+\item consequently the trailer takes \emph{exactly one} tail number, belonging to some triple $T_r$ with $r\ge q+1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Since $p\le \sum P_q<L$, the trailer cannot catch up within the prefix, so $\delta=L-p$ is a positive integer.
+Also $\delta\le L<x_{q+1}$ by Definition~\ref{def:poison}, proving (1).
+Every tail number is at least $x_{q+1}$, so $v\ge x_{q+1}>\delta$; thus $v$ alone catches up and ends the turn, proving (2) and (3).
+\end{proof}
+
+\begin{lemma}[Frontier advance]\label{lem:advance}
+Assume we are in a poisoned position $(P_q\cup U_{q+1,k},L)$ at frontier $q<k$.
+During a legal trailer turn, suppose the trailer takes prefix numbers totaling $p$ and then takes their first tail number
+$v\in T_r$ for some $q+1\le r\le k$. Put $\delta:=L-p$.
+Then the leader begins their reply turn behind by
+\[
+d_B:=v-\delta>0.
+\]
+Let $B:=U_{q+1,r-1}$ (possibly empty if $r=q+1$). In each case below, the leader has a legal reply using only numbers from
+$B\cup(T_r\setminus\{v\})$, ending with a last pick in $T_r$, and producing a poisoned position at frontier $r$.
+
+\begin{enumerate}
+\item If $v=z_r$: take all of $B$ and $x_r$ first, then take $y_r$ last.
+\item If $v=y_r$: take all of $B$ first, then take $z_r$ last.
+\item If $v=x_r$:
+\begin{itemize}
+\item if $r=q+1$, take $z_r$ as a single pick;
+\item if $r\ge q+2$, let $w:=z_{r-1}\in B$ and take all of $B\setminus\{w\}$ first, then take $z_r$ last.
+\end{itemize}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $P_q'$ be the set remaining from $P_q$ after the trailer removed numbers totaling $p$.
+Then
+\begin{equation}\label{eq:Psprime}
+\sum P_q'=\sum P_q-p < L-p=\delta.
+\end{equation}
+By Lemma~\ref{lem:one-tail} we also have $\delta<x_{q+1}=F_{3q+1}<F_{3q+2}$.
+
+In each case, we verify (i) legality (pre-sum $<d_B$ and last pick achieves $\ge d_B$), (ii) the new lead $L'$ dominates the remaining
+prefix up to $r$, and (iii) the smallness bound $L'<x_{r+1}$ when $r<k$ via Lemma~\ref{lem:lead<last}.
+
+\medskip\noindent
+\textbf{Case 1: $v=z_r$.}
+The leader's pre-sum is $t:=\sum B+x_r$.
+Using \eqref{eq:sumB},
+\[
+t=(y_r-F_{3q+2})+x_r=z_r-F_{3q+2}<z_r-\delta=d_B.
+\]
+Thus the leader stays strictly behind. Taking $y_r$ last catches up because
+\[
+t+y_r=\sum B+z_r \ge z_r > z_r-\delta=d_B.
+\]
+So the reply is legal.
+
+The resulting lead is
+\[
+L'=(t+y_r)-d_B=(\sum B+z_r)-(z_r-\delta)=\sum B+\delta.
+\]
+After this reply, all numbers in $U_{q+1,r}$ have been removed (the trailer took $z_r$ and the leader took $B,x_r,y_r$).
+Hence the remaining subset of $U_{j,r}$ is contained in $P_q'$, so its sum is $<\delta\le L'$ by \eqref{eq:Psprime}.
+Let $P_r$ denote the remaining subset of $U_{j,r}$; then $L'>\sum P_r$.
+
+Finally, the last pick was $y_r$ and $d_B>0$, so Lemma~\ref{lem:lead<last} gives $L'<y_r<z_r<x_{r+1}$ (if $r<k$).
+Thus the resulting position is poisoned at frontier $r$.
+
+\medskip\noindent
+\textbf{Case 2: $v=y_r$.}
+The leader's pre-sum is $t:=\sum B=y_r-F_{3q+2}$, and
+\[
+t<y_r-\delta=d_B
+\]
+since $\delta<F_{3q+2}$. Thus the leader stays strictly behind. Taking $z_r$ last catches up because $z_r>y_r>d_B$.
+So the reply is legal.
+
+The resulting lead is
+\[
+L'=(t+z_r)-d_B=(y_r-F_{3q+2}+z_r)-(y_r-\delta)=z_r-F_{3q+2}+\delta.
+\]
+After the reply, the remaining subset of $U_{j,r}$ is contained in $P_q'\cup\{x_r\}$ (only $x_r$ may remain from $T_r$).
+Thus $\sum P_r<\delta+x_r$ by \eqref{eq:Psprime}. Moreover, since $r\ge q+1$ we have $3r-1\ge 3q+2$, hence $y_r=F_{3r-1}\ge F_{3q+2}$, and
+\[
+L'=(x_r+y_r)-F_{3q+2}+\delta = x_r+(y_r-F_{3q+2})+\delta \ge x_r+\delta>\sum P_r.
+\]
+Finally, the last pick was $z_r$, so Lemma~\ref{lem:lead<last} gives $L'<z_r<x_{r+1}$ (if $r<k$).
+Thus the resulting position is poisoned at frontier $r$.
+
+\medskip\noindent
+\textbf{Case 3: $v=x_r$.}
+Here $d_B=x_r-\delta>0$.
+
+\smallskip\noindent
+\emph{Subcase 3a: $r=q+1$.}
+The leader takes $z_r$ as a single pick. This is legal since $z_r>x_r-\delta=d_B$.
+The new lead is $L'=z_r-d_B=y_r+\delta$.
+The remaining subset of $U_{j,r}$ is contained in $P_q'\cup\{y_r\}$, whose sum is $<\delta+y_r=L'$ by \eqref{eq:Psprime}.
+Also $L'<z_r<x_{r+1}$ (if $r<k$) by Lemma~\ref{lem:lead<last}. Hence the resulting position is poisoned at frontier $r$.
+
+\smallskip\noindent
+\emph{Subcase 3b: $r\ge q+2$.}
+Let $w:=z_{r-1}\in B$. The leader's pre-sum is
+\[
+t:=\sum(B\setminus\{w\})=x_r-F_{3q+2}<x_r-\delta=d_B
+\]
+by \eqref{eq:sumBminus} and $\delta<F_{3q+2}$. Taking $z_r$ last catches up since
+\[
+t+z_r=x_r-F_{3q+2}+z_r \ge x_r-\delta=d_B,
+\]
+because $z_r\ge F_{3q+2}>\delta$. So the reply is legal.
+
+The new lead is
+\[
+L'=(t+z_r)-d_B=(x_r-F_{3q+2}+z_r)-(x_r-\delta)=z_r-F_{3q+2}+\delta.
+\]
+After the reply, the remaining subset of $U_{j,r}$ is contained in $P_q'\cup\{w,y_r\}$, so $\sum P_r<\delta+w+y_r$ by \eqref{eq:Psprime}.
+Compute
+\[
+L'-(\delta+w+y_r)
+= (z_r-F_{3q+2}+\delta)-(\delta+w+y_r)
+= x_r-w-F_{3q+2}.
+\]
+Since $x_r=F_{3r-2}$ and $w=z_{r-1}=F_{3r-3}$, we have $x_r-w=F_{3r-4}$, hence
+\[
+L'-(\delta+w+y_r)=F_{3r-4}-F_{3q+2}\ge 0
+\]
+because $r\ge q+2\Rightarrow 3r-4\ge 3q+2$ and Fibonacci numbers increase.
+Since $\sum P_r<\delta+w+y_r$, we conclude $L'>\sum P_r$.
+
+Finally, the last pick was $z_r$, so Lemma~\ref{lem:lead<last} gives $L'<z_r<x_{r+1}$ (if $r<k$).
+Thus the resulting position is poisoned at frontier $r$.
+\end{proof}
+
+\begin{proposition}[Poisoned frontier $\Rightarrow$ leader win]\label{prop:poisonwin}
+From any poisoned position at frontier $q$ (Definition~\ref{def:poison}), the leader has a forcing win
+(or has already won in the terminal case).
+\end{proposition}
+
+\begin{proof}
+If $q=k$, then the remaining set is $P_k$ and the trailer's deficit satisfies $L>\sum P_k$.
+By Lemma~\ref{lem:terminal}, this is a terminal loss for the trailer; when $P_k=\varnothing$, it is simply the
+already-completed win described in Definition~\ref{def:poison}.
+
+Now assume $q<k$. Since $L<x_{q+1}\le \sum U_{q+1,k}$, the trailer is not lost immediately. Since $L>\sum P_q$,
+the trailer cannot catch up using only prefix numbers from $P_q$. Hence every legal trailer turn eventually has a first tail pick.
+By Lemma~\ref{lem:one-tail}, that first tail pick ends the turn, so exactly one tail number is taken, and it lies in some
+$T_r$ with $r\ge q+1$.
+Then Lemma~\ref{lem:advance} gives a leader reply producing another poisoned position, now at frontier $r\ge q+1$.
+Thus the frontier strictly increases and is bounded by $k$, so after finitely many cycles we reach a poisoned position at frontier $k$,
+which is a terminal loss for the trailer. Hence the leader wins.
+\end{proof}
+
+\section{Block poison at a tied start}
+
+The next lemma is the ``entry point'' for producing poisoned positions from a tied start.
+It says that on a consecutive triple block $U_{j,t}$, if a player ``jumps'' to the last triple on their first pick,
+then the opponent can reply \emph{within the same block} so that the first player is stranded (cannot catch up next turn).
+
+\begin{lemma}[Block poison at tied start]\label{lem:blockpoison}
+Fix integers $1\le j<t$. Consider the tied start $(U_{j,t},0)$ and let $T_t=\{x_t,y_t,z_t\}$ be the last triple.
+Let $R:=U_{j,t-1}$ and $b_0:=y_j=F_{3j-1}$. Then $\sum R=y_t-b_0$.
+If the first player takes $x_t$ or $y_t$ or $z_t$ on their first move, then the second player has a legal reply using only numbers from $U_{j,t}$
+with the following property: after the reply, if $P_t$ is the set of numbers of $U_{j,t}$ still remaining and $L$ is the second player's lead, then
+$L>\sum P_t$. In particular, in the isolated block $U_{j,t}$ this strands the first player immediately.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:rangesum} with $p=3j-2$ and $q=3t-3$,
+\[
+\sum R=\sum_{i=3j-2}^{3t-3}F_i = F_{3t-1}-F_{3j-1}=y_t-b_0.
+\]
+
+\medskip\noindent
+\textbf{Case 1: first player takes $z_t$.}
+The second player is behind by $z_t$.
+Since
+\[
+\sum(R\cup\{x_t\})=(y_t-b_0)+x_t=z_t-b_0<z_t,
+\]
+the second player may take all of $R$ and $x_t$ while remaining strictly behind, and must then take $y_t$.
+This clears $U_{j,t}$ entirely. The second player's lead is
+\[
+L=((y_t-b_0)+x_t+y_t)-z_t=y_t-b_0>0,
+\]
+where positivity follows from $t>j$ and the strict increase of the Fibonacci sequence.
+The remaining set $P_t$ inside $U_{j,t}$ is empty, so $L>\sum P_t$.
+
+\medskip\noindent
+\textbf{Case 2: first player takes $y_t$.}
+The second player is behind by $y_t$.
+They take all of $R$, reaching $y_t-b_0<y_t$, so they remain behind and must continue.
+They then take $z_t$ and end the turn.
+Their lead becomes
+\[
+L=\bigl((y_t-b_0)+z_t\bigr)-y_t=z_t-b_0.
+\]
+The only remaining number in $U_{j,t}$ is $x_t$, and since $y_t>b_0$ we have $x_t<z_t-b_0=L$.
+Thus, for $P_t=\{x_t\}$, we have $L>\sum P_t$; in the isolated block the first player loses immediately by Lemma~\ref{lem:terminal}.
+
+\medskip\noindent
+\textbf{Case 3: first player takes $x_t$.}
+The second player is behind by $x_t$.
+Choose a single Fibonacci number $\rho\in R$ and set $S:=R\setminus\{\rho\}$ with $s:=\sum S$.
+Recall here that $R=U_{j,t-1}$, so $S\subseteq U_{j,t-1}$ and in particular $z_t\notin S$;
+thus $z_t$ is indeed available as the last pick.
+
+If $\rho<s<x_t$, then the second player can take all of $S$ first (remaining strictly behind) and then take $z_t$ last,
+ending with lead $L=s+y_t$ while the remaining numbers in $U_{j,t}$ are exactly $P_t=\{y_t,\rho\}$. Since $s>\rho$,
+we have $L=s+y_t>y_t+\rho=\sum P_t$, so in the isolated block the first player cannot catch up next turn.
+
+We now choose $\rho$ and verify $\rho<s<x_t$.
+
+\smallskip\noindent
+\emph{Choice of $\rho$.}
+If $t=j+1$ (exactly two triples), set $\rho:=b_0=y_j$.
+If $t\ge j+2$ (at least three triples), set $\rho:=z_{t-1}=F_{3t-3}$.
+
+\smallskip\noindent
+\emph{Verify $s<x_t$.}
+Since $s=\sum R-\rho$, the inequality $s<x_t$ is equivalent to $\rho>\sum R-x_t$.
+But
+\[
+\sum R-x_t=(y_t-b_0)-x_t=(y_t-x_t)-b_0 = F_{3t-3}-b_0.
+\]
+If $t\ge j+2$, then $\rho=F_{3t-3}>F_{3t-3}-b_0$.
+If $t=j+1$, then $F_{3t-3}=F_{3j}=z_j$ and $\sum R-x_t=z_j-b_0=z_j-y_j=x_j$ by \eqref{eq:triple}, while $\rho=y_j>x_j$.
+Thus $s<x_t$ holds.
+
+\smallskip\noindent
+\emph{Verify $\rho<s$.}
+This is $2\rho<\sum R=y_t-b_0$.
+If $t=j+1$, then $R=T_j$ and $\sum R=x_j+y_j+z_j=2z_j$, so with $\rho=y_j$ we have $2\rho=2y_j<2z_j$.
+If $t\ge j+2$, then $\rho=F_{3t-3}$ and $2\rho<y_t-b_0$ is equivalent to
+\[
+F_{3t-4}>F_{3j-1},
+\]
+using $F_{3t-2}=F_{3t-3}+F_{3t-4}$ and rearranging. This holds since $3t-4\ge 3j+2>3j-1$ and Fibonacci numbers increase.
+
+Thus $\rho<s<x_t$, and the described reply strands the first player, completing Case~3.
+\end{proof}
+
+\section{Clean-state no-jump via poisoned frontiers}
+
+\begin{theorem}[No-jump from a clean state]\label{thm:nojump}
+Fix $j\le k$ and consider the clean state $(U_{j,k},0)$.
+If the mover's first pick lies in some later triple $T_t$ with $t>j$, then the mover is losing: the opponent has a forcing win.
+Equivalently, from a clean state, any ``jump'' past the leftmost triple is a losing first move.
+\end{theorem}
+
+\begin{proof}
+Let $u$ be the mover's first pick and let $t>j$ be the unique index for which $u\in T_t$.
+Consider the sub-block $U_{j,t}$. Relative to this sub-block, the mover has selected an element of its last triple $T_t$ from tied scores.
+By Lemma~\ref{lem:blockpoison}, the opponent has a reply using only numbers from $U_{j,t}$ that leaves the mover behind by a lead $L$
+exceeding the sum of the remaining numbers in $U_{j,t}$.
+
+Because this reply uses only numbers from $U_{j,t}$, the remaining set has the form
+\[
+P_t\cup U_{t+1,k}
+\]
+for some $P_t\subseteq U_{j,t}$, and the block-poison lemma gives $L>\sum P_t$.
+
+On that opponent reply, the opponent's starting deficit is $u>0$, so Lemma~\ref{lem:lead<last} applies and yields
+\[
+L<\text{(opponent's last pick)}\le z_t.
+\]
+If $t<k$, then $z_t=F_{3t}<F_{3t+1}=x_{t+1}$, so $L<x_{t+1}$ and the resulting position is poisoned at frontier $t$.
+If $t=k$, the ``smallness'' condition is vacuous in Definition~\ref{def:poison} (there is no tail), so the position is still poisoned at frontier $t=k$.
+In either case, the opponent wins by Proposition~\ref{prop:poisonwin}.
+\end{proof}
+
+\section{Crumbs and the prohibition on touching the tail while behind}
+
+The second forcing device occurs when only one or two small elements of the leftmost triple remain.
+Such leftovers form a \emph{crumb} set; if the mover is behind by exactly the crumb-sum, then a single tail pick immediately ends the turn.
+We show that any such tail touch is losing because it allows the opponent to create a poisoned frontier position.
+
+\begin{definition}[Crumb state at level $j$]\label{def:crumb}
+Fix $j<k$ and let $C\subseteq\{x_j,y_j\}$ be nonempty. Put $d:=\sum C$.
+A \emph{crumb state at level $j$} is the state
+\[
+(C\cup U_{j+1,k},\,d).
+\]
+\end{definition}
+
+\begin{lemma}[Two bounds for crumbs]\label{lem:crumbbounds}
+Fix $j<k$ and a crumb state $(C\cup U_{j+1,k},d)$ at level $j$.
+Then $d<x_{j+1}$, and for any $c\in C\cup\{0\}$ we have
+\[
+c+d < F_{3j+2}.
+\]
+\end{lemma}
+
+\begin{proof}
+Since $C\subseteq\{x_j,y_j\}$, we have $d\le x_j+y_j=z_j=F_{3j}$, and $x_{j+1}=F_{3j+1}>F_{3j}$, so $d<x_{j+1}$.
+
+Also $c\le d$, hence $c+d\le 2d\le 2F_{3j}$.
+But $F_{3j+2}=F_{3j+1}+F_{3j}>2F_{3j}$, so $c+d<F_{3j+2}$.
+\end{proof}
+
+\begin{lemma}[First-tail strict inequality]\label{lem:firsttail}
+Fix $j<k$ and let $C\subseteq\{x_j,y_j\}$ be nonempty with $d=\sum C$ and $c:=\min C$.
+Then
+\[
+c+d < x_{j+1}=F_{3j+1}.
+\]
+\end{lemma}
+
+\begin{proof}
+We use $x_{j+1}=F_{3j+1}=F_{3j}+F_{3j-1}=(x_j+y_j)+y_j=x_j+2y_j$.
+There are three cases:
+\begin{itemize}
+\item If $C=\{x_j\}$, then $c+d=2x_j<x_j+2y_j=x_{j+1}$ since $y_j>x_j$.
+\item If $C=\{y_j\}$, then $c+d=2y_j<x_j+2y_j=x_{j+1}$ since $x_j>0$.
+\item If $C=\{x_j,y_j\}$, then $c=x_j$ and $d=x_j+y_j$, so $c+d=2x_j+y_j<x_j+2y_j=x_{j+1}$ since $y_j>x_j$.
+\end{itemize}
+\end{proof}
+
+\begin{theorem}[Tail-touching loses from a crumb state]\label{thm:crumb-tail}
+Fix $j<k$ and consider play at any moment during a turn such that:
+\begin{itemize}
+\item the remaining set has the form $C\cup U_{j+1,k}$ with nonempty $C\subseteq\{x_j,y_j\}$, and
+\item the mover is still behind by deficit $d=\sum C$.
+\end{itemize}
+If the mover now picks a number from the tail $U_{j+1,k}$, then the mover is losing: the opponent has a forcing win.
+\end{theorem}
+
+\begin{proof}
+By Remark~\ref{rem:intermediate}, this intermediate position can be analyzed exactly as the state
+\[
+(C\cup U_{j+1,k},d).
+\]
+
+Let $u\in U_{j+1,k}$ be the mover's first tail pick while still behind by $d=\sum C$.
+By Lemma~\ref{lem:crumbbounds}, $d<x_{j+1}$, and every tail number is $\ge x_{j+1}$, hence $u>d$.
+So this single pick ends the mover's turn immediately, leaving the mover ahead by
+\[
+L_0:=u-d>0.
+\]
+Let $t\ge j+1$ be the triple index with $u\in T_t$.
+We construct an opponent reply using only numbers from $U_{j,t}$ that produces a poisoned position at frontier $t$.
+Because the reply uses no number from $U_{t+1,k}$, that later tail will remain intact; it remains only to verify the prefix domination
+and, when $t<k$, the smallness bound required in Definition~\ref{def:poison}.
+
+Let $B:=U_{j+1,t-1}$ (possibly empty if $t=j+1$). Note that $B$ is intact at this moment because only $u$ was removed from $T_t$.
+When a case below sets $c:=0$, this means that no crumb is taken; the notation $C\setminus\{c\}$ then simply means $C$.
+
+We split by which element of $T_t$ was taken.
+
+\medskip\noindent
+\textbf{Case 1: $u=z_t$.}
+Choose $c\in C$ if $t=j+1$, and set $c:=0$ if $t\ge j+2$.
+The opponent takes all of $B$ and $x_t$ and (if $c\ne 0$) also $c$ as a pre-sum, then takes $y_t$ last.
+
+\smallskip\noindent
+\emph{Legality.}
+The opponent's deficit is $L_0=z_t-d$.
+Using \eqref{eq:sumB} with $(q,r)=(j,t)$, we have $\sum B+x_t=z_t-F_{3j+2}$, so the pre-sum is $z_t-F_{3j+2}+c$.
+By Lemma~\ref{lem:crumbbounds}, $c+d<F_{3j+2}$, hence $z_t-F_{3j+2}+c<z_t-d=L_0$.
+Also $y_t\ge F_{3j+2}$ (since $3t-1\ge 3j+2$), so taking $y_t$ last reaches $\ge L_0$.
+Thus the turn is legal.
+
+\smallskip\noindent
+\emph{Poisoned frontier.}
+The new lead is
+\[
+L'=\bigl(\sum B+x_t+c+y_t\bigr)-L_0=(\sum B+z_t+c)-(z_t-d)=\sum B+c+d.
+\]
+After the reply, all of $U_{j+1,t}$ is removed, so the remaining subset of $U_{j,t}$ is exactly $C\setminus\{c\}$, with sum $d-c$.
+Then
+\[
+L'-(d-c)=\sum B+2c,
+\]
+which is strictly positive because either $\sum B>0$ (if $t\ge j+2$) or $c>0$ (if $t=j+1$).
+Hence $L'>\sum P_t$ for the remaining prefix set $P_t\subseteq U_{j,t}$.
+Finally, the last pick was $y_t$ and the opponent started with deficit $L_0>0$, so Lemma~\ref{lem:lead<last} gives
+$L'<y_t<z_t<x_{t+1}$ when $t<k$. Thus we obtain a poisoned position at frontier $t$.
+
+\medskip\noindent
+\textbf{Case 2: $u=y_t$.}
+Choose $c\in C$ if $t=j+1$, and set $c:=0$ if $t\ge j+2$.
+The opponent takes all of $B$ and (if $c\ne 0$) also $c$ as a pre-sum, then takes $z_t$ last.
+
+\smallskip\noindent
+\emph{Legality.}
+Now $L_0=y_t-d$ and $\sum B=y_t-F_{3j+2}$, so the pre-sum is $y_t-F_{3j+2}+c$.
+Again $c+d<F_{3j+2}$ gives pre-sum $<y_t-d=L_0$, and taking $z_t$ last certainly reaches $\ge L_0$ since $z_t>y_t\ge L_0$.
+Thus the turn is legal.
+
+\smallskip\noindent
+\emph{Poisoned frontier.}
+The new lead is
+\[
+L'=(\sum B+c+z_t)-L_0=(y_t-F_{3j+2}+c+z_t)-(y_t-d)=z_t-F_{3j+2}+c+d.
+\]
+Now the remaining subset of $U_{j,t}$ is $\{x_t\}\cup(C\setminus\{c\})$, with sum $x_t+d-c$.
+Compute
+\[
+L'-(x_t+d-c)=(z_t-x_t)-F_{3j+2}+2c = y_t-F_{3j+2}+2c=\sum B+2c,
+\]
+strictly positive by the same reasoning as in Case~1.
+Thus $L'>\sum P_t$. The last pick is $z_t$, so Lemma~\ref{lem:lead<last} gives $L'<z_t<x_{t+1}$ when $t<k$.
+Hence the resulting position is poisoned at frontier $t$.
+
+\medskip\noindent
+\textbf{Case 3: $u=x_t$.}
+Now $L_0=x_t-d$ and $y_t,z_t$ remain in $T_t$.
+
+\smallskip\noindent
+\emph{Subcase 3a: $t=j+1$.}
+Let $c:=\min C$. By Lemma~\ref{lem:firsttail}, $c+d<x_{j+1}=x_t$, so $c<L_0$.
+The opponent takes $c$ first and then takes $z_t$ last. This is legal since pre-sum $c<L_0$ and $z_t>L_0$.
+The new lead is
+\[
+L'=(c+z_t)-L_0=c+z_t-(x_t-d)=c+y_t+d.
+\]
+The remaining subset of $U_{j,t}$ is $\{y_t\}\cup(C\setminus\{c\})$, sum $y_t+d-c$, and
+\[
+L'-(y_t+d-c)=2c>0.
+\]
+The last pick is $z_t$, so Lemma~\ref{lem:lead<last} gives $L'<z_t<x_{t+1}$ when $t<k$.
+Hence the resulting position is poisoned at frontier $t$.
+
+\smallskip\noindent
+\emph{Subcase 3b: $t\ge j+2$.}
+Let $w:=z_{t-1}\in B$ and set $B':=B\setminus\{w\}$.
+Choose $c\in C$ if $t=j+2$, and set $c:=0$ if $t\ge j+3$.
+The opponent takes all of $B'$ and (if $c\ne 0$) also $c$ as a pre-sum, then takes $z_t$ last.
+
+\emph{Legality.}
+By \eqref{eq:sumBminus} with $(q,r)=(j,t)$, we have $\sum B'=x_t-F_{3j+2}$, so the pre-sum is $x_t-F_{3j+2}+c$.
+Since $c+d<F_{3j+2}$, this pre-sum is $<x_t-d=L_0$. Taking $z_t$ last reaches $\ge L_0$ since $z_t>x_t-d=L_0$.
+So the turn is legal.
+
+\emph{Poisoned frontier.}
+The new lead is
+\[
+L'=(\sum B'+c+z_t)-L_0=(x_t-F_{3j+2}+c+z_t)-(x_t-d)=z_t-F_{3j+2}+c+d.
+\]
+After the reply, the remaining subset of $U_{j,t}$ is $\{w,y_t\}\cup(C\setminus\{c\})$, sum $w+y_t+d-c$.
+Compute
+\[
+L'-(w+y_t+d-c)= z_t-w-y_t-F_{3j+2}+2c = (x_t-w)-F_{3j+2}+2c = F_{3t-4}-F_{3j+2}+2c.
+\]
+If $t\ge j+3$, then $F_{3t-4}>F_{3j+2}$ and $c=0$, so this is positive.
+If $t=j+2$, then $F_{3t-4}=F_{3j+2}$ and $c>0$, so it equals $2c>0$.
+Thus $L'>\sum P_t$. The last pick is $z_t$, so $L'<z_t<x_{t+1}$ when $t<k$.
+Hence the resulting position is poisoned at frontier $t$.
+
+\medskip
+In all cases the opponent produces a poisoned position at frontier $t$, so the opponent has a forcing win by Proposition~\ref{prop:poisonwin}.
+\end{proof}
+
+\section{Forced resolution of the leftmost triple and a draw on clean blocks}
+
+The next lemma is the local ``steering'' rule: from a clean state, if the mover does not jump (which loses by Theorem~\ref{thm:nojump}),
+then the opponent has a steering policy that either punishes a tail touch or resolves the leftmost
+triple $T_j$ to a tie, returning to the next clean state. This is not a claim that every prescribed
+reply is optimal at the resulting state: after an opening $y_j$, taking $x_j$ and then $z_j$
+on the same turn wins, whereas the steering reply below suffices to prevent an opening-player win.
+The distinction is made explicit in Proposition~\ref{prop:optimal-clean}.
+
+\begin{lemma}[Steering to the next clean state]\label{lem:steer}
+Fix $j<k$ and start from the clean state $(U_{j,k},0)$.
+If the mover does not jump to a later triple, i.e.\ takes their first pick from $T_j=\{x_j,y_j,z_j\}$, then the opponent has a reply strategy that guarantees:
+either the mover loses by touching the tail while still behind, or the game reaches the next clean state $(U_{j+1,k},0)$ with tied scores.
+
+Concretely, if the mover's first pick is in $T_j$, the opponent plays:
+\begin{itemize}
+\item if the mover picks $z_j$, pick the two crumbs $x_j,y_j$ (in either order) to tie;
+\item if the mover picks $x_j$, pick $z_j$;
+\item if the mover picks $y_j$, pick $z_j$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+If the mover picks $z_j$, the opponent is behind by $z_j=x_j+y_j$ and can take $x_j$ then $y_j$ (or vice versa) to tie, removing $T_j$.
+
+If the mover picks $x_j$, the opponent takes $z_j$ and ends their turn ahead by $z_j-x_j=y_j$.
+Thus the mover faces a crumb state with remaining set $\{y_j\}\cup U_{j+1,k}$ and deficit $y_j$.
+By Theorem~\ref{thm:crumb-tail}, if the mover touches the tail while still behind, the mover is losing.
+Therefore, to avoid a forcing loss, the mover must take $y_j$ and tie, removing $T_j$ and reaching $(U_{j+1,k},0)$.
+
+If the mover initially picks $y_j$, the opponent likewise takes $z_j$, creating the crumb state
+$(\{x_j\}\cup U_{j+1,k},x_j)$; the same argument then forces the mover either to take $x_j$ and tie or to make a losing tail touch.
+\end{proof}
+
+\begin{theorem}[Clean blocks are draws]\label{thm:blockdraw}
+For every $1\le j\le k$,
+\[
+\val(U_{j,k},0)=0.
+\]
+Equivalently, every clean state $(U_{j,k},0)$ is a draw under optimal play.
+\end{theorem}
+
+\begin{proof}
+We induct on the number of triples $m:=k-j+1$.
+
+\smallskip\noindent
+\textbf{Base case $m=1$.}
+Then $U_{j,j}=T_j=\{x_j,y_j,z_j\}$ with $z_j=x_j+y_j$.
+The first player can guarantee a draw by taking $z_j$, after which the second player must take both $x_j$ and $y_j$ and the scores tie.
+Conversely, the second player can prevent a first-player win after every opening: after an opening $z_j$ the continuation is the forced tie just described,
+and after an opening $x_j$ (respectively $y_j$) the second player takes $z_j$, leaving the first player behind by exactly
+$y_j$ (respectively $x_j$), which is the sole remaining number. The first player then takes that number and ties.
+Thus neither player can force a win, and $\val(U_{j,j},0)=0$.
+
+\smallskip\noindent
+\textbf{Inductive step $m\ge 2$.}
+Start from $(U_{j,k},0)$.
+
+\smallskip\noindent
+\emph{Step 1: the mover can guarantee at least a draw.}
+The mover plays $z_j$.
+Now the opponent begins a turn with remaining set $\{x_j,y_j\}\cup U_{j+1,k}$ and deficit $z_j=x_j+y_j$, i.e.\ a crumb state at level $j$.
+Whenever the opponent takes a crumb while remaining behind, both the deficit and the sum of the remaining crumbs decrease by that same amount;
+therefore the defining equality ``deficit = remaining crumb-sum'' persists. Consequently, if the opponent touches the tail at any point while still behind,
+Theorem~\ref{thm:crumb-tail} makes that tail touch losing, so the original mover has a forcing win.
+If the opponent never touches the tail, they must take both $x_j$ and $y_j$ (in either order) to tie and remove $T_j$,
+reaching the clean state $(U_{j+1,k},0)$.
+By the induction hypothesis, $\val(U_{j+1,k},0)=0$, so the original mover can force an outcome $\ge 0$.
+Thus $\val(U_{j,k},0)\ge 0$.
+
+\smallskip\noindent
+\emph{Step 2: the mover cannot force a win.}
+If the mover jumps to some $T_t$ with $t>j$, then the mover is losing by Theorem~\ref{thm:nojump}, so such a move cannot be winning.
+
+Otherwise the mover picked within $T_j$, and Lemma~\ref{lem:steer} gives the opponent a reply strategy that either yields a forcing win
+(if the mover touches the tail while still behind) or reaches the clean state $(U_{j+1,k},0)$.
+
+By the induction hypothesis, $\val(U_{j+1,k},0)=0$.
+Hence, by Lemma~\ref{lem:value-meaning}, the resulting clean state is not a forcing-win state for either player.
+In particular, it is not a forcing-win state for the original mover.
+Therefore no first move from $(U_{j,k},0)$ can force a win, and so $\val(U_{j,k},0)\le 0$.
+
+Combining the two steps, $\val(U_{j,k},0)=0$.
+\end{proof}
+
+% Insert immediately after the proof of Theorem~\ref{thm:blockdraw}.
+% This is supplementary: the draw theorem does not depend on this proposition.
+\begin{proposition}[Optimal play on a clean block]\label{prop:optimal-clean}
+For every $1\le j\le k$, the optimal opening picks from $(U_{j,k},0)$
+are exactly $x_j$ and $z_j$. Under any pair of optimal strategies,
+the leftmost triple is completely removed and the scores become tied
+before any later triple is touched.
+\end{proposition}
+
+\begin{proof}
+Write $x=x_j$, $y=y_j$, $z=z_j=x+y$, and $H=U_{j+1,k}$.
+If $H\ne\varnothing$, then
+\[
+x_{j+1}=x+2y,\qquad 0<2x<x_{j+1}.
+\]
+We use Theorem~\ref{thm:blockdraw} for the next clean block;
+when $H=\varnothing$, use $\val(\varnothing,0)=0$ instead.
+
+First, opening with $y$ loses. The opponent takes $x$ and then $z$
+on the same turn, legally because $x<y\le x+z$. The resulting lead is
+\[
+x+z-y=2x>0,
+\]
+and no element of $T_j$ remains. If $H=\varnothing$, the opponent has
+already won. Otherwise this is a poisoned position at frontier $j$
+with empty prefix and lead $2x<x_{j+1}$, so the opponent wins by
+Proposition~\ref{prop:poisonwin}.
+
+Now suppose the opening is $x$. Every remaining number exceeds $x$,
+so the opponent's reply consists of exactly one pick, say $v$.
+If $v=z$, the original mover faces $(\{y\}\cup H,y)$.
+Taking $y$ returns to a tied clean state of value $0$; if $H\ne\varnothing$,
+any tail pick instead loses by Theorem~\ref{thm:crumb-tail}.
+Thus this reply has value $0$ for the replying player.
+If $v=y$, the original mover takes $z$, obtaining lead
+$z-(y-x)=2x$ with empty prefix, and wins by the same argument as above.
+
+It remains to exclude $v\in H$, which requires $j<k$.
+The original mover is behind by $v-x$ and can take $z$ while still behind,
+because
+\[
+x+z=2x+y<x+2y=x_{j+1}\le v.
+\]
+Put $L=x+z$. After that pick, the remaining set and deficit are
+\[
+\bigl(\{y\}\cup(H\setminus\{v\}),\ v-L\bigr).
+\]
+Since $y<L<x_{j+1}$, the auxiliary state $(\{y\}\cup H,L)$ is poisoned
+at frontier $j$. If its trailer selects $v$ without taking any prefix
+number, its leader's reply state is exactly the intermediate state
+just displayed. Therefore the explicit reply of Lemma~\ref{lem:advance}
+is legal as a continuation of the original mover's turn and produces
+a poisoned position at the triple containing $v$. Proposition~\ref{prop:poisonwin}
+then gives the original mover a forcing win. This comparison uses only
+the remaining set and deficit; it does not reorder the actual past moves.
+Thus, after the opening $x$, the opponent's unique non-losing reply is $z$,
+and the original mover must then take $y$ to avoid losing.
+In particular, opening with $x$ has value $0$.
+
+Finally, after the opening $z$, the opponent is behind by $x+y$.
+If $H\ne\varnothing$, Theorem~\ref{thm:crumb-tail} rules out touching
+the tail before both crumbs have been removed, including after one crumb
+has been taken. Taking $x$ and $y$ in either order ties the scores and
+leaves a clean state of value $0$. If $H=\varnothing$, this tie is forced.
+Hence opening with $z$ also has value $0$.
+
+Every opening in a later triple loses by Theorem~\ref{thm:nojump}.
+Thus the only optimal openings are $x$ and $z$, and the continuations
+just described remove $T_j$ and tie the scores before touching $H$.
+Applying the same argument at each succeeding clean state proves
+the asserted left-to-right resolution under every pair of optimal strategies.
+\end{proof}
+
+\section{Fibonacci prefixes and the even-sum draw criterion}
+
+Define $S_n:=\{F_1,\dots,F_n\}$. Note that $S_{3k}=U_{1,k}$.
+
+\begin{corollary}[Draw on $S_{3k}$]\label{cor:S3k}
+For every $k\ge 1$, $\CatchUp(S_{3k})$ is a draw under optimal play.
+Equivalently, $\val(S_{3k},0)=0$.
+\end{corollary}
+
+\begin{proof}
+Since $S_{3k}=U_{1,k}$, this is Theorem~\ref{thm:blockdraw} with $j=1$.
+\end{proof}
+
+\begin{lemma}[Even total $\Longleftrightarrow n\equiv 0\pmod 3$]\label{lem:eveniff}
+The sum $\sum_{i=1}^nF_i$ is even if and only if $n\equiv 0\pmod 3$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:prefixsum}, $\sum_{i=1}^nF_i=F_{n+2}-2$ has the same parity as $F_{n+2}$.
+Modulo $2$, the Fibonacci recurrence yields the period-$3$ parity pattern starting from $(F_1,F_2)\equiv(1,0)$:
+\[
+1,0,1,\ 1,0,1,\ \dots
+\]
+Thus $F_m$ is even iff $m\equiv 2\pmod 3$, so $F_{n+2}$ is even iff $n\equiv 0\pmod 3$.
+\end{proof}
+
+\begin{theorem}[Even Fibonacci sum $\Rightarrow$ optimal-play draw]\label{thm:main}
+Let $n\ge 1$ and consider $\CatchUp(S_n)$ on $S_n=\{F_1,\dots,F_n\}$.
+If $\sum_{i=1}^nF_i$ is even, then under optimal play the outcome is a draw (equivalently, $\val(S_n,0)=0$).
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:eveniff}, the hypothesis implies $n=3k$ for some $k\ge 1$.
+Then $\val(S_n,0)=\val(S_{3k},0)=0$ by Corollary~\ref{cor:S3k}.
+\end{proof}
+
+\begin{remark}[Where the forcing comes from]
+The proof rests on two complementary constraints:
+(1) from a clean state, any jump to a later triple is punished by creating a poisoned frontier, yielding a forcing win;
+(2) from a crumb state, touching the tail while still behind is punished similarly.
+These yield the non-losing strategies used in the draw induction. The additional optimal-move
+argument in Proposition~\ref{prop:optimal-clean} shows that, under any pair of optimal strategies,
+the leftmost triple is resolved to a tie before any later triple is touched, reducing the game
+to a smaller clean block.
+\end{remark}
+
+\end{document}
