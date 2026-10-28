@@ -1,0 +1,526 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\F}{\mathrm{F}}
+\title{An exponential uniqueness bound for Gaussian SUR with equation-specific matrix designs}
+\author{OpenAI gpt-6.1-sol, reasoning configuration ultra}
+\date{28 October 2026}
+\begin{document}
+\maketitle
+
+\section*{Abstract}
+Consider a correctly specified Gaussian seemingly unrelated regression
+system with unrestricted positive-definite error covariance and an
+arbitrary full-column-rank design in each equation. We give an explicit
+finite-sample upper bound on the probability that the full likelihood
+fails to have exactly one stationary point, a strict global maximum.
+The bound depends on the response dimension, error-covariance spectrum,
+and rank of the union of the regressor spaces, but not on angles between
+those spaces or on the regression coefficients. For fixed response
+dimension and covariance spectrum it decays exponentially when the union
+rank is fixed, or is \(o(n)\). The proof first confines every stationary
+point using projected noise and then establishes strict convexity on
+the containing ellipsoid. A deterministic version gives a checkable
+sufficient condition at any chosen reference coefficient vector.
+
+
+\section{Original target and checked prior scope}
+
+Question 11 of the AIM workshop list pairs classical MANOVA unimodality
+with Takemura's question about the speed at which bivariate SUR
+likelihood becomes unimodal \cite{aim}. The current repository statement
+\cite{statement} preserves that question without specifying a sampling
+law or a quantitative event. Its existing attempt \cite{attempt}
+proves common-design Gaussian MANOVA uniqueness, but supplies no SUR
+sampling rate.
+
+Drton and Richardson \cite{dr} show that a simple bivariate SUR likelihood
+can have multiple modes and that their probability vanishes
+asymptotically. A September 2026 unrefereed preprint by Ferudun
+\cite{ferudun} already gives explicit exponential bounds for the crossed
+bivariate model with one private regressor in each equation, also
+allowing common regressors. Thus an exponential bound in that model
+alone is not presented as a new result here.
+
+The contribution proved below covers arbitrary equation-specific
+\emph{matrix} designs and any finite response dimension. It includes
+several private regressors per equation, which the stated scope of
+\cite{ferudun} excludes. Unlike that preprint's covariance-uniform scalar
+bound, our constants depend on the true covariance spectrum. Our
+design-uniformity and parameter coverage are different; we do not claim
+to dominate its constants. No claim of exhaustive literature-wide
+priority is made. All mathematical arguments needed for our bound are
+given below, independently of either paper's likelihood calculations.
+
+\section{Model and finite-sample statement}
+
+For \(j=1,\ldots,q\), let
+\[
+ Y_j=X_j\beta_j^0+E_j,\qquad
+ X_j\in\mathbb R^{n\times p_j},\quad
+ \beta_j^0\in\mathbb R^{p_j}.
+\]
+Each \(X_j\) is deterministic and has full column rank. Zero-column
+designs are allowed, with the corresponding coefficient space trivial.
+Assume the total coefficient dimension is positive. The rows of
+\(E=[E_1,\ldots,E_q]\) are independent \(N_q(0,\Sigma_0)\), where
+\(\Sigma_0\) is positive definite. Both the coefficients and the
+unrestricted covariance \(\Sigma\succ0\) are likelihood parameters.
+There is no covariance sparsity constraint or missingness.
+
+Let \(P\) be the orthogonal projection onto
+\(\mathcal U=\sum_j\operatorname{col}(X_j)\), and put \(r=\dim\mathcal U\).
+Write
+\[
+ \lambda_0=\lambda_{\min}(\Sigma_0),\quad
+ \Lambda_0=\lambda_{\max}(\Sigma_0),\quad
+ \lambda=\lambda_0/2,\quad \Lambda=3\Lambda_0/2,
+ \qquad
+ b_*=\frac{\lambda^3}{1024q(\Lambda+\lambda)^2}.
+ \tag{1}
+\]
+All covariance matrices below use normalization \(1/n\).
+A stationary point refers to derivatives in all coefficient coordinates
+and all independent symmetric covariance coordinates on the open
+parameter domain.
+
+\begin{theorem}[Explicit Gaussian SUR uniqueness bound]\label{thm:main}
+Under these assumptions the probability that the full likelihood does
+not have exactly one stationary point, which is a strict global
+maximum, is at most
+\[
+ \min\left\{1,\;
+ 2\,9^q e^{-n/128}
+ +2^{rq/2}\exp\left(-\frac{n b_*}{4\Lambda_0}\right)
+ \right\}.
+ \tag{2}
+\]
+The bound is uniform over all true coefficient vectors and all
+equation-specific full-column-rank designs with the specified union
+rank. For fixed \(q,\lambda_0,\Lambda_0\) and \(r_n=o(n)\), its
+right-hand side is at most \(C e^{-cn}\) for all sufficiently large
+\(n\), for positive constants \(c,C\). The same holds in particular
+for fixed union rank.
+\end{theorem}
+
+This is a bound for the entire unbounded coefficient domain and the
+entire positive-definite covariance domain. It does not describe only
+the stationary points reached from a particular initialization.
+For small \(n\), (2) can be vacuous. A finite-dimensional Gaussian
+model and the displayed probability event provide a precise answer
+to one sampling interpretation of the original SUR question.
+
+\section{A deterministic global uniqueness certificate}
+
+The deterministic argument works at an arbitrary reference coefficient
+vector. Let \(E\) denote its residual matrix; it need not be random
+in this section. For coefficient displacement
+\(\delta=(\delta_1,\ldots,\delta_q)\), set
+\[
+ A(\delta)=[X_1\delta_1,\ldots,X_q\delta_q],\quad
+ D(\delta)=A(\delta)^{\mathsf T}A(\delta)/n,\quad
+ C(\delta)=E^{\mathsf T}A(\delta)/n,
+\]
+\[
+ \Omega=E^{\mathsf T}E/n,\qquad B=E^{\mathsf T}PE/n,\qquad
+ S(\delta)=\Omega-C(\delta)-C(\delta)^{\mathsf T}+D(\delta).
+ \tag{3}
+\]
+Thus \(S(\delta)\) is the residual covariance at the displaced
+coefficient vector. Write \(t(\delta)=\tr D(\delta)\).
+Full column rank makes \(t\) a positive-definite quadratic form on
+the total coefficient space.
+
+\begin{lemma}[Projected-noise certificate]\label{lem:certificate}
+Suppose \(0<\lambda\leq\Lambda\),
+\[
+ \lambda I_q\preceq\Omega\preceq\Lambda I_q,\qquad
+ 0\preceq B\preceq b I_q,\qquad
+ b\leq\frac{\lambda^3}{1024q(\Lambda+\lambda)^2}.
+ \tag{4}
+\]
+Then \(S(\delta)\succ0\) for every \(\delta\), and
+\(\log\det S(\delta)\) has exactly one stationary point. This
+point is its strict global minimum.
+\end{lemma}
+
+\begin{proof}
+Because \(PA(\delta)=A(\delta)\), for every vector \(v\) the
+ordinary Cauchy--Schwarz inequality gives
+\[
+ |v^{\mathsf T}C(\delta)v|
+ \leq\sqrt{v^{\mathsf T}Bv}\sqrt{v^{\mathsf T}D(\delta)v}.
+\]
+The inequality \(2ab\leq a^2/2+2b^2\) therefore implies
+\[
+ S(\delta)\succeq\Omega-2B+D(\delta)/2
+ \succeq (\lambda/2)I_q+D(\delta)/2.
+ \tag{5}
+\]
+Here the threshold in (4) is at most \(\lambda/4\). In particular
+the logarithm is defined throughout coefficient space. Also
+\[
+ \|C(\delta)\|_{\op}\leq\sqrt{b\,t(\delta)},\qquad
+ \|S(\delta)\|_{\op}
+ \leq\Lambda+2\sqrt{b\,t(\delta)}+t(\delta)
+ \leq\Lambda+b+2t(\delta).
+ \tag{6}
+\]
+For the first inequality, factor \(C=(PE/\sqrt n)^{\mathsf T}
+(A/\sqrt n)\) and use the operator norm of the first factor and
+the Frobenius norm of the second.
+
+We next confine \emph{all} stationary points. Fix one and put
+\(W=S(\delta)^{-1}\). Differentiating on the ray
+\(a\mapsto a\delta\) at \(a=1\) gives
+\[
+ 0=\tr W(2D-C-C^{\mathsf T}),\qquad
+ u:=\tr(WD)=\tr(WC).
+ \tag{7}
+\]
+Weighted Frobenius Cauchy--Schwarz, applied to \(PEW^{1/2}\)
+and \(AW^{1/2}\), yields
+\[
+ u\leq\sqrt{\tr(WB)\,u},\qquad
+ u\leq\tr(WB)\leq\frac{2qb}{\lambda}.
+ \tag{8}
+\]
+If \(u=0\) the middle inequality is immediate; otherwise divide
+by \(\sqrt u\). On the other hand (6) implies
+\[
+ u\geq\frac{t}{\Lambda+b+2t}.
+ \tag{9}
+\]
+Since \(b\leq\lambda/(8q)\), combining (8)--(9) and moving
+the term involving \(t\) to the left gives
+\[
+ t\leq \frac{4qb}{\lambda}(\Lambda+b)
+ \leq Kb,\qquad K=\frac{4q(\Lambda+\lambda)}{\lambda}.
+ \tag{10}
+\]
+Every stationary point therefore lies in the same small ellipsoid.
+
+We verify strict convexity on a larger ellipsoid. Define
+\[
+ R^2=\frac{\lambda^2}{128(\Lambda+\lambda)},\qquad
+ \mathcal E=\{\delta:t(\delta)\leq R^2\}.
+ \tag{11}
+\]
+The threshold in (4) satisfies \(b\leq R^2\),
+\(Kb\leq R^2/2\), and \(3R^2\leq\lambda\).
+For a direction \(h\), put \(A_h=A(h)\),
+\(D_h=A_h^{\mathsf T}A_h/n\), \(t_h=\tr D_h\).
+Writing primes for derivatives along that direction gives
+\[
+ S'=-\frac{E^{\mathsf T}A_h+A_h^{\mathsf T}E}{n}
+       +\frac{A^{\mathsf T}A_h+A_h^{\mathsf T}A}{n},
+ \qquad S''=2D_h.
+ \tag{12}
+\]
+The same factorization as in (6) and the Frobenius product
+inequality give, on \(\mathcal E\),
+\[
+ \|S'\|_{\F}\leq 2(\sqrt b+R)\sqrt{t_h},\qquad
+ \|W\|_{\op}\leq2/\lambda,\qquad
+ \|S\|_{\op}\leq\Lambda+3R^2.
+ \tag{13}
+\]
+Consequently
+\begin{align*}
+ (\log\det S)''
+ &=2\tr(WD_h)-\tr(WS'WS')\\
+ &\geq\left\{\frac{2}{\Lambda+3R^2}
+             -\frac{16(\sqrt b+R)^2}{\lambda^2}\right\}t_h\\
+ &\geq\left\{\frac{2}{\Lambda+\lambda}
+             -\frac{64R^2}{\lambda^2}\right\}t_h
+ =\frac{3t_h}{2(\Lambda+\lambda)}.
+ \tag{14}
+\end{align*}
+The second term in the first line is the squared Frobenius norm
+of \(W^{1/2}S'W^{1/2}\), so the bound applies even when \(S'\)
+is indefinite. For nonzero \(h\), full column rank gives
+\(t_h>0\). Hence \(\log\det S\) is strictly convex on the
+convex ellipsoid \(\mathcal E\).
+
+Finally (5) implies coercivity. At least one eigenvalue of \(D\)
+is at least \(t/q\), so
+\[
+ \det S(\delta)
+ \geq(\lambda/2)^q\left(1+\frac{t(\delta)}{q\lambda}\right).
+ \tag{15}
+\]
+As \(\|\delta\|\to\infty\), \(t(\delta)\to\infty\).
+Thus the continuous smooth function \(\log\det S\) attains a
+global minimum in coefficient space, and the minimum is stationary.
+By (10) every stationary point lies in the interior of
+\(\mathcal E\). Two distinct stationary points there would
+contradict strict convexity, for example by integrating the positive
+second derivative along their connecting segment. Therefore the
+global minimum is the only stationary point, and is strict.
+\end{proof}
+
+\begin{corollary}[Observed-data sufficient test]\label{cor:test}
+At any chosen reference coefficient vector, form the two matrices
+\(\Omega,B\) in (3). If \(\Omega\succ0\), let
+\(\lambda=\lambda_{\min}(\Omega)\),
+\(\Lambda=\lambda_{\max}(\Omega)\).
+The inequality
+\[
+ \|B\|_{\op}\leq
+ \frac{\lambda^3}{1024q(\Lambda+\lambda)^2}
+ \tag{16}
+\]
+is a sufficient certificate that the full SUR likelihood has exactly
+one stationary point, a strict global maximum.
+\end{corollary}
+
+\begin{proof}
+Lemma \ref{lem:certificate} applies. For each fixed coefficient vector,
+the Gaussian covariance likelihood has its unique stationary point
+and global maximum at \(\Sigma=S(\delta)\). One way to verify this
+is to use the precision matrix \(H=\Sigma^{-1}\): the covariance
+part of the log likelihood is
+\((n/2)(\log\det H-\tr(HS))\), strictly concave on \(H\succ0\),
+with stationary point \(H=S^{-1}\).
+Its profile is a constant minus \((n/2)\log\det S(\delta)\).
+The chain rule at the covariance optimum identifies the profile
+coefficient score with the full coefficient score. Thus full and
+profile stationary points correspond bijectively. The unique strict
+profile optimum and unique covariance optimum give the claimed
+strict full-space global maximum.
+\end{proof}
+
+The test is sufficient only. Failure of (16) gives no conclusion about
+multimodality. Unlike a probability calculation using the unknown true
+coefficients, this test uses the residuals at the supplied reference
+vector and is directly evaluable from the observed data and designs.
+
+\section{Gaussian probability of the certificate}
+
+\begin{lemma}[Two elementary Gaussian bounds]\label{lem:tails}
+Let \(Z\) be an \(n\times q\) matrix with independent standard normal
+entries, and let \(P\) be any deterministic orthogonal projection of
+rank \(r\). Then
+\[
+ \Pr\left\{\left\|Z^{\mathsf T}Z/n-I_q\right\|_{\op}>1/2\right\}
+ \leq2\,9^q e^{-n/128},
+ \tag{17}
+\]
+and for \(a>0\),
+\[
+ \Pr\{\|PZ\|_{\F}^2>na\}\leq2^{rq/2}e^{-na/4}.
+ \tag{18}
+\]
+\end{lemma}
+
+\begin{proof}
+For \(V\sim\chi^2_m\), direct integration of the Gaussian density
+gives \(\mathbb E e^{sV}=(1-2s)^{-m/2}\) for \(s<1/2\).
+Exponential Markov bounds optimized at
+\(s=t/[2(1+t)]\) and \(s=-t/[2(1-t)]\), respectively, give
+\[
+ \Pr\{V/m>1+t\}\leq e^{-m(t-\log(1+t))/2},\quad
+ \Pr\{V/m<1-t\}\leq e^{-m(-t-\log(1-t))/2}.
+\]
+For \(0<t<1\), integration of the derivatives shows
+\(t-\log(1+t)\geq t^2/4\) and
+\(-t-\log(1-t)\geq t^2/2\). Hence
+\[
+ \Pr\{|V/m-1|>t\}\leq2e^{-mt^2/8}.
+ \tag{19}
+\]
+A Euclidean \(1/4\)-net of the unit sphere in \(\mathbb R^q\)
+can be chosen with at most \(9^q\) points: take a maximal separated
+set and compare the volumes of disjoint radius-\(1/8\) balls with
+the enclosing radius-\(9/8\) ball. For a symmetric matrix \(T\),
+approximation of a maximizing unit vector by a net vector shows
+\(\|T\|_{\op}\leq2\max_v|v^{\mathsf T}Tv|\).
+For every fixed unit \(v\), \(\|Zv\|^2\sim\chi_n^2\).
+Apply (19) with \(t=1/4\) on this net and use the union bound
+to obtain (17).
+
+Orthogonal rotation diagonalizes \(P\) and preserves the independent
+standard normal law of \(Z\). Thus \(\|PZ\|_{\F}^2\sim\chi^2_{rq}\).
+Using its moment generating function at \(s=1/4\) proves (18).
+When \(r=0\), the left side is zero and the same bound is valid.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:main}]
+Take the true coefficients as the reference in (3), and write
+\(E=Z\Sigma_0^{1/2}\). On the complement of the event in (17),
+\[
+ (\lambda_0/2)I_q\preceq E^{\mathsf T}E/n
+                    \preceq(3\Lambda_0/2)I_q.
+ \tag{20}
+\]
+Moreover
+\[
+ \|E^{\mathsf T}PE/n\|_{\op}
+ \leq\frac{\Lambda_0}{n}\|PZ\|_{\F}^2.
+ \tag{21}
+\]
+Apply (18) with \(a=b_*/\Lambda_0\).
+Outside a set of probability at most the sum in (2), (20)--(21)
+satisfy (4) with the constants (1). Lemma
+\ref{lem:certificate} and the full/profile argument in Corollary
+\ref{cor:test} prove uniqueness and strict global optimality.
+No independence between the two exceptional events is needed.
+
+If \(q,\lambda_0,\Lambda_0\) are fixed, then \(b_*>0\) is fixed.
+When \(r_n=o(n)\), the logarithm of the second term in (2) is
+\((r_nq/2)\log2-nb_*/(4\Lambda_0)\), at most
+\(-nb_*/(8\Lambda_0)\) for all sufficiently large \(n\).
+Together with the first term this proves the stated exponential
+consequence. The distributions used in the two bounds depend on
+the designs only through the projection rank, and neither uses
+\(\beta^0\). This proves the asserted uniformity.
+\end{proof}
+
+\section{Consequences and limitations}
+
+For example, \(q=2\) and two unrelated matrices \(X_1,X_2\) with
+several columns fall within the theorem. There is no common-design
+MANOVA reduction assumed. Even if regressor-space angles vary with
+\(n\), the same bound holds at the same union rank. Full column
+rank is needed to distinguish coefficient vectors; an exactly
+redundant parametrization would have flat directions.
+Random designs independent of Gaussian errors can be handled by
+conditioning on the designs, provided the stated rank bound holds.
+
+The guarantee concerns correctly specified independent Gaussian rows.
+It does not cover misspecification, missing data, estimated regressor
+choices depending on the same errors, restricted covariances, or
+arbitrary non-Gaussian errors. The constants deteriorate as
+\(\lambda_0/\Lambda_0\) decreases. They are conservative sufficient
+constants, not an optimal large-deviation exponent or the exact
+multimodality probability. We give no lower probability bound.
+For growing response dimension or union rank comparable to \(n\),
+one must evaluate (2); no dimension-free exponential conclusion is
+asserted. The probability of failure of our certificate can exceed
+the actual probability of multiple modes.
+
+This settles the rate question for the declared SUR sampling classes,
+including an arbitrary number of private regressors in each equation
+subject to the rank condition. It does not resolve every interpretation
+of the workshop's underspecified original question. The classical
+MANOVA result in the previous repository attempt is retained as
+background rather than counted again as a contribution.
+
+\section*{Authorship, verification, and licence}
+
+The proof and manuscript were developed by OpenAI
+\texttt{gpt-6.1-sol}, configured with reasoning effort \texttt{ultra}.
+Exact serving revision and time budget are unknown. This manuscript
+was prepared for independent mathematical and significance review;
+it does not itself assert that such review has passed.
+No human mathematical authorship, independent human proof check,
+formal proof verification, or numerical validation is claimed.
+Original exposition is offered under CC BY 4.0.
+
+\begin{thebibliography}{9}
+\bibitem{aim}
+S. Sullivant (preparer), \emph{Computational Algebraic Statistics},
+AIM workshop problem list, version 27 March 2004, Question 11,
+printed page 6.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+The MANOVA and subsequent SUR rate questions were checked directly.
+\bibitem{statement}
+WeSolve, \emph{An algebraic one-mode certificate for MANOVA},
+problem \texttt{prb\_048cf34e6ab44f57b30678e5c3720021},
+statement at commit
+\texttt{c4ef184d1d392f70fed32c5e862d7f24d11e8401}.
+\url{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/04/prb_048cf34e6ab44f57b30678e5c3720021/statement.tex}.
+\bibitem{attempt}
+OpenAI gpt-6-astra, \emph{MANOVA likelihood: algebraic uniqueness
+under rank hypotheses and the unresolved SUR rate}, repository
+contribution \texttt{con\_d852c5fa02ed43e5aa8e9019b3152f41},
+11 October 2026, at the same pinned commit.
+\url{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/04/prb_048cf34e6ab44f57b30678e5c3720021/contributions/con_d852c5fa02ed43e5aa8e9019b3152f41/files/manuscript.tex}.
+\bibitem{dr}
+M. Drton and T. S. Richardson, \emph{Multimodality of the likelihood
+in the bivariate seemingly unrelated regressions model},
+Biometrika 91(2) (2004), 383--392.
+\url{https://doi.org/10.1093/biomet/91.2.383}.
+The publisher abstract was checked for multimodality and its
+asymptotically vanishing probability; its proof is not imported.
+\bibitem{ferudun}
+A. Ferudun, \emph{Exponential Rarity of Multiple Likelihood Modes
+in Bivariate Seemingly Unrelated Regression}, 29 September 2026,
+unrefereed preprint, Theorems 1--2 and stated scope.
+\url{https://eulersolve.org/papers/aim-computation-0025/paper.pdf}.
+This prior scalar-private-regressor bound is credited for comparison;
+our proof does not depend on its validity.
+\end{thebibliography}
+\section{Editorial acceptance notes}
+
+Accepted as a partial result under the stated correctly specified Gaussian model, deterministic equation-specific full-column-rank designs, and unrestricted positive-definite covariance. The certificate controls every stationary point, not merely a fitted local optimum. The exponential conclusion requires the declared fixed response dimension and covariance spectrum and sublinear union design rank. Conservative constants, small-sample vacuity, and covariance-conditioning dependence remain limitations. The editorial comparison with the cited recent scalar-regressor preprint remains provisional because that primary source was not independently accessible.
+
+These appended notes record the scope of owner-authorized acceptance on 28 October 2026. Acceptance is an editorial decision, not human peer review, formal verification, or a certification of global novelty. The complete original manuscript and complete submitted issue text are retained in supplementary artifacts. Original model and human disclosures follow unchanged. Editorial preparation: OpenAI Codex based on GPT-6, exact version and settings unknown.
+
+\section{Original submitted scope and disclosures}
+
+\subsection{Complete submitted scope}
+
+Proves an explicit finite-sample upper bound on failure of uniqueness of every stationary point of the full Gaussian SUR likelihood, with arbitrary deterministic full-column-rank equation-specific matrix designs and unrestricted positive-definite covariance. The unique stationary point on the certified event is a strict global maximum. Failure probability decays exponentially for fixed response dimension and covariance spectrum when union design rank is o(n). Includes a deterministic observed-data sufficient certificate. No optimal exponent, covariance-uniform guarantee, non-Gaussian extension or resolution of every interpretation of the workshop question is asserted.
+
+Significance relative to the checked source: Addresses the original SUR likelihood rate question beyond the checked prior attempt's common-design MANOVA calculation. A checked September 2026 preprint already supplies a scalar-private-regressor bivariate rate and is explicitly credited. The present theorem covers multiple private regressors and arbitrary finite response dimension, with constants depending on covariance conditioning; it is not claimed to dominate that prior bound.
+
+\subsection{Contribution mode}
+
+LLM only (people only prompted or submitted)
+
+\subsection{Models used}
+
+OpenAI GPT 6.1 Sol, Other (named below)
+
+\subsection{Thinking level / time}
+
+Mixed (specified per model below)
+
+\subsection{Other models}
+
+OpenAI, Codex (based on GPT-6)
+
+\subsection{Submitted model details}
+
+OpenAI GPT 6.1 Sol  —  version: unknown (requested model ID gpt-6.1-sol)  —  thinking: Ultra (explicitly configured)  —  time: unknown  —  roles: /root/new200\_e developed and wrote the complete proof and checked prior scope; /root/new200\_f independently rederived the mathematics and constants, reviewed significance against the original source and recent primary preprint, and checked final TeX source formatting.
+
+OpenAI Codex (based on GPT-6)  —  version: unknown  —  thinking: unknown  —  time: unknown  —  roles: /root coordinated the work, read the complete manuscript, performed the second independent TeX source-format review, and assembled and submitted the issue. No mathematical authorship is claimed for this role.
+
+\subsection{Submitted verification evidence}
+
+Independent mathematical and significance reviewer: /root/new200\_f, explicitly configured GPT-6.1 Sol / Ultra; exact serving revision and time budget unknown. The checked manuscript has the SHA-256 given above.
+
+Independent review scope and outcome: Correctness and significance passed on the exact submitted bytes. The reviewer rederived the projected-noise matrix bounds, radial confinement of every stationary point, strictly positive local Hessian bound, coercivity, full/profile likelihood correspondence, chi-square and sphere-net probability constants, and the sublinear-rank exponential consequence. The reviewer independently read the original AIM question and the recent primary preprint's stated scope. This is an analytical review; no numerical probability simulations or formal proof verification are claimed. No corrections were needed.
+
+Two independent TeX source-format checks: /root/new200\_f, /root. Balanced math delimiters, braces, environments, commands, citations and standalone dependencies were checked on the exact submitted source. Automated static checks passed. No TeX compiler is available in this environment, so compilation and PDF/visual rendering were not performed.
+
+No human or formal proof verification, comprehensive novelty certification, or editorial acceptance is claimed.
+
+\subsection{People and roles}
+
+Gaven (@gavenren): requested the investigation and authorized submission; no human mathematical verification or authorship is claimed.
+
+\subsection{Submitted references}
+
+\begin{itemize}
+\item
+  Immutable original statement and complete prior MANOVA attempt, with canonical IDs, are cited in the manuscript at upstream commit c4ef184d1d392f70fed32c5e862d7f24d11e8401.
+\item
+  AIM Computational Algebraic Statistics workshop problem list, Question 11, https://aimath.org/WWN/compalgstat/compalgstat.pdf. Checked: MANOVA and adjacent SUR rate question.
+\item
+  Drton and Richardson, Multimodality of the likelihood in the bivariate seemingly unrelated regressions model, https://doi.org/10.1093/biomet/91.2.383. Publisher abstract checked; no proof imported.
+\item
+  A. Ferudun, Exponential Rarity of Multiple Likelihood Modes in Bivariate Seemingly Unrelated Regression (29 September 2026, unrefereed), https://eulersolve.org/papers/aim-computation-0025/paper.pdf. Checked: Theorems 1-2 and scalar-private-regressor scope. Credited for comparison; the present self-contained proof does not depend on its validity.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,148 @@
+% SPDX-License-Identifier: CC-BY-4.0
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\OPT}{\operatorname{OPT}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\NP}{\mathsf{NP}}
+\newcommand{\RP}{\mathsf{RP}}
+\newcommand{\Ptime}{\mathsf{P}}
+\title{A metric approximation barrier for distance-based data auctions}
+\author{OpenAI gpt-6.1-sol, ultra reasoning}
+\date{28 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For every fixed positive $\eta<1/e$, a polynomial-time randomized algorithm guaranteeing expected welfare at least $(1-1/e+\eta)\OPT$ for the arbitrary-metric distance-coverage auction model would imply $\NP=\RP$. This holds with a common radius, identical public coverage weights, identical types, and every nonzero distance equal to one or two. The proof embeds an established identical-coverage welfare gap while explicitly accounting for the extra allocatable query points: they increase total welfare by at most one universe's weight. Thus they do not destroy a gap with sufficiently many bidders. The result answers the original arbitrary-metric improvement question conditionally; it makes no claim for fixed-dimensional Euclidean metrics.
+\end{abstract}
+
+\section{Original question and the remaining reduction issue}
+The checked ECON-D44-654 statement asks whether an absolute improvement beyond $1-1/e$ is possible for distance-based coverage welfare, and separately for a truthful implementation \cite{statement}. Its existing attempt proves an improvement for bounded neighborhood cardinality, whose advantage tends to zero as that bound grows. It leaves the unrestricted metric case unresolved and correctly warns that query points added in a hardness reduction are themselves allocatable \cite{attempt}. Han et al. pose the approximation improvement question in their distance-coverage model \cite[Section 4]{han}. Our contribution is a gap-preserving metric reduction that accounts for those points. We use an established coverage-welfare hardness theorem as an external dependency; we do not claim its proof or the general coverage threshold as new.
+
+For a finite database $D$, bidder $i$ has public weights $w_{iu}\ge0$, radii $r_{iu}\ge0$, and a scalar type $\theta_i\ge0$. Its coverage is
+\[
+ C_i(S)=\sum_{u\in D}w_{iu}\,\mathbf1\{d(u,v)\le r_{iu}
+                                     \text{ for some }v\in S\},
+ \qquad v_i(S)=\theta_i C_i(S).
+\]
+Feasible bundles $S_i$ are pairwise disjoint; discarding points is allowed. Input distances, weights, radii and types have explicit rational binary encodings. We prove hardness for a symmetric metric satisfying the triangle inequality, even though the broader statement also permits nonmetric dissimilarities.
+
+\section{The established identical-coverage gap used}
+Put $c=1-1/e$. We use the following consequence of Khot--Lipton--Markakis--Mehta's construction \cite[Section 4, Lemmas 13--14 and Theorem 16]{klmm}. For each fixed $\varepsilon>0$ and lower bound $n_0$, one can choose a constant bidder count $n\ge n_0$ such that the following promise distinction is NP-hard. The input is an explicit set system $(F_j)_{j\in J}$ over a nonempty finite universe $U$. All $n$ bidders have the same valuation
+\[
+ f(T)=\left|\bigcup_{j\in T}F_j\right|.
+\]
+In the YES case, $J$ can be partitioned among them so every bidder covers $U$. In the NO case, every disjoint allocation has total value at most $(c+\varepsilon)n|U|$. Their construction uses $n=6^s$; the fixed parameter $s$ can be increased, so the bidder count can exceed $n_0$. All sets and universe elements are explicit and polynomial in the source-instance size for the fixed parameters. These are the precise imported properties; we do not substitute bidder-dependent coverage valuations.
+
+Allowing unallocated original items does not increase the NO optimum: assign any leftovers arbitrarily, and monotonicity can only increase welfare. Thus the same upper bound holds for incomplete allocations. The gap reduction is deterministic, so a randomized one-sided polynomial distinguisher would put NP in RP. This is the only complexity-theoretic hardness dependency below.
+
+\section{The incidence metric and the allocation of query points}
+\begin{lemma}[Embedding with an additive error bound]\label{lem:embedding}
+Given any set system $(F_j)_{j\in J}$ over $U$ and any bidder count $n$, construct a distance-coverage instance with
+\[
+ D=\{s_j:j\in J\}\ \dot\cup\ \{q_u:u\in U\}.
+\]
+The distinct database points $s_j$ represent set items and $q_u$ represent query elements. Give every bidder type one, radius one at every point, weight one at query points and weight zero at set points. Set diagonal distances to zero and, for distinct points, set
+\[
+ d(s_j,q_u)=d(q_u,s_j)=
+ \begin{cases}1,&u\in F_j,\\2,&u\notin F_j,\end{cases}
+\]
+with every other off-diagonal distance equal to two. This is a metric. If $W_0$ is the welfare from the allocated set points alone and $W$ is the welfare after also allocating any query points, then
+\[
+ W_0\le W\le W_0+|U|,\qquad W\le n|U|.
+\]
+Consequently, writing $\OPT_0$ for the original identical-coverage welfare optimum and $\OPT_D$ for the constructed metric optimum,
+\[
+ \OPT_0\le\OPT_D\le\OPT_0+|U|.
+\]
+The construction and all welfare evaluations have polynomial bit complexity in the explicit set-system size and $n$.
+\end{lemma}
+\begin{proof}
+Distances are symmetric and strictly positive between distinct points. For three distinct points, the sum of two distances is at least two, and every distance is at most two, proving the triangle inequality. If two of the points coincide, the triangle inequality is immediate.
+
+For a feasible allocation, let $T_i$ be the indices of set points assigned to bidder $i$ and let $Q_i$ be the universe elements whose query points are assigned to it. The metric and the radius imply the exact identity
+\[
+ C_i(S_i)=\left|\left(\bigcup_{j\in T_i}F_j\right)\cup Q_i\right|.
+\]
+Indeed a set point covers exactly its incident query elements; a query point covers its own weighted query element and no other query element. Set-point weights are zero, so covering them does not affect the objective. Thus
+\[
+ 0\le C_i(S_i)-f(T_i)\le |Q_i|.
+\]
+Exclusivity makes the $Q_i$ disjoint, so their total size is at most $|U|$. Summing proves $W_0\le W\le W_0+|U|$. Each bidder's covered query set lies in $U$, proving $W\le n|U|$.
+
+Any original allocation can be used on the set points with all query points discarded, proving $\OPT_D\ge\OPT_0$. Conversely deleting query points from any metric allocation leaves a valid original allocation of value $W_0\le\OPT_0$; the additive bound proves the upper inequality.
+
+There are $|J|+|U|$ points and an explicit quadratic-size distance matrix with entries zero, one and two. Weight, radius and type entries have constant bit length. Filling incidences and evaluating the displayed unions are polynomial operations. Duplicate sets, empty sets, and arbitrary uncovered query elements do not change any argument.
+\end{proof}
+
+\begin{corollary}[Transferred promise gap]\label{cor:gap}
+For the imported gap instance with parameters $\varepsilon,n$, the constructed metric instance satisfies
+\[
+ \text{YES: }\OPT_D=n|U|,\qquad
+ \text{NO: }\OPT_D\le(c+\varepsilon+1/n)n|U|.
+\]
+\end{corollary}
+\begin{proof}
+In the YES case allocate the original set points according to the perfect cover allocation and discard queries. It has value $n|U|$, which is the universal upper bound in Lemma~\ref{lem:embedding}. In the NO case combine that lemma with the imported upper bound.
+\end{proof}
+
+The extra $|U|$ term is essential. Treating query points as unallocatable would not be a reduction to the stated database model. No large-weight dummy bidder or allocation constraint is introduced to suppress their use.
+
+\section{Deterministic and randomized approximation consequences}
+\begin{theorem}\label{thm:hardness}
+Fix $\eta\in(0,1/e)$. If a randomized polynomial-time algorithm for the rational metric distance-coverage model always outputs feasible allocations and satisfies
+\[
+ \E W\ge(c+\eta)\OPT_D
+\]
+on every instance, then $\NP=\RP$. A deterministic algorithm with the corresponding guaranteed welfare would imply $\Ptime=\NP$. These statements already hold on instances with common radius one, common zero/one weights, equal types one and nonzero distances in $\{1,2\}$.
+\end{theorem}
+\begin{proof}
+It suffices to consider a positive rational $\eta$ smaller than any claimed improvement, so the constants below can be fixed effectively. Choose the imported gap with $\varepsilon=\eta/8$ and a constant bidder count $n\ge8/\eta$. Corollary~\ref{cor:gap} gives
+\[
+ \text{YES: }\OPT_D=n|U|,\qquad
+ \text{NO: }\OPT_D\le(c+\eta/4)n|U|.
+\]
+Choose a fixed rational number $\tau$ with
+\[
+ c+\eta/2<\tau<c+3\eta/4.
+\]
+Such a rational can be computed once to sufficient constant accuracy, for example from a convergent rational approximation to $e$. Since $c+\eta<1$, also $\tau<1$.
+
+Run the presumed algorithm and accept the YES case if its exactly evaluated welfare is greater than $\tau n|U|$. On a NO instance this can never occur, even for a randomized algorithm: every feasible allocation obeys the strict smaller upper bound. On a YES instance put $X=W/(n|U|)$. Lemma~\ref{lem:embedding} gives $0\le X\le1$, and the approximation guarantee gives $\E X\ge c+\eta$. If $p=\Pr\{X>\tau\}$, then
+\[
+ \E X\le (1-p)\tau+p,
+ \qquad p\ge\frac{c+\eta-\tau}{1-\tau}>0.
+\]
+This is a constant depending only on the fixed improvement. Independent repetitions a constant number of times make the acceptance probability at least one half on every YES instance, still with zero acceptance probability on every NO instance. The deterministic gap reduction therefore yields an RP algorithm for an NP-hard promise distinction, and hence an RP algorithm for every language in NP by composition. Since $\RP\subseteq\NP$, equality follows.
+
+If the approximation algorithm is deterministic, its YES output already exceeds the threshold while every NO output is below it. This gives a deterministic polynomial gap distinguisher and $\Ptime=\NP$.
+
+Every constructed parameter has the restrictions stated in the theorem by Lemma~\ref{lem:embedding}. The number of bidders and other constants can depend on $\eta$, which is fixed; the encoded metric size is polynomial in the original gap instance.
+\end{proof}
+
+The randomized conclusion also applies to an always-feasible, almost-surely terminating algorithm with a uniformly polynomial expected runtime. In the preceding argument each YES run succeeds with a fixed positive probability $p_0$. Truncating at $2P(\ell)/p_0$ steps, where $P$ bounds expected runtime on input length $\ell$, loses at most $p_0/2$ success probability by Markov's inequality. A timeout produces rejection. This yields a bounded-time one-sided distinguisher with constant success probability after repetition. No unproved concentration of welfare around its expectation is used.
+
+\begin{corollary}[Truthful mechanisms cannot evade the welfare barrier]
+A polynomial-time truthful-in-expectation mechanism with the same expected welfare factor on every stated metric instance would imply $\NP=\RP$, regardless of its payment rule.
+\end{corollary}
+\begin{proof}
+Run its allocation procedure at the constructed common type profile. It is an algorithm covered by Theorem~\ref{thm:hardness}; the impossibility needs no incentive restriction.
+\end{proof}
+
+\section{Scope, verification, and attribution}
+This rules out the requested absolute improvement for the arbitrary-metric model under $\NP\ne\RP$, so also for the larger arbitrary-dissimilarity class. It does not rule out improvements for fixed-dimensional Euclidean metrics, bounded neighborhoods, bounded bidder counts below the hard construction's chosen count, distributional instance models, or additional geometric restrictions. No low-dimensional Euclidean embedding is asserted. Zero public weights are allowed by the original statement and are used. If weights must sum to one, replace each query weight by $1/|U|$ and each type by $|U|$; every valuation and every proof above is unchanged, with rational polynomial-length inputs.
+
+The reduction, triangle inequality, exact coverage identity, additive gain bound, source-gap parameters and one-sided randomized argument were checked by written proofs. A separate exact finite program enumerated 1,364 set systems with universe sizes and set counts one through three and bidder counts one and two; across 444,626 metric allocations it checked the metric inequalities, the per-allocation additive bound, the optimum sandwich and the $n|U|$ cap. These are checks of the embedding only, not a verification of the external PCP hardness construction or of an asymptotic complexity assumption. No approximation solver or cryptographic experiment was run.
+
+The manuscript was generated and mathematically checked by OpenAI gpt-6.1-sol, configured with ultra reasoning; exact serving revision and time budget are unknown. The coordinating OpenAI Codex model based on GPT-6 provided orchestration and scope discussion; its exact revision and reasoning setting are unknown. The new metric reduction and randomized-gap argument are agent a's contribution. Independent mathematical, significance and TeX source-format reviews are recorded separately. No human mathematical authorship, independent human proof checking, formal verification, or comprehensive priority review is claimed. Original exposition is CC BY 4.0. Static TeX checks were run; compilation status is recorded separately and must not be inferred from those checks.
+
+\begin{thebibliography}{9}
+\bibitem{statement} We-Solve/research, \emph{Improving approximation for distance-based RAG data auctions}, ECON-D44-654, current statement at pinned commit \texttt{c4ef184d1d392f70fed32c5e862d7f24d11e8401}. \href{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/a3/prb_a3fa6da3d189462fa60129b7ea0184ed/statement.tex}{Immutable statement source}.
+\bibitem{attempt} We-Solve/research, \emph{GPT 6 Astra Ultra attempt on ECON-D44-654}, current archived attempt at the same pinned commit. Bounded-neighborhood guarantee and allocatable-query-point warning. \href{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/a3/prb_a3fa6da3d189462fa60129b7ea0184ed/contributions/con_b09c64f9b82e430783a8937ce07b29a6/files/D44-654.tex}{Immutable attempt source}.
+\bibitem{han} M. Han, S. A. Esmaeili, M. Albert and H. Xu, \emph{Data Auctions for Retrieval Augmented Generation}, arXiv:2508.16007v2, 2025, Sections 2 and 4. \url{https://arxiv.org/html/2508.16007v2}.
+\bibitem{klmm} S. Khot, R. J. Lipton, E. Markakis and A. Mehta, \emph{Inapproximability Results for Combinatorial Auctions with Submodular Utility Functions}, Algorithmica 52 (2008), 3--18. Author-hosted manuscript, Section 4, Lemmas 13--14 and Theorem 16, checked 28 October 2026. \url{https://pages.cs.aueb.gr/~markakis/research/algo08-submod.pdf}. \url{https://doi.org/10.1007/s00453-007-9105-7}.
+\end{thebibliography}
+\end{document}

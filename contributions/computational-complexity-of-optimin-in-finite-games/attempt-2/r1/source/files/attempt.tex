@@ -1,0 +1,272 @@
+% SPDX-License-Identifier: CC-BY-4.0
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\affdim}{\operatorname{affdim}}
+\title{Exact optimin computation with bounded individual payoff ranks\\or one bounded action set}
+\author{Model-assisted contribution: OpenAI Codex (GPT-6)\\and OpenAI gpt-6.1-sol, ultra reasoning}
+\date{28 October 2026}
+\begin{document}
+\maketitle
+\section*{Abstract}
+For a rational bimatrix game, we prove that every strict-deviation optimin performance vector has a representative whose row and column supports are bounded by the affine dimensions of the corresponding joint payoff vectors plus one. In particular, each support has size at most $\rank(A)+\rank(B)+1$. Keeping all original deviations, this compression makes exact scalarized performance optimization, arbitrary mixed-optimin search, threshold feasibility, and rational-profile verification polynomial in the input bit length for every fixed individual-rank sum. They are also polynomial when only one player's number of actions is fixed. The algorithms output exact real-algebraic strategies. These are restricted complexity results; unrestricted bimatrix search and fixed-parameter tractability remain open here.
+
+
+\section{Target, benchmark, and precise advance}
+The checked statement of ECON-C72-4 asks for the complexity of arbitrary mixed-optimin search and, explicitly, bounded-action and payoff-rank subfamilies \cite{statement}. Its checked existing attempt gives polynomial rational-profile performance evaluation, a guarded semialgebraic hypograph, and polynomiality when the \emph{total} number of actions is fixed. It leaves bounded-action and special-rank classifications open \cite{attempt}. We use its vertex calculation as a starting point and prove it below in the bimatrix notation needed here. The additional step is an exact compression of \emph{both} performance components. This permits an unbounded number of actions on one side, or on both sides under a rank bound, without increasing the number of real unknowns in the search.
+
+The benchmark is Ismail's strict profitable-deviation definition \cite[Definitions 1--3]{ismail}. Let $A,B\in[-1,1]^{n\times m}\cap\Q^{n\times m}$, with row strategy $x\in\Delta_n$ and column strategy $y\in\Delta_m$, where $\Delta_d=\{v\in\R^d:v\ge0,\sum_i v_i=1\}$. Payoffs are $u_1=x^TAy$ and $u_2=x^TBy$. Put
+\begin{align*}
+D_1(x,y)&=\{x\}\cup\{q\in\Delta_n:q^TAy>x^TAy\},\\
+D_2(x,y)&=\{y\}\cup\{q\in\Delta_m:x^TBq>x^TBy\},\\
+\pi_1(x,y)&=\inf_{q\in D_2(x,y)}x^TAq,\qquad
+\pi_2(x,y)=\inf_{q\in D_1(x,y)}q^TBy.
+\end{align*}
+A mixed optimin is a profile whose vector $(\pi_1,\pi_2)$ is Pareto undominated among \emph{all} mixed profiles. Deviation comparisons always use the original profile. No weak-deviation or best-response variant is considered.
+
+Input size $L$ means the explicit binary encoding of both rational matrices, plus additional rational inputs when supplied. Fix positive rational weights $\lambda_1,\lambda_2$. Exact outputs are algebraic: for example, a common real-algebraic parameter with an integer defining polynomial, a rational isolating interval, and rational-function coordinate descriptions. An equivalent finite exact real-algebraic representation is acceptable. The claim concerns existence of polynomial-time exact algorithms under that encoding, not an implemented solver.
+
+\section{Exact compression of the performance image}
+\begin{lemma}[Invariance under payoff-vector preservation]\label{lem:invariance}
+For fixed $x$, replacing $y$ by $\widetilde y$ with
+\[
+ A\widetilde y=Ay,\qquad B\widetilde y=By
+\]
+preserves both components of $\pi$. For fixed $y$, replacing $x$ by $\widetilde x$ with
+\[
+ \widetilde x^TA=x^TA,\qquad \widetilde x^TB=x^TB
+\]
+also preserves both components.
+\end{lemma}
+\begin{proof}
+For the first assertion, both baseline payoffs are unchanged. The set of \emph{strictly} profitable column deviations is unchanged because its defining inequality is $x^TBq>x^TBy$. Its payoffs to the row player are also unchanged. The additional nondeviation point changes from $y$ to $\widetilde y$, but its row payoff is the same baseline $x^TAy$. Taking the infimum over strict deviations and that baseline proves preservation of $\pi_1$, including when no strict deviation exists.
+
+The set $D_1$ is unchanged because its inequality uses only $Ay$ and the unchanged baseline, and $x$ is fixed. For every $q\in D_1$, the column payoff $q^TB\widetilde y=q^TBy$ is unchanged. Hence $\pi_2$ is unchanged. For the second assertion interchange rows and columns and interchange the roles of the two payoffs; equivalently repeat the same argument using $x^TA$ and $x^TB$. This also handles ties exactly.
+\end{proof}
+
+Define the joint row and column vectors
+\[
+ R_i=(A_{i,:},B_{i,:})\in\R^{2m},\qquad
+ C_j=(A_{:,j},B_{:,j})\in\R^{2n},
+\]
+and put $d_R=\affdim\{R_i:i\in[n]\}$ and $d_C=\affdim\{C_j:j\in[m]\}$.
+
+\begin{theorem}[Performance-preserving support bounds]\label{thm:compression}
+Every mixed profile has another mixed profile with exactly the same performance vector and
+\[
+ |\supp(x)|\le d_R+1,\qquad |\supp(y)|\le d_C+1.
+\]
+In particular, writing $r=\rank(A)+\rank(B)$, both bounds are at most $r+1$. Without any rank assumption, keeping $x$ fixed permits the column bound $2n+1$; keeping $y$ fixed permits the row bound $2m+1$.
+\end{theorem}
+\begin{proof}
+We give the finite convex-combination argument. If vectors $v_i$ have affine dimension $d$ and a convex combination has more than $d+1$ positive coefficients $a_i$, those supported vectors have an affine dependence
+$\sum_i t_i v_i=0$, $\sum_i t_i=0$, with some $t_i\ne0$.
+There are both positive and negative $t_i$. With
+$\tau=\min_{t_i>0} a_i/t_i$, replacing $a_i$ by $a_i-\tau t_i$ keeps all coefficients nonnegative, preserves their sum and the represented vector, and removes at least one positive coefficient. Repetition gives a representation on at most $d+1$ vectors.
+
+Apply this to the convex combination $\sum_i x_iR_i$. It gives $\widetilde x$ preserving $x^TA$ and $x^TB$, so Lemma~\ref{lem:invariance} preserves performance while $y$ remains fixed. Then apply it to $\sum_jy_jC_j$ to obtain $\widetilde y$ preserving $Ay$ and $By$. The same lemma, now with $\widetilde x$ fixed, preserves performance again. The column step does not alter the row support.
+
+The joint row matrix $[A\ B]$ has rank at most $r$, and the joint column matrix $[A^T\ B^T]^T$ has rank at most $r$. Affine dimension is at most linear-span dimension, proving both $r+1$ bounds. Finally $C_j\in\R^{2n}$ gives $d_C\le2n$, and the symmetric argument gives $d_R\le2m$. The one-sided versions require only the respective single compression step.
+\end{proof}
+
+The theorem preserves the entire attainable performance image, not only payoffs at equilibria. Its support bounds concern the \emph{baseline profile}; they do not authorize discarding actions from the game's deviation sets.
+
+\section{A bounded-degree hypograph with every deviation retained}
+We next make explicit why sparse baseline supports reduce the number of unknowns even though deviations may use every original action. For a profile put
+\[
+ a=x^TAy,\quad b=x^TBy,\quad
+ \alpha_j=x^TAe_j,\quad h_j=x^TBe_j-b,
+\]
+\[
+ \beta_i=e_i^TBy,\quad g_i=e_i^TAy-a,
+ \qquad E_2=\bigvee_{j=1}^m(h_j>0),\quad
+ E_1=\bigvee_{i=1}^n(g_i>0).
+\]
+All disjunctions and implications below are Boolean operations on polynomial sign conditions.
+
+\begin{lemma}[Guarded hypograph]\label{lem:hypograph}
+For $x\in\Delta_n$, $y\in\Delta_m$, the relation $z_1\le\pi_1(x,y)$ is equivalent to the conjunction
+\begin{align}
+ z_1&\le a,\label{eq:base}\\
+ E_2\ \wedge\ h_j\ge0&\ \Longrightarrow\ z_1\le\alpha_j
+                   &&(j\in[m]),\label{eq:pure}\\
+ E_2\ \wedge\ h_j>0\ \wedge\ h_l<0
+ &\ \Longrightarrow\
+ (h_j-h_l)z_1\le-h_l\alpha_j+h_j\alpha_l
+                   &&(j,l\in[m]).\label{eq:edge}
+\end{align}
+The relation $z_2\le\pi_2(x,y)$ is given by the same formulas with
+$(a,E_2,h_j,\alpha_j)$ replaced by $(b,E_1,g_i,\beta_i)$.
+For prescribed baseline support sets $I,J$, these relations, the simplex constraints, and $-1\le z_i\le1$ have $|I|+|J|+2$ real unknowns, $O(n^2+m^2)$ polynomial sign predicates, degree at most three, and rational coefficient bit length polynomial in $L$.
+\end{lemma}
+\begin{proof}
+If $E_2$ is false, no pure action is strictly profitable and hence no mixture is; $D_2=\{y\}$. Only \eqref{eq:base} remains and it is exactly the hypograph condition.
+
+If $E_2$ is true, the closure of $D_2$ is
+\[
+ K=\{q\in\Delta_m:\textstyle\sum_jh_jq_j\ge0\}.
+\]
+Indeed $y\in K$ since $\sum_j y_jh_j=0$. Every $q\in K$ is a limit of points with positive gain: mix it with a pure action of positive gain using a weight tending to zero. Conversely every permitted point is in $K$, and $K$ is closed. Continuity therefore makes the infimum over $D_2$ equal to the minimum of $\sum_j\alpha_jq_j$ over $K$.
+
+The vertices of $K$ are among the feasible pure points and the crossings of a simplex edge with its new boundary. To verify this description, if the halfspace constraint is inactive, a point with two positive coordinates admits a nonzero small perturbation preserving the coordinate sum, so is not a vertex. If it is active and at least three coordinates are positive, a nonzero small perturbation preserves both the coordinate sum and $\sum_jh_jq_j=0$, again contradicting extremality. A two-coordinate boundary point with both coordinates positive must have opposite signs of $h$; two zero signs leave a nontrivial segment. For $h_j>0>h_l$ its coordinates are
+\[
+ q_j=\frac{-h_l}{h_j-h_l},\qquad q_l=\frac{h_j}{h_j-h_l}.
+\]
+Thus a linear objective is bounded below by $z_1$ on $K$ exactly when it is so on these pure and edge vertices. The denominator is strictly positive under its guard, giving \eqref{eq:pure}--\eqref{eq:edge}. Constraint \eqref{eq:base} is redundant in this branch because $y\in K$, and is valid in both branches. This proves the equivalence, and the row version follows identically.
+
+For fixed $I,J$, set all excluded baseline probabilities to zero and use only the remaining probabilities as variables. The expressions $a,b,h_j,g_i$ have degree at most two; $\alpha_j,\beta_i$ have degree at most one. The highest products in \eqref{eq:edge} have degree three. There are no deviation variables and no auxiliary variable for each excluded action. All $n$ row actions and $m$ column actions still occur in the predicates. Expanding these bounded-degree expressions uses polynomially many rational operations and polynomial bit length; for fixed support sizes the number of monomials is bounded. Clearing rational denominators by positive integers preserves every sign condition. The asserted size and variable counts follow.
+\end{proof}
+
+\begin{lemma}[Attainment]\label{lem:attainment}
+Each $\pi_i$ is upper semicontinuous, and $\lambda_1\pi_1+\lambda_2\pi_2$ attains a maximum on any nonempty prescribed-support face. The bounded joint hypograph on that face is compact.
+\end{lemma}
+\begin{proof}
+Let $(x_t,y_t)\to(x,y)$. The baseline bound gives
+$\limsup_t\pi_1(x_t,y_t)\le a$.
+Every fixed strictly profitable column deviation $q$ at $(x,y)$ remains strictly profitable for all sufficiently large $t$, by continuity. Hence
+$\limsup_t\pi_1(x_t,y_t)\le x^TAq$ for each such $q$.
+Taking the infimum of these bounds together with the baseline bound proves upper semicontinuity of $\pi_1$, whether or not a strict deviation exists or the infimum is attained. The proof for $\pi_2$ is the same.
+
+A positive weighted sum is upper semicontinuous and attains a maximum on a compact face. The joint hypograph is closed by upper semicontinuity and bounded by the two simplexes and $z\in[-1,1]^2$, so is compact. It is nonempty because $z_1=z_2=-1$ is always feasible.
+\end{proof}
+
+\section{Exact polynomial-time algorithms on the restricted families}
+We use the following established real-algebraic algorithmic fact: with the number of real variables and polynomial degree fixed, quantifier elimination and algebraic sample-point computation have polynomial bit complexity in the rational formula size. Basu's Theorems 2.4, 2.18 and 3.6 provide decomposition, elimination, sampling and integer bit-size bounds \cite{basu}. Applied to a compact semialgebraic set, these procedures can compute an algebraic point maximizing a rational linear objective. For specificity, characterize a maximizer $w$ by
+\[
+ H(w)\ \wedge\ \forall v\,[H(v)\Longrightarrow c^Tv\le c^Tw],
+\]
+then eliminate the fixed number of quantified variables and sample the nonempty resulting set. This explains the exact optimization step without assuming a numerical optimizer or rational attainment.
+
+\begin{theorem}[Fixed individual-rank sum]\label{thm:algorithm}
+For every fixed nonnegative integer $r_0$, rational bimatrix games with
+$\rank(A)+\rank(B)\le r_0$ admit a deterministic algorithm, polynomial in $L$ for that fixed $r_0$, that computes an exact maximizer of
+\[
+ V_\lambda=\max_{x\in\Delta_n,y\in\Delta_m}
+                  \{\lambda_1\pi_1(x,y)+\lambda_2\pi_2(x,y)\}.
+\]
+It outputs an algebraic maximizing profile, its exact performance vector and the exact value. Every returned maximizing profile is a mixed optimin of the original full game.
+\end{theorem}
+\begin{proof}
+Compute the ranks by exact rational elimination. Enumerate all nonempty $I\subseteq[n]$, $J\subseteq[m]$ with $|I|,|J|\le r_0+1$. Their number is at most
+\[
+ \left(\sum_{s=1}^{r_0+1}n^s\right)
+ \left(\sum_{t=1}^{r_0+1}m^t\right),
+\]
+with nonexistent sizes omitted. For fixed $r_0$ this is polynomial in $L$.
+On each pair use Lemma~\ref{lem:hypograph} with probabilities supported \emph{within} $I,J$; zeros inside them are allowed. This uses at most $2r_0+4$ variables and degree at most three. Lemma~\ref{lem:attainment} gives a compact feasible set. The fixed-dimensional algorithms compute an exact maximizer of $\lambda_1z_1+\lambda_2z_2$ there in polynomial bit time. At a maximizer $z_i=\pi_i$: if one were smaller, raising that coordinate to its permitted value would strictly improve the objective. This permitted value lies in $[-1,1]$.
+
+Compare all these algebraic objective values exactly and keep a largest one, with its algebraic sample profile. Fixed-dimensional algebraic output sizes and exact comparison costs are polynomial; alternatively two computed univariate real-algebraic values can be compared by real-root isolation and sign determination. The number of candidates is polynomial.
+
+Every full-game profile has an equal-performance representative in an enumerated face by Theorem~\ref{thm:compression}. Consequently the largest enumerated value equals the unrestricted $V_\lambda$. If the returned profile were performance dominated in the full game, the dominating profile would have strictly larger positive weighted performance, a contradiction. The formulas always retained all original deviations, so this is optimin status in the original game.
+\end{proof}
+
+\begin{corollary}[Only one action set bounded]\label{cor:one-side}
+For every fixed $k$, the conclusions of Theorem~\ref{thm:algorithm} hold for every $k\times m$ rational bimatrix game with arbitrary $m$, and symmetrically for $n\times k$ games.
+\end{corollary}
+\begin{proof}
+Both matrix ranks are at most $k$, so Theorem~\ref{thm:algorithm} applies with $r_0=2k$. A direct version keeps all $k$ row variables and enumerates only column supports of size at most $2k+1$, by Theorem~\ref{thm:compression}. It then uses at most $3k+3$ unknowns including $z_1,z_2$, and at most $\sum_{t=1}^{2k+1}m^t$ faces. Either version has polynomial bit complexity for fixed $k$.
+\end{proof}
+
+\begin{corollary}[Thresholds and verification]\label{cor:decision}
+On either restricted family above, one can decide in polynomial bit time whether a mixed profile with $\pi_1\ge t_1$, $\pi_2\ge t_2$ exists, for rational $t_1,t_2$, and output an algebraic witness if it does. One can also verify global mixed-optimin status of a supplied rational profile in polynomial bit time, including its encoding length in the input size.
+\end{corollary}
+\begin{proof}
+For thresholds, add $z_i\ge t_i$ to each supported hypograph and test feasibility. Compression preserves all feasible performance vectors, proving equivalence to full-game feasibility; sample a witness in a nonempty face.
+
+For a rational candidate, evaluate both performances exactly by the pure and edge formulas in Lemma~\ref{lem:hypograph}, or the singleton branch when appropriate. There are polynomially many rational expressions of polynomial bit length. Let the resulting vector be $v$. Test each supported hypograph for
+\[
+ z_1\ge v_1,\quad z_2\ge v_2,\quad (z_1>v_1\ \vee\ z_2>v_2).
+\]
+Feasibility implies actual performance dominance because $\pi\ge z$; every actual dominator has a compressed equal-performance representative and can use $z=\pi$. Thus all tests are infeasible exactly when the candidate is globally optimin. Fixed-dimensional feasibility handles the strict inequality as a sign condition and does not assume compactness of this last test set.
+\end{proof}
+
+\section{Significance, limitations, and attribution}
+The nontrivial bounded-action case already includes two row actions and an arbitrary number of column actions. The rank theorem allows both action sets to grow while preserving \emph{every} performance vector on bounded supports. These address explicit subfamilies requested by the original problem and improve on fixing the total action dimension. Neither the compression nor the algorithm follows just from polynomial optimization of one player's performance, which does not ensure Pareto nondominance.
+
+The rank parameter is the sum of the ranks of the \emph{individual} matrices. It is not $\rank(A+B)$; the latter can be small while the former is unbounded. The running-time exponent can depend on $r_0$ or $k$. We prove polynomiality for every fixed parameter value, not a bound $f(r_0)L^C$ with parameter-independent $C$. No practical efficiency, unrestricted bimatrix classification, three-player extension, weak-deviation analogue, or rational exact-output guarantee is claimed. Targeted literature searches found no matching support-compression classification, but were not an exhaustive priority review. Standard convex-combination and real-algebraic tools are not claimed as new.
+
+The initial support-compression and algorithm proposal was made by the coordinating OpenAI Codex model based on GPT-6 (exact revision, reasoning setting and time budget unknown). OpenAI gpt-6.1-sol, configured with ultra reasoning (exact serving revision and time budget unknown), checked the proposal, supplied the complete invariance/vertex/attainment arguments and wrote this manuscript. Both materially contributed. No human mathematical authorship, human proof verification or formal proof-assistant verification is asserted. Independent mathematical and significance review is recorded separately. Original exposition is licensed CC BY 4.0.
+
+\begin{thebibliography}{9}
+\bibitem{statement} We-Solve/research, \emph{Computational complexity of optimin in finite games}, ECON-C72-4, statement revision \texttt{stm\_feef696b2c244a12a1b971d79f6d13ce}, pinned commit \texttt{c4ef184d1d392f70fed32c5e862d7f24d11e8401}; \href{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/a0/prb_a0d16d27a72e43eab17639e11a84a991/statement.tex}{Immutable statement source}. Central problem and structural restrictions.
+\bibitem{attempt} We-Solve/research, \emph{GPT 6 Astra Pro attempt on ECON-C72-4}, contribution \texttt{con\_b13194af76d34ee59f36b8f4434c24fe}, revision \texttt{rev\_4ebe1bf3acff437eaefc260bcac7e473}, same pinned commit; \href{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/a0/prb_a0d16d27a72e43eab17639e11a84a991/contributions/con_b13194af76d34ee59f36b8f4434c24fe/files/C72-4.tex}{Immutable attempt source}. OPT.9--10 and the fixed-total-dimension scope.
+\bibitem{ismail} M. S. Ismail, \emph{Super-Nash Performance}, International Economic Review 66 (2025), 1487--1503. Definitions 1--3, Theorem 1 and Appendix Lemma 1. Checked accepted preprint v6: \url{https://arxiv.org/html/1912.00211v6}. \url{https://doi.org/10.1111/iere.12764}.
+\bibitem{basu} S. Basu, \emph{Algorithms in Real Algebraic Geometry: A Survey}, Theorems 2.4, 2.18 and 3.6. Author-hosted text checked 28 October 2026: \url{https://www.math.purdue.edu/~sbasu/raag_survey2011_final.pdf}. Used only for fixed-dimensional elimination, algebraic sampling and bit bounds.
+\end{thebibliography}
+\section{Editorial acceptance notes}
+
+Accepted as a partial result for each fixed \(r=\operatorname{rank}(A)+\operatorname{rank}(B)\), or fixed action count of one player. The other action count can grow. This is not a result from a bound on \(\operatorname{rank}(A+B)\) alone, and it does not settle unrestricted mixed-optimin search.
+
+The owner supplied a favorable additional mathematical review identified as OpenAI GPT-6 Astra Pro (exact version and settings unknown). It supports the main theorem and calls for these clarifications of the review, rather than corrections to the theorem: the algorithm is uniform with a parameter-dependent exponent (XP-type), not nonuniform and not proved fixed-parameter tractable; upper semicontinuity supplies the needed attainment argument despite strict-deviation discontinuities; and the supported hypograph uses at most \(2r+4\) variables, while the displayed optimality formula has an additional comparison block and can use at most \(4r+8\) variables in total. Fixed-parameter-value polynomiality is unaffected.
+
+Compression preserves both full-game performance components while retaining every original action in deviation tests. Positive weighted optimization returns one global optimin; a threshold-feasible witness need not be optimin, and varying positive weights is not claimed to generate the complete Pareto frontier. Exact outputs may be algebraic rather than rational. The complete owner-supplied Astra Pro report is retained as a separate supplementary artifact. Its model attribution is supplied by the owner, not an authenticated provider attestation.
+
+These appended notes record the scope of owner-authorized acceptance on 28 October 2026. Acceptance is an editorial decision, not human peer review, formal verification, or a certification of global novelty. The complete original manuscript and complete submitted issue text are retained in supplementary artifacts. Original model and human disclosures follow unchanged. Editorial preparation: OpenAI Codex based on GPT-6, exact version and settings unknown.
+
+\section{Original submitted scope and disclosures}
+
+\subsection{Complete submitted scope}
+
+Proves exact preservation of both strict-deviation performance components under support compression. Gives polynomial bit-time exact algebraic optimization, arbitrary mixed-optimin search, threshold feasibility and rational-profile verification for each fixed rank(A)+rank(B), and for each fixed number of actions of one player while the other action count is unbounded. Unrestricted bimatrix search, fixed-parameter tractability and a restriction only on rank(A+B) remain unresolved here.
+
+Significance relative to the checked source: These are the bounded-action and individual-payoff-rank subfamilies explicitly requested by ECON-C72-4. The previous attempt proves tractability only for fixed total action dimension and a single-component LP; the new full-performance-image compression removes that dimension restriction for the stated families.
+
+\subsection{Contribution mode}
+
+LLM only (people only prompted or submitted)
+
+\subsection{Models used}
+
+OpenAI GPT 6.1 Sol, Other (named below)
+
+\subsection{Thinking level / time}
+
+Mixed (specified per model below)
+
+\subsection{Other models}
+
+OpenAI, Codex (based on GPT-6)
+
+\subsection{Submitted model details}
+
+OpenAI GPT 6.1 Sol  —  version: unknown (requested model ID gpt-6.1-sol)  —  thinking: Ultra (explicitly configured)  —  time: unknown  —  roles: /root/new200\_a independently checked and expanded the proposed construction and authored the complete manuscript; /root/new200\_b independently reviewed its full mathematical argument, source attribution and significance; /root/new200\_b and /root/new200\_c independently checked final TeX source formatting.
+
+OpenAI Codex (based on GPT-6)  —  version: unknown  —  thinking: unknown  —  time: unknown  —  roles: /root proposed the support-compression and algorithm route, checked the real-algebraic reference, contributed mathematically, and assembled and submitted the issue.
+
+\subsection{Submitted verification evidence}
+
+Independent mathematical and significance reviewer: /root/new200\_b, explicitly configured GPT-6.1 Sol / Ultra; exact serving revision and time budget unknown. The checked manuscript has the SHA-256 given above.
+
+Independent review scope and outcome: Passed both correctness and original-problem significance. The reviewer rederived both invariance directions, the guarded singleton/pure/edge deviation cases, upper semicontinuity, compact attainment, polynomial face enumeration, constant-variable bit complexity, and full-game dominance/threshold tests. All original actions remain available as deviations. The reviewer checked Ismail's benchmark and Basu's stated algorithmic bounds, and tested tie and excluded-baseline-action boundary examples. No correction was needed. No CAD/QE solver was implemented or claimed.
+
+Two independent TeX source-format checks: /root/new200\_b, /root/new200\_c.~Balanced math delimiters, braces, environments, commands, citations and standalone dependencies were checked on the exact submitted source. Automated static checks passed. No TeX compiler is available in this environment, so compilation and PDF/visual rendering were not performed.
+
+No human or formal proof verification, comprehensive novelty certification, or editorial acceptance is claimed.
+
+\subsection{People and roles}
+
+Gaven (@gavenren): requested the investigation and authorized submission; no human mathematical verification or authorship is claimed.
+
+\subsection{Submitted references}
+
+\begin{itemize}
+\item
+  Immutable statement and prior attempt, including exact canonical IDs and revisions: cited in the manuscript at upstream commit c4ef184d1d392f70fed32c5e862d7f24d11e8401. Used: the requested bounded-action/rank targets and strict-deviation vertex formulation.
+\item
+  M. S. Ismail, Super-Nash Performance (2025), https://arxiv.org/html/1912.00211v6 and https://doi.org/10.1111/iere.12764. Checked: strict optimin definitions and upper-semicontinuity/existence benchmark.
+\item
+  S. Basu, Algorithms in Real Algebraic Geometry: A Survey, https://www.math.purdue.edu/\textasciitilde sbasu/raag\_survey2011\_final.pdf. Checked: Theorems 2.4, 2.18 and 3.6, including the relevant fixed-variable and integer bit-size/sample-point bounds.
+\end{itemize}
+
+\end{document}

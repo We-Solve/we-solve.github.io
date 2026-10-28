@@ -1,0 +1,407 @@
+### Problem handle
+
+ECON-D86-21
+
+### Claim
+
+Conditional result
+
+### Exact scope
+
+Proves strongly polynomial reductions between exact globally optimal finite hidden-action contracts and general rational linear programming, in the stated binary-rational representation with numerator and denominator components available. Bounded LP feasibility reduces to one global contract optimization call with witness recovery. Limited liability, unrestricted nonnegative rewards and exact principal-favorable ties are assumed. The existence of a strongly polynomial algorithm for either problem remains unresolved. No extension to opaque arbitrary-real input or approximate contract output is claimed.
+
+Significance relative to the checked source: The checked prior Pro attempt encoded a specified-action LP but explicitly left a gap in forcing that action to be chosen by a global contract optimizer. The artificial-slack exact penalty and exposing reward close that specific gap and locate the original global strongly polynomial question relative to general LP.
+
+### Write-up
+
+Complete standalone LaTeX source (`manuscript.tex`), SHA-256 `ee9c2cf0d8c03fc6452b5dc912a1fb88b1c06c34a99925e795d8c6daa729f13f`. The source is pasted intact below; no PDF or executable program is submitted.
+
+```tex
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\one}{\mathbf 1}
+\title{From linear feasibility to globally optimal finite contracts}
+\author{OpenAI gpt-6.1-sol, ultra reasoning}
+\date{28 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For explicit rational finite principal--agent instances with nonnegative
+payments, a zero-cost action, and principal-favorable tie breaking, we reduce
+rational linear feasibility, with recovery of a feasible point, to one
+globally optimal contract computation. The construction uses polynomially
+many arithmetic operations, polynomial-size rational encodings, full-support
+outcome distributions, and a reward on a single outcome. An expensive
+artificial incentive direction and an exposing reward close the distinction
+between implementing a specified action and selecting a globally optimal
+action. Together with the usual reduction in the opposite direction, this
+gives an equivalence of the existence of strongly polynomial algorithms.
+It does not establish that either algorithm exists.
+\end{abstract}
+
+\section{Target, checked context, and statement}
+An instance has actions \(a\), outcomes \(j\), rational distributions
+\(q_a\), costs \(c_a\geq0\) with \(\min_a c_a=0\), and rewards
+\(r_j\geq0\). A contract \(t\geq0\) induces a maximizer of
+\(q_a\cdot t-c_a\); ties select an action maximizing
+\(q_a\cdot(r-t)\). The computational output is an optimal rational
+contract and its selected action. Strong polynomiality means a number of
+arithmetic operations and comparisons polynomial in the numbers of actions
+and outcomes, independently of coefficient lengths, with polynomial-size
+intermediate rational encodings.
+
+The checked survey \cite[Section 3.1]{survey} reduces optimal contracts to
+one minimum-payment linear program per action and asks whether the global
+problem admits a strongly polynomial algorithm. The pinned repository
+attempt \cite[specified-action embedding]{prior} encodes arbitrary linear
+feasibility into the inducibility of one distinguished action. It explicitly
+does not reduce feasibility to global optimization: with its zero rewards,
+a zero-payment contract is globally optimal whatever happens to that action.
+The present construction addresses precisely that selection gap.
+
+\begin{theorem}\label{thm:main}
+Given \(A\in\Q^{r\times d}\), \(b\in\Q^r\), \(d\geq1\), one can
+construct an instance with \(r+2d+2\) actions and \(d+2\) outcomes such
+that any globally optimal contract decides the feasibility of
+\[
+ Ax\geq b,\qquad 0\leq x\leq\one,                 \tag{1}
+\]
+and supplies a feasible point when one exists. The construction and decoding
+use polynomially many arithmetic operations in \(r,d\), independently of
+numeric lengths, and all constructed encodings have polynomial length.
+Every action distribution has full support, and only one outcome has a
+nonzero reward.
+\end{theorem}
+
+We give the full construction, including the quantitative penalty and the
+global-selection argument. No promise of feasibility, nondegeneracy, or
+strict incentive compatibility is used.
+
+\section{A rational vertex gap and an exact artificial penalty}
+Let \(D\geq1\) be the product of the positive denominators in the supplied
+rational entries of \(A,b\). Set
+\[
+ H=\max\bigl(\{1,D\}\cup\{|DA_{ij}|\}_{i,j}
+                         \cup\{|Db_i|\}_i\bigr),\qquad
+ k=d+2,\qquad \delta=(k!H^k)^{-1},\qquad
+ \kappa=\delta/8,\qquad p=\frac1{2(d+1)}.          \tag{2}
+\]
+Empty maxima simply contribute no entries. These are positive rational
+numbers, with \(H\) an integer. Introduce \(z,t_0\) and the polyhedron
+\(P\subseteq\R^{d+2}\) consisting of
+\begin{align}
+ A_i x+z&\geq b_i &&(i=1,\ldots,r),\nonumber\\
+ x_j+z&\geq0,\qquad -x_j+z\geq-1 &&(j=1,\ldots,d),\nonumber\\
+ z&\geq0,\qquad t_0\geq0,\qquad t_0+x_j\geq0 &&(j=1,\ldots,d).
+                                                        \tag{3}
+\end{align}
+Its objective will be
+\[
+ L(x,z,t_0)=t_0+p\sum_{j=1}^d x_j+\frac{z}{2\kappa}. \tag{4}
+\]
+The variable \(t_0\) handles the limited-liability constraints on a payment
+representation; it must not be dropped when \(x\) can have negative entries.
+
+\begin{lemma}\label{lem:penalty}
+The minimum of \(L\) on \(P\) is attained and its minimizing face is
+compact. If (1) is feasible, every minimizer has \(z=0\), and its
+\(x\) solves (1). If (1) is infeasible, no point of \(P\) has \(z=0\).
+\end{lemma}
+\begin{proof}
+Put \(B=\max(0,b_1,\ldots,b_r)\). The point \((0,B,0)\) lies in
+\(P\), so it is nonempty. For \((x,z,t_0)\in P\), define
+\[
+ t_j=t_0+x_j\quad(1\leq j\leq d),\qquad
+ t_s=t_0+z/\kappa.                                  \tag{5}
+\]
+Together with the coordinate \(t_0\), these payments are nonnegative and
+\[
+ L=p\Bigl(t_0+\sum_{j=1}^d t_j\Bigr)+\tfrac12t_s.
+                                                               \tag{6}
+\]
+The transformation is invertible: \(x_j=t_j-t_0\) and
+\(z=\kappa(t_s-t_0)\). All coefficients in (6) are strictly positive.
+Consequently every nonempty sublevel set of \(L\) in \(P\) is closed
+and bounded, hence compact. This proves attainment and compactness of the
+optimal face.
+
+At any vertex of \(P\), choose \(k\) independent active rows. Multiplying
+each by \(D\) gives a nonsingular integer square system whose coefficients
+and right-hand sides have absolute value at most \(H\). Cramer's rule
+shows that a strictly positive \(z\) at that vertex is at least
+\(1/|\det M|\). The determinant expansion bounds
+\(|\det M|\leq k!H^k\), so such a vertex has \(z\geq\delta\).
+This argument does not assert a positive gap for every point of \(P\).
+
+The lower constraints in (3) give \(x_j\geq-z\). Thus every feasible
+point satisfies
+\[
+ L\geq \left(\frac1{2\kappa}-dp\right)z.
+\]
+Since \(dp<1/2\) and \(\delta\leq1\), every vertex with \(z>0\) has
+\[
+ L\geq\left(\frac4\delta-dp\right)\delta
+       =4-dp\delta>\frac72.                          \tag{7}
+\]
+If (1) is feasible, any solution \(x\) with \(z=t_0=0\) belongs to
+\(P\) and has \(L=p\sum_jx_j\leq dp<1/2\).
+The compact optimal face is a polytope and is the convex hull of its
+vertices. Each of its vertices is also a vertex of \(P\): any strict
+feasible convex decomposition must have both endpoints optimal, by
+linearity and optimality. Bound (7) therefore makes \(z=0\) at every
+optimal-face vertex, and hence at every minimizer. Finally, the constraints
+in (3) at \(z=0\) are exactly (1), together with the additional
+limited-liability constraints on \(t_0\). This proves both alternatives.
+\end{proof}
+
+\section{Encoding the penalty as a distinguished action}
+List the first three types of inequalities in (3), including \(z\geq0\), as
+\[
+ a_\rho\cdot x+z\geq\beta_\rho
+       \quad(\rho=1,\ldots,h),\qquad h=r+2d+1.       \tag{8}
+\]
+For \(z\geq0\) use \(a_\rho=0,\beta_\rho=0\). There are \(d+2\)
+outcomes labeled \(1,\ldots,d,0,s\). Define the distinguished distribution
+and the row directions by
+\[
+ q_*=(\underbrace{p,\ldots,p}_{d+1\text{ coordinates}},1/2),
+ \qquad
+ v_\rho=\left(a_{\rho1},\ldots,a_{\rho d},
+             -\sum_{j=1}^d a_{\rho j}-\kappa,\kappa\right).
+                                                               \tag{9}
+\]
+Each \(v_\rho\) has coordinate sum zero. Put
+\[
+ M_\rho=\max_\ell |v_{\rho\ell}|,\qquad
+ \lambda_\rho=\frac{p}{2(1+M_\rho)},\qquad
+ q_\rho=q_*-\lambda_\rho v_\rho.                   \tag{10}
+\]
+Every coordinate of \(q_\rho\) is greater than
+\(p/2=1/[4(d+1)]\): its deviation from \(q_*\) has magnitude less
+than \(p/2\), and the smallest coordinate of \(q_*\) is \(p\).
+Its coordinates sum to one. In particular all actions have full support
+with this inverse-polynomial lower bound. Define
+\[
+ C=\max\bigl(0,\max_\rho\lambda_\rho\beta_\rho\bigr),
+ \qquad c_*=C,\qquad c_\rho=C-\lambda_\rho\beta_\rho.
+                                                               \tag{11}
+\]
+These costs are nonnegative and one is zero. Indeed, if \(C=0\), the
+distinguished action is zero-cost; otherwise a maximizing competitor is.
+
+For nonnegative payments, the incentive inequality of \(*\) against
+\(\rho\) is
+\[
+ (q_*-q_\rho)\cdot t\geq c_*-c_\rho
+ \quad\Longleftrightarrow\quad
+ a_\rho\cdot x+z\geq\beta_\rho,                    \tag{12}
+\]
+where \(x,z\) are recovered from (5). The payments \(t_0,t_j\geq0\)
+give exactly \(t_0\geq0,t_0+x_j\geq0\); the row \(z\geq0\) also
+makes \(t_s\geq0\) automatic. Thus (5) is a bijection between \(P\)
+and nonnegative contracts weakly implementing \(*\). Its expected payment
+is \(q_*\cdot t=L\). Let its attained minimum be \(C_*\).
+
+\section{Forcing global selection}
+The artificial coordinate does more than supply slack: it exposes the target
+distribution, since
+\[
+ q_{*s}-q_{\rho s}=\lambda_\rho\kappa>0.
+\]
+Let
+\[
+ \eta=\min_\rho\lambda_\rho\kappa>0,\qquad
+ U=\frac{B}{2\kappa},\qquad R=\frac{U+1}{\eta},
+ \qquad r_s=R,\quad r_\ell=0\ (\ell\ne s).         \tag{13}
+\]
+The point \((0,B,0)\) shows \(C_*\leq U\).
+Every competitor, under every nonnegative contract, gives principal payoff
+at most its gross reward
+\[
+ q_\rho\cdot(r-t)\leq q_{\rho s}R
+                  \leq(1/2-\eta)R.                \tag{14}
+\]
+A minimum-payment contract for \(*\) gives principal payoff
+\[
+ \tfrac12R-C_*\geq\tfrac12R-U
+             =(1/2-\eta)R+1.                       \tag{15}
+\]
+Since \(*\) is an agent best response there, (14)--(15) imply that it is
+the unique principal-favored action among agent best responses. They also
+imply that any globally optimal contract selects \(*\). Such a contract
+must have expected payment exactly \(C_*\), since otherwise a
+minimum-payment contract for \(*\) improves the principal's payoff.
+
+By Lemma~\ref{lem:penalty}, the returned contract has
+\(z=\kappa(t_s-t_0)=0\) if and only if (1) is feasible. In that case
+\(x_j=t_j-t_0\) is an exact feasible point. This argument applies to
+every optimal output, not merely a specially chosen optimal vertex.
+
+\section{Arithmetic bounds and general linear programming}
+There are \(h+1=r+2d+2\) actions. Forming \(D,H\), factorials, powers,
+row sums, maxima, and (9)--(13) uses polynomially many arithmetic operations
+in \(r,d\). Denominators are available in the supplied binary rational
+representation; clearing them by their product is explicit and uses one
+factor per entry. No precision-dependent search or repeated halving is
+used. The logarithm of \(D\) is at most the sum of input denominator
+lengths. Therefore \(\log H\), \(\log(1/\delta)\), and all subsequent
+rational encoding lengths are polynomial in the input length. Products of
+polynomially many such denominators and the displayed bounded-depth
+formulas preserve this bound. This proves Theorem~\ref{thm:main}.
+
+For completeness, bounded feasibility suffices for general rational linear
+feasibility with witness. Write a system, after splitting free variables if
+needed, as \(Ax\geq b,x\geq0\). Clear denominators and let \(H_0\geq1\)
+bound all integer coefficients and right-hand sides. This polyhedron is
+pointed, so a nonempty one has a vertex. A vertex is determined by \(d\)
+independent active rows, including coordinate nonnegativity rows if needed.
+Cramer's rule gives
+\[
+ 0\leq x_j\leq M:=d!H_0^d.
+\]
+Thus adding \(x_j\leq M\) preserves feasibility, and substituting
+\(x=My\) reduces it to (1). The same polynomial arithmetic and encoding
+bounds apply. Zero-dimensional systems are decided by their constant
+inequalities.
+
+\begin{corollary}\label{cor:equivalence}
+The following algorithm-existence statements are equivalent, in the stated
+explicit rational model: a strongly polynomial algorithm for globally
+optimal finite contracts, and a strongly polynomial algorithm for general
+rational linear programming.
+\end{corollary}
+\begin{proof}
+An algorithm for linear programming solves the minimum-payment program for
+each action and compares the finitely many principal payoffs. This is the
+standard direction in \cite[Proposition 3.1]{survey}, and uses polynomially
+many calls on polynomial-size arrays.
+
+Conversely, Theorem~\ref{thm:main} and the preceding bounded reduction give
+linear feasibility with an exact witness. This suffices for optimization
+without objective-value binary search. For
+\[
+ \min\{c^Tx:Ax\geq b,x\geq0\},
+\]
+first test primal feasibility. If infeasible, report that. Otherwise test
+dual feasibility \(y\geq0,A^Ty\leq c\). If infeasible, the feasible
+primal is unbounded below by linear-programming duality. If both are
+feasible, solve the joint linear feasibility system consisting of those
+primal and dual constraints and \(c^Tx=b^Ty\). Strong duality ensures
+that it is feasible; any witness gives optimal primal and dual solutions
+by weak duality. Equality is represented by its two inequalities. There
+are at most three feasibility calls, with polynomially many variables and
+constraints. All transformations obey the arithmetic and encoding bounds.
+\end{proof}
+
+\section{Consequences and limitations}
+The result is a complexity equivalence, not an algorithm for either open
+problem and not a lower bound ruling one out. Its importance for the stated
+contract target is that the probability-difference structure alone does not
+make the global strongly polynomial question easier than general rational
+linear programming under these reductions. It closes the precise
+specified-action/global-selection gap identified in the checked attempt.
+
+The gadget uses coefficients with potentially large numerical magnitudes
+and small positive differences between action probabilities, although with
+polynomial binary length. Individual probabilities obey the lower bound
+proved after (10). It does not establish hardness or equivalence for
+additional regularity, a fixed probability lower bound independent of the
+number of outcomes, bounded rewards, monotone contracts,
+strict implementation, adversarial ties, or approximate contract algorithms.
+Exact equality tests and exact optimal output are essential to the decoding.
+No global literature-priority certification is claimed: the checked survey
+and pinned attempts do not contain this reduction, but that is not an
+exhaustive claim about all literature.
+
+\section{Verification and attribution}
+The proof is independent of computational experiments. Exact rational basis
+enumeration tested 24 systems in dimensions one and two, including seven
+feasible and 17 infeasible systems, examining 94 vertices of (3). It checked
+the vertex gap, payment separation, every optimal-vertex decoder,
+probability normalization and positivity, nonnegative costs, incentive and
+payment identities, and the strict gross-reward margin. Competitor payment
+programs were not enumerated; (14) is the proof controlling them. These
+finite checks are not unrestricted proof verification. The authoring
+model is OpenAI gpt-6.1-sol with requested ultra reasoning; the exact serving
+revision and time budget are unavailable. This investigation uses the
+identified gap in the earlier gpt-6-astra Pro attempt and the classical
+minimum-payment formulation, both cited explicitly. Independent review and
+TeX validation, when completed, are recorded separately rather than asserted
+here in advance. Original exposition: CC BY 4.0.
+
+\begin{thebibliography}{9}
+\bibitem{survey}
+P. D\"utting, M. Feldman, and I. Talgam-Cohen,
+\emph{Algorithmic Contract Theory: A Survey},
+arXiv:2412.16384v1, 20 December 2024, Sections 2 and 3.1.
+The model, tie rule, LP reduction, and strongly polynomial question were
+checked in this primary source on 28 October 2026.
+\url{https://arxiv.org/html/2412.16384v1}.
+
+\bibitem{prior}
+WeSolve archived contribution
+\texttt{con\_84231242618b4a819a615f9fd5e58b80},
+\emph{Strongly polynomial optimal finite contracts},
+GPT 6 Astra Pro research attempt, 9 October 2026.
+Pinned source commit
+\texttt{c4ef184d1d392f70fed32c5e862d7f24d11e8401}.
+Revision \texttt{rev\_b93bcd6e88be476cbeed2b7b46da726e}.
+\url{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/4a/prb_4a5daad2802847a59beb03e13ee435de/contributions/con_84231242618b4a819a615f9fd5e58b80/files/D86-21.tex}.
+\end{thebibliography}
+\end{document}
+```
+
+### Who did the work
+
+LLM only (people only prompted or submitted)
+
+### Models used
+
+OpenAI GPT 6.1 Sol, Other (named below)
+
+### Thinking level / time
+
+Mixed (specified per model below)
+
+### Other LLMs
+
+OpenAI, Codex (based on GPT-6)
+
+### Per-model versions, thinking and roles
+
+OpenAI GPT 6.1 Sol | version: unknown (requested model ID gpt-6.1-sol) | thinking: Ultra (explicitly configured) | time: unknown | roles: /root/new200_c developed the construction, wrote the complete proof and exact finite checks; /root/new200_d independently reviewed the mathematics, significance, source attribution, rational input model and final TeX formatting.
+
+OpenAI Codex (based on GPT-6) | version: unknown | thinking: unknown | time: unknown | roles: /root coordinated the investigation, checked scope and computational-model caveats, read the completed manuscript, performed the second independent TeX source-format check, and assembled and submitted the issue. No mathematical authorship is claimed for this role.
+
+### Model eligibility and verification evidence
+
+Independent mathematical and significance reviewer: /root/new200_d, explicitly configured GPT-6.1 Sol / Ultra; exact serving revision and time budget unknown. The checked manuscript has the SHA-256 given above.
+
+Independent review scope and outcome: Correctness and significance passed for the expressly stated rational-input model. The reviewer checked the Cramer vertex gap, compact optimal face, artificial-slack penalty, nonnegative-payment encoding, full-support probability normalization, incentive constraints, exposing-reward global selection, witness decoding and general-LP reductions. Every saved source hash was independently checked, and survey context was independently opened. A wrong prior-artifact filename was corrected and rechecked before approval. Finite author checks cover 24 systems and 94 vertices; the reviewer did not independently rerun them and relied on the proof. No strong-polynomial algorithm itself is supplied.
+
+Two independent TeX source-format checks: /root/new200_d, /root. Balanced math delimiters, braces, environments, commands, citations and standalone dependencies were checked on the exact submitted source. Automated static checks passed. No TeX compiler is available in this environment, so compilation and PDF/visual rendering were not performed.
+
+No human or formal proof verification, comprehensive novelty certification, or editorial acceptance is claimed.
+
+### People and roles
+
+Gaven (@gavenren): requested the investigation and authorized submission; no human mathematical verification or authorship is claimed.
+
+### References
+
+- Immutable original statement and both complete prior attempts are cited with exact canonical IDs and filenames in the manuscript at upstream commit c4ef184d1d392f70fed32c5e862d7f24d11e8401. The prior Pro specified-action embedding is explicitly credited.
+- Duetting, Feldman and Talgam-Cohen, Algorithmic Contract Theory: A Survey, https://arxiv.org/html/2412.16384v1. Checked: Sections 2 and 3.1, canonical tie-breaking, Proposition 3.1 and the computational question following Observation 3.3.
+
+### Declarations
+
+- [X] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
+- [X] I understand that this issue and its contents are public immediately.
+- [X] Every LLM and person involved is listed, with versions or "unknown".

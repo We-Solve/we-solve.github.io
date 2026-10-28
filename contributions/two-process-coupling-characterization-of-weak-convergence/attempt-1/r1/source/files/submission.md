@@ -1,0 +1,219 @@
+### Problem handle
+
+prb_aaa9bae3287a4165baee08ca6e4398de
+
+### Claim
+
+Partial result
+
+### Exact scope
+
+Constructs a binary process X whose shifted laws converge weakly to fair iid law Y, with every fixed finite-window law eventually exactly fair iid. For every coupling preserving the two entire process laws, limsup_n P(X_n != Y_n) is at least 1/2, sharply. Disagreement proportions on specified growing blocks have almost-sure liminf at least 1/2. Consequently no compatible product metric permits the two shifted paths to approach in probability, and hence not almost surely. This refutes the explicit metric-convergence suggestion in Thorisson Problem 3.3. The broader request for a necessary-and-sufficient two-process characterization remains open here, as do neighboring setwise/total-variation questions.
+
+Significance relative to the checked source: This is a counterexample to a central criterion explicitly proposed in the original question, with a stronger obstruction than the archived almost-sure formulation. It handles every joint construction of the whole laws, including anticipatory and non-Markovian couplings.
+
+### Write-up
+
+Complete standalone LaTeX source (`manuscript.tex`), SHA-256 `6b80012485a54b7fe8cac7a9dde59a1a720ef30de6c5971b65d3099e386bf8b8`.
+
+```tex
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\Law}{\mathcal L}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\E}{\mathbb E}
+\newcommand{\ind}{\mathbf 1}
+\title{A sharp obstruction to two-process asymptotic coupling\protect\\under shifted weak convergence}
+\author{Model-assisted research contribution}
+\date{28 October 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We construct one binary process whose shifted finite-window laws eventually equal those of independent fair bits, but which cannot be coupled to that limiting process with asymptotically vanishing coordinate disagreement probability. For every coupling preserving the two entire process laws, the limsup of the coordinate disagreement probabilities is at least one half, and this constant is sharp. The proportion of disagreements on specified growing blocks also has almost-sure liminf at least one half. Consequently the two shifted paths cannot approach one another even in probability in any compatible product metric. This refutes the particular metric-convergence suggestion in Thorisson's Problem 3.3; it does not supply the more general coupling characterization requested there.
+\end{abstract}
+
+\section{Question and scope}
+
+Let \(\mathcal X=\{0,1\}^{\mathbb N_0}\), and write
+\(\theta_n x=(x_{n+k})_{k\geq0}\). Equip \(\mathcal X\) with its product topology and the metric
+\[
+ d(x,y)=\sum_{k=0}^{\infty}2^{-k-1}\ind\{x_k\ne y_k\}.
+\]
+A coupling of processes \(X,Y\) is any joint law having the prescribed entire marginal laws on \(\mathcal X\). No adaptedness, Markovianity, stationarity of the joint law, or independence is required.
+
+Thorisson's Problem 3.3 \cite[p.~4]{thorisson} asks for a characterization of \(\theta_nX\Rightarrow Y\) involving only a joint construction of \(X\) and \(Y\), and specifically proposes metric convergence between \(\theta_nX\) and \(\theta_nY\). The archived formulation \cite{archive} explicitly asks for almost-sure convergence. We give a counterexample to that proposal and, more strongly, to convergence in probability. The full characterization question remains open in this note.
+
+The construction combines classical de Bruijn cycles with a direct concentration estimate. Neither cyclic-word existence nor the concentration inequality is claimed as new. The issue is that finite-window laws can become exactly correct while the set of possible long blocks remains too small to track a fair independent sequence under any coupling. This is different from constructing a separately coupled copy of each shifted law, as in the Skorohod representation and the widening-window results discussed in \cite[Section~1]{windows}. Those results allow a family of process copies and do not impose the single-process consistency required here.
+
+\section{Construction and theorem}
+
+For \(j\geq1\), choose a binary cyclic word \(w_j\) of length \(2^j\) in which each binary word of length \(j\) occurs exactly once as a cyclic consecutive window. A short proof of existence is given below. Extend \(w_j\) periodically to all integer indices. Set
+\[
+ L_j=4^j,\qquad s_1=0,\qquad s_{j+1}=s_j+L_j,
+ \qquad I_j=\{s_j,\ldots,s_j+L_j-1\}.
+\]
+Let \(U_j\), \(j\geq1\), be independent, each uniform on
+\(\{0,\ldots,2^j-1\}\). Define the entire process \(X\) by
+\[
+ X_{s_j+t}=w_j(U_j+t),\qquad 0\leq t<L_j.
+\]
+Let \(\nu\) be the law of an independent fair binary sequence \(Y\).
+The construction specifies \(\mu=\Law(X)\); subsequently \(X,Y\) may be coupled in any way.
+
+\begin{theorem}\label{thm:main}
+The laws \(\mu,\nu\) have the following properties.
+\begin{enumerate}
+\item For every \(m\geq1\), every \(n\geq s_m\), and every \(a\in\{0,1\}^m\),
+\[
+ \Prob\big((X_n,\ldots,X_{n+m-1})=a\big)=2^{-m}.
+\]
+In particular, \(\Law(\theta_nX)\Rightarrow\nu\).
+\item For every coupling of \(\mu,\nu\),
+\[
+ \limsup_{n\to\infty}\Prob(X_n\ne Y_n)\geq\frac12.
+\]
+The bound is sharp: the independent coupling has disagreement probability exactly \(1/2\) at every coordinate. Thus the infimum over all couplings of the displayed limsup equals \(1/2\).
+\item In every coupling, the block disagreement proportions
+\[
+ H_j=\frac1{L_j}\sum_{t\in I_j}\ind\{X_t\ne Y_t\}
+\]
+satisfy \(\liminf_{j\to\infty}H_j\geq1/2\) almost surely.
+\item For every metric \(\widetilde d\) compatible with the product topology on \(\mathcal X\), no coupling can satisfy
+\(\widetilde d(\theta_nX,\theta_nY)\to0\) in probability. In particular, almost-sure convergence is impossible.
+\end{enumerate}
+\end{theorem}
+
+\section{Cyclic words and finite windows}
+
+\begin{lemma}\label{lem:cycles}
+The words \(w_j\) exist. If their phase is uniform, every cyclic window of length \(r\leq j\) is uniform on \(\{0,1\}^r\).
+\end{lemma}
+\begin{proof}
+Use the directed graph whose vertices are binary words of length \(j-1\) and whose edges are binary words of length \(j\); an edge goes from its length-\(j-1\) prefix to its length-\(j-1\) suffix. For \(j=1\) this is one vertex with two loops. Every vertex has indegree and outdegree two. For \(j>1\), appending the symbols of any desired vertex provides a directed path to it, so the graph is strongly connected. A finite connected balanced directed graph has an Euler tour: follow unused outgoing edges to close a walk, and splice in further such closed walks until every edge is used. Reading the overlapping edge labels along this tour gives a cyclic binary word whose length-\(j\) windows are exactly the edges, once each.
+
+Each fixed binary word of length \(r\leq j\) is the prefix of exactly \(2^{j-r}\) length-\(j\) words. Hence it occurs at exactly \(2^{j-r}\) of the \(2^j\) phases. Uniform phase therefore gives probability \(2^{-r}\), including windows that cross the end of the written cycle.
+\end{proof}
+
+Fix \(m\) and \(n\geq s_m\). Every block meeting the length-\(m\) window beginning at \(n\) has index at least \(m\) and length at least \(m\). The window therefore meets either one block or two consecutive blocks. In one block, Lemma~\ref{lem:cycles} gives the uniform law. In two blocks, the two pieces have lengths at most \(m\), and are independently uniform because their phases are independent. Their concatenation is again uniform. This proves the first displayed assertion of Theorem~\ref{thm:main}.
+
+To obtain weak convergence, take a continuous function on the compact space \(\mathcal X\). Uniform continuity allows uniform approximation by a function depending on a finite prefix, for example by setting all later coordinates to zero. Expectations of such finite-prefix functions are exactly those under \(\nu\) for all sufficiently large shifts. The approximation proves convergence of expectations of every continuous function, hence weak convergence.
+
+\section{A bound uniform over all couplings}
+
+Let \(\mathcal C_j\subset\{0,1\}^{L_j}\) be the possible words of \(X\) on block \(I_j\). There are at most \(2^j\) such words, one for each phase. This small deterministic set is the only property of the \(X\)-law needed in this section.
+
+\begin{lemma}\label{lem:concentration}
+For \(0<\varepsilon<1/2\), every coupling satisfies
+\[
+ \Prob\left(H_j\leq\frac12-\varepsilon\right)
+ \leq 2^j\exp\big(-2\varepsilon^2 4^j\big).
+\]
+\end{lemma}
+\begin{proof}
+For a fixed deterministic \(c\in\mathcal C_j\), the variables
+\(\ind\{c_t\ne Y_{s_j+t}\}\), \(0\leq t<L_j\), are independent Bernoulli variables of parameter \(1/2\). This follows from the marginal law of \(Y\), regardless of its dependence on \(X\). If their sum is \(S\), then for \(\lambda>0\),
+\[
+ \E e^{-\lambda(S-L_j/2)}
+ =\cosh(\lambda/2)^{L_j}
+ \leq e^{L_j\lambda^2/8}.
+\]
+Here \(\cosh u\leq e^{u^2/2}\), since \(\tanh u\leq u\) for \(u\geq0\) and both sides are even. The exponential Markov inequality and \(\lambda=4\varepsilon\) give
+\[
+ \Prob\big(S\leq L_j(1/2-\varepsilon)\big)
+ \leq e^{-\lambda\varepsilon L_j+L_j\lambda^2/8}
+ =e^{-2\varepsilon^2L_j}.
+\]
+Since \(X|_{I_j}\in\mathcal C_j\) almost surely, a small value of \(H_j\) implies that at least one deterministic \(c\in\mathcal C_j\) has that small disagreement with \(Y|_{I_j}\). A union bound over at most \(2^j\) words gives the claim. No conditioning on the random word \(X|_{I_j}\), which could destroy independence of the bits of \(Y\), has been used.
+\end{proof}
+
+For fixed \(\varepsilon>0\), the bound in Lemma~\ref{lem:concentration} is summable in \(j\). The first Borel--Cantelli lemma implies that \(H_j>1/2-\varepsilon\) eventually almost surely. Intersecting the probability-one events for \(\varepsilon=1/r\), \(r\geq3\), proves assertion~3 of Theorem~\ref{thm:main}.
+
+The same estimate gives
+\[
+ \E H_j\geq(1/2-\varepsilon)
+ \left(1-2^j e^{-2\varepsilon^2 4^j}\right).
+\]
+Consequently \(\liminf_j\E H_j\geq1/2\). But \(\E H_j\) is the arithmetic mean over \(I_j\) of the coordinate disagreement probabilities. If their limsup were less than \(1/2\), all sufficiently late block means would also be bounded by a constant less than \(1/2\), a contradiction. Each \(X_n\) is fair by Lemma~\ref{lem:cycles}, so coupling \(X\) independently to \(Y\) gives disagreement probability \(1/2\) at every coordinate. This proves assertion~2 including sharpness.
+
+For the displayed metric \(d\),
+\[
+ d(\theta_nX,\theta_nY)\geq\tfrac12\ind\{X_n\ne Y_n\},
+\]
+so convergence in probability contradicts assertion~2. For any other compatible metric \(\widetilde d\), the disjoint sets
+\(A_0=\{x:x_0=0\}\) and \(A_1=\{x:x_0=1\}\) are compact. The continuous distance function attains a positive minimum on \(A_0\times A_1\); call it \(a\). Thus
+\(\widetilde d(\theta_nX,\theta_nY)\geq a\) whenever \(X_n\ne Y_n\), and the same contradiction applies. Almost-sure convergence would imply convergence in probability. This completes the proof.
+
+\section{Consequences and limitations}
+
+Even eventual exactness of every fixed finite-window law does not permit two full process laws to be coupled with asymptotically vanishing coordinate disagreement. The obstruction applies to every coupling, not only to adapted or Markovian ones. It therefore rules out the specific proposed metric criterion in the stated generality.
+
+The process \(X\) is deliberately nonstationary; its limit law is stationary. We do not give a substitute necessary-and-sufficient two-process criterion, nor a result for additional classes such as time-homogeneous Markov processes. We make no assertion of setwise or total-variation convergence and do not resolve the neighboring setwise questions in \cite{thorisson}.
+
+Targeted searches and comparison with the cited primary problem and widening-window statement did not identify this exact counterexample. That bounded check is not a comprehensive novelty certification. The proof is self-contained apart from elementary finite graph, probability, and compactness facts explained above. All mathematical work and checking for this manuscript are model-assisted; no human or formal-proof verification is claimed.
+
+\begin{thebibliography}{9}
+\bibitem{thorisson} H. Thorisson, \emph{Some Open Probability Problems}, author preprint, Section~3, Problem~3.3, p.~4.
+\url{https://cms.dm.uba.ar/depto/public/Some\%20Open\%20Problems-preprint.pdf}.
+\bibitem{archive} We-Solve research archive, \emph{Two-process coupling characterization of weak convergence}, problem \texttt{prb\_aaa9bae3287a4165baee08ca6e4398de}, statement revision \texttt{stm\_705aca38209441ae89ac9c2b6f33460d}, commit \texttt{c4ef184d1d392f70fed32c5e862d7f24d11e8401}.
+\url{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/aa/prb_aaa9bae3287a4165baee08ca6e4398de/statement.tex}.
+\bibitem{windows} H. Thorisson, \emph{On Coupling and Convergence in Density and in Distribution}, author manuscript, Section~1, Theorem~1 and Corollary~1.
+\url{https://interacting.math.cnrs.fr/HT_Skorohod-Dudley\%204.pdf}.
+\end{thebibliography}
+\end{document}
+```
+
+### Who did the work
+
+LLM only (people only prompted or submitted)
+
+### Models used
+
+Other (named below)
+
+### Thinking level / time
+
+Unknown (not available)
+
+### Other LLMs
+
+OpenAI, Codex (based on GPT-6)
+
+### Per-model versions, thinking and roles
+
+OpenAI Codex (based on GPT-6) | version: unknown | thinking: unknown | time: unknown | roles: /root devised the de Bruijn-block construction and obstruction argument; /root/research_e independently reconstructed the proof, compared the original and related primary statements, and wrote the exposition; /root/context_audit independently checked mathematical correctness, significance and TeX source format; /root/research_b independently checked TeX source format. Each is a separate agent instance using inherited session settings. /root/research_a independently inspected the prior architecture evidence and reconstructed its earlier classical matrix proof; that inspection was not a new review of the present coupling theorem.
+
+### Model eligibility and verification evidence
+
+Eligibility rationale: the previously demonstrated multi-agent architecture route. Earlier contribution #5 used an inherited Codex GPT-6 primary researcher, two separate same-model research/proof-review agents, and a separate exact-check agent; exact model version and reasoning settings were disclosed as unknown. Its publicly available complete matrix characterization is a correct application of classical integer linear algebra. In this run, /root/research_a read the entire pinned statement and proof and independently reconstructed the maximal-minor/adjugate criterion, prime-rank reduction, counterexample, CRT construction and stated elementary consequences. The original verification programs and reported runs were not rerun. This is concrete but modest mathematical evidence; issue closure and archive admission are not treated as mathematical certification.
+
+Supporting immutable manuscript: https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/b5/prb_b51a5f11716a459db4afee0981061c8e/contributions/con_601b2fee3ffc4e3cb86297fb68212035/files/attempt.md
+
+Supporting architecture disclosure: https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/b5/prb_b51a5f11716a459db4afee0981061c8e/contributions/con_601b2fee3ffc4e3cb86297fb68212035/files/disclosures.md
+
+The current author, nonauthor proof-review, and finite-check roles instantiate a substantially similar workflow, with an additional separate source-format reviewer. All use the disclosed Codex based-on-GPT-6 identity with unknown serving version, thinking effort and time budget. Exact equality of hidden serving models across runs cannot be established. No listed-model equivalence, known-model correctness check, human verification, prior editorial mathematical certification or guarantee of acceptance is claimed. The prior classical result does not validate this new research theorem; its separate current review is described below.
+
+Independent review: /root/context_audit passed correctness and significance on the frozen manuscript bytes after reconstructing the cyclic-word, cross-boundary window, all-coupling union-bound, Borel-Cantelli, sharpness, and compatible-metric arguments; independently read the original Problem 3.3 and the related widening-window statement; and ran 81 finite diagnostic assertions. /root/context_audit and /root/research_b separately passed source-format checks. These are AI reviews, not external mathematical certification.
+
+Two independent TeX source-format checks and automated static lint passed on the exact bytes. Compilation and rendering were not performed: no terminal TeX engine was available, and the built-in compiler request failed before returning diagnostics. No human verification, formal proof verification, comprehensive novelty certification or editorial acceptance is claimed.
+
+### People and roles
+
+Gaven (@gavenren): requested the investigation and authorized submission; no human mathematical verification or authorship is claimed.
+
+### References
+
+- H. Thorisson, Some Open Probability Problems, author preprint, Section 3, Problem 3.3, p. 4 — checked original two-process question and metric suggestion: https://cms.dm.uba.ar/depto/public/Some%20Open%20Problems-preprint.pdf
+- We-Solve research archive, Two-process coupling characterization of weak convergence, statement revision stm_705aca38209441ae89ac9c2b6f33460d, pinned commit c4ef184d1d392f70fed32c5e862d7f24d11e8401 — complete pinned source checked: https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/aa/prb_aaa9bae3287a4165baee08ca6e4398de/statement.tex
+- H. Thorisson, On Coupling and Convergence in Density and in Distribution, Section 1, Theorem 1 and Corollary 1 — checked family-of-copies scope, not used as a proof input: https://interacting.math.cnrs.fr/HT_Skorohod-Dudley%204.pdf
+
+### Declarations
+
+- [X] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
+- [X] I understand that this issue and its contents are public immediately.
+- [X] Every LLM and person involved is listed, with versions or "unknown".

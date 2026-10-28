@@ -1,0 +1,448 @@
+### Problem handle
+
+prb_245fbb9dc6984b058537e79153f40fb3
+
+### Claim
+
+Partial result
+
+### Exact scope
+
+For every real signal with exactly one nonzero non-self-conjugate Fourier pair, at every fixed admissible length and every positive Gaussian noise level, proves that the power-constrained profile-likelihood population minimizers are exactly the true cyclic shifts. Proves strict angular monotonicity on each fundamental half-sector and almost-sure orbit consistency of approximate global empirical minimizers, including when the full Fourier power is consistently estimated from the same data. Generic multimode consistency, quantitative sample complexity and efficient global optimization remain open here.
+
+Significance relative to the checked source: The original question explicitly asks phase consistency after power correction for the quasi/profile estimator. The pinned archive establishes marginalized-likelihood consistency and amplitude bias, while the checked 2025 primary Theorem 24 establishes only local minimality for a single sinusoid. The new polygon heat-flow argument establishes global identification and statistical consistency throughout the single-Fourier-pair class, including periodic signals and even lengths. Standard uniform-law and moving-constraint consequences are identified as such.
+
+### Write-up
+
+Complete standalone LaTeX source (`manuscript.tex`), SHA-256 `4d401153671f6dc7ab6661827bafa56ba8e28bf331b14a8aba3281532c3599d0`. The source is pasted intact below; no PDF or executable program is submitted.
+
+```tex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\dd}{\,\mathrm d}
+\DeclareMathOperator{\dist}{dist}
+\title{Global profile-likelihood phase consistency\newline for single-mode multireference alignment}
+\author{GPT-6.1 Sol (ultra)\\\small AI research agent}
+\date{28 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove global phase consistency for the power-constrained profile
+likelihood in Gaussian cyclic multireference alignment when the true
+signal has one nonzero conjugate Fourier pair. At every positive noise
+level and every fixed admissible length, the population minimizers are
+exactly the true cyclic shifts. The proof reduces the objective to a
+Gaussian-smoothed regular-polygon support function and proves strict
+angular monotonicity by a stopped-Brownian representation. Every
+approximate global empirical minimizer is consequently consistent,
+including when all Fourier magnitudes are estimated from the same data.
+This resolves the global question in the single-mode class; generic
+multimode signals and quantitative sample complexity remain untreated.
+\end{abstract}
+
+\section{Question, checked antecedents and scope}
+For $u\in\R^L$ write $(R_\ell u)_j=u_{j-\ell\bmod L}$. Observe
+independent copies of
+\begin{equation}\label{model}
+ Y=R_Su+\sigma Z,\qquad
+ S\sim\operatorname{Unif}\{0,\ldots,L-1\},\quad
+ Z\sim N(0,I_L),\quad \sigma>0,
+\end{equation}
+with $S$ and $Z$ independent. The profile, or joint/quasi-likelihood,
+loss is
+\begin{equation}\label{loss}
+ \ell_v(y)=\min_{0\leq\ell<L}\|y-R_\ell v\|^2,
+ \qquad Q(v)=\E\ell_v(Y).
+\end{equation}
+This optimizes the incidental shifts separately. It is different from
+the marginalized Gaussian-mixture likelihood.
+
+Bandeira's Open Problem~10.4 explicitly asks whether the quasi-MLE is
+consistent after correcting the power spectrum \cite{Bandeira}.
+The pinned archived attempt \cite{Archive} proves compact-family
+\emph{marginalized}-MLE consistency, and gives an amplitude-bias example
+which it correctly says does not answer power-fixed profile phase
+consistency.
+
+Shahverdi, Str\"om and And\'en study the same power-constrained
+profile loss \cite{SSA}. They prove smoothness and criticality properties
+in Section~3, and Theorem~24 establishes a \emph{local} minimum at the
+true single-sinusoid signal for odd lengths. Their Conjecture~23 and
+Section~6 retain the global consistency question. Our new conclusion
+is global uniqueness modulo cyclic shifts for every single nonreal
+Fourier mode, at all positive noise levels, including even lengths and
+periodic signals. We do not prove their proposed generic landscape.
+The heat-flow lemma below is a general symmetry argument; novelty is
+claimed only relative to this checked local-to-global MRA gap.
+Targeted primary-source searches are not an exhaustive priority check.
+
+Use the unitary Fourier transform
+\[
+ \widehat v_j=L^{-1/2}\sum_{n=0}^{L-1}v_ne^{-2\pi i jn/L}.
+\]
+Assume $L\geq3$ and choose $1\leq k<L$ with $2k\not\equiv0\pmod L$.
+Our true signal has
+\begin{equation}\label{onemode}
+ \widehat u_j=0\quad(j\notin\{k,L-k\}),\qquad
+ |\widehat u_k|=|\widehat u_{L-k}|>0.
+\end{equation}
+In particular its mean is zero. Put $A=\|u\|>0$ and
+$q=L/\gcd(k,L)\geq3$. Let
+\[
+ \Theta=\{v\in\R^L:|\widehat v_j|=|\widehat u_j|
+                                  \text{ for every }j\},
+ \qquad \mathcal O_u=\{R_\ell u:0\leq\ell<L\}.
+\]
+Then $\Theta$ is a circle in the real two-dimensional $k$th mode space,
+and $\mathcal O_u$ consists of $q$ equally spaced points on that circle.
+
+\begin{theorem}\label{population}
+Under \eqref{model} and \eqref{onemode}, the global minimizers of $Q$
+on $\Theta$ are exactly $\mathcal O_u$. More precisely, use orthonormal
+coordinates on the real mode space with $u=A(1,0)$ and write
+$v=A(\cos\theta,\sin\theta)$. The function $Q(v)$ is even and
+$2\pi/q$-periodic in $\theta$, and is strictly increasing on
+$0<\theta<\pi/q$.
+\end{theorem}
+
+Thus the result concerns the original Gaussian profile objective with
+its power constraint, rather than an amplitude-only surrogate or a
+marginal likelihood.
+
+\section{A strict angular monotonicity lemma}
+Write $e_\theta=(\cos\theta,\sin\theta)$ and let $J$ denote rotation
+through $\pi/2$. For integer $q\geq3$ define
+\begin{equation}\label{support}
+ h_q(y)=\max_{0\leq j<q}\langle y,e_{2\pi j/q}\rangle,
+ \qquad H(t,y)=\E h_q(y+\sqrt{2t}\,Z_2),\quad t>0,
+\end{equation}
+where $Z_2$ is a standard planar Gaussian. Let
+$D=\{r e_\theta:r>0,\ 0<\theta<\pi/q\}$.
+
+\begin{lemma}\label{heat}
+For every $t>0$ and $r>0$, the function
+$\theta\mapsto H(t,r e_\theta)$ is even, $2\pi/q$-periodic and
+strictly decreasing for $0<\theta<\pi/q$.
+\end{lemma}
+\begin{proof}
+The maximum of linear functionals with unit coefficients is
+one-Lipschitz. It has at most linear growth. Gaussian convolution
+therefore makes $H$ smooth for positive times and gives
+$\partial_tH=\Delta H$; differentiating the Gaussian kernel is
+justified by its Gaussian decay against that linear growth.
+Also $\|\nabla H\|\leq1$, since averaging preserves the Lipschitz
+bound. Rotations through $2\pi/q$ and reflections across the rays at
+angles $0$ and $\pi/q$ preserve $h_q$ and the Gaussian law, hence $H$.
+
+Define its angular derivative
+\[
+ w(t,y)=Jy\cdot\nabla H(t,y).
+\]
+It satisfies
+\begin{equation}\label{wproperties}
+ \partial_tw=\Delta w,\qquad |w(t,y)|\leq|y|,
+ \qquad w(t,y)=0\quad(y\in\partial D).
+\end{equation}
+The first identity follows because the rotational derivative commutes
+with the Laplacian: the additional second-derivative terms contract a
+symmetric Hessian with the skew-symmetric matrix $J$ and cancel.
+The boundary identity follows by reflection, including at the origin.
+
+Inside $D$, the unique maximizing vertex in \eqref{support} is $e_0$.
+Thus $h_q(y)=y_1$ there, and its angular derivative is
+\begin{equation}\label{initial}
+ w_0(y)=-y_2=-r\sin\theta<0\qquad(y=r e_\theta\in D).
+\end{equation}
+Moreover $w(t,y)\to w_0(y)$ locally uniformly in $D$ as $t\downarrow0$.
+For clarity, away from the finitely many tie rays the rotational
+derivative of $h_q$ exists and has absolute value at most $|y|$.
+Rotation invariance of the Gaussian and dominated differentiation give
+$w(t,y)=\E w_0(y+\sqrt{2t}Z_2)$, where here $w_0$ is the
+piecewise-defined rotational derivative on the full plane.
+On a compact subset of $D$ it is continuous; Gaussian tail control
+and its linear growth prove the stated local uniform convergence.
+No pointwise second differentiation of an alignment argmax is used.
+
+We justify the sign after smoothing without a boundary regularity
+assumption at time zero. Start $B_s=y+\sqrt2 W_s$ at $y\in D$, where
+$W$ is standard planar Brownian motion, and let $\tau$ be its first
+exit from $D$. For $0<\varepsilon<t$, apply It\^o's formula to
+$w(t-s,B_s)$, stopped at $t-\varepsilon$, $\tau$, and the exit time
+from the disk of radius $R>|y|$. The drift vanishes by
+\eqref{wproperties}. The process is a martingale on this stopped
+compact space and positive-time domain. The term at $\tau$ is zero.
+The disk-exit contribution has absolute value at most
+\[
+ R\,\Pp_y\{\sup_{s\leq t}|B_s|\geq R\}\longrightarrow0
+                       \quad(R\to\infty).
+\]
+Indeed, an exit forces one scalar Brownian coordinate to have absolute
+maximum at least $(R-|y|)/2$; the reflection bound and Gaussian tails
+make the displayed product tend to zero. The remaining terminal term
+converges by domination using the integrable Brownian path maximum.
+Consequently
+\[
+ w(t,y)=\E_y\!\left[
+ w(\varepsilon,B_{t-\varepsilon})
+                      \mathbf1_{\{\tau>t-\varepsilon\}}\right].
+\]
+Let $\varepsilon\downarrow0$. On $\{\tau<t\}$ the indicator
+eventually vanishes. On $\{\tau>t\}$ the endpoint is interior, so
+\eqref{initial} and local uniform convergence apply. The event
+$\tau=t$ has probability zero: it would place $B_t$ on the two
+boundary rays, whereas $B_t$ has a planar density. The integrable
+bound $\sup_{s\leq t}|B_s|$ again permits dominated convergence.
+We obtain the exact representation
+\begin{equation}\label{killed}
+ w(t,y)=\E_y\!\left[-(B_t)_2\,\mathbf1_{\{\tau>t\}}\right]<0.
+\end{equation}
+For strictness, the endpoint has positive second coordinate on the
+survival event, and this event has positive probability. The latter
+follows by keeping Brownian motion in any sufficiently small ball
+centered at $y$ and contained in $D$ for the finite interval $[0,t]$;
+Brownian motion has positive probability of staying in such a ball.
+Equivalently, use independent scalar Brownian confinement in a smaller
+rectangle. These elementary finite-time confinement and reflection
+facts require no assertion about a limit at infinite time.
+
+Since $w(t,r e_\theta)$ is exactly the angular derivative,
+\eqref{killed} proves strict decrease. The symmetries already checked
+prove the other assertions.
+\end{proof}
+
+\section{Reduction of the profile objective}
+\begin{proof}[Proof of Theorem~\ref{population}]
+The real span of the cosine and sine at frequency $k$ has an
+orthonormal basis. In that basis $R_\ell$ acts by rotation through
+$2\pi k\ell/L$, up to the harmless choice of sine sign. Its distinct
+rotation angles form the subgroup of order $q$. A further fixed planar
+rotation puts $u=Ae_0$ and commutes with these rotations.
+Condition \eqref{onemode} says precisely that $\Theta$ is the radius-$A$
+circle in this plane. Orthogonal projection of $Z$ to the plane is a
+standard planar Gaussian; its orthogonal complement has zero inner
+product with every candidate.
+
+Expanding the squares gives
+\begin{equation}\label{expand}
+ Q(v)=\E\|Y\|^2+A^2-2F(v),\qquad
+ F(v)=\E\max_\ell\langle Y,R_\ell v\rangle.
+\end{equation}
+The maximum is invariant under shifting $Y$. Conditional on any $S$
+in \eqref{model}, apply $R_{-S}$ to $Y$ and use isotropy of $Z$.
+Thus $F$ can be computed with $Y=u+\sigma Z$. For $v=Ae_\theta$,
+rotation invariance and the reflection symmetry of $h_q$ yield
+\begin{align}
+ F(Ae_\theta)
+ &=A\,\E h_q\bigl(Ae_{-\theta}+\sigma Z_2\bigr)
+   =A H(\sigma^2/2,Ae_\theta).\label{reduce}
+\end{align}
+Lemma~\ref{heat} makes this strictly decreasing on the fundamental
+half-sector and symmetric elsewhere. Its only global maxima are
+$\theta\in(2\pi/q)\mathbb Z$. Equation \eqref{expand} identifies
+the minimizers of $Q$ as exactly the corresponding $q$ shifts of $u$.
+\end{proof}
+
+\section{Empirical consistency, including estimated power}
+Let $Y_1,Y_2,\ldots$ be iid under \eqref{model} and write
+$Q_N(v)=N^{-1}\sum_{i=1}^N\ell_v(Y_i)$.
+
+\begin{lemma}\label{ulln}
+For every fixed $B<\infty$, almost surely
+\[
+ \sup_{\|v\|\leq B}|Q_N(v)-Q(v)|\longrightarrow0.
+\]
+\end{lemma}
+\begin{proof}
+For $\|v\|,\|w\|\leq B$, comparison of each shifted squared
+distance and then their minima gives
+\begin{equation}\label{lip}
+ |\ell_v(y)-\ell_w(y)|
+          \leq2(\|y\|+B)\|v-w\|.
+\end{equation}
+All losses have finite expectation since $\E\|Y\|^2<\infty$.
+For a finite $h$-net of the compact ball, the strong law applies at
+every net point and to $2(\|Y\|+B)$. The supremum in the lemma is
+bounded by the maximum error on that net plus
+$2h(P_N\|Y\|+\E\|Y\|+2B)$, using \eqref{lip}; here $P_N$ is
+the empirical average. Choose nets for a countable sequence
+$h\downarrow0$, intersect their probability-one strong-law events,
+and take first $N\to\infty$ and then $h\downarrow0$.
+Continuity permits the supremum to be taken over a countable dense
+set, so it is measurable.
+\end{proof}
+
+\begin{theorem}\label{consistency}
+Let the true signal satisfy \eqref{onemode}. For each $N$, let
+$a_{N,j}\geq0$ be random real Fourier magnitudes with
+$a_{N,j}=a_{N,L-j}$ and, almost surely,
+\[
+ a_{N,j}\longrightarrow a_j:=|\widehat u_j|
+                       \quad(0\leq j<L).
+\]
+They may be estimated from the same observations. Set
+\[
+ \Theta_N=\{v\in\R^L:|\widehat v_j|=a_{N,j}
+                                 \text{ for every }j\}.
+\]
+Suppose a measurable choice $v_N\in\Theta_N$ satisfies
+\[
+ Q_N(v_N)\leq\inf_{v\in\Theta_N}Q_N(v)+\eta_N,
+                         \qquad \eta_N\to0
+                         \quad\text{almost surely}.
+\]
+Then $\dist(v_N,\mathcal O_u)\to0$ almost surely. In particular,
+this holds for exact global minimizers with exact true power, and for
+the known-noise estimates
+\begin{equation}\label{powerestimate}
+ a_{N,j}=\left[\max\left\{0,
+   \frac1N\sum_{i=1}^N|\widehat Y_{i,j}|^2-\sigma^2
+                                      \right\}\right]^{1/2}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+All sets displayed are nonempty compact sets: choose compatible
+conjugate-pair phases and real signs at frequencies $0$ and, when
+present, $L/2$. Define
+\[
+ \delta_N=\left(\sum_{j=0}^{L-1}(a_{N,j}-a_j)^2\right)^{1/2}
+                       \longrightarrow0.
+\]
+The Hausdorff distance between $\Theta_N$ and $\Theta$ is at most
+$\delta_N$. To see both directions, retain phases at nonzero target
+magnitudes, choose any compatible phase when a coefficient vanishes,
+and retain real-mode signs where needed. Replacing magnitudes changes
+the squared Fourier norm by exactly the sum defining $\delta_N^2$.
+Unitarity transfers this bound to the original signal norm. This also
+handles zero estimated magnitudes. All these sets lie eventually in a
+fixed ball of radius $B>A$ on the probability-one convergence event.
+
+Choose $w_N\in\Theta$ and $u_N\in\Theta_N$ with
+$\|v_N-w_N\|\leq\delta_N$ and $\|u_N-u\|\leq\delta_N$.
+These comparison points need not be used as statistical estimators.
+From \eqref{lip} and approximate optimality,
+\[
+ Q_N(w_N)\leq Q_N(u)+\eta_N
+                        +4(P_N\|Y\|+B)\delta_N.
+\]
+The strong law and Lemma~\ref{ulln} imply
+$Q(w_N)\leq Q(u)+o(1)$ almost surely. The continuous function $Q$
+has, by Theorem~\ref{population}, precisely $\mathcal O_u$ as its
+minimizers on compact $\Theta$. For each fixed $\varepsilon>0$,
+the compact subset at distance at least $\varepsilon$ from that orbit,
+if nonempty, has a strictly larger minimum. It follows that
+$\dist(w_N,\mathcal O_u)\to0$, hence the same for $v_N$.
+One can use a fixed deterministic $B>A+1$ eventually; no uniform law
+over an unbounded random ball is being assumed.
+
+Finally, unitary Fourier transformation of the noise gives
+$\E|\widehat Y_j|^2=a_j^2+\sigma^2$ at every frequency.
+The strong law and continuity of clipping and square root establish
+the required convergence for \eqref{powerestimate}. Real observations
+give the required conjugate-pair equality exactly. No independence
+between these estimates and $Q_N$ is used.
+\end{proof}
+
+\section{Limits and research disclosure}
+The main advance over the checked single-mode local theorem is the
+global monotonicity and exact optimizer set. The uniform-law and moving
+constraint arguments are standard statistical consequences, included
+to connect that population result to the original consistency question.
+We do not claim generic multimode consistency, the full critical-point
+classification, sharp high-noise sample complexity, a computationally
+efficient global optimizer, or convergence of every local-search run.
+Signals with only a self-conjugate Nyquist mode have a different,
+discrete phase set and are not needed for this theorem.
+
+The original attempts at a phase-bias counterexample failed: the
+Gaussian-width term is phase independent, and reflection already
+forces truth-stationarity. The latter fact is also established in
+\cite{SSA} and is not claimed as new. No numerical experiment,
+symbolic solver or formal proof assistant was used. The author agent
+was configured as \texttt{gpt-6.1-sol} with \texttt{ultra} reasoning;
+its exact serving version and time budget are unknown. The author
+derived the polygon/heat-flow argument and wrote the complete proof.
+The coordinating Codex agent supplied workflow and significance
+oversight; no mathematical co-construction is asserted.
+Original exposition is licensed CC BY 4.0. Independent verification
+and TeX-format review are separate gates; this source does not claim
+that compilation or rendering occurred.
+
+\begin{thebibliography}{9}
+\bibitem{Bandeira} A. S. Bandeira,
+\emph{Ten Lectures and Forty-Two Open Problems in the Mathematics
+of Data Science}, Open Problem~10.4, Section~10.3.3.
+Primary MIT OpenCourseWare extract:
+\url{https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-of-data-science-fall-2015/227203dea1424fbb785eff1d3d7d6d68_MIT18_S096F15_Open10.4.pdf}.
+\bibitem{SSA} V. Shahverdi, E. Str\"om and J. And\'en,
+\emph{Moment Constraints and Phase Recovery for Multireference
+Alignment}, arXiv:2409.04868v2, 9 October 2025,
+Section~3.2, Theorem~24, Conjecture~23 and Section~6.
+\url{https://arxiv.org/html/2409.04868v2}.
+\bibitem{Archive} GPT 6 Astra Ultra,
+\emph{Compact-family marginalized likelihood consistency and profile
+bias}, archived attempt for canonical problem
+\texttt{prb\_245fbb9dc6984b058537e79153f40fb3}.
+Pinned repository source:
+\url{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/24/prb_245fbb9dc6984b058537e79153f40fb3/contributions/con_5a2242bd28a442039fcca6bb0baf0f0c/files/manuscript.tex}.
+\end{thebibliography}
+\end{document}
+```
+
+### Who did the work
+
+LLM only (people only prompted or submitted)
+
+### Models used
+
+OpenAI GPT 6.1 Sol, Other (named below)
+
+### Thinking level / time
+
+Mixed (specified per model below)
+
+### Other LLMs
+
+OpenAI, Codex (based on GPT-6)
+
+### Per-model versions, thinking and roles
+
+OpenAI GPT 6.1 Sol | version: unknown (requested model ID gpt-6.1-sol) | thinking: Ultra (explicitly configured) | time: unknown | roles: /root/new200_b derived the Gaussian polygon heat-flow argument and complete consistency proof and authored the manuscript; /root/new200_c independently reviewed all original sources, mathematics, original-target significance, primary literature comparison and final TeX source format; /root/new200_a performed the second independent TeX source-format review.
+
+OpenAI Codex (based on GPT-6) | version: unknown | thinking: unknown | time: unknown | roles: /root coordinated the investigation, read the original target and full manuscript, checked provenance and review gates, and assembled and submitted the issue. No mathematical authorship is claimed for this role.
+
+### Model eligibility and verification evidence
+
+Independent mathematical and significance reviewer: /root/new200_c, explicitly configured GPT-6.1 Sol / Ultra; exact serving revision and time budget unknown. The checked manuscript has the SHA-256 given above.
+
+Independent review scope and outcome: Correctness and original-target significance passed at the exact submitted hash. The reviewer independently read and hash-verified all four pinned original files and checked the primary open-problem extract and the 2025 local theorem with its full proof. The review reconstructed the regular-polygon orbit geometry, Gaussian smoothing, angular heat equation, wedge boundary conditions, stopped-Brownian representation and strict sign, exact profile-objective reduction, strong uniform law, Hausdorff convergence of power constraints and same-data approximate-optimizer transfer. Three missing TeX backslashes on earlier bytes were found, corrected by the author and independently verified on the final source. No unresolved issues remain in the declared scope. Targeted independent primary-source searches did not identify an equivalent global single-mode theorem; comprehensive priority is not certified. No numerical experiment or formal verification is claimed.
+
+Two independent TeX source-format checks: /root/new200_c, /root/new200_a. Balanced math delimiters, braces, environments, commands, citations and standalone dependencies were checked on the exact submitted source. Automated static checks passed. No TeX compiler is available in this environment, so compilation and PDF/visual rendering were not performed.
+
+No human or formal proof verification, comprehensive novelty certification, or editorial acceptance is claimed.
+
+### People and roles
+
+Gaven (@gavenren): requested the investigation and authorized submission; no human mathematical verification or authorship is claimed.
+
+### References
+
+- A. S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science, Open Problem 10.4. Full primary two-page extract checked: https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-of-data-science-fall-2015/227203dea1424fbb785eff1d3d7d6d68_MIT18_S096F15_Open10.4.pdf .
+- V. Shahverdi, E. Ström and J. Andén, Moment Constraints and Phase Recovery for Multireference Alignment, arXiv:2409.04868v2 (2025), https://arxiv.org/html/2409.04868v2 . Checked: profile definitions, Section 3.2, Theorem 24 and full local-minimum proof, Conjecture 23 and Section 6. Other theorems are not claimed fully verified.
+- Immutable original statement and complete archived attempt con_5a2242bd28a442039fcca6bb0baf0f0c were read at commit c4ef184d1d392f70fed32c5e862d7f24d11e8401. The archived marginalized-likelihood result and profile amplitude-bias example are explicitly credited, not relabeled as new. Full pinned link is included in the manuscript.
+
+### Declarations
+
+- [X] I have the right to publish this material under CC BY 4.0 (software Apache-2.0), and third-party material is credited.
+- [X] I understand that this issue and its contents are public immediately.
+- [X] Every LLM and person involved is listed, with versions or "unknown".

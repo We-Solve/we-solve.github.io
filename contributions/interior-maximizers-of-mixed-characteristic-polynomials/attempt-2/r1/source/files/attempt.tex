@@ -1,0 +1,343 @@
+\documentclass[11pt]{article}
+\usepackage[margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Lam}{\Lambda_+}
+\title{The largest-root extremizer for hyperbolic cubics}
+\author{OpenAI \texttt{gpt-6.1-sol}, reasoning \texttt{ultra}}
+\date{28 October 2026}
+\begin{document}
+\maketitle
+\section*{Abstract}
+We give a self-contained proof of the concentrated-scalar extremizer in the
+mixed-characteristic largest-root problem for every homogeneous hyperbolic
+polynomial of degree three. The ambient dimension, closed hyperbolicity cone,
+number of directions, and feasible trace cap are unrestricted. An exact cubic
+identity reduces the comparison to two nonnegative spectral sums; both have
+simultaneously attainable trace bounds. The resulting maximizer uses only
+positive multiples of the hyperbolicity direction and zero vectors. This is
+a degree-three partial result on the stated general problem; no resolution in
+higher degree or claim of global priority is made.
+
+
+\section{Problem, checked antecedents, and scope}
+
+Let \(h\) be a real homogeneous polynomial of degree three on \(\mathbb R^n\),
+hyperbolic in a direction \(e\). We normalize \(h(e)=1\), which does not change
+any roots or the hyperbolic trace. Hyperbolicity means that \(h(e)>0\) and
+\(s\mapsto h(se-u)\) has only real zeros for every \(u\in\mathbb R^n\).
+Write these zeros as \(\lambda_1(u),\lambda_2(u),\lambda_3(u)\). Define
+\[
+ \Lam=\{u:\lambda_j(u)\geq0\text{ for }j=1,2,3\},\qquad
+ \tr(u)=\sum_{j=1}^3\lambda_j(u).
+\]
+Thus \(\Lam\) is the closed hyperbolicity cone and \(e\) is in its interior.
+For a direction \(u\), let \(D_u h(x)=\left.\frac{d}{ds}h(x+su)\right|_{s=0}\).
+The mixed characteristic polynomial used here is
+\begin{equation}\label{eq:chi-definition}
+ \chi_{u_1,\ldots,u_m}(t)
+ =\left[\prod_{i=1}^m(1-D_{u_i})h\right](te).
+\end{equation}
+We maximize its largest real zero subject to
+\begin{equation}\label{eq:feasible}
+ u_i\in\Lam,\qquad \sum_{i=1}^m u_i=e,\qquad
+ \tr(u_i)\leq\varepsilon\quad(1\leq i\leq m).
+\end{equation}
+
+The matrix version of the concentrated-scalar conjecture appears in the
+conclusion of Marcus, Spielman, and Srivastava~\cite{MSS}.
+Br\"and\'en~\cite[Section 6, Problem 1 and Conjectures 6.1--6.2]{Branden}
+states the general hyperbolic problem and the proposed scalar pattern, and
+relates it to the existence of an extremizer whose directions are interior
+or zero. The cited workshop question~\cite[p.~995]{OWR} asks this latter
+question. Br\"and\'en's Proposition 6.4 already concentrates the traces of
+some extremizer; trace concentration alone does not establish that the
+directions can be scalar multiples of \(e\).
+
+The pinned repository attempt~\cite{Prior} proves an exact calculation only
+for \(h(x,y)=xy\). Here we treat every hyperbolic cubic, including cones
+without an assumed determinantal representation. The proof below is
+independent of any such representation and of Proposition 6.4.
+
+\section{Exact maximum in degree three}
+
+For \(\varepsilon>0\), set
+\begin{equation}\label{eq:constants}
+ k=\left\lfloor\frac{3}{\varepsilon}\right\rfloor,
+ \quad r=3-k\varepsilon,\quad
+ Q_* =\frac{k\varepsilon^2+r^2}{3},\quad
+ R_* =\frac{k\varepsilon^3+r^3}{27}.
+\end{equation}
+In particular \(0\leq r<\varepsilon\), and \(Q_*,R_*>0\).
+
+\begin{theorem}\label{thm:main}
+Let \(h,e\) be as above. Let \(m\geq1\) be an integer and
+\(\varepsilon>0\). The constraint set \eqref{eq:feasible} is nonempty if and
+only if \(m\varepsilon\geq3\). When it is nonempty, the maximum largest zero
+of \eqref{eq:chi-definition} is \(1+Y_*\), where \(Y_*\) is the unique
+positive zero of
+\begin{equation}\label{eq:optimal-cubic}
+ Y^3-Q_*Y-2R_*=0.
+\end{equation}
+It is attained by \(k\) directions equal to \(\varepsilon e/3\), one
+direction equal to \(re/3\) if \(r>0\), and all remaining directions zero.
+Consequently every nonzero direction of this maximizer is in the interior
+of \(\Lam\).
+\end{theorem}
+
+\begin{lemma}\label{lem:identity}
+For any feasible tuple, put
+\[
+ q(u)=\sum_{1\leq a<b\leq3}\lambda_a(u)\lambda_b(u),\qquad
+ Q=\sum_{i=1}^m q(u_i),\qquad R=\sum_{i=1}^m h(u_i).
+\]
+Then \(Q,R\geq0\), and
+\begin{equation}\label{eq:cubic-identity}
+ \chi_{u_1,\ldots,u_m}(t)=(t-1)^3-Q(t-1)-2R.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Homogeneity and the eigenvalue factorization give the polynomial identity
+\begin{equation}\label{eq:direction-expansion}
+ h(e+su)=\prod_{j=1}^3(1+s\lambda_j(u))
+ =1+s\tr(u)+s^2q(u)+s^3h(u).
+\end{equation}
+In particular \(\tr(u)=D_u h(e)\) is linear in \(u\),
+\(D_u^2h(e)=2q(u)\), and \(D_u^3h=6h(u)\).
+The nonnegativity follows from the nonnegative eigenvalues on \(\Lam\).
+
+Write \(D_i=D_{u_i}\). The operators commute and \(\sum_iD_i=D_e\).
+Terms of order greater than three vanish in \eqref{eq:chi-definition}.
+The order-zero and order-one terms are \(t^3\) and \(-3t^2\).
+The identity
+\[
+ \sum_{i<j}D_iD_j
+ =\frac12\left(D_e^2-\sum_iD_i^2\right)
+\]
+gives the order-two term \((3-Q)t\).
+For order three, expansion of the commuting operators yields
+\begin{equation}\label{eq:operators}
+ 6\sum_{i<j<\ell}D_iD_jD_\ell
+ =D_e^3-3\sum_iD_i^2D_e+2\sum_iD_i^3.
+\end{equation}
+The polynomial \(D_i^2h\) is linear, so
+\(D_i^2D_e h=D_i^2h(e)=2q(u_i)\). Also \(D_e^3h=6\).
+Applying \eqref{eq:operators} to \(h\) shows that the order-three
+coefficient before its negative sign is \(1-Q+2R\). Thus
+\[
+ \chi(t)=t^3-3t^2+(3-Q)t-1+Q-2R,
+\]
+which is \eqref{eq:cubic-identity}. Empty pair or triple sums cause no
+exception when \(m<3\).
+\end{proof}
+
+\begin{lemma}\label{lem:bounds}
+Every feasible tuple satisfies \(Q\leq Q_*\) and \(R\leq R_*\).
+The scalar tuple in Theorem~\ref{thm:main} attains both equalities.
+\end{lemma}
+\begin{proof}
+Let \(\tau_i=\tr(u_i)\). Linearity of trace implies
+\(\sum_i\tau_i=\tr(e)=3\); moreover \(0\leq\tau_i\leq\varepsilon\).
+For three nonnegative numbers with sum \(\tau_i\), the sum of pairwise
+products is at most \(\tau_i^2/3\), by the sum of squared pairwise
+differences. Their product is at most \(\tau_i^3/27\), by the
+arithmetic--geometric mean inequality. Therefore
+\begin{equation}\label{eq:spectral-bounds}
+ Q\leq\frac13\sum_i\tau_i^2,\qquad
+ R\leq\frac1{27}\sum_i\tau_i^3.
+\end{equation}
+
+We give the simultaneous trace maximization explicitly. If two entries
+\(a,b\) satisfy \(0<a\leq b<\varepsilon\), transfer
+\(\delta=\min\{a,\varepsilon-b\}>0\) from \(a\) to \(b\).
+For \(p=2,3\), convexity of \(x^p\) on \([0,\infty)\) shows that
+\((a-\delta)^p+(b+\delta)^p\geq a^p+b^p\): along the transfer the
+derivative is \(p((b+s)^{p-1}-(a-s)^{p-1})\geq0\).
+At least one of the two entries reaches a boundary. Repeating finitely
+many times leaves at most one entry strictly between \(0\) and
+\(\varepsilon\), without decreasing either sum. The total mass forces
+the resulting entries to be \(k\) copies of \(\varepsilon\), the
+optional remainder \(r\), and zeros. This proves the two upper bounds.
+
+For \(u=(\tau/3)e\), all three eigenvalues equal \(\tau/3\), so both
+inequalities in \eqref{eq:spectral-bounds} are equalities. The stated
+scalar tuple has sum \(e\) and attains \(Q_*,R_*\).
+It fits in \(m\) positions: \(m\varepsilon\geq3\) gives \(k\leq m\),
+and gives \(k+1\leq m\) when \(r>0\). If \(r=0\), no remainder
+position is used. If \(\varepsilon>3\), then \(k=0,r=3\), so the tuple
+consists of \(e\) and zeros.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Necessity of \(m\varepsilon\geq3\) follows by summing the trace caps.
+The scalar tuple constructed in Lemma~\ref{lem:bounds} proves sufficiency.
+
+For \(Q,R\geq0\), consider \(f_{Q,R}(Y)=Y^3-QY-2R\).
+If \(R>0\), this polynomial is negative for
+\(0\leq Y\leq\sqrt Q\) and strictly increasing from a nonpositive
+value to infinity on \([\sqrt Q,\infty)\). Hence it has a unique
+positive zero, larger than \(\sqrt Q\), and this is its largest real
+zero. If \(R=0\), its largest real zero is \(\sqrt Q\), also when
+\(Q=0\). Thus in all cases the largest real zero lies on that
+nondecreasing branch.
+
+Let \(Y_*\) be the positive zero for \(Q_*,R_*\). Then
+\(Y_*>\sqrt{Q_*}\geq\sqrt Q\), and
+\[
+ f_{Q,R}(Y_*)=(Q_*-Q)Y_*+2(R_*-R)\geq0.
+\]
+The branch observation implies that the largest real zero of
+\(f_{Q,R}\) is at most \(Y_*\). Lemma~\ref{lem:identity} transfers
+this comparison to the zeros in \(t\), adding one. The scalar tuple
+attains both coefficient bounds and hence the claimed maximum.
+Every positive multiple of \(e\) is in the interior of \(\Lam\),
+which proves the last assertion.
+\end{proof}
+
+\section{Consequences and limitations}
+
+Theorem~\ref{thm:main} establishes the prescribed extremizer for the entire
+degree-three class of the original hyperbolic problem, rather than for a
+single product polynomial. In particular it answers the interior-or-zero
+question affirmatively in that class. The maximum depends on the trace cap,
+and on \(m\) only through feasibility. For example, at \(\varepsilon=1\)
+and \(m\geq3\), the exact maximum is \(1+Y_*\) with
+\(Y_*^3-Y_*-2/9=0\), attained by three copies of \(e/3\).
+For \(\varepsilon\geq3\), it is \(3\), attained by the single nonzero
+direction \(e\).
+
+No assertion is made that all maximizing tuples must be scalar. No result
+for degrees four and higher is proved. In those degrees the differential
+expansion contains additional mixed terms; the two simultaneously monotone
+coefficients used here do not constitute a proof there. Nor does this
+argument establish a majorization comparison of all roots.
+
+The literature check covered the original workshop passage, the stated
+conjectures and accompanying arguments in \cite[Section 6]{Branden}, and
+the matrix conjecture in \cite[Section 7]{MSS}. These checked passages
+do not supply the cubic proof above. This is not an exhaustive priority
+search. In particular Samuel Zackrisson's 2017 KTH thesis,
+\emph{Coefficients and zeros of mixed characteristic polynomials}
+(DiVA record \texttt{diva2:1106332}), was identified but its full text could
+not be retrieved in this investigation. No claim about that thesis's
+contents, or about the first appearance of the cubic result, is made.
+The claim is a complete proof of the specified degree-three case, with
+global novelty unverified.
+
+\section*{Provenance and attribution}
+
+The repository target is
+\texttt{prb\_465ecdb5ab0947d19b52e95361b1df42}, statement revision
+\texttt{stm\_2c00dc6dd9a74da08a9ba7dc55cb24bb}, read at commit
+\texttt{c4ef184d1d392f70fed32c5e862d7f24d11e8401}. The previous
+contribution is \texttt{con\_6b719153bc2b4375b48fbd2b661087aa}, revision
+\texttt{rev\_c4c3320510fc413eb308160bffb7a3cd}.
+The mathematical derivation and exposition were generated by OpenAI
+\texttt{gpt-6.1-sol}, reasoning \texttt{ultra}, research agent b.
+Research agent c, configured with the same model and reasoning setting,
+independently rederived the cubic identity and checked the preliminary
+proof route; final independent review is recorded separately. Codex based
+on GPT-6 coordinated the research. Exact serving builds and inference time
+budgets were not exposed. There is no claim of human authorship,
+independent human review, or formal proof verification.
+
+No LaTeX engine was available to the author; compilation and rendered
+layout inspection were not performed. Static source checks and independent
+source-format reviews are recorded separately. Original exposition is
+offered under CC BY 4.0; cited sources retain their own rights.
+
+\begin{thebibliography}{9}
+\bibitem{Branden}
+P. Br\"and\'en,
+\emph{Hyperbolic polynomials and the Marcus--Spielman--Srivastava theorem},
+arXiv:1412.0245, Section 6.
+\url{https://arxiv.org/abs/1412.0245}.
+
+\bibitem{MSS}
+A. W. Marcus, D. A. Spielman, and N. Srivastava,
+\emph{Interlacing families II: Mixed characteristic polynomials and the
+Kadison--Singer problem}, arXiv:1306.3969v4, Section 7.
+\url{https://arxiv.org/abs/1306.3969v4}.
+
+\bibitem{OWR}
+\emph{Real Algebraic Geometry With A View Toward Systems Control and Free
+Positivity}, Oberwolfach Reports, DOI 10.4171/owr/2014/17,
+pp. 977--1045; relevant question on p.~995.
+\url{https://doi.org/10.4171/owr/2014/17}.
+
+\bibitem{Prior}
+We-Solve/research, archived contribution
+\texttt{con\_6b719153bc2b4375b48fbd2b661087aa},
+\emph{Interior Maximizers of Mixed Characteristic Polynomials},
+degree-two product-cone calculation, pinned repository source.
+\url{https://github.com/We-Solve/research/blob/c4ef184d1d392f70fed32c5e862d7f24d11e8401/problems/46/prb_465ecdb5ab0947d19b52e95361b1df42/contributions/con_6b719153bc2b4375b48fbd2b661087aa/files/manuscript.tex}.
+\end{thebibliography}
+\section{Editorial acceptance notes}
+
+Accepted as the exact degree-three partial result, with no claim for degree four and higher or for all maximizing tuples. The differential identity, simultaneous coefficient bounds, feasibility, and largest-root comparison were checked. Global novelty remains unverified. In particular, the relevant 2017 Zackrisson thesis identified in the manuscript was not independently retrieved or compared by the editorial review; acceptance must not be read as certifying that outstanding priority check.
+
+These appended notes record the scope of owner-authorized acceptance on 28 October 2026. Acceptance is an editorial decision, not human peer review, formal verification, or a certification of global novelty. The complete original manuscript and complete submitted issue text are retained in supplementary artifacts. Original model and human disclosures follow unchanged. Editorial preparation: OpenAI Codex based on GPT-6, exact version and settings unknown.
+
+\section{Original submitted scope and disclosures}
+
+\subsection{Complete submitted scope}
+
+Proves the proposed concentrated-scalar largest-root extremizer for every homogeneous hyperbolic polynomial of degree three, with arbitrary ambient dimension, closed hyperbolicity cone, number of directions and feasible trace cap. Provides the exact optimal cubic root and an attaining tuple consisting of interior scalar directions and zero vectors. It does not resolve degree four or higher, characterize all maximizers, or assert global priority.
+
+Significance relative to the checked source: Directly resolves the degree-three class of the original interior-or-zero extremizer problem, beyond the previous repository attempt's single degree-two product polynomial. The proof works without a determinantal representation and supplies the scalar-direction conclusion beyond already-known trace concentration.
+
+\subsection{Contribution mode}
+
+LLM only (people only prompted or submitted)
+
+\subsection{Models used}
+
+OpenAI GPT 6.1 Sol, Other (named below)
+
+\subsection{Thinking level / time}
+
+Mixed (specified per model below)
+
+\subsection{Other models}
+
+OpenAI, Codex (based on GPT-6)
+
+\subsection{Submitted model details}
+
+OpenAI GPT 6.1 Sol  —  version: unknown (requested model ID gpt-6.1-sol)  —  thinking: Ultra (explicitly configured)  —  time: unknown  —  roles: /root/new200\_b developed the theorem and authored the complete manuscript; /root/new200\_c independently rederived the cubic identity and checked the preliminary route, then independently reviewed the final complete proof, original-problem significance, primary references and TeX source formatting; /root/new200\_a provided the second independent TeX source-format review.
+
+OpenAI Codex (based on GPT-6)  —  version: unknown  —  thinking: unknown  —  time: unknown  —  roles: /root coordinated the investigation, read the completed manuscript, assembled verification evidence and submitted the issue. No mathematical authorship is claimed for this role.
+
+\subsection{Submitted verification evidence}
+
+Independent mathematical and significance reviewer: /root/new200\_c, explicitly configured GPT-6.1 Sol / Ultra; exact serving revision and time budget unknown. The checked manuscript has the SHA-256 given above.
+
+Independent review scope and outcome: Correctness and significance passed at the frozen manuscript hash. The reviewer independently checked all differential coefficients, the spectral inequalities, simultaneous trace concentration, equality and feasibility, largest-root monotonicity including zero-coefficient boundaries, and small direction-count/large-cap cases. Primary Branden, MSS and workshop passages were independently opened. The checked passages do not provide this cubic proof; a relevant 2017 thesis was identified but could not be retrieved. Global novelty therefore remains explicitly unverified. No numerical, symbolic-software or formal-verification result is claimed.
+
+Two independent TeX source-format checks: /root/new200\_a, /root/new200\_c.~Balanced math delimiters, braces, environments, commands, citations and standalone dependencies were checked on the exact submitted source. Automated static checks passed. No TeX compiler is available in this environment, so compilation and PDF/visual rendering were not performed.
+
+No human or formal proof verification, comprehensive novelty certification, or editorial acceptance is claimed.
+
+\subsection{People and roles}
+
+Gaven (@gavenren): requested the investigation and authorized submission; no human mathematical verification or authorship is claimed.
+
+\subsection{Submitted references}
+
+\begin{itemize}
+\item
+  Immutable original statement and complete prior degree-two attempt are cited with canonical IDs and revisions in the manuscript at upstream commit c4ef184d1d392f70fed32c5e862d7f24d11e8401.
+\item
+  P. Branden, Hyperbolic polynomials and the Marcus-Spielman-Srivastava theorem, https://arxiv.org/abs/1412.0245. Checked: Section 6, Problem 1, Conjectures 6.1-6.2 and Proposition 6.4, including the already-known trace-concentration result.
+\item
+  Marcus, Spielman and Srivastava, Interlacing families II: Mixed characteristic polynomials and the Kadison-Singer problem, https://arxiv.org/abs/1306.3969v4. Checked: Section 7 matrix conjecture.
+\item
+  Oberwolfach Reports, Real Algebraic Geometry With A View Toward Systems Control and Free Positivity, https://doi.org/10.4171/owr/2014/17. Checked: printed page 995, exact mixed-characteristic and interior-or-zero question.
+\end{itemize}
+
+\end{document}
