@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,enumitem,hyperref,booktabs}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlist{nosep,leftmargin=*}
+\newcommand{\OUT}{\mathsf{OUT}}
+\newcommand{\SPE}{\mathrm{SPE}}
+\title{Osborne's Sequential-Location Conjecture\\\large Problem statement, definitions, and possible variants}
+\author{Research-problem specification for We--Solve\\Based on a conjecture of Martin J. Osborne}
+\date{27 October 2026}
+\begin{document}
+\maketitle
+\section*{Abstract}
+This note states Martin J. Osborne's conjecture about subgame-perfect outcomes in sequential electoral entry and separates the original open problem from natural, generally nonequivalent variants. This is a problem description, \emph{not} a solution. The companion file \texttt{osborne\_ai\_attempt.tex} records an AI-assisted proof attempt and its verification status.
+
+
+\section{Original game (exact formulation)}
+Let $n\ge2$ be a finite integer. Players $1,\ldots,n$ move in that order, each observing all earlier actions, and select an action
+\[
+ a_i\in X:=[0,1]\cup\{\OUT\}.
+\]
+Choosing $\OUT$ means not running; choosing $x\in[0,1]$ means entering at political location $x$. Every player chooses exactly once, and there are no costs or policy payoffs beyond the terminal payoff specified below.
+
+Voters form a unit mass. Their ideal locations have cumulative distribution function $F:[0,1]\to[0,1]$, assumed \emph{nonatomic with support $[0,1]$}. Equivalently, $F$ is continuous and strictly increasing, with $F(0)=0$ and $F(1)=1$; its unique median is $m:=F^{-1}(1/2)$. Every voter votes for a nearest occupied position. At voter locations equidistant from distinct occupied positions, the choice of position has measure zero because $F$ is nonatomic. Candidates at the same position divide the votes drawn to that position equally.
+
+For a terminal action profile $a=(a_1,\ldots,a_n)$, let $y_1<\cdots<y_k$ be its distinct occupied positions and $r_j\ge1$ their multiplicities. For $k\ge2$, the constituency masses at these positions are
+\[
+ Q_1=F\!\left(\frac{y_1+y_2}{2}\right),\qquad
+ Q_k=1-F\!\left(\frac{y_{k-1}+y_k}{2}\right).
+\]
+For each interior occupied position,
+\[
+ Q_j=F\!\left(\frac{y_j+y_{j+1}}2\right)-F\!\left(\frac{y_{j-1}+y_j}2\right),\qquad 1<j<k.
+\]
+Every candidate at $y_j$ has individual vote share $s_i(a)=Q_j/r_j$. For $k=1$, $Q_1=1$ and each of the $r_1$ colocated candidates gets $1/r_1$. For no entry, no candidate has a vote share.
+
+Let $s^*(a)=\max_{i:a_i\ne\OUT}s_i(a)$ when at least one candidate enters, and let
+\[
+ W(a)=\{i:a_i\ne\OUT,\ s_i(a)=s^*(a)\},\qquad w(a)=|W(a)|.
+\]
+Player $i$'s payoff is
+\[
+ u_i(a)=\begin{cases}
+ 0,&a_i=\OUT,\\
+ 1/w(a),&i\in W(a),\\
+ -1,&a_i\ne\OUT\text{ and }i\notin W(a).
+ \end{cases}
+\]
+Thus distinct-position \emph{ties for the highest vote share are allowed}; all tied candidates win with equal probability. This feature is critical. The game has perfect information, and an equilibrium means a pure-strategy subgame-perfect equilibrium (SPE), unless a variant states otherwise. An \emph{SPE outcome} is the terminal action vector induced by an SPE, not a full contingent strategy profile. Equilibrium strategies may be nonunique even when the outcome is unique.
+
+\paragraph{Osborne's conjecture.}
+For every $n\ge2$ and every such $F$, the set of pure SPE outcomes consists of the single action vector
+\[
+ \boxed{a^*=(m,\underbrace{\OUT,\ldots,\OUT}_{n-2\ \text{players}},m).}
+\]
+The two entrants are players $1$ and $n$, both at the median. This is an \emph{outcome-uniqueness} claim, not uniqueness of equilibrium strategies. It contains two logically distinct questions: (E) is $a^*$ supported by an SPE for every $(n,F)$? (U) is every SPE outcome equal to $a^*$?
+
+\paragraph{Known status as described by the originator.}
+Osborne reports proofs for $n=2,3,4$ and states that the unrestricted conjecture remains open. His 2024 paper proves a result for a \emph{different} model that prevents ties among candidates at distinct positions. An apparent twelve-player counterexample in a 2015 thesis was reported by Osborne as incomplete and neither confirmed nor refuted. Do not treat any of these as a proof or disproof of the original conjecture \cite{OsborneWeb,Osborne2024}.
+
+\section{Suggested subproblems (same underlying model)}
+The following restrictions \emph{retain all payoff and tie rules} of the original game, so a positive result would be genuine progress toward the conjecture:
+\begin{enumerate}[label=\textbf{R\arabic*.}]
+\item \textbf{Fixed $n$}: prove (E) and (U) separately for $n=5$, $n=6$, or the smallest not-yet-resolved $n$. State whether proofs hold for arbitrary $F$ or only uniform voters.
+\item \textbf{Uniform distribution}: $F(x)=x$, arbitrary finite $n$; identify which parts of the full conjecture use the uniform geometry.
+\item \textbf{Symmetric distributions}: $F(m+t)=1-F(m-t)$ whenever both sides are defined; do not confuse symmetry with uniformity.
+\item \textbf{Regularity classes}: positive continuous density, differentiable density, bounded or log-concave densities. Specify assumptions and check whether the result extends by a change of variable (note that Euclidean distances are \emph{not} preserved by quantile transforms).
+\item \textbf{Locally uniform with nonuniform tails}: for example $F(t)=t$ on $[1/12,11/12]$, unrestricted continuous strictly increasing tails matching endpoints. Analyze whether the $n=5$ outcome remains unique.
+\item \textbf{Continuation games}: with one fixed median incumbent and $k$ future movers, classify SPEs; with two fixed incumbents at $m,x$, find winning/losing equilibrium continuations for the entrant at $x$. These off-path subgames are essential for a construction of an SPE, not merely a Nash outcome.
+\item \textbf{Maximum number of entrants}: characterize the maximum number of simultaneous terminal winners in an SPE, or characterize all attainable SPE outcomes in subgames with incumbents.
+\item \textbf{Constructive/procedural proof}: give an explicit rule selecting a pure SPE at \emph{every} history, and show the specified outcome is induced from the root.
+\end{enumerate}
+
+\section{Related variants (distinct games; conclusions may change)}
+These are optional follow-up problems, \emph{not equivalent restatements} of Osborne's conjecture:
+\begin{enumerate}[label=\textbf{V\arabic*.}]
+\item \textbf{Tie rules.} Break ties deterministically by entrant priority, by an independent strict ranking, or by randomization; allow random wins only for colocated candidates. Osborne discusses priority tie-breaking and studies no-distinct-position-ties in the 2024 paper \cite{OsborneWeb,Osborne2024}.
+\item \textbf{Costs and prizes.} Replace the $(-1,0,1/w)$ payoffs by expected prize $b/w-c$ for entrants, where $b>0$ and $c>0$, or by common strictly increasing functions of winning probability. Equilibrium incentives need not match the original game.
+\item \textbf{Policy or vote-seeking objectives.} Maximize own vote share, probability of election, or policy utility in addition to office benefit.
+\item \textbf{Location restrictions.} Permit a finite grid, any closed subset $X\subset[0,1]$, or a continuum with forbidden regions; distinguish exogenous candidate sites from voter support.
+\item \textbf{Order and information.} Simultaneous instead of sequential entry; endogenous or random order; imperfect observation of prior locations; private information about $F$.
+\item \textbf{Voter rules.} Probabilistic/spatially noisy voting, multiple issues, non-Euclidean distance, or voter atoms (requiring an explicit rule for voter indifference).
+\item \textbf{Equilibrium refinements.} Mixed or behavioral SPE, trembling-hand perfection, or restrictions on off-path equilibrium selection. Specify the notion of uniqueness (outcome distribution, action profile, or strategy profile).
+\item \textbf{Entry flexibility.} Allow withdrawal, revision of positions, or entry after observing later candidates; this alters the extensive form.
+\end{enumerate}
+
+\section{Minimal checklist for proposed resolutions}
+\begin{enumerate}
+\item State $n$, the class of $F$, and whether the claim concerns existence, uniqueness, or both.
+\item At \emph{every} history, including deviations, specify or prove existence of optimal continuation play; one terminal vote-share configuration is insufficient for SPE.
+\item Keep separate the vote share $s_i$ and payoff $1/w$, and account for tied winners at distinct locations.
+\item Distinguish incumbents fixed before a subgame (who can lose) from fresh entrants during the subgame (who would choose OUT rather than knowingly lose in its equilibrium).
+\item Show the location/action optimization is attained. With finite payoff values, best attainable payoff exists once continuation choices have been fixed, even with a continuum of locations.
+\item Cite checked references and disclose all human/model assistance. An AI proof sketch is not independent mathematical verification.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{OsborneWeb} M. J. Osborne, \emph{A conjecture about the subgame perfect equilibria of a model of sequential location}, updated 4 April 2025. \url{https://www.economics.utoronto.ca/osborne/research/conjecture.html}.
+\bibitem{Osborne2024} M. J. Osborne, \emph{Sequential entry into electoral competition when the possibility of ties is limited}, 28 August 2024, revised 30 September 2024. \url{https://www.economics.utoronto.ca/osborne/research/SequentialElectComp.pdf}.
+\bibitem{WeSolve} We--Solve, \emph{Contribute}, accessed 27 October 2026. \url{https://we-solve.github.io/contribute/}.
+\end{thebibliography}
+\end{document}

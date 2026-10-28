@@ -90,6 +90,116 @@ only strategies that force opponents to stop after one selection. A
 proposed induction or block strategy must account for the current score
 deficit as well as the remaining set.
 
+\subsubsection*{Prime numbers}
+\paragraph{Status of these variations.}
+The computations and observations in this and the triangular-number subsection are reported in the accompanying AI-attempt contribution and are separate from the computational claims of the supplied research note.
+
+Let $p_1=2,p_2=3,\ldots$, let $P_n=\{p_1,\ldots,p_n\}$, and let
+\[
+Q_n=\{1\}\cup P_n.
+\]
+The total of $P_n$ is even exactly for odd $n$, and the total of $Q_n$ is even exactly for even $n$.  A known partition result for the first $n$ primes gives two parts whose sums differ by at most $1$; parity therefore gives an equal partition of $P_n$ for odd $n\ge3$, while for even $n$ adjoining the extra $1$ to the smaller part gives an equal partition of $Q_n$.\footnote{See \url{https://mathoverflow.net/questions/34581/a-prime-sequence-can-be-partitioned-into-two-sets-of-equal-or-consecutive-sum}.}
+
+The complete exact outcomes through $p_{30}=113$ are below.  The column $Q_n$ has $n+1$ game tokens. Here $\mathrm{W}(x)$ denotes a first-player win with unique winning opening $x$, $\mathrm{D}$ a draw, $\mathrm{L}$ a first-player loss, and $\mathrm{D}^*$ a draw for which every opening is drawing.
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}r r c c@{\qquad}r r c c@{}}
+\toprule
+$n$ & $p_n$ & $P_n$ & $Q_n$ & $n$ & $p_n$ & $P_n$ & $Q_n$\\
+\midrule
+ 1&  2&$\mathrm{W}(2)$&$\mathrm{W}(2)$ &16& 53&$\mathrm{W}(2)$&$\mathrm{D}$\\
+ 2&  3&$\mathrm{W}(3)$&$\mathrm{D}$    &17& 59&$\mathrm{D}$&$\mathrm{W}(1)$\\
+ 3&  5&$\mathrm{D}$&$\mathrm{W}(1)$    &18& 61&$\mathrm{W}(3)$&$\mathrm{D}$\\
+ 4&  7&$\mathrm{W}(2)$&$\mathrm{D}$    &19& 67&$\mathrm{D}$&$\mathrm{W}(5)$\\
+ 5& 11&$\mathrm{D}$&$\mathrm{W}(3)$    &20& 71&$\mathrm{W}(3)$&$\mathrm{D}$\\
+ 6& 13&$\mathrm{W}(3)$&$\mathrm{D}$    &21& 73&$\mathrm{D}$&$\mathrm{W}(1)$\\
+ 7& 17&$\mathrm{D}$&$\mathrm{W}(2)$    &22& 79&$\mathrm{W}(2)$&$\mathrm{D}$\\
+ 8& 19&$\mathrm{W}(2)$&$\mathrm{D}$    &23& 83&$\mathrm{D}$&$\mathrm{W}(1)$\\
+ 9& 23&$\mathrm{D}$&$\mathrm{W}(3)$    &24& 89&$\mathrm{W}(3)$&$\mathrm{D}$\\
+10& 29&$\mathrm{L}$&$\mathrm{D}$      &25& 97&$\mathrm{D}$&$\mathrm{W}(1)$\\
+11& 31&$\mathrm{D}$&$\mathrm{W}(3)$    &26&101&$\mathrm{W}(2)$&$\mathrm{D}^*$\\
+12& 37&$\mathrm{W}(2)$&$\mathrm{D}$    &27&103&$\mathrm{D}$&$\mathrm{W}(2)$\\
+13& 41&$\mathrm{D}$&$\mathrm{L}$      &28&107&$\mathrm{W}(3)$&$\mathrm{D}^*$\\
+14& 43&$\mathrm{W}(3)$&$\mathrm{D}$    &29&109&$\mathrm{D}^*$&$\mathrm{W}(1)$\\
+15& 47&$\mathrm{D}$&$\mathrm{W}(2)$    &30&113&$\mathrm{W}(3)$&$\mathrm{D}^*$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Hence every equal-partitionable prime instance in the checked range is drawn:
+\[
+P_n:\ n=3,5,\ldots,29,\qquad
+Q_n:\ n=2,4,\ldots,30.
+\]
+The singleton $P_1=\{2\}$ is the unavoidable even-sum exception.  For ordinary prime prefixes the even-$n$ outcomes are wins except $n=10$, which is a first-player loss.  With the extra $1$, the only loss through $n=30$ occurs at $Q_{13}$ (ending in $41$), and the winning opening need not be $2$ or $3$: $Q_{19}$ has unique winning opening $5$.
+
+Two clean open variants suggested by the data are
+\[
+V(P_{2k+1},0)=0\quad(k\ge1),
+\qquad
+V(Q_{2k},0)=0\quad(k\ge1).
+\]
+
+\subsubsection*{Triangular numbers}
+Let $\tau_k=k(k+1)/2$ and $A_n=\{\tau_1,\ldots,\tau_n\}$.  Since
+\[
+\sum_{k=1}^n\tau_k=\binom{n+2}{3},
+\]
+the total is odd exactly when $n\equiv1\pmod4$.  Equal partitionability has the exact arithmetic classification
+\[
+A_n\text{ is equally partitionable}\quad\Longleftrightarrow\quad n\ge4\text{ and }n\not\equiv1\pmod4.
+\]
+A concise proof uses the direct base cases $n=4,6,7,8,10,11$ and the balanced eight-term identity
+\[
+\tau_m+\tau_{m+3}+\tau_{m+5}+\tau_{m+6}
+=\tau_{m+1}+\tau_{m+2}+\tau_{m+4}+\tau_{m+7}.
+\]
+For the six bases, one half may be chosen as
+\[
+\begin{array}{c|c}
+n & \text{one half of the total}\\ \hline
+4&\{10\}\\
+6&\{1,6,21\}\\
+7&\{6,15,21\}\\
+8&\{3,21,36\}\\
+10&\{10,45,55\}\\
+11&\{1,21,55,66\}.
+\end{array}
+\]
+Exact minimax computation through $n=23$ gives
+\[
+\begin{array}{c|l}
+\text{Outcome} & n\le23\\ \hline
+\mathrm{W} & 1,2,3,5,9,13,17,21\\
+\mathrm{D} & 4,6,7,8,10,11,12,14,15,16,18,19,20,22,23.
+\end{array}
+\]
+Thus every partitionable triangular prefix through $\tau_{23}=276$ is drawn.  The natural variation is to prove or disprove this for all $n\ge4$ with $n\not\equiv1\pmod4$.
+
+
+\subsubsection*{Fibonacci numbers (proven)}
+For the distinct positive Fibonacci convention $F_1=1,F_2=2,F_{m+2}=F_{m+1}+F_m$, the companion proof (\href{https://we-solve.github.io/contributions/the-catch-up-optimal-draw-conjecture-for-consecutive-integers/attempt-4/r1/}{Fibonacci Catch-Up contribution}) establishes
+\[
+V(\{F_1,\ldots,F_n\},0)=0
+\quad\Longleftrightarrow\quad
+n\equiv0\pmod3
+\quad\Longleftrightarrow\quad
+\sum_{i=1}^nF_i\text{ is even}.
+\]
+Moreover, in every drawn case the only non-losing openings are $1$ and $3$.  This shows that the ``even total implies optimal draw'' phenomenon is not confined to consecutive integers; it remains a sequence-specific property rather than a consequence of parity alone.
+
+\subsubsection*{What are other interesting sequences?}
+For a structured prefix family $S_n$, ask whether
+\[
+\sum_{x\in S_n}x\equiv0\pmod2
+\quad\Longrightarrow\quad
+V(S_n,0)=0,
+\]
+with any finite exceptional prefixes stated explicitly.  Natural instances are consecutive integers (the main open problem), triangular numbers (open; checked through $n=23$), first-prime prefixes (open; checked through $n=30$), prime prefixes with an initial $1$ (open; checked through $n=30$), and Fibonacci prefixes (proved for all $n$ under the convention above).
+
+
 \subsection*{Source audit and status}
 
 The supplied working note formulates the conjecture and reports partial

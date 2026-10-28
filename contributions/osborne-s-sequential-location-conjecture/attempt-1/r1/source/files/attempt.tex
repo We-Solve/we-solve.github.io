@@ -1,0 +1,208 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=0.82in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,enumitem,booktabs,hyperref,microtype}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlist{nosep,leftmargin=*}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{Claim}
+\newcommand{\OUT}{\mathsf{OUT}}
+\newcommand{\SPE}{\mathrm{SPE}}
+\newcommand{\med}{\tfrac12}
+\title{Sequential Electoral Entry: A Unified AI-Assisted Proof Attempt\\\large Uniform Five- and Six-Player Cases, Nonuniform-Tail Case, and Continuation Lemmas}
+\author{AI-assisted research draft (GPT 6 Astra Pro; human review pending)}
+\date{27 October 2026}
+\begin{document}
+\maketitle
+\section*{Abstract}
+We study Osborne's sequential-location conjecture under the original payoff and tie rules. The target extensions are unique pure subgame-perfect equilibrium (SPE) outcomes for (i) five uniform-voter players, (ii) six uniform-voter players, and (iii) five players whose distribution function satisfies $F(t)=t$ on $[1/12,11/12]$ but may be nonuniform in the tails. We collect a general equilibrium-existence observation, a rigorous many-player continuation construction, and the proposed case analyses for these targets. \textbf{Status: AI proof attempt, not independently verified.} The lengthy exhaustive-continuation exclusions in Sections~\ref{sec:five}--\ref{sec:six} and the distributional transfer in Section~\ref{sec:tails} are \emph{candidate} proofs requiring formal line-by-line verification before any result is reported as established. Nothing here resolves arbitrary $n$ and arbitrary $F$.
+
+
+\section{Model, status, and reusable reductions}
+Player $i\in\{1,\ldots,n\}$ publicly chooses $a_i\in[0,1]\cup\{\OUT\}$ in order. Voters have a nonatomic full-support CDF $F$. Distinct occupied positions attract their nearest voters, and candidates at the same position split the corresponding vote. Each nonentrant obtains $0$, each of the $r$ candidates tied for the highest individual vote receives payoff $1/r$, and every other entrant obtains $-1$. We study \emph{pure} SPE outcomes. See the companion problem-definition file and \cite{OsborneWeb} for full vote equations. Write $m=F^{-1}(1/2)$.
+
+The originator reports proofs for $n\le4$, but the general conjecture that only players $1,n$ enter at $m$ remains open \cite{OsborneWeb}. His 2024 paper assumes no positive-probability ties across distinct positions, an assumption \emph{not} imposed here \cite{Osborne2024}.
+
+\begin{proposition}[Subgame existence and winning entrants]\label{prop:exist}
+Every subgame has a pure SPE. In every pure SPE of any subgame, every player who \emph{enters during that subgame} finishes tied for the maximal individual vote share. This need not hold for incumbents fixed before the subgame.
+\end{proposition}
+\begin{proof}
+Terminal payoffs belong to the finite set $\{-1,0,1,1/2,\ldots,1/n\}$. Given an SPE continuation selected after each of a player's actions, the nonempty set of attainable payoffs is a subset of this finite set, so an attaining action exists. Backward induction defines a pure SPE at every history. An entering player who later loses receives $-1$ instead of $0$ from $\OUT$, contradicting her best response within that subgame.
+\end{proof}
+
+\begin{proposition}[If every entrant is colocated]\label{prop:colo}
+In any pure SPE outcome in which all entrants choose the same location, there are exactly two entrants, both at $m$, and player $n$ is one of them.
+\end{proposition}
+\begin{proof}
+If player $n$ is out, she can join the common location and secure positive payoff. If its location is not the median, the last player can instead enter at the median, or relocate there, and obtain a strict majority; hence it must be $m$. With $K\ge3$ entrants at $m$, player $n$ can relocate a sufficiently small distance from $m$: her vote approaches $1/2$, while each other candidate's vote approaches $1/[2(K-1)]$, making her the unique winner. Exactly one entrant is impossible: if player $n$ is the sole entrant, player $n-1$ could enter at $m$ and earn $1/2$ under the subsequent optimal entry of player $n$; if player $n$ is not the sole entrant, she joins profitably. Thus $K=2$.
+\end{proof}
+
+\begin{lemma}[Paired lattice: a general continuation obstruction]\label{lem:lattice}
+Under uniform voters, let $q\ge2$ incumbents be fixed at $x_i=(2i-1)/(2q)$, $i=1,\ldots,q$, one per position, and suppose exactly $q$ players remain. Every pure SPE continuation produces two candidates at each $x_i$. The first $q-1$ newcomers enter while currently losing.
+\end{lemma}
+\begin{proof}
+Put $c=1/(2q)$. Against the original incumbents, any newcomer receives at most $c$: within a gap of length $2c$ she receives $c$, at an original location she gets $2c/2=c$, and outside the extremes she gets less than $c$. Later entry only decreases her vote. If any newcomer is ultimately a winner, all candidates have votes at most $c$. With at most $2q$ candidates and total vote $1$, equality requires exactly $2q$ candidates with votes all $c$. At the leftmost original site $c$, equality requires two candidates: one would have share $(c+y)/2>c$, where $y>c$ is the next occupied location. For the pair to receive $c$ each, its total constituency is $2c$, implying $y=3c$. Repeating forces exactly two candidates at each original site and nowhere else.
+
+Backward induction now gives the unique continuation outcome: joining an as-yet-undoubled site leads the remaining movers to complete the pairs and obtain $1/(2q)>0$. A player choosing $\OUT$ obtains $0$. An entry at any other site makes the all-paired configuration impossible, hence prevents \emph{every} newcomer from winning; the deviator obtains $-1$. Every player therefore doubles an undoubled site. Until the final pairing, at least one incumbent retains vote $2c$ while newcomers each receive $c$.
+\end{proof}
+
+\paragraph{Root reduction.}
+If entering at $m$ guarantees player 1 payoff $1/2$ in all pure SPE continuations, every root SPE has exactly two entrants: player 1 enters (earning $1/2$), all entrants must win, and three entrants would yield only $1/3$; the last player can enter against any sole entrant, so a one-entrant outcome is impossible. If the two entrants are colocated, Proposition~\ref{prop:colo} finishes the argument. What remains is (a) to prove the median guarantee in all continuation subgames and (b) to exclude equilibria with two separate equally-voted entrants. This is the architecture attempted below.
+
+\section{Five uniform voters: proposed continuation proof}\label{sec:five}
+Here $F(t)=t$ and $n=5$. We record the two lemmas on which the candidate five-player proof depends. All intervals below have their reflected analogues.
+
+\begin{claim}[Median-incumbent continuation, up to three movers]\label{cl:median5}
+With fixed candidates at $m=1/2$ and $x$, and $1\le k\le3$ players remaining, the candidate at $x$ loses in \emph{every} pure SPE continuation, including when $x=m$ (two median incumbents).
+\end{claim}
+\noindent\emph{Proposed verification by cases.} For $x<m$:
+\begin{enumerate}[label=(\alph*)]
+\item If $x<1/6$, let the next player choose $y=3/4+x/2$. The votes at $x,m,y$ become
+\[
+ L=\frac14+\frac x2,\qquad R=\frac38-\frac x4,\qquad R>L.
+\]
+With at most two further movers, a single fresh entrant loses. Two fresh entrants could both win only if each receives at least $1/5$. Interior entry between $m,y$ yields $1/8+x/4<1/6$; the exterior-left and clone options yield still less. The potentially relevant left gap gives $D=1/4-x/2$, while right exterior entry gives \emph{strictly less} than $D$; splitting a region leaves an unaffected old winner $R$. Thus no two subsequent entrants can both win. The candidate at $y$ obtains payoff $1/2$; the original candidate at $x$ cannot be a tied winner with her without losing the median comparison.
+\item If $1/6\le x<m$, choose $y=1-x-\varepsilon$ where $0<\varepsilon<1/4-x/2$. Shares are
+\[
+ A=\frac14+\frac x2,\qquad B=\frac12-x-\frac\varepsilon2,\qquad C=A+\frac\varepsilon2,
+\]
+so $C>A>B$. Any single later entrant loses. To have two later winning entrants each would need vote $\ge1/5$, excluding both interior gaps and the median clone. They must occupy opposite exterior regions. Both clones have unequal shares; one left clone leaves the right incumbent winning; one right clone permits an improving exterior entry or relocation; and two exterior winners permit the later entrant to shift inward and win alone. This rules out rescue of the candidate at $x$.
+\item If $x=m$, after entry at $y>m$ the next player may choose
+\[
+ z\in(1-y,\ 3/4-y/2).
+\]
+The entrant at $z$ wins outright and cannot be defeated by a last entrant. Earlier median cloning is outflanked by the final mover. Symmetry treats $y<m$.
+\end{enumerate}
+The important requirement is that the specified entrant's action \emph{maximizes payoff after every deviation}, not just under a convenient terminal allocation. The preceding exclusion of later joint winning entries is intended to establish this. \textbf{Independent verification of the full exhaustive cases is still required.}
+
+\begin{claim}[Three-mover deterrence]\label{cl:det3}
+With fixed incumbents $a<b$ and
+\[
+ A=(a+b)/2,\quad C=1-A,\quad D=(b-a)/2,
+\]
+if $2/5<A<1/2$, $D<1/5$, and $1-b<A$, then every pure SPE continuation with at most three further players has them all choose $\OUT$.
+\end{claim}
+\noindent\emph{Proposed verification.} A single entrant loses. Three newcomers would each need at least $1/5$ of the votes. The middle gap and interior clones are too small; a $2+1$ division of newcomers over the extreme sides is impossible from the constituency bounds $v\ge C/2$ versus left $v\le a/2$ (or $v=A/3$), and the reflected $v\ge A/2$ versus $v<(1-b)/2$ (or $v=C/3$).
+Two winning newcomers would each need at least $1/4$ and lie on opposite sides. Left cloning pays $A/2<1/4$. Right cloning can be profitably outflanked; if both are exterior, with common individual share $v$ and positions $\ell<a<b<r$,
+\[
+ \ell=2v-a,\quad r=2-2v-b,\quad v\ge C/2.
+\]
+The later entrant shifts slightly inward. A remaining player cannot enter and win, since every fresh entrant's maximum is strictly below $v$:
+\[
+ \ell,\ 1-r,\ a-v,\ 1-b-v,\ D,\ v/2<v.
+\]
+The other exterior winner remains at $v$ against any single fresh entrant. This is the intended off-path credibility argument.
+
+\paragraph{Candidate five-player conclusion.}
+Claim~\ref{cl:median5} makes median entry a guarantee of payoff $1/2$ to player 1, reducing every root outcome to two entrants. If they enter at $x<1/2$ and $1-x$, then (i) $x\le1/6$ permits final median entry, (ii) $1/6<x\le1/5$ permits the penultimate rescue at $1/2-x$ and final response at $1/2+x$ (or a winning relocation if one or fewer players remain), and (iii) $x>1/5$ permits the second entrant to choose $b$ in
+\[
+ \frac{2-x}{3}<b<\min\{x+2/5,1-x\},
+\]
+which satisfies Claim~\ref{cl:det3} and gives her a strict majority. This \emph{would} prove unique outcome $(m,\OUT,\OUT,\OUT,m)$ if the exhaustive continuation exclusions in the two claims are complete.
+
+\section{Six uniform voters: proposed extension}\label{sec:six}
+Here $n=6$. The extra mover allows up to four subsequent entrants, so Claim~\ref{cl:det3} is not enough. The attempted proof uses the following two strengthened statements.
+
+\begin{claim}[Six-player median guarantee]\label{cl:median6}
+With one fixed incumbent at $m$ and five remaining players, every pure SPE continuation has only the last player enter, at $m$.
+\end{claim}
+\noindent\emph{Outline of proposed case exhaustion.} With two fixed candidates at $x,m$ and at most four movers left, the blocking location $1-x-\varepsilon$ works whenever $1/6\le x<m$: its shares are $A,B,C$ as above. Later entry of one or two winners is excluded as for Claim~\ref{cl:median5}; three later winners have individual share $\ge1/6$. Interior entry is too small except in the all-six-way-tie boundary case, whose only candidate configuration containing an interior median is
+\[
+ (1/6,1/6,m,m,5/6,5/6).
+\tag{6.1}
+\]
+That is incompatible with the chosen $1-x-\varepsilon$. Once equality is excluded, a $2+1$ division of the three later winners across the extremes contradicts old-incumbent constituency bounds.
+
+One small off-median location requires a separate blocker: from incumbents $(1/10,m)$, entry at $79/100$ produces shares
+\[
+ 3/10,\quad69/200,\quad71/200.
+\]
+A single later entrant loses; two winning entrants cannot both defeat the old incumbents; in a hypothetical three-newcomer tie, the last mover can shift inward or outflank a clone and win alone. Reflection handles $9/10$.
+
+For the original median incumbent to lose to $K$ new winning candidates, each new vote $v$ must satisfy $Lv<1/2$ and $Rv<1/2$ where $L,R$ are the counts to the left/right, and $v>1/(K+1)$. This forces $K$ even and $L=R=K/2$; since $K\le5$, only $K=2,4$ remain. The $K=2$ case has exterior winners $x,1-x$ with $x>1/6$, excluded by the first blocker. In the $K=4$ case, $1/5<v<1/4$, with two winners per side. Interior winners can shift or a colocated pair can be profitably outflanked; one unused entrant cannot punish an improvement, since its largest possible vote is below
+\[
+ \max\{1/2-2v,\ 3v-1/2,\ v/2\}<v.
+\]
+If the median also wins, all entrants have equal votes. Enumeration of candidates on either side of $m$ leaves exactly the following possibilities (including multiplicities):
+\[
+\begin{array}{c|l}
+N&\text{Possible equal-vote configurations with interior median}\\\hline
+3&(1/6,m,5/6)\\
+4&(0,m,m,1)\\
+5&(1/10,3/10)\ \text{or }(3/10,3/10)\text{ on left; reflections on right; one }m\\
+6&(1/6,1/6,m,m,5/6,5/6)
+\end{array}
+\]
+The first and five-candidate cases are excluded by the $x\ge1/6$ or $x=1/10$ blockers. The six-candidate case is excluded by a later profitable entry at $4/5$ after incumbents $m,m,1/6$, yielding shares $1/3,19/120,19/120,7/20$ and deterring remaining players. The four-candidate case $(0,m,m,1)$ is excluded by relocation to $3/4$ or by a later sequence $3/4,z\in(1/4,1/2)$; the prescribed entrant then gains payoff $1/2$ rather than OUT or a smaller tie share. The case of a median at an \emph{extreme} occupied site also needs explicit elimination by a one-sided outflank.
+
+\textbf{Verification flag.} Some steps above depend on which of the winners moves last and on whether a previously unused player can respond to a deviation. The enumeration is a route to a proof, not a certified exhaustive proof.
+
+\begin{claim}[Four-mover deterrence]\label{cl:det4}
+For fixed incumbents $a<b$ let $A=(a+b)/2$, $C=1-A$ and $D=(b-a)/2$. Suppose
+\[
+ 2/5<A<1/2,\quad D<1/6,\quad1-b<A,\quad D\ne5a-2.
+\tag{6.2}
+\]
+Then every pure SPE continuation with at most four movers has all newcomers choose $\OUT$.
+\end{claim}
+\noindent\emph{Proposed verification.} One and three winning newcomers are excluded using the $1/6$ gap bound and left/right constituency inequalities as in Claim~\ref{cl:det3}. Two later exterior winners with shares $v$ and positions $\ell=2v-a$, $r=2-2v-b$ can be defeated by a small inward shift of the later winner. Even if \emph{two} unused players remain, any two winning responses must fall on opposite exterior sides or clone the extremes: interior gap votes are below $1/6$ and mixing a gap with a far exterior entrant leaves an inner incumbent undefeated. Two clones have unequal votes; a clone/exterior pair can be outflanked; two exterior winners again yield an improving inward shift.
+
+Four new winners each receive $v\ge1/6$. They must split two per side; left cloning old $a$ would require $v=A/3<1/6$. The other side arrangements are ruled out by moving an exterior singleton inward, outflanking an exterior pair, or shifting an interior entrant. The exceptional remaining configuration has a last entrant at right interior location $q$, with old $b$ tied, yielding
+\[
+ v=C/3,\quad q=a+2v,\quad z=b+2v,\quad p=4v-a,
+\]
+where $p$ is the left interior position. Before $q$ enters, the two right shares are $H=v+D$ and $R=2v-D$, satisfying
+\[
+ p-H=C-A>0,\qquad p=R\iff D=5a-2.
+\]
+When $p>R$ the penultimate player can enter at a left location $w$ with $\max(0,2\max(H,R)-p)<w<\max(H,R)$ and win outright; when $p<R$, an earlier entrant can shift a right or left exterior location slightly to win outright and defeat all equilibrium rescue attempts. The exact $p=R$ case is excluded in (6.2).
+
+This is the most technically demanding part of the proposed proof. \textbf{The deviation-to-continuation implications and the remaining entry-order cases require independent verification.}
+
+\paragraph{Candidate six-player conclusion.}
+If Claim~\ref{cl:median6} holds, player 1's median entry secures $1/2$. Any distinct-position two-entrant tie is at $x,1-x$, $x<1/2$. If $x\le1/6$, a last median entry destroys it. If $1/6<x\le1/4$, a penultimate entrant can force four-way equal votes at $x,1/2-x,1/2+x,1-x$, unless the second original entrant has a simpler last-mover winning deviation to $2/3$. For $1/4<x<1/2$, she can choose
+\[
+ (2-x)/3<b<\min\{x+1/3,1-x\},\qquad (b-x)/2\ne5x-2,
+\]
+which meets Claim~\ref{cl:det4} and wins alone. These arguments \emph{would} establish the unique $n=6$ outcome $(m,\OUT,\OUT,\OUT,\OUT,m)$.
+
+\section{Nonuniform tails with five players: transfer attempt}\label{sec:tails}
+Let $F$ be any continuous, strictly increasing CDF satisfying
+\[
+ F(t)=t\qquad (1/12\le t\le11/12).
+\tag{T}
+\]
+The tails need not be symmetric or uniform. For instance, $F(t)=12t^2$ for $t\le1/12$, $F(t)=t$ in the central interval, and $F(t)=1-12(1-t)^2$ for $t\ge11/12$ is admissible.
+
+\paragraph{Central-boundary principle.}
+When fixed incumbents are in $[1/6,5/6]$ and a terminal configuration with at most five total candidates has \emph{all newcomers winning}, every extreme Voronoi boundary must lie in $[1/12,11/12]$: otherwise an extreme entrant receives less than $1/12$ votes, whereas a winner must receive at least $1/5$. Once the extreme boundaries are central, all the boundaries between occupied sites are central; hence every individual vote equals its uniform-voter value. This is a potentially useful transfer lemma, but it must be applied only to configurations satisfying its hypotheses.
+
+The high-$x$ blocker and Claim~\ref{cl:det3} can then be transported because their hypothetical \emph{winning-entry} configurations fall within the central region. At low $x<1/6$, take $y=3/4+x/2$ after incumbents $x,m$. The three shares remain $L=1/4+x/2$, $R=3/8-x/4$, $R$, because their existing vote boundaries are central. Two further winning entrants could only occupy the left gap and right exterior; the former obtains $D=1/4-x/2$ if its left boundary is at least $1/12$, while the latter receives $<D$. If the former's left boundary is below $1/12$, the old median receives more than $7/24>D$, preventing both entrants from winning. The $x=m$ case admits a blocker at
+\[
+ z\in\left(\max\{1-y,1/6\},\ 3/4-y/2\right)
+\]
+following an off-median entry $y>m$; vote-share comparisons use the bound $1/4+1/12=1/3$ for the potentially tail-affected gap.
+
+Finally, two exterior tied winners cannot be protected by a later OUT player after a small inward displacement: if the final OUT action is optimal, every fresh location has share strictly below $v$ (because an entrant cannot remove both separated winners). Move the left winner slightly right. All new entry shares at and to the right of its old location weakly decrease, while a far-left entrant receives less than the moved winner's location's cumulative voter mass, which can be kept below $v$. Thus the last player still remains OUT and the displacement turns the tie into a strict win. Reflect for the right exterior.
+
+\textbf{Candidate transfer conclusion.} If the preceding uniform five-player case checks and these tail-sensitive off-path comparisons are completed, the unique SPE outcome under (T) is $(m,\OUT,\OUT,\OUT,m)$. This does not cover arbitrary continuous, strictly increasing $F$.
+
+\section{Verification ledger and a tractable next target}
+The draft separates the following \emph{proved elementary steps} from the longer proof attempts:
+\begin{itemize}
+\item Proposition~\ref{prop:exist}: existence of pure SPE in all subgames and winning status of on-subgame entrants.
+\item Lemma~\ref{lem:lattice}: an infinite family of SPE continuations in which newcomers enter while currently losing; this invalidates a naive backward-induction shortcut.
+\item The algebraic blocker positions and displayed vote-share formulas, subject to their hypotheses.
+\end{itemize}
+The \emph{unverified essential claims} are Claims~\ref{cl:median5}, \ref{cl:det3}, \ref{cl:median6}, \ref{cl:det4}, and the complete use of the central-boundary principle in all off-path subgames. In particular, it is necessary to check all permutations of the entrants' arrival order, colocations, boundary locations, and continuations after \emph{every} unilateral deviation. A missing case can invalidate a claimed SPE result. The purported $n=5$, $n=6$, and nonuniform-tail extensions should therefore be entered as \textbf{conjectural AI proof attempts}, not independently confirmed theorems.
+
+A narrower, formally verifiable task is to settle Claim~\ref{cl:det3} first, then prove or refute the finite-history continuation Claim~\ref{cl:median5}. Their conjunction with the stated root deviations suffices for the uniform five-player case. Alternatively, independently verify the multi-entrant paired lattice lemma, which holds for arbitrarily many $q$ and offers a concrete starting point for all-$n$ analysis.
+
+\paragraph{Disclosure for We--Solve.}
+This text was generated by OpenAI GPT 6 Astra Pro in a conversation dated 27 October 2026 with user-supplied research goals and prior AI-generated drafts. Thinking level: unknown; total model time budget: unknown. No external human referee, proof assistant, or exhaustive computer verification is claimed. The original conjecture belongs to Martin J. Osborne. Please record any additional human/model contributors and actual model settings in the submission form; do not infer them from this file. No AI result here should be represented as a confirmed new theorem without independent checking.
+
+\begin{thebibliography}{9}
+\bibitem{OsborneWeb} M. J. Osborne, \emph{A conjecture about the subgame perfect equilibria of a model of sequential location}, updated 4 April 2025. \url{https://www.economics.utoronto.ca/osborne/research/conjecture.html}.
+\bibitem{Osborne2024} M. J. Osborne, \emph{Sequential entry into electoral competition when the possibility of ties is limited}, August 2024, revised September 2024. \url{https://www.economics.utoronto.ca/osborne/research/SequentialElectComp.pdf}.
+\end{thebibliography}
+\end{document}

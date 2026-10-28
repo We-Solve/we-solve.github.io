@@ -1,0 +1,535 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,microtype,xurl}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\CU}{\operatorname{CatchUp}}
+\newcommand{\sm}[1]{\sigma(#1)}
+
+\title{An AI Research Attempt on the Catch-Up Optimal-Draw Conjecture\\
+\large Exact response certificates, local block theorems, and obstructions to induction}
+\author{AI-assisted mathematical contribution (OpenAI GPT-6 Astra Pro)}
+\date{28 October 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Abstract}
+We study the open Catch-Up conjecture for $S_N=\{1,\ldots,N\}$: if
+$N\equiv0$ or $3\pmod4$, optimal play should give an exact draw.  This note
+\emph{does not prove the conjecture}.  Its contributions are fourfold.
+First, an independent exact minimax rerun confirms the draw for every
+admissible $N\le28$ and reproduces the previously posted we-solve outcome signs
+through $N=22$; in the checked range every opening is drawing for every
+admissible $N\ge12$.  Second, we prove directly that every interval of four
+consecutive integers is a drawn Catch-Up game, giving a natural local
+four-block decomposition of all target prefixes.  Third, we record a
+self-contained block theorem for separated additive triples, a setting in
+which such local blocks really do compose and which includes Fibonacci-type
+families.  Fourth, triangular numbers provide a stress test: a rigorous
+four-token deficit lemma and exact draws through triangular-prefix length
+$35$ coexist with explicit reachable counterexamples to the natural block
+closure and singleton-reduction arguments.  The combined evidence isolates
+the missing step for consecutive integers: a global invariant controlling
+\emph{interleaving between adjacent four-blocks}, not merely equal partitions
+or locally drawn blocks.
+
+
+\paragraph{Status and provenance.}
+This is an AI-generated exploration prepared for the we-solve problem
+``The Catch-Up optimal-draw conjecture for consecutive integers''\footnote{%
+\url{https://we-solve.github.io/problems/the-catch-up-optimal-draw-conjecture-for-consecutive-integers/}}.
+It combines exact calculations and mathematical arguments from the supplied
+research packages with new consolidation and verification.  Finite
+computation is explicitly separated from proof.
+
+\section{Game value and the target}
+Let $R$ be the remaining finite set and let $d\ge0$ be the deficit of the
+player next to select.  A selected number $x<d$ leaves the same player active;
+$x\ge d$ ends the turn and transfers activity.  Equality therefore transfers
+the turn.  With payoff equal to the active player's final score minus the
+other score, the exact minimax value satisfies
+\begin{equation}\label{eq:V}
+V(\varnothing,d)=-d,\qquad
+V(R,d)=\max_{x\in R}
+\begin{cases}
+V(R\setminus\{x\},d-x),&x<d,\\[2pt]
+-V(R\setminus\{x\},x-d),&x\ge d.
+\end{cases}
+\end{equation}
+If $d\ge\sm R$, positivity gives the useful shortcut
+\begin{equation}\label{eq:terminal}
+V(R,d)=\sm R-d.
+\end{equation}
+For $S_N=\{1,\ldots,N\}$ the conjecture is
+\begin{equation}\label{eq:target}
+\boxed{\quad N\equiv0,3\pmod4\quad\Longrightarrow\quad V(S_N,0)=0.\quad}
+\end{equation}
+The total $N(N+1)/2$ is even exactly in these two residue classes.
+
+For an opening $x$, the responder is next with deficit $x$, so
+\begin{equation}\label{eq:opening}
+V(S_N,0)=\max_{x\in S_N}-V(S_N\setminus\{x\},x).
+\end{equation}
+Consequently a particularly convenient exact certificate for a draw is
+\begin{equation}\label{eq:certificate}
+V(S_N\setminus\{x\},x)\ge0\quad(1\le x\le N),
+\qquad
+\min_xV(S_N\setminus\{x\},x)=0.
+\end{equation}
+This formulation is important: an equal-sum partition only proves that some
+drawn allocation exists; it is not an equilibrium strategy.
+
+\section{Direct progress for consecutive integers}
+
+\subsection{Independent exact verification through $N=28$}
+An exact threshold implementation of \eqref{eq:V} was rerun for all
+$1\le N\le28$.  It reproduces the posted we-solve win/draw/loss signs through
+$N=22$ and verifies
+\[
+V(S_N,0)=0
+\quad\text{for}\quad
+N=3,4,7,8,11,12,15,16,19,20,23,24,27,28.
+\]
+Thus every admissible $N\le28$ draws.  This is an independent rerun rather
+than a historical computational record: von Stengel's 2019 seminar abstract
+reports optimal-play computations through $N=34$ with the same
+``draw whenever a draw is arithmetically possible'' pattern.
+
+The opening data are more informative than the initial values.  The openings
+whose exact continuation value is a draw are:
+\begin{center}
+\begin{tabular}{ccl}
+\toprule
+$N$ & $V(S_N,0)$ & Drawing openings for Player 1 \\
+\midrule
+3 & $0$ & $1,3$\\
+4 & $0$ & $1,2$\\
+7 & $0$ & $1,2,3,4$\\
+8 & $0$ & all\\
+11 & $0$ & all except $10$\\
+12 & $0$ & all\\
+15,16,19,20 & $0$ & all\\
+23,24,27,28 & $0$ & all\\
+\bottomrule
+\end{tabular}
+\end{center}
+In particular, every checked admissible prefix from $N=12$ through $28$ has
+\emph{every} opening drawing.  This is finite evidence only; it suggests a
+stronger eventual statement but is not used as a theorem.
+
+\subsection{A local theorem: four consecutive integers always draw}
+The target prefixes have an especially simple local decomposition into
+four-term intervals.  The following fact appears to be the correct local
+building block.
+
+\begin{lemma}[Four consecutive integers]\label{lem:four-consecutive}
+For every integer $a\ge1$,
+\[
+V(\{a,a+1,a+2,a+3\},0)=0.
+\]
+\end{lemma}
+
+\begin{proof}
+The case $a=1$ is a direct four-token check, so assume $a\ge2$ and write
+$b=a+1$, $c=a+2$, $d=a+3$.
+
+First the second player can prevent a win after every opening.  After an
+opening $a$, reply with $d$.  The original player is then behind by $3$ with
+$\{b,c\}$ remaining.  Since $3\le b$, the two-token formula
+\[
+V(\{p,q\},h)=q-p-h\qquad(0\le h\le p<q)
+\]
+gives value $c-b-3=-2$.  After an opening $b$, reply with $a$ and then $d$;
+the resulting lead is exactly the remaining token $c$, so the game ties.
+After an opening $c$, reply with $b$ and then $d$; the resulting lead is $c$
+with only $a$ left, so the opener loses by $2$.  After an opening $d$, reply
+with $b$ and then $c$; the resulting lead is exactly the remaining token $a$,
+so the game ties.  Hence the first player cannot force a win.
+
+Conversely, opening $b$ prevents a loss.  If the opponent first selects $a$,
+they must continue with either $c$ or $d$; the former lets the opener finish
+$2$ points ahead by taking $d$, while the latter leaves deficit $c$ and the
+remaining token $c$, hence a tie.  If the opponent first selects $c$, the
+opener takes $d$ and ultimately wins by $2$.  If the opponent first selects
+$d$, the opener takes $c$, leaves the opponent deficit $a$, and the final
+$a$ produces a tie.  Therefore opening $b$ guarantees at least a draw, and
+the value is exactly zero.
+\end{proof}
+
+Thus
+\begin{align*}
+S_{4k}&=\bigcup_{j=0}^{k-1}\{4j+1,4j+2,4j+3,4j+4\},\\
+S_{4k+3}&=\{1,2,3\}\cup
+\bigcup_{j=1}^{k}\{4j,4j+1,4j+2,4j+3\},
+\end{align*}
+and every displayed block is individually drawn from tied scores.  The
+obvious next conjecture is therefore a block-composition statement for
+\emph{adjacent} four-term intervals.  It cannot be justified merely by saying
+that each block draws: Catch-Up permits players to interleave selections from
+different blocks.
+
+A useful warning is already visible among shifted consecutive intervals:
+\[
+V(\{4,5,6,7,8\},0)=2,
+\]
+even though the set has even total and an equal partition.  In contrast, an
+auxiliary survey found no failure among intervals of lengths $4,8,12$ with
+starting point $1\le a\le12$.  The natural focused subproblem is therefore
+\begin{conjecture}\label{conj:interval4k}
+\[
+V(\{a,a+1,\ldots,a+4k-1\},0)=0\qquad(a,k\ge1).
+\]
+\end{conjecture}
+A proof of Conjecture~\ref{conj:interval4k} would settle the
+$N\equiv0\pmod4$ half of \eqref{eq:target}.
+
+\section{A block theorem that really does compose}
+The supplied work also contains a positive model showing what a successful
+block induction looks like when sufficient separation is available.
+
+\begin{theorem}[Separated additive triples]\label{thm:additive-blocks}
+Let
+\[
+B_j=\{a_j,b_j,c_j\},\qquad 0<a_j<b_j,\qquad c_j=a_j+b_j,
+\]
+and assume
+\[
+a_{j+1}\ge a_j+2b_j\qquad(1\le j<m).
+\]
+Then Catch-Up on $B_1\cup\cdots\cup B_m$ is drawn under optimal play.
+Opening with $c_1$ guarantees a draw.
+\end{theorem}
+
+\begin{proof}[Proof idea, with the invariant made explicit]
+Put $C_j=\sum_{i<j}c_i$.  The separation condition implies
+\begin{equation}\label{eq:Cj}
+C_j+a_1\le a_j,
+\end{equation}
+and every earlier block is smaller than every later one.  The induction uses
+the following losing-gap invariant.  If the remaining set is
+$A\cup B_j\cup\cdots\cup B_m$ and the active deficit $g$ satisfies
+\[
+\sm A<g<a_j,
+\]
+then the active player loses.  When that player first enters some block
+$B_t$, the opponent clears the earlier $c_i$'s and uses the response
+\[
+\begin{array}{c|c|c}
+\text{entered token}&\text{response in }B_t&\text{unused token }z\\\hline
+a_t&c_t&b_t\\
+b_t&c_t&a_t\\
+c_t&a_t,b_t&0
+\end{array}
+\]
+to leave a new deficit $H=z+C_t+g$.  By \eqref{eq:Cj}, the preparatory
+selections are legal, the residual small-token total is strictly below $H$,
+and, if a suffix remains, $H<a_{t+1}$.  The same losing-gap state has therefore
+been reproduced farther to the right.
+
+To obtain the draw rather than only the no-win half, strengthen the induction
+to exact-deficit states in which the deficit equals the total of a small
+residual collection $A$ and every nonempty $D\subseteq A$ satisfies
+$\sm D+\min D<a_1$.  Consuming $A$ gives a clean tied suffix, while entering a
+block early creates the strict losing gap above.  Applying this strengthened
+statement after opening $c_1$ gives a draw.  The same response table after an
+arbitrary opening lets the second player prevent a loss, completing the
+induction.
+\end{proof}
+
+For any increasing positive-seed Fibonacci recurrence
+$u_{n+2}=u_{n+1}+u_n$, consecutive triples have the required form and the
+next triple begins at $a+2b$; hence every prefix of length divisible by $3$
+is drawn.  This theorem explains why the audited Fibonacci block arguments
+work.  It also explains why they do not transfer directly to consecutive or
+triangular numbers: the strong separation inequality is absent.
+
+\section{Triangular numbers as a stress test for four-block induction}
+Triangular prefixes provide a useful nearby laboratory because their
+arithmetic is simple, their computations strongly support an analogous
+draw conjecture, and several tempting induction principles fail explicitly.
+Put
+\[
+T_k=\frac{k(k+1)}2,\qquad \mathcal T_n=\{T_1,\ldots,T_n\}.
+\]
+
+\subsection{The arithmetic part is completely settled}
+\begin{proposition}\label{prop:tri-partition}
+For $n\ge1$, the triangular prefix $\mathcal T_n$ has an equal-sum partition
+if and only if
+\[
+n\ge4\qquad\text{and}\qquad n\not\equiv1\pmod4.
+\]
+\end{proposition}
+
+\begin{proof}
+The total is
+\[
+\sum_{k=1}^nT_k=\frac{n(n+1)(n+2)}6,
+\]
+which is odd exactly when $n\equiv1\pmod4$.  The exceptional even-total
+prefixes $n=2,3$ are not partitionable because their largest terms exceed
+the sums of the remaining terms.  Bases exist at lengths $4,6,7$:
+\[
+10=1+3+6,\quad
+21+6+1=3+10+15,\quad
+21+15+6=1+3+10+28.
+\]
+Finally
+\begin{equation}\label{eq:tri-defect}
+T_m+T_{m+3}=T_{m+1}+T_{m+2}+2.
+\end{equation}
+Given a balanced partition at length $n$, move the token $1$ to the opposite
+side and add the outer pair of the next four triangular numbers to the side
+that lost $1$, with the middle pair added to the other side.  The move of $1$
+changes the difference by $-2$ and \eqref{eq:tri-defect} changes it by $+2$.
+Thus partitionability propagates by $n\mapsto n+4$, proving all three
+eligible residue classes.
+\end{proof}
+
+The strategic analogue remains unproved.  Exact response certificates verify
+an optimal draw for every eligible triangular prefix through $n=35$ (24
+eligible prefixes), with largest checked token $T_{35}=630$.  The run at
+$n=36$ was incomplete and is not a certificate or a counterexample.
+
+\subsection{A rigorous four-token deficit lemma}
+The same constant defect in \eqref{eq:tri-defect} does yield a genuine local
+game theorem.
+
+\begin{lemma}[Four-token exact-deficit lemma]\label{lem:four-deficit}
+Suppose
+\[
+0<h<a<b<c<d,\qquad b-a>h,\qquad a+d=b+c+h.
+\]
+Then
+\[
+V(\{a,b,c,d\},h)=0.
+\]
+\end{lemma}
+
+\begin{proof}
+To show $V\le0$, give the opponent a non-losing response after every first
+selection.  After $a$, respond with $b$; the original mover must then choose
+$c$ or $d$, and $d$ gives a draw while $c$ loses.  After $b$ or $c$, respond
+with $a$ and then $d$; legality follows from $a<b-h<c-h$, and the new lead is
+the sole remaining token plus $2h$, so the original mover loses.  After $d$,
+respond with $b$ and then $c$; since
+$b<d-h$ and $b+c=a+d-h$, the new lead equals the remaining token $a$, giving
+a draw.
+
+For $V\ge0$, if $a+b\ge d-h$, open with $d$.  Every remaining token is below
+the opponent's deficit $d-h$, but every pair reaches it.  If the opponent's
+two selections leave token $z$, the original mover takes $z$ and finishes
+with margin
+\[
+d+z-(a+b+c-z)-h=2(z-a)\ge0.
+\]
+If instead $a+b<d-h$, open with $a$.  Replies $b$ or $c$ are met by $d$ and
+draw; after reply $d$, take $b$ and then $c$, which is legal and wins.  Hence
+the mover can also prevent a loss.
+\end{proof}
+
+\begin{corollary}\label{cor:tri4}
+For every $m\ge1$,
+\[
+V(\{T_m,T_{m+1},T_{m+2},T_{m+3}\},2)=0.
+\]
+\end{corollary}
+
+\begin{proof}
+For $m\ge2$, use \eqref{eq:tri-defect}, $T_m>2$, and
+$T_{m+1}-T_m=m+1>2$ in Lemma~\ref{lem:four-deficit}.  The case $m=1$ is a
+direct four-token check.
+\end{proof}
+
+\subsection{Why the local lemma does not compose}
+The triangular data give exact obstructions to the most tempting induction
+steps.
+
+\paragraph{Two drawn quartets need not remain drawn together.}
+Each four-term block in Corollary~\ref{cor:tri4} draws from deficit $2$, but
+\[
+V(\{T_3,\ldots,T_{10}\},2)=2,
+\qquad
+V(\{T_4,\ldots,T_{11}\},2)=-2.
+\]
+Thus even adjacent locally drawn blocks can interact nontrivially through
+interleaved turns.
+
+\paragraph{A balanced block need not be strategically neutral.}
+The shifted triangular block
+\[
+B=\{T_5,\ldots,T_{12}\}
+ =\{15,21,28,36,45,55,66,78\}
+\]
+has an equal partition
+\[
+15+36+55+66=21+28+45+78=172,
+\]
+yet exact minimax gives
+\[
+V(B,0)=-6.
+\]
+
+\paragraph{The Fibonacci singleton reduction fails.}
+Let
+\[
+H=\{T_9,\ldots,T_{16}\}
+ =\{45,55,66,78,91,105,120,136\}.
+\]
+Exact independent calculations give
+\[
+V(H,0)=0,
+\qquad
+V(\{10\}\cup H,10)=4.
+\]
+Thus even when the deficit equals an available singleton and
+$2\cdot10<\min H$, entering the drawn tail can be strictly better than taking
+the singleton and tying.  The exact ``crumb'' reduction used in the separated
+Fibonacci proof is therefore unavailable.
+
+\paragraph{A reachable append-four closure also fails.}
+Set
+\[
+R=\{6,10,15,28,36,55,78,105\},\qquad
+Q=\{120,136,153,171\}.
+\]
+Exact one-selection and independent whole-turn minimax agree that
+\[
+\boxed{V(R,1)=0,\qquad V(R\cup Q,1)=-2.}
+\]
+This state is reachable legally.  In $\mathcal T_{14}$, the alternating
+single-selection history
+\[
+1,\ 3,\ 21,\ 45,\ 91,\ 66
+\]
+leaves the first player to move one point behind with remaining set $R$.
+Inside $\mathcal T_{18}$ the identical history leaves $R\cup Q$ instead.
+Hence reachability, a drawn state, a unit deficit, and appending precisely the
+next triangular quartet still do not form a valid induction hypothesis.
+Neither initial prefix is a counterexample; both initial games draw.
+
+These failures are directly relevant to the consecutive problem: they show
+that ``decompose into drawn four-blocks and induct'' is not a proof unless the
+induction state retains enough information to control cross-block
+interleaving.
+
+\section{What the combined evidence suggests for $S_N$}
+The calculations and counterexamples rule out several broad shortcuts:
+\begin{enumerate}
+\item equal-sum partitionability alone does not imply an optimal draw;
+\item a union of locally drawn blocks need not itself be drawn;
+\item the current deficit and a drawn/losing label for the residual tail do
+      not contain enough information for a general block induction;
+\item Fibonacci-style separation and exact-singleton lemmas cannot simply be
+      transplanted to slowly growing sequences.
+\end{enumerate}
+
+For consecutive integers, however, there is additional rigid order absent
+from the triangular counterexamples.  Lemma~\ref{lem:four-consecutive} and
+the finite interval survey suggest that the most focused next target is not
+an arbitrary ``union of draws'' theorem but a closure theorem for
+\emph{adjacent consecutive four-blocks}.  One possible strengthened induction
+would classify a small family of states
+\[
+(\{1,\ldots,4k\}\setminus A,d)
+\]
+where $A$ is confined to the current boundary block and $d$ is bounded by a
+small constant, and prove that every legal excursion into the next block
+returns to that family.  The triangular reachable counterexamples show why
+$A$ cannot be discarded from the state description.
+
+Equivalently, the original conjecture can be attacked through the exact
+response quantities
+\[
+A_N(x):=V(S_N\setminus\{x\},x).
+\]
+The required theorem is precisely
+\[
+A_N(x)\ge0\quad\text{for all }x,
+\qquad
+\min_xA_N(x)=0,
+\quad N\equiv0,3\pmod4.
+\]
+The computation through $N=28$ gives this in every admissible case, and in
+all checked admissible cases $N\ge12$ it gives the stronger identity
+$A_N(x)=0$ for every $x$.  A uniform proof of either statement remains open.
+
+\section{Computation and verification notes}
+The finite calculations use no strategy restriction.  Equation~\eqref{eq:V}
+is evaluated by exact memoized backward induction; the terminal shortcut
+\eqref{eq:terminal} is exact.  Larger runs use Boolean threshold queries for
+$V\ge0$ and $V\ge1$, which determine win/draw/loss without replacing the
+underlying minimax game.  The consecutive-integer rerun agrees with the
+previously posted we-solve exact table through $N=22$ and extends the
+independent local check to $N=28$.
+
+For the triangular work, a second implementation enumerating complete legal
+turns was used on small states and on the quoted reachable counterexamples.
+For positive deficit $d$, a nonempty selected subset $U$ can be one complete
+legal turn exactly when
+\[
+\sum U\ge d,
+\qquad
+\sum U-\max U<d;
+\]
+at deficit zero exactly one token must be selected.  The independent
+one-selection and whole-turn recurrences agree on the audited examples.
+Only compact certificates are reproduced here; the large CSV tables are not
+needed for the mathematical statements above.
+
+\section{Conclusion}
+The consecutive-integer conjecture remains unresolved.  The new synthesis
+narrows the conceptual gap.  Consecutive target prefixes are built entirely
+from four-term intervals that are each provably drawn, and exact response
+certificates continue to support the conjecture.  A separate theorem shows
+that block induction can be made rigorous when additive blocks have strong
+separation.  Triangular numbers, however, provide explicit reachable
+counterexamples showing that local draw, equal balance, exact deficit, and
+adjacent four-term extension are individually insufficient closure data.
+
+The most concrete remaining problem is therefore:
+\[
+\boxed{\text{Find an interval-specific invariant that survives arbitrary
+interleaving of adjacent four-blocks.}}
+\]
+Proving Conjecture~\ref{conj:interval4k} would already settle the
+$N\equiv0\pmod4$ half of the we-solve problem; extending the same invariant
+to the initial three-token seed would address the $N\equiv3\pmod4$ half.
+
+\begin{thebibliography}{9}
+\bibitem{catchup}
+A.~Isaksen, M.~Ismail, S.~J.~Brams, and A.~Nealen,
+\emph{Catch-Up: A Game in Which the Lead Alternates},
+Game \& Puzzle Design \textbf{1}(2) (2015), 38--49.
+\url{https://mpra.ub.uni-muenchen.de/108784/}
+
+\bibitem{stengel2019}
+B.~von Stengel,
+\emph{Computational progress on the Catch-Up game},
+LSE PhD Seminar on Combinatorics, Games and Optimisation, 22 February 2019.
+\url{https://www.lse.ac.uk/Mathematics/assets/documents/Events-Archive/CGO-PhD/PhD-Seminar-on-Combinatorics-2019-update.pdf}
+
+\bibitem{wesolveproblem}
+we-solve,
+\emph{The Catch-Up optimal-draw conjecture for consecutive integers},
+problem record Econ-14, accessed 28 October 2026.
+\url{https://we-solve.github.io/problems/the-catch-up-optimal-draw-conjecture-for-consecutive-integers/}
+
+\bibitem{wesolveA3}
+we-solve research archive,
+\emph{GPT 6 Astra Pro attempt on Econ-14, version 2},
+Econ-14-A3, revision r1, 9 October 2026.
+\url{https://we-solve.github.io/contributions/the-catch-up-optimal-draw-conjecture-for-consecutive-integers/attempt-3/r1/}
+\end{thebibliography}
+
+\end{document}
