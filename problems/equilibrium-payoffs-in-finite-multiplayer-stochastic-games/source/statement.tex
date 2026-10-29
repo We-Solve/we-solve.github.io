@@ -40,15 +40,24 @@ Fix a finite stochastic game
 \[
 G=\bigl(I,S,(A_i(s))_{i,s},P,(g_i)_i\bigr),
 \]
-with finite player set $I$, finite states $S$, finite nonempty action
-sets $A_i(s)$, a transition kernel $P(\cdot\mid s,a)$, and bounded
-stage payoffs $g_i(s,a)$. States and realized action profiles are
-publicly observed after each simultaneous-move stage. Strategies are
-independently randomized behavioral strategies with perfect recall;
-no mediator, public sunspot signal, or additional correlating device
-is included. Write $\Sigma$ for the resulting profile space and
-$\tau_i$ for an arbitrary unilateral behavioral deviation.
+with nonempty finite player set $I$ and state set $S$. For every
+$i\in I$ and $s\in S$, the action set $A_i(s)$ is finite and nonempty.
+Write $A(s)=\prod_{i\in I}A_i(s)$. For every feasible $(s,a)$,
+$P(\cdot\mid s,a)\in\Delta(S)$ and $g_i(s,a)\in\R$; the stage
+payoffs are bounded. At stage $t\in\{1,2,\ldots\}$ the current
+state $s_t$ is publicly observed before simultaneous action choice,
+including the initial state $s_1=s$. States and realized action
+profiles are publicly observed after each stage. A feasible pre-action
+history is $h_t=(s_1,a_1,s_2,\ldots,a_{t-1},s_t)$, with feasible
+actions and positive-probability recorded transitions. A behavioral
+strategy of player $i$ assigns an element of $\Delta(A_i(s_t))$ to
+every such history. Players randomize independently conditional on the
+public history and have perfect recall; no mediator, public sunspot
+signal, or additional correlating device is included. Write $\Sigma_i$
+for these strategy spaces, $\Sigma=\prod_{i\in I}\Sigma_i$, and
+$\tau_i\in\Sigma_i$ for an arbitrary unilateral deviation.
 
+Throughout, horizons $N$ and $N_\varepsilon$ are positive integers.
 For initial state $s$, profile $\sigma$, horizon $N\ge1$, and normalized
 discount rate $\lambda\in(0,1)$, define
 \[
@@ -107,9 +116,9 @@ question.
 	The \emph{same} profile $\sigma^\varepsilon$ must work for all
 	sufficiently large horizons and all specified initial states.
 	
-	\item \textbf{Joint Ces\`aro--discounted uniformity (stronger formulation).}
+	\item \textbf{Joint Ces\`aro--discounted uniformity (joint evaluation formulation).}
 	Can $v$ and the same $\sigma^\varepsilon$ in (a) also be chosen
-	with $\lambda_\varepsilon>0$ such that, for all
+	with $\lambda_\varepsilon\in(0,1)$ such that, for all
 	$0<\lambda\le\lambda_\varepsilon$, all $s,i$, and every $\tau_i$,
 	\[
 	\left|\gamma_i^\lambda(s,\sigma^\varepsilon)-v_i(s)\right|
@@ -154,14 +163,20 @@ question.
 	\begin{aligned}
 		V_i^\sigma(h)&=\E_{h,\sigma}
 		\left[\liminf_{N\to\infty}\frac1N\sum_{t=1}^{N}g_i(s_t,a_t)\right],\\
-		m_i(s)&=\inf_{\rho_{-i}}\sup_{\tau_i}
+		m_i(s)&=\inf_{\rho_{-i}\in\prod_{j\ne i}\Sigma_j}
+        \sup_{\tau_i\in\Sigma_i}
 		u_i^{\mathrm{path}-}(s,\tau_i,\rho_{-i}),\\
 		A(\sigma)&=\sup_{i,h}[m_i(s_h)-V_i^\sigma(h)]_+.
 	\end{aligned}
 	\]
-	Here the tail evaluation defining $V_i^\sigma(h)$ begins after the
-	finite history $h$. Let $\tau_i\star_N\sigma_i$ deviate through the
-	first $N$ stages and then return to $\sigma_i$; set
+	Here $[x]_+=\max\{x,0\}$. The tail evaluation defining
+$V_i^\sigma(h)$ restarts its horizon at the current pre-action state
+$s_h$. Its law starts at $s_h$ and uses the strategy kernels on
+actual extensions of $h$; it does not condition on a possibly null
+event under $\sigma$. Let $\tau_i\star_N\sigma_i$ use $\tau_i$
+through stages $1,\ldots,N$ and use $\sigma_i$ at the actual
+recorded history at every later stage, without resetting history;
+set
 	\[
 	R_N(\sigma)=\max_i\sup_{\tau_i}
 	\Bigl[u_i^{\mathrm{path}-}(s_0,
@@ -228,7 +243,7 @@ literature or proof audit.
 		Finite Multiplayer Stochastic Games} and \emph{Uniform Equilibrium
 		in Finite Stochastic Games}, 8 October 2026.
 \end{enumerate}
-\par\endgroup
+\par
 
 \subsection*{Common conventions: Source mathematical conventions}
 

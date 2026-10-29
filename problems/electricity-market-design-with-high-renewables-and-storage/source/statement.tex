@@ -35,18 +35,28 @@
 
 \subsection*{Definitions and assumptions}
 
-Take locations $\ell=1,\ldots,L$, periods $t=1,\ldots,H$ of duration $\Delta t$ hours, and a stochastic renewable/demand process. At each location let conventional generation $g_{\ell t}$, renewable output $r_{\ell t}$, charging $c_{\ell t}$, discharging $d_{\ell t}$, demand $q_{\ell t}$ and unserved demand $u_{\ell t}$ be energies in MWh. Network transfers obey declared flow constraints and losses; nodal balance equates supply plus net imports to $q_{\ell t}-u_{\ell t}+c_{\ell t}$. Storage energy $b_{\ell t}$ obeys $b_{\ell,t+1}=b_{\ell t}+\eta_c c_{\ell t}-d_{\ell t}/\eta_d$, with efficiencies in $(0,1]$, energy-capacity bounds and power limits multiplied by $\Delta t$. Commitment, ramping, investment and degradation costs are specified in a fixed real-currency year.
+Take positive integers $L,H$, locations $\ell=1,\ldots,L$, periods $t=1,\ldots,H$ of duration $\Delta t>0$ hours, and a stochastic renewable/demand environment. At each location let conventional generation $g_{\ell t}$, dispatched renewable output $r_{\ell t}$, charging $c_{\ell t}$, discharging $d_{\ell t}$, requested demand $q_{\ell t}$ and involuntarily unserved demand $u_{\ell t}$ be nonnegative energies in MWh, with $0\leq u_{\ell t}\leq q_{\ell t}$. Requested demand is defined after any voluntary demand adjustment described below. Renewable availability $\bar r_{\ell t}$ is an instance primitive, possibly dependent on investment and exogenous conditions; impose $0\leq r_{\ell t}\leq\bar r_{\ell t}$ and account for curtailment $\bar r_{\ell t}-r_{\ell t}$. Network transfers obey declared flow constraints and losses; nodal balance equates $g_{\ell t}+r_{\ell t}+d_{\ell t}$ plus net imports to $q_{\ell t}-u_{\ell t}+c_{\ell t}$.
+
+Storage energy $b_{\ell t}$ is measured in MWh at dates $t=1,\ldots,H+1$. The no-standing-loss specification is $b_{\ell,t+1}=b_{\ell t}+\eta_c c_{\ell t}-d_{\ell t}/\eta_d$, with efficiencies in $(0,1]$, energy-capacity bounds and power limits multiplied by $\Delta t$. The integrated refinement below gives the standing-loss extension; an instance declares which specification applies to each store, rather than imposing both recursions on the same store. Initial stocks, terminal stock constraints and any terminal salvage value are declared and held fixed in the market/planner comparison.
+
+Each instance supplies the complete physical feasible set, including investment-dependent generation, storage and network capacities, commitment and ramping dynamics, and whether simultaneous charging and discharging is allowed. Specify the AC/DC power-flow formulation and its time aggregation: flows expressed as power must be converted consistently to period energy, with network losses included once in nodal balance. Commitment, ramping, investment and degradation costs are specified in a fixed real-currency year.
 
 \subsection*{Formal research question}
 
-Characterize market rules implementing reliable, cost-effective investment and dispatch with strategic generators, storage owners and flexible demand. Let $R$ denote a complete rule system, including price formation, capacity payments and settlement, and $\mathcal E(R,P)$ its equilibria under scenario law $P$. For a stated ambiguity class $\mathcal P$, reliability bound $\varepsilon$ in expected unserved MWh over the horizon, and total social cost $C(e,P)$ including emissions and lost load, seek
+Characterize market rules implementing reliable, cost-effective investment and dispatch with strategic generators, storage owners and flexible demand. This is a parameterized research family. Write $\tau$ for the fixed instance specification: physical primitives, ownership, agents and technologies, feasible investment and operating actions, information, preferences and costs, institutional restrictions and benchmark conventions. Specify the underlying strategic game, including investment and bidding dates, settlement, enforcement, payoffs, outside options and equilibrium concept. Supply a candidate class $\mathcal R(\tau)$ of complete rule systems $R$, including price formation, capacity payments and settlement. Its restrictions specify permissible transfers, participation and budget requirements, and whether each requirement holds ex ante, interim or ex post. These inputs are not inferred from the cited surveys.
+
+Declare a common measurable space of primitive histories and a nonempty ambiguity class $\mathcal P$ of laws on that space, including its support restrictions. Specify which primitives are exogenous, the law of private types where applicable, public and private observations, investment and dispatch information dates, and agents' beliefs. State whether and when $P$ is known; indexing equilibria by $P$ does not itself grant agents or the planner knowledge of $P$. Information and belief specifications are fixed across the comparison, with any dependence on $P$ explicitly declared. Strategies and planner policies must be nonanticipative relative to their declared information. Given $P$ and equilibrium strategies, specify the induced outcome law, including strategic randomization; $\mathbb E_P$ below denotes expectation under that induced law for the equilibrium being evaluated. A rule cannot condition on an unobserved law merely because performance is evaluated under it.
+
+Specify whether requested demand is fixed or chosen, and distinguish baseline service needs, voluntary shifting or curtailment, and involuntary unserved energy. Flexible-demand instances supply feasible intertemporal adjustments and preferences or forgone-service costs, including discomfort, privacy and adjustment costs. Voluntary demand reductions must therefore enter the welfare account or satisfy declared service requirements; they are not automatically counted as costless reliability improvements. For fixed $\tau$, let $C(e,P)$ be a declared deterministic scalar social-cost functional of the induced equilibrium outcome law, including investment, operation, degradation, emissions, lost load and demand-service effects. Specify whether it is expected discounted total cost or another scalar monetary criterion, its discounting and conversion weights, and its treatment of settlement transfers without double counting real costs.
+
+Let $\mathcal E(R,P)$ denote all equilibria of the specified game, with dependence on fixed $\tau$ suppressed. Admit only $R\in\mathcal R(\tau)$ satisfying the declared institutional restrictions and $\mathcal E(R,P)\ne\varnothing$ for every $P\in\mathcal P$; denote this class by $\mathcal R_{\rm adm}$. For a finite reliability bound $\varepsilon\geq0$ in expected unserved MWh over the horizon, seek
 \[
-\inf_R\ \sup_{P\in\mathcal P}\sup_{e\in\mathcal E(R,P)} C(e,P)
+\inf_{R\in\mathcal R_{\rm adm}}\ \sup_{P\in\mathcal P}\sup_{e\in\mathcal E(R,P)} C(e,P)
 \quad\text{subject to}\quad
 \sup_{P\in\mathcal P,e\in\mathcal E(R,P)}
 \mathbb E_P\!\left[\sum_{\ell,t}u_{\ell t}\right]\le\varepsilon .
 \]
-State participation and budget restrictions, and either prove equilibrium existence or exclude rule systems lacking equilibrium. Compare market outcomes to a planner using the same physical and information constraints.
+Every displayed expectation and each individual cost evaluation must exist. Suprema over laws and equilibria may nevertheless be extended-real; report nonfinite values explicitly rather than assuming uniform boundedness. Rules lacking equilibrium under even one admissible law are excluded, not evaluated after dropping that law. Prove the required equilibrium existence or justify the exclusion. Distinguish empty robust feasibility, whose infimum is $+\infty$, from nonattainment of a finite value. The target is a characterization of robustly feasible rules and their optimal value or arbitrarily near-optimal rules, with worst-equilibrium performance as displayed. Compare these outcomes to the declared planner benchmark using the same physical and information constraints; state separately whether a comparison establishes exact decentralization or a bound on the cost gap.
 
 \subsection*{Interpretation and scope}
 
@@ -75,20 +85,19 @@ This refinement adopts the additional source conventions
 \textbf{Spatial investment and storage benchmark for the market rules.}
 Specify edge capacities, delivered flow fractions and the chosen AC/DC
 power-flow model; a generic flow graph alone does not define an electricity
-system. Storage at node $r$ obeys
+system. Here node $r$ denotes the same location as $\ell$ above, not renewable output $r_{\ell t}$; $q_{rt}^{\rm in}=c_{\ell t}$ and $q_{rt}^{\rm out}=d_{\ell t}$ are period energies in MWh. The node-specific efficiencies $\eta_r^{\rm in},\eta_r^{\rm out}\in(0,1]$ correspond to the charging and discharging efficiencies above. When standing loss is included, replace the no-standing-loss recursion for that store by
 \[
 b_{r,t+1}=(1-\rho_r)b_{rt}+\eta_r^{\rm in}q_{rt}^{\rm in}
                               -q_{rt}^{\rm out}/\eta_r^{\rm out},
 \]
-with bounded inventories and charging/discharging, efficiencies in $(0,1]$,
-and declared initial and terminal stocks. For feasible investment
-$k\in\mathcal K$ and nonanticipative operation, characterize
-$\inf_{k\in\mathcal K}C(k,\tau)$ and regional welfare, including investment,
-shortage, emissions and equilibrium economic responses. Use this planner as the
-benchmark for decentralization by the existing market rules. Specify investment
-versus dispatch information dates, weather, endogenous demand and location,
-physical flow/loss restrictions, and attainment conditions. Expected shortage
-penalties and reliability constraints define different comparisons.
+where $\rho_r\in[0,1]$ is the fraction of beginning-of-period inventory lost during one period of length $\Delta t$. If supplied as a rate, its conversion to this period fraction must be declared. Setting $\rho_r=0$ recovers the no-standing-loss specification; no value is selected for the family. Inventory and charging/discharging bounds, initial and terminal stocks and salvage accounting are the same in the market and its planner benchmark.
+
+The instance specification $\tau$ introduced above includes a nonempty declared investment domain $\mathcal K$ and the planner criterion. For $k\in\mathcal K$, let $\mathcal A(k,\tau)$ be the set of physically feasible nonanticipative operating policies satisfying the declared planner reliability restriction and any modeled economic-response constraints. Specify how endogenous demand, location and other economic responses are determined, including equilibrium existence and selection or ranges when relevant. Let $J(k,a,P;\tau)$ be the scalar social cost of investment $k$ and operation $a$ under law $P$, using the same cost, welfare and terminal-stock accounting as $C(e,P)$. Supply a scalar aggregation functional $\Phi_\tau$ over these law-indexed costs and define
+\[
+ C(k,\tau)=\inf_{a\in\mathcal A(k,\tau)}
+ \Phi_\tau\!\left((J(k,a,P;\tau))_{P\in\mathcal P}\right).
+\]
+An empty operating-policy set has value $+\infty$. The spatial planner target is $\inf_{k\in\mathcal K}C(k,\tau)$ together with declared regional welfare accounts. A directly comparable robust planner uses the same ambiguity class, worst-law cost aggregation and expected-unserved-energy bound as the market criterion. A law-specific planner or a planner using only shortage penalties must be labeled as a different comparison. No law-specific or robust criterion is silently selected by the notation $C(k,\tau)$. Specify investment versus dispatch information dates, weather, endogenous demand and location, physical flow/loss restrictions, aggregation domains and attainment conditions. Use this declared planner as the benchmark for decentralization by the existing market rules. Expected shortage penalties and reliability constraints define different comparisons.
 \subsection*{Supplied source audit for ECON-040}
 Local [S1], [S2], etc. in this audit and the references immediately below
 belong to ECON-040, independently of the original entry's reference numbering.
@@ -106,7 +115,7 @@ Unless an entry states otherwise, agent and firm sets are finite. State and acti
 \[
 \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M,\ P_m=P\}.
 \]
-Point identification holds when this set is a singleton, or equivalently when $P_{m_1}=P_{m_2}$ implies $\theta(m_1)=\theta(m_2)$ for all compatible models. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
+A law $P$ is compatible with $\mathcal M$ when at least one $m\in\mathcal M$ satisfies $P_m=P$. At a compatible law $P$, point identification holds when $\Theta(P;\mathcal M)$ is a singleton, equivalently when $\theta(m_1)=\theta(m_2)$ for every pair with $P_{m_1}=P_{m_2}=P$. An empty identified set indicates incompatibility. Global point identification requires the singleton property at every compatible law, equivalently equality of targets for all model pairs with the same observable law. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
 
 \textbf{Inference.} Identification, estimability and valid uncertainty quantification are separate questions. Fix $\alpha\in(0,1)$. A confidence procedure $C_n$ over a declared law class $\mathcal P$ has asymptotic uniform coverage at level $1-\alpha$ when
 \[
@@ -146,12 +155,12 @@ ECON refinements elsewhere in the catalogue, subject to local restrictions.
 
 \textbf{Populations and observation.} Fix baseline eligibility and population weights. Conditioning on post-policy employment, survival, relocation or program uptake can change the population being compared. Death is not ordinary loss to follow-up; outcomes truncated by death need a composite convention, joint survival target, or explicitly defined survivor stratum. Fertility-changing interventions need a population functional rather than an unexplained fixed descendant cohort. Measurement and missingness models must be supplied.
 
-\textbf{Identification.} A structural model \(m\in\mathcal M\) implies observable law \(P_m\) and target \(\theta(m)\). Identification means
+\textbf{Identification.} A structural model \(m\in\mathcal M\) implies observable law \(P_m\) and target \(\theta(m)\). Global point identification means
 \[
  P_{m_1}=P_{m_2}\ \Longrightarrow\ \theta(m_1)=\theta(m_2)
  \quad\text{for all }m_1,m_2\in\mathcal M .
 \]
-Without identification, the target is
+At a law $P$ compatible with $\mathcal M$, the target set, whether or not it is a singleton, is
 \[
  \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M,\ P_m=P\}.
 \]

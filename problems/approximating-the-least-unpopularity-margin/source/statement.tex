@@ -29,18 +29,19 @@
 \label{beyond:MM-02}
 \entrymeta{MM-02}{Matching markets and allocation}{Published question}
 \subsection*{Definitions and assumptions}
-In a house-allocation instance $I$, applicants $A$ strictly rank acceptable houses $H$, and houses have no preferences. A matching assigns at most one acceptable house to each applicant and at most one applicant to each house. Every acceptable house is preferred to being unmatched. For matchings $M,N$, let $\phi(N,M)$ count applicants strictly preferring their assignment in $N$ to their assignment in $M$. Set
+In a house-allocation instance $I$, the finite set of applicants $A$ and the finite set of houses $H$ are disjoint; each applicant strictly ranks a subset of $H$ consisting of that applicant's acceptable houses, and houses have no preferences. A matching assigns at most one acceptable house to each applicant and at most one applicant to each house. Let $\mathcal M(I)$ denote the set of all such matchings, including the empty matching. Every acceptable house is preferred to being unmatched. For matchings $M,N$, let $\phi(N,M)$ count applicants strictly preferring their assignment in $N$ to their assignment in $M$. Set
 \[
  \mu_I(M)=\max_{N\in\mathcal M(I)}[\phi(N,M)-\phi(M,N)],
  \qquad \mu^*(I)=\min_{M\in\mathcal M(I)}\mu_I(M).
 \]
 The comparison $N=M$ ensures $\mu_I(M)\ge0$. A matching is popular when no other matching receives more votes against it, equivalently when its margin is zero.
 \subsection*{Formal question}
-Determine the approximation threshold for minimizing $\mu_I(M)$. For a multiplicative guarantee, require an algorithm to output $M$ with
+Determine the approximation threshold for minimizing $\mu_I(M)$ using algorithms running in time polynomial in the total encoding length of the explicitly given applicant and house sets and preference lists. For a multiplicative guarantee, require an algorithm to output $M$ with
 \[
  \mu_I(M)\le\rho\mu^*(I)
 \]
 on every instance; in particular, it must output a popular matching whenever $\mu^*(I)=0$. Also characterize the best attainable additive guarantee $\mu_I(M)\le\mu^*(I)+g(|A|+|H|)$ and prove matching hardness bounds where possible.
+Put $s=|A|+|H|$. A constant-factor claim uses a finite real constant $\rho\ge1$ independent of the instance; a size-dependent claim instead writes $\rho(s)$, where $\rho:\mathbb Z_{\ge0}\to[1,\infty)$. An additive bound uses $g:\mathbb Z_{\ge0}\to[0,\infty)$. The displayed guarantees are exact inequalities on every instance. An asymptotic bound must state its constants and any size cutoff, uniformly over instances of each size. Constant and size-dependent multiplicative bounds, and exact and asymptotic descriptions of additive bounds, must be distinguished in any claimed threshold. Each result must identify whether its algorithm is deterministic or randomized and state the complexity assumption for any conditional hardness bound. The displayed inequalities concern the output matching, not its expected margin. A randomized result using expectation or a success probability must explicitly give that different guarantee, including the probability as a function of size when applicable and its zero-optimum consequence. No particular randomized success criterion is selected by this question.
 \subsection*{Scope and status}
 The 2019 source identifies the optimization problem as NP-hard and explicitly asks for better approximation or inapproximability results. Computing the margin of a specified matching and optimizing over matchings are separate tasks. The zero optimum causes no undefined division in the displayed guarantee; however, a claimed ratio obtained by dividing by $\mu^*(I)$ would require a separate zero case. Additive approximation is a precise supplementary formulation of the source's broader approximation agenda, rather than a separately quoted conjecture. The entry makes no assertion that a particular contemporary approximation threshold is known.
 \subsection*{References for the source of the problem}

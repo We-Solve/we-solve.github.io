@@ -29,13 +29,13 @@
 \label{beyond:CI-45}
 \entrymeta{CI-45}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Observe $n$ independent copies of the binary causal baseline, with $Y\in\{0,1\}$. Assume consistency, conditional exchangeability, and $\varepsilon\leq e\leq1-\varepsilon$, where $\varepsilon>0$ is fixed. For fixed dimension $d$, positive smoothness indices $s_e,s_m,s_p$, and radius $L$, let $\mathcal P(s_e,s_m,s_p)$ consist of laws satisfying
+Observe $n$ independent copies of $O=(X,W,Y)$ from the binary causal baseline, with $Y\in\{0,1\}$. The covariate $X$ takes values in $[0,1]^d$ and has Lebesgue density $p$, with $p\geq0$ and $\int_{[0,1]^d}p(x)\,dx=1$. Assume consistency, conditional exchangeability, and $\varepsilon\leq e(X)\leq1-\varepsilon$ almost surely, where $0<\varepsilon\leq1/2$ is fixed. This local bound implies the baseline overlap condition with a strictly smaller positive constant; the endpoint $\varepsilon=1/2$ is retained and forces $e(X)=1/2$ almost surely. For fixed integer dimension $d\geq1$, positive smoothness indices $s_e,s_m,s_p$, radius $L>0$, and real constants $c\leq C$, let $\mathcal P(s_e,s_m,s_p)$ consist of laws admitting versions satisfying
 \[
  e\in\mathcal H_d^{s_e}(L),\quad
  m_1\in\mathcal H_d^{s_m}(L),\quad
  p\in\mathcal H_d^{s_p}(L),\quad c\leq p\leq C.
 \]
-The constants are fixed independently of $n$, the model is assumed nonempty, and the conditional law for $Y$ in the untreated arm is unrestricted. The identified target is $\psi(P)=\E_P[Y(1)]=\int m_1(x)p(x)\,dx$.
+The density bounds hold on $[0,1]^d$. No additional condition $c>0$ is imposed; the bounds are interpreted together with nonnegativity and normalization of $p$. Conditional functions are defined $P_X$-almost everywhere and must admit the displayed H\"older versions on the cube. The constants are fixed independently of $n$, the model is assumed nonempty, and the conditional law for $Y$ in the untreated arm is unrestricted within binary conditional laws. The identified target is $\psi(P)=\E_P[Y(1)]=\int_{[0,1]^d}m_1(x)p(x)\,dx$. Dependence of the model and risks on the fixed constants is suppressed in the notation.
 \subsection*{Formal question}
 Determine, up to constants independent of $n$, the squared-error minimax risk
 \[
@@ -43,7 +43,13 @@ Determine, up to constants independent of $n$, the squared-error minimax risk
  =\inf_{\widehat\psi}\sup_{P\in\mathcal P(s_e,s_m,s_p)}
  \E_P[(\widehat\psi-\psi(P))^2].
 \]
-Establish matching lower and upper bounds throughout the smoothness range, and compare this experiment with one in which the entire covariate density $p$ is supplied to the estimator. Characterize precisely when uncertainty about $p$ changes the rate, including the boundary between $n^{-1}$ mean squared error and slower convergence. The comparison must hold with the same restrictions on $e$ and $m_1$, so that it isolates the information supplied by the covariate law.
+Establish matching lower and upper bounds throughout the smoothness range, and compare this experiment with one in which the entire covariate density $p$ is supplied to the estimator. Specifically, writing $p_P$ for the density under $P$, define
+\[
+ R_n^{\mathrm{known}}(s_e,s_m,s_p)
+ =\inf_{\{T_p\}}\sup_{P\in\mathcal P(s_e,s_m,s_p)}
+ \E_{P^{\otimes n}}[(T_{p_P}(O_1,\ldots,O_n)-\psi(P))^2].
+\]
+Here the infimum is over families of measurable estimators indexed by the exact supplied density, identified up to Lebesgue-almost-everywhere equality. Each estimator may use this density and the fixed class parameters, but no other unknown feature of $P$. Both experiments use the same underlying class; the unknown-density estimator may also use the fixed class parameters. Multiplicative rate constants may depend on $d,s_e,s_m,s_p,L,c,C,\varepsilon$, but must be independent of $n$ and uniform over $P$ in the class. Characterize precisely when uncertainty about $p$ changes the rate, including equality cases at the boundary between $n^{-1}$ mean squared error and slower convergence. Retain and distinguish admissible boundary choices of the fixed constants, including classes in which the density is already determined and the overlap endpoint, rather than assuming that the rate depends only on the smoothness indices. The comparison must hold with the same restrictions on $e$ and $m_1$, so that it isolates the information supplied by the covariate law.
 \subsection*{Scope and status}
 This specifies one version of the source's covariate-law question. It does not attribute these particular Hölder balls or a claimed answer to the authors. Rates stated in mean squared error correspond to their square roots in root mean squared error; the parametric benchmark is $n^{-1/2}$ in the latter convention.
 \subsection*{References for the source of the problem}

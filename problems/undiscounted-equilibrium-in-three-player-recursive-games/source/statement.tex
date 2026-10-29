@@ -31,7 +31,7 @@
 {\sffamily\small\color{muted}\textbf{GT-027} | Stochastic, repeated, and dynamic games\par P | Historical source-reported existence question; later status not exhaustively audited\par}
 \par}
 \subsection*{Definitions and mathematical statement}
-Let $N=\{1,2,3\}$. A finite recursive stochastic game has a finite state set $S$, a subset $B\subseteq S$ of absorbing states, finite nonempty action sets, and a transition kernel. Every $b\in B$ remains at $b$ under all actions and has a fixed bounded reward vector $g(b)\in\mathbb R^3$. At every nonabsorbing state every stage reward is zero. States and joint actions are observed; strategies may randomize and depend on the entire finite history.
+Let $N=\{1,2,3\}$. A finite recursive stochastic game $G$ has a finite nonempty state set $S$, a subset $B\subseteq S$ of absorbing states, and, for each $i\in N$ and $s\in S$, a finite nonempty action set $A_i(s)$. Write $A(s)=\prod_{i\in N}A_i(s)$. Its transition kernel assigns $q(\cdot\mid s,a)\in\Delta(S)$ to each $s\in S$ and $a\in A(s)$. Every $b\in B$ remains at $b$ under all actions and has a fixed bounded reward vector $g(b)\in\mathbb R^3$, received at every stage spent at $b$. At every nonabsorbing state every stage reward is zero. At each stage $t=0,1,2,\ldots$, the players choose actions simultaneously. The public history before these choices is $h_t=(s_0,a_0,s_1,\ldots,a_{t-1},s_t)$, with $h_0=(s_0)$. A behavioral strategy assigns $\sigma_i(h_t)\in\Delta(A_i(s_t))$ to every such finite history. Conditional on $h_t$, the players randomize independently; after the joint action $a_t$, the next state is drawn from $q(\cdot\mid s_t,a_t)$. States and joint actions are observed. Let $\Sigma_i(G)$ be the set of all these behavioral strategies and $\Sigma(G)=\prod_{i\in N}\Sigma_i(G)$.
 
 Let $\theta=\inf\{t\geq0:s_t\in B\}$, with $\inf\varnothing=\infty$, and define
 \[
@@ -40,8 +40,8 @@ Let $\theta=\inf\{t\geq0:s_t\in B\}$, with $\inf\varnothing=\infty$, and define
 \]
 where the random variable is zero on $\{\theta=\infty\}$. The question is
 \[
- \forall G\ \forall s_0\ \forall\varepsilon>0\quad
- \exists\sigma\quad\forall i\in\{1,2,3\}\ \forall\tau_i,\qquad
+ \forall G\ \forall s_0\in S\ \forall\varepsilon>0\quad
+ \exists\sigma\in\Sigma(G)\quad\forall i\in\{1,2,3\}\ \forall\tau_i\in\Sigma_i(G),\qquad
  \Gamma_i(\tau_i,\sigma_{-i})\leq\Gamma_i(\sigma)+\varepsilon.
 \]
 Here the pathwise Ces\`aro average converges to the terminal random payoff (or zero if absorption never occurs); bounded convergence identifies its expected limit with $\Gamma_i$.

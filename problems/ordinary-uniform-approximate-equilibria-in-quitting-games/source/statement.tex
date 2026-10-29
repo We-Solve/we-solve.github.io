@@ -68,12 +68,26 @@ Define terminal strategic regret and its optimal value by
 	g(r)&=\inf_{x}\operatorname{Reg}_r(x).
 \end{aligned}
 \]
-For a horizon $H$ and $0<\lambda<1$, let
-$\gamma_i^H(x)$ and $\gamma_i^\lambda(x)$ denote respectively
-expected $H$-stage averages and normalized $\lambda$-discounted sums
-of the pre-absorption stage payoff $c$ followed by $r(J_\theta)$.
+Index stages by $t\in\mathbb N_0=\{0,1,2,\ldots\}$ and define the
+stage payoff, including the quitting stage, by
+\[
+u_i(t)=\begin{cases}
+c_i,&t<\theta,\\
+r_i(J_\theta),&\theta\le t<\infty.
+\end{cases}
+\]
+Thus $u_i(t)=c_i$ at every finite stage when $\theta=\infty$.
+For an integer horizon $H\ge1$ and $0<\lambda<1$, define
+\[
+\gamma_i^H(x)=\E_x\!\left[\frac1H\sum_{t=0}^{H-1}u_i(t)\right],
+\qquad
+\gamma_i^\lambda(x)=\E_x\!\left[\lambda\sum_{t=0}^{\infty}
+(1-\lambda)^t u_i(t)\right].
+\]
+Here $\lambda$ is the discount rate, so the patient limit is
+$\lambda\downarrow0$.
 
-For finite-grid formulations let $k\ge1$,
+For finite-grid formulations let $k\in\mathbb Z_{\ge1}$,
 $K_{nk}=\{0,\ldots,nk-1,\infty\}$, and $\mathcal G_{n,k}$ be the
 set of product stopping-time laws with each marginal an average of
 $k$ point masses in $K_{nk}$ (repetitions permitted). Set
@@ -82,6 +96,9 @@ m_k(r)=\min_{x\in\mathcal G_{n,k}}\operatorname{Reg}_r(x),\quad
 D(r)=\max_{i\in I}\left(\max_{J\subseteq I}r_i(J)
 -\min_{J\subseteq I}r_i(J)\right).
 \]
+Only the profiles in this minimum are grid-restricted; the supremum
+in $\operatorname{Reg}_r$ still ranges over all unilateral behavioral
+deviations, including quitting times outside $K_{nk}$.
 
 \subsection*{Formal research question}
 
@@ -94,8 +111,9 @@ D(r)=\max_{i\in I}\left(\max_{J\subseteq I}r_i(J)
 	\]
 	true? Equivalently, does every such game admit an ordinary behavioral
 	$\varepsilon$-Nash equilibrium for $\Gamma^\infty$ for every
-	$\varepsilon>0$? An ordinary Nash equilibrium need not be stationary
-	or exact, and its strategies may depend on $\varepsilon$.
+	$\varepsilon>0$? The requested ordinary $\varepsilon$-Nash equilibrium
+	need not be stationary or exact, and its strategies may depend on
+	$\varepsilon$.
 	
 	\item \textbf{Uniform finite-horizon and discounted version.}
 	For every $r$ and $\varepsilon>0$, does there exist a single
@@ -120,9 +138,9 @@ D(r)=\max_{i\in I}\left(\max_{J\subseteq I}r_i(J)
 	\[
 	\boxed{\quad
 		m_k(r)\le\frac{(2n-1)D(r)}{k}
-		\quad\text{for all }n,r,k\ge1\quad}
+		\quad\text{for all }n\in\mathbb Z_{\ge2},\ k\in\mathbb Z_{\ge1},\ r:2^I\to\R^n\quad}
 	\]
-	(where $n\ge2$ and $k\ge1$). For the opposite direction, find a
+	(where $I=\{1,\ldots,n\}$). For the opposite direction, find a
 	complete payoff table $r$ and finite $k$ for which
 	\[
 	m_k(r)>\frac{(2n-1)D(r)}{k}.
@@ -138,7 +156,8 @@ D(r)=\max_{i\in I}\left(\max_{J\subseteq I}r_i(J)
 	and for equilibria under stationary or bounded-memory restrictions.
 	Determine whether complete payoff tables with four or more players,
 	including those whose singleton-quitting matrices lie in a difficult
-	complementarity-index regime, always admit ordinary equilibria.
+	complementarity-index regime, always admit ordinary
+	$\varepsilon$-Nash equilibria for every $\varepsilon>0$ as in (a).
 	Any absorption-path classification must allow both discrete jumps
 	(simultaneous quitting at a stage) and continuous small-hazard
 	segments, rather than only a restricted one-active-player path class.

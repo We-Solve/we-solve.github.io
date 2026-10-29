@@ -29,16 +29,43 @@
 \label{beyond:CI-01}
 \entrymeta{CI-01}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Fix a finite horizon $K$, finite action spaces $\mathcal W_k$, and an observed longitudinal record $O=(X,W_1,L_1,\ldots,W_K,Y)$ with $0\leq Y\leq1$. Let $\mathcal G$ be a specified finite collection of causal directed acyclic graphs, possibly containing latent variables, and let $\mathcal M(\mathcal G)$ be the structural models obeying their restrictions. Each model must give unique measurable counterfactuals $Y^g$ for a specified intervention regime $g=(g_1,\ldots,g_K)$. The constant regime $g_k\equiv w_k$ gives the target $\theta_g(P)=\E_P[Y^g]$.
+Fix a finite horizon $K\geq1$, finite action spaces $\mathcal W_k$, and an observed longitudinal record
+\[
+ O=(X,W_1,L_1,\ldots,W_{K-1},L_{K-1},W_K,Y),\qquad 0\leq Y\leq1.
+\]
+For $K=1$ there are no intermediate $L$ variables. The measurable spaces of $X$ and $L_k$ are specified inputs; $L_k$ is observed after $W_k$ and before $W_{k+1}$. Write $H_k=(X,W_1,L_1,\ldots,W_{k-1},L_{k-1})$, with $H_1=X$. Let $\mathcal G$ be a specified finite collection of causal directed acyclic graphs, possibly containing latent variables, sharing these observed node labels and this observation order. The specification of $\mathcal M(\mathcal G)$ includes the latent variable spaces, graph-to-structural-model interpretation, temporal compatibility, structural equations and permitted exogenous dependence restrictions. No independent-error or unrestricted-error convention is inferred merely from the graph notation.
+
+Index structural models by $m\in\mathcal M(\mathcal G)$. A target regime $g=(g_1,\ldots,g_K)$ must specify measurable maps $g_k$ from the space of $H_k$ to $\mathcal W_k$, together with their intervention semantics. Constant maps $g_k\equiv w_k$ include the stated static targets. Each model must give unique measurable counterfactuals $Y^g$ and satisfy $\E_m|Y^g|<\infty$ for every target regime under consideration; write $\theta_g(m)=\E_m[Y^g]$. Any additional counterfactual range or uniform moment restriction is part of the declared structural class, not a consequence asserted here of the observed bound on $Y$.
 
 Across $n$ episodes with independent structural errors before assignment, the design may choose assignment kernels $q_{i,k}$ using previous episodes and the current observed history. Observed episodes can therefore be dependent. Assignments use external randomness independent of structural errors conditional on that history. Specify which treatment coordinates can be manipulated and their allowable probabilities; latent variables remain unrestricted except by the declared structural class.
+
+For each $n\geq1$, the nonempty allowable family $\mathcal Q_n$ is an input of the agenda. Its specification gives the information available before each assignment, including the available feedback from earlier episodes; the kernels governing manipulated coordinates; the structural equations retained for natural coordinates; and the ordering and joint assignment semantics when only part of an action is manipulated. It also gives all support, probability, budget or other restrictions and their possible dependence on $n$. A design is a known rule chosen without knowledge of $m$, although it may adapt to its permitted information. The recorded transcript $D_n$ and the estimator's information, including access to design rules, assignment probabilities and any recorded design randomization, are specified with $\mathcal Q_n$. The episode sampling specification must additionally state the population defining $\theta_g(m)$ and its relation to the experimental episodes; independence of structural errors alone does not choose identical episode laws, invariant mechanisms or absence of cross-episode causal effects.
 \subsection*{Formal question}
-For each such intervention family, characterize when equality of the laws of all observable adaptive experiments implies equality of $\theta_g$. When identification holds, determine the minimax mean squared risk over $\mathcal M(\mathcal G)$, optimizing over allowable adaptive designs and estimators. When it fails, determine the sharp identified set
+For each fully specified structural and intervention family, let $P_m^{q,n}$ be the law of $D_n$ under model $m$ and design $q\in\mathcal Q_n$. Characterize when
 \[
-\Theta_g(Q)=\{\theta_g(P):P\in\mathcal M(\mathcal G),\
-               (P_{\rm obs}^{q})_{q\in\mathcal Q}=Q\}
+ \bigl[P_m^{q,n}=P_{m'}^{q,n}\text{ for every }n\geq1
+       \text{ and every }q\in\mathcal Q_n\bigr]
+ \quad\Longrightarrow\quad \theta_g(m)=\theta_g(m')
+ \qquad(m,m'\in\mathcal M(\mathcal G)).
 \]
-where $\mathcal Q$ is the allowable design family and $Q$ its family of observable laws. For any implemented design, seek informative confidence sets for its corresponding identified set. Establish matching lower bounds in terms of intervention support, graph uncertainty, and horizon.
+Here all observable adaptive experiments means all these finite experiments. When identification holds, determine the minimax mean squared risk
+\[
+ R_n=\inf_{q\in\mathcal Q_n,\,\widehat\theta_n}
+       \sup_{m\in\mathcal M(\mathcal G)}
+       \E_{P_m^{q,n}}[(\widehat\theta_n(D_n)-\theta_g(m))^2],
+\]
+where estimators are measurable with respect to their declared information and the design-estimator pair is selected before the unknown model. Identification alone does not assert a vanishing uniform risk. Rate statements specify which class parameters are fixed, which vary with $n$, and the permitted dependence of constants on horizon, graph uncertainty, action-space sizes and intervention restrictions.
+
+When identification fails, determine the sharp identified set
+\[
+ \Theta_g(Q)=\{\theta_g(m):m\in\mathcal M(\mathcal G),\
+       P_m^{q,n}=Q_{n,q}\text{ for every }n\geq1,\ q\in\mathcal Q_n\},
+\]
+where $Q=(Q_{n,q})_{n\geq1,\,q\in\mathcal Q_n}$ is an indexed family of observable laws. The question concerns attainable families; an incompatible family has an empty identified set. For an implemented $q\in\mathcal Q_n$ and an attainable transcript law $A$, its corresponding identified set is separately
+\[
+ \Theta_g^{q,n}(A)=\{\theta_g(m):m\in\mathcal M(\mathcal G),\ P_m^{q,n}=A\}.
+\]
+For any implemented design, seek informative confidence sets for this corresponding identified set. The coverage event, uniformity, fixed-time or time-uniform requirement, and accuracy criterion relative to the identified set must be specified; the scalar coverage convention below does not choose them. Positive identified-set diameter is not itself inferential error. Establish matching lower bounds in terms of intervention support, graph uncertainty, and horizon for the declared classes and statistical criteria.
 \subsection*{Scope and status}
 Complete randomization of every needed action with adequate support already resolves many identification questions. The research target is the specified restricted-intervention class and its sharp statistical limits; ignorance of confounders cannot by itself justify point identification. This is a source-dated research agenda refinement.
 \subsection*{References for the source of the problem}

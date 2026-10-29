@@ -34,18 +34,19 @@
 
 \subsection*{Definitions and formal target}
 
-A risk-neutral principal offers nonnegative payments $t_j$ for outcomes $j=1,\ldots,m$. Hidden action $a\in\{1,\ldots,n\}$ has cost $c_a\geq0$ and outcome probabilities $q_{aj}$; one action has zero cost. Principal rewards are $r_j\geq0$. All data are rational and ties favor the principal.
+Let $n,m$ be positive integers, both variable parts of the input. A risk-neutral principal offers a payment vector $t\in\R_{\geq0}^{m}$, with payment $t_j$ contingent only on the observed outcome $j\in\{1,\ldots,m\}$. The agent's hidden action $a\in\{1,\ldots,n\}$ has cost $c_a\geq0$ and outcome probabilities $q_{aj}$; at least one action has zero cost. Principal rewards are $r_j\geq0$. The arrays $q,c,r$ are supplied explicitly as rational numbers in binary encoding and are known to both parties. Among actions maximizing the agent's expected payoff, ties are resolved by maximizing the principal's expected payoff; any remaining tie is immaterial to the objective.
 
 \[
- \max_{a,t\geq0}\sum_jq_{aj}(r_j-t_j)
+ \max_{\substack{a\in\{1,\ldots,n\}\\t\in\R_{\geq0}^{m}}}\sum_{j=1}^{m}q_{aj}(r_j-t_j)
  \quad\text{subject to}\quad
- \sum_jq_{aj}t_j-c_a\geq\sum_jq_{bj}t_j-c_b\quad\forall b.
+ \sum_{j=1}^{m}q_{aj}t_j-c_a\geq\sum_{j=1}^{m}q_{bj}t_j-c_b
+ \quad\forall b\in\{1,\ldots,n\}.
 \]
-Does this optimization admit a strongly polynomial algorithm: polynomially many arithmetic operations in $n,m$, independent of numerical bit lengths, with intermediate encodings polynomial in input length?
+Does there exist an algorithm that, for every such input, returns an exactly optimal rational payment vector and an associated principal-favorable best-response action, using polynomially many arithmetic operations and comparisons in $n,m$, independently of numerical bit lengths, with intermediate encodings polynomial in the total binary input length?
 
 \subsection*{Clarifications and required assumptions}
 
-For every action $a$, $q_{aj}\geq0$ and $\sum_jq_{aj}=1$. Both parties maximize expected monetary payoff. Limited liability is $t_j\geq0$. The zero-cost action provides an outside option of at least zero because payments are nonnegative. Weak incentive inequalities are valid under the stated principal-favorable tie rule. An action that cannot be induced is omitted from optimization. ``Strongly polynomial'' bounds arithmetic-operation counts by a polynomial in $n,m$ and requires polynomial-size intermediate rational encodings; it does not mean total bit runtime ignores the cost of reading the input.
+For every action $a$, $q_{aj}\geq0$ and $\sum_jq_{aj}=1$. Both parties maximize expected monetary payoff. Limited liability is $t_j\geq0$. The zero-cost action provides an outside option of at least zero because payments are nonnegative. Weak incentive inequalities are valid under the stated principal-favorable tie rule. For a candidate action $a$, infeasibility of its weak incentive inequalities means that this candidate is skipped; all original actions remain in the incentive comparisons for every other candidate. Feasibility here means implementability up to tie-breaking, rather than necessarily selection under the fixed tie rule for an arbitrary feasible payment vector. At a global optimum, the selected action can be taken to satisfy the principal-favorable tie rule, as in [S1, Proposition 3.1]. At least one candidate is feasible via the zero payment vector. For each feasible candidate, minimizing its expected payment is a rational linear program with objective bounded below by zero and an attained optimum; consequently the displayed global maximum is attained and has a rational optimal payment vector. ``Strongly polynomial'' bounds arithmetic-operation and comparison counts by a polynomial in $n,m$ and requires polynomial-size intermediate rational encodings; it does not mean total bit runtime ignores the cost of reading the input.
 
 \subsection*{Variants and changes of scope}
 

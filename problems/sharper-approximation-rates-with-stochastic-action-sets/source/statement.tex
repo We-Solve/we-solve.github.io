@@ -31,12 +31,12 @@
 {\sffamily\small\color{muted}\textbf{GT-023} | Learning in games\par R | Quantitative specialization of an explicit source question\par}
 \par}
 \subsection*{Definitions and mathematical statement}
-Let $A_1,A_2$ be finite and let $U\in[-1,1]^{A_1\times A_2}$ be a zero-sum payoff matrix. Independently for the two players and independently across rounds, Nature draws a nonempty feasible set $S_i\subseteq A_i$ from a distribution $\rho_i$; player $i$ observes only $S_i$. A feasible policy is a map $\pi_i:S\mapsto\Delta(S)$. Its implemented marginal is
+Let $A_1,A_2$ be finite and let $U\in[-1,1]^{A_1\times A_2}$ be a zero-sum payoff matrix. Independently for the two players and independently across rounds, Nature draws a nonempty feasible set $S_i\subseteq A_i$ from a distribution $\rho_i$; player $i$ observes only $S_i$. A feasible policy assigns $\pi_i(\cdot\mid S)\in\Delta(S)$ to every nonempty $S\subseteq A_i$, with $\pi_i(a\mid S)=0$ for $a\notin S$. Its implemented marginal is
 \[
  \mu_i(a)=\sum_{\varnothing\ne S\subseteq A_i}\rho_i(S)\pi_i(a\mid S),
  \qquad \mathcal M_i=\{\mu_i:\pi_i\text{ feasible}\}.
 \]
-For $\mu_i\in\mathcal M_i$, define strategy-profile regret, a nonnegative saddle-point gap, by
+For $\mu_i\in\mathcal M_i$, define the saddle point residual (SPR), a nonnegative saddle-point gap, by
 \[
  \operatorname{SPR}(\mu_1,\mu_2)=
  \max_{\nu_1\in\mathcal M_1}\nu_1^{\mathsf T}U\mu_2
@@ -44,17 +44,17 @@ For $\mu_i\in\mathcal M_i$, define strategy-profile regret, a nonnegative saddle
 \]
 A positive weight vector $w_i\in\Delta(A_i)$ implements
 $\pi_i^{w_i}(a\mid S)=w_i(a)\mathbf1\{a\in S\}/\sum_{b\in S}w_i(b)$.
-The source combines its CAT-FTPL method with a stochastic-approximation procedure producing such weights. For failure probability $p\in(0,1)$, Theorem 5.8 gives
+The source combines its CAT-FTPL method with a stochastic-approximation procedure producing such weights. In its sample-access setting, each player can draw additional independent samples from its own $\rho_i$ and, after play, observes its utility for every currently available action against the opponent's played action. Here $T$ in the cited bound counts learning rounds and also the recovery iterations; CAT-FTPL uses auxiliary availability draws, and Algorithm 3 draws an availability set at each recovery iteration. Thus $T$ is not the total availability-oracle call count. Let $\widetilde\mu_i$ denote the implemented marginal induced by the output weight vector $\widetilde w_i$. For failure probability $p\in(0,1)$, Theorem 5.8 gives
 \[
  \Pr\!\left(\operatorname{SPR}(\widetilde\mu_1,\widetilde\mu_2)^2
  \leq O\!\left(\frac1{p\sqrt T}+\frac1{p^2T}\right)\right)\geq1-p,
 \]
 with polynomial action-count factors suppressed. An explicit improvement target is a procedure in the same sampling/feedback model with a bound $b_{d}(T,p)$, $d=|A_1|+|A_2|$, satisfying, uniformly over normalized instances,
 \[
- \Pr(\operatorname{SPR}^2\leq b_d(T,p))\geq1-p,
+ \Pr(\operatorname{SPR}(\mu_1^{\mathrm{out}},\mu_2^{\mathrm{out}})^2\leq b_d(T,p))\geq1-p,
  \qquad b_d(T,p)=o(T^{-1/2})\quad(T\to\infty)
 \]
-for every fixed $d$ and $p$, while retaining polynomial dependence on $d$.
+for every fixed $d$ and $p$, while retaining polynomial dependence on $d$. Here $\mu_i^{\mathrm{out}}$ is the implemented marginal of the procedure's output policy; the probability includes all availability sampling and algorithmic randomization at the prescribed horizon.
 \subsection*{Short English statement}
 Can the stochastic-approximation step give a faster rigorous equilibrium-error bound?
 \subsection*{Variants and scope boundaries}

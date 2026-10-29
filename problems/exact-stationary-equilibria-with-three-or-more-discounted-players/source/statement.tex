@@ -31,13 +31,13 @@
 {\sffamily\small\color{muted}\textbf{GT-035} | Stochastic games and computational complexity\par P | Corrected unresolved multi-player complexity target; two-player classification known\par}
 \par}
 \subsection*{Definitions and mathematical statement}
-A discounted perfect-information stochastic game has finite states $S$, a controlling player $c(s)\in\{1,\ldots,n\}$ at each state, finite actions $A(s)$ for its controller, rational payoffs $r_i(s,a)$ and transition probabilities $P(s'\mid s,a)$, and rational $\gamma\in(0,1)$. All data are explicitly listed in binary. A stationary profile is $x(\cdot\mid s)\in\Delta(A(s))$. Its normalized discounted payoff from $s$ is
+A discounted perfect-information stochastic game has a nonempty finite state set $S$, a controlling player $c(s)\in\{1,\ldots,n\}$ at each state, nonempty finite actions $A(s)$ for its controller, rational payoffs $r_i(s,a)$ and rational transition probabilities $P(s'\mid s,a)\geq0$ with $\sum_{s'\in S}P(s'\mid s,a)=1$, and rational $\gamma\in(0,1)$. The current state and all past states and chosen actions are observed by every player. All data are explicitly listed in binary. A stationary profile is $x(\cdot\mid s)\in\Delta(A(s))$. Its normalized discounted payoff from $s$ is
 \[
  V_i^x(s)=(1-\gamma)\mathbb E_{s,x}\sum_{t\geq0}\gamma^t r_i(s_t,a_t).
 \]
 The exact search relation asks for $x$ that is a Nash equilibrium from every initial state against arbitrary behavioral unilateral deviations. Equivalently, with
 $r_i^x(s)=\sum_a x(a\mid s)r_i(s,a)$ and
-$P^x(s'\mid s)=\sum_a x(a\mid s)P(s'\mid s,a)$, it asks for real $x,V$ satisfying the simplex constraints and
+$P^x(s'\mid s)=\sum_a x(a\mid s)P(s'\mid s,a)$, it asks for real $x$ satisfying the simplex constraints for which there exists $V\in\R^{n\times S}$ satisfying, for every $i\in\{1,\ldots,n\}$ and $s\in S$, the first equation below, and for every $s\in S$ and $a\in A(s)$, the second inequality:
 \begin{align*}
  V_i(s)&=(1-\gamma)r_i^x(s)+\gamma\sum_{s'}P^x(s'\mid s)V_i(s'),\\
  (1-\gamma)r_{c(s)}(s,a)+\gamma\sum_{s'}P(s'\mid s,a)V_{c(s)}(s')&\leq V_{c(s)}(s)
@@ -47,12 +47,14 @@ Classify this exact search problem for $n\geq3$, with fixed-$n$ subcases disting
 \subsection*{Short English statement}
 What is the exact complexity of stationary equilibrium computation once the discounted game has at least three players?
 \subsection*{Variants and scope boundaries}
-Exact solutions can be irrational, so an ordinary finite rational-output requirement is not adequate. FIXP treats exact real fixed points of rational algebraic circuits as solutions; bit approximation and approximate equilibrium are different search relations. Every-state optimality is part of the source convention. The number of players, discount encoding, and action counts cannot be hidden when stating a reduction.
+Exact solutions can be irrational, so an ordinary finite rational-output requirement is not adequate. Here FIXP uses exact fixed points of continuous self-maps of nonempty compact rational polytopes, represented by algebraic circuits over $\{+,-,\times,\div,\max,\min\}$ with rational constants, with every gate defined throughout the domain. The exact search and hardness conventions are those of [S2]: reductions transform instances in polynomial time and map every solution back by a separable affine map, each output coordinate having the form $\alpha_j y_{k(j)}+\beta_j$, with rational coefficients and coordinate indices computable from the original instance in polynomial time. This is a real-valued search relation, without an additional requirement to output a finite symbolic encoding of each real coordinate. The requested solution is $x$; $V$ is an auxiliary witness. Bit approximation and approximate equilibrium are different search relations. Every-state optimality is part of the source convention. The number of players, discount encoding, and action counts cannot be hidden when stating a reduction.
 \subsection*{Source relationship and status}
 [S1] already proves PPAD-completeness for the two-player case (Theorem 1). It leaves the precise complexity for three or more players open, with irrational examples and a four-player SqrtSum-hardness result (Theorem 3). Section 6 identifies possible FIXP-hardness as a remaining question. The original unrestricted ``complexity unresolved'' wording is therefore corrected.
 \subsection*{References}
 \begingroup\footnotesize\raggedright
 \textbf{[S1]} Kristoffer Arnsfelt Hansen and Xinhao Nie, \emph{On the Complexity of Stationary Nash Equilibria in Discounted Perfect Information Stochastic Games}, arXiv:2510.11550v1 (2025). Locators: abstract; Section 2.1 (game and equilibrium convention); Theorems 1 and 3; Section 6 (remaining complexity and FIXP-hardness questions). \url{https://arxiv.org/html/2510.11550v1}
+\par
+\textbf{[S2]} Kousha Etessami and Mihalis Yannakakis, \emph{On the Complexity of Nash Equilibria and Other Fixed Points}, SIAM Journal on Computing 39(6), 2531--2597 (2010). Locators in the author-hosted manuscript: Section 2.1, ``Reductions between (real valued) Search Problems''; Section 4 (FIXP definition and closure under reductions). \url{https://homepages.inf.ed.ac.uk/kousha/nash_focs07_full_j_spec_issue_sub.pdf}
 \par\endgroup
 
 \subsection*{Common conventions: Source mathematical conventions}

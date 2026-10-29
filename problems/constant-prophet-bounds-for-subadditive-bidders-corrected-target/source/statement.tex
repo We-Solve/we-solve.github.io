@@ -31,7 +31,11 @@
 \textbf{GT-045} | Online mechanisms | \textbf{P}: posted-item-price question; unrestricted prophet question resolved.
 \par}
 \subsection*{Definitions and mathematical statement}
-There are $m$ items and $n$ bidders arriving in order $1,\ldots,n$. Their independent random normalized monotone valuations satisfy $v_i(S\cup T)\leq v_i(S)+v_i(T)$. The distributions are known, and $\mathbb E\operatorname{OPT}(v)<\infty$. A static posted-item-price mechanism draws $p\in\mathbb R_{\geq0}^m$ independently of realized values before arrivals. At arrival $i$, bidder $i$ purchases a utility-maximizing subset $S_i$ of remaining items at payment $\sum_{g\in S_i}p_g$. Tie-breaking is specified as part of the mechanism and selects only maximizing bundles. The corrected question is whether an absolute constant $c>0$ exists such that for every instance some distribution over prices satisfies
+Let $m,n\geq1$ be finite integers and $M=\{1,\ldots,m\}$ the item set. Bidders arrive in the fixed order $1,\ldots,n$. Their independent random valuations are functions $v_i:2^M\to\mathbb R_{\geq0}$ with finite real values. Every realization is normalized, meaning $v_i(\varnothing)=0$, monotone, meaning $v_i(A)\leq v_i(B)$ whenever $A\subseteq B\subseteq M$, and subadditive, meaning $v_i(S\cup T)\leq v_i(S)+v_i(T)$ for all $S,T\subseteq M$. Independence is across bidders; values of different bundles for one bidder may be dependent. The distributions are known. Define
+\[
+ \operatorname{OPT}(v)=\max\left\{\sum_{i=1}^n v_i(A_i): A_i\subseteq M,\ A_i\cap A_j=\varnothing\text{ for }i\ne j\right\},
+\]
+and assume $\mathbb E\operatorname{OPT}(v)<\infty$. A static posted-item-price mechanism draws $p\in\mathbb R_{\geq0}^m$ independently of realized values before arrivals. At arrival $i$, bidder $i$ purchases a subset $S_i$ of remaining items maximizing the quasilinear utility $v_i(S)-\sum_{g\in S}p_g$, at payment $\sum_{g\in S_i}p_g$. The empty bundle is admissible, purchased items are removed, and unsold items are permitted. Tie-breaking is specified as part of the mechanism and selects only maximizing bundles. The corrected question is whether an absolute constant $c>0$ exists such that for every instance some distribution over prices satisfies
 \[
  \mathbb E_{v,p}\Big[\sum_i v_i(S_i)\Big]\geq c\,\mathbb E_v[\operatorname{OPT}(v)].
 \]
@@ -41,7 +45,7 @@ Can static item prices obtain a constant fraction of offline welfare for indepen
 \subsection*{Variants and scope boundaries}
 The unconstrained online allocation problem already admits a constant bound. Its algorithm need not be implementable by item prices or DSIC. Bundle prices and adaptive prices enlarge the present class.
 \subsection*{Source relationship and status}
-The original catalogue incorrectly retained the general prophet-existence question: Correa and Cristi establish a $1/6$ bound in 2023. Their posted-prices discussion keeps the more restrictive mechanism question separate and suggests a positive answer. This corrected statement follows that discussion, not an assertion that the general bound is unknown.
+The original catalogue incorrectly retained the general prophet-existence question: Correa and Cristi establish a $1/6$ bound in 2023 (Section 7, Corollary 1, for fixed arrival order). Their posted-prices discussion keeps the more restrictive mechanism question separate and suggests a positive answer. This corrected statement follows that discussion, not an assertion that the general bound is unknown. This is a historical source qualification, not a verification of the restrictive question's current open status.
 \subsection*{References}
 \begingroup\footnotesize\raggedright
 \textbf{[S1]} Jos\'e Correa and Andr\'es Cristi (2023). \emph{A Constant Factor Prophet Inequality for Online Combinatorial Auctions}. STOC 2023, pp. 686--697. \textit{Verified locator:} introduction, $1/6$ result; manuscript printed pp. 14--16, ``Posted Prices.'' \url{https://www.dii.uchile.cl/~jcorrea/papers/Manuscripts/2023CC.pdf}

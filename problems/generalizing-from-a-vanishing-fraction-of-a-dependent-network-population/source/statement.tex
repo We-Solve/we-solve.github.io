@@ -29,18 +29,23 @@
 \label{beyond:CI-57}
 \entrymeta{CI-57}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Let $G_N$ and all node attributes be observed for a population of $N$ nodes. Independently sample each outcome with probability $\pi_N=n/N$, where $n\to\infty$ and $n/N\to0$. Observe all population treatment assignments, independently randomized with supplied probabilities $p_j\in[\varepsilon,1-\varepsilon]$. Fix an integer radius $r$, write $B_r(i)$ for the graph ball including $i$, and suppose
+Let $G_N$ and all node attributes be observed for a population of $N$ nodes. Let $S_i\in\{0,1\}$ be mutually independent outcome-inclusion indicators with $\Pr(S_i=1)=\pi_N=n/N$, where $0<n\leq N$, $n\to\infty$ and $n/N\to0$. Here $n=\E[\sum_i S_i]$ is the expected sample size; $\sum_i S_i$ is random. The vector $S$ is independent of assignment and the entire potential-outcome array. Observe all population treatment assignments $W=(W_1,\ldots,W_N)\in\{0,1\}^N$, with independent $W_j\sim\operatorname{Bernoulli}(p_j)$ and supplied probabilities $p_j\in[\varepsilon,1-\varepsilon]$, where $0<\varepsilon\leq1/2$. The outcome data are $(S_i,S_iY_i(W))_{i=1}^N$: when $S_i=1$, the observed outcome is $Y_i(W)$. Fix an integer radius $r$, write $B_r(i)$ for the graph ball including $i$, and suppose
 \[
  Y_i(w)=f_i(w_{B_r(i)},U_{B_r(i)}),\qquad |Y_i(w)|\leq M,
 \]
-where the $U_j$ are independent and independent of assignment and sampling. The unknown functions may vary by node; there is no cross-world independence requirement on $Y_i(w)$. For supplied independent-assignment policies $q^0,q^1$, define
+where the $U_j$ are independent and independent of assignment and sampling. The unknown functions may vary by node; there is no cross-world independence requirement on $Y_i(w)$. Here $w\in\{0,1\}^N$. For supplied independent-assignment policies $q^a=(q_j^a)_{j=1}^N\in[0,1]^N$, $a\in\{0,1\}$, let $W^{q^a}$ have independent coordinates $W_j^{q^a}\sim\operatorname{Bernoulli}(q_j^a)$, independent of $U$, and leave the functions and disturbance law unchanged under each policy. Define
 \[
  \psi_N=\frac1N\sum_{i=1}^N
  \{\E[Y_i(W^{q^1})]-\E[Y_i(W^{q^0})]\}.
 \]
-The sampling design is therefore representative by assumption, rather than by an unverified extrapolation.
+For $t\in[0,1]$ and $b\in\{0,1\}$, put $h(t,1)=t$ and $h(t,0)=1-t$. The local policy likelihood ratio is
+\[
+ L_i^a(w_{B_r(i)})=\prod_{j\in B_r(i)}
+ \frac{h(q_j^a,w_j)}{h(p_j,w_j)},\qquad a\in\{0,1\}.
+\]
+Behavior probabilities give positive denominators; deterministic policy coordinates are permitted without a $0^0$ convention. The sampling design is therefore representative by assumption, rather than by an unverified extrapolation.
 \subsection*{Formal question}
-Find sharp squared-error minimax bounds for $\psi_N$ over this class, expressed in terms of $n,N$, the neighborhood sizes, their overlap, and the policy likelihood ratios on each $B_r(i)$. Characterize graph and policy sequences for which the risk vanishes despite $n/N\to0$. Develop matching estimators using sampled outcomes, observed population assignments, and the full graph; identify when effective replication is controlled by sampling rather than population size.
+Find sharp squared-error minimax bounds for $\psi_N$ over this class, expressed in terms of $n,N$, the neighborhood sizes, their overlap, and the policy likelihood ratios on each $B_r(i)$. Characterize graph and policy sequences for which the risk vanishes despite $n/N\to0$. Develop matching estimators using sampled outcomes, observed population assignments, and the full graph; identify when effective replication is controlled by sampling rather than population size. The bounds and sequence characterization must also cover exactly zero risk and shrinking policy contrasts, without a policy-separation assumption; consistency can result from a shrinking target as well as increasing effective replication. The positive sharp-rate convention below applies only when the risk is positive.
 \subsection*{Scope and status}
 Local assignment likelihood ratios identify the policy mean in this model. If neighborhood sizes grow, their variance need not remain bounded. Arbitrary unrestricted global interference or selective unknown sampling would be different, potentially unidentified experiments. This is an explicit restricted version of the source's broader external-validity agenda.
 \subsection*{References for the source of the problem}

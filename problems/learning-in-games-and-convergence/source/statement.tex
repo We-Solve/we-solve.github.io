@@ -32,12 +32,22 @@
 
 \subsection*{Definitions and assumptions}
 
-For a finite game $G$ with actions $A_i$ and bounded utilities $u_i\in[0,1]$, let $a^t=(a_i^t)_i$ be play at dates $t=1,2,\ldots$. Player $i$ uses an adapted randomized policy, depending only on a specified information filtration $\mathcal F_i^t$. Define empirical joint play $\mu_T=T^{-1}\sum_{t=1}^T\delta_{a^t}$. External regret and swap regret are respectively
+For a finite game $G$, let $I$ be its finite nonempty player set, let each $A_i$ be finite and nonempty, set $A=\prod_{i\in I}A_i$, and let $u_i:A\to[0,1]$. Write $\Delta(B)$ for the probability simplex on a finite set $B$. Let $a^t=(a_i^t)_i$ be play at dates $t=1,2,\ldots$. Player $i$ uses an adapted randomized policy, depending only on a specified information filtration $\mathcal F_i^t$. Define empirical joint play $\mu_T=T^{-1}\sum_{t=1}^T\delta_{a^t}$. External regret and swap regret are respectively
 \[
 R_i^{\rm ext}(T)=\max_{b\in A_i}\sum_{t=1}^T[u_i(b,a_{-i}^t)-u_i(a^t)],\qquad
 R_i^{\rm swap}(T)=\max_{\phi:A_i\to A_i}\sum_{t=1}^T[u_i(\phi(a_i^t),a_{-i}^t)-u_i(a^t)].
 \]
-Regret statements concern the positive part of these quantities. A coarse-correlated equilibrium has no profitable fixed-action deviation under its joint law; a correlated equilibrium has no profitable deviation conditional on an action recommendation.
+Write $[x]_+=\max\{x,0\}$. Regret statements concern the positive part of these quantities. A law $\mu\in\Delta(A)$ is a coarse-correlated equilibrium if
+\[
+\sum_{a\in A}\mu(a)[u_i(b,a_{-i})-u_i(a)]\le0
+\quad\text{for every }i\in I,\ b\in A_i.
+\]
+It is a correlated equilibrium if
+\[
+\sum_{a_{-i}\in\prod_{j\ne i}A_j}\mu(c,a_{-i})[u_i(b,a_{-i})-u_i(c,a_{-i})]\le0
+\quad\text{for every }i\in I,\ b,c\in A_i.
+\]
+These weighted inequalities also cover recommendations of probability zero. A mixed profile $p\in\prod_{i\in I}\Delta(A_i)$ is Nash if each $p_i$ is a best response to the product of the other players' mixed actions under $u_i$.
 
 \subsection*{Formal research question}
 
@@ -49,7 +59,7 @@ where $\mathcal E(G)$ is the declared equilibrium set and distance uses a fixed 
 
 \subsection*{Interpretation and scope}
 
-The distinction between empirical averages and last-iterate behavior is indispensable. Vanishing external regret implies that accumulation points of empirical play satisfy the coarse-correlated inequalities; vanishing swap regret supplies the correlated inequalities. Neither implication gives convergence of current play to Nash equilibrium. With finite actions, these statements follow by dividing the relevant deviation inequalities by $T$ and taking subsequential limits. Monitoring restrictions, changing payoffs, and switching between algorithms must enter $\mathcal L$; otherwise an arbitrary learner can cycle or keep choosing dominated actions. Empirical work should measure predictions at the same horizon and observation level as the mathematical result, and compare rules on held-out games.
+The distinction between empirical averages and last-iterate behavior is indispensable. For each realized play path, if $[R_i^{\rm ext}(T)]_+/T\to0$ for every player $i$, every accumulation point of empirical play satisfies the coarse-correlated inequalities; if $[R_i^{\rm swap}(T)]_+/T\to0$ for every player $i$, every accumulation point satisfies the correlated inequalities. Thus almost-sure normalized realized-regret guarantees give the corresponding almost-sure empirical set-convergence statement. Convergence in probability of these normalized positive realized regrets gives empirical set convergence in probability; convergence of their expectations to zero gives convergence of expected distance to the corresponding set. These implications concern a fixed finite game and a fixed norm on joint distributions, and do not select the stochastic success convention for the research family. Neither implication gives convergence of current play to Nash equilibrium. With finite actions, the pathwise statements follow by dividing the relevant deviation inequalities by $T$ and taking subsequential limits. Monitoring restrictions, changing payoffs, and switching between algorithms must enter $\mathcal L$; otherwise an arbitrary learner can cycle or keep choosing dominated actions. Empirical work should measure predictions at the same horizon and observation level as the mathematical result, and compare rules on held-out games.
 
 \subsection*{Source audit and status}
 
@@ -75,7 +85,7 @@ Unless an entry states otherwise, agent and firm sets are finite. State and acti
 \[
 \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M,\ P_m=P\}.
 \]
-Point identification holds when this set is a singleton, or equivalently when $P_{m_1}=P_{m_2}$ implies $\theta(m_1)=\theta(m_2)$ for all compatible models. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
+At a compatible law $P$, point identification holds when $\Theta(P;\mathcal M)$ is a singleton. Global point identification over $\mathcal M$ holds when $P_{m_1}=P_{m_2}$ implies $\theta(m_1)=\theta(m_2)$ for all $m_1,m_2\in\mathcal M$, equivalently when the identified set is a singleton at every law in the model's image. At an incompatible law the identified set is empty. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
 
 \textbf{Inference.} Identification, estimability and valid uncertainty quantification are separate questions. Fix $\alpha\in(0,1)$. A confidence procedure $C_n$ over a declared law class $\mathcal P$ has asymptotic uniform coverage at level $1-\alpha$ when
 \[

@@ -38,7 +38,7 @@
     </div>
     <nav class="shell discipline-nav" aria-label="Disciplines">
       <ul>
-        <li><a href="/biology/"><span class="discipline-name">Biology</span><span class="discipline-count">330 problems</span></a></li><li><a href="/computer-science/"><span class="discipline-name">Computer Science</span><span class="discipline-count">936 problems</span></a></li><li><a href="/economics/"><span class="discipline-name">Economics</span><span class="discipline-count">663 problems</span></a></li><li><a href="/mathematics/"><span class="discipline-name">Mathematics</span><span class="discipline-count">16,859 problems</span></a></li><li><a href="/physics/"><span class="discipline-name">Physics</span><span class="discipline-count">464 problems</span></a></li>
+        <li><a href="/biology/"><span class="discipline-name">Biology</span><span class="discipline-count" hidden></span></a></li><li><a href="/computer-science/"><span class="discipline-name">Computer Science</span><span class="discipline-count" hidden></span></a></li><li><a href="/economics/"><span class="discipline-name">Economics</span><span class="discipline-count" hidden></span></a></li><li><a href="/mathematics/"><span class="discipline-name">Mathematics</span><span class="discipline-count" hidden></span></a></li><li><a href="/physics/"><span class="discipline-name">Physics</span><span class="discipline-count" hidden></span></a></li>
       </ul>
     </nav>
   </header>
@@ -66,9 +66,9 @@
 <section class="statement" aria-labelledby="statement-title">
   <h2 id="statement-title">Statement</h2>
   <div class="collapsible" data-collapsible data-more="Show full statement" data-less="Show less">
-    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><p><span class="tex-label" data-tex-label="problem:OP-0590" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-9354a4445fcb9a6482780525d22c411e" tabindex="-1"></span> <span class="tex-label" data-tex-label="supp:stochastic-games" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-75f9b1cb02c5f9749c4d1b9a3e1715ee" tabindex="-1"></span></p><p><strong>Original sources:</strong> <em>On Equilibrium Payoffs in Finite 	Multiplayer Stochastic Games</em> and <em>Uniform Equilibrium in Finite 	Stochastic Games</em>, both dated 8 October 2026. <strong>Formulation:</strong> One merged problem with explicitly distinct payoff evaluations, equilibrium requirements, and initial-state quantifiers.</p><h3>Definitions and assumptions</h3><p>Fix a finite stochastic game \[
+    <div class="tex-content mathjax-process" id="statement" data-payload-exclude><p><span class="tex-label" data-tex-label="problem:OP-0590" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-bc06667fde5dfe0b08ab9346be8d10b1" tabindex="-1"></span> <span class="tex-label" data-tex-label="supp:stochastic-games" data-tex-label-kind="prose" data-tex-scope="0" id="tex-label-f583298e73e7dbd7a2bbee65bbf8007f" tabindex="-1"></span></p><p><strong>Original sources:</strong> <em>On Equilibrium Payoffs in Finite 	Multiplayer Stochastic Games</em> and <em>Uniform Equilibrium in Finite 	Stochastic Games</em>, both dated 8 October 2026. <strong>Formulation:</strong> One merged problem with explicitly distinct payoff evaluations, equilibrium requirements, and initial-state quantifiers.</p><h3>Definitions and assumptions</h3><p>Fix a finite stochastic game \[
 G=\left(I,S,(A_i(s))_{i,s},P,(g_i)_i\right),
-\] with finite player set $I$, finite states $S$, finite nonempty action sets $A_i(s)$, a transition kernel $P(\cdot\mid s,a)$, and bounded stage payoffs $g_i(s,a)$. States and realized action profiles are publicly observed after each simultaneous-move stage. Strategies are independently randomized behavioral strategies with perfect recall; no mediator, public sunspot signal, or additional correlating device is included. Write $\Sigma$ for the resulting profile space and $\tau_i$ for an arbitrary unilateral behavioral deviation.</p><p>For initial state $s$, profile $\sigma$, horizon $N\ge1$, and normalized discount rate $\lambda\in(0,1)$, define \[
+\] with nonempty finite player set $I$ and state set $S$. For every $i\in I$ and $s\in S$, the action set $A_i(s)$ is finite and nonempty. Write $A(s)=\prod_{i\in I}A_i(s)$. For every feasible $(s,a)$, $P(\cdot\mid s,a)\in\Delta(S)$ and $g_i(s,a)\in\R$; the stage payoffs are bounded. At stage $t\in\{1,2,\ldots\}$ the current state $s_t$ is publicly observed before simultaneous action choice, including the initial state $s_1=s$. States and realized action profiles are publicly observed after each stage. A feasible pre-action history is $h_t=(s_1,a_1,s_2,\ldots,a_{t-1},s_t)$, with feasible actions and positive-probability recorded transitions. A behavioral strategy of player $i$ assigns an element of $\Delta(A_i(s_t))$ to every such history. Players randomize independently conditional on the public history and have perfect recall; no mediator, public sunspot signal, or additional correlating device is included. Write $\Sigma_i$ for these strategy spaces, $\Sigma=\prod_{i\in I}\Sigma_i$, and $\tau_i\in\Sigma_i$ for an arbitrary unilateral deviation.</p><p>Throughout, horizons $N$ and $N_\varepsilon$ are positive integers. For initial state $s$, profile $\sigma$, horizon $N\ge1$, and normalized discount rate $\lambda\in(0,1)$, define \[
 \begin{aligned}
 	\gamma_i^N(s,\sigma)
 	&amp;=\E_{s,\sigma}\!\left[\frac1N\sum_{t=1}^{N}g_i(s_t,a_t)\right],\\
@@ -101,7 +101,7 @@ G=\left(I,S,(A_i(s))_{i,s},P,(g_i)_i\right),
 		-\gamma_i^N(s,\sigma^\varepsilon)\right]
 		\le\varepsilon?
 	\end{gathered}
-	\] 	The <em>same</em> profile $\sigma^\varepsilon$ must work for all 	sufficiently large horizons and all specified initial states. 	 	</li><li><strong>Joint Cesàro--discounted uniformity (stronger formulation).</strong> 	Can $v$ and the same $\sigma^\varepsilon$ in (a) also be chosen 	with $\lambda_\varepsilon&gt;0$ such that, for all 	$0&lt;\lambda\le\lambda_\varepsilon$, all $s,i$, and every $\tau_i$, 	\[
+	\] 	The <em>same</em> profile $\sigma^\varepsilon$ must work for all 	sufficiently large horizons and all specified initial states. 	 	</li><li><strong>Joint Cesàro--discounted uniformity (joint evaluation formulation).</strong> 	Can $v$ and the same $\sigma^\varepsilon$ in (a) also be chosen 	with $\lambda_\varepsilon\in(0,1)$ such that, for all 	$0&lt;\lambda\le\lambda_\varepsilon$, all $s,i$, and every $\tau_i$, 	\[
 	\left|\gamma_i^\lambda(s,\sigma^\varepsilon)-v_i(s)\right|
 	\le\varepsilon,\qquad
 	\gamma_i^\lambda(s,\tau_i,\sigma_{-i}^\varepsilon)
@@ -118,11 +118,12 @@ G=\left(I,S,(A_i(s))_{i,s},P,(g_i)_i\right),
 	\begin{aligned}
 		V_i^\sigma(h)&amp;=\E_{h,\sigma}
 		\left[\liminf_{N\to\infty}\frac1N\sum_{t=1}^{N}g_i(s_t,a_t)\right],\\
-		m_i(s)&amp;=\inf_{\rho_{-i}}\sup_{\tau_i}
+		m_i(s)&amp;=\inf_{\rho_{-i}\in\prod_{j\ne i}\Sigma_j}
+        \sup_{\tau_i\in\Sigma_i}
 		u_i^{\mathrm{path}-}(s,\tau_i,\rho_{-i}),\\
 		A(\sigma)&amp;=\sup_{i,h}[m_i(s_h)-V_i^\sigma(h)]_+.
 	\end{aligned}
-	\] 	Here the tail evaluation defining $V_i^\sigma(h)$ begins after the 	finite history $h$. Let $\tau_i\star_N\sigma_i$ deviate through the 	first $N$ stages and then return to $\sigma_i$; set 	\[
+	\] 	Here $[x]_+=\max\{x,0\}$. The tail evaluation defining $V_i^\sigma(h)$ restarts its horizon at the current pre-action state $s_h$. Its law starts at $s_h$ and uses the strategy kernels on actual extensions of $h$; it does not condition on a possibly null event under $\sigma$. Let $\tau_i\star_N\sigma_i$ use $\tau_i$ through stages $1,\ldots,N$ and use $\sigma_i$ at the actual recorded history at every later stage, without resetting history; set 	\[
 	R_N(\sigma)=\max_i\sup_{\tau_i}
 	\left[u_i^{\mathrm{path}-}(s_0,
 	\tau_i\star_N\sigma_i,\sigma_{-i})
@@ -191,7 +192,7 @@ G=\left(I,S,(A_i(s))_{i,s},P,(g_i)_i\right),
 <aside class="record-sidebar" aria-label="Contribute and problem details" data-pagefind-ignore>
 
 
-<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="ECON-C73-1" data-display-label="Econ-1" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="6af9c11a97020e68216bfc344a32cc3d744993bb" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
+<section class="contribute" id="contribute" aria-labelledby="contribute-title" data-contribute data-kind="attempt" data-alias="ECON-C73-1" data-display-label="Econ-1" data-research="we-solve/research" data-platform="we-solve/we-solve.github.io" data-ref="c3619ee3f0c3dceb9d3e570665dabbdc4e0e246a" data-prompt-base="/prompts/" data-reviewed data-site="https://we-solve.github.io/">
   <h2 id="contribute-title">Contribute to <span data-fill="alias">Econ-1</span></h2>
   <p class="small muted">Everything you submit is public. The editors review each submission before it is published on the site.</p>
   

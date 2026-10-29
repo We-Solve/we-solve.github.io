@@ -34,17 +34,38 @@
 
 \subsection*{Definitions and formal target}
 
-Let \(u_t=B\varepsilon_t\), with nonsingular \(B\), specified shock-scale normalizations, and reduced-form propagation matrices \(A_h\). A proxy \(Z_t\) can impose \(\mathbb E[Z_t\varepsilon_{jt}]=0\) for non-target shocks and a relevance condition for the target. Sign restrictions concern specified entries of \(A_hB\); regime variances and cumulants add other restrictions.
+This is a parameterized research family. An instance supplies a structural model class \(\mathcal M\) on declared observable and latent process spaces and a time index set. Each \(m\in\mathcal M\) specifies the joint process law, its observable marginal \(P_m\), and \(u_t=B_m\varepsilon_t\), where \(u_t,\varepsilon_t\in\R^d\), \(d\geq1\), and \(B_m\in\R^{d\times d}\) is nonsingular. Declare which variables are observed, how innovations are obtained from the observable process, the reduced-form dynamics and propagation matrices \(A_h(m)\) for declared horizons \(h\in H\subseteq\{0,1,\ldots\}\), and the nuisance domain \(\eta_m\in\mathcal E\). The nuisance description must retain any latent-law information needed for observational compatibility; it need not be finite-dimensional. Any representation \(m=(B,\eta)\) must specify how these objects determine a model and its observable law.
 
-For observed law \(P\), collect admissible restrictions in \(g(P,B,\eta)=0\) and \(q(P,B,\eta)\geq0\), including normalizations. Characterize the sharp identified set
+The instance also supplies an explicit inventory of restriction maps, their domains and applicability conditions. This includes shock means, scale normalizations, covariance and cross-time restrictions; whether independence or only specified moment restrictions are imposed; and admissible shock signs, labels and permutations. For a proxy \(Z_t\in\R^k\), declare \(k\), target indices, centering conventions, exclusion moments such as \(\mathbb E_m[Z_t\varepsilon_{jt}]=0\) for non-target shocks, and the precise relevance condition. Declare whether each restriction is unconditional, conditional on an observed regime, or uses a specified latent-regime model. Regime restrictions must state which parameters, including \(B\), are shared. Specify the cumulant orders, all required moment-existence assumptions, and each sign-restricted coordinate of \(A_h(m)B_m\), its horizon and its weak or strict direction. No independence, normalization, regime specification or positive lower bound on identifying strength is implicit. Boundary cases and exact nonidentification are included or excluded explicitly by the instance.
+
+For an observed law \(P\) on the declared observable process space, let
 \[
- \Theta(P)=\{\psi(B):\exists\eta,\ g(P,B,\eta)=0,\ q(P,B,\eta)\geq0\}
+ \mathcal M(P)=\{m\in\mathcal M:P_m=P\},\qquad
+ \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M(P)\}.
 \]
-for a declared response functional \(\psi\), and confidence regions uniformly covering the true model's \(\psi(B)\) over a specified class allowing weak identification and specified restriction failures.
+The instance declares a measurable target space \(\mathcal T\) and response map \(\theta:\mathcal M\to\mathcal T\), including response coordinates, horizons, shock units and labeling. For impulse responses the map uses the relevant entries of \(A_h(m)B_m\). On \(\mathcal M(P)\), the shorthand \(\psi_P(B,\eta)\) may denote this map; writing only \(\psi(B)\) requires all other target inputs to be fixed by \(P\). If models are quotiented by admissible sign or permutation equivalences, the target must be invariant on each equivalence class; otherwise retain all permitted labeled responses in the set.
+
+Characterize \(\Theta(P;\mathcal M)\) using the combined identifying information. A sharp characterization must give necessary and sufficient conditions for target membership, including realization by a structural model with the entire observable law \(P\), rather than merely restating the projection above. It need not be an algorithm or finite algebraic test. Restriction maps \(g(P,B,\eta)=0\) and \(q(P,B,\eta)\geq0\), interpreted componentwise over declared index sets, can represent the set as
+\[
+ \Theta(P;\mathcal M)=\{\psi_P(B,\eta):m=(B,\eta)\in\mathcal M,\ P_m=P,\ g(P,B,\eta)=0,\ q(P,B,\eta)\geq0\}
+\]
+when they encode maintained restrictions of \(\mathcal M\). Dropping \(P_m=P\) gives only a candidate outer set unless necessity and target-level realizability are established. An empty compatible class gives an empty identified set.
+
+For inference an instance additionally supplies observed data \(X^{(n)}\) on a declared sample space, its sampling law \(Q_{n,m}\), a confidence level \(1-\alpha\) with \(0<\alpha<1\), and nonempty uniformity classes \(\mathcal M_n\). These classes specify dependence, moment conditions, nuisance estimation and admissible weak-identification sequences and restriction failures; no independence of fitted innovations is implicit. For measurable confidence regions \(C_n(X^{(n)})\subseteq\mathcal T\), the target is coverage of each actual structural response \(\theta(m)\). Declare either the finite-sample requirement
+\[
+ \inf_{m\in\mathcal M_n}Q_{n,m}\{\theta(m)\in C_n(X^{(n)})\}\geq1-\alpha
+ \quad\text{for every }n,
+\]
+or the asymptotic requirement
+\[
+ \liminf_{n\to\infty}\inf_{m\in\mathcal M_n}
+ Q_{n,m}\{\theta(m)\in C_n(X^{(n)})\}\geq1-\alpha.
+\]
+These do not require simultaneous coverage of the entire identified set. Any additional precision, efficiency or computational requirement must be stated separately with its domain and success criterion; coverage alone permits \(C_n=\mathcal T\).
 
 \subsection*{Clarifications and required assumptions}
 
-Orthogonality to other shocks does not identify a target without relevance and labeling. Specify independence versus uncorrelatedness, moment existence, regimes sharing \(B\), horizons, and admissible permutations. If validity is uncertain, define a collection \(\mathcal V\) of permissible valid subsets and take the union of their identified sets; imposing all restrictions can understate uncertainty. Local misspecification requires an allowed deviation and sample-size rate. An empty intersection diagnoses incompatibility of the declared restrictions, rather than validating a preferred restriction.
+Orthogonality to other shocks does not identify a target without relevance and labeling. For validity uncertainty, the instance declares indispensable baseline assumptions defining \(\mathcal M_0\), an indexed inventory \(I\) of uncertain restrictions, and a nonempty collection \(\mathcal V\subseteq2^I\) of permissible retained subsets. Put \(\mathcal M_v=\{m\in\mathcal M_0:\text{all restrictions indexed by }v\text{ hold}\}\) and use \(\mathcal M=\bigcup_{v\in\mathcal V}\mathcal M_v\); restrictions outside a retained subset are not imposed and need not fail. The sharp set is then \(\bigcup_{v\in\mathcal V}\Theta(P;\mathcal M_v)\). Claims of coverage require that every true model in the declared uniformity class belongs to this union; a collection of subsets alone does not ensure this. Known-valid restrictions instead are jointly imposed. For local misspecification, declare the residual maps, permitted deviation sets, their norm or other magnitude convention and sample-size dependence, and construct the corresponding classes \(\mathcal M_n\) with those relaxed restrictions. Exact equalities and inequalities apply only to restrictions still maintained exactly. The target remains the actual model's declared structural response, rather than an unstated pseudo-true parameter. An empty intersection diagnoses incompatibility of the declared restrictions, rather than validating a preferred restriction. All instance inputs above must be supplied before evaluating an application; they are not conventions inferred from the cited agenda.
 
 \subsection*{Variants and changes of scope}
 

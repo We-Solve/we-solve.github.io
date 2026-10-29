@@ -34,17 +34,17 @@ Consider finite populations $(G_N,X_N)$ of $N$ vertices with bounded potential o
 \theta_N(g)=\frac1N\sum_{i=1}^N
  \E[Y_i(W^g)\mid G_N,X_N].
 \]
-A dependent sample $S_N$ has known inclusion probabilities $\pi_i>0$ and pairwise probabilities $\pi_{ij}$. Sampling is independent of potential outcomes and assignment randomization conditional on $(G_N,X_N)$. Assume randomized assignment, a valid radius-$r_N$ exposure mapping, and policy-to-design exposure density ratios bounded by $B_N$. The true neighborhoods needed for this mapping must be observed, including relevant edges to unsampled vertices.
+A dependent sample $S_N$ has inclusion indicators $I_i=\ind\{i\in S_N\}$ and known conditional inclusion probabilities $\pi_i=\Pr(I_i=1\mid G_N,X_N)>0$ and $\pi_{ij}=\Pr(I_i=I_j=1\mid G_N,X_N)$, with $\pi_{ii}=\pi_i$; off-diagonal pairwise probabilities may be zero. Sampling is independent of potential outcomes and assignment randomization conditional on $(G_N,X_N)$. Assume randomized assignment, a valid radius-$r_N$ exposure mapping, and policy-to-design exposure density ratios bounded by $B_N$. The true neighborhoods needed for this mapping must be observed, including relevant edges to unsampled vertices and all treatment assignments, covariates, or other marks required to evaluate sampled units' exposures and scores.
 
 Let $Z_i(g)$ denote an observable inverse-exposure score satisfying
 $\E[Z_i(g)\mid G_N,X_N]=\E[Y_i(W^g)\mid G_N,X_N]$.
-Declare a dependence class for these bounded scores, such as a dependency graph of maximum degree $d_N$.
+Declare a dependence class for these bounded scores, such as a dependency graph of maximum degree at most $d_N$. For this option, a dependency graph is a simple undirected graph on the population vertices such that, conditional on $(G_N,X_N)$, score subvectors indexed by disjoint vertex sets with no edge between them are independent. This graph describes score dependence, need not equal $G_N$, and does not by itself describe dependence introduced by sampling.
 \subsection*{Formal question}
 Characterize conditions on $(\pi_i,\pi_{ij},B_N,d_N)$ under which the weighted estimator
 \[
  \widehat\theta_N(g)=\frac1N\sum_{i\in S_N}\frac{Z_i(g)}{\pi_i}
 \]
-converges uniformly to $\theta_N(g)$, and determine sharp risk and coverage rates. For a distinct target population or a limiting rooted-neighborhood distribution, characterize the additional invariance and continuity assumptions making source-network evidence transportable. Include regimes with increasing exposure radius and persistent common shocks.
+converges uniformly to $\theta_N(g)$, and determine sharp risk and coverage rates. For a distinct target population or a limiting rooted-neighborhood distribution, characterize the additional invariance and continuity assumptions making source-network evidence transportable. Include regimes with increasing exposure radius and persistent common shocks. The characterization includes regimes where consistency or informative inference fails; no restriction $d_N=o(N)$ is implicit. The target and conditioning remain those displayed above, rather than a target conditional on an additional realized common shock.
 \subsection*{Scope and status}
 Finite-population consistency and transport to another network are distinct questions. Local graph convergence alone need not preserve outcomes driven by global interference, and a sparse observed graph does not exclude latent common shocks. Without sampling support or invariant response mechanisms, external validity need not be identified. This is an editorial version of the attachment's dependent-sampling challenge.
 \subsection*{References for the source of the problem}

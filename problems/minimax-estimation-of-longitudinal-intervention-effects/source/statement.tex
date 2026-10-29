@@ -29,17 +29,23 @@
 \label{beyond:CI-47}
 \entrymeta{CI-47}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Observe $n$ independent trajectories $O=(X,A_0,L,A_1,Y)$, where $X\in[0,1]^{d_0}$, $L\in[0,1]^{d_1}$, and $A_0,A_1,Y$ are binary. Fix a treatment regime $a=(a_0,a_1)$. Assume consistency, sequential exchangeability given the observed history at each treatment time, and propensities $e_0(x)$ and $e_1(x,a_0,l)$ between $\varepsilon$ and $1-\varepsilon$. Let
+Observe $O_1,\ldots,O_n$ independently with common unknown law $P$, where a generic trajectory is $O=(X,A_0,L,A_1,Y)$, $X\in[0,1]^{d_0}$, $L\in[0,1]^{d_1}$, and $A_0,A_1,Y$ are binary. Fix a known treatment regime $a=(a_0,a_1)\in\{0,1\}^2$. For the causal interpretation, let $Y(a)$ denote the binary outcome under this treatment regime. Assume consistency $Y=Y(a)$ on $\{(A_0,A_1)=a\}$ and sequential exchangeability
+\[
+ Y(a)\perp A_0\mid X,\qquad
+ Y(a)\perp A_1\mid(X,L,A_0=a_0).
+\]
+The second independence is within the stratum $A_0=a_0$; the observed histories are $X$ and $(X,A_0,L)$. Assume propensities $e_0(x)$ and $e_1(x,a_0,l)$ between $\varepsilon$ and $1-\varepsilon$. Let
 \[
  \psi_a(P)=\int m_a(x,l)g_{a_0}(l\mid x)p(x)\,dl\,dx,
 \]
-where $m_a(x,l)=\E[Y\mid X=x,A_0=a_0,L=l,A_1=a_1]$. This is $\E[Y(a_0,a_1)]$ under the stated causal assumptions. For fixed dimensions and constants, place $p,e_0$ in Hölder balls of dimension $d_0$, and each treatment-specific $g_{a_0},e_1,m_a$ in balls of dimension $d_0+d_1$, with specified positive smoothness indices $s_p,s_0,s_g,s_1,s_m$. Require $p$ and the transition densities to be bounded above and away from zero.
+where $m_a(x,l)=\E[Y\mid X=x,A_0=a_0,L=l,A_1=a_1]$, $p$ is the Lebesgue density of $X$, and $g_b(l\mid x)$ is the conditional Lebesgue density of $L$ given $(X,A_0)=(x,b)$ for $b\in\{0,1\}$. The integrals are over $[0,1]^{d_1}$ and $[0,1]^{d_0}$, with $\int p(x)\,dx=1$ and $\int g_b(l\mid x)\,dl=1$ for almost every $x$. This is $\E[Y(a_0,a_1)]$ under the stated causal assumptions. For fixed dimensions and constants, place $p,e_0$ in Hölder balls of dimension $d_0$, and each treatment-specific $g_{a_0},e_1,m_a$ in balls of dimension $d_0+d_1$, with specified positive smoothness indices $s_p,s_0,s_g,s_1,s_m$. All class constants are uniform over $P$ and independent of $n$; their suppression in $\mathcal P(s_p,s_0,s_g,s_1,s_m)$ is not a union over constants. Require $p$ and the transition densities to be bounded above and away from zero.
 \subsection*{Formal question}
 Determine matching upper and lower bounds for
 \[
  \inf_{\widehat\psi_a}\sup_{P\in\mathcal P(s_p,s_0,s_g,s_1,s_m)}
- \E_P[(\widehat\psi_a-\psi_a(P))^2].
+ \E_{P^{\otimes n}}[(\widehat\psi_a-\psi_a(P))^2].
 \]
+The infimum is over measurable estimators based on the sample; for each fixed class they may depend on its dimensions, smoothness indices and constants. Adaptation across unknown classes is not requested.
 Identify the $n^{-1}$ mean-squared-error region and the slower regions, specifying which interaction among the two propensity functions, transition density, and final outcome regression determines each rate. Extend the characterization to a fixed number of treatment times with explicitly stated history dimensions.
 \subsection*{Scope and status}
 Sequential exchangeability is an identifying assumption, not a conclusion from observed trajectories. Two treatment decisions already make the minimax experiment precise; allowing an unspecified growing horizon would define a different question. These model choices formalize an agenda and do not assert that every special case remains unsolved.

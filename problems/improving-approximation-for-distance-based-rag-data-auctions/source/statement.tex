@@ -45,12 +45,19 @@ for every instance of the stated distance model? Separately, can such a guarante
  p_i(\theta)=\theta_i z_i(\theta)-\int_0^{\theta_i}z_i(t,\theta_{-i})\,dt,
 \]
 thereby yielding truthfulness in expectation and individual rationality? A mechanism algorithm must also compute these payments within its claimed complexity bound.
+For incentives, distinguish a true type $a$ from a report $b$. Bidders have quasilinear utility $aC_i(S_i(b,b_{-i}))-p_i(b,b_{-i})$ and zero outside utility. Expectations are over the mechanism's internal randomness at fixed reports. Writing $U_i(a;b,b_{-i})=a z_i(b,b_{-i})-p_i(b,b_{-i})$ for the displayed payment rule, truthfulness in expectation requires
+\[
+ U_i(a;a,b_{-i})\geq U_i(a;b,b_{-i})
+ \quad\text{for every bidder $i$, every $a,b\geq0$, and every fixed $b_{-i}\in\mathbb R_{\geq0}^{n-1}$}.
+\]
+The participation requirement remains to be specified: expected individual rationality requires $U_i(a;a,b_{-i})\geq0$, whereas realized individual rationality requires nonnegative truthful utility for every realized outcome. The displayed integral does not by itself impose the latter. The continuous-domain strategic formulation also requires a specification of the allocation rule at real reports, including irrational reports in the integral, its relation to the rational-input implementation, finite representations of exact payments, whether random payments with the displayed expectation are permitted, and whether the polynomial runtime bound is worst-case or expected. These choices are not fixed here by substituting a finite report domain or an approximate incentive requirement.
 \subsection*{Short English statement}
 Exploit distance-based coverage structure to improve the welfare factor, and distinguish algorithmic improvement from truthful implementation.
 \subsection*{Variants and scope boundaries}
 The distance class is material: fixed-dimensional Euclidean distances, arbitrary metrics, and arbitrary similarity matrices need separate status checks. The formula is a single-parameter model; general private coverage weights are a different mechanism problem. Truthfulness in expectation does not imply universal truthfulness.
 \subsection*{Source relationship and status}
 Section 4 explicitly asks whether its RAG coverage factor can exceed $1-1/e$, after establishing monotonic postprocessing. General-coverage hardness is not automatically a lower bound for every geometric restriction. The original catalogue's ``IC mechanism/algorithm'' conflation is removed; this source question is recorded at its version date, without certifying every distance subclass as open.
+In [S1], Section 2 uses a public finite set of types and reports, and Appendix C.1 uses deterministic payments given by a finite sum. The continuous-domain integral formulation here is an extension; [S1] does not specify its computational conventions.
 \subsection*{References}
 \begingroup\footnotesize\raggedright
 \textbf{[S1]} Minbiao Han, Seyed A. Esmaeili, Michael Albert, and Haifeng Xu (2025). \emph{Data Auctions for Retrieval Augmented Generation}. arXiv:2508.16007v2. \textit{Verified locator:} Section 2, coverage and public/private parameters; Section 4, paragraph after Lemma 4.6. \url{https://arxiv.org/html/2508.16007v2}

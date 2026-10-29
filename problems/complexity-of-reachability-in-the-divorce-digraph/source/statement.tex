@@ -29,7 +29,7 @@
 \label{beyond:MM-13}
 \entrymeta{MM-13}{Matching markets and allocation}{Published question; corrected scope}
 \subsection*{Definitions and assumptions}
-Let $I$ be a complete strict stable-marriage instance with $n$ agents on each side, and let $M$ be a perfect matching. For a blocking pair $(u,w)$, a divorce operation produces
+Let $I$ be a complete strict stable-marriage instance with disjoint sets $U$ and $W$ of $n$ agents each: every agent has a strict total order over all agents on the opposite side, all of whom are acceptable. A perfect matching $M\subseteq U\times W$ pairs every agent with exactly one agent on the opposite side; $M(x)$ denotes the partner of $x$ on either side. A pair $(u,w)\in U\times W$ blocks $M$ if $w\succ_u M(u)$ and $u\succ_w M(w)$, where $\succ_x$ denotes agent $x$'s strict preference. A matching is stable if it has no blocking pair, and $\mathcal S(I)$ denotes the set of stable perfect matchings. For a blocking pair $(u,w)$, a divorce operation produces
 \[
  T_{u,w}(M)=
  \bigl(M\setminus\{(u,M(u)),(M(w),w)\}\bigr)
@@ -37,12 +37,12 @@ Let $I$ be a complete strict stable-marriage instance with $n$ agents on each si
 \]
 Thus the blocking pair forms a couple and their displaced partners must also form a couple. Define $D_I$ to have all $n!$ perfect matchings as vertices and arcs $M\to T_{u,w}(M)$ for every blocking pair of $M$. Its sinks are exactly the stable matchings.
 \subsection*{Formal question}
-Determine the computational complexity of deciding, given $(I,M_0)$, whether
+Determine the computational complexity of deciding, given $(I,M_0)$ with $M_0$ a perfect matching, whether
 \[
  \exists M\in\mathcal S(I)\quad\exists\text{ directed path in }D_I
  \text{ from }M_0\text{ to }M.
 \]
-Classify this problem for complete strict preference lists, and determine whether affirmative instances admit polynomially bounded divorce paths or efficiently checkable certificates.
+Paths of length zero are allowed, so a stable $M_0$ is an affirmative instance. Encode $I$ by explicitly listing each agent's preference order and encode $M_0$ by its partners; let $L$ be the total input bit length. Classify this problem for complete strict preference lists. Determine whether there is a single polynomial $p$ such that every affirmative instance has a divorce path of at most $p(L)$ operations. Separately, determine whether affirmative instances admit certificates of length polynomial in $L$ with a single deterministic verifier running in polynomial time in $L$, accepting some certificate exactly for affirmative instances; such certificates need not explicitly list a divorce path.
 \subsection*{Scope and status}
 The question concerns computational classification, not whether every starting matching reaches a stable matching. Universal reachability was already disproved by size-four examples reported in the source. Dropping the requirement that displaced partners remarry yields a different dynamic with different reachability properties. The survey leaves complete strict instances open while reporting hardness for a ties/incompleteness extension. Chen's later version establishes NP-hardness even for incomplete strict lists; that does not by itself classify the complete-list problem. Exponential state-space size gives a straightforward polynomial-space decision procedure but does not establish NP membership or polynomial solvability.
 \subsection*{References for the source of the problem}

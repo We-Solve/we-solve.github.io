@@ -29,18 +29,19 @@
 \label{beyond:MM-07}
 \entrymeta{MM-07}{Matching markets and allocation}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Let $I$ be a house-allocation instance with applicants $A$, houses $H$, and fixed acceptable pairs $E$. Houses have no preferences. A random strict profile $P$ determines each applicant's ranks on acceptable houses; rank one is best. Write $r_P(a,h)$ for the rank of an acceptable pair and $R=\max_a|\{h:(a,h)\in E\}|$, taking $R=0$ if $E$ is empty. For a matching $M$, define its padded rank vector
+Let $I$ be a house-allocation instance with finite disjoint sets of applicants $A$ and houses $H$, and fixed acceptable pairs $E\subseteq A\times H$. Houses have no preferences. Let $\mathcal M(I)$ consist of all subsets of $E$ with at most one incident pair at every applicant and house, including the empty matching. Throughout, $M\in\mathcal M(I)$ denotes a feasible candidate matching. A random strict profile $P$ determines each applicant's ranks on acceptable houses; rank one is best. Write $r_P(a,h)$ for the rank of an acceptable pair and $R=\max_a|\{h:(a,h)\in E\}|$, taking $R=0$ if $E$ is empty. For a matching $M$, define its padded rank vector
 \[
  v_P(M)=(v_1,\ldots,v_R),\qquad
  v_j=|\{(a,h)\in M:r_P(a,h)=j\}|.
 \]
 Matching $M$ is rank-maximal if $v_P(M)$ is lexicographically maximal over all feasible matchings. Unmatched applicants contribute no coordinate; there is no independent preliminary cardinality maximization.
+For each applicant $a$, put $H_a=\{h:(a,h)\in E\}$. In independent explicit lotteries, each applicant has a finite listed distribution over strict linear orders of exactly $H_a$, and the profile law is the product of these distributions. In independent uniform refinements, each applicant has a weak order on exactly $H_a$ and independently draws uniformly from its strict linear extensions preserving every strict comparison. In explicit joint-profile lotteries, a finite listed distribution is given over profiles containing one strict linear order of $H_a$ for every applicant $a$; dependence between applicants is allowed. Every listed distribution has nonnegative rational masses summing to one. The empty acceptable set has its unique empty order. Exact computation asks for the probability as a rational number represented by an integer numerator and a positive integer denominator.
 \subsection*{Formal question}
 Using each of independent explicit lotteries, independent uniform refinements of weak orders, and explicit joint-profile lotteries, classify exact computation and rational-threshold comparison of
 \[
  \eta_I(M)=\Pr_P\bigl(v_P(M)=\max_{\mathrm{lex},\,N\in\mathcal M(I)}v_P(N)\bigr).
 \]
-Hold acceptability fixed and measure complexity in the chosen uncertainty encoding.
+Hold acceptability fixed and measure complexity in the chosen uncertainty encoding. The rational-threshold task remains unspecified until a threshold domain and comparison predicate are selected: in particular, $\eta_I(M)\geq q$, $\eta_I(M)>q$, and $\eta_I(M)=q$ are distinct predicates. Acceptability is invariant across realizations, but whether the graph and candidate matching vary across computational inputs, and hence which data enter the input-size measure, also remains to be specified.
 \subsection*{Scope and status}
 The source explicitly suggests rank-maximal matchings as a further solution concept to study under uncertain preferences, without separately classifying these probability problems. The present question is a precise instance of that research direction. Padding rank vectors to a common length removes ambiguity when comparing matchings of different sizes. The ranks are evaluated after random strict refinement, so the event is not rank maximality under the initial tied profile. For explicitly listed joint support, rank-maximality can be checked profile by profile, giving a polynomial evaluation baseline; independent compact support can be exponentially larger than its description.
 \subsection*{References for the source of the problem}

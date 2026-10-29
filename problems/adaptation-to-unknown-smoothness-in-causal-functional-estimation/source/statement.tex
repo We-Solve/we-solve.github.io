@@ -29,8 +29,21 @@
 \label{beyond:CI-51}
 \entrymeta{CI-51}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-In the independent binary causal baseline, assume $Y\in\{0,1\}$, consistency, conditional exchangeability, and fixed overlap. For $s=(s_e,s_m,s_p)$ in a specified compact rectangle $\mathcal S\subset(0,\infty)^3$, let $\mathcal P_s$ impose
-$e\in\mathcal H_d^{s_e}(L)$, $m_1\in\mathcal H_d^{s_m}(L)$, and $p\in\mathcal H_d^{s_p}(L)$ with $c\leq p\leq C$. The dimension $d$ and constants are fixed, but $s$ is not supplied to the estimator. Take $\psi(P)=\int m_1p$ and squared-error loss. Define $R_n^\star(s)$ as its minimax risk when $s$ is supplied; assume the constituent classes are nonempty.
+Observe $n$ independent copies with common observable law $P$ of $O=(X,W,Y)\in[0,1]^d\times\{0,1\}^2$. Invoke the binary causal baseline, including consistency, conditional exchangeability, no interference, and fixed overlap. Let $p=dP_X/dx$ be the unknown marginal Lebesgue density of $X$, with $\int_{[0,1]^d}p(x)\,dx=1$. For $s=(s_e,s_m,s_p)$ in a specified nonempty compact rectangle $\mathcal S\subset(0,\infty)^3$, define $\mathcal P_s$ to contain all such observable laws for which versions of the functions satisfy
+\[
+ e\in\mathcal H_d^{s_e}(L),\qquad m_1\in\mathcal H_d^{s_m}(L),\qquad p\in\mathcal H_d^{s_p}(L),
+ \qquad c\leq p\leq C,\qquad \epsilon\leq e\leq1-\epsilon.
+\]
+Here $e$ and $m_w$ are the conditional probabilities and regressions defined in the binary causal baseline; $0\leq m_1\leq1$, and $m_0:[0,1]^d\to[0,1]$ is otherwise arbitrary and measurable. There are no further observable-law restrictions. The dimension $d\geq1$, radius $L>0$, bounds $0<c\leq C<\infty$, overlap constant $0<\epsilon<1/2$, and rectangle $\mathcal S$ are fixed, known inputs independent of $n$; assume every $\mathcal P_s$ is nonempty. All nuisance functions are unknown. The index $s$ is not supplied to the adaptive estimator. Take
+\[
+ \psi(P)=\int_{[0,1]^d}m_1(x)p(x)\,dx
+\]
+and squared-error loss. Under the causal baseline this is $\E[Y(1)]$. Define the supplied-smoothness minimax risk by
+\[
+ R_n^\star(s)=\inf_{T_{n,s}}\sup_{P\in\mathcal P_s}
+ \E_{P^{\otimes n}}[(T_{n,s}-\psi(P))^2],
+\]
+where measurable $T_{n,s}$ may use $s$ and all fixed inputs. Adaptive estimators may use the data, $n$, and all fixed inputs, but not $s$. Expectations in the adaptation factor below are under $P^{\otimes n}$, including any independent estimator randomization.
 \subsection*{Formal question}
 Determine the smallest possible uniform adaptation factor
 \[
@@ -40,7 +53,7 @@ Determine the smallest possible uniform adaptation factor
  \frac{\sup_{P\in\mathcal P_s}
  \E_P[(\widehat\psi-\psi(P))^2]}{R_n^\star(s)}.
 \]
-Construct a single estimator attaining its order and prove a matching lower bound. In particular, characterize whether $A_n^\star$ stays bounded or must diverge, and identify the rate loss at smoothness configurations adjoining a transition to $n^{-1}$ risk. Estimator selection, bandwidths, projection dimensions, and sample splitting must all be determined without access to the unknown indices.
+Construct a single estimator attaining its order and prove a matching lower bound. Constants in this global order comparison may depend on the fixed inputs, but not on $n$ or $s$; no uniform comparison across different rectangles is required. In particular, characterize whether $A_n^\star$ stays bounded or must diverge, and identify the rate loss at smoothness configurations adjoining a transition to $n^{-1}$ risk. Estimator selection, bandwidths, projection dimensions, and sample splitting must all be determined without access to the unknown indices.
 \subsection*{Scope and status}
 This asks adaptation of estimation risk. Honest confidence sets are a distinct task and require their own coverage and size criteria; they cannot be inferred from a risk bound. The rectangle of smoothness values is part of the experiment, so conclusions about a restricted rectangle need not extend to arbitrarily small smoothness. This formalization does not claim that known special adaptation results are absent.
 \subsection*{References for the source of the problem}

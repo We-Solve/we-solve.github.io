@@ -29,21 +29,21 @@
 \label{beyond:CI-54}
 \entrymeta{CI-54}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Use independent binary-baseline observations with $Y\in\{0,1\}$, uniform $X\in[0,1]^d$, consistency, conditional exchangeability, and overlap. Fix $d,L,\varepsilon$. One experiment restricts $e,m_1$ to $\operatorname{BV}_d(L)$, with $0\leq m_1\leq1$. A second experiment supplies known pilot functions $\bar e,\bar m$ satisfying the same pointwise bounds, but makes no derivative or variation assumptions. Its unknown nuisances satisfy
+Use $n\geq1$ independent copies of the binary-baseline observation $O=(X,W,Y)$ with $Y\in\{0,1\}$, uniform $X\in[0,1]^d$, consistency, conditional exchangeability, and overlap. Fix $d\in\{1,2,\ldots\}$ and $0<\varepsilon<1/2$, with $\varepsilon$ denoting the baseline overlap constant $\epsilon$. For the bounded-variation experiment take finite $L\geq\varepsilon$, the nonempty radius domain under the stated BV norm and overlap. Include $L=\varepsilon$; do not impose a strict inequality. One experiment restricts $e,m_1$ to $\operatorname{BV}_d(L)$, with $0\leq m_1\leq1$. A second experiment supplies known deterministic measurable pilot functions $\bar e,\bar m$ satisfying $\varepsilon\leq\bar e\leq1-\varepsilon$ and $0\leq\bar m\leq1$, but makes no derivative or variation assumptions. All function bounds are understood Lebesgue-almost everywhere on $[0,1]^d$. Its unknown nuisances satisfy
 \[
  \|e-\bar e\|_{L_2(dx)}\leq r_e,\qquad
  \|m_1-\bar m\|_{L_2(dx)}\leq r_m.
 \]
-The pilots are deterministic side information, not estimates fitted to the fresh $n$ observations. Let $r_e=r_{e,n}$ and $r_m=r_{m,n}$ be specified sequences. In both experiments the target is $\psi(P)=\int m_1(x)\,dx$.
+The pilots are deterministic side information, not estimates fitted to the fresh $n$ observations. Let $r_e=r_{e,n}$ and $r_m=r_{m,n}$ be specified finite nonnegative sequences, known to the estimator and not required to vanish. In both experiments the target is $\psi(P)=\int_{[0,1]^d} m_1(x)\,dx$, where $dx$ is Lebesgue measure. The use of supplied functions, including their integrals, has no computational restriction.
 \subsection*{Formal question}
 Determine the squared-error minimax rate in the bounded-variation experiment, including its dependence on fixed dimension. Separately determine
 \[
  \inf_{\widehat\psi}\sup_{\bar e,\bar m}
  \sup_{\substack{P:\ \|e-\bar e\|_2\leq r_e\\
                          \|m_1-\bar m\|_2\leq r_m}}
- \E_P[(\widehat\psi-\psi(P))^2],
+ \E_{P^{\otimes n}}[(\widehat\psi-\psi(P))^2],
 \]
-where estimators may use the supplied pilots and the inner supremum retains the causal baseline and overlap restrictions. Give matching bounds across the regimes of $n,r_e,r_m$ and compare what extra information the variation restriction provides.
+where the outer supremum ranges over the measurable pilots with the bounds stated above, estimators may use the supplied pilots and known parameters, and the inner supremum retains the causal baseline and overlap restrictions. Here $\|\cdot\|_2$ means $L_2(dx)$, and the estimator is a family of sample-measurable rules indexed by the supplied pilots. Give matching bounds across the regimes of $n,r_e,r_m$, including zero radii and saturation when radius constraints become redundant. Use the common sharp-rate convention for each specified pair of radius sequences. In the bounded-variation experiment, constants and asymptotic thresholds may depend on fixed $d,L,\varepsilon$ but not on $n$. Compare the resulting rates descriptively; no nesting, dominance, or mapping between the BV restriction and pilot-error guarantees is assumed.
 \subsection*{Scope and status}
 Structure-agnostic here means an explicitly defined nuisance-error experiment, not a claim of consistent estimation over all measurable nuisance functions. If pilots are random or trained using the estimation sample, their distribution and dependence must instead be included in the experiment. The two classes need not have the same minimax rate.
 \subsection*{References for the source of the problem}

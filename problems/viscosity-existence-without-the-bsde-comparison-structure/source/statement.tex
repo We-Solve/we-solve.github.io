@@ -29,8 +29,11 @@
 \label{beyond:SC-02}
 \entrymeta{SC-02}{Stochastic control and dynamic optimization}{Published question}
 \subsection*{Definitions and assumptions}
+Fix $T>0$ and integers $n,d\geq1$.
 Let $b:[0,T]\times\R^n\to\R^n$ and
-$\sigma:[0,T]\times\R^n\to\R^{n\times d}$ be jointly continuous, with
+$\sigma:[0,T]\times\R^n\to\R^{n\times d}$ be jointly continuous.
+Assume there is a finite constant $K>0$ such that, for every
+$(t,x,x')\in[0,T]\times\R^n\times\R^n$,
 \[
  |b(t,0)|+\|\sigma(t,x)\|\leq K,\qquad
  |b(t,x)-b(t,x')|+\|\sigma(t,x)-\sigma(t,x')\|\leq K|x-x'|.
@@ -44,16 +47,20 @@ $p\in[1,\alpha^*)$, assume, everywhere,
  |g(t,x,y,z)|+|h(x)|&\leq
  k\bigl(1+|x|^p+e^{k|y|^{2/\alpha^*}}+|z|^2\bigr).
 \end{align*}
+Here $\operatorname{sgn}(y)=1$ for $y>0$ and
+$\operatorname{sgn}(y)=-1$ for $y\leq0$, as in the source.
 Set $\mathcal L\varphi=b\cdot\nabla\varphi+
 \frac12\operatorname{tr}(\sigma\sigma^\top D^2\varphi)$.
 \subsection*{Formal question}
-Does there exist a continuous viscosity solution of
+For every choice of data satisfying these assumptions, does there exist
+$u\in C([0,T]\times\R^n;\R)$ that is a viscosity solution of
 \[
  \partial_tu+\mathcal Lu+
  g(t,x,u,\sigma(t,x)^\top\nabla u)=0,
  \qquad u(T,x)=h(x)?
 \]
-Precisely, at an interior local maximum of $u-\varphi$, with
+Precisely, at any local maximum of $u-\varphi$ in
+$(0,T)\times\R^n$, with
 $\varphi\in C^{1,2}$ touching $u$, require
 $\partial_t\varphi+\mathcal L\varphi+
 g(t,x,u,\sigma^\top\nabla\varphi)\geq0$; at a local minimum require

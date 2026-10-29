@@ -29,14 +29,19 @@
 \label{beyond:CI-30}
 \entrymeta{CI-30}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Invoke the binary causal baseline with bounded outcomes and overlap, and fix a nested dictionary $b_K(x)\in\R^K$, $1\leq K\leq K_{max}(n)$. Its Gram matrices $G_K=\E[b_K(X)b_K(X)^\top]$ have eigenvalues in $[c,C]$, and $\sup_x\|b_K(x)\|\leq C\sqrt K$. Define the exact population projection surrogate
+Invoke the binary causal baseline with bounded outcomes and overlap. On the covariate domain $\mathcal X$, fix measurable dictionaries $b_K:\mathcal X\to\R^K$, $1\leq K\leq K_{max}(n)$, whose linear spans are nested. Their Gram matrices $G_K(P)=\E_P[b_K(X)b_K(X)^\top]$ have eigenvalues in $[c,C]$, where $0<c\leq C<\infty$ are fixed uniformly over the model family and all allowed dimensions, and $\sup_{x\in\mathcal X}\|b_K(x)\|\leq C\sqrt K$. Write $G_K=G_K(P)$. Define the exact population projection surrogate
 \[
  \beta_K(P)=G_K^{-1}\E[b_K(X)\tau_P(X)],\qquad
  \tau_K(x)=b_K(x)^\top\beta_K(P).
 \]
-Use independent training and inference subsamples. A training rule selects $\widehat K$; the inferential target is then the population coefficient $\beta_{\widehat K}(P)$, conditional on that selection. Specify a union of compatible H\"older model classes for $\tau,e,m_w$, with indices in compact positive ranges.
+Use independent training and inference subsamples. A training rule selects $\widehat K$; the inferential target is then the population coefficient $\beta_{\widehat K}(P)$, conditional on that selection. Specify a union of compatible H\"older model classes for $\tau,e,m_w$, with indices in compact positive ranges. Compatibility requires that the restrictions hold jointly for the same law, with $\tau=m_1-m_0$; the smoothness restrictions are not independent assignments to unrelated functions. No approximation rate or density of the dictionary spans follows from the stated Gram and envelope bounds.
 \subsection*{Formal question}
-Construct regions $C_{n,\widehat K}$ whose coverage conditional on the training sigma-field is at least $1-\eta+o(1)$ almost surely, with a remainder uniform in the model and all allowed selected dimensions. Determine their smallest attainable $L^2(P_X)$ surrogate diameter, allowing $K_{max}$ to grow. Seek a selection rule whose sum of $L^2(P_X)$ projection approximation error and $L^2(P_X)$ inferential diameter is, up to stated penalties, comparable to the best fixed $K$ in the dictionary. Identify regimes in which unknown nuisance smoothness forces a loss despite targeting a projection rather than the full CATE.
+Fix $0<\eta<1$. Construct measurable coefficient regions $C_{n,\widehat K}\subseteq\R^{\widehat K}$ whose coverage conditional on the training sigma-field is at least $1-\eta+o(1)$ almost surely, with a remainder uniform in the model and all allowed selected dimensions. Determine their smallest attainable $L^2(P_X)$ surrogate diameter, allowing $K_{max}$ to grow. For a coefficient region $A\subseteq\R^K$, its surrogate image is $\{b_K(\cdot)^\top u:u\in A\}$, and its population surrogate diameter is
+\[
+ D_K(A;P)=\sup_{u,v\in A}\|b_K(\cdot)^\top(u-v)\|_{L^2(P_X)}
+ =\sup_{u,v\in A}\sqrt{(u-v)^\top G_K(P)(u-v)}.
+\]
+Set $D_K(\varnothing;P)=0$ and allow the value $+\infty$ for unbounded regions. This is a population loss definition and does not supply $P_X$ or $G_K(P)$ to a procedure. Seek a selection rule whose sum of $L^2(P_X)$ projection approximation error and $L^2(P_X)$ inferential diameter is, up to stated penalties, comparable to the best fixed $K$ in the dictionary. Identify regimes in which unknown nuisance smoothness forces a loss despite targeting a projection rather than the full CATE.
 \subsection*{Scope and status}
 The precise growing-dictionary problem is editorial. The proposed coverage concerns the projection coefficients, not all values of $\tau$; any approximation guarantee must be stated separately. Fixed-dimensional regular functionals can already admit conventional inference under suitable nuisance rates. Selecting a surrogate cannot evade impossibility results by silently interpreting its confidence region as an honest adaptive band for the original function. Conditional coverage is assessed after independent training, with all remaining randomization in the inference sample.
 \subsection*{References for the source of the problem}

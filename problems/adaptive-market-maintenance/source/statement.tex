@@ -30,14 +30,46 @@
 \label{definitions:problem:30007581}
 \textbf{Audit classification:} Source/provenance unverified. NBER indexing verifies the genuine 2023 working-paper identity and DOI, but repeated full-page/PDF fetches failed. The online-control specification has no verified open-problem locator and is retained as editorial.
 \subsection*{Definitions and precise research target}
-\textbf{Model and research target.} A market operator repeatedly chooses a rule \(m_t\) from a finite set \(\mathcal M\), covering application limits, timing, signaling, or allocation priorities. Let \(\theta_t\) be exogenous market conditions; their evolution does not depend on selected rules. A participant state \(s_t\), including participation and adaptation, evolves as \(s_{t+1}=f(s_t,m_t,\theta_t)\), for a specified transition function \(f\) and common initial state \(s_1\). Strategic responses are incorporated into \(f\) and welfare \(W(m_t,s_t,\theta_t)\in[0,1]\). The operator observes outcomes under its chosen rule and incurs switching cost \(c(m_{t-1},m_t)\geq0\). For every comparator rule sequence \(m^*\), define its own counterfactual states by \(s^*_{t+1}=f(s^*_t,m^*_t,\theta_t)\), with \(s^*_1=s_1\). Set
+\textbf{Model and research target.} A market operator repeatedly chooses a rule \(m_t\) from a finite set \(\mathcal M\), covering application limits, timing, signaling, or allocation priorities. Let \(\theta_t\) be exogenous market conditions; their evolution does not depend on selected rules. A participant state \(s_t\), including participation and adaptation, evolves as \(s_{t+1}=f(s_t,m_t,\theta_t)\), for a specified transition function \(f\) and common initial state \(s_1\). Strategic responses are incorporated into \(f\) and welfare \(W(m_t,s_t,\theta_t)\in[0,1]\). The operator observes outcomes under its chosen rule and incurs switching cost \(c(m_{t-1},m_t)\geq0\). For every comparator rule sequence \(m^*\), define its own counterfactual states by \(s^*_{t+1}=f(s^*_t,m^*_t,\theta_t)\), with \(s^*_1=s_1\). For a learner policy \(\pi\), set
 \[
- R_T=\max_{m^*\text{ feasible}}\sum_t[W(m^*_t,s^*_t,\theta_t)-c(m^*_{t-1},m^*_t)]
- -\mathbb E\sum_t[W(m_t,s_t,\theta_t)-c(m_{t-1},m_t)].
+ R_T(\pi,\theta)=\max_{a\in\mathcal C_B}J_T(a,\theta)-J_T(\pi,\theta),
 \]
+where the return functionals and feasibility conventions are defined below.
 Both sequences obey the same announced switching budget and initial rule. For exogenous sequences satisfying \(\sum_{t=2}^T d(\theta_t,\theta_{t-1})\leq V\), with specified metric \(d\), determine minimax attainable regret over feasible adaptive policies, under explicit assumptions on state persistence, feedback, and strategic-response identification. Identify conditions allowing sublinear regret and failures caused by irreversible participation changes or unobserved counterfactuals. Specify the information needed to estimate welfare and transitions rather than treating observed outcomes as unbiased evaluations of alternatives.
 
-\emph{Definitions and maintained assumptions (editorial unless a source definition is named).} State, exogenous-condition and action spaces, metric \(d\), transition \(f\) and welfare \(W\) must be fixed, with feedback specifying which components are observed. To compare policies, use the same exogenous sequence and initial state, and recompute each policy’s own state trajectory. If \(f\) is stochastic, fix a kernel and evaluate both welfare expectations under their own induced path laws; sharing realized endogenous states is invalid. Define comparator set \(\mathcal C_B=\{m^*_{1:T}:\#\{t\ge2:m_t^*\ne m_{t-1}^*\}\le B\}\), initial rule \(m_0\), switching-cost bounds, and learner policies with the same switch budget. Minimax policy regret is \(\inf_\pi\sup_{\theta_{1:T}:\sum d\le V}\{\sup_{m^*\in\mathcal C_B}J(m^*,\theta)-\mathbb E_\pi J(m,\theta)\}\). Declare whether adversaries are oblivious or adaptive and whether \(f,W\) are known. Even \(V=0\) can give linear regret if an early irreversible action enters an unobserved absorbing bad state; bounded exogenous variation alone is insufficient.
+\emph{Definitions and maintained assumptions (editorial unless a source definition is named).} The target is a family of research questions across explicitly specified experiments, not a single rate asserted for all transitions and feedback laws. In each experiment fix measurable state and condition spaces \(S,\Theta\), a measurable metric \(d\) on \(\Theta\), a nonempty finite rule set \(\mathcal M\), measurable transition and welfare primitives, a common initial state \(s_1\), an initial rule \(m_0\in\mathcal M\), and a finite nonnegative switching-cost function \(c\). Costs use the same normalized welfare units as \(W\). The state and transition are reduced-form primitives: the state must contain the history needed for the specified transition law, and any strategic-response or equilibrium-selection rule is part of that law. Here \(m\) and \(\mathcal M\) denote rules and the rule set; the complete-model notation in the common conventions below has a separate scope.
+
+Take \(T\in\N\) with \(T\ge1\), \(B\in\{0,1,2,\ldots\}\), and finite \(V\ge0\). Define
+\[
+ \mathcal C_B=\left\{a_{1:T}\in\mathcal M^T:
+ \sum_{t=2}^T\ind\{a_t\ne a_{t-1}\}\le B\right\},\qquad a_0=m_0.
+\]
+The initial rule is a pre-horizon reference: \(a_1\) is unrestricted, its cost \(c(m_0,a_1)\) is charged, and that initial move does not count against \(B\). The learner obeys the same convention and its switch bound holds almost surely. Empty sums are zero; thus \(T=1\) imposes no counted switch, \(B=0\) permits any constant rule sequence, and \(B\ge T-1\) permits every rule sequence.
+
+For a fixed comparator sequence \(a\), let
+\[
+ J_T(a,\theta)=\mathbb E^{a,\theta}\sum_{t=1}^T
+ [W(a_t,s_t^a,\theta_t)-c(a_{t-1},a_t)].
+\]
+For a learner policy define
+\[
+ J_T(\pi,\theta)=\mathbb E^{\pi,\theta}\sum_{t=1}^T
+ [W(m_t,s_t,\theta_t)-c(m_{t-1},m_t)].
+\]
+For deterministic transitions the comparator expectation is redundant. For a stochastic extension replace \(f\) by a specified measurable transition kernel; each expectation uses its own induced state-path law starting at \(s_1\). The learner expectation additionally includes its randomization and any observation randomness. The comparator is a fixed open-loop sequence selected in hindsight with knowledge of \(\theta_{1:T}\), not a feedback policy. Its maximum is taken outside its path expectation; no pathwise maximum over transition noise or sharing of realized endogenous states is intended.
+
+Each experiment must specify the observations available before \(m_t\), the observations delivered after it, their joint law with the transition, and which primitives and parameters are known to the learner. A feasible adaptive policy is a sequence of measurable probability kernels on \(\mathcal M\) depending only on its available history and private randomization, subject to the almost-sure switch bound. This framework does not choose whether current conditions or states are observed, whether welfare measurements are exact or noisy, or whether \(T,V,B\) are known: these are experiment-defining choices, not consequences of the phrase ``observes outcomes.''
+
+For any such fixed experiment \(\mathfrak e\), put
+\[
+ \Theta_T(V)=\left\{\theta_{1:T}\in\Theta^T:
+ \sum_{t=2}^T d(\theta_t,\theta_{t-1})\le V\right\},\qquad
+ \mathfrak R_T(\mathfrak e;V,B)=\inf_{\pi\in\Pi_B(\mathfrak e)}
+ \sup_{\theta\in\Theta_T(V)}R_T(\pi,\theta).
+\]
+Here the supremum is over oblivious exogenous sequences, fixed independently of the learner's randomization. An action-responsive adversary is not defined by this display and would require a separately specified counterfactual experiment. The displayed value is conditional on the experiment's primitives; a uniform result over unknown transitions, welfare functions or other primitives must additionally name their admissible class, learner knowledge and corresponding worst-case quantifier. No such additional supremum is implicit.
+
+Characterize the assumptions and parameter regimes under which the relevant expected minimax regret satisfies \(\mathfrak R_T/T\to0\) as \(T\to\infty\). State how \(V,B,|\mathcal M|\) and structural constants vary with \(T\), and whether a result is conditional on an experiment or uniform over a named class. The target concerns information-theoretically attainable regret and its limitations; any computational efficiency requirement is an additional restriction to be stated. Even \(V=0\) can admit irreversible-participation obstructions; this is a qualitative warning, not a quantified theorem for every experiment. Strategic-response identification is a distinct statistical question when requested: specify an admissible primitive class, an allowed policy or experimental class, the resulting observable laws and the parameter to be identified. Low regret does not by definition require identification of the entire transition and welfare model.
 \subsection*{Variants and assumption changes}
 \begin{enumerate}
 \item \textbf{Contractive response (editorial).} Assume known \(f,W\), full-state observation and uniform contraction \(d_s(f(s,m,\theta),f(s',m,\theta))\le\kappa d_s(s,s')\) with \(\kappa<1\). Determine regret dependence on \((T,V,B)\).

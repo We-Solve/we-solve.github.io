@@ -32,11 +32,18 @@
 \textbf{P} | Explicit remaining parameter regimes in the cited source.
 \par}
 \subsection*{Definitions and mathematical statement}
-For $n\geq1$ and $p_n\in[0,1]$, sample $A,B\in\{0,1\}^{n\times n}$ so that their $2n^2$ entries are mutually independent Bernoulli variables with parameter $p_n$. Exact Nash equilibrium means the two best-response inequalities in GT-005. For each fixed $c>0$ and each of the exponents $a\in\{1/2,1\}$, put $p_n=\min\{1,cn^{-a}\}$. Determine whether an always-correct exact-equilibrium algorithm exists with
+For $n\geq1$ and $p_n\in[0,1]$, sample $A,B\in\{0,1\}^{n\times n}$ so that their $2n^2$ entries are mutually independent Bernoulli variables with parameter $p_n$. Exact Nash equilibrium (the convention referenced as GT-005) means a pair $x,y\in\Delta_n:=\{z\in\R^n:z_i\geq0,\ \sum_{i=1}^n z_i=1\}$ such that
+\[
+ x^{\mathsf T}Ay\geq (x')^{\mathsf T}Ay\quad\text{for every }x'\in\Delta_n,
+ \qquad
+ x^{\mathsf T}By\geq x^{\mathsf T}By'\quad\text{for every }y'\in\Delta_n.
+\]
+Here $A$ and $B$ are respectively the row and column players' payoff matrices, and the players randomize independently. For each fixed $c>0$ and each of the exponents $a\in\{1/2,1\}$, put $p_n=\min\{1,cn^{-a}\}$. Determine whether an always-correct exact-equilibrium algorithm exists with
 \[
  \mathbb E_{A,B,\xi}[T_{\mathcal A}(A,B;\xi)]\leq C_{a,c}n^{d_{a,c}}
  \qquad\text{for every }n\geq1.
 \]
+Here $n$ ranges over positive integers. The input consists of the two explicitly given binary payoff matrices; the output consists of exact rational coordinates of $x$ and $y$, encoded in binary. The running time $T_{\mathcal A}$ counts bit operations, including output. The variable $\xi$ denotes the algorithm's internal random bits, independent of the sampled matrices; deterministic algorithms are allowed. Always-correct means that on every input the algorithm terminates with probability one and every returned pair is an exact Nash equilibrium. For each fixed $(a,c)$, one algorithm must work for all $n$, with finite constants $C_{a,c}>0$ and $d_{a,c}\geq0$ independent of $n$; no uniform polynomial bound over different values of $c$ is required.
 The regimes not covered by the source's displayed sufficient bounds include
 \[
  a=\tfrac12,\quad e^{-52}2^{-8}<c<0.977;

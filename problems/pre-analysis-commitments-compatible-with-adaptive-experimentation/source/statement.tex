@@ -31,18 +31,20 @@
 \subsection*{Definitions and assumptions}
 Fix a filtration $(\mathcal F_t)$ recording observed data and authorized external randomness. A pre-analysis commitment is a prespecified measurable program $\mathcal A$ mapping each history to the next assignment kernel, target definition, eligibility rule, testing rule, and permitted future updates. Thus the program is fixed before data collection although its realized outputs are adaptive. Every new target or hypothesis must record the sigma-field on which its selection depends and the observations subsequently used for inference.
 
-In a concrete class, outcomes are bounded, allocation is conditionally randomized with known positive probabilities, and new hypotheses use future observations or a declared selection correction. The program obeys a specified expected treatment-budget constraint. Let $V_t(\mathcal A)$ count false rejections and let $U_T(\mathcal A,P)$ count rejections of prespecified effect alternatives by horizon $T$; discovery utility is $\E_P[U_T(\mathcal A,P)]$.
+In a concrete class, outcomes are bounded, allocation is conditionally randomized with known positive probabilities, and new hypotheses use future observations or a declared selection correction. The program obeys a specified expected treatment-budget constraint. Let $V_t(\mathcal A)$ count false rejections and let $U_T(\mathcal A,P)$ count rejections of null hypotheses corresponding to prespecified effect alternatives by horizon $T$; discovery utility is $\E_P[U_T(\mathcal A,P)]$.
 \subsection*{Formal question}
-Characterize operational, checkable conditions on permitted history-dependent updates that guarantee
+For a prescribed $0<\alpha<1$, characterize operational, checkable conditions on permitted history-dependent updates that guarantee
 \[
 \sup_{P\in\mathcal M}\Pr_P\{\exists t:V_t(\mathcal A)>0\}
 \leq\alpha.
 \]
 Among programs satisfying that guarantee and the budget, determine optimal achievable discovery utility over a declared alternative class, or minimax regret relative to an oracle program given the same budget. Require nontrivial power for effects exceeding specified separations. Characterize when conditional supermartingale tests continue to be valid after changes in allocation, outcomes, eligibility, or the target.
 \subsection*{Scope and status}
-The formal commitment is a rule for adaptation, rather than an irrevocable list of realized design choices. Its mathematical validity depends on the information used by each update. Broad automation or pre-analysis-plan guidance does not itself establish error control, and unconstrained post-selection changes cannot be declared valid by registration alone. Basic predictable testing constructions exist; the attached challenge motivates the design-and-power refinement.
+The formal commitment is a rule for adaptation, rather than an irrevocable list of realized design choices. Its mathematical validity depends on the information used by each update. Broad automation or pre-analysis-plan guidance does not itself establish error control, and unconstrained post-selection changes cannot be declared valid by registration alone. Basic predictable testing constructions based on nonnegative supermartingales exist; see [S1], Lemma 1. Such a construction requires an adapted, nonnegative, integrable process with initial value at most one and the supermartingale property under each tested null relative to the actual information filtration. Applying these constructions across multiple adaptive targets also requires multiplicity accounting. The attached challenge motivates the design-and-power refinement.
 \subsection*{References for the source of the problem}
 Carlos Cinelli, Avi Feller, Guido Imbens, Edward Kennedy, Sara Magliacane, and Jose Zubizarreta, \emph{Challenges in Statistics: A Dozen Challenges in Causality and Causal Inference}, arXiv:2508.17099v1, 23 August 2025, Section 3.1.3, paragraph \emph{Automation and reducing frictions}. \url{https://arxiv.org/html/2508.17099v1}.
+
+[S1] Steven R. Howard, Aaditya Ramdas, Jon McAuliffe, and Jasjeet Sekhon, \emph{Time-uniform Chernoff bounds via nonnegative supermartingales}, arXiv:1808.03204v8, Lemma 1 and Section 4.6. \url{https://arxiv.org/pdf/1808.03204v8}. Background on sequential testing, not a solution of the adaptive discovery optimization problem.
 
 \subsection*{Common conventions: Source mathematical conventions}
 
@@ -120,7 +122,7 @@ assumptions in place of this baseline. Bounded outcomes, densities, and
 smoothness are additional assumptions only where stated.
 
 \textbf{Function classes.}
-On $[0,1]^d$, $\mathcal H_d^s(L)$ is the isotropic Hölder ball of radius
+For $d\in\{1,2,\ldots\}$ and $s>0$, on $[0,1]^d$, $\mathcal H_d^s(L)$ is the isotropic Hölder ball of radius
 $L>0$: put $k=\lceil s\rceil-1$ and $\gamma=s-k\in(0,1]$, bound derivatives
 through order $k$, and require the order-$k$ derivatives to be
 $\gamma$-Hölder with constant at most $L$. Thus integer orders use a

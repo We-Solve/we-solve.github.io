@@ -29,11 +29,12 @@
 \label{beyond:MM-09}
 \entrymeta{MM-09}{Matching markets and allocation}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Let $A,H$ have the same finite size, $G=(A,F)$ be an undirected social network, and $M_0:A\to H$ an initial bijective endowment. Each applicant strictly ranks a fixed set of acceptable houses containing her endowment. A feasible allocation is a bijection assigning each applicant an acceptable house. Fix $k\ge3$. A legal cyclic trade from $M$ involves distinct applicants $a_1,\ldots,a_\ell$, where $2\le\ell\le k$, consecutive applicants are adjacent in $G$ (indices modulo $\ell$), and
+Let $A,H$ have the same finite size, $G=(A,F)$ be an undirected social network, and $M_0:A\to H$ an initial bijective endowment. Each applicant strictly ranks a fixed set of acceptable houses containing her endowment. A feasible allocation is a bijection assigning each applicant an acceptable house. Fix an integer $k\ge3$. A legal cyclic trade from $M$ involves distinct applicants $a_1,\ldots,a_\ell$, where $2\le\ell\le k$, consecutive applicants are adjacent in $G$ (indices modulo $\ell$), and
 \[
  M(a_{i+1})\succ_{a_i}M(a_i)\quad(1\le i\le\ell).
 \]
 The resulting allocation gives $a_i$ the house $M(a_{i+1})$ and leaves all others unchanged. This explicitly chooses network-edge feasibility; requiring all participants to form a clique defines another model.
+For acceptable houses $h,h'$ of applicant $a$, write $h\succeq_a h'$ if $h=h'$ or $h\succ_a h'$. Write $\mathcal R_k(M_0)$ for the set of feasible allocations obtainable from $M_0$ by a finite sequence of legal cyclic trades, including the sequence of zero trades. A specified applicant--house assignment $(a,h)$ is reachable if some $M\in\mathcal R_k(M_0)$ satisfies $M(a)=h$.
 \subsection*{Formal question}
 Classify the complexity of deciding reachability of a specified allocation, or a specified applicant--house assignment, from $M_0$ under these trades. Also determine the complexity of finding $M\in\mathcal R_k(M_0)$ that is Pareto optimal within the reachable set:
 \[
@@ -42,8 +43,9 @@ Classify the complexity of deciding reachability of a specified allocation, or a
  [\exists a,\ N(a)\succ_a M(a)].
 \]
 Distinguish fixed $k$, input $k$, and unbounded cycle length.
+The network, preference lists, and initial endowment are supplied explicitly as input, together with the target allocation or applicant--house pair for the respective decision question. In the fixed-$k$ regime, $k$ is a constant independent of the instance; in the input-$k$ regime, the integer $k\ge3$ is supplied in binary. Unbounded cycle length permits every length $2\le\ell\le |A|$. The search task requests an allocation, without requiring a trade sequence as part of the output.
 \subsection*{Scope and status}
-The source highlights longer-cycle exchanges as an open direction beyond swaps. It does not specify a unique feasibility convention for longer cycles; the convention above is therefore part of this formalization. Strict improvement implies termination of every trade sequence, but terminality is only absence of a further legal local trade. Pareto optimality in the entire set reachable from $M_0$ is a stronger requirement. The known swap results do not automatically classify longer-cycle models, especially when network classes contain no simple cycles of length at least three.
+The source highlights longer-cycle exchanges as an open direction beyond swaps. It does not specify a unique feasibility convention for longer cycles; the convention above is therefore part of this formalization. Strict improvement implies termination of every trade sequence, but terminality is only absence of a further legal local trade. Pareto optimality in the entire set reachable from $M_0$ is a stronger requirement. The known swap results do not by themselves classify longer-cycle models on general networks. On networks with no simple cycles of length at least three, however, the legal trades are exactly the swaps, so the corresponding swap results apply.
 \subsection*{References for the source of the problem}
 Katar\'ina Cechl\'arov\'a, \'Agnes Cseh, and David F. Manlove (2019), \emph{Selected open problems in Matching Under Preferences}, Section~3.1.3, final paragraph: \url{https://hpi.de/friedrich/docs/publications/2019/BEATCS.pdf}. Laurent Gourv\`es, Julien Lesca, and Ana\"elle Wilczynski (2017), \emph{Object Allocation via Swaps along a Social Network}, IJCAI 2017, pp.~213--219, defines the motivating swap model: \url{https://doi.org/10.24963/ijcai.2017/31}.
 

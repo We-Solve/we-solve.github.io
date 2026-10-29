@@ -35,7 +35,7 @@
 \noindent\textbf{Original atlas question:} Which pedagogy, incentives and technologies produce durable learning when implemented by normal school systems?
 
 \subsection*{Definitions and assumptions}
-Fix a school system, baseline pupils, a horizon $H$, and a common outcome scale. Policy $\pi=(p,a,s)$ specifies pedagogy or technology $p$, implementation architecture $a$ (staffing, training, supervision, and incentives), and coverage $s$. Treatment versions include time on task and language. Let $Y_{it}(\pi)$ be learning measured by a prespecified assessment with invariant interpretation across treatment groups, and let $C(\pi)$ be discounted real system cost. Follow baseline pupils across schools and nonattendance. Permit peer, teacher-labor-market, and administrative spillovers; state an exposure model or a system-level equilibrium. Assignment must occur at a level that identifies the intended policy comparison.
+Fix a school system, baseline pupils, a horizon $H$, and a common outcome scale. Policy $\pi=(p,a,s)$ specifies pedagogy or technology $p$, implementation architecture $a$ (staffing, training, supervision, and incentives), and coverage $s$. Treatment versions include time on task and language. Let $Y_{it}(\pi)$ be learning measured by a prespecified assessment with invariant interpretation across treatment groups, and let $C(\pi)$ be discounted real system cost per baseline pupil, with the population normalization used for learning. For each instance, declare the cost dates, real-price base, discount date and rate, and the treatment of stochastic delivery costs. Follow baseline pupils across schools and nonattendance. Permit peer, teacher-labor-market, and administrative spillovers; state an exposure model or a system-level equilibrium. Assignment must occur at a level that identifies the intended policy comparison.
 \subsection*{Formal research question}
 For feasible pairs $\pi,\pi_0$, identify or bound
 \[
@@ -65,7 +65,7 @@ This refinement adopts the additional source conventions
 (page~\pageref{audited:conventions}), subject to its local restrictions.
 \textbf{Ordinary staff versus externally supplied implementers.}
 For coverage $s$ and staffing $e\in\{0,1\}$, where $e=1$ is regular school staff,
-define $Y_i(s,e)$ and full delivery cost $C(s,e)$. Identify
+define $Y_i(s,e)$ and full delivery cost $C(s,e)$. Here $e=0$ denotes externally supplied implementers. For each instance, specify both staffing versions, all other treatment components in each regime, the coverage denominator and admissible levels, and the allocation rule or allocation law at each level. These specifications must determine the spillover exposures or equilibrium convention; coverage alone does not determine a regime. Identify
 \[
 \tau^{\rm staff}=\mathbb E[Y_i(s_1,1)-Y_i(s_0,1)],\qquad
 \Gamma=\tau^{\rm staff}
@@ -91,10 +91,10 @@ belong to ECON-044, independently of the original entry's reference numbering.
 This refinement adopts the additional source conventions
 (page~\pageref{audited:conventions}), subject to its local restrictions.
 \textbf{Separating technology from instructional practice.}
-For supported factorial assignments of technology $T$ and practice $P$,
+For supported factorial assignments of binary technology $T\in\{0,1\}$ and practice $P\in\{0,1\}$, with $p,t\in\{0,1\}$ denoting their local levels rather than pedagogy or dates,
 identify $\tau_T(p)=\mathbb E[Y_i(1,p)-Y_i(0,p)]$,
 $\tau_P(t)=\mathbb E[Y_i(t,1)-Y_i(t,0)]$, and
-$\iota=\tau_T(1)-\tau_T(0)$. Specify hardware, software, feedback practice,
+$\iota=\tau_T(1)-\tau_T(0)$. Specify the versions of both levels of each factor and the other treatment components held fixed in each contrast. The interaction is additive on the fixed common assessment scale, including its outcome transformation and reference normalization. Specify hardware, software, feedback practice,
 teacher preparation, baseline population and common delayed assessments.
 Use consistent assignment or a justified exposure design for spillovers and
 account for missing pupils. Bundle effects alone do not identify components;
@@ -115,11 +115,11 @@ belong to ECON-045, independently of the original entry's reference numbering.
 
 Unless an entry states otherwise, agent and firm sets are finite. State and action spaces are measurable, strategies and outcome maps are measurable, probability laws are specified, and expectations exist for the targets under discussion. Infinite-horizon discount factors lie in $(0,1)$ and discounted objectives are finite. Norms, tolerances and complexity input sizes must be specified for computational comparisons. Constants or primitives that appear locally are inputs, not empirical facts asserted by this catalogue.
 
-\textbf{Identification.} A statistical model $m\in\mathcal M$ implies an observable law $P_m$ and target $\theta(m)$. At law $P$, its identified set is
+\textbf{Identification.} A statistical model $m\in\mathcal M$ implies an observable law $P_m$ and target $\theta(m)$. At a generated law $P\in\{P_m:m\in\mathcal M\}$, its identified set is
 \[
 \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M,\ P_m=P\}.
 \]
-Point identification holds when this set is a singleton, or equivalently when $P_{m_1}=P_{m_2}$ implies $\theta(m_1)=\theta(m_2)$ for all compatible models. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
+Point identification at this $P$ holds when this set is a singleton, or equivalently when $\theta(m_1)=\theta(m_2)$ for all $m_1,m_2\in\mathcal M$ with $P_{m_1}=P_{m_2}=P$. Identification throughout the model requires this condition at every generated law. If no model generates $P$, the identified set is empty and does not establish point identification. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
 
 \textbf{Inference.} Identification, estimability and valid uncertainty quantification are separate questions. Fix $\alpha\in(0,1)$. A confidence procedure $C_n$ over a declared law class $\mathcal P$ has asymptotic uniform coverage at level $1-\alpha$ when
 \[

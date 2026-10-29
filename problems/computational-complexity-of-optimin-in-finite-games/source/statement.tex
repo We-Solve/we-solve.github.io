@@ -55,7 +55,7 @@ Each $q_j\in B_j(p)$ is assessed against the \emph{original} profile $p_{-j}$, e
 
 The \emph{pure-restricted} variant is defined separately: replace $\Delta_j$ by $A_j$ in every deviation set and in the set of candidate profiles, denote the resulting performance by $\pi_i^{G,\mathrm{pure}}(a)$, and let $\mathcal O^{\mathrm{pure}}(G)\subseteq A$ consist of the profiles Pareto undominated under $\pi^{G,\mathrm{pure}}$. Membership in $\mathcal O^{\mathrm{pure}}(G)$ does not imply membership in $\mathcal O^{\mathrm{mix}}(G)$.
 
-For exact mixed-strategy search, specify a finite algebraic-number representation of each output probability, or an explicitly equivalent exact real-algebraic representation. For approximate search, output rational probabilities. The required error notion and its binary-encoded rational tolerance $\varepsilon>0$ are always stated explicitly.
+For exact mixed-strategy search, specify a finite algebraic-number representation of each output probability, or an explicitly equivalent exact real-algebraic representation. For approximate search, output rational probabilities. The required error notion and its binary-encoded rational tolerance $\varepsilon>0$ are always stated explicitly. Exact-output questions form a representation-dependent family: each classification must state the encoding syntax, its bit-size measure, the computational operations and their costs, and its reduction notion. Finite representability does not assert polynomial output length, and different exact encodings are not presumed polynomially interchangeable.
 
 \subsection*{Formal research question}
 
@@ -93,7 +93,7 @@ Separately, investigate the \emph{performance-based} requirement that there be n
 \pi_i^G(q)\ge\pi_i^G(\widehat p)\quad\forall i,
 \qquad \max_i\bigl(\pi_i^G(q)-\pi_i^G(\widehat p)\bigr)>\varepsilon.
 \]
-Determine the conditions under which such a performance-based approximation admits a rational output and, when it does, its complexity. Compare polynomial dependence on $L$ and $\log(1/\varepsilon)$ with polynomial dependence on $L$ and $1/\varepsilon$; do not conflate closeness in strategies with closeness in performance.
+Determine the conditions under which such a performance-based approximation admits a rational output and, when it does, its complexity. Charge the full binary encoding length $\operatorname{bits}(\varepsilon)$ in every running-time bound, and put $P_\varepsilon=1+\max\{0,\lceil\log_2(1/\varepsilon)\rceil\}$. Compare bounds polynomial in $L+\operatorname{bits}(\varepsilon)+P_\varepsilon$ with bounds polynomial in $L+\operatorname{bits}(\varepsilon)+\max\{1,1/\varepsilon\}$; do not conflate closeness in strategies with closeness in performance.
 
 \item \textbf{Performance thresholds and scalarized optimization.}
 For $r\in([-1,1]\cap\mathbb Q)^n$, determine the decision complexity of
@@ -105,14 +105,14 @@ For rational weights $\lambda_i>0$ satisfying $\sum_i\lambda_i=1$, define
 \[
 V_\lambda(G)=\max_{p\in\Delta}\sum_{i=1}^n\lambda_i\pi_i^G(p).
 \]
-Classify deciding $V_\lambda(G)\ge t$ for a rational threshold $t$, computing $V_\lambda(G)$ exactly or within $\varepsilon$, and constructing a maximizing profile. Every exact maximizer for strictly positive weights is an optimin point, but varying $\lambda$ need not generate every Pareto-undominated performance vector. Determine sharp complexity bounds, including those based on quantified polynomial inequalities over the reals, for these precisely formulated tasks.
+Classify deciding $V_\lambda(G)\ge t$ for a rational threshold $t$, computing $V_\lambda(G)$ exactly, outputting a binary-encoded rational $\widehat V$ with $|\widehat V-V_\lambda(G)|\le\varepsilon$, and constructing a maximizing profile. Every exact maximizer for strictly positive weights is an optimin point, but varying $\lambda$ need not generate every Pareto-undominated performance vector. Determine sharp complexity bounds, including those based on quantified polynomial inequalities over the reals, for these precisely formulated tasks.
 
 \item \textbf{Checking and certifying a proposed mixed optimin.}
 Given $G$ and a rational profile $p\in\Delta$, classify the decision problem
 \[
 \mathsf{IS\text{-}OPTIMIN}_n(G,p):\quad p\in\mathcal O^{\mathrm{mix}}(G)\,?
 \]
-Also classify the feasibility of polynomial-size, polynomial-time-verifiable certificates of optimin membership or nonmembership under declared exact and approximate encodings. Distinguish this global Pareto-nondominance test from evaluation of the individual numbers $\pi_i^G(p)$ and from checking ordinary Nash inequalities.
+Also classify the feasibility of polynomial-size, polynomial-time-verifiable certificates of optimin membership or nonmembership under declared exact encodings. For approximate certification, take as separate predicates the strategy-distance inequality and the performance-efficiency condition in (C), with a binary-encoded rational profile $\widehat p\in\Delta$ and rational tolerance $\varepsilon>0$ supplied as inputs; consider certificates for each predicate and its logical complement separately. No promise gap is implicit: any gap-based variant must specify its disjoint yes and no promise sets and impose no requirement outside their union. Distinguish this global Pareto-nondominance test from evaluation of the individual numbers $\pi_i^G(p)$ and from checking ordinary Nash inequalities.
 
 \item \textbf{Succinct input and the pure-strategy boundary.}
 If the game is given as an \emph{explicit payoff table}, computing some $a\in\mathcal O^{\mathrm{pure}}(G)$ is already polynomial-time solvable, even with variable $n$; this is a settled baseline, not an open complexity classification. Instead, let the game be encoded by a Boolean or arithmetic circuit $C$ returning the rational payoff $v_i(a)$ given a player index $i$ and a pure action profile $a$. Determine the complexity of finding $a\in\mathcal O^{\mathrm{pure}}(G_C)$ and of deciding
@@ -120,10 +120,10 @@ If the game is given as an \emph{explicit payoff table}, computing some $a\in\ma
 \exists a\in\mathcal O^{\mathrm{pure}}(G_C)
 \quad\forall i:\quad \pi_i^{G_C,\mathrm{pure}}(a)\ge r_i,
 \]
-particularly when every player has two actions and the number of players grows. Record the circuit and payoff bit lengths, distinguish succinct from tabular input, and examine bounded-degree graphical or other compact representations separately.
+particularly when every player has two actions and the number of players grows. Record the circuit and payoff bit lengths, distinguish succinct from tabular input, and examine bounded-degree graphical or other compact representations separately. This is a family of encoding-specific questions. Each circuit variant must specify the action and player-index encodings, gate basis, output semantics, behavior on invalid encodings, and admissibility promises. Distinguish Boolean circuits with explicit binary rational outputs from arithmetic circuits representing rational values; for the latter state whether rational expressions remain succinct or are expanded, and how expanded lengths and evaluation or comparison costs are charged. Distinguish solving promised instances from recognizing their promises.
 
 \item \textbf{Structural restrictions and parameterized complexity.}
-For every stated game representation, characterize tractable and hard subfamilies among two-person zero-sum, $n$-person constant-sum ($n\ge3$), common-interest, potential, symmetric, polymatrix, anonymous, and bounded-interaction graphical games. Determine, where meaningful, whether exact or approximate mixed optimin admits fixed-parameter tractability with respect to $n$, $\max_i m_i$, graph width, payoff rank, or a specified structural parameter. The finite two-person zero-sum case, where mixed optimin coincides with Nash equilibrium and can be computed by linear programming, is a settled boundary case.
+For every stated game representation, characterize tractable and hard subfamilies among two-person zero-sum, $n$-person constant-sum ($n\ge3$), common-interest, potential, symmetric, polymatrix, anonymous, and bounded-interaction graphical games. Determine, where meaningful, whether exact or approximate mixed optimin admits fixed-parameter tractability with respect to $n$, $\max_i m_i$, graph width, payoff rank, or a specified structural parameter. The finite two-person zero-sum case, where mixed optimin coincides with Nash equilibrium and can be computed by linear programming, is a settled boundary case. This paragraph specifies a research family: each investigated specialization must define its structural class, representation, parameter, and promise or recognition convention. In particular, distinguish exact from ordinal potential, state the symmetry convention, identify the interaction graph and width notion, and identify the matrix or tensor and rank notion. State whether structural descriptions and decompositions are supplied or must be found. An FPT claim requires a uniform bound $f(k)S^c$, with total input bit length $S$, parameter $k$, and constant $c$ independent of $k$; approximate claims must also state their accuracy dependence.
 
 \item \textbf{Sensitivity to permitted deviations.}
 Repeat the exact-search, approximation, threshold, and verification questions after replacing each $B_j(p)$, consistently throughout the performance function, by either
@@ -135,7 +135,7 @@ Repeat the exact-search, approximation, threshold, and verification questions af
 \widehat B_j^{\mathrm{best}}(p)
 =\{p_j\}\cup\argmax_{q_j\in\Delta_j}u_j(q_j,p_{-j}).
 \]
-Both induce \emph{modified} performance functions and modified Pareto-undominated sets; they are not definitions of the benchmark strict-deviation optimin. Identify which complexity changes are caused by strict-profitability tests, boundary degeneracies, and simultaneous products of individually defined deviation sets.
+Both induce \emph{modified} performance functions and modified Pareto-undominated sets; they are not definitions of the benchmark strict-deviation optimin. Identify which complexity changes are caused by strict-profitability tests, boundary degeneracies, and simultaneous products of individually defined deviation sets. For each modification, first investigate nonemptiness of its Pareto-undominated set and attainment of its positive-weight scalarized supremum; neither is assumed from the benchmark existence theorem. Until totality is established on a stated input class, exact and approximate profile search are possibly partial relations with the corresponding displayed success predicates and no valid output on instances lacking a witness. Any promised total-search formulation must state its promise. Define the scalar-value task using the supremum, with exact or rational absolute-error output as above; requesting a maximizing profile is a separate relation whose domain consists of instances where that supremum is attained. A nonexistence-reporting task, if studied, must be stated separately and must specify what is to be certified.
 \end{enumerate}
 
 \subsection*{Interpretation and scope}

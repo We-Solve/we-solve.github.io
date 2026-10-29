@@ -29,9 +29,21 @@
 \label{beyond:CI-40}
 \entrymeta{CI-40}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Let $S\in\{0,1\}$ label social groups, $X\in[0,1]^d$ be baseline covariates, and $A\in\{0,1\}$ a specified manipulable mechanism, such as access to a service. Do not define an intervention setting $S$. Define $Y(a)$ for the mechanism intervention, impose within-group consistency, no interference, and $Y(a)\perp A\mid(X,S)$. Write $\mu_s(x,a)=\E[Y(a)\mid X=x,S=s]$ and $p_s(a\mid x)=\Pr(A=a\mid X=x,S=s)$. Let $\nu$ be a specified standardization law supported within group one's covariate support. Require bounded outcomes, causal responses in $\mathcal H_d^\beta(L)$, assignment kernels in $\mathcal H_d^\alpha(L)$, and covariate densities bounded above and below on specified group supports; impose mechanism positivity wherever the relevant quantities are observed.
+Let $d\in\N$ be positive and let $\alpha,\beta,L>0$. Let $S\in\{0,1\}$ label social groups, $X\in[0,1]^d$ be baseline covariates, and $A\in\{0,1\}$ a specified manipulable mechanism, such as access to a service. Do not define an intervention setting $S$. Define $Y(a)$ for the mechanism intervention, impose within-group consistency, no interference, and $Y(a)\perp A\mid(X,S)$. Write $\mu_s(x,a)=\E[Y(a)\mid X=x,S=s]$ and $p_s(a\mid x)=\Pr(A=a\mid X=x,S=s)$. Let $\nu$ be a specified standardization law supported within group one's covariate support. Require bounded outcomes, causal responses in $\mathcal H_d^\beta(L)$, assignment kernels in $\mathcal H_d^\alpha(L)$, and covariate densities bounded above and below on specified group supports; impose mechanism positivity wherever the relevant quantities are observed.
+Write $F_s$ for the covariate law conditional on $S=s$ and $K_s=\supp(F_s)$ for its topological support in $[0,1]^d$. The conditional functions in the integrals use the stipulated continuous H\"older versions on these supports. Thus $\nu$ may have atoms or be singular; no domination of $\nu$ by $F_1$ is imposed here. This convention does not specify how $\nu$ is supplied or estimated.
+
+For an observable group-zero kernel, its admissible reference extensions are
+\[
+ \mathcal Q_0(F_0,p_0)=\left\{(q_0,q_1):
+ \begin{array}{l}
+ q_a:[0,1]^d\to[0,1],\quad q_a\in\mathcal H_d^\alpha(L)\quad(a=0,1),\\
+ q_0(x)+q_1(x)=1\quad\text{for every }x\in[0,1]^d,\\
+ q_a(x)=p_0(a\mid x)\quad F_0\text{-almost everywhere}\quad(a=0,1)
+ \end{array}\right\}.
+\]
+Only observable laws compatible with the stated model are considered, so this class is nonempty. In the target, $p_0(a\mid x)$ denotes $q_a(x)$ for a selected admissible extension; the sharp identified set varies over all such extensions and all other observationally equivalent admissible models. Off $K_0$, no positivity restriction is added to the probability-kernel and global H\"older requirements.
 \subsection*{Formal question}
-Define the disparity reduction from replacing group one's mechanism by group zero's reference kernel:
+Define the signed disparity reduction from replacing group one's mechanism by group zero's reference kernel (no nonnegativity is assumed):
 \[
  D_{\mathrm{red}}=\int\sum_a\mu_1(x,a)\{p_1(a\mid x)-p_0(a\mid x)\}\,d\nu(x).
 \]
@@ -89,8 +101,8 @@ are distinguished locally. A uniform asymptotic confidence region $C_n$
 must satisfy
 \[
  \liminf_{n\to\infty}\inf_{P\in\mathcal P}
-     \Pr_{P^{(n)}}\{\theta(P)\in C_n\}\geq 1-\alpha,
- \qquad 0<\alpha<1,
+     \Pr_{P^{(n)}}\{\theta(P)\in C_n\}\geq 1-\eta,
+ \qquad 0<\eta<1,
 \]
 together with an informative diameter or expected-width requirement.
 Coverage alone permits the vacuous whole parameter space. Testing questions

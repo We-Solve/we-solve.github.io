@@ -31,7 +31,11 @@
 \subsection*{Definitions and assumptions}
 Fix a known directed network $G_N$, a source vertex $s$, and a diffusion horizon $K$. In each of $m$ independent outbreaks, source treatment $W_s\sim\operatorname{Bernoulli}(1/2)$ adds an initial infection at $s$ and is independent of all cascade randomness. Other initial infections follow a declared background-seeding distribution. Each directed edge transmits independently with unknown probability $p_e$ when first activated; the observed $Y_v\in\{0,1\}$ records infection by time $K$. This defines a finite independent-cascade structural model and counterfactuals $Y_v(1),Y_v(0)$ coupled through the same seeds and transmission randomness.
 
-For $D_L=\{v:d_{G_N}(s,v)\geq L,\ d_{G_N}(s,v)<\infty\}$, define $\delta_v=\E[Y_v(1)-Y_v(0)]$. Restrict background probabilities and transmission parameters to declared compact sets. A rare-cascade subclass additionally bounds the probability that source treatment changes any outcome in $D_L$ by $\rho$.
+For $D_L=\{v:d_{G_N}(s,v)\geq L,\ d_{G_N}(s,v)<\infty\}$, define $\delta_v=\E[Y_v(1)-Y_v(0)]$. Restrict background probabilities and transmission parameters to declared compact sets. For $\rho\in[0,1]$, the rare-cascade subclass consists of models satisfying
+\[
+ \Pr\{\exists v\in D_L:Y_v(1)\ne Y_v(0)\}\leq\rho
+\]
+under the stated shared-seed, shared-transmission counterfactual coupling. This bounds counterfactual changes, not the probability of observed distant infection.
 \subsection*{Formal question}
 For nonempty $D_L$ and $\alpha,\beta\in(0,1)$ with $\alpha+\beta<1$, determine the minimax separation $\delta$ allowing a measurable test $\phi$ with
 \[
@@ -39,7 +43,13 @@ For nonempty $D_L$ and $\alpha,\beta\in(0,1)$ with $\alpha+\beta<1$, determine t
 \qquad
 \sup_{P:\max_{v\in D_L}\delta_v\geq\delta}\Pr_P(\phi=0)\leq\beta.
 \]
-Both suprema are over the declared cascade class. Determine dependence on $m,N,L,K,\rho$, graph geometry, and sparse numbers of affected vertices, with matching lower bounds and explicit nonempty alternative regimes.
+Analyze the full declared cascade class and, separately, its rare-cascade subclass; in each analysis both suprema range over the same selected class $\mathcal C$. Write $\mathcal C_0=\{P\in\mathcal C:\delta_v=0\ \forall v\in D_L\}$ and $\mathcal C_1(\delta)=\{P\in\mathcal C:\max_{v\in D_L}\delta_v\geq\delta\}$. When $\mathcal C_0\ne\varnothing$, define the minimax separation threshold by
+\[
+ \delta_*=\inf\{\delta>0:\mathcal C_1(\delta)\ne\varnothing
+   \text{ and some measurable }\phi\text{ satisfies both displayed error bounds}\},
+ \qquad \inf\varnothing=+\infty.
+\]
+Report separately whether the infimum is attained. If $\mathcal C_0=\varnothing$, report an absent null rather than a calibrated testing threshold. Distinguish an absence of positive-effect alternatives from an absence of tests attaining the error bounds against nonempty alternatives. Determine dependence on $m,N,L,K,\rho$, graph geometry, and sparse numbers of affected vertices, with matching lower bounds and explicit nonempty alternative regimes.
 \subsection*{Scope and status}
 Background infection prevents interpreting every distant infection as a treatment-induced cascade. Randomization identifies marginal treatment contrasts, but power can vanish when changed outcomes are too rare. This concrete testing problem refines the attached empirical challenge; no claim is made that its entire parameter space is an established unsolved conjecture.
 \subsection*{References for the source of the problem}

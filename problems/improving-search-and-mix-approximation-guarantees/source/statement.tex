@@ -32,13 +32,17 @@
 \textbf{R} | Precise algorithm-design target; the source's framework is not an axiomatized complexity class.
 \par}
 \subsection*{Definitions and mathematical statement}
-Let $A,B\in\mathbb Q^{m\times n}\cap[0,1]^{m\times n}$ be explicitly encoded, and let $r_{A,B}$ denote the maximum unilateral payoff gain, as displayed in GT-001. A search-and-mix algorithm first computes finite lists $X=(x^1,\ldots,x^s)\subset\Delta_m$ and $Y=(y^1,\ldots,y^t)\subset\Delta_n$, then outputs
+Let $m,n$ range over all positive integers, and let $A,B\in\mathbb Q^{m\times n}\cap[0,1]^{m\times n}$ be explicitly encoded payoff matrices for the row and column players, respectively. For every positive integer $k$, write $\Delta_k=\{z\in\R^k:z_i\geq0\ (1\leq i\leq k),\ \sum_{i=1}^k z_i=1\}$. For independently played mixed strategies $(x,y)\in\Delta_m\times\Delta_n$, define the maximum unilateral payoff gain by
+\[
+ r_{A,B}(x,y)=\max\left\{\max_{1\leq i\leq m}(Ay)_i-x^\top Ay,\ \max_{1\leq j\leq n}(x^\top B)_j-x^\top By\right\}.
+\]
+A search-and-mix algorithm first computes finite nonempty lists $X=(x^1,\ldots,x^s)\subset\Delta_m$ and $Y=(y^1,\ldots,y^t)\subset\Delta_n$, then outputs
 \[
  x=\sum_{a=1}^{s}\lambda_ax^a,\qquad
  y=\sum_{b=1}^{t}\mu_by^b,\qquad
  \lambda\in\Delta_s,\quad\mu\in\Delta_t.
 \]
-An admissible template specifies the search subroutines, candidate lists, accuracy tolerances, and mixing rule; all must have polynomial bit complexity. The quantitative design target is to exhibit such a fully specified template, an algorithm $\mathcal A$, and a constant $\eta\in(0,1/3)$ satisfying
+An admissible template specifies the search subroutines, candidate lists, accuracy tolerances, and mixing rule; all must have polynomial bit complexity. Here this requires a polynomial bound on the total number of bit operations across both phases, including candidate generation and mixing, measured in the total binary input length, with explicitly specified finite representations for computed and output numbers. The quantitative design target is to exhibit such a fully specified template, an algorithm $\mathcal A$, and a constant $\eta\in(0,1/3)$ satisfying
 \[
  \forall A,B,\qquad
  r_{A,B}\bigl(\mathcal A(A,B)\bigr)\leq \frac13-\eta.

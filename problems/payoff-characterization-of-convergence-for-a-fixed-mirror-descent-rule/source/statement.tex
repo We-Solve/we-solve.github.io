@@ -32,21 +32,28 @@
 \textbf{R} | Formal algorithm-specific classification agenda.
 \par}
 \subsection*{Definitions and mathematical statement}
-Fix action sets $S_i$ and proper lower-semicontinuous strictly convex regularizers $h_i:\Delta(S_i)\to\mathbb R\cup\{+\infty\}$, finite and differentiable on the relative interiors, together with a positive step-size sequence $(\eta_t)$. Let
+Fix a finite nonempty player set $I$ and finite nonempty action sets $S_i$, $i\in I$, and write $S=\prod_{i\in I}S_i$ and $X=\prod_{i\in I}\Delta(S_i)$. Games under consideration have these fixed players and action sets and real payoff arrays $u_i:S\to\R$. Fix proper lower-semicontinuous strictly convex regularizers $h_i:\Delta(S_i)\to\mathbb R\cup\{+\infty\}$, finite and differentiable on $\operatorname{relint}\Delta(S_i)$, together with a positive step-size sequence $(\eta_t)_{t\geq1}$, where $0<\eta_t<\infty$. Let
 \[
  D_{h_i}(p,x)=h_i(p)-h_i(x)-\langle\nabla h_i(x),p-x\rangle
 \]
-be the Bregman divergence. In a finite game $G$, let $v_i(x)$ be the vector with coordinates $u_i(a_i,x_{-i})$. A specified simultaneous online mirror-descent rule is
+be the Bregman divergence, for $p\in\Delta(S_i)$ and $x$ in the domain of $\nabla h_i$; differentiability and the gradient pairing are understood relative to the affine hull of the simplex. In a finite game $G$ on these action sets, let $v_i(x)$ be the vector with coordinates
+\[
+ v_i(x)_{a_i}=u_i(a_i,x_{-i})
+ =\sum_{a_{-i}\in\prod_{j\ne i}S_j}
+ u_i(a_i,a_{-i})\prod_{j\ne i}x_j(a_j),
+ \qquad a_i\in S_i.
+\]
+Empty products equal $1$, so this definition also covers a one-player game. A specified simultaneous online mirror-descent rule uses these exact expected-payoff vectors at the current profile, without sampling noise, and is
 \[
  x_i^{t+1}=\underset{p\in\Delta(S_i)}{\operatorname{argmax}}
  \{\eta_t\langle v_i(x^t),p\rangle-D_{h_i}(p,x_i^t)\}.
 \]
-Assume the declared regularizers and step sizes make each update uniquely defined and remain within the domain of $\nabla h_i$. For this fixed rule $D$, define
+Assume that, for every game under consideration and every $x^1\in\operatorname{relint}X$, each update is uniquely defined and every iterate remains within the domain of each $\nabla h_i$. The regularizers and the entire step-size sequence are fixed when comparing games. For this fixed rule $D$, define
 \[
  \mathcal G_D=\{G:\ \forall x^1\in\operatorname{relint}X,
  \ \lim_{t\to\infty}\operatorname{dist}(x^t,\operatorname{NE}(G))=0\}.
 \]
-Give necessary and sufficient conditions, in terms of the game's payoff arrays, for $G\in\mathcal G_D$.
+Here $\operatorname{NE}(G)$ is the set of exact mixed-strategy Nash equilibria in $X$, with independent mixing, and $\operatorname{dist}(x,A)=\inf_{y\in A}\|x-y\|_2$ in the finite-dimensional product strategy space. The limit is required separately for each game and each interior initialization; no uniform rate over games or initializations is required. Give necessary and sufficient conditions, in terms of the game's payoff arrays, for $G\in\mathcal G_D$.
 \subsection*{Short English statement}
 Which games make a specified adaptive update converge to the Nash set from every interior starting point?
 \subsection*{Variants and scope boundaries}

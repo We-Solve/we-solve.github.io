@@ -29,31 +29,43 @@
 \label{beyond:SC-11}
 \entrymeta{SC-11}{Stochastic control and dynamic optimization}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Fix $\rho>0$. On compact state and control constraints, consider
+Fix $\rho>0$ and $T>0$. Let $X\subset\R^n$ and
+$U\subset\R^m$ be nonempty compact state and control constraint sets,
+where $n,m$ are positive integers, and let $x_0\in X$.
+The function domains are $f:X\times U\to\R^n$,
+$\ell:X\times U\to\R$, and $\Phi:X\to\R$. Consider
 \[
  \min\left\{\int_0^T e^{-\rho t}\ell(x(t),u(t))dt
           +e^{-\rho T}\Phi(x(T))\right\},\qquad
  \dot x=f(x,u),\quad x(0)=x_0.
 \]
+An admissible pair consists of an absolutely continuous state
+$x:[0,T]\to\R^n$ and a Lebesgue-measurable control
+$u:[0,T]\to\R^m$, with $x(t)\in X$ for every $t$,
+$u(t)\in U$ almost everywhere, and the dynamics holding almost
+everywhere. Controls differing only on a null set are identified.
 Assume $f,\ell,\Phi$ are continuous, $f$ is uniformly Lipschitz in
-$x$, and the admissible family has optimal solutions. Terminal costs
+$x$, and the admissible family has optimal solutions. Write
+$(x_T,u_T)$ for an optimal pair. Terminal costs
 are uniformly bounded in the family. A candidate reference is a
 discount-dependent stationary pair $(\bar x_\rho,\bar u_\rho)$.
-In a differentiable interior case, its current-value costate
-$\bar\lambda_\rho$ should satisfy
+In a differentiable interior case admitting a normal stationary
+current-value costate, the necessary conditions for
+$H(x,u,\lambda)=\ell(x,u)+\lambda^\top f(x,u)$ are
 \[
  f(\bar x_\rho,\bar u_\rho)=0,\quad
  \ell_u+f_u^\top\bar\lambda_\rho=0,\quad
  \ell_x+f_x^\top\bar\lambda_\rho=\rho\bar\lambda_\rho,
 \]
-with derivatives evaluated at the reference pair.
+with derivatives evaluated at the reference pair. These equations alone
+do not select a reference, establish its optimality, or imply a turnpike.
 \subsection*{Formal question}
 Characterize assumptions guaranteeing an appropriate reference and,
 for every $\varepsilon>0$, an unweighted measure-turnpike bound
 \[
  \operatorname{Leb}\{t\in[0,T]:
  |x_T(t)-\bar x_\rho|+|u_T(t)-\bar u_\rho|>\varepsilon\}
- \leq C_\varepsilon(\rho),
+ \leq C_\varepsilon(\rho)<\infty,
 \]
 uniform over $T$ and the specified endpoint/terminal-cost family.
 Determine the dependence of these constants, and any exponential

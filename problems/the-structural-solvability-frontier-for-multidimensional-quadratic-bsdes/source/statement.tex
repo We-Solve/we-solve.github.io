@@ -29,20 +29,56 @@
 \label{beyond:SC-06}
 \entrymeta{SC-06}{Stochastic control and dynamic optimization}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Fix $m\geq2$ and the Brownian basis above. Consider vector BSDEs with
-$Y\in\R^m$, $Z\in\R^{m\times d}$ and progressively measurable
-generators $g(t,y,z)\in\R^m$, continuous in $(y,z)$, satisfying
+Fix an integer $m\geq2$ and the Brownian basis specified in the
+BSDE conventions below. A generator is a random field
+$g:\Omega\times[0,T]\times\R^m\times\R^{m\times d}\to\R^m$,
+progressively measurable in $(\omega,t)$ for each $(y,z)$ and
+continuous in $(y,z)$. We suppress $\omega$ in the notation.
+Assume there is a finite deterministic constant $K\geq0$ such that,
+for $dt\otimes\Pr$ almost every $(t,\omega)$, simultaneously for all
+$y,y'\in\R^m$ and $z,z'\in\R^{m\times d}$,
 \begin{align*}
  |g(t,y,z)|&\leq K(1+|y|+\|z\|^2),\\
  |g(t,y,z)-g(t,y',z)|&\leq K|y-y'|,\\
  |g(t,y,z)-g(t,y,z')|&\leq
  K(1+\|z\|+\|z'\|)\|z-z'\|.
 \end{align*}
-Here $\|\cdot\|$ is the Frobenius norm. Define $\mathcal D(g)$ as
-the set of terminal vectors $\xi$ with all exponential moments for
-which the BSDE has a unique solution satisfying
-$\E\int_0^T\|Z_s\|^2ds<\infty$ and class (D) for
-$e^{\mu|Y|}$ for every $\mu>0$.
+Here $|\cdot|$ is the Euclidean norm, $\|\cdot\|$ is the Frobenius
+norm, and $z^i$ denotes the $i$th row of $z$. For an
+$\mathcal F_T$-measurable terminal vector $\xi$, a vector solution is a
+pair $(Y,Z)$ with $Y$ continuous, adapted and $\R^m$-valued, and $Z$
+predictable and $\R^{m\times d}$-valued, satisfying, almost surely,
+\[
+ \int_0^T\bigl(|g(s,Y_s,Z_s)|+\|Z_s\|^2\bigr)\,ds<\infty,
+ \qquad
+ Y_t=\xi+\int_t^T g(s,Y_s,Z_s)\,ds-\int_t^T Z_s\,dB_s,
+ \quad 0\leq t\leq T.
+\]
+The stochastic integral is interpreted row by row, and the identity holds
+simultaneously for every $t\in[0,T]$. Uniqueness means indistinguishability
+of $Y$ and equality of $Z$ for $dt\otimes\Pr$ almost every $(t,\omega)$.
+Define the terminal class
+\[
+ \mathcal E_m=\left\{\xi:\Omega\to\R^m:
+ \xi\text{ is }\mathcal F_T\text{-measurable and }
+ \E e^{\mu|\xi|}<\infty\text{ for every }\mu>0\right\}.
+\]
+Define $\mathcal D(g)\subseteq\mathcal E_m$ as the set of terminal vectors
+for which the BSDE has exactly one solution in the class satisfying
+\[
+ \E\int_0^T\|Z_s\|^2\,ds<\infty,
+ \qquad
+ (e^{\mu|Y_t|})_{0\leq t\leq T}\text{ is of class (D) for every }\mu>0.
+\]
+Class (D) is defined in the BSDE conventions below. Its uniform
+integrability requirement is over stopping times for each fixed $\mu$;
+no uniform bound over $\mu$ or over terminal vectors is imposed.
+An unbounded terminal vector means one that is not essentially bounded.
+For $\xi\in\mathcal E_m$, failure of membership in $\mathcal D(g)$
+means either nonexistence or nonuniqueness in this solution class.
+Structural conditions must state the restrictions on the component
+generators as well as their coupling; decoupling alone is not an
+assumption of componentwise well-posedness.
 \subsection*{Formal question}
 Give verifiable structural conditions on $g$ that characterize substantial
 solvability domains $\mathcal D(g)$ containing unbounded terminal values,
@@ -52,8 +88,8 @@ $\mathcal D(g)$ to contain all terminal vectors with all exponential
 moments, and which do not?
 \subsection*{Scope and status}
 The original catalog's unrestricted universal existence formulation is
-false. Frei and dos Reis exhibit a bounded terminal vector $(\xi,0)$
-for the two-dimensional generator
+false. Frei and dos Reis exhibit a bounded terminal vector $(\xi,0)$,
+with $m=2$ and $d=1$, for the generator
 $g(z)=(0,|z^1|^2+|z^2|^2/2)$ for which no solution with
 $Z\in L^2(dt\otimes\Pr)$ exists. Consequently, merely imposing
 quadratic growth cannot yield the proposed universal theorem. The
@@ -146,7 +182,7 @@ assumptions in place of this baseline. Bounded outcomes, densities, and
 smoothness are additional assumptions only where stated.
 
 \textbf{Function classes.}
-On $[0,1]^d$, $\mathcal H_d^s(L)$ is the isotropic Hölder ball of radius
+On $[0,1]^d$, for $s>0$, $\mathcal H_d^s(L)$ is the isotropic Hölder ball of radius
 $L>0$: put $k=\lceil s\rceil-1$ and $\gamma=s-k\in(0,1]$, bound derivatives
 through order $k$, and require the order-$k$ derivatives to be
 $\gamma$-Hölder with constant at most $L$. Thus integer orders use a

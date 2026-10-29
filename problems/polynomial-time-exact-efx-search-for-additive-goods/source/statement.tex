@@ -31,13 +31,15 @@
 \textbf{GT-057} | Computational fair division | \textbf{R}: explicit algorithmic strengthening; exact source locator limited.
 \par}
 \subsection*{Definitions and mathematical statement}
-Input is $n,m$ and a matrix of nonnegative rational values $v_{ig}$, represented in binary; let $L$ be its total bit length. A complete allocation is a partition $(A_1,\ldots,A_n)$ of $[m]$. It is EFX if
+Input consists of integers $n\geq 1$ and $m\geq 0$ and an explicitly listed matrix $(v_{ig})_{i\in[n],\,g\in[m]}$ of nonnegative rational values. Here $[k]=\{1,\ldots,k\}$ for $k\geq 1$ and $[0]=\varnothing$. Integers and the numerators and positive denominators of rational entries are represented in binary; let $L$ be the total bit length of the complete input, including $n,m$. Agent $i$ values a bundle $S\subseteq[m]$ at $\sum_{g\in S}v_{ig}$, with empty sum zero. A complete allocation is an ordered tuple $(A_1,\ldots,A_n)$ of pairwise disjoint, possibly empty bundles whose union is $[m]$. It is EFX if
 \[
  \sum_{g\in A_i}v_{ig}\geq
  \sum_{h\in A_j\setminus\{g\}}v_{ih}
- \quad\text{for all }i,j\text{ and }g\in A_j\text{ with }v_{ig}>0.
+ \quad\text{for all }i,j\in[n]\text{ and }g\in A_j\text{ with }v_{ig}>0.
 \]
-Does there exist a deterministic algorithm and a polynomial $p$ such that, for every such input, it outputs a complete EFX allocation in at most $p(L)$ bit operations? This formulation asks simultaneously for existence and efficient search. Conditional on universal EFX existence, it becomes a total-search complexity question. A weaker promise version restricts inputs to those that admit EFX and permits arbitrary behavior on other inputs.
+Throughout this statement, EFX means this positive-good removal convention, also called $\mathrm{EFX}_{+}$ in [S2]. No comparison is required when $A_j$ contains no good of positive value to $i$. In particular, the definition does not impose removal inequalities for goods of zero value to the comparing agent; [S2, Definition 2.2] uses the stronger all-goods convention.
+
+Does there exist a deterministic algorithm and a polynomial $p$ such that, for every such input, it outputs a complete EFX allocation in at most $p(L)$ bit operations? The output may be encoded by listing, for each good $g\in[m]$, its recipient $a(g)\in[n]$, with $A_i=\{g:a(g)=i\}$; for $m=0$ this list is empty. The same algorithm and polynomial must work for all $n,m$ and all input values. This formulation asks simultaneously for existence and efficient search. Conditional on universal EFX existence, it becomes a total-search complexity question. A weaker promise version restricts inputs to those that admit EFX and permits arbitrary behavior on other inputs.
 \subsection*{Short English statement}
 Find complete exact EFX allocations in time polynomial in the explicit rational input size.
 \subsection*{Variants and scope boundaries}

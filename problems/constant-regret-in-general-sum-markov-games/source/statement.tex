@@ -31,7 +31,7 @@
 {\sffamily\small\color{muted}\textbf{GT-021} | Learning in games\par R | Precise formulation of a source research agenda; source-date open\par}
 \par}
 \subsection*{Definitions and mathematical statement}
-A finite episodic Markov game has players $N=\{1,\ldots,n\}$, states $S$, nonempty finite action sets $A_i$, horizon $H\geq1$, initial state $s_1$, transition kernels $P_h(\cdot\mid s,a)$, and rewards $r_{i,h}(s,a)\in[0,1]$. All realized states and actions are observed. A behavioral policy assigns an action distribution to each player-observed history within an episode; $\Pi_i$ denotes this set. For a profile $\pi$, put
+A finite episodic Markov game has a positive integer number of players $n$, players $N=\{1,\ldots,n\}$, a nonempty finite state set $S$, nonempty finite action sets $A_i$, joint-action set $A=\prod_{i\in N}A_i$, a positive integer horizon $H$, initial state $s_1\in S$, transition kernels $P_h(\cdot\mid s,a)\in\Delta(S)$, and rewards $r_{i,h}(s,a)\in[0,1]$ for $h\in\{1,\ldots,H\}$, $s\in S$, and $a\in A$. All realized states and actions are observed. A behavioral policy assigns an action distribution to each within-episode history $(s_1,a_1,\ldots,s_{h-1},a_{h-1},s_h)$; $\Pi_i$ denotes this set. In the stated Markov-policy feedback regime, every generated policy has the form $\pi^t_{i,h}:S\to\Delta(A_i)$, whereas comparison policies range over all of $\Pi_i$. Conditional on a fixed profile, players randomize independently according to their policies. For a profile $\pi$, put
 \[
  V_i(\pi)=\mathbb E_{\pi}\!\left[\sum_{h=1}^{H}r_{i,h}(s_h,a_h)\right].
 \]
@@ -40,13 +40,13 @@ For profiles $\pi^1,\ldots,\pi^T$, define episode-wise external regret against a
  R_i(T)=\sup_{\tau_i\in\Pi_i}\sum_{t=1}^{T}
  \bigl(V_i(\tau_i,\pi^t_{-i})-V_i(\pi^t)\bigr).
 \]
-An editorial version of the constant-regret target is a decentralized self-play procedure and a finite constant $C_G$, independent of $T$, such that
+An editorial version of the constant-regret target is a single game-uniform decentralized self-play procedure and, for each game $G$, a finite constant $C_G$, independent of $T$, such that
 \[
  \forall G\quad\forall T\geq1\quad\forall i\in N,\qquad R_i(T)\leq C_G.
 \]
 Use the source's full-feedback regime: at a queried $(h,s,a_i)$ the learner receives the exact own reward and transition kernel averaged against the opponents' current Markov policies. A computational formulation must additionally fix a per-round oracle budget and an arithmetic-operation budget, both polynomial in the finite game description and $T$; these resource restrictions are editorial specifications.
 
-Let $\mu_T$ select one joint profile $\pi^t$ uniformly, before the episode. A coarse deviation ignores its own profile recommendation and uses an arbitrary $\tau_i\in\Pi_i$. Linearity gives
+For a fixed list of profiles $\pi^1,\ldots,\pi^T$, let $\mu_T$ draw an index $J$ uniformly from $\{1,\ldots,T\}$ before the episode and execute the entire profile $\pi^J$, without resampling the index or updating the policies within that episode. For a coarse deviation, the deviator receives no profile recommendation, index $J$, opponents' recommendations, or random seed correlated with $J$, and has no evaluation-time oracle access. It uses one policy $\tau_i\in\Pi_i$, which may be chosen knowing the fixed list but cannot take $J$ as an additional input. It observes the ordinary within-episode history and may infer information about $J$ from that history. Opponents retain their sampled policies and apply them along the trajectory induced by the deviation. The notation $V_i(\tau_i,(\mu_T)_{-i})$ uses precisely this evaluation experiment. Linearity gives
 \[
  \max_i\sup_{\tau_i\in\Pi_i}
  \bigl(V_i(\tau_i,(\mu_T)_{-i})-V_i(\mu_T)\bigr)

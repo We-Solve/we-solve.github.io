@@ -29,13 +29,34 @@
 \label{beyond:CI-35}
 \entrymeta{CI-35}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-First randomize binary $W$ conditional on baseline $X$, observe a post-treatment covariate $L$, and then randomize a feasible mediator setting $M$ conditional on $(X,W,L)$. Let $L(w)$ and $Y(w,l,m)$ be well-defined potential variables with consistency. A separate natural-mediator arm estimates a reference distribution $g_{w'}(m\mid X)$ of the mediator under treatment $w'$. Use a finite mediator state space, bounded outcomes, and known randomization probabilities $q(w\mid X)$ and $r(m\mid X,W,L)$ bounded away from zero. Let $X\in[0,1]^d$, $L\in[0,1]^q$. Require outcome means, $L$ densities, and reference mediator probabilities to have H\"older indices $\beta,\alpha,\gamma>0$, respectively, with radius $B$, and bounded intervention costs.
+First randomize binary $W$ conditional on baseline $X$, observe a post-treatment covariate $L$, and then randomize a feasible mediator setting $M$ conditional on $(X,W,L)$. Let $L(w)$ and $Y(w,l,m)$ be well-defined potential variables with consistency. A separate natural-mediator arm estimates a reference distribution $g_{w'}(m\mid X)$ of the mediator under treatment $w'$. Use a finite mediator state space, bounded outcomes, and known randomization probabilities $q(w\mid X)$ and $r(m\mid X,W,L)$ bounded away from zero. Let $X\in[0,1]^d$, $L\in[0,1]^{d_L}$. Require outcome means, $L$ densities, and reference mediator probabilities to have H\"older indices $\beta,\alpha,\gamma>0$, respectively, with radius $B$, and bounded intervention costs.
+
+Write $\mathcal M$ for the finite mediator state space and $M^{\rm nat}(w)$ for the mediator under treatment $w$ with $L$ taking its natural value $L(w)$ and with no mediator intervention. The notation $M(w)$ below means $M^{\rm nat}(w)$, and
+\[
+ g_w(m\mid x)=\Pr\{M^{\rm nat}(w)=m\mid X=x\}
+\]
+is a population kernel, distinct from an estimator obtained from the reference arm. These potential variables and kernels refer to the target population; using a reference arm from another population requires justification that it recovers these kernels.
+
+In the sequential arm, consistency means $L=L(W)$ and $Y=Y(W,L(W),M)$. Sequential randomization means that the treatment assignment is independent of the subject's potential variables conditional on $X$, and that the mediator assignment is independent of those potential variables conditional on $(X,W,L)$, using the stated assignment kernels. Define
+\[
+ \mu_w(x,l,m)=\E[Y\mid X=x,W=w,L=l,M=m],\qquad
+ f_w(l\mid x)=\frac{dP\{L(w)\in\cdot\mid X=x\}}{dl}(l),
+\]
+where $dl$ is Lebesgue measure on $[0,1]^{d_L}$; conditional functions are understood almost everywhere under the relevant laws. The outcome means and $L$ densities mentioned above are $\mu_w$ and $f_w$.
+
+Let $\mathcal F(x,w,l)\subseteq\mathcal M$ denote the feasible mediator settings. For each requested pair $(w,w')$, the displayed intervention and its positivity requirement concern every $m$ with $g_{w'}(m\mid x)>0$: such $m$ must belong to $\mathcal F(x,w,l)$ and have $r(m\mid x,w,l)>0$ for $P_X(dx)f_w(l\mid x)dl$-almost every $(x,l)$. If this support compatibility fails, the displayed target is not covered by the stated identification claim; conditioning or truncating the reference kernel would define a different target.
 \subsection*{Formal question}
-Define a stochastic mediator effect using an independent reference draw $G_{w'}\mid X\sim g_{w'}(\cdot\mid X)$:
+Define a stochastic mediator effect using a reference draw $G_{w'}\mid X\sim g_{w'}(\cdot\mid X)$ that is conditionally independent of the subject's potential variables given $X$:
 \[
  \psi(w,w')=\E[Y(w,L(w),G_{w'})].
 \]
-Find cost-constrained sequential designs $(q,r)$ minimizing worst-case risk for contrasts among these means. Establish identification and efficient estimation when $L$ both responds to $W$ and predicts the outcome, and characterize adaptive allocation rules retaining uniform inferential validity. Determine what extra structural restrictions, if any, would make these stochastic contrasts coincide with specified natural-effect contrasts.
+Find cost-constrained sequential designs $(q,r)$ minimizing worst-case risk for contrasts among these means. Establish identification and characterize efficiency bounds and conditions for their attainment when $L$ both responds to $W$ and predicts the outcome, and characterize adaptive allocation rules retaining uniform inferential validity. For a prespecified real array $a=(a_{ww'})_{w,w'\in\{0,1\}}$ with $\sum_{w,w'}a_{ww'}=0$, write
+\[
+ \theta_a=\sum_{w,w'}a_{ww'}\psi(w,w'),\qquad
+ \eta(w,w')=\E[Y(w,L(w),M^{\rm nat}(w'))],\qquad
+ \eta_a=\sum_{w,w'}a_{ww'}\eta(w,w').
+\]
+The natural-effect comparison uses the same coefficient array: determine what extra structural restrictions, if any, make $\theta_a=\eta_a$ for the specified arrays. Here $L$ follows treatment $w$ in the outcome argument, while $M^{\rm nat}(w')$ includes its own natural intermediate covariate under $w'$; no other path-specific substitution is implicit. Equality of these mean contrasts is the requested comparison, not equality of distributions or an assumed cross-world independence condition.
 \subsection*{Scope and status}
 This precise design question is editorial. Randomization of the mediator setting is an intervention on a stated mechanism; an enhancement that merely shifts the mediator requires additional exclusion and compliance analysis. Sequential randomization identifies the displayed interventions under consistency and positivity. It does not impose independence between $Y(w,l,m)$ and a mediator counterfactual under another treatment, nor determine their cross-world coupling. Accordingly, natural effects such as $\E[Y(w,L(w),M(w'))]$ are not claimed identified merely from two randomized assignments. Post-treatment $L$ is propagated under its treatment-specific law rather than held fixed without explanation.
 \subsection*{References for the source of the problem}

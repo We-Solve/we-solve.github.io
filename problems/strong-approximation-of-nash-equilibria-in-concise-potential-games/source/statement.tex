@@ -32,11 +32,16 @@
 \textbf{P} | Second explicit question in the same source.
 \par}
 \subsection*{Definitions and mathematical statement}
-Use explicitly listed action sets and a rational multilinear potential circuit with the encoding conventions of GT-009. Let $X=\prod_i\Delta(S_i)$ and let $E\subseteq X$ be its set of exact Nash equilibria, defined by $\Phi(z)\geq\Phi(p_i,z_{-i})$ for all unilateral mixed deviations. For rational input $\varepsilon\in(0,1)$, the strong-approximation search problem asks for a rational vector $x\in X$ such that
+Use explicitly listed action sets and a rational multilinear potential circuit with the encoding conventions of GT-009. There are $n\geq1$ players with finite nonempty action sets $S_i$, indexed by $i\in\{1,\ldots,n\}$. Put $d=\sum_{i=1}^n|S_i|$ and $X=\prod_{i=1}^n\Delta(S_i)\subseteq\R^d$. The circuit represents $\Phi:X\to\R$, affine in each player's probability block. Here exact potential means that each player's unilateral payoff differences equal the corresponding differences of $\Phi$; thus individual utility functions need not be supplied to define the equilibrium set. Define
+\[
+ E=\{z\in X:\ \Phi(z)\geq\Phi(p_i,z_{-i})\text{ for every }i\in\{1,\ldots,n\}\text{ and }p_i\in\Delta(S_i)\}.
+\]
+For rational input $\varepsilon\in(0,1)$, the strong-approximation search problem asks for a rational vector $x\in X$ such that
 \[
  \exists z\in E,\qquad \|x-z\|_\infty\leq\varepsilon.
 \]
 The precision parameter is encoded in binary, and its bit length is part of the input. Under the reductions and PLS convention specified in [S1], is this problem $\mathsf{FIXP}_a\cap\mathsf{PLS}$-complete? Here $\mathsf{FIXP}_a$ is the class of strong finite-precision approximations to exact algebraic fixed-point search problems; proximity is to an actual fixed point, not merely a small fixed-point residual.
+Explicitly, a polynomial-time many-one search reduction from a relation $R$ to a relation $T$ consists of polynomial-time maps $f,g$ such that, for every valid instance $I$ of $R$, $f(I)$ is a valid instance of $T$ and every allowed output $y$ for $f(I)$ satisfies $(I,g(I,y))\in R$. For this problem, $I$ includes $\varepsilon$. Completeness means membership in the intersection and a reduction of this kind from every problem in the intersection. The PLS convention is reducibility to LocalOpt as in [S1], Definition 3.6, without requiring efficient verification of every allowed output.
 \subsection*{Short English statement}
 Classify the difficulty of outputting a point close to a genuine equilibrium in a compactly represented potential game.
 \subsection*{Variants and scope boundaries}

@@ -29,22 +29,34 @@
 \label{beyond:CI-50}
 \entrymeta{CI-50}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Observe independent $O=(X,W,Y)$ with $X\in[0,1]^d$, binary $W$, and continuous $Y\in[0,1]$. Assume consistency, conditional exchangeability of the potential outcomes, and fixed overlap. Fix $w\in\{0,1\}$ and define the conditional outcome density $f_w(y\mid x)$ with respect to Lebesgue measure. For fixed positive $s_f,s_e,s_p$ and constants, require
+Observe $n$ independent and identically distributed copies $O_1,\ldots,O_n$ of $O=(X,W,Y)$ with common observable law $P$, where $X\in[0,1]^d$, $W\in\{0,1\}$, and continuous $Y\in[0,1]$. The data law is $P^{\otimes n}$; potential outcomes are not observed in addition to these data. Assume consistency $Y=Y(W)$, conditional exchangeability $(Y(0),Y(1))\perp W\mid X$, and fixed overlap $\epsilon\leq e(x)\leq1-\epsilon$, where $e(x)=\Pr_P(W=1\mid X=x)$ and $0<\epsilon<1/2$. Let $p$ be the Lebesgue density of $X$ on $[0,1]^d$, normalized by $\int_{[0,1]^d}p(x)\,dx=1$. Fix $w\in\{0,1\}$ and let $f_w(y\mid x)$ be the Lebesgue density of the conditional law of $Y$ given $W=w,X=x$. The functions $p,e,f_w$ are unknown. Fix $d\in\N$ with $d\geq1$, positive $s_f,s_e,s_p,L,c,C$, and $\epsilon$ independently of $n$, and require
 \[
  f_w\in\mathcal H_{d+1}^{s_f}(L),\quad
  e\in\mathcal H_d^{s_e}(L),\quad
  p\in\mathcal H_d^{s_p}(L),\quad
  c\leq p\leq C,\quad 0\leq f_w\leq C.
 \]
-Each $f_w(\cdot\mid x)$ integrates to one. The other treatment arm is unrestricted apart from the stated support. The counterfactual density is identified as
-$f_{Y(w)}(y)=\int f_w(y\mid x)p(x)\,dx$.
+Use the continuous versions supplied by these H\"older classes on their closed cubes, and impose the displayed bounds and overlap on those versions. Each $f_w(\cdot\mid x)$ integrates to one for every $x\in[0,1]^d$. The other treatment arm is unrestricted apart from the stated support. Let $\mathcal P$ be the class of observable laws satisfying these restrictions and admitting potential outcomes with the stated consistency and exchangeability properties; no potential-outcome joint law beyond these properties is specified. No nuisance function is supplied to the estimator.
+
+Keep the declared constant choices rather than assuming strict slack around uniform densities. Empty classes are to be identified as such and do not define an estimation problem here. For nonempty classes, distinguish cases in which the target is known throughout the class and the risks are zero from cases with a positive minimax rate; a positive two-sided rate is requested only in the latter cases. Constants in rate comparisons may depend on $d,s_f,s_e,s_p,L,c,C,\epsilon$ and, for the supremum loss, $\eta$, but not on $n$.
+
+The counterfactual density is identified as
+$f_{Y(w)}(y)=\int_{[0,1]^d} f_w(y\mid x)p(x)\,dx$.
 \subsection*{Formal question}
-Determine matching minimax rates for estimating $f_{Y(w)}$ under integrated squared error,
+For each nonempty $\mathcal P$, determine matching minimax rates for estimating $f_{Y(w)}$ under integrated squared error,
 \[
- \inf_{\widehat f}\sup_{P\in\mathcal P}
- \E_P\int_0^1\{\widehat f(y)-f_{Y(w)}(y)\}^2\,dy,
+ R_{n,2}=\inf_{\widehat f_n}\sup_{P\in\mathcal P}
+ \E_{P^{\otimes n}}\int_0^1\{\widehat f_n(y)-f_{Y(w)}(y)\}^2\,dy.
 \]
-and, separately, squared supremum error on $[\eta,1-\eta]$ for fixed $\eta>0$. Describe when marginalization over $X$ permits a rate governed primarily by the one-dimensional outcome, and when propensity or covariate-law complexity changes that rate. Prove lower bounds in the actual missing-counterfactual experiment rather than only in an ordinary density-estimation submodel.
+Separately, for fixed $\eta>0$ with nonempty $I_\eta=[\eta,1-\eta]$, determine the squared supremum risk
+\[
+ R_{n,\infty}(\eta)=\inf_{\widehat f_n}\sup_{P\in\mathcal P}
+ \E_{P^{\otimes n}}\left[\sup_{y\in I_\eta}
+ |\widehat f_n(y)-f_{Y(w)}(y)|^2\right].
+\]
+The infima range over measurable real-valued function estimators based only on $O_1,\ldots,O_n$ and optional independent randomization, with measurable displayed losses; estimators need not themselves be normalized densities. For $0<\eta<1/2$ the second loss is uniform on a positive-length interior interval; for $\eta=1/2$ it is squared error at $y=1/2$. For $\eta>1/2$ the stated interval is empty, and no supremum-loss convention or estimation question on that empty domain is specified.
+
+Describe when marginalization over $X$ permits a rate governed primarily by the one-dimensional outcome, and when propensity or covariate-law complexity changes that rate. Lower-bound constructions must be valid submodels of the observable experiment $\{P^{\otimes n}:P\in\mathcal P\}$ and match each claimed regime. Ordinary density-estimation submodels may be used where they suffice; any claimed additional nuisance-driven difficulty requires a lower bound establishing that difficulty in this experiment.
 \subsection*{Scope and status}
 This question concerns treatment-specific marginal densities, not the generally unidentified density of $Y(1)-Y(0)$, which also requires their joint law. Rates for quantiles or the number of modes require additional regularity and are not consequences of density identification alone. The model is an explicit agenda formulation.
 \subsection*{References for the source of the problem}

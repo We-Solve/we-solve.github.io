@@ -29,7 +29,7 @@
 \label{beyond:CI-31}
 \entrymeta{CI-31}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Observe independent $(X,S,W,Y)$ with $X\in[0,1]^d$, a binary group label $S$, binary treatment $W$, and bounded outcome. Invoke the binary causal assumptions conditional on $(X,S)$, with group probabilities and treatment overlap bounded below. A randomized policy $\pi(X,S)\in[0,1]$ specifies a Bernoulli treatment independently of potential outcomes conditional on $(X,S)$. Let $c(X,S)\in[0,1]$ be a known cost and let $\Pi$ be a pointwise separable class of finite Vapnik--Chervonenkis subgraph dimension. Define
+For sample size $n\geq1$, observe independent copies $O_i=(X_i,S_i,W_i,Y_i)$, $i=1,\ldots,n$, of $(X,S,W,Y)$ with common law $P$, where $X\in[0,1]^d$, $S$ is a binary group label, $W$ is binary treatment, and the outcome is bounded. Invoke the binary causal assumptions conditional on $(X,S)$, with group probabilities and treatment overlap bounded below. A randomized policy $\pi(X,S)\in[0,1]$ specifies a Bernoulli treatment independently of potential outcomes conditional on $(X,S)$. Let $c(X,S)\in[0,1]$ be a known cost and let $\Pi$ be a pointwise separable class of finite Vapnik--Chervonenkis subgraph dimension. Define
 \[
  V_P(\pi)=\E_P[m_0(X,S)+\pi(X,S)\tau(X,S)].
 \]
@@ -38,6 +38,7 @@ The budget constraint is $\E_P[c\pi]\leq b$; demographic-parity tolerance is
  |\E_P[\pi\mid S=1]-\E_P[\pi\mid S=0]|\leq\zeta,
 \]
 where $b,\zeta>0$. Assume a policy in $\Pi$ satisfies both constraints with a fixed positive slack, and require, separately for each group, $e\in\mathcal H_d^\alpha(L)$ and $m_w\in\mathcal H_d^\beta(L)$ for fixed $\alpha,\beta>0$.
+No density restriction is imposed on $X$ conditional on $S$; the groupwise smoothness restrictions mean that the conditional functions admit versions in the stated H\"older balls on $[0,1]^d$. The class $\Pi$ is not assumed closed under convex mixtures. The existence of a strictly feasible policy does not supply its identity to the learner or assert that one policy works for every law.
 \subsection*{Formal question}
 Construct a learned policy satisfying both population constraints with probability at least $1-\eta$, uniformly over the model. Determine sharp worst-case expected regret relative to the supremum of $V_P$ over population-feasible policies in $\Pi$, accounting for nuisance estimation, policy complexity, unknown group proportions, and feasibility slack. Identify any necessary cost of conservative empirical constraints, and give matching lower bounds when the optimum lies on a constraint boundary.
 \subsection*{Scope and status}

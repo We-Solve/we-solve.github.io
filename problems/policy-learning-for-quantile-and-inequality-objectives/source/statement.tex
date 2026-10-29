@@ -29,23 +29,23 @@
 \label{beyond:CI-17}
 \entrymeta{CI-17}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Use the binary causal baseline with independent observations, consistency, no interference, conditional exchangeability, and overlap. Let $X$ be uniform on $[0,1]^d$ and outcomes lie in $[a,b]$ with $0<a<b<\infty$. Let $\Pi_n$ be a specified finite collection of $M_n$ measurable policies $\pi:[0,1]^d\to\{0,1\}$ satisfying a declared budget $\int\pi(x)\,dx\leq c$. Its members are fixed before training.
+Use the binary causal baseline with independent observations, consistency, no interference, conditional exchangeability, and overlap. Let $X$ be uniform on $[0,1]^d$ and outcomes lie in $[a,b]$ with $0<a<b<\infty$. Let $\Pi_n$ be a specified nonempty finite collection of $M_n\geq1$ measurable policies $\pi:[0,1]^d\to\{0,1\}$ satisfying a declared budget $\int_{[0,1]^d}\pi(x)\,dx\leq c$, where $c\geq0$. Its members are fixed before training; the supplied collection may depend on $n$. Budgets $c\geq1$ impose no additional restriction. A singleton menu, or a menu whose members all agree Lebesgue-almost everywhere, has identically zero regret; this includes every feasible menu when $c=0$.
 
-For $\pi\in\Pi_n$, the policy-outcome distribution is
+For $w\in\{0,1\}$, let $F_w(y\mid x)=\Pr(Y(w)\leq y\mid X=x)$, identified almost everywhere in $x$ with $\Pr(Y\leq y\mid W=w,X=x)$ under the binary causal baseline. For $\pi\in\Pi_n$, the policy-outcome distribution is
 \[
 F_\pi(y)=\E[(1-\pi(X))F_0(y\mid X)+\pi(X)F_1(y\mid X)].
 \]
-One explicit nonadditive objective is $J(F)=Q_u(F)-\lambda G(F)$, where $\lambda\geq0$, $u\in(0,1)$, and
+One explicit nonadditive objective is $J(F)=Q_u(F)-\lambda G(F)$, where $\lambda\geq0$, $u\in(0,1)$, and $Q_u(F)=\inf\{y\in\R:F(y)\geq u\}$ is the lower quantile used for the regular objective here. Also,
 $G(F)=\E|Z-Z'|/(2\E Z)$ for independent $Z,Z'\sim F$.
 Impose Hölder classes on $e$ and the conditional distribution functions and densities between fixed positive constants on fixed-radius neighborhoods of $Q_u(F_\pi)$, uniformly over models and admissible policies.
 \subsection*{Formal question}
 Determine the minimax expected regret
 \[
-\inf_{\widehat\pi\in\Pi_n}\sup_{P\in\mathcal M}
+\inf_{\widehat\pi}\sup_{P\in\mathcal M}
 \E_P\!\left[\max_{\pi\in\Pi_n}J(F_\pi)
                  -J(F_{\widehat\pi})\right],
 \]
-as a function of sample size, policy complexity, overlap, and nuisance regularity. Construct measurable learners attaining matching rates and honest uncertainty bounds for policy value or regret. Separately characterize how the separation and rates change for quantiles or inequality functionals that are nonregular on the declared distribution class.
+as a function of sample size, the supplied policy collection, overlap, and nuisance regularity. The infimum is over measurable learners based on $n$ independent copies of $O=(X,W,Y)$ and taking values in $\Pi_n$; any auxiliary randomization is independent of the observations, and the expectation includes both sources of randomness. Policy complexity may depend on the geometry of the supplied collection, including disagreement probabilities $\Pr\{\pi(X)\ne\pi'(X)\}$, rather than only on $M_n$. No supremum over policy collections is implicit. Matching-rate claims must accommodate zero-regret menus separately. Construct measurable learners attaining matching rates and honest uncertainty bounds for policy value or regret. Separately characterize how the separation and rates change for quantiles or inequality functionals that are nonregular on the declared distribution class.
 \subsection*{Scope and status}
 The distribution under an implemented policy is a mixture of marginal potential-outcome distributions, so its Gini coefficient does not require observing both counterfactuals for one person. Distributional objectives need not decompose into a pointwise CATE threshold. This finite-policy model is an editorial refinement of the attached optimization direction; it is not a universal existence conjecture or an asserted unsolved rate formula.
 \subsection*{References for the source of the problem}

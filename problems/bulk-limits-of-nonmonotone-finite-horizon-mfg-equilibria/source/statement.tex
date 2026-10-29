@@ -31,6 +31,7 @@
 {\small\textbf{GT-080} | Mean-field games | R: formal research agenda\par}
 \par}
 \subsection*{Definitions and mathematical statement}
+Fix an integer $d\geq1$ and write $\mathbb T^d=\mathbb R^d/\mathbb Z^d$, with normalized Lebesgue measure $dx$. Here $\mathcal P(\mathbb T^d)$ denotes the Borel probability measures, endowed with the $2$-Wasserstein topology; a probability density $m$ is identified with $m(x)dx$.
 Let $F,G:\mathbb T^d\times\mathcal P(\mathbb T^d)\to\mathbb R$ be prescribed smooth couplings, without a monotonicity assumption, and fix a smooth positive probability density $m_0$. For $T>0$, let $\mathcal S_T$ consist of the classical solutions $(u^T,m^T)$ of
 \[
  \begin{cases}
@@ -46,9 +47,11 @@ Define the set of bulk accumulation points by taking sequences $T_n\to\infty$, $
 \[
  \big(Du^{T_n}(s_n+\cdot,\cdot),m^{T_n}(s_n+\cdot,\cdot)\big)
  \longrightarrow (p,\mu)
- \quad\text{in }C_{\mathrm{loc}}(\mathbb R;C^0(\mathbb T^d)\times L^1(\mathbb T^d)).
+ \quad\text{in }C_{\mathrm{loc}}(\mathbb R;C^0(\mathbb T^d;\mathbb R^d)\times L^1(\mathbb T^d)).
 \]
-The projection at time zero of all such limits is $\Omega_{\mathrm{bulk}}(F,G,m_0)$. It is defined from entire boundary-value solutions, not from an assumed Cauchy flow for arbitrary $u(0)$.
+The projection at time zero of all such limits is $\Omega_{\mathrm{bulk}}(F,G,m_0)$. It is defined from entire boundary-value solutions, not from an assumed Cauchy flow for arbitrary $u(0)$. Convergence on each compact time interval is understood once that interval is contained in $[-s_n,T_n-s_n]$. Retain the full limiting paths $(p,\mu)$ when asking which limiting trajectories occur; their time-zero projection alone records only states. This convergence does not by definition assert classical regularity or passage to the limit in the PDE.
+
+The bulk set may be empty, either because no solutions exist along unbounded horizons or because no translated interior sequence has a convergent subsequence. Report this case separately: the inclusion below is then vacuous, not evidence of stationary interior behavior. A compactness question is whether every sequence with $T_n,s_n,T_n-s_n\to\infty$ and $(u^{T_n},m^{T_n})\in\mathcal S_{T_n}$ has a subsequence converging in the displayed path topology. Boundedness in the state norm alone is not this compactness property.
 
 Let $\mathcal E_F$ be the set of pairs $(D\bar u,\bar m)$, with $\bar u,\bar m\in C^2(\mathbb T^d)$ and $\bar m>0$, for which some $\lambda\in\mathbb R$ satisfies
 \[
@@ -62,7 +65,12 @@ The research target is to characterize $\Omega_{\mathrm{bulk}}$ and the data cla
  \sup_{R\leq t\leq T-R}
  \operatorname{dist}\big((Du^T(t),m^T(t)),\mathcal E_F\big)=0,
 \]
-using the $C^0\times L^1$ metric, with a specified uniformly bounded solution class if needed for compactness.
+using the state space $X=C^0(\mathbb T^d;\mathbb R^d)\times L^1(\mathbb T^d)$ and metric
+\[
+ d_X((p,m),(q,n))=\|p-q\|_\infty+\|m-n\|_{L^1},\qquad
+ \operatorname{dist}(z,A)=\inf_{a\in A}d_X(z,a).
+\]
+Distances and suprema are taken in $[0,+\infty]$, with $\operatorname{dist}(z,\varnothing)=+\infty$ and the supremum of an empty family of nonnegative errors equal to $0$. Nonexistence along unbounded horizons must still be reported separately and is not stationary convergence. The displayed quantitative target ranges over every member of $\mathcal S_T$; bounds and compactness are hypotheses to investigate for this full family, not permission to discard solutions. Any restricted-family variant must specify its subclasses separately. The qualitative inclusion and quantitative target are distinct questions: identifying them requires additional compactness and stationary-set closedness hypotheses, neither of which is assumed here. Distance to a stationary set does not assert convergence to one selected stationary pair.
 \subsection*{Short English statement}
 Which nonmonotone games become stationary in the middle of long horizons, and what other limiting trajectories can occur?
 \subsection*{Variants and scope boundaries}
@@ -73,6 +81,12 @@ All-equilibrium behavior and minimizing-equilibrium behavior differ. In the pote
  \partial_t m-\Delta m+\operatorname{div}w=0,\quad m(0)=m_0.
 \]
 The integrand is $0$ at $(m,w)=(0,0)$ and $+\infty$ when $m=0,w\ne0$. A stationary solution is not automatically a global minimizer or a description of every bulk limit.
+Here a linear functional derivative $H(m,x)=\delta\mathcal H/\delta m(m,x)$ means that, for all probability measures $m,n$,
+\[
+ \mathcal H(n)-\mathcal H(m)=\int_0^1\int_{\mathbb T^d}
+ H((1-\theta)m+\theta n,x)(n-m)(dx)\,d\theta.
+\]
+Such a derivative is determined only up to an additive function of the measure, independent of $x$; the displayed equalities with the prescribed $F,G$ require representatives equal to those couplings. For a classical equilibrium the corresponding flux is $w=-mDu$. A formal minimizing variant additionally requires an explicit admissible density/flux domain, integrability conditions, trace convention and sense of the constraint equation; choosing all finite-action weak paths or only classical paths can change the minimizers. No such domain is selected here. Attainment and classical regularity of minimizers are separate prerequisites.
 \subsection*{Source relationship and status}
 The source presents a nonmonotone long-time agenda; the bulk-limit topology and quantifiers here are editorial. Universal stationary convergence is not the conjecture.
 \subsection*{References}

@@ -30,32 +30,53 @@
 \entrymeta{SC-10}{Stochastic control and dynamic optimization}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
 Let $X\subset\R^n$ and $U\subset\R^r$ be compact constraint sets.
-Consider a family of continuous-time problems
+Let $f:[0,\infty)\times X\times U\to\R^n$ and
+$\ell:[0,\infty)\times X\times U\to\R$. For $T>0$, $x_0\in X$
+and a terminal set $X_f\subseteq X$, consider a family of continuous-time problems
 \[
  \min\int_0^T\ell(t,x(t),u(t))dt,\qquad
  \dot x=f(t,x,u),\quad x(0)=x_0,\quad x(T)\in X_f.
 \]
-Controls are measurable, states absolutely continuous, and the
-constraints hold almost everywhere. Assume $f,\ell$ are continuous,
-$f$ is uniformly Lipschitz in $x$, and optimal pairs exist for the
-horizons and endpoints under consideration. For a concrete subclass,
-take $f,\ell$ periodic in $t$ with period $P>0$, and fix an admissible
-$P$-periodic reference pair $(\bar x,\bar u)$ minimizing average cost
-among such periodic pairs. Initial states and terminal constraints range
+Controls $u:[0,T]\to U$ are measurable and states
+$x:[0,T]\to X$ are absolutely continuous. The dynamics hold almost
+everywhere; the endpoint conditions hold exactly. Assume $f,\ell$ are
+continuous, $f$ is uniformly Lipschitz in $x$, and optimal pairs exist
+for the horizons and endpoints under consideration. For a concrete subclass,
+take $f,\ell$ periodic in $t$ with period $P>0$. An admissible
+$P$-periodic pair consists of an absolutely continuous state on each
+bounded time interval and a measurable control satisfying the dynamics
+and constraints, with $x(t+P)=x(t)$ for all $t\geq0$ and
+$u(t+P)=u(t)$ for almost every $t\geq0$. Fix one such pair
+$(\bar x,\bar u)$ minimizing
+\[
+ \frac1P\int_0^P\ell(t,x(t),u(t))\,dt
+\]
+among all admissible $P$-periodic pairs. Neither uniqueness nor optimality
+among all infinite-horizon admissible pairs is assumed. The chosen reference
+and its time origin are fixed independently of the horizon, endpoints and
+optimizer; the displayed distances use the same time argument, without
+minimizing over phase shifts. Initial states and terminal constraints range
 over a specified compact, uniformly feasible family.
 \subsection*{Formal question}
-Find verifiable assumptions under which every optimal pair
-$(x_T,u_T)$ has, for each $\varepsilon>0$, a constant $C_\varepsilon$
-independent of $T$ and the allowed endpoints such that
+Find verifiable assumptions under which, for each $\varepsilon>0$, there
+exists $C_\varepsilon<\infty$ such that, for every horizon and allowed
+endpoint problem under consideration and every optimal pair $(x_T,u_T)$,
 \[
  \operatorname{Leb}\{t\in[0,T]:
  |x_T(t)-\bar x(t)|+|u_T(t)-\bar u(t)|>\varepsilon\}
  \leq C_\varepsilon.
 \]
-Determine which strengthened conditions imply exponential estimates
-$|x_T-\bar x|+|u_T-\bar u|
-\leq C(e^{-\lambda t}+e^{-\lambda(T-t)})$ almost everywhere,
-with $C,\lambda>0$ independent of $T$.
+Determine which strengthened conditions imply that there exist
+$C,\lambda>0$ such that, for every horizon and allowed endpoint problem
+under consideration and every optimal pair,
+$|x_T(t)-\bar x(t)|+|u_T(t)-\bar u(t)|
+\leq C(e^{-\lambda t}+e^{-\lambda(T-t)})$ for almost every $t\in[0,T]$.
+In both questions, constants may depend on the fixed problem data,
+reference pair, declared horizon and endpoint families, and the proposed
+hypotheses (and on $\varepsilon$ for $C_\varepsilon$), but not on the
+individual horizon, endpoint problem or optimizer. In the periodic subclass,
+$P$ is fixed; no uniformity across different periods or different problem
+data is requested.
 \subsection*{Scope and status}
 Periodicity and average-cost optimality alone do not imply these bounds.
 This formalization asks for a continuous-time theory that specifies the

@@ -31,7 +31,7 @@
 \textbf{GT-048} | Strategic communication and complexity | \textbf{R}: normalized approximation formulation of a source agenda.
 \par}
 \subsection*{Definitions and mathematical statement}
-An input consists of finite $\Omega,A$, a rational prior $\mu$ with full support, and rational payoffs $u_S,u_R:\Omega\times A\to[0,1]$. Fix a message set $M$ of size $|\Omega|+1$. A strategy pair is $\pi(m\mid\omega)$ and $r(a\mid m)$. Put $q_m=\sum_\omega\mu(\omega)\pi(m\mid\omega)$. A cheap-talk equilibrium requires, for all $\omega,m,m'$,
+An input consists of nonempty finite $\Omega,A$, a rational prior $\mu\in\Delta(\Omega)$ with full support, and rational payoffs $u_S,u_R:\Omega\times A\to[0,1]$. Fix a message set $M$ of size $|\Omega|+1$. A strategy pair consists of $\pi:\Omega\to\Delta(M)$ and $r:M\to\Delta(A)$, with coordinates $\pi(m\mid\omega)$ and $r(a\mid m)$. Put $q_m=\sum_\omega\mu(\omega)\pi(m\mid\omega)$. A cheap-talk equilibrium requires, for all $\omega,m,m'$,
 \[
  \pi(m\mid\omega)>0\ \Longrightarrow\
  \sum_a r(a\mid m)u_S(\omega,a)\geq\sum_a r(a\mid m')u_S(\omega,a),
@@ -42,7 +42,13 @@ and, whenever $q_m>0$ and $r(a\mid m)>0$,
  \geq\sum_\omega\mu(\omega)\pi(m\mid\omega)u_R(\omega,b)
  \quad\forall b\in A.
 \]
-For unused messages require receiver optimality under some belief in $\Delta(\Omega)$. Let $U_R(\pi,r)=\sum_{\omega,m,a}\mu(\omega)\pi(m\mid\omega)r(a\mid m)u_R(\omega,a)$ and $U_R^*=\sup_{\rm equilibria}U_R$. Characterize constants $c\in(0,1]$ for which a polynomial-time algorithm returns an exact equilibrium with $U_R\geq cU_R^*$, or gives an additive guarantee $U_R\geq U_R^*-\varepsilon$ for each fixed $\varepsilon>0$. Exact algebraic probabilities must be output in an explicit algebraic-number representation.
+For each unused message $m$ (that is, $q_m=0$), require the existence of a belief $\nu_m\in\Delta(\Omega)$ such that
+\[
+ \sum_\omega\nu_m(\omega)u_R(\omega,a)
+ \geq\sum_\omega\nu_m(\omega)u_R(\omega,b)
+ \quad\text{for every $a$ with $r(a\mid m)>0$ and every $b\in A$}.
+\]
+The belief may depend on $m$, but must be common to all actions in that message's response support. Let $U_R(\pi,r)=\sum_{\omega,m,a}\mu(\omega)\pi(m\mid\omega)r(a\mid m)u_R(\omega,a)$ and $U_R^*=\sup_{\rm equilibria}U_R$. Characterize constants $c\in(0,1]$ for which a polynomial-time algorithm returns an exact equilibrium with $U_R\geq cU_R^*$, or gives an additive guarantee $U_R\geq U_R^*-\varepsilon$ for each fixed $\varepsilon>0$. Exact algebraic probabilities must be output in an explicit algebraic-number representation.
 \subsection*{Short English statement}
 Determine how well receiver welfare can be approximated while respecting both parties' cheap-talk incentives.
 \subsection*{Variants and scope boundaries}
@@ -88,7 +94,7 @@ chooses one action at each controlled vertex. Nash equilibrium at an initial
 state and equilibrium after every history are different requirements.
 An expectation of a pathwise $\liminf$ payoff, a $\liminf$ of expected averages,
 a limiting expected average, and a uniform finite-horizon equilibrium are
-different criteria. None is silently substituted for another.
+also distinct.
 
 \textbf{Allocation and mechanisms.} A complete allocation assigns every item
 exactly once unless otherwise stated. Zero-valued goods, negative values,

@@ -34,17 +34,21 @@
 \subsection*{Definitions and assumptions}
 
 Let $S$ be a finite set of distinct positive integers, initially with scores
-$(s_1,s_2)=(0,0)$. In \emph{Catch-Up}, player 1 makes exactly one initial
-selection. Thereafter the designated player removes and scores one remaining
+$(s_1,s_2)=(0,0)$. Both players observe the remaining set, both scores,
+and every selection; there are no chance moves. In \emph{Catch-Up}, player 1 makes exactly one initial
+selection, after which player 2 is next to select if any integers remain.
+Thereafter the designated player removes and scores one remaining
 integer at a time, continuing while strictly behind and passing the turn as
 soon as their score equals or exceeds the opponent's score. The new player
 must select at least one integer if any remain, even when the scores are tied.
 If the active player cannot catch up, that player receives the remaining
-integers and the game ends. At termination, compare the final scores. Treat
+integers and the game ends. The game also ends whenever the remaining set
+is empty. At termination, compare the final scores. Treat
 the final difference $s_1-s_2$ as the zero-sum payoff to player 1, so
 \emph{optimal play} means minimax play for this exact scoring objective.
 
-For a remaining set $R$ and deficit $d\ge0$ of the player next to select,
+For a finite remaining set $R$ of distinct positive integers and a deficit
+$d\in\mathbb Z_{\ge0}$ of the player next to select,
 let $V(R,d)$ be that player's minimax final score advantage. The
 one-selection game-value specification is
 \[
@@ -55,7 +59,7 @@ V(R,d)=\max_{x\in R}
 	-V(R\setminus\{x\},x-d),&x\ge d,
 \end{cases}\quad(R\ne\varnothing).
 \]
-Equality $x=d$ transfers the turn. For consecutive integers, write
+Equality $x=d$ transfers the turn. For each positive integer $N$, write
 $S_N=\{1,\ldots,N\}$ and $T_N=N(N+1)/2$.
 
 \subsection*{Formal research question}

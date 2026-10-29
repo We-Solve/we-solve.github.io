@@ -29,7 +29,7 @@
 \label{beyond:CI-20}
 \entrymeta{CI-20}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Use independent observations from the binary causal baseline, explicitly imposing consistency, no interference, conditional exchangeability, and overlap. Let $X$ be uniform on $[0,1]^d$ and $Y\in[-B,B]$. Denote by $\mathcal N(D,W,S,A)$ the functions represented by ReLU networks with depth at most $D$, layer width at most $W$, at most $S$ nonzero weights and biases, parameter magnitudes at most $A$, and output clipped to $[-2B,2B]$.
+Use independent observations from the binary causal baseline, explicitly imposing consistency, no interference, conditional exchangeability, and overlap. Let $X$ be uniform on $[0,1]^d$, where $d\geq1$ is an integer, and $Y\in[-B,B]$, where $B>0$. Denote by $\mathcal N(D,W,S,A)$ the functions represented by ReLU networks with depth at most $D$, layer width at most $W$, at most $S$ nonzero weights and biases, parameter magnitudes at most $A$, and output clipped to $[-2B,2B]$.
 
 Declare an approximation class by
 \[
@@ -37,9 +37,9 @@ Declare an approximation class by
 \inf_{f\in\mathcal N(D,W,S,A)}
  \|\tau-f\|_{L^2([0,1]^d)}\leq a_n.
 \]
-Assume $e\in\mathcal H_d^\alpha(L_e)$ and $m_0\in\mathcal H_d^\beta(L_m)$, with $m_1=m_0+\tau$, compatible bounded means, and positive conditional-variance lower bounds. Architecture limits and $a_n$ may depend on $n$ but their sequences are specified.
+Assume $e\in\mathcal H_d^{s_e}(L_e)$ and $m_0\in\mathcal H_d^\beta(L_m)$, where $s_e,\beta,L_e,L_m>0$, with $m_1=m_0+\tau$, compatible bounded means, and positive conditional-variance lower bounds. Architecture limits and $a_n$ may depend on $n$ but their sequences are specified. All $L^2$ norms use Lebesgue measure on $[0,1]^d$, which here equals the covariate law; function targets are identified modulo null sets, and $\|\cdot\|_\infty$ denotes essential supremum.
 \subsection*{Formal question}
-Determine sharp minimax $L^2$ risk as a function of $n,d,D,W,S,A,a_n$, nuisance regularity, and overlap. Identify when observed-data risk matches oracle regression risk for independent responses bounded by $4B$, conditional mean $\tau(X)$, and declared positive variance bounds, including approximation error. Construct honest $L^2$ confidence regions for the function $\tau$, with coverage at least $1-\alpha$ uniformly over the class, and characterize restrictions needed to adapt their size to unknown architecture or approximation error.
+Determine sharp minimax $L^2$ risk as a function of $n,d,D,W,S,A,a_n$, nuisance regularity, and overlap. Identify when observed-data risk matches oracle regression risk for independent responses bounded by $4B$, conditional mean $\tau(X)$, and declared positive variance bounds, including approximation error. Construct honest $L^2$ confidence regions for the function $\tau$, with coverage at least $1-\delta$ uniformly over the class, where $0<\delta<1$ is the confidence error probability, and characterize restrictions needed to adapt their size to unknown architecture or approximation error. In the common confidence-region convention below, use $\delta$ in place of $\alpha$ for this problem.
 \subsection*{Scope and status}
 The target is the represented causal function, not network weights, which may have many equivalent parameterizations. Neural structure is a substantive complexity assumption and does not establish exchangeability or causal identification. If unrestricted approximation error is nonvanishing, inference must account for it. Basic network-regression results are not relabeled as open; the attached agenda motivates the sharp causal and nuisance-dependent refinement without certifying its present novelty.
 \subsection*{References for the source of the problem}

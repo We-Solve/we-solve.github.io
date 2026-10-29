@@ -29,18 +29,22 @@
 \label{beyond:CI-19}
 \entrymeta{CI-19}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Use independent observations from the binary causal baseline, explicitly imposing consistency, no interference, conditional exchangeability, and overlap. Let $X$ be uniform on $[0,1]^d$, let $Y\in[-B,B]$, and bound conditional outcome variances below by a positive constant. Assume
+Let $d\in\N$ be positive, $B>0$, and $\alpha,\beta>0$. Use $n$ independent copies of $O=(X,W,Y)$ from the binary causal baseline, explicitly imposing consistency, no interference, conditional exchangeability, and overlap. Let $X$ be uniform on $[0,1]^d$ and $Y\in[-B,B]$. For a constant $v>0$, require $\Var(Y\mid X=x,W=w)\geq v$ for each $w\in\{0,1\}$ and Lebesgue-almost every $x$. Bounded outcomes imply $v\leq B^2$ and $m_w(x)^2\leq B^2-v$ almost everywhere; these are compatibility consequences, not additional margin assumptions. Consider only parameter tuples for which the model is nonempty, retaining any compatible degenerate boundary cases. Assume
 \[
 \tau\in\operatorname{BV}_d(L),\qquad
 \|\tau\|_\infty\leq2B,\qquad
 e\in\mathcal H_d^\alpha(L_e),\quad
 m_0\in\mathcal H_d^\beta(L_m).
 \]
-Here bounded variation has the distributional-derivative definition in the shared conventions, and functions are identified up to Lebesgue-null sets. Impose compatible bounded conditional means and set $m_1=m_0+\tau$; $m_1$ need not be Hölder-smooth when $\tau$ has jumps. All smoothness, variation, and overlap constants are fixed or have an explicitly declared dependence on $n$.
+Here bounded variation has the distributional-derivative definition in the shared conventions, and functions are identified up to Lebesgue-null sets. Impose compatible bounded conditional means and set $m_1=m_0+\tau$; $m_1$ need not be Hölder-smooth when $\tau$ has jumps. All smoothness, variation, and overlap constants are fixed or have an explicitly declared dependence on $n$. Write $\mathcal M$ for all observable laws compatible with these assumptions and the binary causal baseline; the sample law is $P^{\otimes n}$ for $P\in\mathcal M$.
 \subsection*{Formal question}
-Determine the sharp minimax integrated squared-error risk over this class and construct estimators attaining it. Identify the propensity and baseline-mean regularity thresholds under which the rate matches an oracle regression experiment with independent responses bounded by $4B$, conditional mean $\tau(X)$, and variances between declared positive constants. Determine the smallest achievable diameter of confidence regions in $L^2([0,1]^d)$ satisfying
+Determine the sharp minimax integrated squared-error risk over this class and construct estimators attaining it. Identify the propensity and baseline-mean regularity thresholds under which the rate matches an oracle regression experiment with independent responses bounded by $4B$, conditional mean $\tau(X)$, and variances between declared positive constants. Determine the smallest achievable diameter of confidence regions in $L^2([0,1]^d)$. Here $C_n$ depends measurably only on the observed sample and any independent randomization, its coverage event and diameter are measurable, and
 \[
-\inf_{P\in\mathcal M}\Pr_P\{\tau_P\in C_n\}\geq1-\alpha.
+\operatorname{diam}_2(C_n)=\sup_{f,g\in C_n}\|f-g\|_{L^2([0,1]^d)},
+\]
+with diameter zero for an empty set or singleton. For an error probability $0<\eta<1$, independent of the smoothness indices, require finite-sample honesty for every $n\geq1$:
+\[
+\inf_{P\in\mathcal M}\Pr_{P^{\otimes n}}\{\tau_P\in C_n\}\geq1-\eta.
 \]
 Characterize whether inference can adapt to unknown variation radius or lower-dimensional structure and, if necessary, specify separation conditions and corresponding impossibility results.
 \subsection*{Scope and status}
@@ -96,8 +100,8 @@ are distinguished locally. A uniform asymptotic confidence region $C_n$
 must satisfy
 \[
  \liminf_{n\to\infty}\inf_{P\in\mathcal P}
-     \Pr_{P^{(n)}}\{\theta(P)\in C_n\}\geq 1-\alpha,
- \qquad 0<\alpha<1,
+     \Pr_{P^{(n)}}\{\theta(P)\in C_n\}\geq 1-\eta,
+ \qquad 0<\eta<1,
 \]
 together with an informative diameter or expected-width requirement.
 Coverage alone permits the vacuous whole parameter space. Testing questions

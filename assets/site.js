@@ -349,3 +349,22 @@
   window.addEventListener('hashchange', revealHash);
   revealHash();
 }());
+
+// Counts are an optional, independently refreshed snapshot. Navigation works offline.
+(() => {
+  const script = document.currentScript;
+  if (!script) return;
+  fetch(new URL('../api/v1/catalogue-counts.json', script.src), {credentials: 'omit'})
+    .then(response => { if (!response.ok) throw new Error('counts unavailable'); return response.json(); })
+    .then(value => {
+      if (value.schema_version !== 1 || !value.counts || typeof value.counts !== 'object') return;
+      document.querySelectorAll('[data-discipline-count], .discipline-nav .discipline-count').forEach(element => {
+        const link = element.closest('a');
+        const field = element.dataset.disciplineCount || (link && new URL(link.href).pathname.split('/').filter(Boolean).pop());
+        const count = value.counts[field];
+        if (!Number.isSafeInteger(count) || count < 0) return;
+        element.textContent = count.toLocaleString('en') + (count === 1 ? ' problem' : ' problems');
+        element.hidden = false;
+      });
+    }).catch(() => {});
+})();

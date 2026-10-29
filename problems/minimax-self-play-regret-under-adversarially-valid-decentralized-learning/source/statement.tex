@@ -32,7 +32,7 @@
 \textbf{R} | Editorial minimax specification of the source's fastest-learning agenda.
 \par}
 \subsection*{Definitions and mathematical statement}
-Fix $k\geq2$, action counts $m_1,\ldots,m_k$, and finite games $G$ with payoffs in $[0,1]$. At round $t$, learner $i$ chooses $x_i^t\in\Delta_{m_i}$ using only its own past full-information payoff vectors and its private randomness; no other player's utility function is supplied. Against self-play it receives $v_i^t(a_i)=u_i(a_i,x_{-i}^t)$. Its external regret is
+Fix an integer $k\geq2$ and positive integer action counts $m_1,\ldots,m_k$, and write $m=(m_1,\ldots,m_k)$. Player $i$ has action set $A_i=\{1,\ldots,m_i\}$ and simplex $\Delta_{m_i}=\Delta(A_i)$. The supremum below ranges over fixed finite games $G$ with payoff functions $u_i:\prod_j A_j\to[0,1]$, extended multilinearly to mixed profiles. At round $t$, learner $i$ chooses $x_i^t\in\Delta_{m_i}$ using only its own past full-information payoff vectors and its private randomness; no other player's utility function is supplied. Against self-play it receives $v_i^t(a_i)=u_i(a_i,x_{-i}^t)$. Its external regret is
 \[
  R_i(T)=\max_{a_i}\sum_{t=1}^Tv_i^t(a_i)-
  \sum_{t=1}^T\langle x_i^t,v_i^t\rangle.
@@ -42,11 +42,11 @@ Fix an adversarial-regret budget constant $C_0$ for which admissible learners ex
  \mathcal R_{k,m}(T)=\inf_{\mathcal A\in\mathfrak L}\sup_G
  \max_i\mathbb E[(R_i^{\mathcal A,G}(T))_+],\qquad (r)_+=\max\{r,0\}.
 \]
-Determine matching asymptotic bounds in $T$, including whether bounded regret is attainable, for this fixed feedback and admissibility model.
+Here $t,T$ are positive integers. The problem is parameterized by each fixed feasible $C_0$; it does not permit increasing $C_0$ to admit a proposed learner. Asymptotic constants may depend on $k,m,C_0$ and the declared computational budget and model, but not on $G$ or $T$. A player with $m_i=1$ has zero regret; if all $m_i=1$, the displayed minimax value is identically zero. Determine matching asymptotic bounds in $T$, including whether bounded regret is attainable, for this fixed feedback and admissibility model.
 \subsection*{Short English statement}
 How fast can decentralized learners perform in self-play while keeping guarantees against arbitrary opponents?
 \subsection*{Variants and scope boundaries}
-Horizon-aware and anytime learners, bandit versus full-information feedback, mixed-payoff versus realized-action regret, and communication permissions change the minimax problem. No-regret self-play controls coarse correlated equilibrium of the empirical joint distribution; it does not generally imply last-iterate Nash convergence.
+Horizon-aware and anytime learners, bandit versus full-information feedback, mixed-payoff versus realized-action regret, and communication permissions change the minimax problem. In this mixed-payoff model, the time-average joint distribution is $q_T=T^{-1}\sum_{t=1}^T\bigotimes_i x_i^t$. Its nonnegative coarse correlated equilibrium residual is the positive part of the largest expected payoff gain from a fixed unilateral action deviation, namely $\operatorname{Gap}_{\rm CCE}(q_T)=T^{-1}\max_i(R_i(T))_+$. This is a pathwise identity; the objective $\max_i\mathbb E[(R_i(T))_+]$ is distinct from $\mathbb E[\max_i(R_i(T))_+]$. No-regret self-play controls this residual of the time-average joint distribution; it does not generally imply last-iterate Nash convergence.
 \subsection*{Source relationship and status}
 [S1] asks for the fastest no-regret algorithms in games and proves logarithmic self-play bounds for its framework. The minimax class and the budget $C_0$ above are declared editorial choices rather than a universal minimax formulation attributed to the paper.
 \subsection*{References}

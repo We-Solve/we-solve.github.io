@@ -29,14 +29,20 @@
 \label{beyond:CI-29}
 \entrymeta{CI-29}{Econometric theory and causal inference}{Research agenda formalization}
 \subsection*{Definitions and assumptions}
-Invoke the binary causal baseline on $[0,1]^d$, with bounded outcomes, a covariate density bounded above and below, and fixed overlap. Let $\mathcal P$ impose $\tau\in\mathcal H_d^s(L)$, $e\in\mathcal H_d^\alpha(L)$, $m_w\in\mathcal H_d^\beta(L)$, and conditional outcome variances bounded away from zero. A procedure consists of an estimator $\widehat\tau_n$ and a nonnegative radius function $a_n$, producing a band centered at that same estimator. Define its estimation risk and inference width by
+Invoke the binary causal baseline on $[0,1]^d$, where $d\in\N$ is positive, with bounded outcomes, a covariate density bounded above and below, and fixed overlap. Let $s,\alpha,\beta,L>0$ and let $\eta\in(0,1)$ be a fixed confidence error probability. Let $\mathcal P$ impose $\tau\in\mathcal H_d^s(L)$, $e\in\mathcal H_d^\alpha(L)$, $m_w\in\mathcal H_d^\beta(L)$ for $w\in\{0,1\}$, and conditional outcome variances bounded away from zero. These are simultaneous restrictions: $\tau=m_1-m_0$ also belongs to $\mathcal H_d^\beta(2L)$, and neither regression restriction is to be replaced by the restriction indexed by $s$. Use the unique continuous versions of $e,m_0,m_1$ and $\tau$ on the closed cube. A procedure consists of an estimator $\widehat\tau_n$ and a nonnegative radius function $a_n$, producing a band centered at that same estimator. Both are measurable functions of the $n$ observations and $x\in[0,1]^d$ (and any permitted independent randomization); require the coverage events, integrated losses, and supremum widths below to be measurable. Here $\|g\|_\infty=\sup_{x\in[0,1]^d}|g(x)|$ is the ordinary supremum, including the boundary, rather than an essential supremum. Define its estimation risk and inference width by
 \[
  r_n=\sup_{P\in\mathcal P}\E_P\|\widehat\tau_n-\tau_P\|_{L^2(P_X)}^2,
  \qquad w_n=\sup_{P\in\mathcal P}\E_P\|a_n\|_\infty.
 \]
-Require the band $\widehat\tau_n\pm a_n$ to cover $\tau_P$ simultaneously with asymptotic probability at least $1-\eta$, uniformly over $\mathcal P$.
+Require uniform asymptotic simultaneous coverage on the entire closed cube:
+\[
+ \liminf_{n\to\infty}\inf_{P\in\mathcal P}
+ \Pr_{P^{\otimes n}}\{ |\widehat\tau_n(x)-\tau_P(x)|\leq a_n(x)
+                    \text{ for every }x\in[0,1]^d\}\geq1-\eta.
+\]
+Probabilities and expectations include any independent randomization used by the procedure; the expectations defining $r_n,w_n$ are over the same sampling experiment.
 \subsection*{Formal question}
-Characterize the attainable pairs $(r_n,w_n)$, up to specified constants or logarithmic factors. Can a single band center attain the minimax integrated estimation rate while its honest band attains the optimal uniform-width rate? When a construction uses a smoothing scale $h_n$, estimated standard errors, and a Gaussian critical value, derive conditions ensuring that residual smoothing bias and causal nuisance remainder are covered or negligible uniformly in $x$. Determine the unavoidable efficiency or width penalty of undersmoothing, explicit bias bounds, or additional bias correction.
+Characterize the attainable pairs $(r_n,w_n)$, up to specified constants or logarithmic factors. Can a single band center attain the minimax integrated estimation rate while its honest band attains the optimal uniform-width rate? When a construction uses a smoothing scale $h_n$, estimated standard errors, and a Gaussian critical value, specify its smoother, nuisance estimators, any sample splitting, standard errors, critical-value rule, and boundary handling, and derive conditions ensuring that residual smoothing bias and causal nuisance remainder are covered or negligible uniformly in $x\in[0,1]^d$. For any claimed unavoidable efficiency or width penalty of undersmoothing, explicit bias bounds, or additional bias correction, declare the restricted procedure family, the loss or width criterion, and the comparison family; such a penalty is not presumed to apply to all honest procedures.
 \subsection*{Scope and status}
 This frontier is an editorial formulation of the causal ``bias problem'' discussed in the source. An estimator selected to minimize mean squared error need not have negligible standardized bias. Conversely, that observation is not a universal impossibility theorem for joint estimation and inference: an honest band may explicitly cover bias. The question asks for a precise class-dependent tradeoff, and does not presume that nominal Gaussian bands or a particular debiasing recipe are valid.
 \subsection*{References for the source of the problem}

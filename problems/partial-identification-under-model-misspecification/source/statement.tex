@@ -32,21 +32,53 @@
 
 \subsection*{Definitions and assumptions}
 
-Let $P_0$ be the observable-data law and let a structural model $m\in\mathcal M$ induce law $P_m$ and policy value $V(a,m)$ for decision $a\in\mathcal A$. Define a supplied statistical distance $d$ and tolerance $\varepsilon\ge0$. The observationally admissible class is $\mathcal M(P_0,\varepsilon)=\{m\in\mathcal M:d(P_m,P_0)\le\varepsilon\}$. For a scalar structural target $\theta(m)$, its identified or sensitivity set is $\Theta(P_0,\varepsilon)=\{\theta(m):m\in\mathcal M(P_0,\varepsilon)\}$. Specify compactness, continuity, bounded welfare and measurable selections if existence of optimizers is asserted.
+This is a research family, not a claim of a common rate for arbitrary models. Each result must declare an observable measurable space $(\mathcal Z,\mathcal F)$, a class $\mathscr P$ of laws on that space, and a sampling family indexed by $\lambda\in\Lambda$: the observable law is $P_\lambda\in\mathscr P$, and the data $X_n$ have law $Q_{n,\lambda}$ on a specified measurable sample space. Write $P_0$ for the observable law generating a particular experiment. Independence, dependence and triangular-array restrictions must be stated through this sampling family; they are not inferred from $P_0$ alone. Declare the structural class $\mathcal M$, nonempty feasible action set $\mathcal A$, their measurable structures and any topologies used, and maps $m\mapsto P_m\in\mathscr P$, $\theta:\mathcal M\to\R$ and $V:\mathcal A\times\mathcal M\to\R$. Conclusions are quantified over the declared family under the stated hypotheses, not over every possible choice of these primitives.
+
+Supply $d:\mathscr P\times\mathscr P\to[0,\infty]$ with $d(P,P)=0$, stating whether it is a metric, pseudometric or directed discrepancy, its additional axioms, and its scale or normalization. For tolerance $\varepsilon\ge0$, define $\mathcal M(P,\varepsilon)=\{m\in\mathcal M:d(P_m,P)\le\varepsilon\}$ and the scalar sensitivity set $\Theta(P,\varepsilon)=\{\theta(m):m\in\mathcal M(P,\varepsilon)\}$. Zero tolerance agrees with exact-law identification when $d(P,Q)=0$ implies $P=Q$; without this separation property the two sets must be distinguished. Positive tolerance describes sensitivity under the declared discrepancy restriction. Compactness, continuity, welfare bounds and measurable-selection conditions are hypotheses to establish where needed, not consequences of these definitions. If moment restrictions are used, specify their functions, inequality directions and indexing; a claim covering weakly binding moments must identify the sequences along which the relevant population moment slack approaches zero.
 
 \subsection*{Formal research question}
 
-Construct inference and decision rules robust to a declared degree of observable misspecification and structural ambiguity. Given a confidence region $\mathcal C_n$ for $P_0$, define the model envelope $\widehat{\mathcal M}_n=\bigcup_{P\in\mathcal C_n}\mathcal M(P,\varepsilon_n)$. Seek coverage of $\Theta(P_0,\varepsilon_n)$ uniformly over a specified sampling class, including weakly binding moments and empty baseline models. When $\widehat{\mathcal M}_n$ is nonempty, a robust decision objective is
+Construct inference and decision rules robust to a declared degree of observable misspecification and structural ambiguity. Fix $\alpha\in(0,1)$. Given a data-dependent law region $\mathcal C_n(X_n)\subseteq\mathscr P$, its assumed asymptotic uniform coverage means
+\[
+\liminf_{n\to\infty}\inf_{\lambda\in\Lambda}
+Q_{n,\lambda}\{P_\lambda\in\mathcal C_n\}\ge1-\alpha.
+\]
+Define the model envelope and its reported target projection by
+\[
+\widehat{\mathcal M}_n=\bigcup_{P\in\mathcal C_n}\mathcal M(P,\varepsilon_n),
+\qquad
+\widehat\Theta_n=\{\theta(m):m\in\widehat{\mathcal M}_n\}.
+\]
+The full-set coverage objective is
+\[
+\liminf_{n\to\infty}\inf_{\lambda\in\Lambda}
+Q_{n,\lambda}\{\Theta(P_\lambda,\varepsilon_n)\subseteq\widehat\Theta_n\}
+\ge1-\alpha.
+\]
+Require all displayed events and reported procedures to be measurable under the declared experiments. State whether $\varepsilon_n$ is a deterministic sequence or a specified measurable function of $X_n$. In the latter case, the target in the coverage event uses that same realized tolerance; this is not coverage of an independently fixed substantive tolerance or validation of the selection rule. Coverage inherited from a law region alone is not an informativeness guarantee. A quantitative inference result must also declare a loss or size criterion for the reported set, its treatment of empty or unbounded sets, and whether its bound is in expectation or probability, uniformly over which experiments. No particular set-loss convention is imposed across this research family.
+
+For a nonempty model set $S$, define
+\[
+R(a,S)=\sup_{m\in S}\left[\sup_{b\in\mathcal A}V(b,m)-V(a,m)\right],
+\qquad R^*(S)=\inf_{a\in\mathcal A}R(a,S),
+\]
+where the inner policy values and the regret values used in a claim must be finite. When $\widehat{\mathcal M}_n$ is nonempty and a measurable minimizer exists, the robust decision objective is
 \[
 \widehat a_n\in\arg\min_{a\in\mathcal A}
 \sup_{m\in\widehat{\mathcal M}_n}
 \left[\sup_{b\in\mathcal A}V(b,m)-V(a,m)\right].
 \]
-Characterize regret relative to decisions using the population admissible class, and derive rates separating sampling error, approximation tolerance and unavoidable ambiguity. State how $\varepsilon_n$ is fixed or selected without treating a data-dependent fit threshold as an external truth.
+Nonemptiness of the envelope alone does not assert attainment or measurable selection. Establish sufficient conditions for those properties when using the exact optimizer. If attainment is unavailable, formulate a measurable approximate decision satisfying $R(\widehat a_n,\widehat{\mathcal M}_n)\le R^*(\widehat{\mathcal M}_n)+\xi_n$ for a declared optimization tolerance $\xi_n>0$, and establish that such a rule exists under the hypotheses used.
+
+For the displayed minimax-regret criterion, let $S_n=\mathcal M(P_0,\varepsilon_n)$. Whenever $S_n$ is nonempty and the quantities are finite, the population comparison is the excess worst-case regret
+\[
+\Delta_n=R(\widehat a_n,S_n)-R^*(S_n).
+\]
+Characterize both this excess and the population ambiguity benchmark $R^*(S_n)$; their sum is the population worst-case regret of the reported action. A rate statement must specify expectation or probability bounds under $Q_{n,\lambda}$, its uniformity class, and the dependence of constants on structural and sampling primitives. State the regularity connecting observable perturbations to target sets and policy values before requesting rates separating sampling error, approximation tolerance, optimization error where present, and unavoidable ambiguity. A comparison with zero tolerance is made only when its population class and the comparison quantities are defined. No universal convergence rate, vanishing ambiguity benchmark or unique stochastic rate criterion is asserted for arbitrary supplied primitives. State how $\varepsilon_n$ is fixed or selected without treating a data-dependent fit threshold as an external truth.
 
 \subsection*{Interpretation and scope}
 
-Partial identification within a correct model and robustness to a false model are distinct. A model may fit observables yet predict counterfactual policy outcomes incorrectly; the distance restriction alone does not validate counterfactual invariance. Empty identified sets are possible evidence of refutation, not estimates of zero effects. A tolerance can prevent emptiness but may admit substantively implausible models, so restrictions need economic content. Local sensitivity derivatives summarize small perturbations and need not bound large departures. A minimax-regret objective is one defensible decision criterion; Bayesian averaging and maximin welfare embody other attitudes to ambiguity and must not be silently substituted. If the model envelope is empty, report refutation or use a prespecified enlargement; the displayed supremum-based decision problem is not applied to an empty set.
+Partial identification within a correct model and robustness to a false model are distinct. A model may fit observables yet predict counterfactual policy outcomes incorrectly; the distance restriction alone does not validate counterfactual invariance. Empty identified sets are possible evidence of refutation, not estimates of zero effects. A tolerance can prevent emptiness but may admit substantively implausible models, so restrictions need economic content. Local sensitivity derivatives summarize small perturbations and need not bound large departures. A minimax-regret objective is one defensible decision criterion; Bayesian averaging and maximin welfare embody other attitudes to ambiguity and must not be silently substituted. Distinguish emptiness of the exact-law class $\{m:P_m=P_0\}$, of the population tolerance class $\mathcal M(P_0,\varepsilon_n)$, and of the empirical envelope $\widehat{\mathcal M}_n$. Zero-discrepancy emptiness is the same as exact-law emptiness only under the stated separation condition. If the population tolerance class is empty, its full-set coverage event is vacuous, its identified-set output is empty, and no population regret benchmark is assigned to it. If the empirical envelope is empty, report that fact and make no decision using the displayed supremum-based problem. A confidence-based rejection of compatibility with the selected tolerance must be interpreted relative to the valid law-region guarantee and its error level, rather than as unconditional proof of population refutation; with a random tolerance, compatibility refers to that realized tolerance. Any enlargement or alternative decision fallback must be prespecified, explicitly reported and analyzed for its own target and error guarantee; it is not an unnoticed replacement for the original tolerance class.
 
 \subsection*{Source audit and status}
 
@@ -74,7 +106,7 @@ Unless an entry states otherwise, agent and firm sets are finite. State and acti
 \[
 \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M,\ P_m=P\}.
 \]
-Point identification holds when this set is a singleton, or equivalently when $P_{m_1}=P_{m_2}$ implies $\theta(m_1)=\theta(m_2)$ for all compatible models. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
+Point identification at a fixed law $P$ holds when this set is a singleton: equivalently, the fiber $\{m\in\mathcal M:P_m=P\}$ is nonempty and $\theta(m_1)=\theta(m_2)$ for every pair in that fiber. Global point identification on the model's image requires this property at every law induced by a model; an empty fiber at a proposed observable law indicates incompatibility, not point identification. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
 
 \textbf{Inference.} Identification, estimability and valid uncertainty quantification are separate questions. Fix $\alpha\in(0,1)$. A confidence procedure $C_n$ over a declared law class $\mathcal P$ has asymptotic uniform coverage at level $1-\alpha$ when
 \[

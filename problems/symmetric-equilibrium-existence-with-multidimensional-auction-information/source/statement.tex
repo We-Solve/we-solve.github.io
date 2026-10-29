@@ -36,7 +36,9 @@ remaining after removing strategy continuity.
 
 \subsection*{Definitions and assumptions}
 
-Consider $n\ge2$ symmetric bidders and $1\le k<n$ identical units.
+Consider $n\ge2$ symmetric bidders and $1\le k<n$ identical units,
+where $n,k$ are integers. Fix $S\in\N$ with $S\ge1$ and
+$0<\bar t<\infty$.
 A common quality $q\in[0,1]$ has a strictly positive continuous
 density $f$, and bidder $i$ has independently drawn taste
 $t_i\in[0,\bar t]$ with strictly positive continuous density $w$,
@@ -52,15 +54,24 @@ $\alpha_r(q)/\alpha_s(q)$ are strictly increasing in $q$ whenever
 $r>s$. Types and signals are conditionally independent across bidders
 in the manner specified by these primitives. Values are
 $u(q,t)$ for a $C^1$ function strictly increasing in both arguments.
-These are the source note's finite-auction/basic information
-restrictions, with all conditional distributions interpreted as proper
-probability laws.
+These restrictions define the catalogue's primitive class, with all
+conditional distributions interpreted as proper probability laws.
+Normalization constrains $\alpha$ and $\beta$ jointly; neither
+positivity of $\beta_s$ nor nonnegativity of $u$ is imposed.
+The likelihood-ratio condition is vacuous when $S=1$.
 
-Each bidder submits a nonnegative bid. The highest $k$ bids win and
-pay the $(k+1)$st-highest bid per object; ties are broken symmetrically.
-For a symmetric pure bid profile $b=(b_s)_{s=1}^S$, let
-$\Pi_{\mathcal A}(t,s;x,b_{-i})$ be a bidder's conditional expected
-payoff from bid $x\ge0$ when all opponents use $b$.
+Each bidder submits one finite nonnegative bid and can receive at most
+one unit. Bidders are risk-neutral: a winner paying $p$ has realized
+payoff $u(q,t)-p$, and a loser pays nothing and has payoff zero.
+The highest $k$ bids win one unit each and each winner pays the
+$(k+1)$st-highest bid. At a cutoff tie, the remaining winners are
+chosen uniformly from the tied bidders using randomization independent
+of quality, types and signals; this rule uses only the submitted bids.
+Exactly $k$ units are allocated even at zero bids; there is no separate
+opt-out action. For a symmetric pure bid profile $b=(b_s)_{s=1}^S$, let
+$\Pi_{\mathcal A}(t,s;x,b_{-i})$ be the conditional expectation of this
+realized payoff from bid $x\ge0$ when all opponents use $b$, including
+expectation over the tie lottery.
 A symmetric pure Bayesian Nash equilibrium satisfies
 \[
 \Pi_{\mathcal A}(t,s;b_s(t),b_{-i})
@@ -75,6 +86,12 @@ $\mathcal E_{\mathcal A}^{\mathrm c}$ for those whose bids are merely
 continuous and strictly taste-increasing; and
 $\mathcal E_{\mathcal A}^{\mathrm{mon}}$ for measurable, weakly
 taste-increasing pure equilibria, allowing jumps and pooling.
+Each $b_s:[0,\bar t]\to[0,\infty)$ is defined on the full taste
+interval, and the stated regularity is required there, including at
+impossible signal--taste pairs. Incentives are required only almost
+surely under the joint type law. The primitive tuple $\mathcal A$
+comprises $(n,k,S,\bar t,f,w,u,\alpha,\beta)$ together with the fixed
+allocation, payment and tie rules just specified.
 
 \subsection*{Formal research question}
 
@@ -128,9 +145,23 @@ taste-increasing pure equilibria, allowing jumps and pooling.
 	that are necessary or sufficient for
 	$\mathcal E_{\mathcal A}^{\mathrm c}\ne\varnothing$, and distinguish
 	this from the existence, for each \emph{fixed} finite $\mathcal A$
-	and every $\varepsilon>0$, of a symmetric
-	$\varepsilon$-Bayesian-Nash profile in a specified continuous or
-	monotone bid class. Do not replace this fixed-auction quantifier by
+	and every $\varepsilon>0$, of a symmetric pure
+	$\varepsilon$-Bayesian-Nash profile. Consider separately the bid
+	classes underlying $\mathcal E^{\mathrm c}$ and
+	$\mathcal E^{\mathrm{mon}}$, retaining their full-interval regularity
+	requirements. In each variant the approximation requirement is
+	\[
+	\Pi_{\mathcal A}(t,s;b_s(t),b_{-i})
+	\ge \Pi_{\mathcal A}(t,s;x,b_{-i})-\varepsilon
+	\quad\text{for all }x\ge0
+	\]
+	for almost every $(t,s)$, with a single exceptional null set for all
+	deviations and the same $\varepsilon$ for all remaining types.
+	Deviations are unrestricted nonnegative bids, irrespective of the
+	profile's regularity class. The tolerance is additive in the stated
+	payoff units, with no normalization across primitive tuples; it is
+	an interim bound, not an ex ante average-regret bound.
+	Do not replace this fixed-auction quantifier by
 	an asymptotic conclusion as $n\to\infty$.
 \end{enumerate}
 
@@ -159,6 +190,24 @@ note; this catalogue has not independently verified its 2026
 literature status. The 2000 Pesendorfer--Swinkels paper gives a
 conditional framework and asymptotic approximate-equilibrium results,
 not the asserted general finite-auction existence theorem.
+
+The supplied contribution containing the named note has the displayed
+author GPT 6 Astra Pro and document date 8 October 2026; its legacy
+metadata records first posting on 9 October 2026 and an unresolved
+AI-only research attempt. Its classification and constructions are
+source claims, without independent proof or computation certification.
+Its general restatement additionally requires
+$\sum_s\alpha_s(q)=1$, positive marginal probability for every signal,
+and strictly positive partial derivatives of $u$. Those extra
+requirements are not imposed on the catalogue's primitive class above;
+the general formulations are therefore not identified as identical.
+The supplied version-2 contribution explicitly restates risk-neutral
+unit-demand payoffs, uniform cutoff ties and interim additive
+$\varepsilon$ incentives, but is also an unreviewed research attempt
+and is not an independent verification of the named note.
+The published S1 text was not accessible in this review; the preceding
+description of its results remains qualified rather than independently
+verified here.
 
 \subsection*{References}
 

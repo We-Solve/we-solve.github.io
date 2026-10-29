@@ -38,20 +38,24 @@ V^R(y,b)=\sup_{b'\in[0,\bar b]:\,c>0}
  \{u(c)+\beta\mathbb E[V(y',b')\mid y]\},\quad
 c=y-b+q(y,b')b',\quad V=\max\{V^R,V^D\}.
 \]
-Set $V^R=-\infty$ if repayment is infeasible. Here $u$ is the specified utility, $V^D$ follows a specified output-loss, exclusion, and reentry law, and $q$ is the equilibrium price. With risk-neutral lenders, zero recovery, and a constant safe rate $r_f>-1$,
+Set $V^R=-\infty$ if repayment is infeasible. Here $u$ is the specified utility, $V^D$ follows a specified output-loss, exclusion, and reentry law, and $q$ is the equilibrium price. With risk-neutral lenders, zero recovery, and a constant safe rate $r_f>-1$, impose competitive zero-profit pricing conditional on current income and the issued face value, using the same equilibrium repayment policy and income transition law as in the sovereign's continuation value:
 \[
 q(y,b')=\frac{\Pr\{\text{repayment at }(y',b')\mid y\}}{1+r_f}.
 \]
-An equilibrium includes values, borrowing and default policies, prices, and tie-breaking at indifference.
+An equilibrium includes values, borrowing and default policies, prices, and tie-breaking at indifference. For each structural-class instance, specify the utility domain and admissibility restrictions, the finite debt cap, information and decision timing, and the complete default-state recursion, including excluded states, debt treatment on default, and reentry transitions. Finite discounted equilibrium objectives do not require the infeasible repayment branch $V^R=-\infty$ to be finite. An exact equilibrium borrowing policy must attain the repayment supremum wherever repayment is chosen; the displayed supremum alone establishes neither attainment nor equilibrium existence. Nonattainment is not resolved by silently substituting an approximate policy. If tie-breaking is randomized, the repayment probability in the price equation includes that randomization.
 
 \subsection*{Formal research question}
 
-For a stated structural class and observed income, bond prices, default, and restructuring outcomes, characterize the identified equilibrium set. Define safe debt capacity relative to an explicit horizon $H$, tolerance $\epsilon\in[0,1)$, and initial state $z$ by
+For a stated structural class and observed income, bond prices, default, and restructuring outcomes, characterize the identified equilibrium set. More explicitly, let $\mathcal M$ be the declared structural class, let $\operatorname{Eq}(m)$ be the exact equilibrium collection of $m\in\mathcal M$, and let $P_{m,\eta}$ be the observable process law induced by $\eta\in\operatorname{Eq}(m)$ under a declared measurement scheme and observational initial distribution. At a specified population observable law $P$, write
+\[
+\mathcal E_I=\{e=(m,\eta):m\in\mathcal M,\ \eta\in\operatorname{Eq}(m),\ P_{m,\eta}=P\}.
+\]
+A known structural model is represented by a singleton $\mathcal M$; any imposed equilibrium-selection restrictions belong in the declared class of admissible pairs. The index $e$ remains fixed along each probability law in the capacity criterion. Population compatibility is distinct from estimating $P$ using a finite sample. These definitions require the structural class, observable process, measurement scheme, observational initial distribution, and any selection restrictions to be supplied for each application. Define safe debt capacity relative to an explicit horizon $H$, tolerance $\epsilon\in[0,1)$, and initial state $z$ by
 \[
 b^{\rm safe}(z;H,\epsilon)=\sup\{b\in[0,\bar b]:
  \sup_{e\in\mathcal E_I}\Pr_e(\text{default by }H\mid z,b)\le\epsilon\},
 \]
-with a stated convention when the feasible set is empty. Determine how this capacity changes with bank exposure, creditor composition, maturity, and repayment incentives. Analyze post-default recovery using an explicitly added bargaining or restructuring model; zero recovery in the displayed baseline cannot explain recovery rates. Test any claimed monotone default threshold rather than assuming one exists.
+with a stated convention when the feasible set is empty. Evaluate this safety criterion only when $\mathcal E_I\ne\varnothing$; otherwise report model incompatibility rather than safe capacity. An empty safe set must be distinguished from a safe set containing zero debt; no scalar convention for the former is selected here. Each application must specify a common interpretation of $(z,b)$ across compatible models, reconcile $z$ with the separately varied debt coordinate, and declare admissible initial states and market-access status. It must also specify the period unit, horizon domain, exact first-default event, and whether the initial repayment decision is counted. The probability law must be defined at every candidate initialization, including those outside observational support; ordinary conditioning alone need not determine such probabilities. Determine how this capacity changes with bank exposure, creditor composition, maturity, and repayment incentives. Analyze post-default recovery using an explicitly added bargaining or restructuring model; zero recovery in the displayed baseline cannot explain recovery rates. Test any claimed monotone default threshold rather than assuming one exists.
 
 \subsection*{Interpretation and scope}
 
@@ -81,7 +85,7 @@ Unless an entry states otherwise, agent and firm sets are finite. State and acti
 \[
 \Theta(P;\mathcal M)=\{\theta(m):m\in\mathcal M,\ P_m=P\}.
 \]
-Point identification holds when this set is a singleton, or equivalently when $P_{m_1}=P_{m_2}$ implies $\theta(m_1)=\theta(m_2)$ for all compatible models. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
+At a fixed law $P$ compatible with at least one model, point identification holds when this set is a singleton, equivalently when $\theta(m_1)=\theta(m_2)$ for every $m_1,m_2\in\mathcal M$ satisfying $P_{m_1}=P_{m_2}=P$. Identification throughout the model class requires this property at every compatible law $P$. Sharp bounds mean bounds attained, or approached when the boundary is not attained, by compatible models. Writing this set is a definition, not a solution: the substantive task is to establish informative restrictions and derive or estimate the set. An unrestricted-confounding model may give only trivial bounds.
 
 \textbf{Inference.} Identification, estimability and valid uncertainty quantification are separate questions. Fix $\alpha\in(0,1)$. A confidence procedure $C_n$ over a declared law class $\mathcal P$ has asymptotic uniform coverage at level $1-\alpha$ when
 \[

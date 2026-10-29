@@ -35,17 +35,21 @@
 
 \subsection*{Definitions and assumptions}
 
-Fix a period, $J$ locations, initial populations $N_i$ and climate scenario $z$. A spatial model $m$ specifies destination utility $U_{ij,h}(w_j,p_j,z)$ for household type $h$ initially in $i$, where $w_j$ is a wage, $p_j$ a housing price, and utility includes moving costs, climate amenities and border constraints. Housing supply and firm technologies determine demand for land and labor. Let $n_{ij,h}\ge0$ be migration flows with $\sum_j n_{ij,h}=N_{i,h}$. An equilibrium $e\in\mathcal E(m,z)$ requires optimal location choices, competitive or otherwise explicitly modeled production, government budget balance and market clearing.
+Fix a period, $J$ locations, initial populations $N_i$ and climate scenario $z$. Here $J\in\N$ is positive, $i,j\in\{1,\ldots,J\}$, and $h\in H$ indexes a declared finite household-type set, overriding the later default use of $h$ for a horizon. Specify $N_{i,h}\geq0$ with $N_i=\sum_{h\in H}N_{i,h}$, common population units, and the observation horizon. The nonnegative real flows below use those units; literal person counts additionally require integrality, and an expected-count interpretation must be declared. Their row sums allocate the same baseline cohort across mutually exclusive destination categories, including stayers. Each instance must specify whether these categories describe a single location choice or residence at a declared endpoint, and how demographic events are accounted for consistently with the row sums. They do not count every event in a history of repeated moves. A spatial model $m$ specifies destination utility $U_{ij,h}(w_j,p_j,z)$ for household type $h$ initially in $i$, where $w_j$ is a wage, $p_j$ a housing price, and utility includes moving costs, climate amenities and border constraints. Housing supply and firm technologies determine demand for land and labor. Let $n_{ij,h}\ge0$ be migration flows with $\sum_j n_{ij,h}=N_{i,h}$. An equilibrium $e\in\mathcal E(m,z)$ requires optimal location choices, competitive or otherwise explicitly modeled production, government budget balance and market clearing.
+
+This is a parameterized research family. Each instance supplies an admissible structural class $\mathcal M$ whose members specify household budgets and feasible destinations, production and housing technologies, ownership and transfers, government instruments, resource constraints, price normalization and the equations defining $\mathcal E(m,z)$. The displayed utility notation suppresses other declared model inputs; a legally inadmissible destination must be excluded from feasible choices, rather than merely assigned an unspecified utility penalty. These requirements do not impose competitive production where another production mechanism is explicitly modeled. Equilibrium existence and uniqueness are not assumed. In the projection below a model with no equilibrium in either scenario contributes no pair; an empty projection must be reported as such, rather than interpreted as a zero migration effect.
 
 \subsection*{Formal research question}
 
-Characterize identification and uncertainty for climate-induced migration in spatial general equilibrium. For baseline $z_0$ and changed scenario $z_1$, define gross movement $M(e)=\sum_{i\ne j,h}n_{ij,h}$ and a selected-equilibrium difference $\Delta M=M(e_1)-M(e_0)$. Let $\mathcal M(P)$ be models consistent with observed migration, wages, housing and weather laws $P$. Determine the projection set
+Characterize identification and uncertainty for climate-induced migration in spatial general equilibrium. For baseline $z_0$ and changed scenario $z_1$, define gross movement $M(e)=\sum_{i\ne j,h}n_{ij,h}$ and a selected-equilibrium difference $\Delta M=M(e_1)-M(e_0)$. For each instance declare the observable random elements, their joint population law $P$, and an observation mechanism including measurement, sampling and historical equilibrium selection. Include these mechanisms in $m$ so that it implies a unique observable law $P_m$, and define $\mathcal M(P)=\{m\in\mathcal M:P_m=P\}$. If only marginal laws or moments are available, specify the corresponding observation map and equality restrictions explicitly; a numerical fit tolerance is a different compatibility criterion and must be declared separately. Determine the projection set
 \[
 \mathcal D(P)=
 \{M(e_1)-M(e_0):m\in\mathcal M(P),
 \ e_s\in\mathcal E(m,z_s),\ s=0,1\}.
 \]
-Supply an equilibrium-selection rule if a point prediction is sought. Derive confidence regions for this set and welfare effects, with scenario, parameter and selection uncertainty separated, and test predictive restrictions using historical shocks outside the calibration sample.
+The displayed projection permits every pair of scenario equilibria for a common compatible model; it imposes no link between counterfactual selectors. It therefore includes differences due to equilibrium selection as well as the changed climate scenario, and can contain nonzero differences even when $z_0=z_1$. A linked cross-scenario selector is an additional restriction and must be reported explicitly if used. Supply an equilibrium-selection rule if a model-specific point prediction is sought; point identification additionally requires agreement across all observationally compatible models under that rule.
+
+Derive confidence regions for this set and welfare effects, with scenario, parameter and selection uncertainty separated, and test predictive restrictions using historical shocks outside the calibration sample. For each such task the instance must supply the sampling experiment, sample-size or asymptotic sequence, dependence and law class, confidence level and coverage event, specifying whether coverage concerns the whole projection or individual feasible values. It must also supply the welfare functional, population weights, units and evaluation law, and the held-out shocks, predictive null, test statistic and rejection criterion. Fixed $z_0,z_1$ are scenario inputs, not a probability model for scenario uncertainty. Any scenario range, probability law or ambiguity set, and any rule for separating or combining uncertainty components, must be stated; no unique additive decomposition, informative confidence region or validity outside historical support follows from the projection definition.
 
 \subsection*{Interpretation and scope}
 
@@ -74,19 +78,16 @@ This refinement adopts the additional source conventions
 \textbf{Anticipatory migration and durable investment.}
 Extend the spatial model dynamically with information $\mathcal I_t$ about future
 regional damages, subjective laws $Q_t$, and relocation and investment adjustment
-costs. Compare
+costs. Each instance must specify a measurable history space, information filtrations, initial states, feasible nonanticipative action rules, learning and belief kernels, and dynamic optimization, feasibility and market-clearing conditions. Here $Q_t$ denotes the declared conditional subjective law of future histories at date $t$; type or agent dependence, if present, must be indexed. Subjective beliefs need not equal the physical law. The instance must specify how agents forecast endogenous prices and other agents' actions and what consistency conditions its subjective-equilibrium concept imposes.
+
+The benchmark $Q_t^{\rm current}$ is an input defined by an explicit transformation of the forecast system, stating which climate variables are held at which current values, what agents believe about future climate variability, and which nonclimate forecasting and updating rules remain unchanged. The label alone supplies no unique transformation. Neither a static location model nor a claim that agents are myopic defines this benchmark. Compare
 \[
 \Delta W^{\rm ant}=W(\{Q_t\}_{t\geq0})
                   -W(\{Q_t^{\rm current}\}_{t\geq0}),
 \]
-evaluating both regimes under the same realized physical law $P$, initial
-resources and fixed welfare weights. Define the current-climate forecast
-benchmark explicitly while retaining other forecasting rules. Identify
-anticipatory behavioral elasticities and the contrast after wages, land values,
-housing and future exposure adjust. Altering information accuracy differs from
-imposing myopia despite accurate information. Specify selection, mobility and
-capital commitments, learning, information support and the numeraire; subjective
-expected utility is a different welfare convention.
+using the same exogenous physical law $P^{\rm phys}$, initial resources and fixed welfare weights in both regimes. The observable law $P$ used for identification is induced by the physical process, behavior, historical selection and observation mechanism; it is not interchangeable with $P^{\rm phys}$. The shorthand $W$ suppresses the supplied structural model, dynamic equilibrium selection, evaluation convention, horizon, discounting, population weights and numeraire. Declare whether $W$ is expected welfare under $P^{\rm phys}$ or welfare conditional on a specified common exogenous realized path; use the same convention in both terms. In the latter case specify the coupling of exogenous shocks. Endogenous migration, investment, prices and exposure follow each regime's own state transitions and need not coincide. State how multiple dynamic equilibria are selected or retain the set of contrasts over the declared admissible pairs.
+
+Identify anticipatory behavioral elasticities and the contrast after wages, land values, housing and future exposure adjust. Each elasticity must name its outcome, population, forecast perturbation, scale and equilibrium branch; log elasticities require positive arguments. Specify mobility and capital commitments, learning and information support. Altering information accuracy differs from imposing myopia despite accurate information; subjective expected utility is a different welfare convention. These are required instance inputs, not a uniquely specified forecast experiment or a claim that the contrast is identified.
 \subsection*{Supplied source audit for ECON-041}
 Local [S1], [S2], etc. in this audit and the references immediately below
 belong to ECON-041, independently of the original entry's reference numbering.
@@ -133,6 +134,8 @@ says otherwise. Candidate subsidy targets ECON-004--006 retain their U flags;
 the resolved approval-core question ECON-007 updates OP-0202 above.
 The following supplied conventions govern both this part and the attributed
 ECON refinements elsewhere in the catalogue, subject to local restrictions.
+
+The catalogue-wide statements above refer to material outside this standalone entry. The crosswalk appendix, attachment and other entries are not supplied here, and the original audit date referred to in the source conventions is not specified in this manuscript. Those references do not supply missing model inputs or certify this entry's research status.
 
 \textbf{Parameterized questions.} A problem family lists inputs that must be fixed before an instance is evaluated: population, horizon, policies, information, data law, model class and welfare weights. These are required choices, not quantities the citations are assumed to specify. Undefined applications should not be treated as identified estimands.
 
